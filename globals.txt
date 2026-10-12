@@ -2,6 +2,7 @@
 # (evidence in docs/engine.md).
 8c101534 motFileTbl
 8c102424 charaTbl
+8c105f1c playerMotionTbl
 8c157548 racketModelTbl
 8c157568 racketModelTbl2
 8c18911c uniformTexNames
