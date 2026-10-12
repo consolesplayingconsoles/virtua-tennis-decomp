@@ -1,0 +1,33 @@
+# Katana SDK / compiler runtime code (not the game's); the repo's tools/progress.py reports it apart.
+# range <start> <end>: whole blocks; func <addr>: single SDK functions matched by signature.
+range 8c1dcc88 8c20ccd4 SDK libraries (529 of 1036 functions matched SDK signatures)
+range 8c0ea1a0 8c100e6a NAOMI library (nl*, sprites, textures; NAOMI SDK 001002) and the C runtime, the same code as in Crazy Taxi
+func 8c02f588 plaInitHdlTbl
+func 8c032e7e mwSfdStartFrame
+func 8c0b2420 restart_t404(void)
+func 8c0d3654 atcomResetBlackList(void)
+func 8c0ea560 kmiConvertUVnum
+func 8c0ed290 nlRand
+func 8c0edb20 ETD_EntryRecvFunc
+func 8c0f63a0 nlsndStreamGetHdInfo
+func 8c0f7a50 _divls
+func 8c0f7b04 _divlu
+func 8c0f7bac _modls
+func 8c0f7c74 _quick_evn_mvn
+func 8c0f7dac _quick_odd_mvn
+func 8c0f7e20 _slow_mvn
+func 8c0f7e58 _slow_strcpy
+func 8c0f7eec memmove
+func 8c0f7f30 memset
+func 8c0fcf6c _modlu
+func 8c0fd028 quick_strcpy1
+func 8c0fefb8 strlen
+func 8c0fefc8 strncpy
+func 8c0ff960 _app_coss
+func 8c0ff9a4 _in_fmods
+func 8c0fff08 longjmp
+func 8c0fff7c setjmp
+func 8c0fffe4 _allzero
+func 8c100464 _rsfts
+func 8c100680 _divws
+func 8c100874 _duchek
