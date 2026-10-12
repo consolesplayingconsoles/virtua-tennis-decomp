@@ -1,0 +1,25 @@
+# Named globals: address, name. Names are ours, from reading the code that uses them
+# (evidence in docs/engine.md).
+8c101534 motFileTbl
+8c102424 charaTbl
+8c157548 racketModelTbl
+8c157568 racketModelTbl2
+8c18911c uniformTexNames
+8c18918c muneTexNames
+8c1891f0 stageNo
+8c2871d4 motionCur
+8c2873b8 motionSkelOfs
+8c2873cc motFileAddr
+8c2873f8 motFileQueue
+8c287588 motLoadAddr
+8c287c1c replayFrame
+8c287d84 Player
+8c291f24 Ball
+8c2920c8 replayInput
+8c29b898 padPeri
+8c2fbfe0 ballColliObj
+8c2fc20c colliObjCount
+8c2fc210 colliObjList
+8c34a1ec fileLoadState
+8c34a238 fileLoadSlots
+8c40c5d0 commonLoadState
