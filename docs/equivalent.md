@@ -1,6 +1,6 @@
 # Equivalent functions
 
-Functions whose C behaves like the original on every test case (`tools/equiv.py`: same calls, same final memory, same result). Written by `tools/equiv.py`; the cases are the evidence.
+Functions whose C behaves like the original on every test case (`tools/equiv.py`: same calls, same final memory, same result). Written by `tools/equiv.py`; the cases are the evidence. Cases that start from a RAM dump (`"dump": "build/ram/<name>.bin"`) need your own dump there: all of RAM (16 MB from `0C000000`) at that moment, e.g. read with `tools/live.py`.
 
 ### nlAddVector (`8C0F0520`, 32 bytes, `src/vecmath.c`)
 - equivalent on 5 development and 5 holdout cases, in `tests/vecmath/nlAddVector.json`
