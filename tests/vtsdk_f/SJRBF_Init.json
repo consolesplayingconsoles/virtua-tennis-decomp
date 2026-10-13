@@ -1,0 +1,61 @@
+{
+ "dev": [
+  {
+   "about": "zero",
+   "poke": {
+    "8C20C928": "00000000"
+   },
+   "calls": [
+    {}
+   ]
+  },
+  {
+   "about": "one",
+   "poke": {
+    "8C20C928": "01000000"
+   },
+   "calls": []
+  },
+  {
+   "about": "minus",
+   "poke": {
+    "8C20C928": "ffffffff"
+   },
+   "calls": [
+    {}
+   ]
+  },
+  {
+   "about": "five",
+   "poke": {
+    "8C20C928": "05000000"
+   },
+   "calls": []
+  }
+ ],
+ "holdout": [
+  {
+   "about": "minus big",
+   "poke": {
+    "8C20C928": "9cffffff"
+   },
+   "calls": [
+    {}
+   ]
+  },
+  {
+   "about": "max",
+   "poke": {
+    "8C20C928": "ffffff7f"
+   },
+   "calls": []
+  },
+  {
+   "about": "min",
+   "poke": {
+    "8C20C928": "00000080"
+   },
+   "calls": []
+  }
+ ]
+}

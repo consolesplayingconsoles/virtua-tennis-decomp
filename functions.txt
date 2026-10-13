@@ -1628,7 +1628,7 @@ F 8c0f0540 32 FUN_8c0f0540
 F 8c0f0560 44 nlGetAverageVector
 F 8c0f0590 24 nlInnerProduct
 F 8c0f05b0 32 nlLength
-F 8c0f05d0 52 FUN_8c0f05d0
+F 8c0f05d0 52 nlOuterProduct
 F 8c0f0650 60 nlScaleUnitVector
 F 8c0f0690 28 nlScaleVector
 F 8c0f06b0 20 nlScalor
@@ -1663,7 +1663,7 @@ F 8c0f23a0 294 FUN_8c0f23a0
 F 8c0f24f0 134 FUN_8c0f24f0
 F 8c0f25b0 44 nlObjPut
 F 8c0f2610 52 FUN_8c0f2610
-F 8c0f2680 10 FUN_8c0f2680
+F 8c0f2680 10 nlObjPutSetGlobalAmbience
 F 8c0f2690 40 FUN_8c0f2690
 F 8c0f26e0 16 FUN_8c0f26e0
 F 8c0f26f0 50 FUN_8c0f26f0

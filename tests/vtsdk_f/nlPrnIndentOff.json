@@ -1,0 +1,42 @@
+{
+ "dev": [
+  {
+   "about": "all ones",
+   "poke": {
+    "8C44F950": "ffffffff"
+   }
+  },
+  {
+   "about": "one",
+   "poke": {
+    "8C44F950": "01000000"
+   }
+  },
+  {
+   "about": "zero",
+   "poke": {
+    "8C44F950": "00000000"
+   }
+  },
+  {
+   "about": "odd",
+   "poke": {
+    "8C44F950": "79563412"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "top and low",
+   "poke": {
+    "8C44F950": "01000080"
+   }
+  },
+  {
+   "about": "two",
+   "poke": {
+    "8C44F950": "02000000"
+   }
+  }
+ ]
+}

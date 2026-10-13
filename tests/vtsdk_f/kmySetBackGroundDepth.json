@@ -1,0 +1,108 @@
+{
+ "dev": [
+  {
+   "about": "ok",
+   "poke": {
+    "8C800000": "aaaaaaaa00000000",
+    "8C800088": "0004808c",
+    "8C800400": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+   },
+   "regs": {
+    "r4": "8C800000",
+    "fr4": 1.5
+   },
+   "calls": [
+    {
+     "r0": "00000001"
+    }
+   ]
+  },
+  {
+   "about": "invalid",
+   "poke": {
+    "8C800000": "aaaaaaaa00000000",
+    "8C800088": "0004808c",
+    "8C800400": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+   },
+   "regs": {
+    "r4": "8C800000",
+    "fr4": 1.5
+   },
+   "calls": [
+    {
+     "r0": "00000000"
+    }
+   ]
+  },
+  {
+   "about": "ok negative",
+   "poke": {
+    "8C800000": "aaaaaaaa00000000",
+    "8C800088": "0004808c",
+    "8C800400": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+   },
+   "regs": {
+    "r4": "8C800000",
+    "fr4": -3.25
+   },
+   "calls": [
+    {
+     "r0": "00000002"
+    }
+   ]
+  },
+  {
+   "about": "ok zero",
+   "poke": {
+    "8C800000": "aaaaaaaa00000000",
+    "8C800088": "0004808c",
+    "8C800400": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+   },
+   "regs": {
+    "r4": "8C800000",
+    "fr4": 0.0
+   },
+   "calls": [
+    {
+     "r0": "00000001"
+    }
+   ]
+  }
+ ],
+ "holdout": [
+  {
+   "about": "ok big",
+   "poke": {
+    "8C800000": "aaaaaaaa00000000",
+    "8C800088": "0004808c",
+    "8C800400": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+   },
+   "regs": {
+    "r4": "8C800000",
+    "fr4": 1e+20
+   },
+   "calls": [
+    {
+     "r0": "00000001"
+    }
+   ]
+  },
+  {
+   "about": "invalid zero",
+   "poke": {
+    "8C800000": "aaaaaaaa00000000",
+    "8C800088": "0004808c",
+    "8C800400": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+   },
+   "regs": {
+    "r4": "8C800000",
+    "fr4": 7.0
+   },
+   "calls": [
+    {
+     "r0": "00000000"
+    }
+   ]
+  }
+ ]
+}

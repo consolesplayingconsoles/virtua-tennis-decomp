@@ -1,0 +1,72 @@
+{
+ "dev": [
+  {
+   "about": "basic",
+   "regs": {
+    "r4": "8C800000",
+    "r5": "00000001",
+    "r6": "00000002",
+    "r7": "00000003"
+   },
+   "poke": {
+    "0DFFFF00": "04000000",
+    "0DFFFF04": "05000000"
+   }
+  },
+  {
+   "about": "flag bit already",
+   "regs": {
+    "r4": "8C800000",
+    "r5": "00000001",
+    "r6": "00000002",
+    "r7": "00000003"
+   },
+   "poke": {
+    "0DFFFF00": "07000000",
+    "0DFFFF04": "01800000"
+   }
+  },
+  {
+   "about": "old data",
+   "regs": {
+    "r4": "8C800000",
+    "r5": "00000009",
+    "r6": "00000008",
+    "r7": "00000007"
+   },
+   "poke": {
+    "0DFFFF00": "06000000",
+    "0DFFFF04": "34120000",
+    "8C800000": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "other",
+   "regs": {
+    "r4": "8C800100",
+    "r5": "0000AAAA",
+    "r6": "0000BBBB",
+    "r7": "0000CCCC"
+   },
+   "poke": {
+    "0DFFFF00": "dddd0000",
+    "0DFFFF04": "ff7f0000"
+   }
+  },
+  {
+   "about": "upper half junk",
+   "regs": {
+    "r4": "8C800000",
+    "r5": "00000000",
+    "r6": "00000000",
+    "r7": "00000000"
+   },
+   "poke": {
+    "0DFFFF00": "00000000",
+    "0DFFFF04": "4200cdab"
+   }
+  }
+ ]
+}

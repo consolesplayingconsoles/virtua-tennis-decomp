@@ -1,0 +1,50 @@
+{
+ "dev": [
+  {
+   "about": "basic",
+   "poke": {
+    "8C800000": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+   },
+   "regs": {
+    "r4": "8C800000",
+    "r5": "00001000",
+    "r6": "00002000"
+   }
+  },
+  {
+   "about": "zero",
+   "poke": {
+    "8C800000": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+   },
+   "regs": {
+    "r4": "8C800000",
+    "r5": "00000000",
+    "r6": "00000000"
+   }
+  },
+  {
+   "about": "negative",
+   "poke": {
+    "8C800040": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+   },
+   "regs": {
+    "r4": "8C800040",
+    "r5": "FFFFFFFF",
+    "r6": "FFFFFFFE"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "big",
+   "poke": {
+    "8C800080": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+   },
+   "regs": {
+    "r4": "8C800080",
+    "r5": "7FFFFFFF",
+    "r6": "80000000"
+   }
+  }
+ ]
+}

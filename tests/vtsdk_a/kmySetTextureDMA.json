@@ -1,0 +1,78 @@
+{
+ "dev": [
+  {
+   "about": "zeros",
+   "poke": {
+    "8C800000": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+   },
+   "regs": {
+    "r4": "8C800000",
+    "r5": "00000000",
+    "r6": "00000000",
+    "r7": "00000000"
+   }
+  },
+  {
+   "about": "values",
+   "poke": {
+    "8C800000": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+   },
+   "regs": {
+    "r4": "8C800000",
+    "r5": "00001000",
+    "r6": "00002000",
+    "r7": "00003000"
+   }
+  },
+  {
+   "about": "a high bits",
+   "poke": {
+    "8C800000": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+   },
+   "regs": {
+    "r4": "8C800000",
+    "r5": "FFFFFFFF",
+    "r6": "00000001",
+    "r7": "00000002"
+   }
+  },
+  {
+   "about": "negative b",
+   "poke": {
+    "8C800040": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+   },
+   "regs": {
+    "r4": "8C800040",
+    "r5": "00ABCDEF",
+    "r6": "FFFFFFFF",
+    "r7": "FFFFFFFE"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "a with 11 bits",
+   "poke": {
+    "8C800000": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+   },
+   "regs": {
+    "r4": "8C800000",
+    "r5": "11000001",
+    "r6": "00000007",
+    "r7": "00000008"
+   }
+  },
+  {
+   "about": "a 0xEE000000",
+   "poke": {
+    "8C800080": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+   },
+   "regs": {
+    "r4": "8C800080",
+    "r5": "EE000000",
+    "r6": "7FFFFFFF",
+    "r7": "80000000"
+   }
+  }
+ ]
+}

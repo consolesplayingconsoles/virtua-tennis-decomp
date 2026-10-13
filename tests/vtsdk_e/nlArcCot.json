@@ -1,0 +1,64 @@
+{
+ "dev": [
+  {
+   "about": "zero",
+   "regs": {
+    "fr4": 0.0
+   },
+   "calls": []
+  },
+  {
+   "about": "two",
+   "regs": {
+    "fr4": 2.0
+   },
+   "calls": [
+    {
+     "fr0": 0.4636
+    }
+   ]
+  },
+  {
+   "about": "negative",
+   "regs": {
+    "fr4": -4.0
+   },
+   "calls": [
+    {
+     "fr0": -0.25
+    }
+   ]
+  }
+ ],
+ "holdout": [
+  {
+   "about": "neg zero",
+   "regs": {
+    "fr4": -0.0
+   },
+   "calls": []
+  },
+  {
+   "about": "tiny",
+   "regs": {
+    "fr4": 0.001
+   },
+   "calls": [
+    {
+     "fr0": 1.5
+    }
+   ]
+  },
+  {
+   "about": "big",
+   "regs": {
+    "fr4": 10000000000.0
+   },
+   "calls": [
+    {
+     "fr0": 0.0
+    }
+   ]
+  }
+ ]
+}

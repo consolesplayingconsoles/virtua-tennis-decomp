@@ -1,0 +1,36 @@
+{
+ "dev": [
+  {
+   "about": "clear",
+   "poke": {
+    "8C44F950": "00000000"
+   }
+  },
+  {
+   "about": "set",
+   "poke": {
+    "8C44F950": "01000000"
+   }
+  },
+  {
+   "about": "other bits",
+   "poke": {
+    "8C44F950": "06000080"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "all",
+   "poke": {
+    "8C44F950": "ffffffff"
+   }
+  },
+  {
+   "about": "bit 1",
+   "poke": {
+    "8C44F950": "02000000"
+   }
+  }
+ ]
+}

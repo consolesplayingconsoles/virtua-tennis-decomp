@@ -1,0 +1,48 @@
+{
+ "dev": [
+  {
+   "about": "mask",
+   "regs": {
+    "r4": "8C800000",
+    "r5": "FFFFFFFF",
+    "r6": "00000011",
+    "r7": "00000022"
+   }
+  },
+  {
+   "about": "low bits",
+   "regs": {
+    "r4": "8C800000",
+    "r5": "00001234",
+    "r6": "00000000",
+    "r7": "00000000"
+   }
+  },
+  {
+   "about": "old data",
+   "regs": {
+    "r4": "8C800000",
+    "r5": "00000100",
+    "r6": "00000005",
+    "r7": "00000006"
+   },
+   "poke": {
+    "8C800000": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "other",
+   "regs": {
+    "r4": "8C800200",
+    "r5": "00000480",
+    "r6": "0000DEAD",
+    "r7": "0000BEEF"
+   },
+   "poke": {
+    "8C800200": "a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5"
+   }
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+ "dev": [
+  {
+   "about": "positive",
+   "regs": {
+    "fr4": 4.0
+   }
+  },
+  {
+   "about": "negative",
+   "regs": {
+    "fr4": -9.0
+   }
+  },
+  {
+   "about": "zero",
+   "regs": {
+    "fr4": 0.0
+   }
+  },
+  {
+   "about": "two",
+   "regs": {
+    "fr4": 2.0
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "neg zero",
+   "regs": {
+    "fr4": -0.0
+   }
+  },
+  {
+   "about": "small",
+   "regs": {
+    "fr4": 0.001
+   }
+  },
+  {
+   "about": "neg 2.5",
+   "regs": {
+    "fr4": -2.5
+   }
+  },
+  {
+   "about": "hundred",
+   "regs": {
+    "fr4": 100.0
+   }
+  }
+ ]
+}

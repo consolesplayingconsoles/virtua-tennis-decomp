@@ -1,0 +1,24 @@
+{
+ "dev": [
+  {
+   "about": "call",
+   "poke": {
+    "8C20CCD0": "00000000"
+   }
+  },
+  {
+   "about": "already set",
+   "poke": {
+    "8C20CCD0": "55000000"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "negative",
+   "poke": {
+    "8C20CCD0": "ffffffff"
+   }
+  }
+ ]
+}

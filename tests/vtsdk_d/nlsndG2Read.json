@@ -1,0 +1,66 @@
+{
+ "dev": [
+  {
+   "about": "ready at once",
+   "regs": {
+    "r4": "8C800000"
+   },
+   "poke": {
+    "8C800000": "efbeadde"
+   },
+   "device_reads": {
+    "A05F688C": [
+     "00000000"
+    ]
+   }
+  },
+  {
+   "about": "busy twice",
+   "regs": {
+    "r4": "8C800000"
+   },
+   "poke": {
+    "8C800000": "04030201"
+   },
+   "device_reads": {
+    "A05F688C": [
+     "00000031",
+     "00000010",
+     "00000000"
+    ]
+   }
+  },
+  {
+   "about": "bits outside mask",
+   "regs": {
+    "r4": "8C800000"
+   },
+   "poke": {
+    "8C800000": "07000000"
+   },
+   "device_reads": {
+    "A05F688C": [
+     "FFFFFFCE"
+    ]
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "busy bit 0x20 then 0x01",
+   "regs": {
+    "r4": "8C800000"
+   },
+   "poke": {
+    "8C800000": "0df0feca"
+   },
+   "device_reads": {
+    "A05F688C": [
+     "00000020",
+     "00000001",
+     "00000008"
+    ]
+   }
+  }
+ ]
+}

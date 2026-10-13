@@ -1,0 +1,30 @@
+{
+ "dev": [
+  {
+   "about": "store",
+   "regs": {
+    "r4": "8C801234"
+   }
+  },
+  {
+   "about": "zero",
+   "regs": {
+    "r4": "00000000"
+   }
+  },
+  {
+   "about": "neg",
+   "regs": {
+    "r4": "FFFFFFFF"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "other",
+   "regs": {
+    "r4": "12345678"
+   }
+  }
+ ]
+}

@@ -1,0 +1,86 @@
+{
+ "dev": [
+  {
+   "about": "zeros",
+   "poke": {
+    "8C45EE4C": "ffffffff"
+   },
+   "regs": {
+    "r4": "00000000",
+    "r5": "00000000"
+   }
+  },
+  {
+   "about": "a1 b64",
+   "poke": {
+    "8C45EE4C": "ffffffff"
+   },
+   "regs": {
+    "r4": "00000001",
+    "r5": "00000040"
+   }
+  },
+  {
+   "about": "negative b",
+   "poke": {
+    "8C45EE4C": "ffffffff"
+   },
+   "regs": {
+    "r4": "00000000",
+    "r5": "FFFFFFDF"
+   }
+  },
+  {
+   "about": "b wraps 5 bits",
+   "poke": {
+    "8C45EE4C": "ffffffff"
+   },
+   "regs": {
+    "r4": "00000002",
+    "r5": "000007FF"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "reg zero",
+   "poke": {
+    "8C45EE4C": "00000000"
+   },
+   "regs": {
+    "r4": "00000003",
+    "r5": "00000064"
+   }
+  },
+  {
+   "about": "b -1",
+   "poke": {
+    "8C45EE4C": "78563412"
+   },
+   "regs": {
+    "r4": "00000001",
+    "r5": "FFFFFFFF"
+   }
+  },
+  {
+   "about": "b big",
+   "poke": {
+    "8C45EE4C": "aaaaaaaa"
+   },
+   "regs": {
+    "r4": "FFFFFFFF",
+    "r5": "00012345"
+   }
+  },
+  {
+   "about": "b 31",
+   "poke": {
+    "8C45EE4C": "ffffffff"
+   },
+   "regs": {
+    "r4": "00000000",
+    "r5": "0000001F"
+   }
+  }
+ ]
+}

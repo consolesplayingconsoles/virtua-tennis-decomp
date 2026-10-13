@@ -1,0 +1,98 @@
+{
+ "dev": [
+  {
+   "about": "ready entry 3",
+   "poke": {
+    "8C454CF4": "0000cccccccccccccccccccccccccccca0000000dddddddddddddddd0101cccccccccccccccccccccccccccca1000000dddddddddddddddd0200cccccccccccccccccccccccccccca2000000dddddddddddddddd0100cccccccccccccccccccccccccccca3000000dddddddddddddddd0100cccccccccccccccccccccccccccc34120000dddddddddddddddd"
+   },
+   "regs": {
+    "r4": "00000003"
+   },
+   "calls": []
+  },
+  {
+   "about": "busy entry 1",
+   "poke": {
+    "8C454CF4": "0000cccccccccccccccccccccccccccca0000000dddddddddddddddd0101cccccccccccccccccccccccccccca1000000dddddddddddddddd0200cccccccccccccccccccccccccccca2000000dddddddddddddddd0100cccccccccccccccccccccccccccca3000000dddddddddddddddd0101cccccccccccccccccccccccccccc34120000dddddddddddddddd"
+   },
+   "regs": {
+    "r4": "00000001"
+   },
+   "calls": [
+    {
+     "r0": "00000066"
+    }
+   ]
+  },
+  {
+   "about": "unused entry 0",
+   "poke": {
+    "8C454CF4": "0000cccccccccccccccccccccccccccca0000000dddddddddddddddd0101cccccccccccccccccccccccccccca1000000dddddddddddddddd0200cccccccccccccccccccccccccccca2000000dddddddddddddddd0100cccccccccccccccccccccccccccca3000000dddddddddddddddd0000cccccccccccccccccccccccccccc34120000dddddddddddddddd"
+   },
+   "regs": {
+    "r4": "00000000"
+   },
+   "calls": []
+  },
+  {
+   "about": "kind 2 entry 2",
+   "poke": {
+    "8C454CF4": "0000cccccccccccccccccccccccccccca0000000dddddddddddddddd0101cccccccccccccccccccccccccccca1000000dddddddddddddddd0200cccccccccccccccccccccccccccca2000000dddddddddddddddd0100cccccccccccccccccccccccccccca3000000dddddddddddddddd0200cccccccccccccccccccccccccccc34120000dddddddddddddddd"
+   },
+   "regs": {
+    "r4": "00000002"
+   },
+   "calls": []
+  },
+  {
+   "about": "busy entry 4",
+   "poke": {
+    "8C454CF4": "0000cccccccccccccccccccccccccccca0000000dddddddddddddddd0101cccccccccccccccccccccccccccca1000000dddddddddddddddd0200cccccccccccccccccccccccccccca2000000dddddddddddddddd0100cccccccccccccccccccccccccccca3000000dddddddddddddddd0103ccccccccccccccccccccccccccccefbeaddedddddddddddddddd"
+   },
+   "regs": {
+    "r4": "00000004"
+   },
+   "calls": [
+    {
+     "r0": "00000099"
+    }
+   ]
+  }
+ ],
+ "holdout": [
+  {
+   "about": "index high bits (short)",
+   "poke": {
+    "8C454CF4": "0000cccccccccccccccccccccccccccca0000000dddddddddddddddd0101cccccccccccccccccccccccccccca1000000dddddddddddddddd0200cccccccccccccccccccccccccccca2000000dddddddddddddddd0100cccccccccccccccccccccccccccca3000000dddddddddddddddd0101cccccccccccccccccccccccccccc21430000dddddddddddddddd"
+   },
+   "regs": {
+    "r4": "00010004"
+   },
+   "calls": [
+    {
+     "r0": "00000011"
+    }
+   ]
+  },
+  {
+   "about": "index high bits 2",
+   "poke": {
+    "8C454CF4": "0000cccccccccccccccccccccccccccca0000000dddddddddddddddd0101cccccccccccccccccccccccccccca1000000dddddddddddddddd0200cccccccccccccccccccccccccccca2000000dddddddddddddddd0100cccccccccccccccccccccccccccca3000000dddddddddddddddd0100cccccccccccccccccccccccccccc00000000dddddddddddddddd"
+   },
+   "regs": {
+    "r4": "00020003"
+   },
+   "calls": []
+  },
+  {
+   "about": "used=2 busy=1",
+   "poke": {
+    "8C454CF4": "0000cccccccccccccccccccccccccccca0000000dddddddddddddddd0101cccccccccccccccccccccccccccca1000000dddddddddddddddd0200cccccccccccccccccccccccccccca2000000dddddddddddddddd0100cccccccccccccccccccccccccccca3000000dddddddddddddddd0201cccccccccccccccccccccccccccc34120000dddddddddddddddd"
+   },
+   "regs": {
+    "r4": "00000004"
+   },
+   "calls": []
+  }
+ ]
+}

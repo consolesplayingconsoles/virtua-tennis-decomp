@@ -1,0 +1,52 @@
+{
+ "dev": [
+  {
+   "about": "null",
+   "poke": {
+    "8C800000": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+   },
+   "regs": {
+    "r4": "00000000"
+   },
+   "calls": []
+  },
+  {
+   "about": "object",
+   "poke": {
+    "8C800000": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+   },
+   "regs": {
+    "r4": "8C800000"
+   },
+   "calls": [
+    {}
+   ]
+  },
+  {
+   "about": "object 2",
+   "poke": {
+    "8C800000": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+   },
+   "regs": {
+    "r4": "8C800010"
+   },
+   "calls": [
+    {}
+   ]
+  }
+ ],
+ "holdout": [
+  {
+   "about": "object 3",
+   "poke": {
+    "8C800000": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+   },
+   "regs": {
+    "r4": "8C800020"
+   },
+   "calls": [
+    {}
+   ]
+  }
+ ]
+}

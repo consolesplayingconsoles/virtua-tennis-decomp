@@ -1,0 +1,78 @@
+{
+ "dev": [
+  {
+   "about": "zero entries",
+   "poke": {
+    "8C458E20": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "8C800000": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "8C424204": "bbbbbbbbbbbbbbbbbbbbbbbb"
+   },
+   "regs": {
+    "r4": "0C800000",
+    "r5": "00000000"
+   }
+  },
+  {
+   "about": "one entry",
+   "poke": {
+    "8C458E20": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "8C800000": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "8C424204": "bbbbbbbbbbbbbbbbbbbbbbbb"
+   },
+   "regs": {
+    "r4": "0C800000",
+    "r5": "00000001"
+   }
+  },
+  {
+   "about": "five entries",
+   "poke": {
+    "8C458E20": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "8C800000": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "8C424204": "bbbbbbbbbbbbbbbbbbbbbbbb"
+   },
+   "regs": {
+    "r4": "0C800000",
+    "r5": "00000005"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "ten entries",
+   "poke": {
+    "8C458E20": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "8C800000": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "8C424204": "bbbbbbbbbbbbbbbbbbbbbbbb"
+   },
+   "regs": {
+    "r4": "0C800000",
+    "r5": "0000000A"
+   }
+  },
+  {
+   "about": "other table",
+   "poke": {
+    "8C458E20": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "8C800400": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "8C424204": "bbbbbbbbbbbbbbbbbbbbbbbb"
+   },
+   "regs": {
+    "r4": "0C800400",
+    "r5": "00000003"
+   }
+  },
+  {
+   "about": "count 2 high bits",
+   "poke": {
+    "8C458E20": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "8C800000": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "8C424204": "bbbbbbbbbbbbbbbbbbbbbbbb"
+   },
+   "regs": {
+    "r4": "0C800000",
+    "r5": "00000002"
+   }
+  }
+ ]
+}
