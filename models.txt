@@ -1,0 +1,3 @@
+# Curated model tables for Virtua Tennis (USA). See tools/model_map.py for the syntax.
+# Nothing is needed here yet: the texture lists are found by themselves (a model file and the texture file of the same
+# name, and the one list in the executable that fits it).
