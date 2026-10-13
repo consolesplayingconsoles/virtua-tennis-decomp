@@ -1,0 +1,210 @@
+{
+ "dev": [
+  {
+   "about": "free a block (previous free, next in use)",
+   "poke": {
+    "8CA00000": "200000000000000000000000",
+    "8CA00024": "24000000",
+    "8CA00028": "e0ffffff00000000",
+    "8CA0004C": "dcffffff",
+    "8CA00050": "e0ffffff00000000",
+    "8CA00074": "dcffffff",
+    "8C22D1BC": "0000a08c7400a08c0000a08c"
+   },
+   "regs": {
+    "r4": "8CA0002C"
+   }
+  },
+  {
+   "about": "free a block (previous in use, next in use)",
+   "poke": {
+    "8CA00000": "e0ffffff00000000",
+    "8CA00024": "dcffffff",
+    "8CA00028": "e0ffffff00000000",
+    "8CA0004C": "dcffffff",
+    "8CA00050": "e0ffffff00000000",
+    "8CA00074": "dcffffff",
+    "8C22D1BC": "0000a08c7400a08c00000000"
+   },
+   "regs": {
+    "r4": "8CA0002C"
+   }
+  },
+  {
+   "about": "free a block (previous in use, next free)",
+   "poke": {
+    "8CA00000": "e0ffffff00000000",
+    "8CA00024": "dcffffff",
+    "8CA00028": "e0ffffff00000000",
+    "8CA0004C": "dcffffff",
+    "8CA00050": "200000000000000000000000",
+    "8CA00074": "24000000",
+    "8C22D1BC": "0000a08c7400a08c5000a08c"
+   },
+   "regs": {
+    "r4": "8CA0002C"
+   }
+  },
+  {
+   "about": "free a block (previous free, next free)",
+   "poke": {
+    "8CA00000": "20000000000000005000a08c",
+    "8CA00024": "24000000",
+    "8CA00028": "e0ffffff00000000",
+    "8CA0004C": "dcffffff",
+    "8CA00050": "200000000000a08c00000000",
+    "8CA00074": "24000000",
+    "8C22D1BC": "0000a08c7400a08c0000a08c"
+   },
+   "regs": {
+    "r4": "8CA0002C"
+   }
+  },
+  {
+   "about": "free the first block",
+   "poke": {
+    "8CA00000": "e0ffffff00000000",
+    "8CA00024": "dcffffff",
+    "8CA00028": "e0ffffff00000000",
+    "8CA0004C": "dcffffff",
+    "8C22D1BC": "0000a08c4c00a08c00000000"
+   },
+   "regs": {
+    "r4": "8CA00004"
+   }
+  },
+  {
+   "about": "free the last block (previous in use)",
+   "poke": {
+    "8CA00000": "e0ffffff00000000",
+    "8CA00024": "dcffffff",
+    "8CA00028": "e0ffffff00000000",
+    "8CA0004C": "dcffffff",
+    "8C22D1BC": "0000a08c4c00a08c00000000"
+   },
+   "regs": {
+    "r4": "8CA0002C"
+   }
+  },
+  {
+   "about": "free the last block (previous free)",
+   "poke": {
+    "8CA00000": "200000000000000000000000",
+    "8CA00024": "24000000",
+    "8CA00028": "e0ffffff00000000",
+    "8CA0004C": "dcffffff",
+    "8C22D1BC": "0000a08c4c00a08c0000a08c"
+   },
+   "regs": {
+    "r4": "8CA0002C"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "previous free, next free, free list reversed",
+   "poke": {
+    "8CA00000": "100000005000a08c00000000",
+    "8CA00014": "14000000",
+    "8CA00018": "d0ffffff00000000",
+    "8CA0004C": "ccffffff",
+    "8CA00050": "50000000000000000000a08c",
+    "8CA000A4": "54000000",
+    "8C22D1BC": "0000a08ca400a08c5000a08c"
+   },
+   "regs": {
+    "r4": "8CA0001C"
+   }
+  },
+  {
+   "about": "first block, next free",
+   "poke": {
+    "8CA00000": "e8ffffff00000000",
+    "8CA0001C": "e4ffffff",
+    "8CA00020": "180000000000000000000000",
+    "8CA0003C": "1c000000",
+    "8C22D1BC": "0000a08c3c00a08c2000a08c"
+   },
+   "regs": {
+    "r4": "8CA00004"
+   }
+  },
+  {
+   "about": "only block",
+   "poke": {
+    "8CA00000": "c0ffffff00000000",
+    "8CA00044": "bcffffff",
+    "8C22D1BC": "0000a08c4400a08c00000000"
+   },
+   "regs": {
+    "r4": "8CA00004"
+   }
+  },
+  {
+   "about": "three free neighbours in a row, middle freed",
+   "poke": {
+    "8CA00000": "08000000000000002000a08c",
+    "8CA0000C": "0c000000",
+    "8CA00010": "f8ffffff00000000",
+    "8CA0001C": "f4ffffff",
+    "8CA00020": "080000000000a08c00000000",
+    "8CA0002C": "0c000000",
+    "8CA00030": "f8ffffff00000000",
+    "8CA0003C": "f4ffffff",
+    "8C22D1BC": "0000a08c3c00a08c0000a08c"
+   },
+   "regs": {
+    "r4": "8CA00014"
+   }
+  },
+  {
+   "about": "previous free is the tail of the free list",
+   "poke": {
+    "8CA00000": "10000000000000001800a08c",
+    "8CA00014": "14000000",
+    "8CA00018": "100000000000a08c00000000",
+    "8CA0002C": "14000000",
+    "8CA00030": "f0ffffff00000000",
+    "8CA00044": "ecffffff",
+    "8CA00048": "f0ffffff00000000",
+    "8CA0005C": "ecffffff",
+    "8C22D1BC": "0000a08c5c00a08c0000a08c"
+   },
+   "regs": {
+    "r4": "8CA00034"
+   }
+  },
+  {
+   "about": "next free is in the middle of the free list",
+   "poke": {
+    "8CA00000": "f0ffffff00000000",
+    "8CA00014": "ecffffff",
+    "8CA00018": "f0ffffff00000000",
+    "8CA0002C": "ecffffff",
+    "8CA00030": "100000004800a08c6000a08c",
+    "8CA00044": "14000000",
+    "8CA00048": "10000000000000003000a08c",
+    "8CA0005C": "14000000",
+    "8CA00060": "100000003000a08c00000000",
+    "8CA00074": "14000000",
+    "8C22D1BC": "0000a08c7400a08c4800a08c"
+   },
+   "regs": {
+    "r4": "8CA0001C"
+   }
+  },
+  {
+   "about": "already free block freed again",
+   "poke": {
+    "8CA00000": "20000000000000002800a08c",
+    "8CA00024": "24000000",
+    "8CA00028": "200000000000a08c00000000",
+    "8CA0004C": "24000000",
+    "8C22D1BC": "0000a08c4c00a08c0000a08c"
+   },
+   "regs": {
+    "r4": "8CA0002C"
+   }
+  }
+ ]
+}

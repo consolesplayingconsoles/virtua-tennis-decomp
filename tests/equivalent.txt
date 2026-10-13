@@ -1,0 +1,11 @@
+nlAddVector
+nlCloseEvent
+nlExecuteEvent
+nlFree
+nlInitHeapMemory
+nlInnerProduct
+nlLength
+nlMalloc
+nlScaleVector
+nlSubVector3op
+set_event
