@@ -55,6 +55,27 @@ pose players 26 7 bind
 pose players 27 26 bind
 pose players 28 27 bind
 
+
+# Sub-groups, named by group and id (added by the viewer).
+note Players 0x00 0x00 Courier
+note Players 0x01 0x01 Pioline
+note Players 0x02 0x02 Henman
+note Players 0x03 0x03 Haas
+note Players 0x04 0x04 Philippoussis
+note Players 0x05 0x05 Moya
+note Players 0x06 0x06 Johansson
+note Players 0x07 0x07 Kafelnikov
+note Players 0x08 0x08 Tinbergen
+note Players 0x09 0x09 Euler
+note Players 0x0A 0x0A Tesla
+note Players 0x0B 0x0B Altman
+note Players 0x0C 0x0C Singth
+note Players 0x0D 0x0D Costa
+note Players 0x0E 0x0E Ventura
+note Players 0x0F 0x0F Inoue
+note Players 0x10 0x10 Master
+note Players 0x11 0x11 King
+
 # Sounds, named by file and entry (kept sorted by the viewer).
 sound SND_BGM.AFS 1 Power Smash 1
 sound SND_BGM.AFS 2 Power Smash 2
@@ -106,22 +127,24 @@ sound SND_UPEN2.AFS 37 Advantage 17
 sound SND_UPEN2.AFS 38 Advantage 18
 sound SND_UPEN2.AFS 39 Name 1
 
-# Sub-groups, named by group and id (added by the viewer).
-note Players 0x00 0x00 Courier
-note Players 0x01 0x01 Pioline
-note Players 0x02 0x02 Henman
-note Players 0x03 0x03 Haas
-note Players 0x04 0x04 Philippoussis
-note Players 0x05 0x05 Moya
-note Players 0x06 0x06 Johansson
-note Players 0x07 0x07 Kafelnikov
-note Players 0x08 0x08 Tinbergen
-note Players 0x09 0x09 Euler
-note Players 0x0A 0x0A Tesla
-note Players 0x0B 0x0B Altman
-note Players 0x0C 0x0C Singth
-note Players 0x0D 0x0D Costa
-note Players 0x0E 0x0E Ventura
-note Players 0x0F 0x0F Inoue
-note Players 0x10 0x10 Master
-note Players 0x11 0x11 King
+# Tables, put under a group and label (kept sorted by the viewer).
+table 0C023500 Tables Tennis_Ball
+table 0C02E5F8 Tables Water
+table 0C0D50B0 Tables Tennis_Ball_2
+table 0C1026F0 Tables Hands_1
+table 0C10275C Tables Hands_2
+table 0C1027C8 Tables Hands_3
+table 0C102834 Tables Hands_4
+table 0C1028A0 Tables Hands_5
+table 0C10290C Tables Hands_6
+table 0C102978 Tables Hands_7
+table 0C1029E4 Tables Hands_8
+table 0C102A50 Tables Hands_9
+table 0C102ABC Tables Hands_10
+table 0C102B28 Tables Hands_11
+table 0C102B94 Tables Hands_12
+table 0C10C6E4 Tables Pin
+table 0C10C72C Tables Ball_1
+table 0C10C750 Tables Ball_2
+table 0C10C774 Tables Ball_3
+table 0C11F530 Tables Court_Staff
