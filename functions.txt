@@ -1794,7 +1794,7 @@ F 8c0f6e30 40 FUN_8c0f6e30
 F 8c0f6e80 12 FUN_8c0f6e80
 F 8c0f70a0 24 FUN_8c0f70a0
 F 8c0f7130 24 FUN_8c0f7130
-F 8c0f71a0 40 FUN_8c0f71a0
+F 8c0f71a0 40 nlDispStripTexOfs
 F 8c0f7200 40 FUN_8c0f7200
 F 8c0f7240 124 nlstripSetVertexContext
 F 8c0f72c0 350 nlstripSetVertexContextTex
@@ -1965,8 +1965,8 @@ F 8c1dcd40 22 kmyIsDisplayOddField
 F 8c1dcd56 214 kmySetHSyncInterruptLine
 F 8c1dce2c 152 kmSetHSyncLine
 F 8c1dcf20 192 kmGetCurrentScanline
-F 8c1dd040 24 FUN_8c1dd040
-F 8c1dd058 22 FUN_8c1dd058
+F 8c1dd040 24 ovLockCs
+F 8c1dd058 22 ovUnlockCs
 F 8c1dd06e 40 ovGetLibTbl
 F 8c1dd096 64 ovSearchLib
 F 8c1dd0d6 84 ovSearchLibByUuid
@@ -1992,7 +1992,7 @@ F 8c1ddc62 268 gdFsLoadDirG
 F 8c1ddd6e 4 gdFsLoadDirFastG
 F 8c1ddd72 64 gdFsSetDirG
 F 8c1dddda 74 gdFsGetDirInfoG
-F 8c1dde24 92 gdFsCreateHnG
+F 8c1dde24 112 gdFsCreateHnG
 F 8c1dde94 120 gdFsOpenG
 F 8c1ddf0c 4 gdFsOpenFastG
 F 8c1ddf10 114 gdFsOpenRangeG
@@ -2028,7 +2028,8 @@ F 8c1deb0c 286 _pd_peripheral_set_data
 F 8c1deca0 34 convert_support
 F 8c1decc2 80 _pd_peripheral_set_id
 F 8c1ded12 52 _pd_peripheral_error
-F 8c1ded46 50 pdExecPeripheralServer
+F 8c1ded46 12 pdExecPeripheralServer
+D 8c1ded52 0 data_8c1ded52
 F 8c1ded78 174 pdExecPeripheralServerUser
 F 8c1dee4c 12 pdGetPeripheral
 F 8c1dee70 72 pdExitPeripheral
@@ -2332,7 +2333,7 @@ F 8c1e84e6 198 syChainClx1Handler
 F 8c1e85ac 314 syChainDeleteHandler
 F 8c1e8738 362 FUN_8c1e8738
 F 8c1e8910 174 FUN_8c1e8910
-F 8c1e89be 70 FUN_8c1e89be
+F 8c1e89be 70 syMmuDeleteAllEntries
 F 8c1e8a7c 296 syG2Read
 F 8c1e8bc4 438 syG2SysInit
 F 8c1e8dcc 388 syG2Write
@@ -3115,8 +3116,8 @@ F 8c1fff14 210 ADXB_EndDecode
 F 8c1ffff8 120 ADXB_ExecOneAdx
 F 8c200070 186 ADXB_ExecHndl
 F 8c20010c 4 FUN_8c20010c
-F 8c200114 24 ovLockCs
-F 8c20012c 22 ovUnlockCs
+F 8c200114 24 ovLockCs_8c200114
+F 8c20012c 22 ovUnlockCs_8c20012c
 F 8c200144 30 mwRnaErrEntryFunc
 F 8c200162 62 mwRnaErrCallFunc
 F 8c200200 72 FUN_8c200200

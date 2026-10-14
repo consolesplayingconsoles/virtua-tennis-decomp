@@ -203,6 +203,41 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - wrap
 - big
 
+### buCalcBackupFileSize (`8C1E0764`, 64 bytes, `src/port_sg_bup.c`)
+- equivalent on 9 development and 9 holdout cases, in `tests/port_sg_bup/buCalcBackupFileSize.json`
+- a=0 b=0 c=0
+- a=4 b=0 c=0
+- a=1 b=4 c=0
+- a=1 b=1 c=0
+- a=2 b=2 c=0
+- a=3 b=3 c=0
+- a=1 b=0 c=180
+- a=ffffffff b=0 c=0
+- a=1 b=ffffffff c=0
+- a=3 b=3 c=-64
+- a=2 b=1 c=-3e8
+- a=1 b=2 c=7fff0000
+- a=1 b=1 c=80000000
+- a=1 b=1 c=0
+- a=1 b=1 c=0
+- a=1 b=1 c=0
+- a=0 b=3 c=0
+- a=3 b=5 c=0
+
+### buCalcCRC (`8C1E0904`, 68 bytes, `src/port_sg_bup.c`)
+- equivalent on 6 development and 5 holdout cases, in `tests/port_sg_bup/buCalcCRC.json`
+- crc  n=None
+- crc 41 n=None
+- crc 313233343536 n=None
+- crc 8000ff n=None
+- crc 616263 n=0
+- crc 7f01 n=1
+- crc ffffffffff n=None
+- crc 00000000 n=None
+- crc 707172737475 n=None
+- crc 818001fe55 n=None
+- crc 7a7a n=1
+
 ### buCreateExecFile (`8C1DFEDA`, 46 bytes, `src/vtsdk_c.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/vtsdk_c/buCreateExecFile.json`
 - state ok
@@ -218,6 +253,17 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - state zero ret neg
 - other
 - state 0x100
+
+### buFbrExit (`8C20703C`, 44 bytes, `src/port_sg_bup.c`)
+- equivalent on 4 development and 4 holdout cases, in `tests/port_sg_bup/buFbrExit.json`
+- created=0,0
+- created=1,0
+- created=0,1
+- created=1,1
+- created=0xffffffff,0x0
+- created=0x0,0x80000000
+- created=0x7,0x9
+- created=0x100,0x0
 
 ### buFbrSleepFiber (`8C20716E`, 62 bytes, `src/vtsdk_e.c`)
 - equivalent on 4 development and 3 holdout cases, in `tests/vtsdk_e/buFbrSleepFiber.json`
@@ -291,6 +337,24 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - unit 7 big entry
 - unit 3 entry 1
 
+### fmMngRead (`8C1FF794`, 60 bytes, `src/port_sg_fm.c`)
+- equivalent on 7 development and 8 holdout cases, in `tests/port_sg_fm/fmMngRead.json`
+- null state
+- busy
+- ok
+- neg index
+- index==count
+- index 0
+- index count-1
+- busy neg
+- count 0
+- count neg
+- big index
+- min index
+- index>count
+- busy and bad idx
+- arg ffffffff
+
 ### gdFsCheckEof (`8C1E71D4`, 40 bytes, `src/vtsdk_e.c`)
 - equivalent on 5 development and 4 holdout cases, in `tests/vtsdk_e/gdFsCheckEof.json`
 - null
@@ -315,6 +379,26 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - state 0
 - state 0x10002
 - state 2 again
+
+### gdFsCreateHnG (`8C1DDE24`, 112 bytes, `src/port_sg_gd.c`)
+- equivalent on 8 development and 9 holdout cases, in `tests/port_sg_gd/gdFsCreateHnG.json`
+- active
+- free size 0
+- size 1
+- size 2048
+- size 2049
+- size 4096
+- negative size
+- neg tag
+- active -1
+- active 0x100 (short)
+- active 0x7fff
+- size max
+- size min
+- size -2048
+- size -2049
+- size 2047
+- tag min
 
 ### gdFsGetDrvStat (`8C1DE868`, 24 bytes, `src/vtsdk_d.c`)
 - equivalent on 3 development and 1 holdout cases, in `tests/vtsdk_d/gdFsGetDrvStat.json`
@@ -399,6 +483,18 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - same addr twice
 - four
 - one other
+
+### kdExecGun (`8C1E9390`, 114 bytes, `src/port_kaede.c`)
+- equivalent on 4 development and 5 holdout cases, in `tests/port_kaede/kdExecGun.json`
+- count0
+- count1
+- count2
+- count5
+- count -1
+- count 65536
+- count 32768
+- high buf
+- max
 
 ### kdGetDevice (`8C1E9B4C`, 18 bytes, `src/vtsdk_a.c`)
 - equivalent on 4 development and 2 holdout cases, in `tests/vtsdk_a/kdGetDevice.json`
@@ -750,6 +846,19 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - cnt 8
 - x=0x300
 
+### mpdrv_insertnop (`8C1FDB20`, 68 bytes, `src/port_kaede.c`)
+- equivalent on 5 development and 5 holdout cases, in `tests/port_kaede/mpdrv_insertnop.json`
+- n=0
+- n=1
+- n=3 count=2
+- n negative
+- n=5
+- n=32 limit wraps
+- n=min
+- n=2 count16
+- n=32767
+- count negative
+
 ### mpdrv_nopcount (`8C1FD7BE`, 10 bytes, `src/vtsdk_b.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/vtsdk_b/mpdrv_nopcount.json`
 - value
@@ -924,8 +1033,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - upper bits ignored
 - three quarters
 
-### nlCosf (`8C0ECE90`, 22 bytes, `src/port_sdk_d.c`)
-- equivalent on 4 development and 4 holdout cases, in `tests/port_sdk_d/nlCosf.json`
+### nlCosf (`8C0ECE90`, 22 bytes, `src/vtsdk_g.c`)
+- equivalent on 4 development and 4 holdout cases, in `tests/vtsdk_g/nlCosf.json`
 - zero
 - positive
 - negative
@@ -960,6 +1069,12 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - negative
 - big
 - small
+
+### nlFogTableOff (`8C0EDDB0`, 48 bytes, `src/port_sdk_a.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_a/nlFogTableOff.json`
+- call
+- call with r4
+- another
 
 ### nlFraction (`8C0ED010`, 64 bytes, `src/vtsdk_b.c`)
 - equivalent on 6 development and 5 holdout cases, in `tests/vtsdk_b/nlFraction.json`
@@ -1144,6 +1259,15 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - 0.25
 - negative
 
+### nlObjPutSetReplaceTextureDirName (`8C0F3DE0`, 64 bytes, `src/port_sdk_e.c`)
+- equivalent on 3 development and 3 holdout cases, in `tests/port_sdk_e/nlObjPutSetReplaceTextureDirName.json`
+- no entries
+- one entry
+- three entries
+- results or together
+- all zero
+- four
+
 ### nlOuterProduct (`8C0F05D0`, 52 bytes, `src/port_sdk_a.c`)
 - equivalent on 4 development and 2 holdout cases, in `tests/port_sdk_a/nlOuterProduct.json`
 - x cross y
@@ -1202,6 +1326,16 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - index 255
 - index -1
 - index 1000
+
+### nlRenderTextureInit (`8C0EDEE0`, 46 bytes, `src/vtsdk_g.c`)
+- equivalent on 4 development and 3 holdout cases, in `tests/vtsdk_g/nlRenderTextureInit.json`
+- 3 entries
+- unaligned size
+- zero count
+- negative count
+- aligned-1
+- one
+- eight
 
 ### nlRotate (`8C0EFEB0`, 54 bytes, `src/port_sdk_c.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/port_sdk_c/nlRotate.json`
@@ -1412,6 +1546,50 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - one busy
 - 100 busy
 
+### ovLibClose (`8C1DD18C`, 56 bytes, `src/port_sg_ov.c`)
+- equivalent on 5 development and 4 holdout cases, in `tests/port_sg_ov/ovLibClose.json`
+- idx0
+- idx1
+- idx2
+- not found -3
+- refs zero goes negative
+- -1
+- idx1 big refs
+- idx2 min refs
+- idx0 refs 1
+
+### ovSearchLib (`8C1DD096`, 64 bytes, `src/port_sg_ov.c`)
+- equivalent on 6 development and 5 holdout cases, in `tests/port_sg_ov/ovSearchLib.json`
+- empty
+- first
+- last
+- middle
+- absent
+- count beyond match not searched
+- neg count
+- big key
+- neg key last
+- zero key
+- dup
+
+### pdExecPeripheralServer (`8C1DED46`, 12 bytes, `src/port_sg_pad.c`)
+- equivalent on 2 development and 3 holdout cases, in `tests/port_sg_pad/pdExecPeripheralServer.json`
+- zero
+- one
+- -1
+- min
+- 256
+
+### pdExitPeripheral (`8C1DEE70`, 72 bytes, `src/port_sg_pad.c`)
+- equivalent on 3 development and 4 holdout cases, in `tests/port_sg_pad/pdExitPeripheral.json`
+- active=0
+- active=1
+- active=0
+- active=ffffffff
+- active=100
+- active=80000000
+- active=2
+
 ### pdGetPeripheralInfo (`8C1DEEC2`, 10 bytes, `src/vtsdk_e.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/vtsdk_e/pdGetPeripheralInfo.json`
 - zero
@@ -1439,6 +1617,29 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - zero ret
 - ret min
 - other dev
+
+### pdVmsLcdWrite (`8C1DF728`, 102 bytes, `src/port_sg_lcd.c`)
+- equivalent on 4 development and 4 holdout cases, in `tests/port_sg_lcd/pdVmsLcdWrite.json`
+- not ready
+- ready ok
+- ready idx1 neg kd
+- kd positive
+- idx 255
+- kd min
+- kd max
+- not ready ret neg
+
+### pdVmsLcdWrite1 (`8C1DF78E`, 74 bytes, `src/port_sg_lcd.c`)
+- equivalent on 4 development and 5 holdout cases, in `tests/port_sg_lcd/pdVmsLcdWrite1.json`
+- ready=0 ret=0
+- ready=1 ret=0
+- ready=1 ret=-1
+- ready=1 ret=5
+- ready=1 ret=2147483648
+- ready=1 ret=2147483647
+- ready=5 ret=-100
+- ready=0 ret=2147483647
+- ready=1 ret=1
 
 ### setBorderColor (`8C0EB200`, 26 bytes, `src/port_sdk_c.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/port_sdk_c/setBorderColor.json`
@@ -1501,6 +1702,45 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - n one
 - big pad
 
+### syBtExit (`8C1E0BFC`, 48 bytes, `src/port_sg_sybt.c`)
+- equivalent on 4 development and 5 holdout cases, in `tests/port_sg_sybt/syBtExit.json`
+- a1 b1
+- a1 b0
+- a0
+- a0 b1
+- a1 b2
+- a2 b1
+- a255 b255
+- a1 b255
+- a0x101? 
+
+### syCblCheck (`8C1DF8C2`, 70 bytes, `src/port_sg_sycbl.c`)
+- equivalent on 5 development and 7 holdout cases, in `tests/port_sg_sycbl/syCblCheck.json`
+- cable0
+- c1 b0
+- c1 b1
+- c1 b2
+- c1 b3
+- cable0 b1
+- c-1 b3
+- c64k b2
+- c5 b4
+- b-1
+- b big
+- b 2^32+1
+
+### syCblCheckBroadcast (`8C1DF888`, 58 bytes, `src/port_sg_sycbl.c`)
+- equivalent on 4 development and 5 holdout cases, in `tests/port_sg_sycbl/syCblCheckBroadcast.json`
+- '1'
+- '2'
+- '3'
+- '0'
+- 0
+- '4'
+- 0xff
+- 0xb1
+- 47
+
 ### syChainMasterHandler (`8C1E8452`, 36 bytes, `src/vtsdk_a.c`)
 - equivalent on 4 development and 2 holdout cases, in `tests/vtsdk_a/syChainMasterHandler.json`
 - empty chain
@@ -1510,6 +1750,28 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - high index
 - low bits ignored
 
+### syHwFinish (`8C1DF64A`, 60 bytes, `src/port_sg_syhw.c`)
+- equivalent on 3 development and 2 holdout cases, in `tests/port_sg_syhw/syHwFinish.json`
+- mask 0
+- mask 15
+- mask 7, T and S set
+- mask 3, M and Q set
+- mask 12
+
+### syMmuCacheCtrl (`8C1FCBD4`, 80 bytes, `src/port_sg_mmu.c`)
+- equivalent on 5 development and 6 holdout cases, in `tests/port_sg_mmu/syMmuCacheCtrl.json`
+- idx=0 val=0 cur=ffffffff
+- idx=1 val=f cur=0
+- idx=3f val=7f cur=12345678
+- idx=40 val=ff cur=ffffffff
+- idx=64 val=1 cur=0
+- idx=5 val=80 cur=ffffffff
+- idx=5 val=1ff cur=0
+- idx=3f val=fffffff6 cur=a5a5a5a5
+- idx=ffffffff val=3 cur=55
+- idx=40 val=0 cur=7
+- idx=2 val=9 cur=9
+
 ### syRtcAicaSetDateLo (`8C1DF4C8`, 38 bytes, `src/vtsdk_e.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/vtsdk_e/syRtcAicaSetDateLo.json`
 - zero
@@ -1517,6 +1779,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - minus
 - small
 - high bit
+
+### syRtcGetAndCheckCount (`8C1DF362`, 118 bytes, `src/port_sg_syrtc.c`)
+- equivalent on 6 development and 5 holdout cases, in `tests/port_sg_syrtc/syRtcGetAndCheckCount.json`
+- equal ok
+- differ
+- first fail
+- first fail diff
+- second fail
+- both fail
+- neg equal
+- max differ
+- fail ret neg
+- zero all
+- one bit differ
+
+### syRtcGetDate (`8C1DF076`, 76 bytes, `src/port_sg_syrtc.c`)
+- equivalent on 4 development and 4 holdout cases, in `tests/port_sg_syrtc/syRtcGetDate.json`
+- flag1
+- flag0
+- flag3 (bit0 set)
+- flag2 (bit0 clear)
+- neg year
+- max year
+- flag high bits only
+- flag 0xffffffff
 
 ### syTmrInit (`8C1E8F70`, 38 bytes, `src/vtsdk_d.c`)
 - equivalent on 2 development and 1 holdout cases, in `tests/vtsdk_d/syTmrInit.json`

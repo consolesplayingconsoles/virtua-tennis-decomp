@@ -27,10 +27,41 @@ void FUN_0c080c50(int a, int b);
 int FUN_0c088738(char *a, char *b);
 
 
-float nlCosf(float x)
+void nlSetDummyTextureParameter(int *p)
 {
-    float a = x;
-    if (a < 0.0f)
-        a = -a;
-    return nlSinf(1.5707964f - a);
+    p[2] = (p[2] & -64) | g_0c2aec8c[12];
+    p[3] = (p[3] & 0xF8000000) | g_0c2aec8c[13];
+}
+
+
+void nlReloadPalette8888(int index)
+{
+    nlReloadPalette(index);
+}
+
+
+void nlSetFontSize(int w, int h)
+{
+    g_0c2af0c8 = w;
+    g_0c2af0cc = h;
+}
+
+
+void nlTranslateV(float *v)
+{
+    nlTranslate(v[0], v[1], v[2]);
+}
+
+
+void nlSubVector(float *a, float *b)
+{
+    a[0] = a[0] - b[0];
+    a[1] = a[1] - b[1];
+    a[2] = a[2] - b[2];
+}
+
+
+void nlSpriteClearSpriteIndex(int i)
+{
+    g_0c2b76c4[i >> 5] &= ~(1 << (i & 31));
 }

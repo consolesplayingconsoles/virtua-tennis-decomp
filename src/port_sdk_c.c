@@ -37,18 +37,87 @@ void nlstripSetVertexContext(void *a);
 void FUN_0c080ae0(int a, int b, int c);
 
 
-void nlRenderTextureInit(int size, int count)
+void nlReloadPalette(int idx, int b)
 {
-    int *p = (int *)((size + 31) & -32);
+    char *e = g_0c2b7bd8 + idx * 8;
 
-    g_0c2b31bc[0] = (int)p;
-    if (count < 0)
-        count = 0;
-    g_0c2b31bc[1] = count;
-    g_0c2b31bc[2] = -1;
-    for (; count > 0; count--) {
-        p[0] = -1;
-        p[1] = -1;
-        p += 4;
+    if (*(short *)(e + 4)) {
+        FUN_0c0770f0(*(short *)e << 4, b, *(unsigned char *)(e + 3) << 4);
     }
+}
+
+
+void setBorderColor(unsigned int c)
+{
+    kmSetBorderColor(c | 0xFF000000);
+}
+
+
+float nlCosec(int a)
+{
+    a = a & 0xFFFF;
+    if (a == 0 || a == 0x8000)
+        return 3.4028235e38f;
+    return 1.0f / nlSin(a);
+}
+
+
+void nlPrnIndentOn(void)
+{
+    g_0c2af0bc |= 1;
+}
+
+
+void nlRotate(float *v, int ang)
+{
+    struct { int a; float v[3]; } t;
+
+    t.a = ang;
+    t.v[0] = v[0];
+    t.v[1] = v[1];
+    t.v[2] = v[2];
+    nlUnitVector(t.v);
+    FUN_0c078480(t.v, t.a);
+}
+
+
+float nlScalor(float *v)
+{
+    return _builtin_sqrtf(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
+}
+
+
+void nlObjPutSetFadeColor(float r, float g, float b)
+{
+    g_0c14a948.x = r;
+    g_0c14a948.y = g;
+    g_0c14a948.z = b;
+    g_0c14a958 = g_0c14a948;
+}
+
+
+void nlSpriteGetImaginaryScreenSize(float *w, float *h)
+{
+    *w = g_0c2b76d4[0];
+    *h = g_0c2b76d4[1];
+}
+
+
+int nlsndG2DmaHandleClose(int *h)
+{
+    if (*h == 1) {
+        *h = 0;
+        return 0;
+    }
+    return -1;
+}
+
+
+int strlen(const char *s)
+{
+    int n = 0;
+
+    while (*s++)
+        n++;
+    return n;
 }

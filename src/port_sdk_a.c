@@ -6,7 +6,7 @@ extern float _builtin_sqrtf(float);
 extern void kmGetFreeTextureMem(int *a, int *b);
 extern void nlInitPalette(int a, int b);
 extern void kmSetPaletteMode(int m);
-extern void g_0c076b40(float *t); /* the nl-side kmSetFogTable stub; functions.txt has two functions of that name */
+extern void nlFogTableSet(float *t);   /* the NAOMI library's stub that jumps to kmSetFogTable */
 extern void nlPushMatrix(int a);
 extern void FUN_0c07b220(int a);
 extern void FUN_0c077ee0(void *a);
@@ -28,6 +28,26 @@ extern char g_0c14aab4[];
 extern char g_0c14ab2c[];
 
 
+void nlFreePaletteAll(void)
+{
+    nlInitPalette(g_0c2b7bd8, g_0c2b7bc4);
+}
+
+
+float nlInvertSqrt(float x)
+{
+    if (x == 0.0f)
+        return 3.4028234663852886e+38f;
+    return 1.0f / _builtin_sqrtf(x);
+}
+
+
+void nlPrintTileClipMode(int mode)
+{
+    g_0c2af118 = (g_0c2af118 & 0xfffcffff) | (mode << 16);
+}
+
+
 void nlFogTableOff(void)
 {
     float t[128];
@@ -35,5 +55,39 @@ void nlFogTableOff(void)
 
     for (i = 0; i < 128; i++)
         t[i] = 0.0f;
-    g_0c076b40(t);
+    nlFogTableSet(t);
+}
+
+
+void nlOuterProduct(float *a, float *b, float *out)
+{
+    out[2] = a[0] * b[1] - a[1] * b[0];
+    out[1] = a[2] * b[0] - a[0] * b[2];
+    out[0] = a[1] * b[2] - a[2] * b[1];
+}
+
+
+void nlObjPut(int *obj)
+{
+    if (!(obj[1] & 2))
+        FUN_0c07b220(obj[1]);
+    nlPushMatrix(0);
+    FUN_0c077ee0(g_0c2b34a8);
+    FUN_0c07b340(obj);
+}
+
+
+char *nlsndStreamGetHdInfo(char *p, int *out)
+{
+    *out = (unsigned char)p[7] << 4;
+    return p;
+}
+
+
+void nlsndStreamSetHdGain(char *p, int g)
+{
+    int i;
+
+    for (i = 0; i < 4; i++)
+        p[48 + 4 * i] = (char)g;
 }
