@@ -2,5 +2,9 @@
 # Nothing is needed here yet: the texture lists are found by themselves (a model file and the texture file of the same
 # name, and the one list in the executable that fits it).
 
+# Player skeletons: charaTbl's 33-node lists, placed in their bind pose (engine.md, "Skeleton nodes").
+nodes players 8C102424 18 6C 00 33 Players
+nodelayout players model=04 pos=08 rot=14:deg:zyx child=2C sibling=30 parent=34
+
 # Sounds, named by file and entry (kept sorted by the viewer).
 sound SND_BGM.AFS 6 Virtua Tennis
