@@ -1,6 +1,17 @@
 # Curated model tables for Virtua Tennis (USA). See tools/model_map.py for the syntax.
-# Nothing is needed here yet: the texture lists are found by themselves (a model file and the texture file of the same
-# name, and the one list in the executable that fits it).
+# Texture lists are found by themselves (a model file and the texture file of the same name, and the one list in the
+# executable that fits it), except where a rule below pairs them.
+
+# Crowds: the game loads texture_COMMON_kyaku_FRA.bin for every country's crowd (no other crowd texture file exists).
+textures POLYGON_COMMON_KYAKU_AUS.BIN TEXTURE_COMMON_KYAKU_FRA.BIN
+textures POLYGON_COMMON_KYAKU_ESP.BIN TEXTURE_COMMON_KYAKU_FRA.BIN
+textures POLYGON_COMMON_KYAKU_GER.BIN TEXTURE_COMMON_KYAKU_FRA.BIN
+textures POLYGON_COMMON_KYAKU_JPN.BIN TEXTURE_COMMON_KYAKU_FRA.BIN
+textures POLYGON_COMMON_KYAKU_RUS.BIN TEXTURE_COMMON_KYAKU_FRA.BIN
+textures POLYGON_COMMON_KYAKU_SEGA.BIN TEXTURE_COMMON_KYAKU_FRA.BIN
+textures POLYGON_COMMON_KYAKU_SWE.BIN TEXTURE_COMMON_KYAKU_FRA.BIN
+textures POLYGON_COMMON_KYAKU_USA.BIN TEXTURE_COMMON_KYAKU_FRA.BIN
+textures POLYGON_COMMON_KYAKU_WIN.BIN TEXTURE_COMMON_KYAKU_FRA.BIN
 
 # Player skeletons: charaTbl's 33-node lists, placed in their bind pose (engine.md, "Skeleton nodes").
 nodes players 8C102424 18 6C 00 33 Players
