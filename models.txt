@@ -13,9 +13,80 @@ textures POLYGON_COMMON_KYAKU_SWE.BIN TEXTURE_COMMON_KYAKU_FRA.BIN
 textures POLYGON_COMMON_KYAKU_USA.BIN TEXTURE_COMMON_KYAKU_FRA.BIN
 textures POLYGON_COMMON_KYAKU_WIN.BIN TEXTURE_COMMON_KYAKU_FRA.BIN
 
+# Player textures: each character's parts in POLYGON_HUMAN_HUMAN.BIN take their own list and file (muneTexNames).
+texturesets 8C1B054C 8C1B0594 18 8C18918C 0CA80000
+
 # Player skeletons: charaTbl's 33-node lists, placed in their bind pose (engine.md, "Skeleton nodes").
 nodes players 8C102424 18 6C 00 33 Players
 nodelayout players model=04 pos=08 rot=14:deg:zyx child=2C sibling=30 parent=34
 
 # Sounds, named by file and entry (kept sorted by the viewer).
-sound SND_BGM.AFS 6 Virtua Tennis
+sound SND_BGM.AFS 1 Power Smash 1
+sound SND_BGM.AFS 2 Power Smash 2
+sound SND_BGM.AFS 3 Power Smash 3
+sound SND_BGM.AFS 4 Power Smash 4
+sound SND_BGM.AFS 5 Power Smash 5
+sound SND_BGM.AFS 6 Virtua Tennis 1
+sound SND_BGM.AFS 7 Virtua Tennis 2
+sound SND_BGM.AFS 8 Virtual Tennis 3
+sound SND_BGM.AFS 9 Virtua Tennis 4
+sound SND_UPEN2.AFS 0 0 15
+sound SND_UPEN2.AFS 1 0 30
+sound SND_UPEN2.AFS 2 0 40
+sound SND_UPEN2.AFS 3 15 0
+sound SND_UPEN2.AFS 4 15 30
+sound SND_UPEN2.AFS 5 15 40
+sound SND_UPEN2.AFS 6 15 15
+sound SND_UPEN2.AFS 7 1 1
+sound SND_UPEN2.AFS 8 2 2
+sound SND_UPEN2.AFS 9 30 0
+sound SND_UPEN2.AFS 10 30 15
+sound SND_UPEN2.AFS 11 30 40
+sound SND_UPEN2.AFS 12 30 30
+sound SND_UPEN2.AFS 13 3 3
+sound SND_UPEN2.AFS 14 40 0
+sound SND_UPEN2.AFS 15 40 15
+sound SND_UPEN2.AFS 16 40 30
+sound SND_UPEN2.AFS 17 40 40
+sound SND_UPEN2.AFS 18 4 4
+sound SND_UPEN2.AFS 19 5 5
+sound SND_UPEN2.AFS 20 6 6
+sound SND_UPEN2.AFS 21 Advantage 1
+sound SND_UPEN2.AFS 22 Advantage 2
+sound SND_UPEN2.AFS 23 Advantage 3
+sound SND_UPEN2.AFS 24 Advantage 4
+sound SND_UPEN2.AFS 25 Advantage 5
+sound SND_UPEN2.AFS 26 Advantage 6
+sound SND_UPEN2.AFS 27 Advantage 7
+sound SND_UPEN2.AFS 28 Advantage 8
+sound SND_UPEN2.AFS 29 Advantage 9
+sound SND_UPEN2.AFS 30 Advantage 10
+sound SND_UPEN2.AFS 31 Advantage 11
+sound SND_UPEN2.AFS 32 Advantage 12
+sound SND_UPEN2.AFS 33 Advantage 13
+sound SND_UPEN2.AFS 34 Advantage 14
+sound SND_UPEN2.AFS 35 Advantage 15
+sound SND_UPEN2.AFS 36 Advantage 16
+sound SND_UPEN2.AFS 37 Advantage 17
+sound SND_UPEN2.AFS 38 Advantage 18
+sound SND_UPEN2.AFS 39 Name 1
+
+# Sub-groups, named by group and id (added by the viewer).
+note Players 0x00 0x00 Courier
+note Players 0x01 0x01 Pioline
+note Players 0x02 0x02 Henman
+note Players 0x03 0x03 Haas
+note Players 0x04 0x04 Philippoussis
+note Players 0x05 0x05 Moya
+note Players 0x06 0x06 Johansson
+note Players 0x07 0x07 Kafelnikov
+note Players 0x08 0x08 Tinbergen
+note Players 0x09 0x09 Euler
+note Players 0x0A 0x0A Tesla
+note Players 0x0B 0x0B Altman
+note Players 0x0C 0x0C Singth
+note Players 0x0D 0x0D Costa
+note Players 0x0E 0x0E Ventura
+note Players 0x0F 0x0F Inoue
+note Players 0x10 0x10 Master
+note Players 0x11 0x11 King
