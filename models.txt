@@ -18,7 +18,42 @@ texturesets 8C1B054C 8C1B0594 18 8C18918C 0CA80000
 
 # Player skeletons: charaTbl's 33-node lists, placed in their bind pose (engine.md, "Skeleton nodes").
 nodes players 8C102424 18 6C 00 33 Players
-nodelayout players model=04 pos=08 rot=14:deg:zyx child=2C sibling=30 parent=34
+nodelayout players model=04 pos=08 rot=14:deg:zyx child=2C sibling=30 parent=34 weld=38:3C:40:80
+
+# Player motions and the order playerPut builds each node from them (engine.md, "Posing a player"; the still-pose path:
+# no arm reach, toe tilt, waist or head turns; the shoulder pieces 22 and 24 and the face parts 26-28 keep their bind
+# pose; node 29, the alternate head, has no line and is not drawn). The skeleton header is an offset in the motion file.
+motionskel players 12755C SMOTDATA_CMN.BIN e16
+scale players 8C102424 6C 04
+pose players 6 - root rot:5 ry:4000 rz:-4000
+pose players 8 6 bone:7
+pose players 12 8 bone:11
+pose players 0 12 bone:0
+pose players 20 0 t:1.16,-1.04,0
+pose players 9 6 bone:8
+pose players 13 9 bone:12
+pose players 1 13 bone:1
+pose players 21 1 t:1.16,-1.04,0
+pose players 2 6 bone:2 ry:8000
+pose players 3 = 6
+pose players 10 2 bone:9
+pose players 11 = 10
+pose players 5 10 bone:4
+pose players 25 = 5
+pose players 18 5 bone:17
+pose players 19 18 bone:18
+pose players 15 19 bone:14
+pose players 4 10 bone:3
+pose players 23 = 4
+pose players 16 4 bone:15
+pose players 17 16 bone:16
+pose players 14 17 bone:13
+pose players 7 10 bone:6 rz:-4000
+pose players 22 16 bind
+pose players 24 18 bind
+pose players 26 7 bind
+pose players 27 26 bind
+pose players 28 27 bind
 
 # Sounds, named by file and entry (kept sorted by the viewer).
 sound SND_BGM.AFS 1 Power Smash 1
@@ -28,7 +63,7 @@ sound SND_BGM.AFS 4 Power Smash 4
 sound SND_BGM.AFS 5 Power Smash 5
 sound SND_BGM.AFS 6 Virtua Tennis 1
 sound SND_BGM.AFS 7 Virtua Tennis 2
-sound SND_BGM.AFS 8 Virtual Tennis 3
+sound SND_BGM.AFS 8 Virtua Tennis 3
 sound SND_BGM.AFS 9 Virtua Tennis 4
 sound SND_UPEN2.AFS 0 0 15
 sound SND_UPEN2.AFS 1 0 30
