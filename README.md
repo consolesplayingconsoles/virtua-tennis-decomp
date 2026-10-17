@@ -1,6 +1,6 @@
 # Virtua Tennis decomp (kick-off)
 
-![decomp progress](badge.svg)
+![decomp progress](badge.svg?p=12.7)
 
 **Explore this decomp project with [Shuriken Explorer](https://consolesplayingconsoles.github.io/dc-shuriken-explorer/) and see the game's models, skeletons, animations, textures, images, sounds, text and side-by-side C and assembly code directly in your browser.**
 
