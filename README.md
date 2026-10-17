@@ -1,6 +1,6 @@
 # Virtua Tennis decomp (kick-off)
 
-![decomp progress](badge.svg?p=12.7)
+![decomp progress](badge.svg?p=26.6)
 
 **Explore this decomp project with [Shuriken Explorer](https://consolesplayingconsoles.github.io/dc-shuriken-explorer/) and see the game's models, skeletons, animations, textures, images, sounds, text and side-by-side C and assembly code directly in your browser.**
 
@@ -128,16 +128,16 @@ functions and globals, and functions documented in `docs/*.md`.
 <!-- progress -->
 ```
 THE GAME                          3280 functions, 704346 bytes of code; each function in one bucket
-  done: equivalent C       12.7%  417 of 3280 functions, 21018 bytes (3.0%): C that behaves like the original
+  done: equivalent C       26.6%  871 of 3280 functions, 32846 bytes (4.7%): C that behaves like the original
     of which matching C     0.0%  0 functions, 0 bytes, 0 units: rebuilt byte for byte
-    of which SDK source     6.8%  223 functions, 13614 bytes: the SDK's own source reproduces them (sdk-source/, local)
-  named only               31.5%  1033 functions: a name, no C yet (not done work)
-  unnamed                  55.8%  1830 functions (FUN_...), no C yet
-  documented                8.0%  262 named functions in docs/*.md
+    of which SDK source     6.8%  222 functions, 13576 bytes: the SDK's own source reproduces them (sdk-source/, local)
+  named only               24.8%  812 functions: a name, no C yet (not done work)
+  unnamed                  48.7%  1597 functions (FUN_...), no C yet
+  documented               14.9%  489 named functions in docs/*.md
   named globals                   24
   of which library                1832 functions, 184294 bytes of code: the Sega SDK, the NAOMI library and the C runtime bundled in the game
-    done                   22.4%  411 of 1832 library functions, 20426 bytes (11.1%)
-    named                  75.5%  1384 of 1832 (the library's own names, from SDK tables)
+    done                   40.0%  733 of 1832 library functions, 27890 bytes (15.1%)
+    named                  76.1%  1395 of 1832 (the library's own names, from SDK tables)
 REVERSE ENGINEERING               what the model map identifies; separate from the measures above, not done work
   models named             23.3%  874 of 3745 models: a name, or a named table or collection
   characters named        100.0%  18 of 18 characters (note rules)
