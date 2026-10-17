@@ -682,6 +682,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### ADXF_Init (`8C1F1B60`, 58 bytes, `src/gen_d.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_d/ADXF_Init.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### ADXF_ReadSj32 (`8C1E2296`, 46 bytes, `src/ct_sdk_l.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/ct_sdk_l/ADXF_ReadSj32.json`
 - read
@@ -3138,6 +3163,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### FUN_8c082884 (`8C082884`, 64 bytes, `src/gen_d.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_d/FUN_8c082884.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### FUN_8c082b80 (`8C082B80`, 20 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/FUN_8c082b80.json`
 - case 0
@@ -4015,6 +4065,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### FUN_8c0c3a0c (`8C0C3A0C`, 110 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/FUN_8c0c3a0c.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### FUN_8c0c405c (`8C0C405C`, 110 bytes, `src/gen_d.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_d/FUN_8c0c405c.json`
 - case 0
 - case 1
 - case 2
@@ -6388,6 +6463,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### FUN_8c1e65e2 (`8C1E65E2`, 54 bytes, `src/gen_d.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_d/FUN_8c1e65e2.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### FUN_8c1e6968 (`8C1E6968`, 14 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/FUN_8c1e6968.json`
 - case 0
@@ -8518,6 +8618,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### kmiCalculateWorkSize (`8C1FBB80`, 110 bytes, `src/gen_d.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_d/kmiCalculateWorkSize.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### kmiCheckSysConfigSetting (`8C1FBE4C`, 38 bytes, `src/vtsdk_f.c`)
 - equivalent on 6 development and 3 holdout cases, in `tests/vtsdk_f/kmiCheckSysConfigSetting.json`
 - bit1 clear, g zero
@@ -8660,6 +8785,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - low bits
 - old data
 - other
+
+### kmiWriteRegister (`8C1E29A0`, 10 bytes, `src/gen_d.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_d/kmiWriteRegister.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
 
 ### kmyAllocateNativeCommandBuffer (`8C202F20`, 96 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/kmyAllocateNativeCommandBuffer.json`

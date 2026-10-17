@@ -38,6 +38,7 @@ ADXF_GetFsizeSct
 ADXF_GetNumReadSct
 ADXF_GetNumReqSct
 ADXF_GetStat
+ADXF_Init
 ADXF_ReadSj32
 ADXF_Tell
 ADXPD_Destroy
@@ -162,6 +163,7 @@ FUN_8c03ce22
 FUN_8c041c6e
 FUN_8c0502c8
 FUN_8c0825ce
+FUN_8c082884
 FUN_8c082b80
 FUN_8c0855b0
 FUN_8c0855b6
@@ -198,6 +200,7 @@ FUN_8c0bca02
 FUN_8c0bcea8
 FUN_8c0c2628
 FUN_8c0c3a0c
+FUN_8c0c405c
 FUN_8c0c4b18
 FUN_8c0c4b62
 FUN_8c0c4bbe
@@ -292,6 +295,7 @@ FUN_8c1e4a80
 FUN_8c1e4ac0
 FUN_8c1e6480
 FUN_8c1e64c0
+FUN_8c1e65e2
 FUN_8c1e6968
 FUN_8c1efd90
 FUN_8c1f016a
@@ -419,6 +423,7 @@ kmQueryFinishLastTextureDMA
 kmSetCullingRegister
 kmSetFogDensity
 kmSetPaletteData
+kmiCalculateWorkSize
 kmiCheckSysConfigSetting
 kmiFLWCTRLCheckFreeNBuf
 kmiFLWCTRLFindTailQueue
@@ -429,6 +434,7 @@ kmiQueryFinishAllPacket
 kmiReadRegister
 kmiSetDisplayClipSize
 kmiSetFogDMA
+kmiWriteRegister
 kmyAllocateNativeCommandBuffer
 kmyConnectRenderPacket
 kmyConvertAddress64to32
