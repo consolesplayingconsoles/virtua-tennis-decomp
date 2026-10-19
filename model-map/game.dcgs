@@ -1,7 +1,7 @@
 # dcgs unstable
 # sha1 a89bfbe56503d6fce48f56615eb5a8565a0c61fb
 # base 0C010000
-# sections models assemblies rigs bones welds motionbones poses scales audio textures
+# sections models assemblies rigs bones welds motionbones poses scales images audio textures
 [models]
 file	offset	bytes	records	radius	group	sub	sublabel	name	table	index	used_by	texset
 1ST_READ.BIN	17239c	136	1	0.707								
@@ -9055,6 +9055,9 @@ players	0x0E	1.00000
 players	0x0F	1.00000
 players	0x10	1.00000
 players	0x11	1.00000
+[images]
+file	offset	kind	width	height	type	format	bytes	name
+0GDTEX.PVR	0	pvr	256	256	2	2	174780	
 [audio]
 file	index	offset	bytes	format	channels	rate	samples	seconds	name
 PACK0.BIN	0	0	398260	DTPK sound bank					
