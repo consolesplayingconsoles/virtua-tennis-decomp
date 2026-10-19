@@ -29,7 +29,7 @@ float nlLog(float x);
 void FUN_0c0770f0(int a, int b, int c);
 void nlUnitVector(float *v);
 void FUN_0c078480(float *v, int a);
-int FUN_0c079f80(int a, int b, int i, int *pi, int z);
+int nlObjPutLoadTextureOnce_Sub(int a, int b, int i, int *pi, int z);
 void kmSetCheapShadowMode(void);
 void nlObjPutMvSetMode(int mode);
 void FUN_0c07aad0(int a);

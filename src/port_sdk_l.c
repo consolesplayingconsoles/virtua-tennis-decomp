@@ -1,0 +1,44 @@
+/* Ported from crazy-taxi-decomp (src/sdk_l.c) by scripts/port_equiv.py: only the functions the destination has. */
+/* Small library functions (batch l): more backup-library drive wrappers, the system config getters, ADX file helpers,
+   Kamui callback and register setters, record-table allocators. */
+
+int vmsfs_c_getstate(int drive);
+int vmsfs_findfirst_ex(int d, int a, int b);
+int vmsfs_findnext_ex(int d, int a, int b);
+int vmsfs_fopen(int d, int a, int b);
+int vmsfs_fgetinfo(int d, int a, int b);
+int vmsfs_fcreate(int d, int a, int b, int c);
+int vmsfs_xcreate(int d, int a, int b, int c);
+char *syCfgGetIDAddress(void);
+void ADXERR_CallErrFunc(char *msg);
+char *adxf_AllocAdxFs(void);
+int ADXCRS_Lock(void);
+int ADXCRS_Unlock(void);
+int adxf_read_sj32(int a, int b, int c);
+void adxf_ExecOne(char *p);
+int FUN_0c15f460(int a, int b, int c);
+int FUN_0c16dd04(int v);
+int kmiRegisterCallback(int dev, int kind, void *f, void *p);
+int kmiReadRegister(int off);
+int kmiWriteRegister(int off, int v);
+int kmtex_GetTextureLevel(int a);
+int kmiCopyToFrameBuffer(int a, int b, int c);
+void FUN_0c07d6e0(int a, int b, int c);
+void FUN_0c168026(void);
+void ADXSJD_Finish(void);
+void FUN_0c168936(void);
+void thunk_FUN_0c169a7a(void);
+void SJMEM_Finish(void);
+void SJRBF_Finish(void);
+void SJUNI_Finish(void);
+int ADXF_Finish(void);
+
+
+int FUN_0c15f49a(int a, short b)
+{
+    int r = FUN_0c15f460(0, a, 10);
+
+    if ((unsigned short)b == (unsigned short)~r)
+        return 0;
+    return -1;
+}

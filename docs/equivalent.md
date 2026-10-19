@@ -2,6 +2,37 @@
 
 Functions whose C behaves like the original on every test case (`tools/equiv.py`: same calls, same final memory, same result). Written by `tools/equiv.py`; the cases are the evidence. Cases that start from a RAM dump (`"dump": "build/ram/<name>.bin"`) need your own dump there: all of RAM (16 MB from `0C000000`) at that moment, e.g. read with `tools/live.py`.
 
+### ADXAMP_Destroy (`8C1EFB46`, 44 bytes, `src/port_sdk_ze.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_ze/ADXAMP_Destroy.json`
+- amp
+- null
+- amp 2
+
+### ADXAMP_ExecHndl (`8C1EFD28`, 376 bytes, `src/port_gen_u.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_u/ADXAMP_ExecHndl.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### ADXAMP_GetStat (`8C1EFB72`, 4 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/ADXAMP_GetStat.json`
 - case 0
@@ -141,6 +172,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### ADXB_EndDecode (`8C1FFF14`, 210 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/ADXB_EndDecode.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### ADXB_EntryAddWrFunc (`8C1FFC32`, 10 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/ADXB_EntryAddWrFunc.json`
 - case 0
@@ -166,8 +222,83 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### ADXB_EntryData (`8C1FFCB8`, 82 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/ADXB_EntryData.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### ADXB_EntryGetWrFunc (`8C1FFC28`, 10 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/ADXB_EntryGetWrFunc.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### ADXB_EvokeDecode (`8C1FFDE0`, 188 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/ADXB_EvokeDecode.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### ADXB_ExecOneAiff (`8C2079EE`, 16 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/ADXB_ExecOneAiff.json`
 - case 0
 - case 1
 - case 2
@@ -551,6 +682,13 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - clean
 - other r0
 
+### ADXF_Close (`8C1E2164`, 80 bytes, `src/port_sdk_ze.c`)
+- equivalent on 3 development and 1 holdout cases, in `tests/port_sdk_ze/ADXF_Close.json`
+- reading
+- idle
+- null
+- idle 2
+
 ### ADXF_Finish (`8C1F1B9A`, 56 bytes, `src/vtsdk_f.c`)
 - equivalent on 2 development and 1 holdout cases, in `tests/vtsdk_f/ADXF_Finish.json`
 - dirty globals
@@ -657,6 +795,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### ADXF_GetPtinfoSize (`8C1E1F18`, 10 bytes, `src/port_sdk_h.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_h/ADXF_GetPtinfoSize.json`
+- ptid 1
+- ptid 0
+
 ### ADXF_GetStat (`8C1E2654`, 28 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/ADXF_GetStat.json`
 - case 0
@@ -684,6 +827,56 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### ADXF_Init (`8C1F1B60`, 58 bytes, `src/gen_d.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_d/ADXF_Init.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### ADXF_Open (`8C1E2018`, 92 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/ADXF_Open.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### ADXF_OpenAfs (`8C1E20B8`, 96 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/ADXF_OpenAfs.json`
 - case 0
 - case 1
 - case 2
@@ -769,6 +962,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### ADXPD_EntrySte (`8C208B48`, 30 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/ADXPD_EntrySte.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### ADXPD_GetNumBlk (`8C208B9C`, 4 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/ADXPD_GetNumBlk.json`
 - case 0
@@ -827,6 +1045,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### ADXPD_SetCoef (`8C208AF6`, 24 bytes, `src/port_sdk_i.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_i/ADXPD_SetCoef.json`
+- coef
+- another
+
 ### ADXPD_SetMode (`8C208B22`, 4 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/ADXPD_SetMode.json`
 - case 0
@@ -876,6 +1099,16 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 19
 - case 20
 - case 21
+
+### ADXPD_Stop (`8C208B78`, 22 bytes, `src/port_sdk_i.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_i/ADXPD_Stop.json`
+- stop
+- another
+
+### ADXRNA_Destroy (`8C1F01F6`, 18 bytes, `src/port_sdk_i.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_i/ADXRNA_Destroy.json`
+- handle
+- another
 
 ### ADXRNA_DiscardData (`8C1F027A`, 6 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/ADXRNA_DiscardData.json`
@@ -1277,6 +1510,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### ADXRNA_SetStmHdInfo (`8C1F0290`, 20 bytes, `src/port_sdk_ze.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_ze/ADXRNA_SetStmHdInfo.json`
+- a
+- b
+
 ### ADXRNA_SetTransSw (`8C1F0214`, 6 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/ADXRNA_SetTransSw.json`
 - case 0
@@ -1359,6 +1597,13 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - with buffer
 - other buffer
 - other r0
+
+### ADXSJD_ExecHndl (`8C1F08B6`, 20 bytes, `src/port_sdk_i.c`)
+- equivalent on 3 development and 1 holdout cases, in `tests/port_sdk_i/ADXSJD_ExecHndl.json`
+- state 2: decode
+- state 1: prep
+- state 0
+- state 3
 
 ### ADXSJD_Finish (`8C1F031C`, 10 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/ADXSJD_Finish.json`
@@ -1516,6 +1761,12 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### ADXSTM_Close (`8C1F0C62`, 40 bytes, `src/port_sdk_zd.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_zd/ADXSTM_Close.json`
+- with file
+- null
+- no file
+
 ### ADXSTM_EntryEosFunc (`8C1F0D90`, 6 bytes, `src/ct_gen_a.c`)
 - equivalent on 2 development and 1 holdout cases, in `tests/ct_gen_a/ADXSTM_EntryEosFunc.json`
 - fill ff
@@ -1580,6 +1831,12 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - equivalent on 1 development and 1 holdout cases, in `tests/ct_sdk_k/ADXSTM_GetFsizeByte.json`
 - info
 - another
+
+### ADXSTM_GetFsizeSct (`8C1F0FEC`, 46 bytes, `src/port_sdk_ze.c`)
+- equivalent on 1 development and 2 holdout cases, in `tests/port_sdk_ze/ADXSTM_GetFsizeSct.json`
+- a
+- exact
+- negative
 
 ### ADXSTM_GetGdfsStat (`8C1F0FB2`, 28 bytes, `src/vtsdk_e.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/vtsdk_e/ADXSTM_GetGdfsStat.json`
@@ -1664,12 +1921,62 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### ADXSTM_Seek (`8C1F0D50`, 64 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/ADXSTM_Seek.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### ADXSTM_SetBufSize (`8C1F0F9C`, 8 bytes, `src/vtsdk_f.c`)
 - equivalent on 3 development and 1 holdout cases, in `tests/vtsdk_f/ADXSTM_SetBufSize.json`
 - basic
 - zero
 - negative
 - big
+
+### ADXSTM_SetEos (`8C1F0D96`, 32 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/ADXSTM_SetEos.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
 
 ### ADXSTM_SetReqRdSize (`8C1F0FA4`, 6 bytes, `src/ct_gen_a.c`)
 - equivalent on 2 development and 1 holdout cases, in `tests/ct_gen_a/ADXSTM_SetReqRdSize.json`
@@ -1697,6 +2004,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - ret neg
 - flag 2 ret big
 
+### ADXT_GetOutPan (`8C1E15F6`, 12 bytes, `src/port_sdk_h.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_h/ADXT_GetOutPan.json`
+- ch 1
+- ch 0, negative
+
 ### ADXT_GetStat (`8C1E1492`, 4 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/ADXT_GetStat.json`
 - case 0
@@ -1721,6 +2033,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 19
 - case 20
 - case 21
+
+### ADXT_GetTimeReal (`8C1E1540`, 42 bytes, `src/port_sdk_ze.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_ze/ADXT_GetTimeReal.json`
+- a
+- b
 
 ### ADXT_Init (`8C1E0D9A`, 50 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/ADXT_Init.json`
@@ -1755,6 +2072,61 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - ch 0 count 0
 - signed count
 - rna handle
+
+### ADXT_SetOutVol (`8C1E1602`, 18 bytes, `src/port_sdk_i.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_i/ADXT_SetOutVol.json`
+- vol -30
+- vol 0
+
+### ADX_DecodeInfo (`8C1EFE74`, 254 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/ADX_DecodeInfo.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### ADX_DecodeInfoExADPCM2 (`8C1EFF94`, 102 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/ADX_DecodeInfoExADPCM2.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
 
 ### BCDtoDEC (`8C1EE738`, 24 bytes, `src/vtsdk_b.c`)
 - equivalent on 5 development and 4 holdout cases, in `tests/vtsdk_b/BCDtoDEC.json`
@@ -1890,6 +2262,22 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### FUN_0c07bee0 (`8C0F32B0`, 130 bytes, `src/port_game_p.c`)
+- equivalent on 3 development and 2 holdout cases, in `tests/port_game_p/FUN_0c07bee0.json`
+- general
+- dz0 dx!=0
+- dz0 dx0
+- dz0 dy0
+- neg
+
+### FUN_0c07bf70 (`8C0F3340`, 130 bytes, `src/port_game_p.c`)
+- equivalent on 3 development and 2 holdout cases, in `tests/port_game_p/FUN_0c07bf70.json`
+- general
+- dz0 dx!=0
+- dz0 dx0
+- dz0 dy0
+- neg
+
 ### FUN_0c0813d0 (`8C0F7EA8`, 14 bytes, `src/gen_c.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_c/FUN_0c0813d0.json`
 - case 0
@@ -1914,6 +2302,34 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 19
 - case 20
 - case 21
+
+### FUN_0c087e1a (`8C0FEF42`, 16 bytes, `src/port_sdk_h.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_h/FUN_0c087e1a.json`
+- word 1: clears the byte
+- word 2: nothing
+- word 0
+
+### FUN_0c087e2a (`8C0FEF52`, 22 bytes, `src/port_sdk_i.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_i/FUN_0c087e2a.json`
+- word 1: 0
+- word 2, bit 6 set
+- word 0, bit clear
+
+### FUN_0c0886cc (`8C0FF8F4`, 100 bytes, `src/port_game_p.c`)
+- equivalent on 3 development and 2 holdout cases, in `tests/port_game_p/FUN_0c0886cc.json`
+- round up with carries
+- round down
+- n 1
+- carry to front
+- exactly 5
+
+### FUN_0c08933c (`8C1004BC`, 120 bytes, `src/port_game_p.c`)
+- equivalent on 3 development and 2 holdout cases, in `tests/port_game_p/FUN_0c08933c.json`
+- no borrow
+- underflow
+- zero
+- underflow signed
+- n 0
 
 ### FUN_0c089738 (`8C1008B8`, 76 bytes, `src/ct_sdk_r.c`)
 - equivalent on 3 development and 4 holdout cases, in `tests/ct_sdk_r/FUN_0c089738.json`
@@ -2095,6 +2511,13 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### FUN_0c15f49a (`8C1E659A`, 46 bytes, `src/port_sdk_l.c`)
+- equivalent on 2 development and 2 holdout cases, in `tests/port_sdk_l/FUN_0c15f49a.json`
+- equal
+- different
+- negative short
+- high bits ignored
+
 ### FUN_0c15f4c8 (`8C1E65C8`, 26 bytes, `src/ct_sdk_s.c`)
 - equivalent on 3 development and 4 holdout cases, in `tests/ct_sdk_s/FUN_0c15f4c8.json`
 - 0x45
@@ -2104,6 +2527,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - 0x80
 - 0x7F
 - 0xA3
+
+### FUN_0c15f4e2 (`8C1E65E2`, 54 bytes, `src/port_gen_p.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_p/FUN_0c15f4e2.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
 
 ### FUN_0c15f818 (`8C1E6918`, 16 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/FUN_0c15f818.json`
@@ -2205,14 +2653,123 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### FUN_0c15fa6c (`8C1E6B6C`, 38 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/FUN_0c15fa6c.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### FUN_0c15fa92 (`8C1E6B92`, 38 bytes, `src/ct_sdk_k.c`)
 - equivalent on 2 development and 1 holdout cases, in `tests/ct_sdk_k/FUN_0c15fa92.json`
 - "ab"
 - empty
 - three chars
 
+### FUN_0c15fab8 (`8C1E6BB8`, 150 bytes, `src/port_game_p.c`)
+- equivalent on 4 development and 2 holdout cases, in `tests/port_game_p/FUN_0c15fab8.json`
+- short
+- file
+- dir
+- dot
+- dotdot
+- file other
+
 ### FUN_0c1614de (`8C1E8F96`, 10 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/FUN_0c1614de.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### FUN_0c162d2c (`8C1EA7E4`, 46 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/FUN_0c162d2c.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### FUN_0c162d5e (`8C1EA816`, 44 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/FUN_0c162d5e.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### FUN_0c162d8a (`8C1EA842`, 42 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/FUN_0c162d8a.json`
 - case 0
 - case 1
 - case 2
@@ -2322,6 +2879,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### FUN_0c1689c0 (`8C1F0B04`, 8 bytes, `src/port_sdk_ze.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_ze/FUN_0c1689c0.json`
+- a
+- b
+
 ### FUN_0c1697c4 (`8C1F1908`, 42 bytes, `src/ct_gen_e.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/ct_gen_e/FUN_0c1697c4.json`
 - case 0
@@ -2347,8 +2909,254 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### FUN_0c17088c (`8C1FF1C8`, 28 bytes, `src/port_gen_s.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_s/FUN_0c17088c.json`
+- case 0
+- case 1
+- case 4
+- case 9
+- case 12
+- case 13
+- case 15
+- case 17
+- case 18
+- case 21
+- case 22
+- case 23
+- case 26
+- case 27
+- case 29
+- case 34
+- case 35
+- case 36
+- case 39
+- case 40
+- case 41
+- case 42
+
+### FUN_0c1708bc (`8C1FF1F8`, 20 bytes, `src/port_sdk_i.c`)
+- equivalent on 2 development and 2 holdout cases, in `tests/port_sdk_i/FUN_0c1708bc.json`
+- 5 bytes
+- 0 bytes
+- 1 byte
+- -3
+
+### FUN_0c1708d0 (`8C1FF20C`, 56 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/FUN_0c1708d0.json`
+- case 0
+- case 5
+- case 6
+- case 7
+- case 9
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 18
+- case 20
+- case 21
+- case 22
+- case 23
+- case 24
+- case 28
+- case 32
+- case 33
+- case 34
+- case 35
+
+### FUN_0c170908 (`8C1FF244`, 78 bytes, `src/port_gen_s.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_s/FUN_0c170908.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 5
+- case 6
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 17
+- case 18
+- case 19
+- case 23
+- case 24
+- case 25
+- case 26
+- case 27
+
+### FUN_0c170956 (`8C1FF292`, 80 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/FUN_0c170956.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### FUN_0c170a8c (`8C1FF3C8`, 188 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/FUN_0c170a8c.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### FUN_0c17190c (`8C200248`, 40 bytes, `src/ct_gen_e.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/ct_gen_e/FUN_0c17190c.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### FUN_0c171cfe (`8C20063A`, 26 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/FUN_0c171cfe.json`
+- case 0
+- case 4
+- case 6
+- case 8
+- case 10
+- case 11
+- case 13
+- case 14
+- case 15
+- case 18
+- case 19
+- case 20
+- case 21
+- case 22
+- case 23
+- case 24
+- case 25
+- case 27
+- case 32
+- case 33
+- case 34
+- case 35
+
+### FUN_0c171de4 (`8C200720`, 126 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/FUN_0c171de4.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### FUN_0c171e62 (`8C20079E`, 18 bytes, `src/port_sdk_i.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_i/FUN_0c171e62.json`
+- param
+- another
+
+### FUN_0c171f6c (`8C2008A8`, 96 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/FUN_0c171f6c.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### FUN_0c171fe8 (`8C200924`, 90 bytes, `src/port_sdk_ze.c`)
+- equivalent on 3 development and 3 holdout cases, in `tests/port_sdk_ze/FUN_0c171fe8.json`
+- 0
+- 5
+- 15
+- -3
+- 14
+- 100
+
+### FUN_0c172042 (`8C20097E`, 92 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/FUN_0c172042.json`
 - case 0
 - case 1
 - case 2
@@ -2422,6 +3230,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### FUN_0c172132 (`8C200A6E`, 72 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/FUN_0c172132.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### FUN_0c17217a (`8C200AB6`, 6 bytes, `src/ct_gen_b.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/ct_gen_b/FUN_0c17217a.json`
 - pattern ff
@@ -2437,6 +3270,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - pattern a5
 - pattern 3c
 - pattern c3
+
+### FUN_0c173328 (`8C207A08`, 548 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/FUN_0c173328.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
 
 ### FUN_8c012028 (`8C012028`, 50 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/FUN_8c012028.json`
@@ -7429,6 +8287,13 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - 2 cells
 - 0 count
 
+### SJ_SplitChunk (`8C1F3CC8`, 44 bytes, `src/port_sdk_ze.c`)
+- equivalent on 2 development and 2 holdout cases, in `tests/port_sdk_ze/SJ_SplitChunk.json`
+- split
+- short
+- zero
+- equal
+
 ### _allzero (`8C0FFFE4`, 30 bytes, `src/ct_sdk_j.c`)
 - equivalent on 2 development and 2 holdout cases, in `tests/ct_sdk_j/_allzero.json`
 - zeros
@@ -7458,6 +8323,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - none
 - another entry
 
+### adxf_ExecOne (`8C1E2448`, 68 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/adxf_ExecOne.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### adxf_wait_1ms (`8C1E1ABC`, 10 bytes, `src/ct_sdk_s.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/ct_sdk_s/adxf_wait_1ms.json`
 - spins
@@ -7473,6 +8363,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - equivalent on 1 development and 1 holdout cases, in `tests/ct_sdk_k/adxsjd_clear.json`
 - clears
 - another
+
+### adxsjd_decode_exec (`8C1F087C`, 58 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/adxsjd_decode_exec.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
 
 ### adxstm_sj_internal_error (`8C1F0DB6`, 10 bytes, `src/vtsdk_d.c`)
 - equivalent on 3 development and 1 holdout cases, in `tests/vtsdk_d/adxstm_sj_internal_error.json`
@@ -7638,6 +8553,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### buFbrDestroyServer (`8C207068`, 62 bytes, `src/port_sdk_ze.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_ze/buFbrDestroyServer.json`
+- none live
+- empty
+
 ### buFbrExit (`8C20703C`, 44 bytes, `src/port_sg_bup.c`)
 - equivalent on 4 development and 4 holdout cases, in `tests/port_sg_bup/buFbrExit.json`
 - created=0,0
@@ -7673,6 +8593,12 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 19
 - case 20
 - case 21
+
+### buFbrKillFiberLevel (`8C20710E`, 68 bytes, `src/port_sdk_ze.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_ze/buFbrKillFiberLevel.json`
+- mixed
+- none
+- all
 
 ### buFbrSleepFiber (`8C20716E`, 62 bytes, `src/vtsdk_e.c`)
 - equivalent on 4 development and 3 holdout cases, in `tests/vtsdk_e/buFbrSleepFiber.json`
@@ -7962,6 +8888,18 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### buLoadFile (`8C1E02D4`, 88 bytes, `src/port_sdk_ze.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_ze/buLoadFile.json`
+- ok
+- busy
+- ok 2
+
+### buLoadFileEx (`8C1E03E8`, 86 bytes, `src/port_sdk_ze.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_ze/buLoadFileEx.json`
+- ok
+- busy
+- ok 2
+
 ### buMount (`8C1DFBBE`, 60 bytes, `src/ct_sdk_n.c`)
 - equivalent on 2 development and 2 holdout cases, in `tests/ct_sdk_n/buMount.json`
 - ready
@@ -8038,6 +8976,62 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - busy
 - another
 
+### buRewriteExecFile (`8C1E043E`, 86 bytes, `src/port_sdk_ze.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_ze/buRewriteExecFile.json`
+- ok
+- busy
+- ok 2
+
+### buSaveExecFile (`8C1E038A`, 94 bytes, `src/port_gen_z.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_z/buSaveExecFile.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### buSaveFile (`8C1E032C`, 94 bytes, `src/port_gen_z.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_z/buSaveFile.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### buSetCallbackParam (`8C1DFBAC`, 6 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/buSetCallbackParam.json`
 - case 0
@@ -8087,6 +9081,12 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 19
 - case 20
 - case 21
+
+### buSetFileAttr (`8C1E00F0`, 96 bytes, `src/port_sdk_ze.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_ze/buSetFileAttr.json`
+- ok
+- busy
+- ok 2
 
 ### buSetPrintFunc (`8C1E051C`, 6 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/buSetPrintFunc.json`
@@ -8211,6 +9211,44 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - ready
 - busy
 - other
+
+### check_caps (`8C1EE868`, 160 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/check_caps.json`
+- case 0
+- case 4
+- case 7
+- case 10
+- case 12
+- case 14
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+- case 22
+- case 25
+- case 28
+- case 31
+- case 32
+- case 33
+- case 36
+- case 37
+- case 39
+- case 40
+- case 42
+
+### clear_file (`8C1ECFEC`, 140 bytes, `src/port_sdk_zb.c`)
+- equivalent on 3 development and 2 holdout cases, in `tests/port_sdk_zb/clear_file.json`
+- 3 blocks
+- bad chain
+- none
+- 0 blocks
+- 1 block
+
+### close_file_handle (`8C1EE658`, 8 bytes, `src/port_sdk_ze.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_ze/close_file_handle.json`
+- a
+- b
 
 ### commonLoadStart (`8C0DD7AC`, 26 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/commonLoadStart.json`
@@ -8422,6 +9460,21 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - 7
 - negative
 - 100
+
+### kdGetDriverMode (`8C1EA14A`, 110 bytes, `src/port_sdk_ze.c`)
+- equivalent on 5 development and 7 holdout cases, in `tests/port_sdk_ze/kdGetDriverMode.json`
+- 0
+- 2
+- 4
+- 6
+- 8
+- 1
+- 3
+- 5
+- 7
+- 9
+- 10
+- -1
 
 ### kdGetGunPosition (`8C1EA1BE`, 12 bytes, `src/vtsdk_f.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/vtsdk_f/kdGetGunPosition.json`
@@ -9450,6 +10503,12 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - nonempty, other layout
 - empty, third layout
 
+### memcpy2 (`8C1FFE9C`, 20 bytes, `src/port_sdk_i.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_i/memcpy2.json`
+- 3 halfwords
+- 0
+- 1
+
 ### memmove (`8C0F7EEC`, 68 bytes, `src/ct_sdk_v.c`)
 - equivalent on 3 development and 3 holdout cases, in `tests/ct_sdk_v/memmove.json`
 - same
@@ -9644,6 +10703,36 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - other base
 - big
 
+### mpdrv_set_allstatreq_ns (`8C1FE7D0`, 24 bytes, `src/port_sdk_zc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_zc/mpdrv_set_allstatreq_ns.json`
+- port 1
+- port 3
+
+### mpdrv_set_arctrl_ns (`8C1FE9E0`, 36 bytes, `src/port_sdk_zc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_zc/mpdrv_set_arctrl_ns.json`
+- a
+- b
+
+### mpdrv_set_bread_ns (`8C1FE86C`, 46 bytes, `src/port_sdk_zc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_zc/mpdrv_set_bread_ns.json`
+- a
+- b
+
+### mpdrv_set_dkill_ns (`8C1FE748`, 24 bytes, `src/port_sdk_zc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_zc/mpdrv_set_dkill_ns.json`
+- port 1
+- port 3
+
+### mpdrv_set_dreq_ns (`8C1FE704`, 24 bytes, `src/port_sdk_zc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_zc/mpdrv_set_dreq_ns.json`
+- port 1
+- port 3
+
+### mpdrv_set_dreset_ns (`8C1FE78C`, 24 bytes, `src/port_sdk_zc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_zc/mpdrv_set_dreset_ns.json`
+- port 1
+- port 3
+
 ### mpdrv_set_ft4ctrl_ns (`8C1FEA30`, 36 bytes, `src/vtsdk_a.c`)
 - equivalent on 4 development and 2 holdout cases, in `tests/vtsdk_a/mpdrv_set_ft4ctrl_ns.json`
 - 1,2
@@ -9675,6 +10764,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - other
 - port 2
 
+### mpdrv_set_transagain_ns (`8C1FE99C`, 24 bytes, `src/port_sdk_zc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_zc/mpdrv_set_transagain_ns.json`
+- port 1
+- port 3
+
 ### mpdrv_speed (`8C1FD7D2`, 10 bytes, `src/vtsdk_c.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/vtsdk_c/mpdrv_speed.json`
 - one
@@ -9682,6 +10776,17 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - neg
 - big
 - other
+
+### mpdrv_stat (`8C1FD750`, 26 bytes, `src/port_sdk_ze.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_ze/mpdrv_stat.json`
+- same
+- other
+- zero
+
+### mpdrv_swaplong (`8C206E74`, 20 bytes, `src/port_sdk_i.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_i/mpdrv_swaplong.json`
+- 2 words
+- 1 word
 
 ### mwRnaErrEntryFunc (`8C200144`, 30 bytes, `src/vtsdk_b.c`)
 - equivalent on 4 development and 2 holdout cases, in `tests/vtsdk_b/mwRnaErrEntryFunc.json`
@@ -9692,6 +10797,12 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - set big
 - set b zero
 
+### mwRnaFlush (`8C1F1FE0`, 40 bytes, `src/port_sdk_zc.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_zc/mwRnaFlush.json`
+- handle
+- null
+- already
+
 ### mwRnaGetAutoSw (`8C1F2AB6`, 42 bytes, `src/vtsdk_c.c`)
 - equivalent on 4 development and 3 holdout cases, in `tests/vtsdk_c/mwRnaGetAutoSw.json`
 - null
@@ -9701,6 +10812,24 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - zero
 - bit 3 only
 - bits 2,0
+
+### mwRnaGetFilter (`8C1F2FB6`, 40 bytes, `src/port_sdk_zc.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_zc/mwRnaGetFilter.json`
+- handle
+- null
+- handle 2
+
+### mwRnaGetFx (`8C1F2EC0`, 64 bytes, `src/port_sdk_zc.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_zc/mwRnaGetFx.json`
+- handle
+- null
+- handle 2
+
+### mwRnaGetPitch (`8C1F2F00`, 64 bytes, `src/port_sdk_zc.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_zc/mwRnaGetPitch.json`
+- handle
+- null
+- handle 2
 
 ### mwRnaGetSfreq (`8C1F2E52`, 30 bytes, `src/vtsdk_a.c`)
 - equivalent on 4 development and 2 holdout cases, in `tests/vtsdk_a/mwRnaGetSfreq.json`
@@ -9738,6 +10867,19 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - other freq
 - null other freq
 
+### mwRnaSetStartSmpl (`8C1F2BA6`, 32 bytes, `src/port_sdk_zc.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_zc/mwRnaSetStartSmpl.json`
+- handle
+- null
+- handle 2
+
+### mwRnaStop (`8C1F1F90`, 80 bytes, `src/port_sdk_ze.c`)
+- equivalent on 3 development and 1 holdout cases, in `tests/port_sdk_ze/mwRnaStop.json`
+- playing
+- stopped
+- null
+- playing 2
+
 ### mwSfdStartFrame (`8C032E7E`, 8 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/mwSfdStartFrame.json`
 - case 0
@@ -9762,6 +10904,40 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 19
 - case 20
 - case 21
+
+### mwlRnaAddFlshPos (`8C1F2264`, 48 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/mwlRnaAddFlshPos.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
+### mwlRnaIsCopyEnd (`8C1F2046`, 142 bytes, `src/port_game_p.c`)
+- equivalent on 4 development and 2 holdout cases, in `tests/port_game_p/mwlRnaIsCopyEnd.json`
+- idle
+- both done
+- second not
+- first not
+- one chan
+- none
 
 ### mwlRnaSetInitMember (`8C1F1D28`, 76 bytes, `src/ct_sdk_p.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/ct_sdk_p/mwlRnaSetInitMember.json`
@@ -9976,6 +11152,21 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - negative
 - big
 - small
+
+### nlFogDensityF (`8C0EDE80`, 66 bytes, `src/port_sdk_ze.c`)
+- equivalent on 3 development and 3 holdout cases, in `tests/port_sdk_ze/nlFogDensityF.json`
+- 1.0
+- 3.5
+- 0.25
+- 100.0
+- 0.0078125
+- 1.75
+
+### nlFogTableColor (`8C0EDDE0`, 58 bytes, `src/port_game_p.c`)
+- equivalent on 1 development and 2 holdout cases, in `tests/port_game_p/nlFogTableColor.json`
+- a
+- b
+- c
 
 ### nlFogTableOff (`8C0EDDB0`, 48 bytes, `src/port_sdk_a.c`)
 - equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_a/nlFogTableOff.json`
@@ -10582,6 +11773,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - 0.5s
 - axis
 
+### nlSec (`8C0ED390`, 48 bytes, `src/port_gen_ac.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_ac/nlSec.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+
 ### nlSetDummyTextureParameter (`8C0EA7C0`, 28 bytes, `src/port_sdk_d.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/port_sdk_d/nlSetDummyTextureParameter.json`
 - mixed
@@ -10920,6 +12136,13 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - idx2 min refs
 - idx0 refs 1
 
+### ovLibDeleteTbl (`8C1DD214`, 134 bytes, `src/port_sg_ov.c`)
+- equivalent on 3 development and 1 holdout cases, in `tests/port_sg_ov/ovLibDeleteTbl.json`
+- none
+- first
+- middle
+- last
+
 ### ovSearchLib (`8C1DD096`, 64 bytes, `src/port_sg_ov.c`)
 - equivalent on 6 development and 5 holdout cases, in `tests/port_sg_ov/ovSearchLib.json`
 - empty
@@ -10933,6 +12156,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - neg key last
 - zero key
 - dup
+
+### p2_cache_set (`8C1DF696`, 26 bytes, `src/port_gen_q.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_q/p2_cache_set.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
 
 ### padInit (`8C02F260`, 64 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/padInit.json`
@@ -11010,6 +12258,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 
+### pdGunSetFlashColor (`8C1DEF58`, 12 bytes, `src/port_sdk_zc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_zc/pdGunSetFlashColor.json`
+- a
+- b
+
 ### pdGunSetTrigger (`8C1DEFD0`, 52 bytes, `src/vtsdk_a.c`)
 - equivalent on 5 development and 3 holdout cases, in `tests/vtsdk_a/pdGunSetTrigger.json`
 - 0
@@ -11020,6 +12273,16 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - 24
 - negative
 - 7
+
+### pdSetMode (`8C1DEECC`, 12 bytes, `src/port_sdk_zc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_zc/pdSetMode.json`
+- a
+- b
+
+### pdSetOptimize (`8C1DEEDE`, 12 bytes, `src/port_sdk_zc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_zc/pdSetOptimize.json`
+- a
+- b
 
 ### pdVibGetInfo (`8C1EF7AE`, 60 bytes, `src/vtsdk_e.c`)
 - equivalent on 3 development and 3 holdout cases, in `tests/vtsdk_e/pdVibGetInfo.json`
@@ -11035,6 +12298,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - bit set
 - bit clear
 - only that bit
+
+### pdVibSetStopTime (`8C1EF5FE`, 180 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/pdVibSetStopTime.json`
+- case 0
+- case 2
+- case 3
+- case 4
+- case 5
+- case 7
+- case 9
+- case 12
+- case 15
+- case 17
+- case 18
+- case 20
+- case 22
+- case 23
+- case 24
+- case 26
+- case 27
+- case 28
+- case 29
+- case 33
+- case 37
+- case 38
 
 ### pdVmsLcdWrite (`8C1DF728`, 102 bytes, `src/port_sg_lcd.c`)
 - equivalent on 4 development and 4 holdout cases, in `tests/port_sg_lcd/pdVmsLcdWrite.json`
@@ -11083,6 +12371,13 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 19
 - case 20
 - case 21
+
+### search_fat_free_xross (`8C1EE468`, 70 bytes, `src/port_sdk_zd.c`)
+- equivalent on 3 development and 1 holdout cases, in `tests/port_sdk_zd/search_fat_free_xross.json`
+- first ok
+- none
+- one crossing
+- two crossings then none
 
 ### setBorderColor (`8C0EB200`, 26 bytes, `src/port_sdk_c.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/port_sdk_c/setBorderColor.json`
@@ -11183,6 +12478,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - 0xff
 - 0xb1
 - 47
+
+### syCfgConvLang (`8C1E0A7E`, 6 bytes, `src/port_sdk_h.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_h/syCfgConvLang.json`
+- '3'
+- 0
 
 ### syCfgExit (`8C1E09C6`, 10 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/syCfgExit.json`
@@ -11352,6 +12652,12 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - idx=40 val=0 cur=7
 - idx=2 val=9 cur=9
 
+### syRtcAicaGetCount (`8C1DF444`, 92 bytes, `src/port_sdk_ze.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/port_sdk_ze/syRtcAicaGetCount.json`
+- ok
+- fail
+- high bits
+
 ### syRtcAicaSetDateLo (`8C1DF4C8`, 38 bytes, `src/vtsdk_e.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/vtsdk_e/syRtcAicaSetDateLo.json`
 - zero
@@ -11359,6 +12665,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - minus
 - small
 - high bit
+
+### syRtcAicaSetWriteFlag (`8C1DF4A0`, 40 bytes, `src/port_sdk_zc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/port_sdk_zc/syRtcAicaSetWriteFlag.json`
+- a
+- b
 
 ### syRtcGetAndCheckCount (`8C1DF362`, 118 bytes, `src/port_sg_syrtc.c`)
 - equivalent on 6 development and 5 holdout cases, in `tests/port_sg_syrtc/syRtcGetAndCheckCount.json`
@@ -11384,6 +12695,23 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - max year
 - flag high bits only
 - flag 0xffffffff
+
+### syRtcMakeAgeOfMoon (`8C1DF550`, 72 bytes, `src/port_sdk_ze.c`)
+- equivalent on 2 development and 3 holdout cases, in `tests/port_sdk_ze/syRtcMakeAgeOfMoon.json`
+- after
+- before
+- exact
+- zero
+- max
+
+### syRtcMakeDayOfWeek (`8C1DF514`, 60 bytes, `src/port_sdk_ze.c`)
+- equivalent on 3 development and 3 holdout cases, in `tests/port_sdk_ze/syRtcMakeDayOfWeek.json`
+- (2000, 1, 1)
+- (1999, 12, 31)
+- (2024, 2, 29)
+- (1998, 11, 27)
+- (2001, 3, 1)
+- (0, 0, 0)
 
 ### syTmrInit (`8C1E8F70`, 38 bytes, `src/vtsdk_d.c`)
 - equivalent on 2 development and 1 holdout cases, in `tests/vtsdk_d/syTmrInit.json`
@@ -12005,6 +13333,31 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - run
 - r4 set
 - dirty
+
+### vmsfs_scanfile (`8C1EEFF0`, 106 bytes, `src/port_gen_y.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/port_gen_y/vmsfs_scanfile.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
 
 ### vmsfs_setretry (`8C1EA8B8`, 8 bytes, `src/gen_b.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_b/vmsfs_setretry.json`

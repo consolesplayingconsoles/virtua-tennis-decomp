@@ -1,0 +1,43 @@
+/* Ported from crazy-taxi-decomp (src/gen_z.c) by scripts/port_equiv.py: only the functions the destination has. */
+/* Straight-line functions with calls and guards (batch gen_z): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+int FUN_0c081268(int, int, int);
+int FUN_0c156742(int, int);
+int FUN_0c156934(int, int, int, int, int, int);
+int FUN_0c157160(int, int, int);
+int FUN_0c16d2c0(void);
+int kmiCopyToFrameBuffer(int, int, int, int);
+int vmsfs_c_getstate(int, int, int, int);
+int vmsfs_c_setfname(int, int, int);
+int vmsfs_c_setfunc(int, int);
+int vmsfs_c_setparam(int, int, int, int, int, int, int);
+int vmsfs_c_settime(int, int);
+
+
+void buSaveFile(int a4, int a5, int a6, int a7, int a8, int a9)
+{
+    int t0;
+
+    t0 = vmsfs_c_getstate(a4, a5, a6, a7);
+    if (t0 == 0) {
+        vmsfs_c_setfunc(a4, 0xC);
+        vmsfs_c_setparam(a4, a4, a5, a6, a7, a8, a9);
+        vmsfs_c_setfname(a4, a5, a5);
+        vmsfs_c_settime(a4, a8);
+    }
+}
+
+
+void buSaveExecFile(int a4, int a5, int a6, int a7, int a8, int a9)
+{
+    int t0;
+
+    t0 = vmsfs_c_getstate(a4, a5, a6, a7);
+    if (t0 == 0) {
+        vmsfs_c_setfunc(a4, 0xD);
+        vmsfs_c_setparam(a4, a4, a5, a6, a7, a8, a9);
+        vmsfs_c_setfname(a4, a5, a5);
+        vmsfs_c_settime(a4, a8);
+    }
+}
