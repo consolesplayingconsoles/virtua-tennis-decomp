@@ -40,7 +40,7 @@ What is known about the game's own code and data, from reading the executable. A
 
 ## Models
 
-- Flat NAOMI records, as in Crazy Taxi (`nlObjPut`). `polygon_HUMAN_human.bin` is 680 such
+- Flat NAOMI records (`nlObjPut`). `polygon_HUMAN_human.bin` is 680 such
   records back to back, no header (read with the layout below, they cover the file exactly); the executable
   points into it with uncached addresses (`0x0C680000` + offset), never `0x8C68....`.
 - Record, as `nlObjPut` (`0x8C0F25B0`) and its renderer (`0x8C0F8942`, reached through the

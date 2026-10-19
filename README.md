@@ -1,6 +1,6 @@
 # Virtua Tennis decomp
 
-![decomp progress](badge.svg?p=48.4)
+![decomp progress](badge.svg?p=48.2)
 
 **Explore this decomp project with [Shuriken Explorer](https://consolesplayingconsoles.github.io/dc-shuriken-explorer/) and see the game's models, skeletons, animations, textures, images, sounds, text and side-by-side C and assembly code directly in your browser.**
 
@@ -21,7 +21,7 @@ This decomp follows the six steps of the dc-decomp-kickoff skill, from the disc 
 | 2 | **Signature-driven baseline**          | -                         |                                    | Reads the disc, splits the executable into one assembly file per function, rebuilds it **byte for byte** with the SDK's own assembler and linker, and names every function it can match by signature.                                                                                                                      |
 | 3 | **Asset mapping**                      | -                         |                                    | Writes the text map (every string with its pointers, text per disc file), the model map, the texture list and the audio map.                                                                                                                                                                                               |
 | 4 | **Opportunity-driven optional boosts** | Varies greatly by project | The materials                      | Uses what you hand over to save work in every step after it, the earlier the better: a later port (Android is the strongest), a prototype or debug build, cheat codes, other regions, existing notes, the same game on another console, a sibling decomp. It never looks for these itself and never reads your other code. |
-| 5 | **Incremental scripted decomp**        | ~25% (higher with boosts) | SDK library sources (optional)     | Proves C for what the tools can write on their own: the SDK's own library source where you have it, then generated C, then a second pass that draws the test cases again to cover more of the original. Generated C is reported apart from hand-written C.                                                                 |
+| 5 | **Incremental script-generated decomp**        | ~25% (higher with boosts) | SDK library sources (optional)     | Proves C for what the tools can write on their own: the SDK's own library source where you have it, then generated C, then a second pass that draws the test cases again to cover more of the original. Generated C is reported apart from hand-written C.                                                                 |
 | 6 | **Experience-driven agentic decomp**   | 100%                      |                                    | Takes what is left one pocket at a time, function by function: C and test cases until each function is proven. The plan is in the repo's `AGENTS.md`.                                                                                                                                                                      |
 
 ## Supported version
@@ -71,7 +71,7 @@ Docker, `DC_LOCAL=1` runs the tools through `wibo` instead.
 | `sdk-verified.txt` | Library functions whose bytes the SDK source you supplied reproduces (written by `tools/sdk_source.py`) |
 | `sdk-source/` | The C of those library functions, from the SDK source you supplied (local, git-ignored) |
 | `AGENTS.md` | The six steps this decomp follows, and the per-function decompilation loop: Equivalent first, Matching as the bonus |
-| `tools/` | Disc reader, splitter, text mapper, model mapper, C-unit layout, progress report, missed-function finder, SH-4 disassembler and simulator, the Equivalent check (`equiv.py`) with its helpers (`checksizes.py`, `classify.py`, `poollist.py`, `port_equiv.py`), the SDK-source check (`sdk_source.py`), live checks against the running game (optional) |
+| `tools/` | Disc reader, splitter, text mapper, model mapper, C-unit layout, progress report, missed-function finder, SH-4 disassembler and simulator, the Equivalent check (`equiv.py`) with its helpers (`checksizes.py`, `classify.py`, `poollist.py`), the SDK-source check (`sdk_source.py`), live checks against the running game (optional) |
 
 `text-map/` (generated) lists the executable's strings, how much text each disc file holds, and every image file
 (`images.tsv`). Counts and lists for you to read, not a verdict.
@@ -110,10 +110,7 @@ nobody ran). `AGENTS.md` lists the six steps this decomp follows, up to 100%.
 runs each function in an SH-4 interpreter twice per test case, the original bytes and your compiled C,
 and they must agree on calls, memory writes and the result. Passing functions are listed in
 `tests/equivalent.txt` and counted as done. The loop, and how to write many of them quickly, is in
-`AGENTS.md` and the kickoff skill's `references/equivalent-pipeline.md`. Library code the game shares
-with another decomp of this skill (the NAOMI library, the C runtime) need not be rewritten:
-`python3 tools/port_equiv.py <that decomp> .` finds those functions here by their code, ports the C and
-its cases, and keeps only what `equiv.py` confirms on this game's own bytes.
+`AGENTS.md` and the kickoff skill's `references/equivalent-pipeline.md`.
 
 ## Matching C units (the build tier)
 
@@ -136,17 +133,17 @@ the evidence for each equivalent function.
 
 <!-- progress -->
 ```
-THE GAME                          3280 functions, 704346 bytes of code; each function in one bucket
-  done: equivalent C       48.4%  1587 of 3280 functions, 92160 bytes (13.1%): C that behaves like the original
+THE GAME                          3293 functions, 704346 bytes of code; each function in one bucket
+  done: equivalent C       48.2%  1588 of 3293 functions, 91562 bytes (13.0%): C that behaves like the original
     of which matching C     0.0%  0 functions, 0 bytes, 0 units: rebuilt byte for byte
     of which SDK source     8.7%  285 functions, 21770 bytes: the SDK's own source reproduces them (sdk-source/, local)
-  named only               16.0%  525 functions: a name, no C yet (not done work)
-  unnamed                  35.6%  1168 functions (FUN_...), no C yet
+  named only               15.9%  525 functions: a name, no C yet (not done work)
+  unnamed                  35.8%  1180 functions (FUN_...), no C yet
   documented               21.3%  700 named functions in docs/*.md
   named globals                   24
-  of which library                1832 functions, 184294 bytes of code: the Sega SDK, the NAOMI library and the C runtime bundled in the game
-    done                   58.2%  1066 of 1832 library functions, 58880 bytes (31.9%)
-    named                  76.1%  1395 of 1832 (the library's own names, from SDK tables)
+  of which library                1843 functions, 184294 bytes of code: the Sega SDK, the NAOMI library and the C runtime bundled in the game
+    done                   57.8%  1066 of 1843 library functions, 58282 bytes (31.6%)
+    named                  75.7%  1395 of 1843 (the library's own names, from SDK tables)
 REVERSE ENGINEERING               what the model map identifies; separate from the measures above, not done work
   models named             23.3%  874 of 3745 models: a name, or a named table or collection
   characters named        100.0%  18 of 18 characters (note rules)

@@ -1,11 +1,11 @@
-/* Small SDK functions, batch g: this game's own builds of library functions that differ from Crazy Taxi's.
+/* Small SDK functions, batch g: this game's own builds of library functions that differ from the common ones.
    Behaviour-checked only. */
 
 extern int g_0c2b31bc[3];
 extern int gRenderTextureReady;
 extern float nlSinf(float x);
 
-/* As Crazy Taxi's, then it also sets the ready flag that sits just before the table. */
+/* As the common build, then it also sets the ready flag that sits just before the table. */
 void nlRenderTextureInit(int size, int count)
 {
     int *p = (int *)((size + 31) & -32);
@@ -23,7 +23,7 @@ void nlRenderTextureInit(int size, int count)
     gRenderTextureReady = 1;
 }
 
-/* As Crazy Taxi's, but this build's constant is 1.5707964f (0x3FC90FDB), one bit above the other game's. */
+/* As the common build, but this build's constant is 1.5707964f (0x3FC90FDB), one bit above it. */
 float nlCosf(float x)
 {
     float a = x;

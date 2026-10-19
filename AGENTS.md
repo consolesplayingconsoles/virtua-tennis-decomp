@@ -19,7 +19,7 @@ each by its title before you start it (`=== Step N of 6: <title> ===`), and end 
 | 2 | Signature-driven baseline | done by the kickoff: the build matches, names applied |
 | 3 | Asset mapping | done by the kickoff |
 | 4 | Opportunity-driven optional boosts | whatever the user handed over; never look into their other code for more |
-| 5 | Incremental scripted decomp | `tools/sdk_source.py <folder>`, `python3 tools/gen_equiv`, `python3 tools/gen_equiv --retest` |
+| 5 | Incremental script-generated decomp | `tools/sdk_source.py <folder>`, `python3 tools/gen_equiv`, `python3 tools/gen_equiv --retest` |
 | 6 | Experience-driven agentic decomp | you: pocket by pocket (library without source, the game's own code, runtime routines and tables), writing cases for the branches `equiv.py` says no case ran; RAM dumps (`"dump"`) for what depends on run-time state |
 
 If you are the session that ran the kickoff and the user chose to continue, this file is your instructions. If you are a new session,
@@ -48,7 +48,7 @@ instruction no case ran is a branch nobody checked. Details: the kickoff skill's
 - `python3 tools/shdis.py <start> <end>`: SH-4 disassembly with FPU, pool values and names, to
   read the original while writing C.
 - `BASE`: the address the executable is linked at. `1ST_READ.BIN`: yours, never committed.
-- Names: `FUN_<addr>` is unknown; anything else came from SDK signatures, a sibling decomp, or
+- Names: `FUN_<addr>` is unknown; anything else came from SDK signatures or
   reading the code.
 
 ## Naming (step 2: fast, safe, worth doing first)
