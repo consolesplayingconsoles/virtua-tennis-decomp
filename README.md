@@ -1,15 +1,28 @@
-# Virtua Tennis decomp (kick-off)
+# Virtua Tennis decomp
 
 ![decomp progress](badge.svg?p=48.4)
 
 **Explore this decomp project with [Shuriken Explorer](https://consolesplayingconsoles.github.io/dc-shuriken-explorer/) and see the game's models, skeletons, animations, textures, images, sounds, text and side-by-side C and assembly code directly in your browser.**
 
-A decompilation of the Dreamcast **Virtua Tennis**, in progress. A function is **done** when its C behaves like the original (Equivalent, checked by `tools/equiv.py`); byte-identical C (Matching) is the bonus tier. It rebuilds the game's
-executable byte for byte from one assembly file per function, with 1,434 of its 3,280 functions
-named so far.
+A decompilation of the Dreamcast **Virtua Tennis**, in progress. It rebuilds the game's executable byte for byte, with
+1461 of its 3,280 functions named so far. A function is **done** when its C behaves like the original (Equivalent);
+byte-identical C (Matching) is the bonus tier.
 
 **This repository contains no game code or data.** You supply your own disc; `setup.sh` generates
 everything game-derived on your machine, and `.gitignore` keeps it out of git.
+
+## The steps
+
+This decomp follows the six steps of the dc-decomp-kickoff skill, from the disc to proven C for every function. `AGENTS.md` has the detail.
+
+| # | Step                                   | Decomp completion         | You provide                        | What it does                                                                                                                                                                                                                                                                                                               |
+|---|----------------------------------------|---------------------------|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 | **Decomp project setup**               | -                         | The disc as a `.gdi`, a Katana SDK | Installs the tools (Docker, Python 3) and checks your game disc and SDK.                                                                                                                                                                                                                                                   |
+| 2 | **Signature-driven baseline**          | -                         |                                    | Reads the disc, splits the executable into one assembly file per function, rebuilds it **byte for byte** with the SDK's own assembler and linker, and names every function it can match by signature.                                                                                                                      |
+| 3 | **Asset mapping**                      | -                         |                                    | Writes the text map (every string with its pointers, text per disc file), the model map, the texture list and the audio map.                                                                                                                                                                                               |
+| 4 | **Opportunity-driven optional boosts** | Varies greatly by project | The materials                      | Uses what you hand over to save work in every step after it, the earlier the better: a later port (Android is the strongest), a prototype or debug build, cheat codes, other regions, existing notes, the same game on another console, a sibling decomp. It never looks for these itself and never reads your other code. |
+| 5 | **Incremental scripted decomp**        | ~25% (higher with boosts) | SDK library sources (optional)     | Proves C for what the tools can write on their own: the SDK's own library source where you have it, then generated C, then a second pass that draws the test cases again to cover more of the original. Generated C is reported apart from hand-written C.                                                                 |
+| 6 | **Experience-driven agentic decomp**   | 100%                      |                                    | Takes what is left one pocket at a time, function by function: C and test cases until each function is proven. The plan is in the repo's `AGENTS.md`.                                                                                                                                                                      |
 
 ## Supported version
 
@@ -24,8 +37,7 @@ Other releases are different builds: `setup.sh` refuses them rather than produce
 
 ## Building
 
-You need: your own copy of the disc as a `.gdi` (a `.chd` converts with
-`chdman extractcd -i game.chd -o game.gdi`), Python 3, Docker, and a Katana SDK (its Hitachi
+You need: your own copy of the disc as a `.gdi` with its track files, Python 3, Docker, and a Katana SDK (its Hitachi
 assembler and linker do the build; any folder layout works).
 
 ```
@@ -50,23 +62,19 @@ Docker, `DC_LOCAL=1` runs the tools through `wibo` instead.
 | `textures.sh` | Optional: every standard texture on one page, to look through |
 | `BASE` | Link address |
 | `functions.txt` | Every function: address, size, name (`FUN_<addr>` = not named yet) |
-| `globals.txt` | Named globals: address, name |
 | `symbols.txt` | Addresses the C units use that no file defines yet (RAM, data inside asm) |
 | `sdk.txt` | The bundled Sega SDK's code (for `tools/progress.py`) |
-| `models.txt` | What is known about the game's 3D models: tables, a skeleton, texture pairs, names (read by `tools/model_map.py`) |
-| `model-map/` | The model map (generated by `setup.sh`, committed): see Model map below |
+| `models.txt` | What is known about the game's 3D models: tables whose layout is understood (read by `tools/model_map.py`) |
 | `src/` | C: Equivalent files (checked by `tools/equiv.py`, not built) and matching C units (built, see below) |
-| `tests/` | Test cases per function (`tests/<file>/<function>.json`) and `tests/equivalent.txt` |
+| `tests/` | Test cases per function (`tests/<file>/<function>.json`) and `tests/equivalent.txt`, the functions found Equivalent |
 | `docs/equivalent.md` | The evidence for each Equivalent function (written by `tools/equiv.py`) |
 | `sdk-verified.txt` | Library functions whose bytes the SDK source you supplied reproduces (written by `tools/sdk_source.py`) |
 | `sdk-source/` | The C of those library functions, from the SDK source you supplied (local, git-ignored) |
-| `AGENTS.md` | The per-function decompilation loop: Equivalent first, Matching as the bonus |
-| `docs/engine.md` | What is known about the game's code and data (loading, models, motion, input, ball) |
+| `AGENTS.md` | The six steps this decomp follows, and the per-function decompilation loop: Equivalent first, Matching as the bonus |
 | `tools/` | Disc reader, splitter, text mapper, model mapper, C-unit layout, progress report, missed-function finder, SH-4 disassembler and simulator, the Equivalent check (`equiv.py`) with its helpers (`checksizes.py`, `classify.py`, `poollist.py`, `port_equiv.py`), the SDK-source check (`sdk_source.py`), live checks against the running game (optional) |
 
-`text-map/` (generated) lists the executable's strings with every pointer to them, how much text each disc file holds
-with the code that opens it, how text is drawn, and every image file (`images.tsv`). Counts and lists for you to read,
-not a verdict.
+`text-map/` (generated) lists the executable's strings, how much text each disc file holds, and every image file
+(`images.tsv`). Counts and lists for you to read, not a verdict.
 
 ## Model map
 
@@ -77,27 +85,26 @@ banks), and, where a skeleton is known, characters assembled from their parts. I
 that stays local). Regenerate it with `python3 tools/model_map.py 1ST_READ.BIN "$(cat BASE)" functions.txt "<your disc>.gdi" model-map`.
 
 - **No setup needed to start.** With no rules the map still lists every model it recognises, grouped by the table that holds it.
-  Models in a table are found by pointer, and the file each model lives in is loaded at an address the tool works out
-  from the executable's own pointers.
 - **`models.txt` is what is known about the game's models**, one rule per line: `chars` and `structs` (tables whose
   layout is understood), `rig` / `bone` / `assemble` (a skeleton posed from a motion record), `nodes` / `nodelayout` (linked node structs in
   the executable, each character placed in its bind pose), `textures` (pairs a
   model file with a texture file of another name; matching names are found by themselves), `note`, and the two a
-  person adds by naming things: `name <file> <offset> <text>` (one model), `sound <file> <entry> <text>` (one sound) and `table <address> <group> <label>`
+  person adds by naming things: `name <file> <offset> <text>` (one model), `sound <file> <entry> <text>` (one sound), `image <file> <offset> <text>` (one picture) and `table <address> <group> <label>`
   (a whole table). The syntax is in the header of `tools/model_map.py`.
-- **Naming convention.** A row shows the name first and the id beside it, and only the id when there is no name:
-  `Axel  0x01`, `Torso  0x1D6EA8`, `0x080000`. Names are tidied the same way everywhere: words separated by single
-  spaces (underscores and camelCase become spaces), each word starting with a capital, no parentheses. Ids (hex
-  offsets, table addresses, the game's own identifiers) are not names and are never changed.
+- **Naming convention.** A row shows the name first and the id beside it, and only the id when there is no name.
+  Names are tidied the same way everywhere: words separated by single spaces (underscores and camelCase become
+  spaces), each word starting with a capital, no parentheses. Ids (hex offsets, table addresses, the game's own
+  identifiers) are never changed.
 - **Naming things.** Edit `models.txt` and rerun the tool, or use a model viewer that opens this folder and writes
-  the `name` and `table` lines for you: they go into two sorted blocks at the end of the file, so a naming session is
-  a small `git diff`. Commit the diff; the next person's map starts from your names.
-- **Textures.** Each texture list in the executable (width and height, data type, pixel format, address) is found by
-  its shape and matched to the texture file it fits exactly, so most models come with their textures.
-
-Every texture list of the common, stage, title, minigame and shop files is found by itself (a model file and the texture file of the same name); the player and outfit sets are not mapped yet.
+  the `name` and `table` lines for you, into two sorted blocks at the end of the file, so a naming session is a small
+  `git diff`. Commit the diff.
 
 ## Equivalent C and shared library code
+
+How strong an Equivalent function is depends on its test cases, so `tools/equiv.py` reports how many of the original's instructions they
+run. The original's code is kept as one assembly file per function, the baseline the build keeps checking. C written by `tools/gen_equiv` is
+the lower gate: it is generated, checked on generated cases, and then polished (`gen_equiv --retest`, and cases by hand for the branches
+nobody ran). `AGENTS.md` lists the six steps this decomp follows, up to 100%.
 
 `src/<file>.c` with no `@unit` header is C checked for behaviour only: `python3 tools/equiv.py src/<file>.c`
 runs each function in an SH-4 interpreter twice per test case, the original bytes and your compiled C,
@@ -120,8 +127,10 @@ data becomes its own piece at that range, in source order; both ranges must star
 file boundaries (add them to `functions.txt`: `F <addr> 0 FUN_<addr>` for a function start,
 `D <addr> 0 data_<addr>` for a data boundary, which is not counted as a function). A unit is one
 original source file: all its functions share literal pools, so it goes in only when all of it
-matches. `python3 tools/progress.py` reports the state in several measures: done (equivalent C; matching C and SDK source part of it), named
-functions and globals, and functions documented in `docs/*.md`.
+matches. `python3 tools/progress.py` reports the state,
+each function in one bucket: done (equivalent C; matching C and SDK source part of it), named only (a name is
+not done work), unnamed; plus documented functions and named globals. `docs/equivalent.md` holds
+the evidence for each equivalent function.
 
 ## Progress
 
@@ -151,16 +160,14 @@ Updated on every commit by `tools/hooks/pre-commit` (enable once per clone:
 
 ## Names
 
-Names come from signature matching: 1,061 matches from the Katana SDK's own libraries and
-12 from a names table since dropped (only unique matches are applied), then more from the
-NAOMI library, its sample programs and the code Crazy Taxi shares, and some from reading the
-game's code (`docs/engine.md`). 1,434 functions carry a name in all; small wrappers inherit the
-name of the function they call.
+Names come from signature matching: 1,061 matches from the Katana SDK's own libraries (only
+unique matches are applied). 1461
+functions carry a name in all, because small wrappers inherit the name of the function they call.
 
 ## How this was started
 
 This repo was autogenerated using
-[dc-decomp-kickoff](https://github.com/consolesplayingconsoles/dc-decomp-kickoff).
+[dc-decomp-kickoff](https://github.com/consolesplayingconsoles/dc-decomp-kickoff) unstable. It follows the six steps above; `AGENTS.md` says how.
 
 ## Third-party sources
 
@@ -179,4 +186,3 @@ It came out of real work on Consoles Playing Consoles. See what Pluto has helped
 
 - 📸 **Instagram:** [@consolesplayingconsoles](https://www.instagram.com/consolesplayingconsoles/)
 - 🔗 **Everything else:** [beacons.ai/consolesplayingconsoles](https://beacons.ai/consolesplayingconsoles)
-
