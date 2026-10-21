@@ -6,7 +6,8 @@
   named only (a label, not done work), unnamed. A name never counts as done.
   named        functions with a real name (functions.txt), globals with a name (globals.txt)
   documented   functions that a docs/*.md file mentions by name
-A last section, REVERSE ENGINEERING, counts what the model map (model-map/game.dcgs) identifies: models, characters,
+  with partial C   done plus the functions with C in partial/*.c that is not proven equivalent yet: its own row, done stays apart
+A last section, GAME ASSETS (EXTRA), counts what the model map (model-map/game.dcgs) identifies: models, characters,
 sounds and tables with a name. It is separate from the decomp measures and never feeds them: a name is identification,
 not done work. A row with nothing named is left out, and so is the section while all its rows are.
 Everything on the disc that is code is part of the game, the bundled library included (the Katana libraries,
@@ -41,6 +42,10 @@ def in_c(a):
 equivalent = set(open('tests/equivalent.txt').read().split()) if os.path.exists('tests/equivalent.txt') else set()
 # functions whose bytes the SDK's own source reproduces (tools/sdk_source.py, from the source the user supplied)
 verified = set(l.strip() for l in open('sdk-verified.txt') if l.strip() and not l.startswith('#')) if os.path.exists('sdk-verified.txt') else set()
+# functions whose bytes are verbatim in the SDK's compiled library code (tools/sdk_identical.py): the library's own code, not C
+identical = set(l.split()[0] for l in open('sdk-identical.txt') if l.strip() and not l.startswith('#')) if os.path.exists('sdk-identical.txt') else set()
+verified_src = set(verified)
+verified |= identical
 name_at = {a: n for a, sz, n in funcs}
 
 def is_lib(a):
@@ -55,8 +60,9 @@ def stats(sel):
     nb = sum(sz for a, sz, n in nm)
     dc = sum(1 for a, sz, n in nm if n in words)
     eq = [x for x in fs if in_c(x[0]) or x[2] in equivalent or x[2] in verified]
-    vs = [x for x in fs if x[2] in verified and not (in_c(x[0]) or x[2] in equivalent)]
-    return len(fs), code, cb, cf, len(nm), nb, dc, len(eq), sum(sz for a, sz, n in eq), len(vs), sum(sz for a, sz, n in vs)
+    vs = [x for x in fs if x[2] in verified_src and not (in_c(x[0]) or x[2] in equivalent)]
+    vi = [x for x in fs if x[2] in identical and x[2] not in verified_src and not (in_c(x[0]) or x[2] in equivalent)]
+    return len(fs), code, cb, cf, len(nm), nb, dc, len(eq), sum(sz for a, sz, n in eq), len(vs), sum(sz for a, sz, n in vs), len(vi), sum(sz for a, sz, n in vi)
 
 globals_named = sum(1 for l in open('globals.txt') if l.strip() and not l.startswith('#')) if os.path.exists('globals.txt') else 0
 import glob
@@ -71,16 +77,74 @@ k = stats(is_lib)
 is_done = lambda x: in_c(x[0]) or x[2] in equivalent or x[2] in verified
 named_only = sum(1 for x in funcs if not is_done(x) and not x[2].startswith('FUN_'))
 unnamed = sum(1 for x in funcs if not is_done(x) and x[2].startswith('FUN_'))
+# partial C: functions with C written in partial/*.c that is not proven equivalent yet. Its own row (the total with them),
+# done stays apart; the row exists only when partial/ holds some C
+partial = set()
+for pf in glob.glob('partial/*.c'):
+    text = re.sub(r'/\*.*?\*/|//[^\n]*', ' ', open(pf, errors='replace').read(), flags=re.S)
+    partial |= set(re.findall(r'^[A-Za-z_][\w \t\*]*?\b(\w+)\s*\([^;{]*\)\s*\{', text, flags=re.M))
+partial = set(x[2] for x in funcs if x[2] in partial and not is_done(x))
+# no C form: functions with an instruction this compiler has no C for (tools/classify.py); done by the proof that the instruction
+# exists, not by C. Its own row; the main number stays equivalent C
+sys.path.insert(0, here)
+import classify
+_exe = open('1ST_READ.BIN', 'rb').read()
+_base = int(open('BASE').read().strip(), 16)
+nocform = set(x[2] for x in funcs if not (in_c(x[0]) or x[2] in equivalent or x[2] in verified)
+              and classify.no_c_form(_exe, _base, x[0], x[1]))
+named_only = sum(1 for x in funcs if not is_done(x) and x[2] not in nocform and not x[2].startswith('FUN_'))   # each function in one bucket
+unnamed = sum(1 for x in funcs if not is_done(x) and x[2] not in nocform and x[2].startswith('FUN_'))
+doable = g[0] - len(nocform)                       # what can be C: the functions with no C form are not part of the equivalent C measure
+doable_bytes = g[1] - sum(x[1] for x in funcs if x[2] in nocform)
+def med(v):
+    v = sorted(v)
+    return v[len(v) // 2] if v else 0
+
+
+# the quality figure: the instructions the cases ran, of all the instructions, over every function that reached the check (weighted by size)
+_run = _all = _nfn = 0
+if os.path.exists('docs/equivalent.md'):
+    for _b in open('docs/equivalent.md').read().split('\n### ')[1:]:
+        _fn = _b.split(' ', 1)[0]
+        _m = re.search(r'the cases run (\d+) of (\d+) instructions', _b)
+        if _fn in equivalent and _m and int(_m.group(2)):
+            _run += int(_m.group(1)); _all += int(_m.group(2)); _nfn += 1
+wavg = 100.0 * _run / _all if _all else 0.0
+state_rows = []                                   # where the functions that are not done stand, from tools/remaining.py --table (it reads nothing)
+try:
+    _t = subprocess.run([sys.executable, os.path.join(here, 'remaining.py'), '--table'], capture_output=True, text=True, timeout=600).stdout.splitlines()
+    for _l in _t:
+        _m = re.match(r'^(\S.*?)\s+(\d+)\s+(\d+)$', _l)
+        if _m and _m.group(1) != 'State':
+            state_rows.append(('  ' + _m.group(1), _m.group(2), '%s bytes' % _m.group(3)))
+except Exception:
+    state_rows = []
+unnamed_all = sum(1 for x in funcs if x[2].startswith('FUN_'))              # every function still called FUN_..., done or not
 rows = [
+    ('TOTAL TEST COVERAGE', '%.1f%%' % wavg, 'the instructions the cases ran, of all instructions, over the %d functions that reached the check' % _nfn),
+    ('COUNTDOWN', '', 'what is left, counting down to zero; the percentages below say the same the other way round'),
+    ('  functions left', '%d' % (doable - g[7]), 'of the %d functions that can be C (%d with no C form are counted apart)' % (doable, len(nocform))),
+    ('  bytes left', '%d' % (doable_bytes - g[8]), 'of %d bytes of code that can be C' % doable_bytes),
+    ('  unnamed', '%d' % unnamed_all, 'functions still called FUN_... (%d of %d)' % (unnamed_all, g[0])),
+    ] + state_rows + [
     ('THE GAME', '', '%d functions, %d bytes of code; each function in one bucket' % (g[0], g[1])),
-    ('  done: equivalent C', pct(g[7], g[0]), '%d of %d functions, %d bytes (%s): C that behaves like the original'
-     % (g[7], g[0], g[8], pct(g[8], g[1]).strip())),
-    ('    of which matching C', pct(g[3], g[0]), '%d functions, %d bytes, %d units: rebuilt byte for byte'
+    ('  done: equivalent C', pct(g[7], doable), '%d of %d functions, %d bytes (%s): C that behaves like the original%s'
+     % (g[7], doable, g[8], pct(g[8], doable_bytes).strip(), (' (the %d with no C form are counted apart)' % len(nocform)) if nocform else '')),
+    ('    of which matching C', pct(g[3], doable), '%d functions, %d bytes, %d units: rebuilt byte for byte'
      % (g[3], g[2], len(units))),
-    ('    of which SDK source', pct(g[9], g[0]), '%d functions, %d bytes: the SDK\'s own source reproduces them (sdk-source/, local)'
+    ('    of which SDK source', pct(g[9], doable), '%d functions, %d bytes: the SDK\'s own source reproduces them (sdk-source/, local)'
      % (g[9], g[10])),
-    ('  named only', pct(named_only, g[0]), '%d functions: a name, no C yet (not done work)' % named_only),
-    ('  unnamed', pct(unnamed, g[0]), '%d functions (FUN_...), no C yet' % unnamed),
+    ('    of which SDK object code', pct(g[11], doable), '%d functions, %d bytes: byte-identical to the SDK library\'s own compiled code (sdk-identical.txt)'
+     % (g[11], g[12])),
+    ] + ([('  done: no C form', pct(len(nocform), g[0]), '%d functions of the %d: an instruction or a register convention with no C form (tools/classify.py names it); the rows above are of the %d that can be C' % (len(nocform), g[0], doable))] if nocform else []) + [
+    ('  size of what is done', '', 'median %d bytes; what is left: median %d bytes, %d functions of 1000 bytes or more holding %d bytes (%s of all code)'
+     % (med([x[1] for x in funcs if is_done(x)]), med([x[1] for x in funcs if not is_done(x)]),
+        sum(1 for x in funcs if not is_done(x) and x[1] >= 1000), sum(x[1] for x in funcs if not is_done(x) and x[1] >= 1000),
+        pct(sum(x[1] for x in funcs if not is_done(x) and x[1] >= 1000), g[1]).strip())),
+    ('  named only', pct(named_only, doable), '%d functions: a name, no C yet (not done work)' % named_only),
+    ('  unnamed', pct(unnamed, doable), '%d functions (FUN_...), no C yet' % unnamed),
+    ] + ([('  with partial C', pct(g[7] + len(partial), doable), '%d functions: %d done + %d partial (C written in partial/, not yet proven equivalent)'
+           % (g[7] + len(partial), g[7], len(partial)))] if partial else []) + [
     ('  documented', pct(g[6], g[0]), '%d named functions in docs/*.md' % g[6]),
     ('  named globals', '', '%d' % globals_named),
     ('  of which library', '', '%d functions, %d bytes of code: the Sega SDK, the NAOMI library and the C runtime bundled in the game' % (k[0], k[1])),
@@ -122,42 +186,62 @@ if os.path.exists('model-map/game.dcgs'):
         (len(tn), ('  tables named', pct(len(tn), len(tables)), '%d of %d model tables (table rules)' % (len(tn), len(tables)))),
     ] if n]
     if re_rows:
-        rows += [('REVERSE ENGINEERING', '', 'what the model map identifies; separate from the measures above, not done work')]
+        rows += [('GAME ASSETS (EXTRA)', '', 'reverse engineering: what the model map identifies; it does not affect the measures above and is not done work')]
         rows += [row for n, row in re_rows]
 def write_badge(rows, label, path='badge.svg'):
-    """badge.svg beside the README: the label, a bar filled to the main metric ("done: ...") and its percentage, in
-    Pluto's colours. One metric only; the number is always printed, so colour carries no meaning on its own."""
-    done = 0.0
-    for n, p, _ in rows:
-        if n.strip().startswith('done:'):
-            try:
-                done = float(p.strip().rstrip('%'))
-            except ValueError:
-                done = 0.0
-            break
-    bar = 64
+    """badge.svg beside the README, two rows in Pluto's colours: functions (a bar filled to the main metric, "done: ...", and its
+    percentage) and bytes (the game's code laid out by bytes, data left out, one column per slice, dark where most of the slice is
+    done, light where it is not, and the share of code bytes done). The same two colours mean done and not yet in both rows, and
+    the numbers are always printed."""
+    done = float(pct(g[7], doable).strip().rstrip('%')) if doable else 0.0      # the same number the 'done: equivalent C' row used to carry, straight from the counts
+    bar = 100
     wd = int(round(bar * min(done, 100.0) / 100.0))
     if done > 0 and wd < 2:
         wd = 2
-    text = '%.1f%%' % done
-    title = '%s: %s done' % (label, text)
-    svg = ('<svg xmlns="http://www.w3.org/2000/svg" width="182" height="20" role="img" aria-label="%s">'
-           '<title>%s</title><clipPath id="r"><rect width="182" height="20" rx="3"/></clipPath>'
-           '<g clip-path="url(#r)"><rect width="52" height="20" fill="#1a2233"/><rect x="52" width="130" height="20" fill="#2a3347"/>'
-           '<rect x="60" y="6" width="%d" height="8" rx="2" fill="#ecc9b9"/>'
-           '<rect x="60" y="6" width="%d" height="8" rx="2" fill="#c87053"/></g>'
+    code_total = sum(sz for _, sz, n in funcs if n not in nocform) or 1
+    dark = [0] * bar
+    pos = done_bytes = 0
+    for fa, fsz, fn in sorted(x for x in funcs if x[2] not in nocform):
+        if in_c(fa) or fn in equivalent or fn in verified:
+            done_bytes += fsz
+            for b in range(pos, pos + fsz):
+                dark[min(bar - 1, b * bar // code_total)] += 1
+        pos += fsz
+    X = 150                                        # the bars start here; the label column is wide enough for "Min. accuracy"
+    per = float(code_total) / bar
+    runs, c = [], 0
+    while c < bar:
+        on = dark[c] * 2 > per
+        e = c
+        while e < bar and (dark[e] * 2 > per) == on:
+            e += 1
+        if on:
+            runs.append('<rect x="%d" y="46" width="%d" height="8" fill="#c87053"/>' % (X + c, e - c))
+        c = e
+    strip = '<rect x="%d" y="46" width="%d" height="8" fill="#ecc9b9"/>%s' % (X, bar, ''.join(runs))
+    ftext = '%.1f%%' % done
+    btext = '%.1f%%' % (100.0 * done_bytes / code_total)
+    gtext = '%.1f%%' % wavg
+    title = '%s: %s of functions, %s of code bytes done; the total test coverage over all of them is %s' % (label, ftext, btext, gtext)
+    svg = ('<svg xmlns="http://www.w3.org/2000/svg" width="304" height="60" role="img" aria-label="%s">'
+           '<title>%s</title><clipPath id="r"><rect width="304" height="60" rx="3"/></clipPath>'
+           '<g clip-path="url(#r)"><rect width="304" height="60" fill="#1a2233"/>'
+           '<rect x="%d" y="26" width="%d" height="8" rx="2" fill="#ecc9b9"/>'
+           '<rect x="%d" y="26" width="%d" height="8" rx="2" fill="#c87053"/>%s'
+           '</g>'
            '<g fill="#fff" font-family="Verdana,DejaVu Sans,sans-serif" font-size="11" text-anchor="middle">'
-           '<text x="26" y="14">%s</text><text x="154" y="14">%s</text></g></svg>\n'
-           % (title, title, bar, wd, label, text))
+           '<text x="71" y="34">COVERED FUNCTIONS</text><text x="71" y="54">COVERED BYTES</text>'
+           '<text x="278" y="34">%s</text><text x="278" y="54">%s</text><text x="152" y="14">TOTAL TEST COVERAGE: %s</text></g></svg>\n'
+           % (title, title, X, bar, X, wd, strip, ftext, btext, gtext))
     try:
         open(path, 'w').write(svg)
     except OSError:
         pass
-    # the README's badge link carries the number (badge.svg?p=40.3): a new number is a new address, so GitHub's image cache
+    # the README's badge link carries both numbers (badge.svg?p=71.9&b=34.0): a new number is a new address, so GitHub's image cache
     # never shows an old badge
     try:
         readme = open('README.md').read()
-        fresh = re.sub(r'\(badge\.svg(\?p=[0-9.]*)?\)', '(badge.svg?p=%.1f)' % done, readme, count=1)
+        fresh = re.sub(r'\(badge\.svg(\?[^)\s]*)?\)', '(badge.svg?p=%.1f&b=%s&a=%d)' % (done, btext.rstrip('%'), int(round(wavg))), readme, count=1)
         if fresh != readme:
             open('README.md', 'w').write(fresh)
     except (IOError, OSError):
@@ -165,6 +249,33 @@ def write_badge(rows, label, path='badge.svg'):
 
 
 write_badge(rows, 'decomp')
+# what the status shows (the badge above was written from every row): the layout the README uses, one group per kind of measure
+_drop = ('THE GAME', 'done: equivalent C', 'of which matching C', 'of which SDK source', 'of which SDK object code', 'size of what is done',
+         'named only', 'with partial C', 'named globals', 'of which library', 'done', 'named')
+_shown = []
+_top = []
+for _r in rows:
+    _n = _r[0].strip()
+    if _n in _drop or (_n == 'unnamed' and not _r[2].startswith('functions still called')):
+        continue
+    if _n in ('functions left', 'bytes left'):               # the two countdown numbers sit under the threshold, each with its share complete
+        _share = pct(g[7], doable).strip() if _n == 'functions left' else pct(g[8], doable_bytes).strip()
+        _top.append((_n.upper(), _r[1], _r[2], '(%s complete)' % _share))
+        continue
+    if _n == 'COUNTDOWN':
+        _r = ('FUNCTIONS', '', '')
+    elif _n == 'done: no C form':
+        _r = ('  No C form', _r[1], re.sub(r'; the rows above are of the \d+ that can be C', '', re.sub(r'^\d+ functions of the \d+: ', '', _r[2])))
+    if _n == 'GAME ASSETS (EXTRA)':
+        _r = (_r[0], _r[1], '')                                  # the title already says it is outside the measures
+    _shown.append(_r)
+rows = _shown[:1] + _top + _shown[1:]
 w = max(len(r[0]) for r in rows)
-for name, p, detail in rows:
-    print('%-*s  %7s  %s' % (w, name, p, detail))
+w = max([w] + [len(r[0]) + 2 + len(r[3] + ' ' + r[1]) - 9 for r in rows if len(r) > 3])      # room for "(92.8% complete) 230" between a name and its description
+for row in rows:
+    name, p, detail = row[:3]
+    if len(row) > 3:                                           # "(86.4% complete) 435": the share and the number end where the numbers of the other rows end
+        cell = row[3] + ' ' + p
+        print('%s%s  %s' % (name, cell.rjust(w + 2 + 7 - len(name)), detail))
+    else:
+        print('%-*s  %7s  %s' % (w, name, p, detail))

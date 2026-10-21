@@ -26,6 +26,7 @@ A call's "poke_arg" writes those bytes at the address the named register holds w
 import json
 import math
 import os
+import re
 import struct
 import sys
 
@@ -80,6 +81,8 @@ class Memory:
         self.reads = []           # the address of every data read, in order (capped)
         self.stack = (STACK_TOP - 0x10000, STACK_TOP)
         self.device_reads = {}    # addr -> list of values to hand back, in order
+        self.seq_reads = {}       # RAM addr -> what each read returns, in order (the last value stays): a word an interrupt changes
+        self.seq_used = {}        # RAM addr -> how many reads took one of those values
 
     @staticmethod
     def phys(a):
@@ -102,6 +105,10 @@ class Memory:
         a = self.phys(addr)
         if not fetch and len(self.reads) < 4000:
             self.reads.append(a)
+        sq = self.seq_reads.get(a) if not fetch else None
+        if sq:                                   # a word that changes between reads (an interrupt, a counter): the case lists what each read returns
+            self.seq_used['%08X' % a] = self.seq_used.get('%08X' % a, 0) + 1
+            return (sq.pop(0) if len(sq) > 1 else sq[0]) & ((1 << (8 * size)) - 1)
         if a & (size - 1):
             raise Stop('unaligned %d-byte read at %08X' % (size, addr))
         page = self.pages.get(a >> 12)
@@ -140,6 +147,7 @@ class CPU:
         self.t = self.s = self.q = self.mq = 0
         self.srx = 0x40000000         # SR's other bits (MD = 1, interrupt mask 0): read by stc sr, written by ldc sr
         self.gbr = self.mach = self.macl = self.pr = self.pc = 0
+        self.vbr = 0
         self.fpul = 0
         self.fr = [0] * 16        # float32 bits, current bank
         self.xf = [0] * 16        # the other bank
@@ -147,6 +155,7 @@ class CPU:
         self.fpscr_rest = 0x00040001   # DN = 1, RM = nearest
         self.steps = 0
         self.covered = set()                  # the address of every instruction that ran
+        self.trace = None                     # with case['trace']: (pc, opcode, r0-r15, fr0-fr15) of every instruction, before it runs
         self.on_call = None       # callback(cpu, target, kind) -> True when the call was handled
         self.lo = self.hi = 0     # the function's own bytes: branches inside stay inside
         self.inside = []          # return addresses of the callees running now (deep calls)
@@ -182,9 +191,15 @@ class CPU:
     # one instruction; returns a pending branch target (delayed) or None
     def step(self, in_slot=False):
         pc = self.pc
+        if not in_slot and not self.inside and getattr(self, 'hi', None) and pc == self.hi and self.on_call:
+            # execution ran on past the function's last instruction (no return: it falls into the next function): a jump out, like a tail call
+            if self.on_call(self, pc, 'jump', pc):
+                return
         op = self.m.read(pc, 2, fetch=True)
         self.steps += 1
         self.covered.add(pc)
+        if self.trace is not None:
+            self.trace.append((pc, op, tuple(self.r), tuple(self.fr)))
         self.pc = (pc + 2) & M32
         n, m_, lo4, lo8 = (op >> 8) & 15, (op >> 4) & 15, op & 15, op & 255
         r = self.r
@@ -212,6 +227,7 @@ class CPU:
             if op == 0x0019: self.mq = self.q = self.t = 0; return
             if lo8 == 0x02: r[n] = self.sr(); return
             if lo8 == 0x12: r[n] = self.gbr; return
+            if lo8 == 0x22: r[n] = self.vbr; return                          # stc vbr,rn
             if lo8 == 0x0a: r[n] = self.mach; return
             if lo8 == 0x1a: r[n] = self.macl; return
             if lo8 == 0x2a: r[n] = self.pr; return
@@ -334,18 +350,20 @@ class CPU:
             if lo8 == 0x5a: self.fpul = x; return
             if lo8 == 0x6a: self.set_fpscr(x); return
             if lo8 == 0x1e: self.gbr = x; return
+            if lo8 == 0x2e: self.vbr = x; return                             # ldc rm,vbr
             if lo8 == 0x0e: self.set_sr(x); return                         # ldc rm,sr
-            if lo8 in (0x02, 0x12, 0x22, 0x52, 0x62, 0x13):               # sts.l / stc.l gbr
+            if lo8 in (0x02, 0x12, 0x22, 0x52, 0x62, 0x13, 0x23):         # sts.l / stc.l gbr, vbr
                 v = {0x02: self.mach, 0x12: self.macl, 0x22: self.pr, 0x52: self.fpul,
-                     0x62: self.get_fpscr(), 0x13: self.gbr}[lo8]
+                     0x62: self.get_fpscr(), 0x13: self.gbr, 0x23: self.vbr}[lo8]
                 r[n] = (x - 4) & M32; wr(r[n], 4, v); return
-            if lo8 in (0x06, 0x16, 0x26, 0x56, 0x66, 0x17):               # lds.l / ldc.l gbr
+            if lo8 in (0x06, 0x16, 0x26, 0x56, 0x66, 0x17, 0x27):         # lds.l / ldc.l gbr, vbr
                 v = rd(x, 4); r[n] = (x + 4) & M32
                 if lo8 == 0x06: self.mach = v
                 elif lo8 == 0x16: self.macl = v
                 elif lo8 == 0x26: self.pr = v
                 elif lo8 == 0x56: self.fpul = v
                 elif lo8 == 0x66: self.set_fpscr(v)
+                elif lo8 == 0x27: self.vbr = v
                 else: self.gbr = v
                 return
         elif hi == 5:
@@ -495,6 +513,12 @@ class CPU:
                 self.setf(n, math.sqrt(x) if x >= 0 else float('nan')); return
             if k == 8: self.fr[n] = 0; return                            # fldi0
             if k == 9: self.fr[n] = 0x3F800000; return                   # fldi1
+            if k == 7:                                                    # fsrra frn
+                x = self.f(n)
+                self.setf(n, 1.0 / math.sqrt(x) if x > 0 else float('inf')); return
+            if k == 0xf and (n & 1) == 0:                                 # fsca fpul,drn: sine and cosine of an angle in 1/65536 turns
+                a = 2.0 * math.pi * (self.fpul & 0xFFFF) / 65536.0
+                self.setf(n, math.sin(a)); self.setf(n + 1, math.cos(a)); return
             if k == 0xe:                                                  # fipr fvm,fvn
                 vn, vm = (n >> 2) * 4, (n & 3) * 4
                 s = sum(self.f(vm + i) * self.f(vn + i) for i in range(4))
@@ -579,6 +603,8 @@ def run(case, case_dir='.', code=None, deep=False, entry=None, end=None):
     end = end_ if end_ is not None else (code[0] + len(code[1]) if code else int(case['end'], 16))
     for a, hexbytes in case.get('poke', {}).items():
         mem.load(int(a, 16), bytes.fromhex(hexbytes))
+    for a, vals in case.get('seq_reads', {}).items():
+        mem.seq_reads[Memory.phys(int(a, 16))] = [int(v, 16) for v in vals]
     for a, vals in case.get('device_reads', {}).items():
         mem.device_reads[Memory.phys(int(a, 16))] = [int(v, 16) for v in vals]
     mem.writes.clear()
@@ -592,13 +618,24 @@ def run(case, case_dir='.', code=None, deep=False, entry=None, end=None):
             cpu.fr[int(k[2:])] = f_bits(float(v)) if not isinstance(v, str) else int(v, 16)
         elif k == 'gbr':
             cpu.gbr = int(v, 16)
+        elif k == 'vbr':
+            cpu.vbr = int(v, 16)
+        elif k.startswith('xf'):                          # the back bank (XMTRX) the function starts with
+            cpu.xf[int(k[2:])] = f_bits(float(v)) if not isinstance(v, str) else int(v, 16)
         else:
             cpu.r[int(k[1:])] = int(v, 16) & M32
     cpu.pr = SENTINEL
     cpu.pc = entry
+    if case.get('trace'):
+        cpu.trace = []
     calls = []
     returns = list(case.get('calls', []))
     entry_r15 = cpu.r[15]
+    xf_entry = list(cpu.xf)
+    given_args = {int(k[1:]) for k in case.get('regs', {}) if re.match(r'r[4-7]$', k)}   # the arguments the case passes in are the function's own
+    entry_fargs = [cpu.fr[i] for i in range(4, 12)]   # fr4-fr11 as the case gave them: a float argument register that still holds this was not set by the function
+    given_fargs = {int(k[2:]) for k in case.get('regs', {}) if re.match(r'fr(4|5|6|7|8|9|10|11)$', k)}
+    entry_args = [cpu.r[i] for i in range(4, 8)]      # r4-r7 as the case gave them: a call's argument register that still holds this was not set by the function
 
     def on_call(c, target, kind, at):
         if deep is True or (callable(deep) and deep(target)):   # True: every call; a test: those it accepts
@@ -607,12 +644,20 @@ def run(case, case_dir='.', code=None, deep=False, entry=None, end=None):
             return False
         calls.append({'to': '%08X' % (target & M32), 'kind': kind,
                       'r4-r7': ['%08X' % c.r[i] for i in range(4, 8)],
-                      'fr4-fr11': ['%08X' % c.fr[i] for i in range(4, 12)]})
+                      'fr4-fr11': ['%08X' % c.fr[i] for i in range(4, 12)],
+                      'chg': [i in given_args or c.r[i] != entry_args[i - 4] for i in range(4, 8)],
+                      'fchg': [i in given_fargs or c.fr[i] != entry_fargs[i - 4] for i in range(4, 12)],
+                      'stack': '%08X' % mem.read(c.r[15] & M32, 4)})   # the word on top of the stack: the first argument of a variadic call
+        if not returns:
+            c.r[0] = 0                           # a call the case gives no answer for returns 0 (r0 and fr0): a leftover register is not a result, on the original or on the compiled C
+            c.fr[0] = 0
         ret = returns.pop(0) if returns else {}
         for k, v in ret.get('poke_arg', {}).items():             # the callee filled an output slot
             mem.load(c.r[int(k[1:])] & M32, bytes.fromhex(v))
+        if ret.get('poke_stack'):                                # a structure returned by value: the callee fills the buffer the stack word names
+            mem.load(mem.read(c.r[15] & M32, 4) & M32, bytes.fromhex(ret['poke_stack']))
         for k, v in ret.items():
-            if k == 'poke_arg':
+            if k in ('poke_arg', 'poke_stack'):
                 continue
             if k.startswith('fr'):
                 c.fr[int(k[2:])] = f_bits(float(v)) if not isinstance(v, str) else int(v, 16)
@@ -639,8 +684,9 @@ def run(case, case_dir='.', code=None, deep=False, entry=None, end=None):
             'out': {'r0': '%08X' % cpu.r[0], 'r1': '%08X' % cpu.r[1],
                     'fr0': '%08X' % cpu.fr[0], 'fr1': '%08X' % cpu.fr[1]},
             'r15_balanced': cpu.r[15] == entry_r15,
+            'xf': ['%08X' % v for v in cpu.xf], 'xf_changed': cpu.xf != xf_entry,
             'covered': sorted(a for a in cpu.covered if entry <= a < end),
-            'reads': mem.reads}
+            'reads': mem.reads, 'seq_used': dict(mem.seq_used), 'trace': cpu.trace}
 
 
 def main(argv):

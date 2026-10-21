@@ -4,13 +4,16 @@ import gen_drv,gen_core
 Skip=gen_core.Skip
 def variants(name,passthru):
     c=gen_core.run(name,passthru)
-    if c.tail: return ['r0','void']
+    if c.tail: return ['void'] if any(r=='None' for r,f in c.rets) else ['r0','void']      # a return that leaves r0 to a helper (unknown) cannot be written as a value
     lit=lambda x:re.match(r'^(-?\d+|0x[0-9A-F]+|-?[\d.e+-]+f)$',x)
     out=[]
     if c.rets and all(f!='None' for r,f in c.rets) and not all(lit(f) for r,f in c.rets): out.append('fr0')
-    if c.rets and all(r!='None' for r,f in c.rets) and not all(lit(r) for r,f in c.rets): out.append('r0')
+    if c.rets and all(r!='None' for r,f in c.rets): out.append('r0')      # a literal return counts too: the check must compare r0 when the function sets it
     out.append('void')
     return out
+LAST={}                          # the text of the last check, for the report of what failed
+
+
 def run_file(stem,items):
     """items: list of (name,src,tests,protos). returns passed names, failed names, compile_error"""
     protos={}
@@ -46,7 +49,7 @@ def run_file_robust(stem,items):
                 if k in protos and protos[k]!=v: ok=False
             if ok: protos.update(it[3]); use.append(it)
             else: deferred.append(it)
-        head='/* scratch */\n'+gen_drv.protos_text(protos)+'\n\n'
+        head='/* scratch */\n'+gen_drv.head_protos(use)+'\n\n'
         text=head
         spans=[]
         line=head.count('\n')+1
@@ -56,7 +59,8 @@ def run_file_robust(stem,items):
         open('src/%s.c'%stem,'w').write(text)
         shutil.rmtree('tests/%s'%stem,ignore_errors=True); os.makedirs('tests/%s'%stem)
         for it in use: json.dump(it[2],open('tests/%s/%s.json'%(stem,it[0]),'w'),indent=1)
-        r=subprocess.run(['python3','tools/equiv.py','src/%s.c'%stem],capture_output=True,text=True); out=r.stdout+r.stderr
+        r=subprocess.run(['python3','tools/equiv.py','--full','src/%s.c'%stem],capture_output=True,text=True); out=r.stdout+r.stderr
+        LAST['out']=out
         if 'compile failed' in out:
             lines=[int(x) for x in re.findall(r'gen_\w+\.c\((\d+)\)',out)]
             bad=set()
@@ -64,10 +68,15 @@ def run_file_robust(stem,items):
                 for a,b,n in spans:
                     if a<=ln<b: bad.add(n)
             if not bad: return [],[],deferred,dropped,out[:500]
+            for ln in lines:
+                for a_,b_,n_ in spans:
+                    if a_<=ln<b_ and n_ in bad:
+                        m_=re.search(r'gen_\w+\.c\(%d\) : (.*)'%ln,out)
+                        LAST.setdefault('why',{}).setdefault(n_,(m_.group(1) if m_ else '?')[:100]+' [line %d: %s]'%(ln,text.split('\n')[ln-1].strip()[:80]))
             items=[it for it in items if it[0] not in bad]; dropped+=sorted(bad); continue
         if out.startswith('[ERROR') : return [],[],deferred,dropped,out[:500]
         passed=[];failed=[]
         for it in use:
             m=re.search(r'^%s\s+(\S+)'%re.escape(it[0]),out,flags=re.M)
-            (passed if m and m.group(1)=='EQUIVALENT' else failed).append(it[0])
+            (passed if m and m.group(1)=='EQUIVALENT' else failed).append(it[0])         # only a function that differs or does not compile fails
         return passed,failed,deferred,dropped,''
