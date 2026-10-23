@@ -18,13 +18,17 @@ The project's main metric ("done: equivalent C") is the FIRST row of the first s
 stays as is: Pluto's Homebrew tab finds it by that label (pluto/src/components/homebrew/decompMetric.ts,
 MAIN_METRICS) and prints and formats this report. Renaming or reordering it means updating Pluto too.
 
-It also writes badge.svg (the main metric as a bar and a number) for the top of the README; the pre-commit
-hook stages it with the Progress block.
+It also writes badges/progress.svg (the main metric as a bar and a number) for the top of the README; the pre-commit
+hook stages it with the Progress block. Once status.txt ticks BUILDS FROM C, the badge also lists the statuses in it, ticked or
+crossed; before that it shows the measures only.
 """
+import os as _tp_os, sys as _tp_sys  # noqa: E401  every tools folder on the import path (tools/toolpath.py)
+_tp_sys.path.insert(0, _tp_os.path.normpath(_tp_os.path.join(_tp_os.path.dirname(_tp_os.path.abspath(__file__)), '.')))
+import toolpath  # noqa: E402,F401
 import os, re, subprocess, sys
 
 here = os.path.dirname(os.path.abspath(__file__))
-units = [l.split() for l in subprocess.run([sys.executable, os.path.join(here, 'units.py'), '--units'],
+units = [l.split() for l in subprocess.run([sys.executable, os.path.join(here, '1-2-baseline', 'units.py'), '--units'],
                                            capture_output=True, text=True).stdout.splitlines() if l.strip()]
 funcs = [(int(l.split()[1], 16), int(l.split()[2]), l.split()[3]) for l in open('functions.txt') if l.startswith('F ')]
 total = os.path.getsize('1ST_READ.BIN')
@@ -40,9 +44,9 @@ def in_c(a):
     return any(int(s, 16) <= a < int(e, 16) for _, s, e, *o in units)
 
 equivalent = set(open('tests/equivalent.txt').read().split()) if os.path.exists('tests/equivalent.txt') else set()
-# functions whose bytes the SDK's own source reproduces (tools/sdk_source.py, from the source the user supplied)
+# functions whose bytes the SDK's own source reproduces (tools/5-generated/sdk_source.py, from the source the user supplied)
 verified = set(l.strip() for l in open('sdk-verified.txt') if l.strip() and not l.startswith('#')) if os.path.exists('sdk-verified.txt') else set()
-# functions whose bytes are verbatim in the SDK's compiled library code (tools/sdk_identical.py): the library's own code, not C
+# functions whose bytes are verbatim in the SDK's compiled library code (tools/1-2-baseline/sdk_identical.py): the library's own code, not C
 identical = set(l.split()[0] for l in open('sdk-identical.txt') if l.strip() and not l.startswith('#')) if os.path.exists('sdk-identical.txt') else set()
 verified_src = set(verified)
 verified |= identical
@@ -84,7 +88,7 @@ for pf in glob.glob('partial/*.c'):
     text = re.sub(r'/\*.*?\*/|//[^\n]*', ' ', open(pf, errors='replace').read(), flags=re.S)
     partial |= set(re.findall(r'^[A-Za-z_][\w \t\*]*?\b(\w+)\s*\([^;{]*\)\s*\{', text, flags=re.M))
 partial = set(x[2] for x in funcs if x[2] in partial and not is_done(x))
-# no C form: functions with an instruction this compiler has no C for (tools/classify.py); done by the proof that the instruction
+# no C form: functions with an instruction this compiler has no C for (tools/5-generated/classify.py); done by the proof that the instruction
 # exists, not by C. Its own row; the main number stays equivalent C
 sys.path.insert(0, here)
 import classify
@@ -110,9 +114,9 @@ if os.path.exists('docs/equivalent.md'):
         if _fn in equivalent and _m and int(_m.group(2)):
             _run += int(_m.group(1)); _all += int(_m.group(2)); _nfn += 1
 wavg = 100.0 * _run / _all if _all else 0.0
-state_rows = []                                   # where the functions that are not done stand, from tools/remaining.py --table (it reads nothing)
+state_rows = []                                   # where the functions that are not done stand, from tools/5-generated/remaining.py --table (it reads nothing)
 try:
-    _t = subprocess.run([sys.executable, os.path.join(here, 'remaining.py'), '--table'], capture_output=True, text=True, timeout=600).stdout.splitlines()
+    _t = subprocess.run([sys.executable, os.path.join(here, '5-generated', 'remaining.py'), '--table'], capture_output=True, text=True, timeout=600).stdout.splitlines()
     for _l in _t:
         _m = re.match(r'^(\S.*?)\s+(\d+)\s+(\d+)$', _l)
         if _m and _m.group(1) != 'State':
@@ -136,7 +140,7 @@ rows = [
      % (g[9], g[10])),
     ('    of which SDK object code', pct(g[11], doable), '%d functions, %d bytes: byte-identical to the SDK library\'s own compiled code (sdk-identical.txt)'
      % (g[11], g[12])),
-    ] + ([('  done: no C form', pct(len(nocform), g[0]), '%d functions of the %d: an instruction or a register convention with no C form (tools/classify.py names it); the rows above are of the %d that can be C' % (len(nocform), g[0], doable))] if nocform else []) + [
+    ] + ([('  done: no C form', pct(len(nocform), g[0]), '%d functions of the %d: an instruction or a register convention with no C form (tools/5-generated/classify.py names it); the rows above are of the %d that can be C' % (len(nocform), g[0], doable))] if nocform else []) + [
     ('  size of what is done', '', 'median %d bytes; what is left: median %d bytes, %d functions of 1000 bytes or more holding %d bytes (%s of all code)'
      % (med([x[1] for x in funcs if is_done(x)]), med([x[1] for x in funcs if not is_done(x)]),
         sum(1 for x in funcs if not is_done(x) and x[1] >= 1000), sum(x[1] for x in funcs if not is_done(x) and x[1] >= 1000),
@@ -188,7 +192,7 @@ if os.path.exists('model-map/game.dcgs'):
     if re_rows:
         rows += [('GAME ASSETS (EXTRA)', '', 'reverse engineering: what the model map identifies; it does not affect the measures above and is not done work')]
         rows += [row for n, row in re_rows]
-def write_badge(rows, label, path='badge.svg'):
+def write_badge(rows, label, path='badges/progress.svg', extra=()):
     """badge.svg beside the README, two rows in Pluto's colours: functions (a bar filled to the main metric, "done: ...", and its
     percentage) and bytes (the game's code laid out by bytes, data left out, one column per slice, dark where most of the slice is
     done, light where it is not, and the share of code bytes done). The same two colours mean done and not yet in both rows, and
@@ -223,16 +227,21 @@ def write_badge(rows, label, path='badge.svg'):
     btext = '%.1f%%' % (100.0 * done_bytes / code_total)
     gtext = '%.1f%%' % wavg
     title = '%s: %s of functions, %s of code bytes done; the total test coverage over all of them is %s' % (label, ftext, btext, gtext)
-    svg = ('<svg xmlns="http://www.w3.org/2000/svg" width="304" height="60" role="img" aria-label="%s">'
-           '<title>%s</title><clipPath id="r"><rect width="304" height="60" rx="3"/></clipPath>'
-           '<g clip-path="url(#r)"><rect width="304" height="60" fill="#1a2233"/>'
+    H = 60 + 20 * len(extra)
+    lines = ''.join('<text x="71" y="%d">%s</text><text x="278" y="%d">%s</text>' % (74 + 20 * k, t, 74 + 20 * k, v)
+                    for k, (t, v) in enumerate(extra))
+    svg = ('<svg xmlns="http://www.w3.org/2000/svg" width="304" height="%d" role="img" aria-label="%%s">' % H +
+           '<title>%%s</title><clipPath id="r"><rect width="304" height="%d" rx="3"/></clipPath>' % H +
+           '<g clip-path="url(#r)"><rect width="304" height="%d" fill="#1a2233"/>' % H +
            '<rect x="%d" y="26" width="%d" height="8" rx="2" fill="#ecc9b9"/>'
            '<rect x="%d" y="26" width="%d" height="8" rx="2" fill="#c87053"/>%s'
            '</g>'
            '<g fill="#fff" font-family="Verdana,DejaVu Sans,sans-serif" font-size="11" text-anchor="middle">'
            '<text x="71" y="34">COVERED FUNCTIONS</text><text x="71" y="54">COVERED BYTES</text>'
-           '<text x="278" y="34">%s</text><text x="278" y="54">%s</text><text x="152" y="14">TOTAL TEST COVERAGE: %s</text></g></svg>\n'
-           % (title, title, X, bar, X, wd, strip, ftext, btext, gtext))
+           '<text x="278" y="34">%s</text><text x="278" y="54">%s</text><text x="152" y="14">TOTAL TEST COVERAGE: %s</text>' + lines + '</g></svg>\n'
+           ) % (title, title, X, bar, X, wd, strip, ftext, btext, gtext)
+    import os as _os
+    _os.makedirs(_os.path.dirname(path) or '.', exist_ok=True)
     try:
         open(path, 'w').write(svg)
     except OSError:
@@ -241,14 +250,40 @@ def write_badge(rows, label, path='badge.svg'):
     # never shows an old badge
     try:
         readme = open('README.md').read()
-        fresh = re.sub(r'\(badge\.svg(\?[^)\s]*)?\)', '(badge.svg?p=%.1f&b=%s&a=%d)' % (done, btext.rstrip('%'), int(round(wavg))), readme, count=1)
+        # the README's badge (an older name too: badge.svg, badges/regular, buildable or playable) becomes this one, with its numbers
+        fresh = re.sub(r'\((badges/(?:regular|buildable|playable|progress)|badge)\.svg(\?[^)\s]*)?\)',
+                       lambda m: '(badges/progress.svg?p=%.1f&b=%s&a=%d&s=%d)' % (done, btext.rstrip('%'), int(round(wavg)), len(reached)),
+                       readme, count=1)
         if fresh != readme:
             open('README.md', 'w').write(fresh)
     except (IOError, OSError):
         pass
 
 
-write_badge(rows, 'decomp')
+def statuses(path='status.txt'):
+    """[(status, reached)] from status.txt, in its order: one status a line, "[x] NAME" reached, "[ ] NAME" not yet; # starts a
+    comment. Each status needs the ones above it, so a ticked line under an unticked one stops the report. No file: no statuses."""
+    if not os.path.exists(path):
+        return []
+    out = []
+    for i, l in enumerate(open(path), 1):
+        l = l.split('#')[0].strip()
+        if not l:
+            continue
+        m = re.match(r'^\[([ xX])\]\s+(\S.*)$', l)
+        if not m:
+            sys.exit('[ERROR] %s line %d: expected "[x] NAME" or "[ ] NAME", found: %s' % (path, i, l))
+        out.append((m.group(2).strip(), m.group(1) != ' '))
+    for k, (n, on) in enumerate(out):
+        if on and not all(o for _, o in out[:k]):
+            sys.exit('[ERROR] %s: "%s" is ticked but %s above it is not' % (path, n, ', '.join('"%s"' % x for x, o in out[:k] if not o)))
+    return out
+
+
+status = statuses()
+reached = [n for n, on in status if on]
+# the statuses show once the game builds from the C (the first status); before that the badge carries the measures only
+write_badge(rows, 'decomp', extra=[(n, '\u2705' if on else '\u274c') for n, on in status] if reached else ())
 # what the status shows (the badge above was written from every row): the layout the README uses, one group per kind of measure
 _drop = ('THE GAME', 'done: equivalent C', 'of which matching C', 'of which SDK source', 'of which SDK object code', 'size of what is done',
          'named only', 'with partial C', 'named globals', 'of which library', 'done', 'named')

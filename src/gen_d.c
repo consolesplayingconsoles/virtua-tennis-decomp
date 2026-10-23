@@ -1,13 +1,13 @@
 /* Straight-line functions with calls and guards (batch gen_d): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_0c15f4c8(int);
-int FUN_8c0828c4(int, int);
+int bcd2bin(int);
+int ndbSum16Check(int, int);
 int kmyGetFrameBufferSize(int);
 int memset(int, int, int);
 int nlObjPut(int);
 
-int FUN_8c082884(void)
+int ndbIsValid(void)
 {
     int t0;
     int t1;
@@ -15,15 +15,15 @@ int FUN_8c082884(void)
     int t3;
     int t4;
 
-    t0 = FUN_8c0828c4(0x8CA80000, 0x54);
-    t1 = FUN_8c0828c4(0x8CA88000, 0x98);
-    t2 = FUN_8c0828c4(0x8CA90000, 0x2C);
-    t3 = FUN_8c0828c4(0x8CA98000, 0x10);
-    t4 = FUN_8c0828c4(0x8CA9E620, 0x95);
+    t0 = ndbSum16Check(0x8CA80000, 0x54);
+    t1 = ndbSum16Check(0x8CA88000, 0x98);
+    t2 = ndbSum16Check(0x8CA90000, 0x2C);
+    t3 = ndbSum16Check(0x8CA98000, 0x10);
+    t4 = ndbSum16Check(0x8CA9E620, 0x95);
     return (((((0x1 * t0) * t1) * t2) * t3) * t4);
 }
 
-int FUN_8c0c405c(int a4)
+int stageEspCourtDraw(int a4)
 {
     int t0;
     int t3;
@@ -91,11 +91,11 @@ int FUN_8c1e65e2(int a4)
     int t5;
 
     t0 = *(signed char *)((a4 + 0x0));
-    t1 = FUN_0c15f4c8(t0);
+    t1 = bcd2bin(t0);
     t2 = *(signed char *)(((a4 + 0x1) + 0x0));
-    t3 = FUN_0c15f4c8(t2);
+    t3 = bcd2bin(t2);
     t4 = *(signed char *)((((a4 + 0x1) + 0x1) + 0x0));
-    t5 = FUN_0c15f4c8(t4);
+    t5 = bcd2bin(t4);
     return ((((t1 * 0x3C) + t3) * 0x4B) + t5);
 }
 

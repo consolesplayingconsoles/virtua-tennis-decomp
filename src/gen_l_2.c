@@ -9,7 +9,7 @@ int kmiTXalloc(int, int);
 int kmiVQalloc(int);
 
 
-int FUN_0c1720ac(int a4, int a5, int a6)
+int mwlSbSetFilter(int a4, int a5, int a6)
 {
     int t0;
     int t3;

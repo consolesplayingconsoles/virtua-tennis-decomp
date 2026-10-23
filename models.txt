@@ -1,4 +1,4 @@
-# Curated model tables for Virtua Tennis (USA). See tools/model_map.py for the syntax.
+# Curated model tables for Virtua Tennis (USA). See tools/3-assets/model_map.py for the syntax.
 # Texture lists are found by themselves (a model file and the texture file of the same name, and the one list in the
 # executable that fits it), except where a rule below pairs them.
 
@@ -148,3 +148,4 @@ table 0C10C72C Tables Ball_1
 table 0C10C750 Tables Ball_2
 table 0C10C774 Tables Ball_3
 table 0C11F530 Tables Court_Staff
+note POLYGON_END_ENDING.BIN 0x000000 0x000000 Tennis_Ball_3

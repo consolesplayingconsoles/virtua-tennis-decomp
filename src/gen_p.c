@@ -3,18 +3,18 @@
 
 int ADXPD_EntrySte(int, int, int, int);
 int ADXPD_Start(int);
-int FUN_0c078a70(int, int, int);
-int FUN_8c010976(int, int);
-int FUN_8c015eea(float, float, float);
-int FUN_8c02fca4(int, int, int, int);
-int FUN_8c02fea4(int, int);
-int FUN_8c08e654(int);
-int FUN_8c0c51e0(int);
-int FUN_8c0c533c(int);
-int FUN_8c0d6e16(int, int);
-int FUN_8c0de088(int, int, int, float, float, float);
-int FUN_8c1e8124(void);
-int FUN_8c1f3114(void);
+int nlAddVector3op(int, int, int);
+int set_event2(int, int);
+int vecMake(float, float, float);
+int padLcdLine(int, int, int, int);
+int padLcdProject(int, int);
+int sprTexLoad(int);
+int sprSet163Setup(int);
+int sprSet173Setup(int);
+int strmVoicePlay(int, int);
+int sprListPut(int, int, int, float, float, float);
+int syCachePurgeAll(void);
+int SJMEM_Lock(void);
 int SJMEM_Unlock(int, int);
 extern float _builtin_fipr(float *, float *);
 extern void _builtin_ftrv(float *, float *);
@@ -40,67 +40,67 @@ int nlsndSeqRequest(int);
 int ovLockCs_8c200114(int);
 int ovUnlockCs_8c20012c(int);
 int set_event(int, int);
-void FUN_8c1003f0(int a4, int a5, int a6);
-int FUN_8c0e6362(float f4);
-int FUN_8c0eaa30(int a4, int a5);
+void _lsfts(int a4, int a5, int a6);
+int titleSprBlinkPut(float f4);
+int nlSetPaletteMap(int a4, int a5);
 int nlArcSin(float f4);
-int FUN_8c0f31f0(int a4);
+int nlLineCalcFogA(int a4);
 int kmytex_FBAllocEntry(void);
-int FUN_8c0160e6(int a4, int a5, int a6);
-int FUN_8c0da0d4(int a4, int a5, float f4);
-int FUN_8c0dd9b0(void);
-int FUN_8c0ebc20(void);
-int FUN_8c0f7870(int a4);
+int mtxGetPos(int a4, int a5, int a6);
+int evSprAnimStart(int a4, int a5, float f4);
+int commonViewInit(void);
+int nlSysMetricsInit(void);
+int nlChgModelPolyAttrOn(int a4);
 int kmSetFogTable(int a4);
 int mwRnaExecServer(void);
-int FUN_8c0160a0(float f4, float f5, float f6, float f7);
-int FUN_8c0176bc(int a4, int a5);
-int FUN_8c0b141c(int a4);
-int FUN_8c0d773c(int a4);
+int vecDistXZf(float f4, float f5, float f6, float f7);
+int sprCellInit(int a4, int a5);
+int padDirAny(int a4);
+int strmCallName(int a4);
 int SJUNI_GetNumData(int a4, int a5);
-int FUN_8c0c5e40(int a4, int a5);
-int FUN_8c0d93dc(void);
-int FUN_8c087944(int a4);
-int FUN_8c089280(int a4, int a5);
-int FUN_8c0eb5b0(int a4);
-void FUN_8c1e7936(void);
-int FUN_8c0b0234(int a4, int a5, int a6, int a7);
-float FUN_8c0ef9f0(int a4);
+int uniformSlotReset(int a4, int a5);
+int evCrowdClapStart(void);
+int ambDimStart(int a4);
+int exprPlayC(int a4, int a5);
+int nlSysSetDirectListTypeLatency2V(int a4);
+void syCacheFinish_P2_(void);
+int entrySetSlot(int a4, int a5, int a6, int a7);
+float nlMultiMatrixRevOrder(int a4);
 int nlPopMatrix(int a4);
 int nlsndStreamStart(int a4);
 int SJMEM_PutChunk(int a4, int a5, int a6);
 int kmyWritePaletteDMA(void);
 int syG2DmaSuspend(int a4);
-int FUN_8c0134b6(int a4, int a5, int a6);
-int FUN_8c0bd03a(int a4, int a5, int a6);
-int FUN_8c0c4fac(void);
-int FUN_8c0d1b20(void);
-int FUN_8c100c54(int a4, int a5, int a6);
+int dbgMenuSetValue(int a4, int a5, int a6);
+int emotKeyCopy(int a4, int a5, int a6);
+int sprSet115Load(void);
+int seNetHit(void);
+int _add(int a4, int a5, int a6);
 int _pd_peripheral_set_null(int a4);
 int kmSetColorClampValue(int a4, int a5, int a6, int a7, int a8, int a9);
-int FUN_8c1efa54(void);
-void FUN_8c02fe4c(int a4);
+int ADXAMP_Init(void);
+void padLcdLineTo3D(int a4);
 void nlQuickInvertMatrix(void);
-void FUN_8c01651a(int a4, int a5, int a6, int a7, int a8);
+void camGetPos(int a4, int a5, int a6, int a7, int a8);
 int kmyInitializeDriver(void);
-int FUN_0c17472e(void);
-int FUN_8c011ff0(int a4, int a5);
+int syIntAdrChk_getchar(void);
+int shadowVolExtrude(int a4, int a5);
 int nlFloor(float f4);
-void FUN_8c0f1b10(int a4);
-int FUN_8c1e2de4(int a4, int a5);
+void nlLoadRechangeMatrix(int a4);
+int SearchUsed(int a4, int a5);
 int get_data(int a4);
-int FUN_8c013394(int a4, int a5, int a6);
-int FUN_8c0eab50(void);
+int dbgMenuSetTitle(int a4, int a5, int a6);
+int sys_init(void);
 int ADXB_EvokeExpandSte(int a4, int a5);
-int FUN_8c0131e4(void);
-int FUN_8c0c5286(int a4);
-int FUN_8c0c542c(int a4);
-int FUN_8c0e8f08(int a4);
-float FUN_8c0ef9b0(int a4);
-float FUN_8c0f31b0(int a4, int a5, int a6);
+int dbgMenuDrawPage(void);
+int sprSet163Load(int a4);
+int sprSet173Load(int a4);
+int resCautionRead(int a4);
+float nlMultiMatrixRevOrder8(int a4);
+float nlLineClipPoint(int a4, int a5, int a6);
 int _pd_peripheral_error(int a4, int a5, int a6);
 
-void FUN_8c1003f0(int a4, int a5, int a6)
+void _lsfts(int a4, int a5, int a6)
 {
     int t11;
     int t0;
@@ -139,7 +139,7 @@ void FUN_8c1003f0(int a4, int a5, int a6)
     }
 }
 
-int FUN_8c0e6362(float f4)
+int titleSprBlinkPut(float f4)
 {
     int t0;
     int t1;
@@ -154,14 +154,14 @@ int FUN_8c0e6362(float f4)
     if ((int)t1 < (int)0x1E) {
         u2 = *(float *)0x8C0E643C;
         u3 = *(float *)0x8C0E6440;
-        FUN_8c015eea(u3, f4, u2);
-        t5 = FUN_8c0de088(0x8C1D8658, 0x3, 0xFF000000, 1.0f, 1.0f, 1.0f);
+        vecMake(u3, f4, u2);
+        t5 = sprListPut(0x8C1D8658, 0x3, 0xFF000000, 1.0f, 1.0f, 1.0f);
         t6 = t5;
     }
     return t6;
 }
 
-int FUN_8c0eaa30(int a4, int a5)
+int nlSetPaletteMap(int a4, int a5)
 {
     return ((int (*)(int, int, int, int))(0x8C0EAA90))((((int)(a4 & 0xF) >= 0) ? (0x1 << ((a4 & 0xF) & 31)) : ((-(int)(a4 & 0xF) & 31) ? ((int)0x1 >> (-(int)(a4 & 0xF) & 31)) : ((int)0x1 >> 31))), ((int)(a5 + 0xF) >> 4), ((((int)a4 >> 4) << 1) + 0x8C424204), 0x1);
 }
@@ -183,7 +183,7 @@ int nlArcSin(float f4)
     return ((int (*)(float))(0x8C0ECC90))(f4);
 }
 
-int FUN_8c0f31f0(int a4)
+int nlLineCalcFogA(int a4)
 {
     float u0;
     float u1;
@@ -229,7 +229,7 @@ int kmytex_FBAllocEntry(void)
     return ((int (*)(int, int, int, int))(0x8C1F92C6))(0x8C20C9C8, 0x0, 0x1, t0);
 }
 
-int FUN_8c0160e6(int a4, int a5, int a6)
+int mtxGetPos(int a4, int a5, int a6)
 {
     float u0;
     int t1;
@@ -252,7 +252,7 @@ int FUN_8c0160e6(int a4, int a5, int a6)
     t2 = *(int *)(((int)stk + 8));
     u3 = *(float *)((t1 + 0x0));
     u4 = *(float *)((t2 + 0x0));
-    FUN_8c015eea(u4, u3, u0);
+    vecMake(u4, u3, u0);
     nlCalcPoint(0x8C1016D4, (((int)stk + 4) + 0x10));
     t7 = *(int *)(((int)stk + 8));
     u8 = *(float *)(((int)stk + 20));
@@ -266,14 +266,14 @@ int FUN_8c0160e6(int a4, int a5, int a6)
     return 0x18;
 }
 
-int FUN_8c0da0d4(int a4, int a5, float f4)
+int evSprAnimStart(int a4, int a5, float f4)
 {
     int t0;
     float u1;
     float u2;
     float u3;
 
-    t0 = FUN_8c010976(0x24, 0x8C0D9F74);
+    t0 = set_event2(0x24, 0x8C0D9F74);
     u1 = *(float *)0x8C0DA2E8;
     u2 = *(float *)0x8C23D204;
     *(unsigned int *)((t0 + 0x18)) = (int)((f4 * u1) / u2);
@@ -284,7 +284,7 @@ int FUN_8c0da0d4(int a4, int a5, float f4)
     return 0x8;
 }
 
-int FUN_8c0dd9b0(void)
+int commonViewInit(void)
 {
     *(unsigned int *)0x8C40C5D4 = 0x8B;
     *(unsigned int *)0x8C40C5FC = 0x0;
@@ -303,7 +303,7 @@ int FUN_8c0dd9b0(void)
     return 0x2C;
 }
 
-int FUN_8c0ebc20(void)
+int nlSysMetricsInit(void)
 {
     int t0;
     float u1;
@@ -323,7 +323,7 @@ int FUN_8c0ebc20(void)
     return 0x1E;
 }
 
-int FUN_8c0f7870(int a4)
+int nlChgModelPolyAttrOn(int a4)
 {
     int t0;
     int t1;
@@ -405,7 +405,7 @@ int mwRnaExecServer(void)
     return t11;
 }
 
-int FUN_8c0160a0(float f4, float f5, float f6, float f7)
+int vecDistXZf(float f4, float f5, float f6, float f7)
 {
     float u0;
     float u2;
@@ -417,15 +417,15 @@ int FUN_8c0160a0(float f4, float f5, float f6, float f7)
     *(float *)(((int)stk + 12)) = f6;
     *(float *)(((int)stk + 16)) = f7;
     u0 = *(float *)(((int)stk + 20));
-    FUN_8c015eea(f4, 0.0f, u0);
+    vecMake(f4, 0.0f, u0);
     u2 = *(float *)(((int)stk + 16));
     u3 = *(float *)(((int)stk + 12));
-    FUN_8c015eea(u3, 0.0f, u2);
+    vecMake(u3, 0.0f, u2);
     t5 = nlLength((((int)stk + 4) + 0x20), (((int)stk + 4) + 0x14));
     return t5;
 }
 
-int FUN_8c0176bc(int a4, int a5)
+int sprCellInit(int a4, int a5)
 {
     *(unsigned int *)((a4 + 0x0)) = a5;
     *(unsigned int *)((a4 + 0x28)) = 0x0;
@@ -446,7 +446,7 @@ int FUN_8c0176bc(int a4, int a5)
     return 0x2C;
 }
 
-int FUN_8c0b141c(int a4)
+int padDirAny(int a4)
 {
     int t0;
     int t1;
@@ -488,7 +488,7 @@ int FUN_8c0b141c(int a4)
     return 0x1;
 }
 
-int FUN_8c0d773c(int a4)
+int strmCallName(int a4)
 {
     int t0;
     int t1;
@@ -502,7 +502,7 @@ int FUN_8c0d773c(int a4)
         t2 = *(int *)((0x8C1D4770 + (t1 << 2)));
         t3 = *(int *)(((0xC58 + ((a4 * 0xD78) + 0x8C287D84)) + 0x0));
         t4 = *(int *)((((t3 << 2) + (0x8C125FB8 + (((((t2 << 2) << 1) + t2) << 2) << 1))) + 0x0));
-        return FUN_8c0d6e16(0x9, t4);
+        return strmVoicePlay(0x9, t4);
     }
     return 0xC58;
 }
@@ -557,7 +557,7 @@ int SJUNI_GetNumData(int a4, int a5)
     return 0x0;
 }
 
-int FUN_8c0c5e40(int a4, int a5)
+int uniformSlotReset(int a4, int a5)
 {
     int t0;
     int t1;
@@ -581,7 +581,7 @@ int FUN_8c0c5e40(int a4, int a5)
     return 0x1C;
 }
 
-int FUN_8c0d93dc(void)
+int evCrowdClapStart(void)
 {
     int t0;
     int t1;
@@ -630,7 +630,7 @@ int FUN_8c0d93dc(void)
     return t29;
 }
 
-int FUN_8c087944(int a4)
+int ambDimStart(int a4)
 {
     int t0;
 
@@ -644,7 +644,7 @@ int FUN_8c087944(int a4)
     return 0x18;
 }
 
-int FUN_8c089280(int a4, int a5)
+int exprPlayC(int a4, int a5)
 {
     int t0;
     int t1;
@@ -659,7 +659,7 @@ int FUN_8c089280(int a4, int a5)
     return 0xC58;
 }
 
-int FUN_8c0eb5b0(int a4)
+int nlSysSetDirectListTypeLatency2V(int a4)
 {
     if (a4 != 0) {
         if (a4 != 2) {
@@ -673,7 +673,7 @@ int FUN_8c0eb5b0(int a4)
     return ((int (*)(int, int))(0x8C0EB5F2))(a4, 0x0);
 }
 
-void FUN_8c1e7936(void)
+void syCacheFinish_P2_(void)
 {
     int t0;
     int t2;
@@ -684,14 +684,14 @@ void FUN_8c1e7936(void)
     t0 = _builtin_get_imask();
     *(unsigned short *)(((int)stk + 4)) = t0;
     _builtin_set_imask(0xF);
-    FUN_8c1e8124();
+    syCachePurgeAll();
     t2 = *(int *)(((int)stk + 8));
     *(unsigned int *)0xFF00001C = t2;
     t3 = *(short *)(((int)stk + 4));
     _builtin_set_imask(((unsigned int)(((t3 & 0xF) << 2) << 2) >> 4));
 }
 
-int FUN_8c0b0234(int a4, int a5, int a6, int a7)
+int entrySetSlot(int a4, int a5, int a6, int a7)
 {
     *(unsigned int *)(((0x8C343264 + (a4 * 0x38)) + 0x0)) = a5;
     *(unsigned int *)(((0x8C343264 + (a4 * 0x38)) + 0x4)) = a7;
@@ -702,7 +702,7 @@ int FUN_8c0b0234(int a4, int a5, int a6, int a7)
     return ((a4 * 0x38) + 0x8C343264);
 }
 
-float FUN_8c0ef9f0(int a4)
+float nlMultiMatrixRevOrder(int a4)
 {
     float u0;
     float u1;
@@ -985,7 +985,7 @@ int SJMEM_PutChunk(int a4, int a5, int a6)
     int t3;
     int t4;
 
-    t0 = FUN_8c1f3114();
+    t0 = SJMEM_Lock();
     if (a5 != 0) {
         if (a5 != 1) {
             *(unsigned int *)((a6 + 0x4)) = 0x0;
@@ -1023,7 +1023,7 @@ int syG2DmaSuspend(int a4)
     return 0x0;
 }
 
-int FUN_8c0134b6(int a4, int a5, int a6)
+int dbgMenuSetValue(int a4, int a5, int a6)
 {
     int t0;
     int t2;
@@ -1048,7 +1048,7 @@ int FUN_8c0134b6(int a4, int a5, int a6)
     return (((((a5 << 1) + a5) << 2) << 1) + ((a4 * 0x1F0) + 0x8C285E4C));
 }
 
-int FUN_8c0bd03a(int a4, int a5, int a6)
+int emotKeyCopy(int a4, int a5, int a6)
 {
     int t0;
     float u1;
@@ -1063,7 +1063,7 @@ int FUN_8c0bd03a(int a4, int a5, int a6)
     return 0x8;
 }
 
-int FUN_8c0c4fac(void)
+int sprSet115Load(void)
 {
     int t0;
     int t1;
@@ -1078,7 +1078,7 @@ int FUN_8c0c4fac(void)
         for (;;) {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c08e654(t3);
+            sprTexLoad(t3);
             t1 = (t1 + 0x1);
             if ((unsigned int)t1 >= (unsigned int)0x7) {
                 break;
@@ -1090,7 +1090,7 @@ int FUN_8c0c4fac(void)
     return ((int (*)(void))(0x8C0C4BF0))();
 }
 
-int FUN_8c0d1b20(void)
+int seNetHit(void)
 {
     int t0;
     int t1;
@@ -1118,7 +1118,7 @@ int FUN_8c0d1b20(void)
     return 0;
 }
 
-int FUN_8c100c54(int a4, int a5, int a6)
+int _add(int a4, int a5, int a6)
 {
     int t0;
     int t1;
@@ -1195,7 +1195,7 @@ int kmSetColorClampValue(int a4, int a5, int a6, int a7, int a8, int a9)
     return ((int (*)(int, int, int, int))(0x8C1E63D0))(0x8C471E18, 0x20, 0x8, 0x1);
 }
 
-int FUN_8c1efa54(void)
+int ADXAMP_Init(void)
 {
     int t0;
     int t1;
@@ -1212,7 +1212,7 @@ int FUN_8c1efa54(void)
     return t2;
 }
 
-void FUN_8c02fe4c(int a4)
+void padLcdLineTo3D(int a4)
 {
     int t0;
     int t1;
@@ -1230,9 +1230,9 @@ void FUN_8c02fe4c(int a4)
     *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
     t2 = *(int *)((a4 + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    FUN_8c02fea4(0x8C2FBC04, (((int)stk + 4) + 0x10));
+    padLcdProject(0x8C2FBC04, (((int)stk + 4) + 0x10));
     t4 = *(int *)0x8C2FBC44;
-    FUN_8c02fca4(t4, 0x8C2FBBF8, (((int)stk + 4) + 0x10), 0x1);
+    padLcdLine(t4, 0x8C2FBBF8, (((int)stk + 4) + 0x10), 0x1);
     t6 = *(int *)(((((int)stk + 4) + 0x10) + 0x8));
     *(unsigned int *)0x8C2FBC00 = t6;
     t7 = *(int *)(((((int)stk + 4) + 0x10) + 0x4));
@@ -1315,7 +1315,7 @@ void nlQuickInvertMatrix(void)
     _builtin_ld_ext((float (*)[4])u16);
 }
 
-void FUN_8c01651a(int a4, int a5, int a6, int a7, int a8)
+void camGetPos(int a4, int a5, int a6, int a7, int a8)
 {
     int t4;
     int t5;
@@ -1324,7 +1324,7 @@ void FUN_8c01651a(int a4, int a5, int a6, int a7, int a8)
 
     nlPushMatrix(0x0);
     nlLoadMatrix(0x8C287978);
-    FUN_8c0160e6(((int)stk + 4), (((int)stk + 4) + 0x4), (((int)stk + 4) + 0x8));
+    mtxGetPos(((int)stk + 4), (((int)stk + 4) + 0x4), (((int)stk + 4) + 0x8));
     nlPopMatrix(0x1);
     t4 = *(int *)((((int)stk + 4) + 0x8));
     *(unsigned int *)((a8 + 0x8)) = t4;
@@ -1351,7 +1351,7 @@ int kmyInitializeDriver(void)
     return 0x0;
 }
 
-int FUN_0c17472e(void)
+int syIntAdrChk_getchar(void)
 {
     int t0;
     int t1;
@@ -1389,7 +1389,7 @@ int FUN_0c17472e(void)
     return t16;
 }
 
-int FUN_8c011ff0(int a4, int a5)
+int shadowVolExtrude(int a4, int a5)
 {
     int t0;
     float u2;
@@ -1406,7 +1406,7 @@ int FUN_8c011ff0(int a4, int a5)
     nlScaleUnitVector((((int)stk + 4) + 0x8), (((int)stk + 4) + 0x8), u2);
     t4 = *(int *)(((int)stk + 4));
     t5 = *(int *)(((int)stk + 8));
-    t6 = FUN_0c078a70(t5, t4, (((int)stk + 4) + 0x8));
+    t6 = nlAddVector3op(t5, t4, (((int)stk + 4) + 0x8));
     return t6;
 }
 
@@ -1427,7 +1427,7 @@ int nlFloor(float f4)
     return 0x8C0ED0E8;
 }
 
-void FUN_8c0f1b10(int a4)
+void nlLoadRechangeMatrix(int a4)
 {
     float u0;
     float u1;
@@ -1483,7 +1483,7 @@ void FUN_8c0f1b10(int a4)
     _builtin_ld_ext((float (*)[4])u16);
 }
 
-int FUN_8c1e2de4(int a4, int a5)
+int SearchUsed(int a4, int a5)
 {
     int t0;
     int t3;
@@ -1552,7 +1552,7 @@ int get_data(int a4)
     return ((int (*)(int, int, int))(0x8C1FE2AA))(a4, 0x0, 0x1);
 }
 
-int FUN_8c013394(int a4, int a5, int a6)
+int dbgMenuSetTitle(int a4, int a5, int a6)
 {
     int t0;
     int t1;
@@ -1581,7 +1581,7 @@ int FUN_8c013394(int a4, int a5, int a6)
     return 0x1E0;
 }
 
-int FUN_8c0eab50(void)
+int sys_init(void)
 {
     *(unsigned int *)0xFFA00020 = 0x0;
     *(unsigned int *)0xFFA0002C = 0x1201;
@@ -1606,12 +1606,12 @@ int ADXB_EvokeExpandSte(int a4, int a5)
     return ADXPD_Start(t2);
 }
 
-int FUN_8c0131e4(void)
+int dbgMenuDrawPage(void)
 {
     return ((int (*)(void))(0x8C013380))();
 }
 
-int FUN_8c0c5286(int a4)
+int sprSet163Load(int a4)
 {
     int t0;
     int t4;
@@ -1621,16 +1621,16 @@ int FUN_8c0c5286(int a4)
     t4 = 0x8C1AED20;
     if (t0 == 0) {
         t1 = *(int *)(((a4 << 2) + 0x8C124884));
-        FUN_8c08e654(t1);
+        sprTexLoad(t1);
         *(unsigned int *)(((a4 << 2) + 0x8C1AED20)) = 0x1;
-        FUN_8c0c51e0(a4);
+        sprSet163Setup(a4);
         *(unsigned int *)(((a4 << 2) + 0x8C1AED48)) = 0x1;
         t4 = 0x8C1AED48;
     }
     return t4;
 }
 
-int FUN_8c0c542c(int a4)
+int sprSet173Load(int a4)
 {
     int t0;
     int t1;
@@ -1638,14 +1638,14 @@ int FUN_8c0c542c(int a4)
     t0 = *(int *)(((a4 << 2) + 0x8C1AED70));
     if (t0 == 0) {
         t1 = *(int *)(((a4 << 2) + 0x8C1248CC));
-        FUN_8c08e654(t1);
+        sprTexLoad(t1);
         *(unsigned int *)(((a4 << 2) + 0x8C1AED70)) = 0x1;
-        return FUN_8c0c533c(a4);
+        return sprSet173Setup(a4);
     }
     return 0x8C1AED70;
 }
 
-int FUN_8c0e8f08(int a4)
+int resCautionRead(int a4)
 {
     int t0;
     int t2;
@@ -1660,7 +1660,7 @@ int FUN_8c0e8f08(int a4)
     return fileLoadPollSlot(0x4);
 }
 
-float FUN_8c0ef9b0(int a4)
+float nlMultiMatrixRevOrder8(int a4)
 {
     float u0;
     float u1;
@@ -1815,7 +1815,7 @@ float FUN_8c0ef9b0(int a4)
     return u1;
 }
 
-float FUN_8c0f31b0(int a4, int a5, int a6)
+float nlLineClipPoint(int a4, int a5, int a6)
 {
     float u0;
     float u1;

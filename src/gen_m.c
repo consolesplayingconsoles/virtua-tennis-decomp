@@ -1,14 +1,14 @@
 /* Straight-line functions with calls and guards (batch gen_m): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c0d773c(int);
-int FUN_8c0df92a(void);
+int strmCallName(int);
+int eepromGetDeuceMode(void);
 extern void _builtin_prefetch(void *);
 int kmiFLWCTRLCheckVBufOverflow(int, int, int, int);
-int FUN_8c0d729c(int a4, int a5, int a6);
+int strmUmpireCall(int a4, int a5, int a6);
 int kmiFLWCTRLFinalizePass(int a4);
 
-int FUN_8c0d729c(int a4, int a5, int a6)
+int strmUmpireCall(int a4, int a5, int a6)
 {
     int t0;
     int t1;
@@ -196,7 +196,7 @@ int FUN_8c0d729c(int a4, int a5, int a6)
                 if (t46 == 3) {
                     t47 = 0x0;
                 }
-                return FUN_8c0d773c(t47);
+                return strmCallName(t47);
             }
             return ((int (*)(int, int, int, int))(0x8C0D7492))(a4, ((t2 << 2) + 0x8C1D4770), 0x8C1D4800, 0x8C287ACC);
         }
@@ -223,10 +223,10 @@ int FUN_8c0d729c(int a4, int a5, int a6)
                 if (t56 == 3) {
                     t57 = 0x0;
                 }
-                return FUN_8c0d773c(t57);
+                return strmCallName(t57);
             }
             if (a5 == 3) {
-                t59 = FUN_8c0df92a();
+                t59 = eepromGetDeuceMode();
                 if ((unsigned char)t59 == 0) {
                     t60 = *(int *)0x8C1891E8;
                     t61 = *(int *)(((t60 << 2) + 0x8C1D4770));
@@ -324,7 +324,7 @@ int FUN_8c0d729c(int a4, int a5, int a6)
             if (t120 == 3) {
                 t121 = 0x0;
             }
-            return FUN_8c0d773c(t121);
+            return strmCallName(t121);
         }
         return ((int (*)(int, int, int, int))(0x8C0D7492))(a4, ((t76 << 2) + 0x8C1D4770), 0x8C1D4800, 0x8C287ACC);
     }
@@ -351,10 +351,10 @@ int FUN_8c0d729c(int a4, int a5, int a6)
             if (t130 == 3) {
                 t131 = 0x0;
             }
-            return FUN_8c0d773c(t131);
+            return strmCallName(t131);
         }
         if (a5 == 3) {
-            t133 = FUN_8c0df92a();
+            t133 = eepromGetDeuceMode();
             if ((unsigned char)t133 == 0) {
                 t134 = *(int *)0x8C1891E8;
                 t135 = *(int *)(((t134 << 2) + 0x8C1D4770));

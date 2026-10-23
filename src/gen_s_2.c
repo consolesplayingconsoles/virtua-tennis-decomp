@@ -10,7 +10,7 @@ int nlSetCommonTextureOffset(int);
 int texLoadIndexed(int, int);
 
 
-void FUN_0c17088c(int a4, int a5, int a6)
+void fmMngMcpy4(int a4, int a5, int a6)
 {
     int t0;
     int t1;
@@ -38,7 +38,7 @@ void FUN_0c17088c(int a4, int a5, int a6)
 }
 
 
-void FUN_0c170908(int a4, int a5, int a6)
+void fmMngNum2Bit(int a4, int a5, int a6)
 {
     int t0;
     int t1;

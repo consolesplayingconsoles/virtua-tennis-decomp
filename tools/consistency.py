@@ -14,6 +14,9 @@ What it looks at, for the functions of functions.txt that src/*.c defines (match
 C that leaves src/: generated C (src/gen_*.c) is dropped with its cases, so the generator writes it again; hand-written C moves to
 partial/<file>.c, where progress.py counts it as partial work. Nothing written by hand is deleted.
 """
+import os as _tp_os, sys as _tp_sys  # noqa: E401  every tools folder on the import path (tools/toolpath.py)
+_tp_sys.path.insert(0, _tp_os.path.normpath(_tp_os.path.join(_tp_os.path.dirname(_tp_os.path.abspath(__file__)), '.')))
+import toolpath  # noqa: E402,F401
 import fcntl
 import glob
 import os
@@ -36,6 +39,30 @@ def definitions():
         text = re.sub(r'/\*.*?\*/', lambda m: ' ' * len(m.group(0)), open(f, errors='replace').read(), flags=re.S)
         for n in DEF.findall(text):
             out.setdefault(n, []).append(stem)
+    return out
+
+
+MANUAL = re.compile(r'/\*\s*manual:[^*]*(?:\*(?!/)[^*]*)*\*/\s*$')
+
+
+def manual(text, name):
+    """The reason when name's definition in text is marked by hand, a comment `/* manual: <reason> */` on the lines just above it;
+    None otherwise. Tools that write C (the shrink, hoist, the generator's rebuild) leave such a function alone."""
+    b = block(text, name)
+    if not b:
+        return None
+    m = MANUAL.search(text[max(0, b[0] - 600):b[0]])
+    return m.group(0).split('manual:', 1)[1].rstrip(' */\n') .strip() if m else None
+
+
+def manual_names():
+    """{name: reason} of every function marked by hand in src/*.c."""
+    import glob
+    out = {}
+    for f in glob.glob('src/*.c'):
+        t = open(f, errors='replace').read()
+        for m in re.finditer(r'/\*\s*manual:([^*]*(?:\*(?!/)[^*]*)*)\*/\s*\n[A-Za-z_][\w \t\*]*?\b(\w+)\s*\(', t):
+            out[m.group(2)] = m.group(1).strip()
     return out
 
 

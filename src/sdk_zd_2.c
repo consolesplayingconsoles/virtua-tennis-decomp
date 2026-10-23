@@ -2,7 +2,7 @@
 
 extern void ADXSTM_Stop(int *h);
 extern void gdFsClose(int fd);
-extern void FUN_0c1689c0(int *h);
+extern void ADXSTMF_Destroy(int *h);
 
 extern void kmfSetFatalErrorCallback(void *f);
 
@@ -20,7 +20,7 @@ void ADXSTM_Close(int *h)
         if (h[2]) {
             gdFsClose(h[2]);
         }
-        FUN_0c1689c0(h);
+        ADXSTMF_Destroy(h);
     }
 }
 

@@ -43,7 +43,7 @@ int FUN_0c05b11c(void);
 int FUN_0c05cdb4(void);
 int FUN_0c05ce38(void);
 int FUN_0c05fd70(int);
-int FUN_0c076670(void);
+int nlPrintInitFontTexture(void);
 int FUN_0c077590(int, int, int);
 int FUN_0c077df0(int);
 int FUN_0c07e820(int, int, int);
@@ -73,7 +73,7 @@ int FUN_0c16887a(int, int, int);
 int FUN_0c168e10(int);
 int FUN_0c170820(int, int);
 int FUN_0c170834(int, int, int);
-int FUN_0c1708bc(int, int);
+int fmMngClearBuf(int, int);
 int FUN_0c1709a6(int);
 int FUN_0c172c3c(int, int, int, int, int);
 int GetCollision2D(int, int, float);
@@ -596,7 +596,7 @@ int ADXB_EndDecode(int a4)
 }
 
 
-int FUN_0c171de4(int a4, int a5)
+int mwSbSetVol(int a4, int a5)
 {
     int t5;
     int t3;
@@ -645,7 +645,7 @@ int FUN_0c171de4(int a4, int a5)
 }
 
 
-int FUN_0c171f6c(int a4, int a5, int a6)
+int mwlSbSetFx(int a4, int a5, int a6)
 {
     int t4;
     int t2;
@@ -677,7 +677,7 @@ int FUN_0c171f6c(int a4, int a5, int a6)
 }
 
 
-int FUN_0c172042(int a4, int a5, int a6)
+int mwlSbSetPitch(int a4, int a5, int a6)
 {
     int t0;
     int t1;
@@ -713,7 +713,7 @@ int FUN_0c172042(int a4, int a5, int a6)
 }
 
 
-int FUN_0c172132(int a4, int a5)
+int mwlSbSetGain(int a4, int a5)
 {
     int t3;
     int t4;
@@ -748,7 +748,7 @@ int FUN_0c172132(int a4, int a5)
 }
 
 
-int FUN_0c173328(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
+int adxb_DecodeInfoAuSub(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
 {
     int t0;
     int t1;

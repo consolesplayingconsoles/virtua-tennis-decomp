@@ -1,0 +1,2 @@
+# The executable's layout for the tools (tools/layout.py): <name> <start hex> [<end hex>]
+code    0C010000 0C20CCD4    # first object (8c010000) to the end of the last function (8c20ccd4): the cases may not write there

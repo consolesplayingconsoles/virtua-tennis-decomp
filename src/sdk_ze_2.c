@@ -63,7 +63,7 @@ extern int FUN_0c0813e0(void *a, void *b, int n);
 extern void ovLibEntryTbl(void *e);
 extern void thunk_FUN_0c1708b2(void *d, void *s, int n);
 extern unsigned int fmcalccrc(int n, unsigned char *p);
-extern int FUN_0c171e62(void *h, int item, int x);
+extern int mwlSbGetStreamParam(void *h, int item, int x);
 extern int FUN_0c1677d8(void);
 extern int FUN_0c170834(int addr, unsigned char *buf, int n);
 extern void FUN_0c14f182(void *p, int n);
@@ -78,7 +78,7 @@ extern int mpdrv_get_optimize(int a, int b, int c, int d);
 extern int mpdrv_get_rootplay(int a, int b, int c, int d);
 extern int mpdrv_get_gunmode(int a, int b, int c, int d);
 extern int mpdrv_get_autoflash(int a, int b, int c, int d);
-extern int FUN_0c15fa92(char *name);
+extern int gdFsGetSearchID(char *name);
 extern int thunk_FUN_0c15fa1c(char *name, char *entry);
 extern int FUN_0c15fa32(char *name, char *entry);
 
@@ -113,7 +113,7 @@ extern void adxf_CloseSjStm(signed char *h);
 
 extern int FUN_0c17085c(int a);
 extern int FUN_0c170848(int a, char *b, int n);
-extern void FUN_0c1708bc(int a, int b);
+extern void fmMngClearBuf(int a, int b);
 extern int FUN_0c1709a6(char *st);
 
 extern int kmtex_GetTextureLevel(int a, int b);
@@ -193,7 +193,7 @@ int ADXSTM_GetFsizeSct(int dir, int *sct)
 
 
 /* Clear a 100-byte handle. */
-void FUN_0c1689c0(void *h)
+void ADXSTMF_Destroy(void *h)
 {
     memset(h, 0, 100);
 }
@@ -383,10 +383,10 @@ int syRtcAicaGetCount(unsigned int *count)
 
 /* Read items 7 and 8 of a stream header: the first as is, the second as a level in dB (3 per step
    under 15, -45 for none); both into out and the handle (+72, +76). */
-void FUN_0c171fe8(char *h, int *a, int *db)
+void mwlSbGetFx(char *h, int *a, int *db)
 {
-    int x = FUN_0c171e62(h, 7, 0);
-    int y = FUN_0c171e62(h, 8, 0);
+    int x = mwlSbGetStreamParam(h, 7, 0);
+    int y = mwlSbGetStreamParam(h, 8, 0);
 
     if (y <= 0) {
         *db = -45;

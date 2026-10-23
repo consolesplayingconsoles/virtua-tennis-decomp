@@ -1,9 +1,9 @@
 /* Straight-line functions with calls and guards (batch gen_q): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c01184c(int);
-int FUN_8c0f1650(void);
-int FUN_8c1e3660(int);
+int shadowVolBuildPoint(int);
+int nl_action_PixelClipping(void);
+int kmRender(int);
 int kmBeginPass(int);
 int kmBeginScene(int);
 int kmEndPass(void);
@@ -14,16 +14,16 @@ int nlInvertMatrix(int);
 int nlPopMatrix(int);
 extern int nlPushMatrix();
 float nlTan(int);
-int FUN_8c0eaba0(void);
+int nlWaitVSync(void);
 int kmSetBackGroundPlane(int a4, int a5);
-int FUN_8c0120d8(int a4, float f4, float f5, float f6, float f7);
-int FUN_8c0eb1a0(int a4);
+int shadowVolPutPoint(int a4, float f4, float f5, float f6, float f7);
+int nlSetFogVertexColor(int a4);
 float nlCot(int a4);
 float nlRoundOff(float f4);
 int nlsndCheckPackReloadError(int a4, int a5);
-int FUN_8c1fc374(int a4);
+int kmtex_TextureSize_VQ(int a4);
 
-int FUN_8c0eaba0(void)
+int nlWaitVSync(void)
 {
     int t3;
     int t4;
@@ -35,8 +35,8 @@ int FUN_8c0eaba0(void)
     int t18;
 
     kmEndPass();
-    FUN_8c0f1650();
-    FUN_8c1e3660(0x0);
+    nl_action_PixelClipping();
+    kmRender(0x0);
     t3 = *(int *)0x8C1DC8A0;
     if (t3 != 0) {
         t4 = ((int (*)(void))(t3))();
@@ -99,7 +99,7 @@ int kmSetBackGroundPlane(int a4, int a5)
     return t7;
 }
 
-int FUN_8c0120d8(int a4, float f4, float f5, float f6, float f7)
+int shadowVolPutPoint(int a4, float f4, float f5, float f6, float f7)
 {
     int t0;
     int t1;
@@ -113,11 +113,11 @@ int FUN_8c0120d8(int a4, float f4, float f5, float f6, float f7)
     nlInvertMatrix(0x0);
     nlCalcPoint(0x8C2859E8, 0x8C2859E8);
     nlPopMatrix(0x1);
-    FUN_8c01184c(a4);
+    shadowVolBuildPoint(a4);
     return nlPopMatrix(0x1);
 }
 
-int FUN_8c0eb1a0(int a4)
+int nlSetFogVertexColor(int a4)
 {
     int t0;
 
@@ -212,7 +212,7 @@ int nlsndCheckPackReloadError(int a4, int a5)
     return 0xFFFFFFFF;
 }
 
-int FUN_8c1fc374(int a4)
+int kmtex_TextureSize_VQ(int a4)
 {
     int t0;
     int t1;

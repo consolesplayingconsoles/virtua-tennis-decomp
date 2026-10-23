@@ -12,7 +12,7 @@ extern void ADXB_Destroy(int a);
 extern void ADXCRS_Lock(void);
 extern void ADXCRS_Unlock(void);
 extern int mwRnaErrCallFunc(int a, ...);
-extern void FUN_8c1e28e0(int a, int b, int c);
+extern void kmyMemCopy(int a, int b, int c);
 extern void kmiWriteRegister(int reg, int val);
 
 extern int g_8c454cbc;
@@ -97,7 +97,7 @@ int str_len(char *s)
 }
 
 
-void ADXERR_Finish(void)
+void ADXERR_Init(void)
 {
     memset(g_8c46ad24, 0, 256);
     g_8c20c89c = 0;
@@ -170,7 +170,7 @@ int kmyCopyFromTexture(int a, int b, int c)
 {
     if (c == 0)
         return 0xeeee;
-    FUN_8c1e28e0(a, b + 0xa4000000, c);
+    kmyMemCopy(a, b + 0xa4000000, c);
     return 0;
 }
 

@@ -2,9 +2,9 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 extern float _builtin_sqrtf(float);
-int FUN_8c03d06c(int a4);
+int cpuSglMove(int a4);
 
-int FUN_8c03d06c(int a4)
+int cpuSglMove(int a4)
 {
     int t0;
     int t1;

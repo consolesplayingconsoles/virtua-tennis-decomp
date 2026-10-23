@@ -2,10 +2,6 @@
 # range <start> <end>: whole blocks; func <addr>: single SDK functions matched by signature.
 range 8c1dcc88 8c20ccd4 SDK libraries (529 of 1036 functions matched SDK signatures)
 range 8c0ea1a0 8c100e6a NAOMI library (nl*, sprites, textures; NAOMI SDK 001002) and the C runtime
-func 8c02f588 plaInitHdlTbl
-func 8c032e7e mwSfdStartFrame
-func 8c0b2420 restart_t404(void)
-func 8c0d3654 atcomResetBlackList(void)
 func 8c0ea560 kmiConvertUVnum
 func 8c0ed290 nlRand
 func 8c0edb20 ETD_EntryRecvFunc

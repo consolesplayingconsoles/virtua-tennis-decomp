@@ -23,8 +23,8 @@ extern int vmsfs_findnext(int a, int b);
 extern int vmsfs_fgetsize(int a, int b);
 extern int ADXERR_CallErrFunc(char *fmt);
 extern int mwRnaErrCallFunc(int a, ...);
-extern int FUN_8c1e2de4(int a, int *out);
-extern int FUN_8c1e2e1c(int a, int b);
+extern int SearchUsed(int a, int *out);
+extern int FBfree(int a, int b);
 extern void kmWaitVBlank(void);
 extern int kmiWriteRegister(int reg, int val);
 extern void ADXB_ExecOneWav4(char *o);
@@ -104,10 +104,10 @@ int kmyFreeArea(int a)
     int r;
 
     buf[1] = a;
-    r = FUN_8c1e2de4(a, buf);
+    r = SearchUsed(a, buf);
     if (r == 0)
         return 7;
-    return FUN_8c1e2e1c(*(short *)buf, r);
+    return FBfree(*(short *)buf, r);
 }
 
 int gdFsSetTmode(char *p, short v)

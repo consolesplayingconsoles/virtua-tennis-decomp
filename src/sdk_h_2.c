@@ -17,7 +17,7 @@ int vmsfs_isformat(int drive);
 int vmsfs_setretry(int n);
 
 
-void FUN_0c087e1a(int *p)
+void _fmtout_endstr(int *p)
 {
     if (p[0] == 1)
         *(char *)p[1] = 0;

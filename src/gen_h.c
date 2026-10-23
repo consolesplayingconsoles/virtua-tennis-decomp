@@ -2,9 +2,9 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 int nlRand(void);
-int FUN_8c0465d0(int a4);
+int cpuSglServe(int a4);
 
-int FUN_8c0465d0(int a4)
+int cpuSglServe(int a4)
 {
     int t0;
     int t1;

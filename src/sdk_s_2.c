@@ -19,7 +19,7 @@ void adxf_wait_1ms(void)
 
 
 /* A packed decimal byte (two digits) as a number. */
-int FUN_0c15f4c8(signed char c)
+int bcd2bin(signed char c)
 {
     return ((c & 0xF0) >> 4) * 10 + (c & 15);
 }

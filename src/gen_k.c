@@ -1,26 +1,26 @@
 /* Straight-line functions with calls and guards (batch gen_k): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c01ae74(int, float);
-int FUN_8c01b22c(int);
-int FUN_8c027eb8(int, int);
-int FUN_8c0324ee(void);
-int FUN_8c036844(void);
-int FUN_8c0368ae(void);
-int FUN_8c0392c0(void);
-int FUN_8c03b220(int, int);
-int FUN_8c03b5dc(void);
-int FUN_8c0d6ca0(void);
-int FUN_8c0d6d00(int, int);
-int FUN_8c0df8bc(void);
-int FUN_8c0e0786(int, int, int, int);
+int matchSetSlowMotion(int, float);
+int fadeStart(int);
+int playerStartReactions(int, int);
+int circuitApplyResult(void);
+int miniPlacePlayers(void);
+int miniStart(void);
+int miniWallTargetsHit(void);
+int miniResultStart(int, int);
+int miniHudDraw(void);
+int strmVoiceQueueReset(void);
+int strmBgmFadeOut(int, int);
+int eepromGetDiff(void);
+int BupRequestSave(int, int, int, int);
 int memmove(int, int, int);
 int nlRand(void);
 int nlsndSeqRequest(int);
-int FUN_8c05689c(int a4, int a5, int a6, float f4, float f5, float f6);
-int FUN_8c0369d6(void);
+int cpuDblInit(int a4, int a5, int a6, float f4, float f5, float f6);
+int miniExec(void);
 
-int FUN_8c05689c(int a4, int a5, int a6, float f4, float f5, float f6)
+int cpuDblInit(int a4, int a5, int a6, float f4, float f5, float f6)
 {
     int t0;
     int t1;
@@ -192,7 +192,7 @@ int FUN_8c05689c(int a4, int a5, int a6, float f4, float f5, float f6)
         } else {
             t20 = *(int *)0x8C287D5C;
             if (t20 == 0) {
-                t21 = FUN_8c0df8bc();
+                t21 = eepromGetDiff();
                 t22 = *(signed char *)((0x8C10D6F4 + ((t21 << 1) + (t21 << 2))));
                 *(unsigned int *)0x8C2FCC1C = (unsigned char)t22;
                 t35 = ((t21 << 1) + (t21 << 2));
@@ -201,7 +201,7 @@ int FUN_8c05689c(int a4, int a5, int a6, float f4, float f5, float f6)
             } else {
                 t23 = *(int *)0x8C1D136C;
                 if (t23 == 0) {
-                    t24 = FUN_8c0df8bc();
+                    t24 = eepromGetDiff();
                     t25 = *(signed char *)((0x8C10D718 + t24));
                     t26 = nlRand();
                     t27 = (int)((int)t26 % (int)0x3);
@@ -415,7 +415,7 @@ int FUN_8c05689c(int a4, int a5, int a6, float f4, float f5, float f6)
                         }
                     }
                 }
-                t107 = FUN_8c0df8bc();
+                t107 = eepromGetDiff();
                 t108 = *(signed char *)(((t100 + (0x8C10D6F4 + ((t107 << 1) + (t107 << 2)))) + 0x0));
                 *(unsigned int *)0x8C2FCC1C = (unsigned char)t108;
             } else {
@@ -479,7 +479,7 @@ int FUN_8c05689c(int a4, int a5, int a6, float f4, float f5, float f6)
     return ((int (*)(int, int, int, int, float, float, float))(0x8C056E76))(t177, t145, t146, t147, u150, u151, u152);
 }
 
-int FUN_8c0369d6(void)
+int miniExec(void)
 {
     int t0;
     int t2;
@@ -894,7 +894,7 @@ int FUN_8c0369d6(void)
     if (t0 != 3) {
         return ((int (*)(void))(0x8C036F9E))();
     }
-    FUN_8c03b5dc();
+    miniHudDraw();
     t2 = *(int *)0x8C2FBEF0;
     t3 = *(int *)((t2 + 0x20));
     if (t3 != 0) {
@@ -923,8 +923,8 @@ int FUN_8c0369d6(void)
                             t13 = 0x0;
                             t14 = 0x1;
                         }
-                        FUN_8c027eb8(t13, t14);
-                        FUN_8c01ae74(0x9, 0.0399999991f);
+                        playerStartReactions(t13, t14);
+                        matchSetSlowMotion(0x9, 0.0399999991f);
                         *(unsigned int *)0x8C287B4C = 0x78;
                         t18 = *(int *)0x8C287B3C;
                         *(unsigned int *)0x8C287B3C = (t18 | 0x800);
@@ -951,16 +951,16 @@ int FUN_8c0369d6(void)
                             t32 = *(int *)0x8C20D158;
                             *(unsigned int *)0x8C20D150 = t32;
                             *(unsigned int *)0x8C38BA60 = 0x7F;
-                            FUN_8c0d6ca0();
+                            strmVoiceQueueReset();
                             t34 = *(int *)0x8C2FBC98;
                             if ((t34 & 4) != 0) {
                                 t35 = *(signed char *)0x8C2FBE1C;
                                 *(unsigned char *)0x8C2FBC7E = t35;
                                 memmove(0x8C40C3DC, 0x8C2FBC58, 0x40);
-                                FUN_8c0e0786(0x0, 0x8C10C468, 0x8C40C2F4, 0x128);
+                                BupRequestSave(0x0, 0x8C10C468, 0x8C40C2F4, 0x128);
                                 *(unsigned int *)0x8C2FBE24 = 0x0;
-                                FUN_8c01b22c(0x1E);
-                                FUN_8c0368ae();
+                                fadeStart(0x1E);
+                                miniStart();
                                 *(unsigned int *)0x8C20D150 = 0x1;
                             } else {
                                 t41 = 0x8C2FBC98;
@@ -1006,7 +1006,7 @@ int FUN_8c0369d6(void)
                         t81 = *(int *)((t80 + 0x8));
                         *(unsigned int *)((t80 + 0x8)) = (t81 | 0x80);
                         *(unsigned int *)0x8C287B2C = 0x3E8;
-                        FUN_8c0d6d00(0x2, 0x0);
+                        strmBgmFadeOut(0x2, 0x0);
                         nlsndSeqRequest(0x1D02A9);
                         t84 = *(int *)0x8C2FBEF0;
                         t85 = *(int *)((t84 + 0x0));
@@ -1107,8 +1107,8 @@ int FUN_8c0369d6(void)
                                         t176 = (int)((int)t175 / (int)0x3C);
                                         t181 = ((t174 * (t173 + 0x1)) * (t176 + 0x1));
                                     }
-                                    FUN_8c03b220(t181, 0x1);
-                                    FUN_8c0324ee();
+                                    miniResultStart(t181, 0x1);
+                                    circuitApplyResult();
                                 } else {
                                     t185 = *(int *)0x8C2FBEF0;
                                     t186 = *(int *)((t185 + 0xC));
@@ -1131,7 +1131,7 @@ int FUN_8c0369d6(void)
                                         t201 = *(int *)((t200 + 0x38));
                                         t204 = t201;
                                     }
-                                    FUN_8c03b220(t204, t193);
+                                    miniResultStart(t204, t193);
                                 }
                             } else {
                                 t212 = *(int *)0x8C2FBE1C;
@@ -1220,8 +1220,8 @@ int FUN_8c0369d6(void)
                                         t292 = (int)((int)t291 / (int)0x3C);
                                         t297 = ((t290 * (t289 + 0x1)) * (t292 + 0x1));
                                     }
-                                    FUN_8c03b220(t297, 0x1);
-                                    FUN_8c0324ee();
+                                    miniResultStart(t297, 0x1);
+                                    circuitApplyResult();
                                 } else {
                                     t301 = *(int *)0x8C2FBEF0;
                                     t302 = *(int *)((t301 + 0xC));
@@ -1244,7 +1244,7 @@ int FUN_8c0369d6(void)
                                         t317 = *(int *)((t316 + 0x38));
                                         t320 = t317;
                                     }
-                                    FUN_8c03b220(t320, t309);
+                                    miniResultStart(t320, t309);
                                 }
                             }
                         } else {
@@ -1269,7 +1269,7 @@ int FUN_8c0369d6(void)
                                 t347 = *(int *)((t346 + 0x38));
                                 t350 = t347;
                             }
-                            FUN_8c03b220(t350, t339);
+                            miniResultStart(t350, t339);
                         }
                     }
                     t645 = t359;
@@ -1282,7 +1282,7 @@ int FUN_8c0369d6(void)
                     t367 = *(int *)((t366 + 0x8));
                     *(unsigned int *)((t366 + 0x8)) = (t367 | 0x80);
                     *(unsigned int *)0x8C287B2C = 0x3E8;
-                    FUN_8c0d6d00(0x2, 0x0);
+                    strmBgmFadeOut(0x2, 0x0);
                     nlsndSeqRequest(0x1D02A9);
                     t370 = *(int *)0x8C2FBEF0;
                     t371 = *(int *)((t370 + 0x0));
@@ -1383,8 +1383,8 @@ int FUN_8c0369d6(void)
                                     t462 = (int)((int)t461 / (int)0x3C);
                                     t467 = ((t460 * (t459 + 0x1)) * (t462 + 0x1));
                                 }
-                                FUN_8c03b220(t467, 0x1);
-                                FUN_8c0324ee();
+                                miniResultStart(t467, 0x1);
+                                circuitApplyResult();
                             } else {
                                 t471 = *(int *)0x8C2FBEF0;
                                 t472 = *(int *)((t471 + 0xC));
@@ -1407,7 +1407,7 @@ int FUN_8c0369d6(void)
                                     t487 = *(int *)((t486 + 0x38));
                                     t490 = t487;
                                 }
-                                FUN_8c03b220(t490, t479);
+                                miniResultStart(t490, t479);
                             }
                         } else {
                             t498 = *(int *)0x8C2FBE1C;
@@ -1496,8 +1496,8 @@ int FUN_8c0369d6(void)
                                     t578 = (int)((int)t577 / (int)0x3C);
                                     t583 = ((t576 * (t575 + 0x1)) * (t578 + 0x1));
                                 }
-                                FUN_8c03b220(t583, 0x1);
-                                FUN_8c0324ee();
+                                miniResultStart(t583, 0x1);
+                                circuitApplyResult();
                             } else {
                                 t587 = *(int *)0x8C2FBEF0;
                                 t588 = *(int *)((t587 + 0xC));
@@ -1520,7 +1520,7 @@ int FUN_8c0369d6(void)
                                     t603 = *(int *)((t602 + 0x38));
                                     t606 = t603;
                                 }
-                                FUN_8c03b220(t606, t595);
+                                miniResultStart(t606, t595);
                             }
                         }
                     } else {
@@ -1545,7 +1545,7 @@ int FUN_8c0369d6(void)
                             t633 = *(int *)((t632 + 0x38));
                             t636 = t633;
                         }
-                        FUN_8c03b220(t636, t625);
+                        miniResultStart(t636, t625);
                     }
                 }
                 t651 = t645;
@@ -1598,7 +1598,7 @@ int FUN_8c0369d6(void)
         } else {
             t703 = *(int *)0x8C2FBEF0;
             *(unsigned int *)((t703 + 0x20)) = 0x1;
-            FUN_8c036844();
+            miniPlacePlayers();
         }
     }
     t717 = *(int *)0x8C2FBEF0;
@@ -1686,5 +1686,5 @@ int FUN_8c0369d6(void)
         }
         return ((int (*)(int, int))(0x8C036F0A))(0x8C2FBF54, t741);
     }
-    return FUN_8c0392c0();
+    return miniWallTargetsHit();
 }

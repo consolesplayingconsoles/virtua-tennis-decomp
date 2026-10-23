@@ -16,7 +16,7 @@ int kmiWriteRegister(int off, int v);
 
 
 /* A word split into 4 bytes, most significant first. */
-void FUN_0c0897f8(char *dst, int *src)
+void _mvito4b(char *dst, int *src)
 {
     int i, w = *src;
 
@@ -26,7 +26,7 @@ void FUN_0c0897f8(char *dst, int *src)
 
 
 /* A halfword split into 2 bytes, most significant first. */
-void FUN_0c089cc8(char *dst, unsigned short *src)
+void _mvsto2b(char *dst, unsigned short *src)
 {
     int i, h = *src;
 

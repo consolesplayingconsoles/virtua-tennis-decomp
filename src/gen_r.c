@@ -1,14 +1,14 @@
 /* Straight-line functions with calls and guards (batch gen_r): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c02f2f2(void);
-int FUN_8c08a876(int, int);
-int FUN_8c0ec110(float);
-int FUN_8c0f1f20(int, int, int);
-int FUN_8c0f2010(int, int, int);
-int FUN_8c0f2e60(int, int, int, int);
-int FUN_8c0f3e80(int, int, int);
-int FUN_8c0f8942(float);
+int padVibStopAll(void);
+int modelSetVertsInt(int, int);
+int nlSetBackColorZ(float);
+int nlObjPutSetGarbagedTexture_Sub(int, int, int);
+int nlObjPutFreeTextureOnce_Sub(int, int, int);
+int nlSingleLineSub(int, int, int, int);
+int nlSpriteSetGarbagedTextureOnce_Sub(int, int, int);
+int displaypolygondata_sidx_trnsl(float);
 extern void _builtin_prefetch(void *);
 #pragma inline_asm(iaOcbwb)
 static void iaOcbwb(void *p)
@@ -19,83 +19,83 @@ int nlObjPut(int);
 int nlSpriteFreeTextureOnce_Sub(int, int, int, int);
 int nlSpriteLoadTextureOnce_Sub(int, int, int, int);
 int vmsfs_c_dispatch(int);
-int FUN_8c0cbb38(int a4);
-int FUN_0c17277c(int a4);
-int FUN_0c1727d0(int a4);
-int FUN_8c013448(int a4);
-int FUN_8c0a7dfe(void);
-int FUN_8c0d5662(int a4);
-int FUN_8c0dfbf6(int a4);
-int FUN_8c0ec100(void);
+int lineJudgeShadowPart(int a4);
+int syG2AicaFifoIsEmpty(int a4);
+int syG2FifoIsEmpty(int a4);
+int dbgMenuIsPage(int a4);
+int selSlot0FlagClear(void);
+int endingModelSet(int a4);
+int BupGetInfo(int a4);
+int nlExitSystem(void);
 void nlsndStreamSetHdVol(int a4, int a5, int a6);
-void FUN_8c0fce20(float f4, float f5, float f6, float f7, float f8, float f9, float f10);
-int FUN_8c1ef39c(int a4, int a5);
-int FUN_8c1ef3b0(int a4, int a5);
-int FUN_8c1ef3c4(int a4, int a5);
-int FUN_8c1ef3d8(int a4, int a5);
-int FUN_8c1ef3ec(int a4, int a5);
-int FUN_8c1ef414(int a4, int a5);
-int FUN_8c1ef428(int a4, int a5);
+void nl_objput_mv_xchg_p0p1(float f4, float f5, float f6, float f7, float f8, float f9, float f10);
+int gdGdcReqCmd(int a4, int a5);
+int gdGdcGetCmdStat(int a4, int a5);
+int gdGdcExecServer(int a4, int a5);
+int gdGdcInitSystem(int a4, int a5);
+int gdGdcGetDrvStat(int a4, int a5);
+int gdGdcReqDmaTrans(int a4, int a5);
+int gdGdcCheckDmaTrans(int a4, int a5);
 void ADXSJD_SetOutSj(int a4, int a5, int a6);
-int FUN_8c016ef8(void);
-float FUN_8c089b3a(float f4, float f5, float f6);
-int FUN_8c08b464(void);
+int camResetFov(void);
+float mathLerp(float f4, float f5, float f6);
+int shadowNullCb(void);
 int FUN_8c1ef4a0(int a4, int a5, int a6);
-int FUN_8c1ef4c8(int a4, int a5, int a6);
-int FUN_8c1f8a40(int a4);
-int FUN_8c207290(int a4, int a5, int a6);
-int FUN_8c2072a4(int a4, int a5, int a6);
-int FUN_8c2072b8(int a4, int a5, int a6);
-int FUN_8c2072cc(int a4, int a5, int a6);
-int FUN_8c08e038(int a4);
-int FUN_0c074680(void);
-int FUN_8c02f2ec(void);
-int FUN_0c075410(int a4, int a5);
-int FUN_8c0f1ff0(int a4);
-int FUN_8c0f2160(int a4);
+int kbCfgGetId(int a4, int a5, int a6);
+int kmyiCheckTAHandle(int a4);
+int syBtFlGetInfo(int a4, int a5, int a6);
+int syBtFlRead(int a4, int a5, int a6);
+int syBtFlWrite(int a4, int a5, int a6);
+int syBtFlDeleteSct(int a4, int a5, int a6);
+int deformModelRestore(int a4);
+int FUN_8c0eaf00(void);
+int padVibOff(void);
+int nlSysMetricsDiffTime(int a4, int a5);
+int nlObjPutSetGarbagedTexture(int a4);
+int nlObjPutFreeTextureOnce(int a4);
 int nlsndVersion(void);
-int FUN_8c1e6a78(void);
-int FUN_8c1e8fa0(int a4, int a5);
+int gdFsGetGdDcf(void);
+int syTmrDiffCount(int a4, int a5);
 int ADXRNA_GetNumRoom(void);
-int FUN_8c1f0a1e(int a4);
+int ADXSJD_GetSpsdInfo(int a4);
 void _kmyiDefaultPALEXTCallbackFunc(int a4);
-int FUN_8c200dd8(void);
-void FUN_8c0892ec(void);
-void FUN_8c0bd14e(void);
-int FUN_8c0c4cf0(void);
-void FUN_8c0ce532(void);
-void FUN_8c0d0c68(void);
-void FUN_8c0d2ec8(void);
-void FUN_8c0d2ecc(void);
-void FUN_8c0d63e8(void);
-void FUN_8c0d902c(void);
-int FUN_8c0eaf10(void);
-void FUN_8c0eebaa(int a4);
-int FUN_8c0f2d40(int a4, int a5, int a6);
-int FUN_8c0f3dc0(int a4, int a5, int a6);
+int mwlSbGetWorkTbl(void);
+void dbgHookNop(void);
+void emotRetOne(void);
+int sprSet266InitThunk(void);
+void netHitNop(void);
+void frameHookNop(void);
+void sndDummy0(void);
+void sndDummy1(void);
+void endingNop(void);
+void evNop(void);
+int nlCreateVertexBuffer_clx16(void);
+void prefetch(int a4);
+int nlSingleLine(int a4, int a5, int a6);
+int nlSpriteLoadTextureOnce(int a4, int a5, int a6);
 int nlSpriteSetGarbagedTextureOnce(int a4, int a5);
 int nlSpriteFreeTextureOnce(int a4, int a5, int a6);
-int FUN_8c0f82a0(void);
-void FUN_8c0f8930(void);
-void FUN_8c1e2998(int a4);
+int nlIntrDefaultFunction(void);
+void nlObjPutLoadTextureCallBack(void);
+void kmyPurgeCache(int a4);
 void ADXRNA_ClearBuf(void);
 void ADXRNA_SetPcmType(void);
 void ADXRNA_SetTotalNumSmpl(void);
 void ADXRNA_SetWavFname(void);
-void FUN_8c1f0a7a(void);
+void ADXSTM_Finish(void);
 void ADXSTM_EntryErrFunc(void);
-void FUN_8c1f15cc(void);
-void FUN_8c1f1bf8(void);
+void adxt_stat_playend(void);
+void mwlRnaSetSvrInt(void);
 int mwRnaSetupSnd(void);
 void mwlRnaClearBuf(void);
 int mwRnaDiscardData(void);
 void kmyiDefaultCallback(void);
-void FUN_8c20010c(void);
+void mwlRnaDummyFunc(void);
 int kmyInitializeRenderPacket(void);
-int FUN_8c0f8940(void);
+int displaypolygondata_sidx(void);
 int vmsfs_c_fiber7(void);
 
-int FUN_8c0cbb38(int a4)
+int lineJudgeShadowPart(int a4)
 {
     int t0;
 
@@ -103,7 +103,7 @@ int FUN_8c0cbb38(int a4)
     return nlObjPut(t0);
 }
 
-int FUN_0c17277c(int a4)
+int syG2AicaFifoIsEmpty(int a4)
 {
     int t0;
 
@@ -112,7 +112,7 @@ int FUN_0c17277c(int a4)
     return 0x0;
 }
 
-int FUN_0c1727d0(int a4)
+int syG2FifoIsEmpty(int a4)
 {
     int t0;
 
@@ -121,7 +121,7 @@ int FUN_0c1727d0(int a4)
     return 0x0;
 }
 
-int FUN_8c013448(int a4)
+int dbgMenuIsPage(int a4)
 {
     int t0;
 
@@ -129,7 +129,7 @@ int FUN_8c013448(int a4)
     return (((t0 == a4)) ? 1 : 0);
 }
 
-int FUN_8c0a7dfe(void)
+int selSlot0FlagClear(void)
 {
     int t0;
 
@@ -137,7 +137,7 @@ int FUN_8c0a7dfe(void)
     return (((t0 == 0)) ? 1 : 0);
 }
 
-int FUN_8c0d5662(int a4)
+int endingModelSet(int a4)
 {
     int t0;
 
@@ -146,12 +146,12 @@ int FUN_8c0d5662(int a4)
     return 0x8C1D338C;
 }
 
-int FUN_8c0dfbf6(int a4)
+int BupGetInfo(int a4)
 {
     return ((a4 * 0x4C) + 0x8C40C6B0);
 }
 
-int FUN_8c0ec100(void)
+int nlExitSystem(void)
 {
     return ((int (*)(int))(0x8C1E2F60))(0x8C454FC0);
 }
@@ -161,12 +161,12 @@ void nlsndStreamSetHdVol(int a4, int a5, int a6)
     *(unsigned char *)((((((short)a5 << 2) + a4) + 0x31) + 0x0)) = a6;
 }
 
-void FUN_8c0fce20(float f4, float f5, float f6, float f7, float f8, float f9, float f10)
+void nl_objput_mv_xchg_p0p1(float f4, float f5, float f6, float f7, float f8, float f9, float f10)
 {
     
 }
 
-int FUN_8c1ef39c(int a4, int a5)
+int gdGdcReqCmd(int a4, int a5)
 {
     int t0;
 
@@ -174,7 +174,7 @@ int FUN_8c1ef39c(int a4, int a5)
     return ((int (*)(int, int, int, int))(t0))(a4, a5, 0x0, 0x0);
 }
 
-int FUN_8c1ef3b0(int a4, int a5)
+int gdGdcGetCmdStat(int a4, int a5)
 {
     int t0;
 
@@ -182,7 +182,7 @@ int FUN_8c1ef3b0(int a4, int a5)
     return ((int (*)(int, int, int, int))(t0))(a4, a5, 0x0, 0x1);
 }
 
-int FUN_8c1ef3c4(int a4, int a5)
+int gdGdcExecServer(int a4, int a5)
 {
     int t0;
 
@@ -190,7 +190,7 @@ int FUN_8c1ef3c4(int a4, int a5)
     return ((int (*)(int, int, int, int))(t0))(a4, a5, 0x0, 0x2);
 }
 
-int FUN_8c1ef3d8(int a4, int a5)
+int gdGdcInitSystem(int a4, int a5)
 {
     int t0;
 
@@ -198,7 +198,7 @@ int FUN_8c1ef3d8(int a4, int a5)
     return ((int (*)(int, int, int, int))(t0))(a4, a5, 0x0, 0x3);
 }
 
-int FUN_8c1ef3ec(int a4, int a5)
+int gdGdcGetDrvStat(int a4, int a5)
 {
     int t0;
 
@@ -206,7 +206,7 @@ int FUN_8c1ef3ec(int a4, int a5)
     return ((int (*)(int, int, int, int))(t0))(a4, a5, 0x0, 0x4);
 }
 
-int FUN_8c1ef414(int a4, int a5)
+int gdGdcReqDmaTrans(int a4, int a5)
 {
     int t0;
 
@@ -214,7 +214,7 @@ int FUN_8c1ef414(int a4, int a5)
     return ((int (*)(int, int, int, int))(t0))(a4, a5, 0x0, 0x6);
 }
 
-int FUN_8c1ef428(int a4, int a5)
+int gdGdcCheckDmaTrans(int a4, int a5)
 {
     int t0;
 
@@ -227,7 +227,7 @@ void ADXSJD_SetOutSj(int a4, int a5, int a6)
     *(unsigned int *)((((a5 << 2) + (a4 + 0xC)) + 0x0)) = a6;
 }
 
-int FUN_8c016ef8(void)
+int camResetFov(void)
 {
     float u0;
 
@@ -236,12 +236,12 @@ int FUN_8c016ef8(void)
     return 0x8C016FF4;
 }
 
-float FUN_8c089b3a(float f4, float f5, float f6)
+float mathLerp(float f4, float f5, float f6)
 {
     return (f4 + f6 * (f5 - f4));
 }
 
-int FUN_8c08b464(void)
+int shadowNullCb(void)
 {
     return 0xFFFFFEC0;
 }
@@ -254,7 +254,7 @@ int FUN_8c1ef4a0(int a4, int a5, int a6)
     return ((int (*)(int, int, int, int))(t0))(a4, a5, a6, 0x0);
 }
 
-int FUN_8c1ef4c8(int a4, int a5, int a6)
+int kbCfgGetId(int a4, int a5, int a6)
 {
     int t0;
 
@@ -262,12 +262,12 @@ int FUN_8c1ef4c8(int a4, int a5, int a6)
     return ((int (*)(int, int, int, int))(t0))(a4, a5, a6, 0x3);
 }
 
-int FUN_8c1f8a40(int a4)
+int kmyiCheckTAHandle(int a4)
 {
     return (((0x8C4743FC == a4)) ? 1 : 0);
 }
 
-int FUN_8c207290(int a4, int a5, int a6)
+int syBtFlGetInfo(int a4, int a5, int a6)
 {
     int t0;
 
@@ -275,7 +275,7 @@ int FUN_8c207290(int a4, int a5, int a6)
     return ((int (*)(int, int, int, int))(t0))(a4, a5, a6, 0x0);
 }
 
-int FUN_8c2072a4(int a4, int a5, int a6)
+int syBtFlRead(int a4, int a5, int a6)
 {
     int t0;
 
@@ -283,7 +283,7 @@ int FUN_8c2072a4(int a4, int a5, int a6)
     return ((int (*)(int, int, int, int))(t0))(a4, a5, a6, 0x1);
 }
 
-int FUN_8c2072b8(int a4, int a5, int a6)
+int syBtFlWrite(int a4, int a5, int a6)
 {
     int t0;
 
@@ -291,7 +291,7 @@ int FUN_8c2072b8(int a4, int a5, int a6)
     return ((int (*)(int, int, int, int))(t0))(a4, a5, a6, 0x2);
 }
 
-int FUN_8c2072cc(int a4, int a5, int a6)
+int syBtFlDeleteSct(int a4, int a5, int a6)
 {
     int t0;
 
@@ -299,38 +299,38 @@ int FUN_8c2072cc(int a4, int a5, int a6)
     return ((int (*)(int, int, int, int))(t0))(a4, a5, a6, 0x3);
 }
 
-int FUN_8c08e038(int a4)
+int deformModelRestore(int a4)
 {
-    return FUN_8c08a876(a4, 0x8C3311F4);
+    return modelSetVertsInt(a4, 0x8C3311F4);
 }
 
-int FUN_0c074680(void)
+int FUN_8c0eaf00(void)
 {
     float u0;
 
     u0 = *(float *)0x8C0EAF28;
-    return FUN_8c0ec110(u0);
+    return nlSetBackColorZ(u0);
 }
 
-int FUN_8c02f2ec(void)
+int padVibOff(void)
 {
     *(unsigned int *)0x8C29BBBC = 0x0;
-    return FUN_8c02f2f2();
+    return padVibStopAll();
 }
 
-int FUN_0c075410(int a4, int a5)
+int nlSysMetricsDiffTime(int a4, int a5)
 {
     return (a4 - a5);
 }
 
-int FUN_8c0f1ff0(int a4)
+int nlObjPutSetGarbagedTexture(int a4)
 {
-    return FUN_8c0f1f20(a4, 0x0, 0x0);
+    return nlObjPutSetGarbagedTexture_Sub(a4, 0x0, 0x0);
 }
 
-int FUN_8c0f2160(int a4)
+int nlObjPutFreeTextureOnce(int a4)
 {
-    return FUN_8c0f2010(a4, 0x0, 0x0);
+    return nlObjPutFreeTextureOnce_Sub(a4, 0x0, 0x0);
 }
 
 int nlsndVersion(void)
@@ -338,12 +338,12 @@ int nlsndVersion(void)
     return 0x8C127EA4;
 }
 
-int FUN_8c1e6a78(void)
+int gdFsGetGdDcf(void)
 {
     return 0x8C20A6B0;
 }
 
-int FUN_8c1e8fa0(int a4, int a5)
+int syTmrDiffCount(int a4, int a5)
 {
     return (a5 - a4);
 }
@@ -353,7 +353,7 @@ int ADXRNA_GetNumRoom(void)
     return 0x7FFFFFFF;
 }
 
-int FUN_8c1f0a1e(int a4)
+int ADXSJD_GetSpsdInfo(int a4)
 {
     return (a4 + 0x58);
 }
@@ -363,79 +363,79 @@ void _kmyiDefaultPALEXTCallbackFunc(int a4)
     *(unsigned int *)((a4 + 0x4)) = 0x1;
 }
 
-int FUN_8c200dd8(void)
+int mwlSbGetWorkTbl(void)
 {
     return 0x8C20CA50;
 }
 
-void FUN_8c0892ec(void)
+void dbgHookNop(void)
 {
     
 }
 
-void FUN_8c0bd14e(void)
+void emotRetOne(void)
 {
     
 }
 
-int FUN_8c0c4cf0(void)
+int sprSet266InitThunk(void)
 {
     return ((int (*)(void))(0x8C0C4C84))();
 }
 
-void FUN_8c0ce532(void)
+void netHitNop(void)
 {
     
 }
 
-void FUN_8c0d0c68(void)
+void frameHookNop(void)
 {
     
 }
 
-void FUN_8c0d2ec8(void)
+void sndDummy0(void)
 {
     
 }
 
-void FUN_8c0d2ecc(void)
+void sndDummy1(void)
 {
     
 }
 
-void FUN_8c0d63e8(void)
+void endingNop(void)
 {
     
 }
 
-void FUN_8c0d902c(void)
+void evNop(void)
 {
     
 }
 
-int FUN_8c0eaf10(void)
+int nlCreateVertexBuffer_clx16(void)
 {
     return 0x1;
 }
 
-void FUN_8c0eebaa(int a4)
+void prefetch(int a4)
 {
     _builtin_prefetch((void *)a4);
 }
 
-int FUN_8c0f2d40(int a4, int a5, int a6)
+int nlSingleLine(int a4, int a5, int a6)
 {
-    return FUN_8c0f2e60(a4, a5, a6, 0x0);
+    return nlSingleLineSub(a4, a5, a6, 0x0);
 }
 
-int FUN_8c0f3dc0(int a4, int a5, int a6)
+int nlSpriteLoadTextureOnce(int a4, int a5, int a6)
 {
     return nlSpriteLoadTextureOnce_Sub(a4, a5, a6, 0x0);
 }
 
 int nlSpriteSetGarbagedTextureOnce(int a4, int a5)
 {
-    return FUN_8c0f3e80(a4, a5, 0x0);
+    return nlSpriteSetGarbagedTextureOnce_Sub(a4, a5, 0x0);
 }
 
 int nlSpriteFreeTextureOnce(int a4, int a5, int a6)
@@ -443,17 +443,17 @@ int nlSpriteFreeTextureOnce(int a4, int a5, int a6)
     return nlSpriteFreeTextureOnce_Sub(a4, a5, a6, 0x0);
 }
 
-int FUN_8c0f82a0(void)
+int nlIntrDefaultFunction(void)
 {
     return 0x0;
 }
 
-void FUN_8c0f8930(void)
+void nlObjPutLoadTextureCallBack(void)
 {
     
 }
 
-void FUN_8c1e2998(int a4)
+void kmyPurgeCache(int a4)
 {
     iaOcbwb((void *)a4);
 }
@@ -478,7 +478,7 @@ void ADXRNA_SetWavFname(void)
     
 }
 
-void FUN_8c1f0a7a(void)
+void ADXSTM_Finish(void)
 {
     
 }
@@ -488,12 +488,12 @@ void ADXSTM_EntryErrFunc(void)
     
 }
 
-void FUN_8c1f15cc(void)
+void adxt_stat_playend(void)
 {
     
 }
 
-void FUN_8c1f1bf8(void)
+void mwlRnaSetSvrInt(void)
 {
     
 }
@@ -518,7 +518,7 @@ void kmyiDefaultCallback(void)
     
 }
 
-void FUN_8c20010c(void)
+void mwlRnaDummyFunc(void)
 {
     
 }
@@ -528,9 +528,9 @@ int kmyInitializeRenderPacket(void)
     return 0x0;
 }
 
-int FUN_8c0f8940(void)
+int displaypolygondata_sidx(void)
 {
-    return FUN_8c0f8942(1.0f);
+    return displaypolygondata_sidx_trnsl(1.0f);
 }
 
 int vmsfs_c_fiber7(void)

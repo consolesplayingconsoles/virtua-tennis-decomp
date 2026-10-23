@@ -15,7 +15,7 @@ int ADXCRS_Lock(void);
 int ADXCRS_Unlock(void);
 int adxf_read_sj32(int a, int b, int c);
 void adxf_ExecOne(char *p);
-int FUN_0c15f460(int a, int b, int c);
+int ccitt_updcrc(int a, int b, int c);
 int FUN_0c16dd04(int v);
 int kmiRegisterCallback(int dev, int kind, void *f, void *p);
 int kmiReadRegister(int off);
@@ -33,9 +33,9 @@ void SJUNI_Finish(void);
 int ADXF_Finish(void);
 
 
-int FUN_0c15f49a(int a, short b)
+int crcchk(int a, short b)
 {
-    int r = FUN_0c15f460(0, a, 10);
+    int r = ccitt_updcrc(0, a, 10);
 
     if ((unsigned short)b == (unsigned short)~r)
         return 0;

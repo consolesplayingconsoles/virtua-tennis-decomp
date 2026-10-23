@@ -6,7 +6,7 @@ int kmiWriteRegister(int, int);
 int kmyiCheckNativeHandle(int, int, int, int);
 int memset(int, int, int, int);
 
-void FUN_8c02de00(void)
+void advReset(void)
 {
     *(unsigned int *)0x8C295DDC = 0x0;
     *(unsigned int *)0x8C295DE0 = 0xFFFFFFFF;
@@ -18,7 +18,7 @@ void FUN_8c02de00(void)
     *(unsigned int *)0x8C29B288 = 0x3E8;
 }
 
-void FUN_8c0cbf88(int a4, int a5, int a6, int a7)
+void lightSet(int a4, int a5, int a6, int a7)
 {
     *(unsigned int *)0x8C38B82C = (unsigned short)a4;
     *(unsigned int *)0x8C38B824 = (unsigned short)a4;
@@ -37,14 +37,14 @@ void FUN_8c0cbf88(int a4, int a5, int a6, int a7)
     *(unsigned int *)0x8C38B848 = 0x0;
 }
 
-void FUN_8c0d7e98(void)
+void strmScoreReset(void)
 {
     *(unsigned int *)0x8C1D4B4C = 0x0;
     *(unsigned int *)0x8C1D4B48 = 0x0;
     *(unsigned int *)0x8C1D476C = 0x0;
 }
 
-void FUN_8c0ea2a0(int a4)
+void nlSetCommonTextureOffset(int a4)
 {
     *(unsigned int *)0x8C458DCC = a4;
 }
@@ -66,7 +66,7 @@ void nlPrintColor(int a4)
     *(unsigned int *)0x8C44F9BC = a4;
 }
 
-int FUN_0c0813d0(int a4)
+int abs(int a4)
 {
     if (((int)a4 > 0)) {
         return a4;
@@ -82,17 +82,17 @@ void syCfgInit(int a4)
     *(unsigned int *)0x8C20C240 = a4;
 }
 
-void FUN_0c152292(int a4, int a5)
+void ADXT_SetReloadSct(int a4, int a5)
 {
     *(unsigned short *)((a4 + 0x3E)) = a5;
 }
 
-void FUN_0c152330(int a4, int a5)
+void ADXT_SetAutoRcvr(int a4, int a5)
 {
     *(unsigned char *)((a4 + 0x6D)) = a5;
 }
 
-void FUN_8c1e6480(int a4, int a5, int a6, int a7)
+void kmSetPixelClipping(int a4, int a5, int a6, int a7)
 {
     *(unsigned int *)0x8C45F7CC = a4;
     *(unsigned int *)0x8C45F7D4 = a6;
@@ -110,7 +110,7 @@ void vmsfs_c_exit(int a4, int a5, int a6, int a7)
     memset(0x8C462180, 0x0, 0x400, a7);
 }
 
-void FUN_8c1efd90(void)
+void ADXCRS_Init(void)
 {
     *(unsigned int *)0x8C20C894 = 0x0;
 }

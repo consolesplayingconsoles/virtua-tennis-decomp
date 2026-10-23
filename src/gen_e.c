@@ -36,233 +36,233 @@ int ADXT_GetStat(int);
 int ADX_DecodeMonoFloat(int, int, int, int, int, int);
 int ADX_DecodeSteFloat(int, int, int, int, int, int, int, int);
 int ADX_GetCoefficient(int, int, int, int);
-int FUN_0c078a70(int, int, int);
-int FUN_0c14d2fa(int);
-int FUN_0c15f998(int);
-int FUN_0c1614de(void);
-int FUN_0c17088c(int, int, int);
-int FUN_0c170908(int, int, int);
-int FUN_8c0103b8(void);
-int FUN_8c010466(void);
-int FUN_8c01069a(int);
-int FUN_8c0108a6(void);
-int FUN_8c010976(int, int);
-int FUN_8c010afa(int);
-int FUN_8c01205a(void);
-int FUN_8c013394(int, int, int);
-int FUN_8c0133ca(int, int, int, int, int, int, int);
-int FUN_8c014c34(void);
-int FUN_8c015b7e(int, float);
-int FUN_8c015eea(float, float, float);
-float FUN_8c016036(void);
-int FUN_8c0160e6(int, int, int);
-int FUN_8c0161e8(int, int);
-int FUN_8c0165ec(void);
-int FUN_8c0176bc(int, int);
-int FUN_8c01a5d6(void);
-int FUN_8c01b250(void);
-int FUN_8c02f3ae(void);
-int FUN_8c02f59e(int);
-int FUN_8c02f62e(int);
-int FUN_8c02f63a(int);
-int FUN_8c02fb22(void);
-int FUN_8c02ff90(int, int);
-int FUN_8c03001e(void);
-int FUN_8c032acc(void);
-int FUN_8c036978(void);
-int FUN_8c037e1c(int, int);
-int FUN_8c03992c(int, int);
-int FUN_8c03ce22(void);
-int FUN_8c041e50(void);
-int FUN_8c04264a(void);
-int FUN_8c042920(int);
-int FUN_8c05689c(void);
-int FUN_8c0573f0(void);
-int FUN_8c07ffea(void);
-int FUN_8c081cfc(void);
-int FUN_8c082884(void);
-int FUN_8c083c38(void);
-int FUN_8c084436(void);
-int FUN_8c0847e8(void);
-int FUN_8c08487e(int);
-int FUN_8c08495c(int);
-int FUN_8c084c26(int, int, int);
-int FUN_8c0855b6(void);
-int FUN_8c087d02(void);
-int FUN_8c088a16(void);
-int FUN_8c08cdec(void);
-int FUN_8c08e654(int);
-int FUN_8c08e694(int);
-int FUN_8c08e718(int, int, int, int, int, int);
-int FUN_8c08e7a4(int, int, int, int, int, int, int);
-int FUN_8c08e840(int);
-int FUN_8c08e944(int);
-int FUN_8c08eac6(int, int, int);
-int FUN_8c090af0(int, int);
-int FUN_8c098262(int, int);
-int FUN_8c098384(int, float);
-int FUN_8c098538(float);
-int FUN_8c09a720(int, int);
-int FUN_8c09ac08(int, int);
-int FUN_8c09b3ec(int, int);
-int FUN_8c09f1d2(void);
-int FUN_8c0a94fc(int, int);
-int FUN_8c0ab234(int);
-int FUN_8c0b0152(void);
-int FUN_8c0b0bbc(void);
-int FUN_8c0b1968(void);
-int FUN_8c0b1c54(void);
-int FUN_8c0b1e36(void);
-int FUN_8c0b1f5a(void);
-int FUN_8c0b2b54(void);
-int FUN_8c0b2ca8(void);
-int FUN_8c0b2cee(void);
-int FUN_8c0b3090(void);
-int FUN_8c0b34a4(void);
-int FUN_8c0b5662(int, int, int);
-int FUN_8c0b5a92(void);
-int FUN_8c0b5ab4(void);
-int FUN_8c0b5ad6(void);
-int FUN_8c0b5b26(void);
-int FUN_8c0b5b40(void);
-int FUN_8c0b5b66(void);
-int FUN_8c0b5b8c(void);
-int FUN_8c0b6230(void);
-int FUN_8c0baa88(void);
-int FUN_8c0bac18(int, int, int, int);
-int FUN_8c0bced0(int);
-int FUN_8c0be222(int);
-int FUN_8c0c4b18(void);
-int FUN_8c0c4b62(void);
-int FUN_8c0c4bbe(void);
-int FUN_8c0c4cf0(void);
-int FUN_8c0c4cf4(void);
-int FUN_8c0c4d08(void);
-int FUN_8c0c4de8(void);
-int FUN_8c0c4e70(void);
-int FUN_8c0c4ef2(void);
-int FUN_8c0c4f38(void);
-int FUN_8c0c4f72(void);
-int FUN_8c0c4fe6(void);
-int FUN_8c0c508e(void);
-int FUN_8c0c50c4(void);
-int FUN_8c0c50fa(void);
-int FUN_8c0c52ba(int);
-int FUN_8c0c52e2(void);
-int FUN_8c0c5460(int);
-int FUN_8c0c5516(void);
-int FUN_8c0c5532(int);
-int FUN_8c0c572c(int);
-int FUN_8c0c5750(void);
-int FUN_8c0c57c4(int);
-int FUN_8c0c57e8(void);
-int FUN_8c0c58b4(void);
-int FUN_8c0c591a(void);
-int FUN_8c0c599c(void);
-int FUN_8c0c5b00(void);
-int FUN_8c0c5c32(int);
-int FUN_8c0c5d80(int);
-int FUN_8c0c5ddc(void);
-int FUN_8c0c64dc(void);
-int FUN_8c0c6530(void);
-int FUN_8c0c6cb0(void);
-int FUN_8c0c6d7a(int, int);
-int FUN_8c0c6e18(void);
-int FUN_8c0c6e4a(int, int, int);
-int FUN_8c0c926c(void);
-int FUN_8c0c968c(void);
-int FUN_8c0ca2c0(int);
-int FUN_8c0ca5a8(void);
-int FUN_8c0ca740(void);
-int FUN_8c0caed4(void);
-int FUN_8c0cb0e0(int);
-int FUN_8c0cb8de(void);
-int FUN_8c0cbb38(int);
-int FUN_8c0cbf88(int, int, int, int);
-int FUN_8c0cec24(int, int);
-int FUN_8c0d0a98(int, int);
-int FUN_8c0d0c68(void);
-int FUN_8c0d129c(int, int, float);
-int FUN_8c0d1744(void);
-int FUN_8c0d28b4(void);
-int FUN_8c0d28be(void);
-int FUN_8c0d2ba6(int);
-int FUN_8c0d3308(void);
-int FUN_8c0d339a(void);
-int FUN_8c0d33ba(void);
-int FUN_8c0d33d0(void);
-int FUN_8c0d5344(int, int, int);
-int FUN_8c0d6746(int);
-int FUN_8c0d677a(void);
-int FUN_8c0d6818(int);
-int FUN_8c0d684c(void);
-int FUN_8c0d6890(void);
-int FUN_8c0d6c12(int);
-int FUN_8c0d6cc0(void);
-int FUN_8c0d6e16(int, int);
-int FUN_8c0d6f40(int);
-int FUN_8c0d74a8(int, int);
-int FUN_8c0d7a9c(int);
-int FUN_8c0d7b34(void);
-int FUN_8c0d7e98(void);
-int FUN_8c0d9682(int, int, int);
-int FUN_8c0de088(int, int, int, float, float, float);
-int FUN_8c0df91e(void);
-int FUN_8c0df924(void);
-int FUN_8c0e0710(int, int, int, int);
-int FUN_8c0e0876(void);
-int FUN_8c0e412a(void);
-int FUN_8c0e628c(void);
-int FUN_8c0e62e0(void);
-int FUN_8c0e89c0(void);
-int FUN_8c0e8a1c(void);
-int FUN_8c0e8a3a(void);
-int FUN_8c0e8a58(void);
-int FUN_8c0e8a76(void);
-int FUN_8c0e8aba(void);
-int FUN_8c0e8b74(void);
-int FUN_8c0e8bb0(void);
-int FUN_8c0e8bf4(void);
-int FUN_8c0e8cec(void);
-int FUN_8c0e8d0a(void);
-int FUN_8c0e8d46(void);
-int FUN_8c0e8d56(void);
-int FUN_8c0e8d9a(void);
-int FUN_8c0e8dde(void);
-int FUN_8c0e8dfc(void);
-int FUN_8c0e8f3c(int);
-int FUN_8c0e8ffe(int);
-int FUN_8c0e90bc(void);
-int FUN_8c0ea094(int, int);
-int FUN_8c0ea2a0(int);
-int FUN_8c0eaba0(void);
-int FUN_8c0ef060(int, int, int);
-int FUN_8c0ef9b0(int);
-int FUN_8c0f1ff0(void);
-int FUN_8c0f2160(void);
-int FUN_8c0f3dc0(void);
-int FUN_8c0f70a0(int);
-int FUN_8c0f7130(int);
-int FUN_8c0f7cf0(void);
-int FUN_8c1e28e0(int, int, int);
-int FUN_8c1e4b74(int, int, int, int);
-int FUN_8c1e8fa0(int, int);
-int FUN_8c1f0982(int);
-int FUN_8c1f098e(int);
-int FUN_8c1f09be(int);
-int FUN_8c1f1808(int);
-int FUN_8c1f56c0(void);
-int FUN_8c1f5e60(int);
-int FUN_8c1f8a40(void);
-int FUN_8c1fc2f0(int);
-int FUN_8c1fc374(int);
-int FUN_8c1fc3f6(int);
-int FUN_8c1fc49c(int);
-int FUN_8c205b00(int);
-int FUN_8c2072b8(void);
-int FUN_8c20731c(int, int, int, int, int);
-int FUN_8c2075fe(int);
-int FUN_8c208e6c(int);
+int nlAddVector3op(int, int, int);
+int gdFsLockDir(int);
+int gdFsToUpper(int);
+int syTmrGetCount(void);
+int fmMngMcpy4(int, int, int);
+int fmMngNum2Bit(int, int, int);
+int mainSoftReset(void);
+int mainExitToBios(void);
+int nlMalloc2(int);
+int nlInitEvent(void);
+int set_event2(int, int);
+int nlCloseEvent2(int);
+int shadowVolPutDir(void);
+int dbgMenuSetTitle(int, int, int);
+int dbgMenuSetItem(int, int, int, int, int, int, int);
+int motionBackup(void);
+int motionSetFrame(int, float);
+int vecMake(float, float, float);
+float vecDist(void);
+int mtxGetPos(int, int, int);
+int vecAnglesTo(int, int);
+int camInit(void);
+int sprCellInit(int, int);
+int serveGetServer(void);
+int fadeDraw(void);
+int padVibExec(void);
+int padLcdSetMode(int);
+int padLcdMessage(int);
+int padLcdDraw(int);
+int padLcdUpdate(void);
+int padVmsBeep(int, int);
+int padRepeatExec(void);
+int gameMatchSetup(void);
+int miniReset(void);
+int miniTargetInit(int, int);
+int miniSetModel(int, int);
+int zoneListClear(void);
+int cpuSglInit(void);
+int cpuSglInput(void);
+int cpuSglThink(int);
+int cpuDblInit(void);
+int cpuDblInput(void);
+int cpuInTriangle(void);
+int ndbClear(void);
+int ndbIsValid(void);
+int umpCallGamePoint(void);
+int umpCallAdvantage(void);
+int umpCallFirstServe(void);
+int umpCallFirstServeDelayed(int);
+int umpCallSecondServeDelayed(int);
+int fadeScreenStart(int, int, int);
+int resultFlagsClear(void);
+int ambLevelReset(void);
+int matchPropStart(void);
+int crowdSetup(void);
+int sprTexLoad(int);
+int sprTexFree(int);
+int sprInitRectF(int, int, int, int, int, int);
+int sprInitRect(int, int, int, int, int, int, int);
+int sprPutAt(int);
+int sprPutAtAlpha(int);
+int sprPutCropH(int, int, int);
+int panelLogoInit(int, int);
+int bgSprInitRect(int, int);
+int hudNumPut(int, float);
+int hudScoreIconPut(float);
+int hudFontSprSet(int, int);
+int hudFont2SprSet(int, int);
+int hudSignSprSet(int, int);
+int infoPlayerDraw(void);
+int selModelSpawn(int, int);
+int entryPortAtRound5Clean(int);
+int entryIsVersus(void);
+int entryCountJoined(void);
+int stageTexFree(void);
+int stageCrowdTexLoad(void);
+int stageLoadSelectSprites(void);
+int endingTexFree(void);
+int stageWtcMainTexFree(void);
+int stageMinigameTexLoad(void);
+int stageMinigameTexFree(void);
+int stageExtraTexFree(void);
+int crowdInit(void);
+int fileLoadSync(int, int, int);
+int stagePolyLoad(void);
+int stageTexFileLoad(void);
+int kyakuPolyLoad(void);
+int minigamePolyLoad(void);
+int minigameTexFileLoad(void);
+int minigameSpriteLoad(void);
+int gameSpriteLoad(void);
+int courtPropsInit(void);
+int matchSceneInit(void);
+int primSprDraw(int, int, int, int);
+int emotKeysSort(int);
+int emotFaceReset(int);
+int sprMatchInit(void);
+int sprCommonInit(void);
+int sprAdvInit(void);
+int sprSet266InitThunk(void);
+int sprSet109Init(void);
+int sprStartInit(void);
+int sprStartFree(void);
+int sprSet109Free(void);
+int sprAdvFree(void);
+int sprMatchLoad(void);
+int sprMatchFree(void);
+int sprSet115Free(void);
+int sprWtcFree(void);
+int sprSet266Load(void);
+int sprSet266Free(void);
+int sprSet163Free(int);
+int sprSet163FreeAll(void);
+int sprSet173Free(int);
+int sprSet173FreeAll(void);
+int sprTexRestore(int);
+int sprSet280Free(int);
+int sprSet280FreeAll(void);
+int sprSet322Free(int);
+int sprSet322FreeAll(void);
+int sprSet330Free(void);
+int sprSet331Free(void);
+int sprSet192Setup(void);
+int sprSet192Free(void);
+int charaModelCount(int);
+int charaTexFree(int);
+int charaTexFreeAll(void);
+int uniformLoadBegin(void);
+int uniformLoadStep(void);
+int uniformPreviewFree(void);
+int commonSprInit(int, int);
+int commonSprInitAll(void);
+int menuSprInit(int, int, int);
+int lineJudgeDraw(void);
+int lineJudgeUpdate(void);
+int netJudgePose(int);
+int netJudgeUpdate(void);
+int netJudgeDraw(void);
+int staffShadowFlat(void);
+int staffShadowMulti(int);
+int staffMorphInit(void);
+int lineJudgeShadowPart(int);
+int lightSet(int, int, int, int);
+int staffMorphCapture(int, int);
+int gameModeSet(int, int);
+int frameHookNop(void);
+int hudPanelDraw(int, int, float);
+int msgWinStep(void);
+int sndFxReset(void);
+int sndStopAll(void);
+int sndStagePackLoad(int);
+int sndPack1FadeCancel(void);
+int sndSe0B_02(void);
+int sndSe0B_00(void);
+int sndSe0B_01(void);
+int endingSprAnimStep(int, int, int);
+int endingCharaTexFree(int);
+int endingCharaTexFreeAll(void);
+int endSprCharaTexFree(int);
+int endSprCharaTexFreeAll(void);
+int endSprTexFree(void);
+int strmVoiceQueueAdd(int);
+int strmVoiceQueueClear(void);
+int strmVoicePlay(int, int);
+int strmBgmPlay(int);
+int strmControl(int, int);
+int strmCallPair(int);
+int strmCallPlayerOnce(void);
+int strmScoreReset(void);
+int evPackFade(int, int, int);
+int sprListPut(int, int, int, float, float, float);
+int eepromGetDeuce(void);
+int eepromGetVsDeuce(void);
+int BupRequestLoad(int, int, int, int);
+int BupCardWarning(void);
+int rankSprTexFree(void);
+int titleSprTexLoad(void);
+int titleSprTexFree(void);
+int resWtcShopPolyRead(void);
+int resWtcShopTexRead(void);
+int resWtcShopSprRead(void);
+int resFukuPolyRead(void);
+int resWtcShopObjTexLoad(void);
+int resWtcShopObjTexFree(void);
+int resEndObjTexFree(void);
+int resWtcShopSprTexLoad(void);
+int resWtcShopSprTexFree(void);
+int resSprTitleRead(void);
+int resTitleObjTexLoad(void);
+int resTitleObjTexFree(void);
+int resTitleSprTexLoad(void);
+int resTitleSprTexFree(void);
+int resTitlePolyRead(void);
+int resTitleSprRead(void);
+int resCautionReset(int);
+int resCautionTexFree(int);
+int resCautionFreeAll(void);
+int cacheOcbiRange(int, int);
+int nlSetCommonTextureOffset(int);
+int nlWaitVSync(void);
+int nlInitMatrixStack(int, int, int);
+int nlMultiMatrixRevOrder8(int);
+int nlObjPutSetGarbagedTexture(void);
+int nlObjPutFreeTextureOnce(void);
+int nlSpriteLoadTextureOnce(void);
+int nlDispStrip(int);
+int nlDispStripTrnsl(int);
+int _quick_mvn(void);
+int kmyMemCopy(int, int, int);
+int kmtex_ConvertSmallVQToMem(int, int, int, int);
+int syTmrDiffCount(int, int);
+int ADXSJD_GetSfreq(int);
+int ADXSJD_GetNumChan(int);
+int ADXSJD_GetTotalNumSmpl(int);
+int ADXT_ExecHndl(int);
+int kmyGetInterruptLevel(void);
+int kmiRegisterPhIntHandler(int);
+int kmyiCheckTAHandle(void);
+int kmtex_TextureSize_Twiddled(int);
+int kmtex_TextureSize_VQ(int);
+int kmtex_TextureSize_Palettized(int);
+int kmtex_TextureSize_smallVQ(int);
+int kmyiCheckRenderPacket(int);
+int syBtFlWrite(void);
+int adxb_DecodeInfoAiffSub(int, int, int, int, int);
+int ADXB_CheckAiff(int);
+int syIntAdrChk_putchar(int);
 int SJMEM_Reset(int);
 int SJRBF_GetBufPtr(int);
 int SJRBF_GetBufSize(int);
@@ -384,7 +384,7 @@ int padDirOn(int, int);
 int pdVmsLcdWrite1(int, int);
 int set_event(int, int);
 int stageTexLoad(void);
-int strncmp(int, int, int);
+int memcmp(int, int, int);
 int syBtCfgSet(int);
 int syChainAddHandler(int, int, int, int);
 int syG2DmaResume(int);
@@ -397,7 +397,7 @@ int thunk_FUN_8c1e0150(void);
 int thunk_FUN_8c1ff1ee(void);
 int vmsfs_c_getstate(int);
 
-void FUN_8c010350(void)
+void mainCheckReset(void)
 {
     int t0;
     int t1;
@@ -422,15 +422,15 @@ void FUN_8c010350(void)
                                 if (t4 == 0) {
                                     t5 = *(int *)0x8C421F60;
                                     if (t5 != 0) {
-                                        FUN_8c010466();
+                                        mainExitToBios();
                                     } else {
-                                        FUN_8c0103b8();
+                                        mainSoftReset();
                                     }
                                 } else {
-                                    FUN_8c0103b8();
+                                    mainSoftReset();
                                 }
                             } else {
-                                FUN_8c010466();
+                                mainExitToBios();
                             }
                         }
                     }
@@ -440,7 +440,7 @@ void FUN_8c010350(void)
     } while ((unsigned int)t0 < (unsigned int)0x8C29B8A8);
 }
 
-int FUN_8c010564(void)
+int mainCheckDrive(void)
 {
     int t0;
     int t5;
@@ -462,12 +462,12 @@ int FUN_8c010564(void)
     }
     t7 = *(int *)0x8C12C5A0;
     if (t7 == 1) {
-        return FUN_8c010466();
+        return mainExitToBios();
     }
     return t7;
 }
 
-int FUN_8c01069a(int a4)
+int nlMalloc2(int a4)
 {
     int t0;
     int t1;
@@ -537,7 +537,7 @@ int FUN_8c01069a(int a4)
     return (t24 + 0x4);
 }
 
-void FUN_8c0107f0(int a4)
+void nlFree2(int a4)
 {
     int t0;
     int t40;
@@ -646,7 +646,7 @@ void FUN_8c0107f0(int a4)
     }
 }
 
-int FUN_8c010976(int a4, int a5)
+int set_event2(int a4, int a5)
 {
     int t0;
     int t1;
@@ -658,7 +658,7 @@ int FUN_8c010976(int a4, int a5)
     if ((unsigned int)a4 < (unsigned int)0x14) {
         t0 = 0x14;
     }
-    t1 = FUN_8c01069a(t0);
+    t1 = nlMalloc2(t0);
     if (t1 != 0) {
         t2 = *(int *)0x8C23D1D0;
         if (t2 == 0) {
@@ -679,20 +679,20 @@ int FUN_8c010976(int a4, int a5)
     return t1;
 }
 
-int FUN_8c012144(void)
+int shadowVolPutDirA(void)
 {
-    return FUN_8c01205a();
+    return shadowVolPutDir();
 }
 
-int FUN_8c0135c4(int a4)
+int dbgMenuPageSystem(int a4)
 {
     int t0;
 
     t0 = set_event(0x18, 0x8C01361A);
     *(unsigned int *)((t0 + 0x14)) = a4;
-    FUN_8c0133ca(a4, 0x0, 0x8C1013EC, 0x0, 0x0, 0x1, 0x1);
-    FUN_8c0133ca(a4, 0x1, 0x8C1013F4, 0x0, 0x0, 0x1, 0x1);
-    return FUN_8c013394(a4, 0x8C1013FC, 0x2);
+    dbgMenuSetItem(a4, 0x0, 0x8C1013EC, 0x0, 0x0, 0x1, 0x1);
+    dbgMenuSetItem(a4, 0x1, 0x8C1013F4, 0x0, 0x0, 0x1, 0x1);
+    return dbgMenuSetTitle(a4, 0x8C1013FC, 0x2);
 }
 
 void motionSetCurrent(int a4)
@@ -745,7 +745,7 @@ int motionRotateAuto(void)
     return motionRotate();
 }
 
-int FUN_8c015b84(void)
+int motFileInit(void)
 {
     int t0;
     int t1;
@@ -826,7 +826,7 @@ void motFileLoadBegin(void)
     }
 }
 
-void FUN_8c015f0c(int a4, int a5, int a6, int a7, int a8)
+void vecAdd(int a4, int a5, int a6, int a7, int a8)
 {
     int t1;
     int t2;
@@ -842,7 +842,7 @@ void FUN_8c015f0c(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((a8 + 0x0)) = t3;
 }
 
-void FUN_8c015f2c(int a4, int a5, int a6, int a7, int a8)
+void vecSub(int a4, int a5, int a6, int a7, int a8)
 {
     int t1;
     int t2;
@@ -858,7 +858,7 @@ void FUN_8c015f2c(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((a8 + 0x0)) = t3;
 }
 
-void FUN_8c015f4c(int a4, int a5, int a6, int a7, int a8)
+void vecScale(int a4, int a5, int a6, int a7, int a8)
 {
     int t1;
     int t2;
@@ -874,7 +874,7 @@ void FUN_8c015f4c(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((a8 + 0x0)) = t3;
 }
 
-void FUN_8c01607c(int a4, int a5, int a6, int a7, int a8)
+void vecCross(int a4, int a5, int a6, int a7, int a8)
 {
     int t1;
     int t2;
@@ -890,7 +890,7 @@ void FUN_8c01607c(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((a8 + 0x0)) = t3;
 }
 
-void FUN_8c016174(int a4, int a5)
+void camProject(int a4, int a5)
 {
     float u0;
     float u1;
@@ -920,7 +920,7 @@ void FUN_8c016174(int a4, int a5)
     *(float *)((a5 + 0x0)) = ((u4 * u5) / u7);
 }
 
-void FUN_8c0161b4(int a4, int a5, int a6, int a7, int a8)
+void camViewToWorld(int a4, int a5, int a6, int a7, int a8)
 {
     int t4;
     int t5;
@@ -939,7 +939,7 @@ void FUN_8c0161b4(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((a8 + 0x0)) = t6;
 }
 
-void FUN_8c01631c(int a4, int a5, int a6, int a7, int a8, float f4)
+void vecStepToward(int a4, int a5, int a6, int a7, int a8, float f4)
 {
     int t0;
     int t1;
@@ -967,7 +967,7 @@ void FUN_8c01631c(int a4, int a5, int a6, int a7, int a8, float f4)
     *(unsigned int *)((((int)stk + 4) + 0x4)) = t4;
     t5 = *(int *)(((((int)stk + 16) + 0x18) + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t5;
-    t6 = FUN_8c016036();
+    t6 = vecDist();
     if (t6 != 0.0f) {
         nlSubVector((((int)stk + 28) + 0x18), (((int)stk + 28) + 0xC));
         u8 = *(float *)(((int)stk + 28));
@@ -982,7 +982,7 @@ void FUN_8c01631c(int a4, int a5, int a6, int a7, int a8, float f4)
     *(unsigned int *)((a8 + 0x0)) = t13;
 }
 
-void FUN_8c016af0(void)
+void camSetEye(void)
 {
     int t0;
     int t1;
@@ -1001,7 +1001,7 @@ void FUN_8c016af0(void)
     }
 }
 
-int FUN_8c016b10(void)
+int camSetTarget(void)
 {
     int t0;
     int t4;
@@ -1025,7 +1025,7 @@ int FUN_8c016b10(void)
     return t4;
 }
 
-void FUN_8c016b56(void)
+void camSetOffset(void)
 {
     int t0;
     int t1;
@@ -1040,7 +1040,7 @@ void FUN_8c016b56(void)
     *(unsigned int *)0x8C287608 = t2;
 }
 
-int FUN_8c016b6a(float f4, float f5)
+int camMoveBegin(float f4, float f5)
 {
     int t0;
     int t28;
@@ -1090,7 +1090,7 @@ int FUN_8c016b6a(float f4, float f5)
             *(unsigned int *)((((int)stk + 28) + 0x4)) = t6;
             t7 = *(int *)0x8C2875C0;
             *(unsigned int *)((((int)stk + 28) + 0x0)) = t7;
-            FUN_8c0161e8(0x8C287648, 0x8C28764A);
+            vecAnglesTo(0x8C287648, 0x8C28764A);
             t9 = *(int *)0x8C2875D4;
             *(unsigned int *)((((int)stk + 16) + 0x8)) = t9;
             t10 = *(int *)0x8C2875D0;
@@ -1103,7 +1103,7 @@ int FUN_8c016b6a(float f4, float f5)
             *(unsigned int *)((((int)stk + 4) + 0x4)) = t13;
             t14 = *(int *)0x8C2875C0;
             *(unsigned int *)((((int)stk + 4) + 0x0)) = t14;
-            t15 = FUN_8c016036();
+            t15 = vecDist();
             *(float *)0x8C287628 = t15;
         }
         t17 = *(int *)0x8C2875C8;
@@ -1137,7 +1137,7 @@ int FUN_8c016b6a(float f4, float f5)
     return t28;
 }
 
-int FUN_8c016c40(float f4, float f5)
+int camMoveBeginAtGoal(float f4, float f5)
 {
     int t0;
     int t34;
@@ -1193,7 +1193,7 @@ int FUN_8c016c40(float f4, float f5)
             *(unsigned int *)((((int)stk + 28) + 0x4)) = t6;
             t7 = *(int *)0x8C2875C0;
             *(unsigned int *)((((int)stk + 28) + 0x0)) = t7;
-            FUN_8c0161e8(0x8C287648, 0x8C28764A);
+            vecAnglesTo(0x8C287648, 0x8C28764A);
             t9 = *(int *)0x8C2875D4;
             *(unsigned int *)((((int)stk + 16) + 0x8)) = t9;
             t10 = *(int *)0x8C2875D0;
@@ -1206,7 +1206,7 @@ int FUN_8c016c40(float f4, float f5)
             *(unsigned int *)((((int)stk + 4) + 0x4)) = t13;
             t14 = *(int *)0x8C2875C0;
             *(unsigned int *)((((int)stk + 4) + 0x0)) = t14;
-            t15 = FUN_8c016036();
+            t15 = vecDist();
             *(float *)0x8C287628 = t15;
         }
         t17 = *(int *)0x8C2875F8;
@@ -1252,7 +1252,7 @@ int FUN_8c016c40(float f4, float f5)
     return t34;
 }
 
-int FUN_8c017060(int a4, int a5, int a6, int a7)
+int msgEventStart(int a4, int a5, int a6, int a7)
 {
     int t0;
     int t1;
@@ -1278,7 +1278,7 @@ int FUN_8c017060(int a4, int a5, int a6, int a7)
     return t0;
 }
 
-int FUN_8c0171b8(int a4, int a5, int a6, int a7, int a8)
+int lightSetTarget(int a4, int a5, int a6, int a7, int a8)
 {
     int t1;
 
@@ -1300,7 +1300,7 @@ int FUN_8c0171b8(int a4, int a5, int a6, int a7, int a8)
     return t1;
 }
 
-void FUN_8c017718(int a4)
+void sprSheetSet(int a4)
 {
     int t0;
     int t1;
@@ -1349,7 +1349,7 @@ void FUN_8c017718(int a4)
         t6 = 0x8C287658;
         do {
             t7 = *(int *)((a4 + 0x0));
-            FUN_8c0176bc(t6, t7);
+            sprCellInit(t6, t7);
             t9 = *(int *)((a4 + 0xC));
             t10 = *(int *)(((t9 + t5) + 0x0));
             t11 = *(int *)((a4 + 0x4));
@@ -1385,7 +1385,7 @@ void FUN_8c017718(int a4)
     }
 }
 
-void FUN_8c017a22(int a4, int a5, float f4, float f5, float f6, float f7, float f8)
+void dbgLineStart(int a4, int a5, float f4, float f5, float f6, float f7, float f8)
 {
     int t0;
 
@@ -1399,7 +1399,7 @@ void FUN_8c017a22(int a4, int a5, float f4, float f5, float f6, float f7, float 
     *(float *)((t0 + 0x24)) = f8;
 }
 
-int FUN_8c017ef8(void)
+int matchGetCpuRank(void)
 {
     int t0;
     int t1;
@@ -1437,25 +1437,25 @@ int FUN_8c017ef8(void)
     return t7;
 }
 
-int FUN_8c018a24(int a4)
+int dbgMenuPageTennis(int a4)
 {
     int t9;
 
     *(unsigned int *)0x8C287C4C = a4;
-    FUN_8c013394(a4, 0x8C1022D0, 0x9);
-    FUN_8c0133ca(a4, 0x0, 0x8C1022DC, 0x0, 0x0, 0x1, 0x1);
-    FUN_8c0133ca(a4, 0x1, 0x8C1022E4, 0xFFFFFFFF, 0xFFFFFFFF, 0xB, 0x1);
-    FUN_8c0133ca(a4, 0x2, 0x8C1022EC, 0x0, 0x0, 0x3C, 0x1);
-    FUN_8c0133ca(a4, 0x3, 0x8C1022F4, 0x0, 0x0, 0x3, 0x1);
-    FUN_8c0133ca(a4, 0x4, 0x8C1022FC, 0x0, 0x0, 0x1, 0x0);
-    FUN_8c0133ca(a4, 0x5, 0x8C102304, 0x0, 0x0, 0x64, 0x1);
-    FUN_8c0133ca(a4, 0x6, 0x8C10230C, 0x0, 0x0, 0x3E8, 0x1);
-    FUN_8c0133ca(a4, 0x7, 0x8C102314, 0x1, 0x0, 0x1, 0x1);
-    t9 = FUN_8c0133ca(a4, 0x8, 0x8C10231C, 0x0, 0x0, 0x1, 0x1);
+    dbgMenuSetTitle(a4, 0x8C1022D0, 0x9);
+    dbgMenuSetItem(a4, 0x0, 0x8C1022DC, 0x0, 0x0, 0x1, 0x1);
+    dbgMenuSetItem(a4, 0x1, 0x8C1022E4, 0xFFFFFFFF, 0xFFFFFFFF, 0xB, 0x1);
+    dbgMenuSetItem(a4, 0x2, 0x8C1022EC, 0x0, 0x0, 0x3C, 0x1);
+    dbgMenuSetItem(a4, 0x3, 0x8C1022F4, 0x0, 0x0, 0x3, 0x1);
+    dbgMenuSetItem(a4, 0x4, 0x8C1022FC, 0x0, 0x0, 0x1, 0x0);
+    dbgMenuSetItem(a4, 0x5, 0x8C102304, 0x0, 0x0, 0x64, 0x1);
+    dbgMenuSetItem(a4, 0x6, 0x8C10230C, 0x0, 0x0, 0x3E8, 0x1);
+    dbgMenuSetItem(a4, 0x7, 0x8C102314, 0x1, 0x0, 0x1, 0x1);
+    t9 = dbgMenuSetItem(a4, 0x8, 0x8C10231C, 0x0, 0x0, 0x1, 0x1);
     return t9;
 }
 
-void FUN_8c0191b0(void)
+void scoreReset(void)
 {
     int t0;
     int t1;
@@ -1477,7 +1477,7 @@ void FUN_8c0191b0(void)
     } while ((unsigned int)t0 < (unsigned int)0x90);
 }
 
-void FUN_8c01a550(void)
+void serveNextGame(void)
 {
     int t0;
     int t1;
@@ -1505,7 +1505,7 @@ void FUN_8c01a550(void)
     *(unsigned int *)0x8C287B34 = (t9 + 0x1);
 }
 
-void FUN_8c01a592(int a4, int a5, int a6, int a7, int a8)
+void serveGetPos(int a4, int a5, int a6, int a7, int a8)
 {
     int t0;
     int t1;
@@ -1529,7 +1529,7 @@ void FUN_8c01a592(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((a8 + 0x0)) = t7;
 }
 
-int FUN_8c01a5d6(void)
+int serveGetServer(void)
 {
     int t0;
     int t1;
@@ -1545,7 +1545,7 @@ int FUN_8c01a5d6(void)
     return t4;
 }
 
-int FUN_8c01a5f6(void)
+int serveGetReceiver(void)
 {
     int t0;
     int t1;
@@ -1561,7 +1561,7 @@ int FUN_8c01a5f6(void)
     return t4;
 }
 
-int FUN_8c01b1d0(void)
+int fadeCaptureBegin(void)
 {
     int t0;
 
@@ -1573,7 +1573,7 @@ int FUN_8c01b1d0(void)
     return t0;
 }
 
-float FUN_8c01b2f4(void)
+float courtLimitZ(void)
 {
     int t0;
     int t1;
@@ -1583,7 +1583,7 @@ float FUN_8c01b2f4(void)
     return (float)(t1 - 10);
 }
 
-void FUN_8c029874(void)
+void courtColliEntry(void)
 {
     int t0;
     int t1;
@@ -1607,7 +1607,7 @@ void FUN_8c029874(void)
     }
 }
 
-int FUN_8c029aac(void)
+int charaNodeIdInit(void)
 {
     int t0;
     int t1;
@@ -1632,7 +1632,7 @@ int FUN_8c029aac(void)
     return t1;
 }
 
-void FUN_8c029af4(int a4)
+void playerRecA20Clear(int a4)
 {
     int t0;
     int t1;
@@ -1651,7 +1651,7 @@ void FUN_8c029af4(int a4)
     *(unsigned int *)(((a4 + 0x14) + 0x0)) = t2;
 }
 
-void FUN_8c02d94c(int a4, int a5, int a6, int a7, int a8)
+void cameraCalcPoint(int a4, int a5, int a6, int a7, int a8)
 {
     int t1;
     float u3;
@@ -1670,7 +1670,7 @@ void FUN_8c02d94c(int a4, int a5, int a6, int a7, int a8)
     u4 = *(float *)(((((int)stk + 4) + 0x10) + 0x4));
     u5 = *(float *)(((((int)stk + 4) + 0x10) + 0x0));
     nlTranslate(u5, u4, u3);
-    FUN_8c0160e6((((int)stk + 4) + 0x10), ((((int)stk + 4) + 0x10) + 0x4), ((((int)stk + 4) + 0x10) + 0x8));
+    mtxGetPos((((int)stk + 4) + 0x10), ((((int)stk + 4) + 0x10) + 0x4), ((((int)stk + 4) + 0x10) + 0x8));
     nlPopMatrix(0x1);
     t9 = *(int *)(((((int)stk + 4) + 0x10) + 0x8));
     *(unsigned int *)((a8 + 0x8)) = t9;
@@ -1680,7 +1680,7 @@ void FUN_8c02d94c(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((a8 + 0x0)) = t11;
 }
 
-void FUN_8c02d998(int a4, int a5, int a6, int a7, int a8)
+void cameraCalcPointInv(int a4, int a5, int a6, int a7, int a8)
 {
     int t1;
     int t6;
@@ -1703,7 +1703,7 @@ void FUN_8c02d998(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((a8 + 0x0)) = t8;
 }
 
-int FUN_8c02f2a0(void)
+int padExec(void)
 {
     int t1;
     int t2;
@@ -1712,7 +1712,7 @@ int FUN_8c02f2a0(void)
     int t9;
     int t10;
 
-    FUN_8c02f3ae();
+    padVibExec();
     t1 = *(int *)0x8C1D175C;
     if (t1 == -1) {
         t2 = *(int *)0x8C29BBC0;
@@ -1723,21 +1723,21 @@ int FUN_8c02f2a0(void)
                 t4 = (t3 & 0x1);
             }
             if (t4 != 0) {
-                FUN_8c02fb22();
+                padLcdUpdate();
             }
         } else {
-            FUN_8c02fb22();
+            padLcdUpdate();
         }
         t9 = *(int *)0x8C20D198;
         t10 = (int)((int)t9 % (int)0x3C);
         if (t10 == 0) {
-            FUN_8c02ff90(0x0, 0x0);
+            padVmsBeep(0x0, 0x0);
         }
     }
-    return FUN_8c03001e();
+    return padRepeatExec();
 }
 
-void plaInitHdlTbl(void)
+void padLcdModeClear(void)
 {
     int t0;
 
@@ -1748,7 +1748,7 @@ void plaInitHdlTbl(void)
     } while ((unsigned int)t0 < (unsigned int)0x8C29B8B8);
 }
 
-int FUN_8c02f59e(int a4)
+int padLcdSetMode(int a4)
 {
     int t0;
     int t1;
@@ -1762,7 +1762,7 @@ int FUN_8c02f59e(int a4)
 
     if (a4 != 11) {
         if (a4 == 12) {
-            return FUN_8c02f62e(a4);
+            return padLcdMessage(a4);
         }
         t0 = 0x2;
         t1 = 0x8C294658;
@@ -1791,10 +1791,10 @@ int FUN_8c02f59e(int a4)
         } while ((int)t0 < (int)0x6);
         return t7;
     }
-    return FUN_8c02f62e(a4);
+    return padLcdMessage(a4);
 }
 
-void FUN_8c02f5f8(int a4)
+void padLcdClear(int a4)
 {
     int t0;
     int t1;
@@ -1816,7 +1816,7 @@ void FUN_8c02f5f8(int a4)
     } while ((int)t1 < (int)0x20);
 }
 
-int FUN_8c02fb22(void)
+int padLcdUpdate(void)
 {
     int t0;
     int t2;
@@ -1824,7 +1824,7 @@ int FUN_8c02fb22(void)
 
     t0 = 0x0;
     do {
-        FUN_8c02f63a(t0);
+        padLcdDraw(t0);
         t2 = *(int *)((0x8C159AF0 + (t0 << 2)));
         t3 = pdVmsLcdWrite1(t2, ((((((t0 << 1) + t0) << 2) << 2) << 2) + 0x8C29B8B8));
         t0 = (t0 + 0x1);
@@ -1832,7 +1832,7 @@ int FUN_8c02fb22(void)
     return t3;
 }
 
-void FUN_8c02fb68(int a4, int a5, int a6, int a7)
+void padLcdPixel(int a4, int a5, int a6, int a7)
 {
     int t0;
     int t1;
@@ -1879,7 +1879,7 @@ void FUN_8c02fb68(int a4, int a5, int a6, int a7)
     }
 }
 
-void FUN_8c02fc16(int a4, int a5, int a6)
+void padLcdBlit(int a4, int a5, int a6)
 {
     int t0;
     int t1;
@@ -1914,7 +1914,7 @@ void FUN_8c02fc16(int a4, int a5, int a6)
     } while ((int)t1 < (int)0x20);
 }
 
-void FUN_8c02ffea(void)
+void padRepeatInit(void)
 {
     int t0;
     int t1;
@@ -1935,7 +1935,7 @@ void FUN_8c02ffea(void)
     } while ((unsigned int)t0 < (unsigned int)0x8C29B890);
 }
 
-int FUN_8c03001e(void)
+int padRepeatExec(void)
 {
     int t0;
     int t1;
@@ -1974,7 +1974,7 @@ int FUN_8c03001e(void)
     return t6;
 }
 
-int FUN_8c0300e0(int a4, int a5)
+int padDirRepeat(int a4, int a5)
 {
     int t3;
     int t2;
@@ -2058,7 +2058,7 @@ int FUN_8c0300e0(int a4, int a5)
     return t28;
 }
 
-void FUN_8c032eec(int a4, int a5, int a6)
+void circuitTaskAdd(int a4, int a5, int a6)
 {
     int t0;
     int t1;
@@ -2089,7 +2089,7 @@ void FUN_8c032eec(int a4, int a5, int a6)
     }
 }
 
-void FUN_8c033206(void)
+void circuitStatsReset(void)
 {
     int t0;
     int t1;
@@ -2113,7 +2113,7 @@ void FUN_8c033206(void)
     *(unsigned int *)0x8C2FBD18 = 0x0;
 }
 
-void FUN_8c033654(void)
+void circuitRateStep(void)
 {
     int t0;
     int t1;
@@ -2170,7 +2170,7 @@ void FUN_8c033654(void)
     }
 }
 
-int FUN_8c0368ae(void)
+int miniStart(void)
 {
     int t2;
     int t3;
@@ -2186,8 +2186,8 @@ int FUN_8c0368ae(void)
     int t13;
     int t14;
 
-    FUN_8c0108a6();
-    FUN_8c036978();
+    nlInitEvent();
+    miniReset();
     *(unsigned int *)0x8C2FBEEC = 0x0;
     t2 = *(int *)0x8C2FBE1C;
     t3 = *(int *)0x8C2FBC50;
@@ -2209,10 +2209,10 @@ int FUN_8c0368ae(void)
     *(unsigned int *)0x8C287ADC = 0x2;
     *(unsigned int *)0x8C20D154 = 0x6;
     *(unsigned int *)0x8C20D158 = 0x4;
-    return FUN_8c032acc();
+    return gameMatchSetup();
 }
 
-int FUN_8c036978(void)
+int miniReset(void)
 {
     int t0;
     int t1;
@@ -2245,8 +2245,8 @@ int FUN_8c036978(void)
     *(unsigned int *)0x8C2FC0CC = 0x0;
     *(unsigned int *)0x8C2FC0D0 = 0x0;
     *(unsigned int *)0x8C2FBFDC = 0x0;
-    FUN_8c03992c(0x0, 0x0);
-    t8 = FUN_8c03ce22();
+    miniSetModel(0x0, 0x0);
+    t8 = zoneListClear();
     *(unsigned int *)0x8C185408 = 0x1;
     return t8;
 }
@@ -2273,8 +2273,8 @@ void ballColliSync(void)
 
     t0 = *(int *)0x8C2FC018;
     if ((t0 & 1) != 0) {
-        FUN_0c078a70(0x8C291F3C, 0x8C291F30, 0x8C2FBFF8);
-        FUN_0c078a70(0x8C291F48, 0x8C291F58, 0x8C2FC030);
+        nlAddVector3op(0x8C291F3C, 0x8C291F30, 0x8C2FBFF8);
+        nlAddVector3op(0x8C291F48, 0x8C291F58, 0x8C2FC030);
         t3 = *(int *)0x8C291F44;
         *(unsigned int *)0x8C291F38 = t3;
         t4 = *(int *)0x8C291F40;
@@ -2313,7 +2313,7 @@ void ballColliSync(void)
     }
 }
 
-int FUN_8c037dbe(int a4, int a5)
+int miniTargetSpawn(int a4, int a5)
 {
     int t0;
     int t1;
@@ -2337,11 +2337,11 @@ int FUN_8c037dbe(int a4, int a5)
     t4 = *(int *)(((((int)stk + 16) + 0x20) + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t4;
     t5 = *(int *)(((int)stk + 16));
-    t6 = FUN_8c037e1c(t0, t5);
+    t6 = miniTargetInit(t0, t5);
     return t6;
 }
 
-int FUN_8c039628(void)
+int miniClearTables(void)
 {
     int t0;
 
@@ -2355,7 +2355,7 @@ int FUN_8c039628(void)
     return t0;
 }
 
-int FUN_8c039a18(void)
+int miniBowlingScore(void)
 {
     int t0;
     int t1;
@@ -2456,7 +2456,7 @@ int FUN_8c039a18(void)
     return t43;
 }
 
-int FUN_8c03b4d2(int a4)
+int miniMessageSpawn(int a4)
 {
     int t0;
     int t2;
@@ -2473,7 +2473,7 @@ int FUN_8c03b4d2(int a4)
     return t2;
 }
 
-int FUN_8c03bc20(float f4, float f5, float f6, float f7)
+int stripQuadDrawA(float f4, float f5, float f6, float f7)
 {
     int t2;
     float u3;
@@ -2488,8 +2488,8 @@ int FUN_8c03bc20(float f4, float f5, float f6, float f7)
     int t13;
     int stk[52];
 
-    FUN_8c0f7cf0();
-    FUN_8c0f7cf0();
+    _quick_mvn();
+    _quick_mvn();
     t2 = 0x0;
     do {
         u3 = *(float *)(((t2 + (((int)stk + 4) + 0x60)) + 0x0));
@@ -2511,12 +2511,12 @@ int FUN_8c03bc20(float f4, float f5, float f6, float f7)
         u11 = *(float *)((t8 + 0x4));
         *(float *)((t8 + 0x4)) = (u11 + f5);
     } while ((unsigned int)t2 < (unsigned int)0x60);
-    FUN_8c0f7130(0x6);
-    t13 = FUN_8c0f7130(0x6);
+    nlDispStripTrnsl(0x6);
+    t13 = nlDispStripTrnsl(0x6);
     return t13;
 }
 
-int FUN_8c03bca6(float f4, float f5, float f6, float f7)
+int stripQuadDrawB(float f4, float f5, float f6, float f7)
 {
     int t2;
     float u3;
@@ -2531,8 +2531,8 @@ int FUN_8c03bca6(float f4, float f5, float f6, float f7)
     int t13;
     int stk[52];
 
-    FUN_8c0f7cf0();
-    FUN_8c0f7cf0();
+    _quick_mvn();
+    _quick_mvn();
     t2 = 0x0;
     do {
         u3 = *(float *)(((t2 + (((int)stk + 4) + 0x60)) + 0x0));
@@ -2554,8 +2554,8 @@ int FUN_8c03bca6(float f4, float f5, float f6, float f7)
         u11 = *(float *)((t8 + 0x4));
         *(float *)((t8 + 0x4)) = (u11 + f5);
     } while ((unsigned int)t2 < (unsigned int)0x60);
-    FUN_8c0f7130(0x6);
-    t13 = FUN_8c0f7130(0x6);
+    nlDispStripTrnsl(0x6);
+    t13 = nlDispStripTrnsl(0x6);
     return t13;
 }
 
@@ -2635,7 +2635,7 @@ int colliObjInit(int a4, float f4)
     *(float *)((((int)stk + 4) + 0x5C)) = 1.0f;
     *(float *)((((int)stk + 4) + 0x40)) = 1.0f;
     t21 = *(int *)(((((int)stk + 4) + 0x7C) + 0x0));
-    t22 = FUN_8c0f7cf0();
+    t22 = _quick_mvn();
     return t22;
 }
 
@@ -2697,15 +2697,15 @@ int colliObjEntry(int a4)
     return t15;
 }
 
-int FUN_8c03d030(void)
+int cpuInit(void)
 {
     int t0;
 
     t0 = *(int *)0x8C287ADC;
     if (t0 == 2) {
-        return FUN_8c041e50();
+        return cpuSglInit();
     }
-    return FUN_8c05689c();
+    return cpuDblInit();
 }
 
 int playerCpuInput(void)
@@ -2714,12 +2714,12 @@ int playerCpuInput(void)
 
     t0 = *(int *)0x8C287ADC;
     if (t0 == 2) {
-        return FUN_8c04264a();
+        return cpuSglInput();
     }
-    return FUN_8c0573f0();
+    return cpuDblInput();
 }
 
-int FUN_8c0428ac(void)
+int cpuSglThinkAll(void)
 {
     int t0;
     int t1;
@@ -2742,7 +2742,7 @@ int FUN_8c0428ac(void)
             t5 = *(int *)((((t4 << 2) + 0x8C287AE0) + 0x0));
             t7 = 0xB5C;
             if (t5 != 0) {
-                t6 = FUN_8c042920(t2);
+                t6 = cpuSglThink(t2);
                 t7 = t6;
             }
             t8 = t7;
@@ -2754,7 +2754,7 @@ int FUN_8c0428ac(void)
     return t8;
 }
 
-int FUN_8c042b64(int a4)
+int cpuSglSwingInput(int a4)
 {
     int t0;
     int t1;
@@ -2822,7 +2822,7 @@ int FUN_8c042b64(int a4)
     return t35;
 }
 
-int FUN_8c07fe70(int a4, int a5)
+int cpuInFan(int a4, int a5)
 {
     int t16;
     int t0;
@@ -2876,7 +2876,7 @@ int FUN_8c07fe70(int a4, int a5)
             *(unsigned int *)((((int)stk + 4) + 0x4)) = t13;
             t14 = *(int *)((t0 + 0x0));
             *(unsigned int *)((((int)stk + 4) + 0x0)) = t14;
-            t15 = FUN_8c07ffea();
+            t15 = cpuInTriangle();
             if ((signed char)t15 != 0) break;
             t1 = (t1 + 0x1);
             t0 = (t0 + 0xC);
@@ -2889,7 +2889,7 @@ int FUN_8c07fe70(int a4, int a5)
     return t16;
 }
 
-int FUN_8c0826aa(void)
+int ndbLoadRequest(void)
 {
     int t0;
     int t1;
@@ -2933,7 +2933,7 @@ int FUN_8c0826aa(void)
             t5 = *(int *)0x8C301958;
             t9 = t5;
             if ((int)t5 <= 0) {
-                t6 = FUN_8c082884();
+                t6 = ndbIsValid();
                 t8 = t6;
                 if (t6 == 0) {
                     t7 = set_event(0x18, 0x8C082716);
@@ -2964,7 +2964,7 @@ int FUN_8c0826aa(void)
         t15 = *(int *)0x8C301958;
         t19 = t15;
         if ((int)t15 <= 0) {
-            t16 = FUN_8c082884();
+            t16 = ndbIsValid();
             t18 = t16;
             if (t16 == 0) {
                 t17 = set_event(0x18, 0x8C082716);
@@ -2984,7 +2984,7 @@ int FUN_8c0826aa(void)
     return t21;
 }
 
-int FUN_8c082770(void)
+int ndbLoadStart(void)
 {
     int t0;
     int t1;
@@ -3000,10 +3000,10 @@ int FUN_8c082770(void)
     *(unsigned int *)0x8C301958 = 0x3;
     *(unsigned int *)((t1 + 0x14)) = 0x0;
     *(unsigned int *)0x8C181750 = 0x1;
-    return FUN_8c081cfc();
+    return ndbClear();
 }
 
-int FUN_8c082942(void)
+int ndbLoadWaitStart(void)
 {
     int t0;
 
@@ -3013,7 +3013,7 @@ int FUN_8c082942(void)
     return t0;
 }
 
-void FUN_8c083478(int a4)
+void effServeSpeedShow(int a4)
 {
     int t0;
     int t1;
@@ -3045,7 +3045,7 @@ void FUN_8c083478(int a4)
     }
 }
 
-int FUN_8c083608(void)
+int effEventTestStart(void)
 {
     int t0;
 
@@ -3054,185 +3054,185 @@ int FUN_8c083608(void)
     return t0;
 }
 
-int FUN_8c083cb0(int a4)
+int umpCallGamePointWait(int a4)
 {
     int t0;
 
     t0 = *(int *)((a4 + 0x1C));
     *(unsigned int *)((a4 + 0x1C)) = (t0 - 1);
     if (t0 == 0) {
-        FUN_8c083c38();
-        return FUN_8c010afa(a4);
+        umpCallGamePoint();
+        return nlCloseEvent2(a4);
     }
     return 0;
 }
 
-void FUN_8c083cd8(int a4)
+void umpCallGamePointDelayed(int a4)
 {
     int t0;
     int t1;
 
     t0 = *(int *)0x8C421F60;
     if (t0 == 0) {
-        t1 = FUN_8c010976(0x20, 0x8C083CB0);
+        t1 = set_event2(0x20, 0x8C083CB0);
         *(unsigned int *)((t1 + 0x1C)) = a4;
     }
 }
 
-void FUN_8c083dc4(int a4)
+void umpCallMatchPointDelayed(int a4)
 {
     int t0;
     int t1;
 
     t0 = *(int *)0x8C421F60;
     if (t0 == 0) {
-        t1 = FUN_8c010976(0x20, 0x8C083D9C);
+        t1 = set_event2(0x20, 0x8C083D9C);
         *(unsigned int *)((t1 + 0x1C)) = a4;
     }
 }
 
-void FUN_8c083f48(int a4, int a5)
+void umpCallDeuceDelayed(int a4, int a5)
 {
     int t0;
     int t1;
 
     t0 = *(int *)0x8C421F60;
     if (t0 == 0) {
-        t1 = FUN_8c010976(0x20, 0x8C083F24);
-        *(unsigned int *)((t1 + 0x1C)) = a4;
-        *(unsigned int *)((t1 + 0x14)) = a5;
-    }
-}
-
-void FUN_8c084048(int a4, int a5)
-{
-    int t0;
-    int t1;
-
-    t0 = *(int *)0x8C421F60;
-    if (t0 == 0) {
-        t1 = FUN_8c010976(0x20, 0x8C083FF2);
+        t1 = set_event2(0x20, 0x8C083F24);
         *(unsigned int *)((t1 + 0x1C)) = a4;
         *(unsigned int *)((t1 + 0x14)) = a5;
     }
 }
 
-int FUN_8c08412e(int a4, int a5)
+void umpCallGameDelayed(int a4, int a5)
+{
+    int t0;
+    int t1;
+
+    t0 = *(int *)0x8C421F60;
+    if (t0 == 0) {
+        t1 = set_event2(0x20, 0x8C083FF2);
+        *(unsigned int *)((t1 + 0x1C)) = a4;
+        *(unsigned int *)((t1 + 0x14)) = a5;
+    }
+}
+
+int umpCallGameNameDelayed(int a4, int a5)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x20, 0x8C084102);
+    t0 = set_event2(0x20, 0x8C084102);
     *(unsigned int *)((t0 + 0x1C)) = a5;
     *(unsigned int *)((t0 + 0x14)) = a4;
     return t0;
 }
 
-int FUN_8c084240(int a4, int a5)
+int umpCallAdvNameDelayed(int a4, int a5)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x20, 0x8C084214);
+    t0 = set_event2(0x20, 0x8C084214);
     *(unsigned int *)((t0 + 0x1C)) = a5;
     *(unsigned int *)((t0 + 0x14)) = a4;
     return t0;
 }
 
-int FUN_8c084326(int a4, int a5)
+int umpCallSpareADelayed(int a4, int a5)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x20, 0x8C084302);
+    t0 = set_event2(0x20, 0x8C084302);
     *(unsigned int *)((t0 + 0x1C)) = a5;
     *(unsigned int *)((t0 + 0x14)) = a4;
     return t0;
 }
 
-int FUN_8c084414(int a4, int a5)
+int umpCallSpareBDelayed(int a4, int a5)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x20, 0x8C0843E8);
+    t0 = set_event2(0x20, 0x8C0843E8);
     *(unsigned int *)((t0 + 0x1C)) = a5;
     *(unsigned int *)((t0 + 0x14)) = a4;
     return t0;
 }
 
-int FUN_8c0844a4(int a4)
+int umpCallAdvantageWait(int a4)
 {
     int t0;
 
     t0 = *(int *)((a4 + 0x1C));
     *(unsigned int *)((a4 + 0x1C)) = (t0 - 1);
     if (t0 == 0) {
-        FUN_8c084436();
-        return FUN_8c010afa(a4);
+        umpCallAdvantage();
+        return nlCloseEvent2(a4);
     }
     return 0;
 }
 
-int FUN_8c0844cc(int a4)
+int umpCallAdvantageDelayed(int a4)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x20, 0x8C0844A4);
+    t0 = set_event2(0x20, 0x8C0844A4);
     *(unsigned int *)((t0 + 0x1C)) = a4;
     return t0;
 }
 
-int FUN_8c084638(int a4, int a5, int a6)
+int umpCallScoreDelayed(int a4, int a5, int a6)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x20, 0x8C084612);
+    t0 = set_event2(0x20, 0x8C084612);
     *(unsigned int *)((t0 + 0x1C)) = a6;
     *(unsigned int *)((t0 + 0x14)) = a4;
     *(unsigned int *)((t0 + 0x18)) = a5;
     return t0;
 }
 
-int FUN_8c08478a(int a4, int a5, int a6)
+int umpCallScoreBDelayed(int a4, int a5, int a6)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x20, 0x8C084764);
+    t0 = set_event2(0x20, 0x8C084764);
     *(unsigned int *)((t0 + 0x1C)) = a4;
     *(unsigned int *)((t0 + 0x14)) = a5;
     *(unsigned int *)((t0 + 0x18)) = a6;
     return t0;
 }
 
-int FUN_8c084856(int a4)
+int umpCallFirstServeWait(int a4)
 {
     int t0;
 
     t0 = *(int *)((a4 + 0x1C));
     *(unsigned int *)((a4 + 0x1C)) = (t0 - 1);
     if (t0 == 0) {
-        FUN_8c0847e8();
-        return FUN_8c010afa(a4);
+        umpCallFirstServe();
+        return nlCloseEvent2(a4);
     }
     return 0;
 }
 
-int FUN_8c08487e(int a4)
+int umpCallFirstServeDelayed(int a4)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x20, 0x8C084856);
+    t0 = set_event2(0x20, 0x8C084856);
     *(unsigned int *)((t0 + 0x1C)) = a4;
     return t0;
 }
 
-int FUN_8c08495c(int a4)
+int umpCallSecondServeDelayed(int a4)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x20, 0x8C084934);
+    t0 = set_event2(0x20, 0x8C084934);
     *(unsigned int *)((t0 + 0x1C)) = a4;
     return t0;
 }
 
-int FUN_8c084978(int a4)
+int umpCallServeNo(int a4)
 {
     int t0;
     int t1;
@@ -3242,51 +3242,51 @@ int FUN_8c084978(int a4)
     if (t0 == 0) {
         t1 = *(int *)0x8C334408;
         if (t1 == 0) {
-            FUN_8c08487e(a4);
-            FUN_8c0d7a9c(0x1);
+            umpCallFirstServeDelayed(a4);
+            strmCallPair(0x1);
         }
         t4 = *(int *)0x8C334408;
         if (t4 == 1) {
-            FUN_8c08495c(a4);
-            return FUN_8c0d7a9c(0x2);
+            umpCallSecondServeDelayed(a4);
+            return strmCallPair(0x2);
         }
         return t4;
     }
     return 0;
 }
 
-int FUN_8c0849ce(void)
+int umpBusyStart(void)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x18, 0x8C0849B6);
+    t0 = set_event2(0x18, 0x8C0849B6);
     *(unsigned int *)((t0 + 0x14)) = 0x82;
     *(unsigned int *)0x8C33441C = 0x1;
     return t0;
 }
 
-int FUN_8c084acc(void)
+int fadeOverlayStart(void)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x18, 0x8C084A64);
+    t0 = set_event2(0x18, 0x8C084A64);
     *(unsigned int *)0x8C1850A0 = 0x1;
     *(float *)0x8C1850A4 = 0.0f;
     *(unsigned int *)((t0 + 0x14)) = 0x96;
     return t0;
 }
 
-int FUN_8c084b1c(int a4)
+int fadeBlinkStart(int a4)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x1C, 0x8C084AEC);
+    t0 = set_event2(0x1C, 0x8C084AEC);
     *(unsigned int *)((t0 + 0x14)) = 0x1E;
     *(unsigned int *)((t0 + 0x18)) = a4;
     return t0;
 }
 
-void FUN_8c085070(int a4)
+void quadFadeStart(int a4)
 {
     int t0;
 
@@ -3296,16 +3296,16 @@ void FUN_8c085070(int a4)
     *(float *)((t0 + 0xBC)) = 0.0f;
 }
 
-void FUN_8c086168(void)
+void hudChangeEnds(void)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x1C, 0x8C0860C4);
+    t0 = set_event2(0x1C, 0x8C0860C4);
     *(unsigned int *)((t0 + 0x14)) = 0x8C;
     *(float *)((t0 + 0x18)) = 0.0f;
 }
 
-void FUN_8c086588(int a4)
+void hudPointPanelShow(int a4)
 {
     int t0;
     int t1;
@@ -3319,7 +3319,7 @@ void FUN_8c086588(int a4)
     if (t0 == 0) {
         t1 = *(int *)0x8C287D5C;
         if (t1 != 3) {
-            t2 = FUN_8c010976(0x48, 0x8C086486);
+            t2 = set_event2(0x48, 0x8C086486);
             if (a4 == 0) {
                 *(unsigned int *)((t2 + 0x14)) = 0xB4;
             } else {
@@ -3344,7 +3344,7 @@ void FUN_8c086588(int a4)
     }
 }
 
-int FUN_8c08670c(void)
+int hudPanelShow9a3dc(void)
 {
     int t0;
     int t5;
@@ -3358,7 +3358,7 @@ int FUN_8c08670c(void)
         t1 = *(int *)0x8C421F60;
         t3 = t0;
         if (t1 == 0) {
-            t2 = FUN_8c010976(0x48, 0x8C08660C);
+            t2 = set_event2(0x48, 0x8C08660C);
             *(unsigned int *)((t2 + 0x14)) = 0x78;
             *(unsigned int *)((t2 + 0x18)) = 0x0;
             *(float *)((t2 + 0x20)) = 0.0f;
@@ -3371,7 +3371,7 @@ int FUN_8c08670c(void)
     return t5;
 }
 
-int FUN_8c086854(void)
+int hudPanelShow9a470(void)
 {
     int t0;
     int t5;
@@ -3385,7 +3385,7 @@ int FUN_8c086854(void)
         t1 = *(int *)0x8C421F60;
         t3 = t0;
         if (t1 == 0) {
-            t2 = FUN_8c010976(0x48, 0x8C086754);
+            t2 = set_event2(0x48, 0x8C086754);
             *(unsigned int *)((t2 + 0x14)) = 0x78;
             *(unsigned int *)((t2 + 0x18)) = 0x0;
             *(float *)((t2 + 0x20)) = 0.0f;
@@ -3398,7 +3398,7 @@ int FUN_8c086854(void)
     return t5;
 }
 
-int FUN_8c0869be(void)
+int hudLetPanel(void)
 {
     int t0;
     int t9;
@@ -3414,7 +3414,7 @@ int FUN_8c0869be(void)
         t1 = *(int *)0x8C421F60;
         t6 = t0;
         if (t1 == 0) {
-            t2 = FUN_8c010976(0x48, 0x8C08688C);
+            t2 = set_event2(0x48, 0x8C08688C);
             *(unsigned int *)((t2 + 0x14)) = 0xB4;
             *(unsigned int *)((t2 + 0x18)) = 0x3C;
             *(float *)((t2 + 0x20)) = 0.0f;
@@ -3436,7 +3436,7 @@ int FUN_8c0869be(void)
     return t9;
 }
 
-int FUN_8c086b40(int a4)
+int hudFaultPanel(int a4)
 {
     int t0;
     int t6;
@@ -3450,7 +3450,7 @@ int FUN_8c086b40(int a4)
         t1 = *(int *)0x8C421F60;
         t3 = t0;
         if (t1 == 0) {
-            t2 = FUN_8c010976(0x48, 0x8C086A34);
+            t2 = set_event2(0x48, 0x8C086A34);
             *(unsigned int *)((t2 + 0x14)) = a4;
             *(unsigned int *)((t2 + 0x18)) = 0x0;
             *(float *)((t2 + 0x20)) = 0.0f;
@@ -3463,7 +3463,7 @@ int FUN_8c086b40(int a4)
     return t6;
 }
 
-int FUN_8c086c90(int a4)
+int hudDoubleFaultPanel(int a4)
 {
     int t0;
     int t15;
@@ -3482,7 +3482,7 @@ int FUN_8c086c90(int a4)
         t1 = *(int *)0x8C421F60;
         t11 = t0;
         if (t1 == 0) {
-            t2 = FUN_8c010976(0x48, 0x8C086B90);
+            t2 = set_event2(0x48, 0x8C086B90);
             if (a4 == 0) {
                 *(unsigned int *)((t2 + 0x14)) = 0xB4;
             } else {
@@ -3512,7 +3512,7 @@ int FUN_8c086c90(int a4)
     return t15;
 }
 
-int FUN_8c086e14(void)
+int hudPanelShow9a302(void)
 {
     int t0;
     int t7;
@@ -3531,7 +3531,7 @@ int FUN_8c086e14(void)
             t2 = *(int *)0x8C421F60;
             t4 = t1;
             if (t2 == 0) {
-                t3 = FUN_8c010976(0x48, 0x8C086D14);
+                t3 = set_event2(0x48, 0x8C086D14);
                 *(unsigned int *)((t3 + 0x14)) = 0x78;
                 *(unsigned int *)((t3 + 0x18)) = 0x0;
                 *(float *)((t3 + 0x20)) = 0.0f;
@@ -3546,7 +3546,7 @@ int FUN_8c086e14(void)
     return t7;
 }
 
-int FUN_8c086f60(void)
+int hudPanelShow9a504(void)
 {
     int t0;
     int t7;
@@ -3565,7 +3565,7 @@ int FUN_8c086f60(void)
             t2 = *(int *)0x8C421F60;
             t4 = t1;
             if (t2 == 0) {
-                t3 = FUN_8c010976(0x48, 0x8C086E68);
+                t3 = set_event2(0x48, 0x8C086E68);
                 *(unsigned int *)((t3 + 0x14)) = 0x5A;
                 *(unsigned int *)((t3 + 0x18)) = 0x0;
                 *(float *)((t3 + 0x20)) = 0.0f;
@@ -3580,7 +3580,7 @@ int FUN_8c086f60(void)
     return t7;
 }
 
-int FUN_8c0870c6(void)
+int hudPanelShow9a1d6(void)
 {
     int t0;
     int t4;
@@ -3594,7 +3594,7 @@ int FUN_8c0870c6(void)
         t1 = *(int *)0x8C287D5C;
         t3 = t1;
         if (t1 != 3) {
-            t2 = FUN_8c010976(0x48, 0x8C086FA0);
+            t2 = set_event2(0x48, 0x8C086FA0);
             *(unsigned int *)((t2 + 0x14)) = 0x78;
             *(unsigned int *)((t2 + 0x18)) = 0x0;
             *(float *)((t2 + 0x20)) = 0.0f;
@@ -3607,7 +3607,7 @@ int FUN_8c0870c6(void)
     return t4;
 }
 
-int FUN_8c087224(void)
+int hudPanelShow9a26c(void)
 {
     int t0;
     int t5;
@@ -3621,7 +3621,7 @@ int FUN_8c087224(void)
         t1 = *(int *)0x8C421F60;
         t3 = t0;
         if (t1 == 0) {
-            t2 = FUN_8c010976(0x48, 0x8C087124);
+            t2 = set_event2(0x48, 0x8C087124);
             *(unsigned int *)((t2 + 0x14)) = 0x78;
             *(unsigned int *)((t2 + 0x18)) = 0x0;
             *(float *)((t2 + 0x20)) = 0.0f;
@@ -3634,11 +3634,11 @@ int FUN_8c087224(void)
     return t5;
 }
 
-void FUN_8c087e3a(int a4, int a5, int a6, int a7, int a8)
+void hudFadeInStart(int a4, int a5, int a6, int a7, int a8)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x40, 0x8C087D94);
+    t0 = set_event2(0x40, 0x8C087D94);
     *(unsigned int *)((t0 + 0x3C)) = a4;
     *(unsigned int *)((t0 + 0x28)) = a5;
     *(unsigned int *)((t0 + 0x2C)) = a6;
@@ -3650,7 +3650,7 @@ void FUN_8c087e3a(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((t0 + 0x38)) = 0x0;
 }
 
-int FUN_8c088f0e(int a4)
+int crowdCheerStopAfter(int a4)
 {
     int t0;
 
@@ -3660,7 +3660,7 @@ int FUN_8c088f0e(int a4)
     return t0;
 }
 
-int FUN_8c088f78(int a4)
+int rippleStart(int a4)
 {
     int t0;
 
@@ -3669,7 +3669,7 @@ int FUN_8c088f78(int a4)
     return t0;
 }
 
-int FUN_8c089cf6(int a4, int a5, int a6)
+int modelSetMaterial(int a4, int a5, int a6)
 {
     int t0;
     int t1;
@@ -3684,7 +3684,7 @@ int FUN_8c089cf6(int a4, int a5, int a6)
     int t10;
     int t12;
 
-    t0 = FUN_8c0ea2a0(a6);
+    t0 = nlSetCommonTextureOffset(a6);
     t1 = t0;
     t2 = (a4 + 0x18);
     do {
@@ -3728,7 +3728,7 @@ int FUN_8c089cf6(int a4, int a5, int a6)
     return t1;
 }
 
-void FUN_8c089d6c(int a4, int a5, int a6)
+void modelSwapMaterial(int a4, int a5, int a6)
 {
     int t0;
     int t1;
@@ -3786,7 +3786,7 @@ void FUN_8c089d6c(int a4, int a5, int a6)
     } while (t13 != 0);
 }
 
-int FUN_8c08a750(int a4, int a5)
+int modelGetVertsInt(int a4, int a5)
 {
     int t0;
     int t1;
@@ -3862,7 +3862,7 @@ int FUN_8c08a750(int a4, int a5)
     return (t1 << 2);
 }
 
-void FUN_8c08a876(int a4, int a5)
+void modelSetVertsInt(int a4, int a5)
 {
     int t0;
     int t1;
@@ -3933,7 +3933,7 @@ void FUN_8c08a876(int a4, int a5)
     } while (t17 != 0);
 }
 
-int FUN_8c08a910(int a4, int a5, int a6, int a7)
+int modelGetSize(int a4, int a5, int a6, int a7)
 {
     int t0;
     int t1;
@@ -3960,7 +3960,7 @@ int FUN_8c08a910(int a4, int a5, int a6, int a7)
     return (t1 + 0x8);
 }
 
-int FUN_8c08b080(void)
+int shadowMulShear(void)
 {
     float u3;
     float u4;
@@ -3986,7 +3986,7 @@ int thunk_FUN_8c0f2210(void)
     return nlObjPutMvInit();
 }
 
-int FUN_8c08ce9c(void)
+int crowdFrameTcw(void)
 {
     int t0;
     int t1;
@@ -3999,7 +3999,7 @@ int FUN_8c08ce9c(void)
     return t2;
 }
 
-void FUN_8c08d4dc(void)
+void sceneVecStub(void)
 {
     int t0;
     int t1;
@@ -4014,7 +4014,7 @@ void FUN_8c08d4dc(void)
     *(unsigned int *)(((((int)stk + 4) + 0x64) + 0x0)) = t2;
 }
 
-int FUN_8c08dec2(void)
+int sceneObjPutInit(void)
 {
     int t1;
 
@@ -4024,7 +4024,7 @@ int FUN_8c08dec2(void)
     return t1;
 }
 
-void FUN_8c08e6d4(int a4, int a5)
+void sprInitPos(int a4, int a5)
 {
     float u0;
     float u1;
@@ -4050,7 +4050,7 @@ void FUN_8c08e6d4(int a4, int a5)
     *(unsigned int *)((a4 + 0x34)) = 0xA;
 }
 
-void FUN_8c08ea2a(int a4, int a5, float f4, float f5, float f6)
+void sprPutCropV(int a4, int a5, float f4, float f5, float f6)
 {
     float u0;
     float u1;
@@ -4089,7 +4089,7 @@ void FUN_8c08ea2a(int a4, int a5, float f4, float f5, float f6)
     *(unsigned int *)((((int)stk + 4) + 0x4)) = t10;
     t11 = *(int *)(((((int)stk + 16) + 0x20) + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t11;
-    FUN_8c08e944(a4);
+    sprPutAtAlpha(a4);
     u13 = *(float *)(((int)stk + 20));
     *(float *)((a4 + 0x18)) = u13;
     *(float *)((a4 + 0x1C)) = u2;
@@ -4101,17 +4101,17 @@ void FUN_8c08ea2a(int a4, int a5, float f4, float f5, float f6)
     *(float *)((a4 + 0x14)) = u5;
 }
 
-int FUN_8c08eb7c(void)
+int menuIconInitA(void)
 {
     int t1;
     int t2;
     int t3;
     int stk[83];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
-        t2 = FUN_8c08e718((((((t1 << 2) + t1) << 2) << 2) + 0x8C334434), 0x85, ((int)stk + 12), 0x80, 0x80, t1);
+        t2 = sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C334434), 0x85, ((int)stk + 12), 0x80, 0x80, t1);
         t3 = (((((t1 << 2) + t1) << 2) << 2) + 0x8C334434);
         t1 = (t1 + 0x1);
         *(unsigned int *)((t3 + 0x34)) = 0x5;
@@ -4119,17 +4119,17 @@ int FUN_8c08eb7c(void)
     return t2;
 }
 
-int FUN_8c08ebe6(void)
+int menuIconInitB(void)
 {
     int t1;
     int t2;
     int t3;
     int stk[59];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
-        t2 = FUN_8c08e718((((((t1 << 2) + t1) << 2) << 2) + 0x8C3349D4), 0x84, ((int)stk + 12), 0x40, 0x40, t1);
+        t2 = sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C3349D4), 0x84, ((int)stk + 12), 0x40, 0x40, t1);
         t3 = (((((t1 << 2) + t1) << 2) << 2) + 0x8C3349D4);
         t1 = (t1 + 0x1);
         *(unsigned int *)((t3 + 0x34)) = 0x5;
@@ -4137,7 +4137,7 @@ int FUN_8c08ebe6(void)
     return t2;
 }
 
-int FUN_8c08ec50(int a4)
+int menuIconPut(int a4)
 {
     int t0;
     int t1;
@@ -4154,11 +4154,11 @@ int FUN_8c08ec50(int a4)
     t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
     t3 = *(int *)(((int)stk + 16));
-    t4 = FUN_8c08e944((((((t3 << 2) + t3) << 2) << 2) + 0x8C334434));
+    t4 = sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C334434));
     return t4;
 }
 
-int FUN_8c08ec7e(int a4, int a5)
+int menuIconPutRot(int a4, int a5)
 {
     int t0;
     int t1;
@@ -4178,21 +4178,21 @@ int FUN_8c08ec7e(int a4, int a5)
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
     t3 = *(int *)(((int)stk + 16));
     t4 = *(int *)(((int)stk + 20));
-    t5 = FUN_8c0bac18((((((t3 << 2) + t3) << 2) << 2) + 0x8C334434), 0x80, 0x80, t4);
+    t5 = primSprDraw((((((t3 << 2) + t3) << 2) << 2) + 0x8C334434), 0x80, 0x80, t4);
     return t5;
 }
 
-int FUN_8c08fcd4(void)
+int logoBInit(void)
 {
     int t1;
     int t2;
     int t3;
     int stk[31];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
-        t2 = FUN_8c08e718((((((t1 << 2) + t1) << 2) << 2) + 0x8C334EDC), 0x87, ((int)stk + 12), 0x80, 0x80, t1);
+        t2 = sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C334EDC), 0x87, ((int)stk + 12), 0x80, 0x80, t1);
         t3 = (((((t1 << 2) + t1) << 2) << 2) + 0x8C334EDC);
         t1 = (t1 + 0x1);
         *(unsigned int *)((t3 + 0x34)) = 0x5;
@@ -4200,7 +4200,7 @@ int FUN_8c08fcd4(void)
     return t2;
 }
 
-int FUN_8c09027e(int a4)
+int numPutSprite(int a4)
 {
     int t0;
     int t1;
@@ -4217,11 +4217,11 @@ int FUN_8c09027e(int a4)
     t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
     t3 = *(int *)(((int)stk + 16));
-    t4 = FUN_8c08e944((((((t3 << 2) + t3) << 2) << 2) + 0x8C3373BC));
+    t4 = sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C3373BC));
     return t4;
 }
 
-void FUN_8c090408(void)
+void scoreInit(void)
 {
     int t0;
     int t1;
@@ -4251,7 +4251,7 @@ void FUN_8c090408(void)
     *(unsigned int *)0x8C334410 = 0x0;
     *(unsigned int *)0x8C334414 = 0x0;
     *(unsigned int *)0x8C334418 = 0x0;
-    FUN_8c0d7e98();
+    strmScoreReset();
     t5 = 0x0;
     do {
         t6 = *(int *)((((t5 * 0xD78) + 0x8C287D84) + 0xC58));
@@ -4266,7 +4266,7 @@ void FUN_8c090408(void)
     } while ((int)t5 < (int)0x4);
 }
 
-int FUN_8c090b7c(void)
+int panelLogoSetup(void)
 {
     int t0;
     int t1;
@@ -4280,11 +4280,11 @@ int FUN_8c090b7c(void)
     *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
     t2 = *(int *)0x8C1016D4;
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = FUN_8c090af0(0x8C337C50, 0x0);
+    t3 = panelLogoInit(0x8C337C50, 0x0);
     return t3;
 }
 
-int FUN_8c090b98(void)
+int panelLogoPut(void)
 {
     int t0;
     int t1;
@@ -4298,11 +4298,11 @@ int FUN_8c090b98(void)
     *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
     t2 = *(int *)(((((int)stk + 16) + 0x4) + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = FUN_8c08e944(0x8C337C50);
+    t3 = sprPutAtAlpha(0x8C337C50);
     return t3;
 }
 
-int FUN_8c090bb8(void)
+int panelWideInit(void)
 {
     int t0;
     int t2;
@@ -4310,31 +4310,31 @@ int FUN_8c090bb8(void)
 
     t0 = 0x0;
     do {
-        FUN_8c08e7a4((((((t0 << 2) + t0) << 2) << 2) + 0x8C337CA0), 0x5F, 0x8C10E674, 0x80, 0x80, t0, 0x5);
+        sprInitRect((((((t0 << 2) + t0) << 2) << 2) + 0x8C337CA0), 0x5F, 0x8C10E674, 0x80, 0x80, t0, 0x5);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0x2);
     t2 = 0x2;
     do {
-        t3 = FUN_8c08e7a4((((((t2 << 2) + t2) << 2) << 2) + 0x8C337CA0), 0x60, 0x8C10E674, 0x80, 0x80, t2, 0x5);
+        t3 = sprInitRect((((((t2 << 2) + t2) << 2) << 2) + 0x8C337CA0), 0x60, 0x8C10E674, 0x80, 0x80, t2, 0x5);
         t2 = (t2 + 0x1);
     } while ((int)t2 < (int)0x4);
     return t3;
 }
 
-int FUN_8c090cec(void)
+int panelWordsInit(void)
 {
     int t0;
     int t1;
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c08e7a4((((((t0 << 2) + t0) << 2) << 2) + 0x8C337DE0), 0x5D, 0x8C10E6B4, 0x100, 0x100, t0, 0xA);
+        t1 = sprInitRect((((((t0 << 2) + t0) << 2) << 2) + 0x8C337DE0), 0x5D, 0x8C10E6B4, 0x100, 0x100, t0, 0xA);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0xE);
     return t1;
 }
 
-int FUN_8c090d3c(int a4)
+int panelWordPut(int a4)
 {
     int t0;
     int t1;
@@ -4351,24 +4351,24 @@ int FUN_8c090d3c(int a4)
     t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
     t3 = *(int *)(((int)stk + 16));
-    t4 = FUN_8c08e944((((((t3 << 2) + t3) << 2) << 2) + 0x8C337DE0));
+    t4 = sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C337DE0));
     return t4;
 }
 
-int FUN_8c090dd8(void)
+int phraseBigInit(void)
 {
     int t0;
     int t1;
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c08e7a4((((((t0 << 2) + t0) << 2) << 2) + 0x8C338240), 0x5E, 0x8C10E7BC, 0x100, 0x100, t0, 0xA);
+        t1 = sprInitRect((((((t0 << 2) + t0) << 2) << 2) + 0x8C338240), 0x5E, 0x8C10E7BC, 0x100, 0x100, t0, 0xA);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0xC);
     return t1;
 }
 
-int FUN_8c090e28(int a4)
+int phraseBigWordPut(int a4)
 {
     int t0;
     int t1;
@@ -4385,21 +4385,21 @@ int FUN_8c090e28(int a4)
     t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
     t3 = *(int *)(((int)stk + 16));
-    t4 = FUN_8c08e944((((((t3 << 2) + t3) << 2) << 2) + 0x8C338240));
+    t4 = sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C338240));
     return t4;
 }
 
-int FUN_8c090e58(void)
+int phraseWordsInitB(void)
 {
     int t1;
     int t2;
     int t3;
     int stk[103];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
-        t2 = FUN_8c08e718((((((t1 << 2) + t1) << 2) << 2) + 0x8C338600), 0x1D, ((int)stk + 12), 0x100, 0x100, t1);
+        t2 = sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C338600), 0x1D, ((int)stk + 12), 0x100, 0x100, t1);
         t3 = (((((t1 << 2) + t1) << 2) << 2) + 0x8C338600);
         t1 = (t1 + 0x1);
         *(unsigned int *)((t3 + 0x34)) = 0x5;
@@ -4407,17 +4407,17 @@ int FUN_8c090e58(void)
     return t2;
 }
 
-int FUN_8c091b54(void)
+int logoSmallInit(void)
 {
     int t1;
     int t2;
     int t3;
     int stk[39];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
-        t2 = FUN_8c08e718((((((t1 << 2) + t1) << 2) << 2) + 0x8C3398C0), 0x23, ((int)stk + 12), 0x80, 0x80, t1);
+        t2 = sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C3398C0), 0x23, ((int)stk + 12), 0x80, 0x80, t1);
         t3 = (((((t1 << 2) + t1) << 2) << 2) + 0x8C3398C0);
         t1 = (t1 + 0x1);
         *(unsigned int *)((t3 + 0x34)) = 0x5;
@@ -4425,17 +4425,17 @@ int FUN_8c091b54(void)
     return t2;
 }
 
-int FUN_8c091c1e(void)
+int logoWaveInit(void)
 {
     int t1;
     int t2;
     int t3;
     int stk[35];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
-        t2 = FUN_8c08e718((((((t1 << 2) + t1) << 2) << 2) + 0x8C339AF0), 0x7A, ((int)stk + 12), 0x100, 0x100, t1);
+        t2 = sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C339AF0), 0x7A, ((int)stk + 12), 0x100, 0x100, t1);
         t3 = (((((t1 << 2) + t1) << 2) << 2) + 0x8C339AF0);
         t1 = (t1 + 0x1);
         *(unsigned int *)((t3 + 0x34)) = 0x1005;
@@ -4443,7 +4443,7 @@ int FUN_8c091c1e(void)
     return t2;
 }
 
-int FUN_8c092680(void)
+int countryNameInit(void)
 {
     int t0;
     int t1;
@@ -4451,7 +4451,7 @@ int FUN_8c092680(void)
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c08e718((((((t0 << 2) + t0) << 2) << 2) + 0x8C339CD0), 0x1C, 0x8C10ED0C, 0x100, 0x100, t0);
+        t1 = sprInitRectF((((((t0 << 2) + t0) << 2) << 2) + 0x8C339CD0), 0x1C, 0x8C10ED0C, 0x100, 0x100, t0);
         t2 = (((((t0 << 2) + t0) << 2) << 2) + 0x8C339CD0);
         t0 = (t0 + 0x1);
         *(unsigned int *)((t2 + 0x34)) = 0x5;
@@ -4459,7 +4459,7 @@ int FUN_8c092680(void)
     return t1;
 }
 
-int FUN_8c092e2c(void)
+int menuTextInit(void)
 {
     int t0;
     int t1;
@@ -4467,7 +4467,7 @@ int FUN_8c092e2c(void)
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c08e718((((((t0 << 2) + t0) << 2) << 2) + 0x8C33506C), 0x1F, 0x8C184930, 0x100, 0x100, t0);
+        t1 = sprInitRectF((((((t0 << 2) + t0) << 2) << 2) + 0x8C33506C), 0x1F, 0x8C184930, 0x100, 0x100, t0);
         t2 = (((((t0 << 2) + t0) << 2) << 2) + 0x8C33506C);
         t0 = (t0 + 0x1);
         *(unsigned int *)((t2 + 0x34)) = 0x100D;
@@ -4475,20 +4475,20 @@ int FUN_8c092e2c(void)
     return t1;
 }
 
-int FUN_8c0950de(void)
+int hudFrameInit(void)
 {
     int t0;
     int t1;
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c08e718((((((t0 << 2) + t0) << 2) << 2) + 0x8C33A360), 0x65, 0x8C10EF54, 0x40, 0x40, t0);
+        t1 = sprInitRectF((((((t0 << 2) + t0) << 2) << 2) + 0x8C33A360), 0x65, 0x8C10EF54, 0x40, 0x40, t0);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0xB);
     return t1;
 }
 
-int FUN_8c0954cc(void)
+int hudFlagInit(void)
 {
     int t2;
     int t5;
@@ -4497,13 +4497,13 @@ int FUN_8c0954cc(void)
     int t8;
     int stk[63];
 
-    FUN_8c0f7cf0();
-    FUN_8c0f7cf0();
+    _quick_mvn();
+    _quick_mvn();
     t2 = 0x0;
     do {
-        FUN_8c08e718((((((t2 << 2) + t2) << 2) << 2) + 0x8C33AB30), 0x18, (((int)stk + 28) + 0x60), 0x40, 0x40, t2);
-        FUN_8c08e718((0x1E0 + (((((t2 << 2) + t2) << 2) << 2) + 0x8C33AB30)), 0x19, ((int)stk + 28), 0x40, 0x40, t2);
-        t5 = FUN_8c08e718((0x3C0 + (((((t2 << 2) + t2) << 2) << 2) + 0x8C33AB30)), 0x1A, ((int)stk + 28), 0x40, 0x40, t2);
+        sprInitRectF((((((t2 << 2) + t2) << 2) << 2) + 0x8C33AB30), 0x18, (((int)stk + 28) + 0x60), 0x40, 0x40, t2);
+        sprInitRectF((0x1E0 + (((((t2 << 2) + t2) << 2) << 2) + 0x8C33AB30)), 0x19, ((int)stk + 28), 0x40, 0x40, t2);
+        t5 = sprInitRectF((0x3C0 + (((((t2 << 2) + t2) << 2) << 2) + 0x8C33AB30)), 0x1A, ((int)stk + 28), 0x40, 0x40, t2);
         t6 = (((((t2 << 2) + t2) << 2) << 2) + 0x8C33AB30);
         t7 = (0x1E0 + (((((t2 << 2) + t2) << 2) << 2) + 0x8C33AB30));
         t8 = (0x3C0 + (((((t2 << 2) + t2) << 2) << 2) + 0x8C33AB30));
@@ -4515,30 +4515,30 @@ int FUN_8c0954cc(void)
     return t5;
 }
 
-int FUN_8c0959e8(void)
+int btnGuideInitA(void)
 {
     int t1;
     int t2;
     int stk[57];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
-        t2 = FUN_8c08e718((((((t1 << 2) + t1) << 2) << 2) + 0x8C33B0D0), 0x5, ((int)stk + 12), 0x80, 0x80, t1);
+        t2 = sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C33B0D0), 0x5, ((int)stk + 12), 0x80, 0x80, t1);
         t1 = (t1 + 0x1);
     } while ((int)t1 < (int)0xC);
     return t2;
 }
 
-void FUN_8c095a44(void)
+void btnGuideInitB(void)
 {
     int t1;
     int stk[69];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
-        FUN_8c08e718((((((t1 << 2) + t1) << 2) << 2) + 0x8C33B490), 0x4, ((int)stk + 12), 0x80, 0x80, t1);
+        sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C33B490), 0x4, ((int)stk + 12), 0x80, 0x80, t1);
         t1 = (t1 + 0x1);
     } while ((int)t1 < (int)0xF);
     *(unsigned int *)0x8C33B918 = 0xFFFFC000;
@@ -4546,7 +4546,7 @@ void FUN_8c095a44(void)
     *(unsigned int *)0x8C33B878 = 0x4000;
 }
 
-int FUN_8c0962fe(void)
+int hudDigitInit(void)
 {
     int t0;
     int t1;
@@ -4554,7 +4554,7 @@ int FUN_8c0962fe(void)
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c08e718((((((t0 << 2) + t0) << 2) << 2) + 0x8C33B940), 0x6A, 0x8C10F2F8, 0x40, 0x40, t0);
+        t1 = sprInitRectF((((((t0 << 2) + t0) << 2) << 2) + 0x8C33B940), 0x6A, 0x8C10F2F8, 0x40, 0x40, t0);
         t2 = (((((t0 << 2) + t0) << 2) << 2) + 0x8C33B940);
         t0 = (t0 + 0x1);
         *(unsigned int *)((t2 + 0x34)) = 0x5;
@@ -4562,7 +4562,7 @@ int FUN_8c0962fe(void)
     return t1;
 }
 
-int FUN_8c096350(void)
+int hudDigitSmallInit(void)
 {
     int t0;
     int t1;
@@ -4570,7 +4570,7 @@ int FUN_8c096350(void)
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c08e718((((((t0 << 2) + t0) << 2) << 2) + 0x8C33BDA0), 0x64, 0x8C10F3D8, 0x40, 0x40, t0);
+        t1 = sprInitRectF((((((t0 << 2) + t0) << 2) << 2) + 0x8C33BDA0), 0x64, 0x8C10F3D8, 0x40, 0x40, t0);
         t2 = (((((t0 << 2) + t0) << 2) << 2) + 0x8C33BDA0);
         t0 = (t0 + 0x1);
         *(unsigned int *)((t2 + 0x34)) = 0x1005;
@@ -4578,7 +4578,7 @@ int FUN_8c096350(void)
     return t1;
 }
 
-int FUN_8c0982f6(void)
+int bgSprInitAll(void)
 {
     int t0;
     int t1;
@@ -4595,13 +4595,13 @@ int FUN_8c0982f6(void)
         *(unsigned int *)((((int)stk + 4) + 0x4)) = t2;
         t3 = *(int *)0x8C1016D4;
         *(unsigned int *)((((int)stk + 4) + 0x0)) = t3;
-        t4 = FUN_8c098262((((((t0 << 2) + t0) << 2) << 2) + 0x8C33D120), t0);
+        t4 = bgSprInitRect((((((t0 << 2) + t0) << 2) << 2) + 0x8C33D120), t0);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0x14);
     return t4;
 }
 
-int FUN_8c09871a(void)
+int hudScoreIconPutFull(void)
 {
     int t0;
     int t1;
@@ -4615,11 +4615,11 @@ int FUN_8c09871a(void)
     *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
     t2 = *(int *)(((((int)stk + 16) + 0x4) + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = FUN_8c098538(1.0f);
+    t3 = hudScoreIconPut(1.0f);
     return t3;
 }
 
-int FUN_8c098736(int a4)
+int hudPointsPut(int a4)
 {
     int t0;
     int t1;
@@ -4657,7 +4657,7 @@ int FUN_8c098736(int a4)
                     *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
                     t2 = *(int *)(((((int)stk + 16) + 0xC) + 0x0));
                     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-                    t3 = FUN_8c08e840(0x8C33BD50);
+                    t3 = sprPutAt(0x8C33BD50);
                     t8 = t3;
                 } else {
                     t4 = *(int *)(((((int)stk + 16) + 0xC) + 0x8));
@@ -4666,7 +4666,7 @@ int FUN_8c098736(int a4)
                     *(unsigned int *)((((int)stk + 4) + 0x4)) = t5;
                     t6 = *(int *)(((((int)stk + 16) + 0xC) + 0x0));
                     *(unsigned int *)((((int)stk + 4) + 0x0)) = t6;
-                    t7 = FUN_8c098384(0x28, 1.0f);
+                    t7 = hudNumPut(0x28, 1.0f);
                     t8 = t7;
                 }
                 t13 = t8;
@@ -4677,7 +4677,7 @@ int FUN_8c098736(int a4)
                 *(unsigned int *)((((int)stk + 4) + 0x4)) = t10;
                 t11 = *(int *)(((((int)stk + 16) + 0xC) + 0x0));
                 *(unsigned int *)((((int)stk + 4) + 0x0)) = t11;
-                t12 = FUN_8c098384(0x1E, 1.0f);
+                t12 = hudNumPut(0x1E, 1.0f);
                 t13 = t12;
             }
             t18 = t13;
@@ -4688,7 +4688,7 @@ int FUN_8c098736(int a4)
             *(unsigned int *)((((int)stk + 4) + 0x4)) = t15;
             t16 = *(int *)(((((int)stk + 16) + 0xC) + 0x0));
             *(unsigned int *)((((int)stk + 4) + 0x0)) = t16;
-            t17 = FUN_8c098384(0xF, 1.0f);
+            t17 = hudNumPut(0xF, 1.0f);
             t18 = t17;
         }
         t23 = t18;
@@ -4699,13 +4699,13 @@ int FUN_8c098736(int a4)
         *(unsigned int *)((((int)stk + 4) + 0x4)) = t20;
         t21 = *(int *)(((((int)stk + 16) + 0xC) + 0x0));
         *(unsigned int *)((((int)stk + 4) + 0x0)) = t21;
-        t22 = FUN_8c098384(0x0, 1.0f);
+        t22 = hudNumPut(0x0, 1.0f);
         t23 = t22;
     }
     return t23;
 }
 
-int FUN_8c0991d2(void)
+int hudBannerSubPut(void)
 {
     int t0;
     int t1;
@@ -4719,21 +4719,21 @@ int FUN_8c0991d2(void)
     *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
     t2 = *(int *)(((((int)stk + 16) + 0x4) + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = FUN_8c08e944(0x8C33D7E0);
+    t3 = sprPutAtAlpha(0x8C33D7E0);
     return t3;
 }
 
-int FUN_8c099230(void)
+int hudCallSprInit(void)
 {
     int t1;
     int t2;
     int t3;
     int stk[67];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
-        t2 = FUN_8c08e718((((((t1 << 2) + t1) << 2) << 2) + 0x8C33A6D0), 0x66, ((int)stk + 12), 0x80, 0x80, t1);
+        t2 = sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C33A6D0), 0x66, ((int)stk + 12), 0x80, 0x80, t1);
         t3 = (((((t1 << 2) + t1) << 2) << 2) + 0x8C33A6D0);
         t1 = (t1 + 0x1);
         *(unsigned int *)((t3 + 0x34)) = 0x5;
@@ -4741,17 +4741,17 @@ int FUN_8c099230(void)
     return t2;
 }
 
-int FUN_8c09929a(void)
+int hudCallSprInit2(void)
 {
     int t1;
     int t2;
     int t3;
     int stk[43];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
-        t2 = FUN_8c08e718((((((t1 << 2) + t1) << 2) << 2) + 0x8C33D830), 0x67, ((int)stk + 12), 0x80, 0x80, t1);
+        t2 = sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C33D830), 0x67, ((int)stk + 12), 0x80, 0x80, t1);
         t3 = (((((t1 << 2) + t1) << 2) << 2) + 0x8C33D830);
         t1 = (t1 + 0x1);
         *(unsigned int *)((t3 + 0x34)) = 0xD;
@@ -4759,16 +4759,16 @@ int FUN_8c09929a(void)
     return t2;
 }
 
-void FUN_8c099302(void)
+void hudCallSprInit3(void)
 {
     int t1;
     int t3;
     int stk[55];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
-        FUN_8c08e718((((((t1 << 2) + t1) << 2) << 2) + 0x8C33DAB0), 0x68, ((int)stk + 12), 0x80, 0x80, t1);
+        sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C33DAB0), 0x68, ((int)stk + 12), 0x80, 0x80, t1);
         t3 = (((((t1 << 2) + t1) << 2) << 2) + 0x8C33DAB0);
         t1 = (t1 + 0x1);
         *(unsigned int *)((t3 + 0x34)) = 0xD;
@@ -4780,7 +4780,7 @@ void FUN_8c099302(void)
     *(unsigned int *)0x8C33DE04 = 0x5;
 }
 
-int FUN_8c09a7b6(void)
+int hudFontSprInit(void)
 {
     int t0;
     int t1;
@@ -4797,13 +4797,13 @@ int FUN_8c09a7b6(void)
         *(unsigned int *)((((int)stk + 4) + 0x4)) = t2;
         t3 = *(int *)0x8C1016D4;
         *(unsigned int *)((((int)stk + 4) + 0x0)) = t3;
-        t4 = FUN_8c09a720((((((t0 << 2) + t0) << 2) << 2) + 0x8C33E000), t0);
+        t4 = hudFontSprSet((((((t0 << 2) + t0) << 2) << 2) + 0x8C33E000), t0);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0xF);
     return t4;
 }
 
-int FUN_8c09ac9e(void)
+int hudFont2SprInit(void)
 {
     int t0;
     int t1;
@@ -4820,26 +4820,26 @@ int FUN_8c09ac9e(void)
         *(unsigned int *)((((int)stk + 4) + 0x4)) = t2;
         t3 = *(int *)0x8C1016D4;
         *(unsigned int *)((((int)stk + 4) + 0x0)) = t3;
-        t4 = FUN_8c09ac08((((((t0 << 2) + t0) << 2) << 2) + 0x8C33E820), t0);
+        t4 = hudFont2SprSet((((((t0 << 2) + t0) << 2) << 2) + 0x8C33E820), t0);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0xF);
     return t4;
 }
 
-int FUN_8c09b040(void)
+int hudLabelSprInit(void)
 {
     int t0;
     int t1;
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c08e718((((((t0 << 2) + t0) << 2) << 2) + 0x8C33ECD0), 0x1, 0x8C10FE30, 0x100, 0x100, t0);
+        t1 = sprInitRectF((((((t0 << 2) + t0) << 2) << 2) + 0x8C33ECD0), 0x1, 0x8C10FE30, 0x100, 0x100, t0);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0x10);
     return t1;
 }
 
-int FUN_8c09b088(int a4)
+int hudLabelPut(int a4)
 {
     int t0;
     int t1;
@@ -4858,11 +4858,11 @@ int FUN_8c09b088(int a4)
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
     t3 = *(int *)(((int)stk + 16));
     t4 = *(int *)(((t3 << 2) + 0x8C10FF30));
-    t5 = FUN_8c08e944((((((t4 << 2) + t4) << 2) << 2) + 0x8C33ECD0));
+    t5 = sprPutAtAlpha((((((t4 << 2) + t4) << 2) << 2) + 0x8C33ECD0));
     return t5;
 }
 
-int FUN_8c09b47e(void)
+int hudSignSprInit(void)
 {
     int t0;
     int t1;
@@ -4879,13 +4879,13 @@ int FUN_8c09b47e(void)
         *(unsigned int *)((((int)stk + 4) + 0x4)) = t2;
         t3 = *(int *)0x8C1016D4;
         *(unsigned int *)((((int)stk + 4) + 0x0)) = t3;
-        t4 = FUN_8c09b3ec((((((t0 << 2) + t0) << 2) << 2) + 0x8C33F3B0), t0);
+        t4 = hudSignSprSet((((((t0 << 2) + t0) << 2) << 2) + 0x8C33F3B0), t0);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0x19);
     return t4;
 }
 
-int FUN_8c09b4c2(void)
+int hudSignLastPut(void)
 {
     int t0;
     int t1;
@@ -4899,11 +4899,11 @@ int FUN_8c09b4c2(void)
     *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
     t2 = *(int *)(((((int)stk + 16) + 0x4) + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = FUN_8c08e944(0x8C33FA90);
+    t3 = sprPutAtAlpha(0x8C33FA90);
     return t3;
 }
 
-int FUN_8c09ba24(void)
+int panelSprInit(void)
 {
     int t0;
     int t2;
@@ -4911,28 +4911,28 @@ int FUN_8c09ba24(void)
 
     t0 = 0x0;
     do {
-        FUN_8c08e7a4((((((t0 << 2) + t0) << 2) << 2) + 0x8C33FB80), 0x61, 0x8C110148, 0x80, 0x80, t0, 0x5);
+        sprInitRect((((((t0 << 2) + t0) << 2) << 2) + 0x8C33FB80), 0x61, 0x8C110148, 0x80, 0x80, t0, 0x5);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0xC);
     t2 = 0x0;
     do {
-        t3 = FUN_8c08e7a4((((((t2 << 2) + t2) << 2) << 2) + 0x8C33FF40), 0x62, 0x8C110208, 0x80, 0x80, t2, 0x5);
+        t3 = sprInitRect((((((t2 << 2) + t2) << 2) << 2) + 0x8C33FF40), 0x62, 0x8C110208, 0x80, 0x80, t2, 0x5);
         t2 = (t2 + 0x1);
     } while ((int)t2 < (int)0xF);
     return t3;
 }
 
-int FUN_8c09c3d2(void)
+int panelMenuSprInitC(void)
 {
     int t1;
     int t2;
     int t3;
     int stk[43];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
-        t2 = FUN_8c08e718((((((t1 << 2) + t1) << 2) << 2) + 0x8C340494), 0x7E, ((int)stk + 12), 0x100, 0x100, t1);
+        t2 = sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C340494), 0x7E, ((int)stk + 12), 0x100, 0x100, t1);
         t3 = (((((t1 << 2) + t1) << 2) << 2) + 0x8C340494);
         t1 = (t1 + 0x1);
         *(unsigned int *)((t3 + 0x34)) = 0x1005;
@@ -4940,7 +4940,7 @@ int FUN_8c09c3d2(void)
     return t2;
 }
 
-void FUN_8c09e55a(void)
+void selConstStub(void)
 {
     int t0;
     int t1;
@@ -4982,7 +4982,7 @@ void FUN_8c09e55a(void)
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t11;
 }
 
-int FUN_8c09fd38(void)
+int infoPlayerDrawWrap(void)
 {
     int t0;
     int t1;
@@ -4996,11 +4996,11 @@ int FUN_8c09fd38(void)
     *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
     t2 = *(int *)(((((int)stk + 16) + 0x4) + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = FUN_8c09f1d2();
+    t3 = infoPlayerDraw();
     return t3;
 }
 
-int FUN_8c0a3d04(void)
+int standBgDraw(void)
 {
     int t0;
     int t1;
@@ -5013,17 +5013,17 @@ int FUN_8c0a3d04(void)
     return t1;
 }
 
-int FUN_8c0a56a4(void)
+int modeMarkSprInit(void)
 {
     int t1;
     int t2;
     int t3;
     int stk[39];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
-        t2 = FUN_8c08e718((((((t1 << 2) + t1) << 2) << 2) + 0x8C341808), 0x26, ((int)stk + 12), 0x80, 0x80, t1);
+        t2 = sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C341808), 0x26, ((int)stk + 12), 0x80, 0x80, t1);
         t3 = (((((t1 << 2) + t1) << 2) << 2) + 0x8C341808);
         t1 = (t1 + 0x1);
         *(unsigned int *)((t3 + 0x34)) = 0x1005;
@@ -5032,7 +5032,7 @@ int FUN_8c0a56a4(void)
     return t2;
 }
 
-void FUN_8c0a58a4(void)
+void decoSprInit(void)
 {
     int t1;
     int t3;
@@ -5041,10 +5041,10 @@ void FUN_8c0a58a4(void)
     int t6;
     int stk[119];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
-        FUN_8c08e718((((((t1 << 2) + t1) << 2) << 2) + 0x8C341A38), 0x25, ((int)stk + 12), 0x80, 0x80, t1);
+        sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C341A38), 0x25, ((int)stk + 12), 0x80, 0x80, t1);
         t3 = *(int *)(((((((t1 << 2) + t1) << 2) << 2) + 0x8C341A38) + 0x34));
         t4 = (((((t1 << 2) + t1) << 2) << 2) + 0x8C341A38);
         t1 = (t1 + 0x1);
@@ -5056,7 +5056,7 @@ void FUN_8c0a58a4(void)
     *(unsigned int *)0x8C34228C = (t6 | 0x1005);
 }
 
-int FUN_8c0a5924(int a4)
+int decoPairPut(int a4)
 {
     int t0;
     int t1;
@@ -5085,11 +5085,11 @@ int FUN_8c0a5924(int a4)
         *(unsigned int *)((((int)stk + 4) + 0x0)) = t5;
         t6 = 0x820;
     }
-    t7 = FUN_8c08e944((t6 + 0x8C341A38));
+    t7 = sprPutAtAlpha((t6 + 0x8C341A38));
     return t7;
 }
 
-void FUN_8c0a5c6e(int a4)
+void decoSprPut(int a4)
 {
     int t0;
     int t1;
@@ -5106,11 +5106,11 @@ void FUN_8c0a5c6e(int a4)
         t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
         *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
         t3 = *(int *)(((int)stk + 16));
-        FUN_8c08e944((((((t3 << 2) + t3) << 2) << 2) + 0x8C341A38));
+        sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C341A38));
     }
 }
 
-int FUN_8c0a604a(int a4, int a5, int a6)
+int decoGaugeBarPut(int a4, int a5, int a6)
 {
     int t0;
     int t1;
@@ -5141,7 +5141,7 @@ int FUN_8c0a604a(int a4, int a5, int a6)
         *(unsigned int *)((((int)stk + 4) + 0x0)) = t3;
         t4 = *(int *)(((int)stk + 24));
         t5 = *(int *)(((int)stk + 16));
-        t6 = FUN_8c08eac6((((((t4 << 2) + t4) << 2) << 2) + 0x8C3422A8), t5, 0x40);
+        t6 = sprPutCropH((((((t4 << 2) + t4) << 2) << 2) + 0x8C3422A8), t5, 0x40);
         t13 = t6;
     } else {
         t7 = *(int *)(((((int)stk + 16) + 0x14) + 0x8));
@@ -5152,13 +5152,13 @@ int FUN_8c0a604a(int a4, int a5, int a6)
         *(unsigned int *)((((int)stk + 4) + 0x0)) = t9;
         t10 = *(int *)(((int)stk + 20));
         t11 = *(int *)(((int)stk + 16));
-        t12 = FUN_8c08eac6(((((((t10 << 2) + t10) << 2) << 2) + 0x8C3422A8) + 0x5A0), t11, 0x40);
+        t12 = sprPutCropH(((((((t10 << 2) + t10) << 2) << 2) + 0x8C3422A8) + 0x5A0), t11, 0x40);
         t13 = t12;
     }
     return t13;
 }
 
-int FUN_8c0a65e6(int a4, int a5)
+int decoGaugeFramePut(int a4, int a5)
 {
     int t0;
     int t1;
@@ -5183,7 +5183,7 @@ int FUN_8c0a65e6(int a4, int a5)
         t2 = *(int *)(((((int)stk + 16) + 0x10) + 0x0));
         *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
         t3 = *(int *)(((int)stk + 20));
-        t4 = FUN_8c08e944((((((t3 << 2) + t3) << 2) << 2) + 0x8C3422A8));
+        t4 = sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C3422A8));
         t10 = t4;
     } else {
         t5 = *(int *)(((((int)stk + 16) + 0x10) + 0x8));
@@ -5193,13 +5193,13 @@ int FUN_8c0a65e6(int a4, int a5)
         t7 = *(int *)(((((int)stk + 16) + 0x10) + 0x0));
         *(unsigned int *)((((int)stk + 4) + 0x0)) = t7;
         t8 = *(int *)(((int)stk + 16));
-        t9 = FUN_8c08e944(((((((t8 << 2) + t8) << 2) << 2) + 0x8C3422A8) + 0x5A0));
+        t9 = sprPutAtAlpha(((((((t8 << 2) + t8) << 2) << 2) + 0x8C3422A8) + 0x5A0));
         t10 = t9;
     }
     return t10;
 }
 
-int FUN_8c0a67f4(void)
+int selRestart(void)
 {
     int t0;
     int t2;
@@ -5216,7 +5216,7 @@ int FUN_8c0a67f4(void)
 
     t0 = 0x0;
     do {
-        FUN_8c0be222(t0);
+        emotFaceReset(t0);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0x12);
     t2 = 0x8C3438D8;
@@ -5224,18 +5224,18 @@ int FUN_8c0a67f4(void)
         *(unsigned int *)((t2 + 0x0)) = 0x0;
         t2 = (t2 + 0x4);
     } while ((unsigned int)t2 < (unsigned int)0x8C3438E8);
-    t3 = FUN_8c0b0bbc();
+    t3 = entryCountJoined();
     if (t3 != 1) {
         t4 = *(int *)0x8C287D5C;
         if (t4 == 1) {
-            FUN_8c0b1e36();
+            stageLoadSelectSprites();
         }
     } else {
-        FUN_8c0b1e36();
+        stageLoadSelectSprites();
     }
-    FUN_8c0c4de8();
+    sprStartFree();
     *(unsigned int *)0x8C343908 = 0x0;
-    FUN_8c0165ec();
+    camInit();
     t11 = 0x0;
     t12 = 0x0;
     t13 = 0x8C185298;
@@ -5247,7 +5247,7 @@ int FUN_8c0a67f4(void)
             t17 = *(short *)((((t16 * 0x38) + 0x8C343264) + 0x14));
             if (t17 != 0) {
                 t18 = *(int *)(((0x8C3437C4 + t12) + 0x0));
-                FUN_8c0a94fc(t18, 0x1);
+                selModelSpawn(t18, 0x1);
                 *(unsigned int *)((0x8C343878 + t12)) = 0x2;
             }
         }
@@ -5255,11 +5255,11 @@ int FUN_8c0a67f4(void)
         t12 = (t12 + 0x4);
         t11 = (t11 + 0x4);
     } while ((unsigned int)t13 < (unsigned int)0x8C1852A0);
-    FUN_8c0cbf88(0x8500, 0x9200, 0x64, 0x45);
-    return FUN_8c084c26(0x2, 0x1, 0xA);
+    lightSet(0x8500, 0x9200, 0x64, 0x45);
+    return fadeScreenStart(0x2, 0x1, 0xA);
 }
 
-int FUN_8c0a7e40(void)
+int selSideCheck(void)
 {
     int t0;
     int t1;
@@ -5308,7 +5308,7 @@ int FUN_8c0a7e40(void)
     return 0x1;
 }
 
-int FUN_8c0a7eaa(void)
+int selFirstJoinedPort(void)
 {
     int t0;
     int t1;
@@ -5327,7 +5327,7 @@ int FUN_8c0a7eaa(void)
     return t0;
 }
 
-void FUN_8c0a8ada(void)
+void selJoinBlocked(void)
 {
     int t0;
     int t1;
@@ -5355,7 +5355,7 @@ void FUN_8c0a8ada(void)
     }
 }
 
-void FUN_8c0a8b3c(void)
+void selModeTrack(void)
 {
     int t0;
     int t1;
@@ -5390,7 +5390,7 @@ void FUN_8c0a8b3c(void)
     }
 }
 
-int FUN_8c0a99f8(void)
+int selPortReset(void)
 {
     int t0;
 
@@ -5406,7 +5406,7 @@ int FUN_8c0a99f8(void)
     return t0;
 }
 
-void FUN_8c0a9a9e(int a4)
+void selCellSetCursor(int a4)
 {
     int t5;
     int t6;
@@ -5432,7 +5432,7 @@ void FUN_8c0a9a9e(int a4)
     }
 }
 
-void FUN_8c0a9aec(int a4)
+void selCellClear(int a4)
 {
     int t3;
     int t4;
@@ -5461,7 +5461,7 @@ void FUN_8c0a9aec(int a4)
     }
 }
 
-int FUN_8c0a9b38(void)
+int selGridClear(void)
 {
     int t0;
     int t1;
@@ -5480,7 +5480,7 @@ int FUN_8c0a9b38(void)
     return t3;
 }
 
-int FUN_8c0a9b66(void)
+int selCellClearCur(void)
 {
     int t0;
     int t4;
@@ -5510,7 +5510,7 @@ int FUN_8c0a9b66(void)
     return ((((t4 << 2) << 1) + t4) << 2);
 }
 
-int FUN_8c0ab04c(int a4)
+int entryRecordResult(int a4)
 {
     int t0;
     int t10;
@@ -5548,7 +5548,7 @@ int FUN_8c0ab04c(int a4)
     return t10;
 }
 
-int FUN_8c0ab0a4(int a4)
+int entrySetResult(int a4)
 {
     int t0;
     int t9;
@@ -5584,7 +5584,7 @@ int FUN_8c0ab0a4(int a4)
     return t9;
 }
 
-int FUN_8c0ab104(void)
+int entryRecordCharas(void)
 {
     int t0;
     int t1;
@@ -5667,7 +5667,7 @@ int FUN_8c0ab104(void)
     return t27;
 }
 
-int FUN_8c0ab1ea(void)
+int entryFirstPortMask(void)
 {
     int t0;
     int t1;
@@ -5694,7 +5694,7 @@ int FUN_8c0ab1ea(void)
     return 0x0;
 }
 
-void FUN_8c0ab266(void)
+void entryAnyAtRound5Clean(void)
 {
     int t0;
     int t1;
@@ -5706,7 +5706,7 @@ void FUN_8c0ab266(void)
         t1 = *(short *)0x8C343262;
         t2 = *(short *)((((t0 << 1) + 0x8C185298) + 0x0));
         if (((unsigned short)t1 & (unsigned short)t2) != 0) {
-            t3 = FUN_8c0ab234(t0);
+            t3 = entryPortAtRound5Clean(t0);
             if (t3 != 0) break;
             t0 = (t0 + 0x1);
             if ((int)t0 >= (int)0x4) {
@@ -5721,7 +5721,7 @@ void FUN_8c0ab266(void)
     }
 }
 
-int FUN_8c0ab2aa(void)
+int entryFirstPortFlag(void)
 {
     int t0;
     int t1;
@@ -5746,7 +5746,7 @@ int FUN_8c0ab2aa(void)
     return 0x0;
 }
 
-void FUN_8c0ab35c(void)
+void entryAnyAtRound5(void)
 {
     int t0;
     int t1;
@@ -5755,7 +5755,7 @@ void FUN_8c0ab35c(void)
     int t4;
     int t5;
 
-    t0 = FUN_8c0b0152();
+    t0 = entryIsVersus();
     if (t0 == 0) {
         if ((unsigned int)0x8C185298 < (unsigned int)0x8C1852A0) {
             t1 = 0x8C185298;
@@ -5785,7 +5785,7 @@ void FUN_8c0ab35c(void)
     }
 }
 
-int FUN_8c0ac676(int a4)
+int entryGridCount(int a4)
 {
     int t0;
     int t1;
@@ -5812,7 +5812,7 @@ int FUN_8c0ac676(int a4)
     return t2;
 }
 
-void FUN_8c0b003c(int a4, int a5)
+void entryClearUnsetSlots(int a4, int a5)
 {
     int t0;
     int t1;
@@ -5834,7 +5834,7 @@ void FUN_8c0b003c(int a4, int a5)
     }
 }
 
-int FUN_8c0b00b6(int a4)
+int entryPartnerSlot(int a4)
 {
     int t0;
     int t1;
@@ -5855,7 +5855,7 @@ int FUN_8c0b00b6(int a4)
     return t4;
 }
 
-int FUN_8c0b0a74(void)
+int entryResetTable(void)
 {
     int t0;
     int t1;
@@ -5918,7 +5918,7 @@ int FUN_8c0b0a74(void)
     return t14;
 }
 
-int FUN_8c0b0bbc(void)
+int entryCountJoined(void)
 {
     int t0;
     int t1;
@@ -5938,7 +5938,7 @@ int FUN_8c0b0bbc(void)
     return t1;
 }
 
-int FUN_8c0b12b0(void)
+int entryPickRandomCourt(void)
 {
     int t0;
     int t1;
@@ -5993,7 +5993,7 @@ int FUN_8c0b12b0(void)
     return t13;
 }
 
-void FUN_8c0b1f14(void)
+void endingTexLoad(void)
 {
     int t0;
     int t2;
@@ -6002,7 +6002,7 @@ void FUN_8c0b1f14(void)
 
     t0 = *(int *)0x8C188E84;
     if (t0 == 0) {
-        FUN_8c0ea2a0(0x1800);
+        nlSetCommonTextureOffset(0x1800);
         t2 = 0x0;
         t3 = 0x8C188C84;
         do {
@@ -6015,7 +6015,7 @@ void FUN_8c0b1f14(void)
     }
 }
 
-int FUN_8c0b1f5a(void)
+int endingTexFree(void)
 {
     int t0;
     int t6;
@@ -6027,13 +6027,13 @@ int FUN_8c0b1f5a(void)
     t0 = *(int *)0x8C188E84;
     t6 = t0;
     if (t0 == 1) {
-        FUN_8c0ea2a0(0x1800);
+        nlSetCommonTextureOffset(0x1800);
         t2 = 0x0;
         t3 = 0x8C188C84;
         do {
             t4 = *(int *)((t3 + 0x0));
             t3 = (t3 + 0x4);
-            t5 = FUN_8c0f2160();
+            t5 = nlObjPutFreeTextureOnce();
             t2 = (t2 + 0x1);
         } while ((unsigned int)t2 < (unsigned int)0x19);
         *(unsigned int *)0x8C188E84 = 0x0;
@@ -6042,26 +6042,26 @@ int FUN_8c0b1f5a(void)
     return t6;
 }
 
-int FUN_8c0b22fe(void)
+int commonEtcTexSetGarbaged(void)
 {
     int t1;
     int t2;
     int t3;
     int t4;
 
-    FUN_8c0ea2a0(0x320);
+    nlSetCommonTextureOffset(0x320);
     t1 = 0x0;
     t2 = 0x8C185648;
     do {
         t3 = *(int *)((t2 + 0x0));
         t2 = (t2 + 0x4);
-        t4 = FUN_8c0f1ff0();
+        t4 = nlObjPutSetGarbagedTexture();
         t1 = (t1 + 0x1);
     } while ((unsigned int)t1 < (unsigned int)0x280);
     return t4;
 }
 
-void FUN_8c0b2ab6(void)
+void stageWtcMainTexLoad(void)
 {
     int t0;
     int t2;
@@ -6070,7 +6070,7 @@ void FUN_8c0b2ab6(void)
 
     t0 = *(int *)0x8C188EB0;
     if (t0 == 0) {
-        FUN_8c0ea2a0(0x1B00);
+        nlSetCommonTextureOffset(0x1B00);
         t2 = 0x0;
         t3 = 0x8C188D14;
         do {
@@ -6083,7 +6083,7 @@ void FUN_8c0b2ab6(void)
     }
 }
 
-int FUN_8c0b2b54(void)
+int stageWtcMainTexFree(void)
 {
     int t0;
     int t6;
@@ -6095,13 +6095,13 @@ int FUN_8c0b2b54(void)
     t0 = *(int *)0x8C188EB0;
     t6 = t0;
     if (t0 == 1) {
-        FUN_8c0ea2a0(0x1B00);
+        nlSetCommonTextureOffset(0x1B00);
         t2 = 0x0;
         t3 = 0x8C188D14;
         do {
             t4 = *(int *)((t3 + 0x0));
             t3 = (t3 + 0x4);
-            t5 = FUN_8c0f2160();
+            t5 = nlObjPutFreeTextureOnce();
             t2 = (t2 + 0x1);
         } while ((unsigned int)t2 < (unsigned int)0x1B);
         *(unsigned int *)0x8C188EB0 = 0x0;
@@ -6110,7 +6110,7 @@ int FUN_8c0b2b54(void)
     return t6;
 }
 
-int FUN_8c0b2cee(void)
+int stageMinigameTexFree(void)
 {
     int t0;
     int t6;
@@ -6122,13 +6122,13 @@ int FUN_8c0b2cee(void)
     t0 = *(int *)0x8C188EB4;
     t6 = t0;
     if (t0 == 1) {
-        FUN_8c0ea2a0(0x1C00);
+        nlSetCommonTextureOffset(0x1C00);
         t2 = 0x0;
         t3 = 0x8C188D80;
         do {
             t4 = *(int *)((t3 + 0x0));
             t3 = (t3 + 0x4);
-            t5 = FUN_8c0f2160();
+            t5 = nlObjPutFreeTextureOnce();
             t2 = (t2 + 0x1);
         } while ((unsigned int)t2 < (unsigned int)0x40);
         *(unsigned int *)0x8C188EB4 = 0x0;
@@ -6137,7 +6137,7 @@ int FUN_8c0b2cee(void)
     return t6;
 }
 
-int FUN_8c0b2e20(void)
+int stageMinigameLoadStep(void)
 {
     int t0;
     int t1;
@@ -6174,26 +6174,26 @@ int FUN_8c0b2e20(void)
     if (t1 == 0) {
         t2 = *(int *)0x8C343FF4;
         *(unsigned int *)0x8C343FF4 = (t2 + 0x1);
-        FUN_8c0d2ba6(0x0);
+        sndStagePackLoad(0x0);
     } else {
         t4 = *(int *)0x8C343FF4;
         if (t4 == 1) {
-            t5 = FUN_8c0d2ba6(0x1);
+            t5 = sndStagePackLoad(0x1);
             if (t5 == 99) {
                 t6 = *(int *)0x8C343FF4;
                 *(unsigned int *)0x8C343FF4 = (t6 + 0x1);
-                FUN_8c0d28b4();
+                sndFxReset();
             }
         } else {
             if (t4 == 2) {
-                t9 = FUN_8c0b5a92();
+                t9 = stagePolyLoad();
                 if (t9 == 1) {
                     t10 = *(int *)0x8C343FF4;
                     *(unsigned int *)0x8C343FF4 = (t10 + 0x1);
                 }
             } else {
                 if (t4 == 3) {
-                    t11 = FUN_8c0b5ab4();
+                    t11 = stageTexFileLoad();
                     if (t11 == 1) {
                         t12 = *(int *)0x8C343FF4;
                         *(unsigned int *)0x8C343FF4 = (t12 + 0x1);
@@ -6203,20 +6203,20 @@ int FUN_8c0b2e20(void)
                     t15 = *(int *)0x8C344014;
                     if (t4 == 4) {
                         if (t15 != 3) {
-                            t16 = FUN_8c0b5ad6();
+                            t16 = kyakuPolyLoad();
                             if (t16 == 1) {
                                 t17 = *(int *)0x8C343FF4;
                                 *(unsigned int *)0x8C343FF4 = (t17 + 0x1);
-                                FUN_8c0c64dc();
+                                uniformLoadBegin();
                             }
                         } else {
                             t20 = *(int *)0x8C343FF4;
                             *(unsigned int *)0x8C343FF4 = (t20 + 0x1);
-                            FUN_8c0c64dc();
+                            uniformLoadBegin();
                         }
                     } else {
                         if (t4 == 5) {
-                            t23 = FUN_8c0c6530();
+                            t23 = uniformLoadStep();
                             if (t23 != 0) {
                                 t24 = *(int *)0x8C343FF4;
                                 *(unsigned int *)0x8C343FF4 = (t24 + 0x1);
@@ -6224,7 +6224,7 @@ int FUN_8c0b2e20(void)
                         } else {
                             if (t4 == 6) {
                                 if (t15 == 3) {
-                                    t25 = FUN_8c0b5b26();
+                                    t25 = minigamePolyLoad();
                                     if (t25 == 1) {
                                         t26 = *(int *)0x8C343FF4;
                                         *(unsigned int *)0x8C343FF4 = (t26 + 0x1);
@@ -6235,27 +6235,27 @@ int FUN_8c0b2e20(void)
                                 }
                             } else {
                                 if (t4 == 7) {
-                                    t29 = FUN_8c0b5b40();
+                                    t29 = minigameTexFileLoad();
                                     if (t29 == 1) {
                                         t30 = *(int *)0x8C343FF4;
                                         *(unsigned int *)0x8C343FF4 = (t30 + 0x1);
-                                        FUN_8c0b2ca8();
+                                        stageMinigameTexLoad();
                                     }
                                 } else {
                                     if (t4 == 8) {
                                         if (t15 == 3) {
-                                            t33 = FUN_8c0b5b66();
+                                            t33 = minigameSpriteLoad();
                                             if (t33 == 1) {
                                                 t34 = *(int *)0x8C343FF4;
                                                 *(unsigned int *)0x8C343FF4 = (t34 + 0x1);
-                                                FUN_8c0c50c4();
+                                                sprSet266Load();
                                             }
                                         } else {
-                                            t37 = FUN_8c0b5b8c();
+                                            t37 = gameSpriteLoad();
                                             if (t37 == 1) {
                                                 t38 = *(int *)0x8C343FF4;
                                                 *(unsigned int *)0x8C343FF4 = (t38 + 0x1);
-                                                FUN_8c0c4f38();
+                                                sprMatchLoad();
                                             }
                                         }
                                     } else {
@@ -6264,9 +6264,9 @@ int FUN_8c0b2e20(void)
                                             *(unsigned int *)0x8C343FF4 = (t42 + 0x1);
                                             *(unsigned int *)0x8C287C50 = 0x1;
                                             *(unsigned int *)0x8C343FE8 = 0x1;
-                                            FUN_8c0b1c54();
+                                            stageCrowdTexLoad();
                                             t44 = *(int *)0x8C1891E8;
-                                            FUN_8c0baa88();
+                                            matchSceneInit();
                                             *(unsigned int *)0x8C301970 = 0x0;
                                         }
                                     }
@@ -6282,7 +6282,7 @@ int FUN_8c0b2e20(void)
     return t57;
 }
 
-void FUN_8c0b304a(void)
+void stageExtraTexLoad(void)
 {
     int t0;
     int t2;
@@ -6291,7 +6291,7 @@ void FUN_8c0b304a(void)
 
     t0 = *(int *)0x8C188EC0;
     if (t0 == 0) {
-        FUN_8c0ea2a0(0x1D00);
+        nlSetCommonTextureOffset(0x1D00);
         t2 = 0x0;
         t3 = 0x8C188EB8;
         do {
@@ -6304,7 +6304,7 @@ void FUN_8c0b304a(void)
     }
 }
 
-int FUN_8c0b3090(void)
+int stageExtraTexFree(void)
 {
     int t0;
     int t6;
@@ -6316,13 +6316,13 @@ int FUN_8c0b3090(void)
     t0 = *(int *)0x8C188EC0;
     t6 = 0x8C188EC0;
     if (t0 != 0) {
-        FUN_8c0ea2a0(0x1D00);
+        nlSetCommonTextureOffset(0x1D00);
         t2 = 0x0;
         t3 = 0x8C188EB8;
         do {
             t4 = *(int *)((t3 + 0x0));
             t3 = (t3 + 0x4);
-            t5 = FUN_8c0f2160();
+            t5 = nlObjPutFreeTextureOnce();
             t2 = (t2 + 0x1);
         } while ((unsigned int)t2 < (unsigned int)0x2);
         *(unsigned int *)0x8C188EC0 = 0x0;
@@ -6331,7 +6331,7 @@ int FUN_8c0b3090(void)
     return t6;
 }
 
-int FUN_8c0b3128(void)
+int stageLoadTexStep(void)
 {
     int t0;
     int t1;
@@ -6348,7 +6348,7 @@ int FUN_8c0b3128(void)
 
     t0 = *(int *)0x8C343FEC;
     if (t0 == 0) {
-        t1 = FUN_8c0b5ab4();
+        t1 = stageTexFileLoad();
         if (t1 == 1) {
             t2 = *(int *)0x8C343FEC;
             *(unsigned int *)0x8C343FEC = (t2 + 0x1);
@@ -6356,24 +6356,24 @@ int FUN_8c0b3128(void)
         }
     } else {
         if (t0 == 1) {
-            t5 = FUN_8c0b5ad6();
+            t5 = kyakuPolyLoad();
             if (t5 == 1) {
                 t6 = *(int *)0x8C343FEC;
                 *(unsigned int *)0x8C343FEC = (t6 + 0x1);
-                FUN_8c0b1c54();
+                stageCrowdTexLoad();
             }
         } else {
             if (t0 == 2) {
-                t9 = FUN_8c0b5b8c();
+                t9 = gameSpriteLoad();
                 if (t9 == 1) {
                     t10 = *(int *)0x8C343FEC;
                     *(unsigned int *)0x8C343FEC = (t10 + 0x1);
-                    FUN_8c0c4f38();
-                    FUN_8c0c64dc();
+                    sprMatchLoad();
+                    uniformLoadBegin();
                 }
             } else {
                 if (t0 == 3) {
-                    t14 = FUN_8c0c6530();
+                    t14 = uniformLoadStep();
                     if (t14 != 0) {
                         t15 = *(int *)0x8C343FEC;
                         *(unsigned int *)0x8C343FEC = (t15 + 0x1);
@@ -6398,7 +6398,7 @@ int FUN_8c0b3128(void)
     return t22;
 }
 
-int FUN_8c0b3244(void)
+int stageLoadTexStep2(void)
 {
     int t0;
     int t1;
@@ -6420,11 +6420,11 @@ int FUN_8c0b3244(void)
 
     t0 = *(int *)0x8C343FEC;
     if (t0 == 0) {
-        t1 = FUN_8c0b5ab4();
+        t1 = stageTexFileLoad();
         t5 = t1;
         if (t1 == 1) {
             stageTexLoad();
-            t3 = FUN_8c0c64dc();
+            t3 = uniformLoadBegin();
             t4 = *(int *)0x8C343FEC;
             *(unsigned int *)0x8C343FEC = (t4 + 0x1);
             t5 = t3;
@@ -6432,7 +6432,7 @@ int FUN_8c0b3244(void)
         t18 = t5;
     } else {
         if (t0 == 1) {
-            t6 = FUN_8c0c6530();
+            t6 = uniformLoadStep();
             if (t6 != 0) {
                 t7 = *(int *)0x8C343FEC;
                 *(unsigned int *)0x8C343FEC = (t7 + 0x1);
@@ -6440,12 +6440,12 @@ int FUN_8c0b3244(void)
             t17 = t6;
         } else {
             if (t0 == 2) {
-                t8 = FUN_8c0b5b8c();
+                t8 = gameSpriteLoad();
                 t11 = t8;
                 if (t8 == 1) {
                     t9 = *(int *)0x8C343FEC;
                     *(unsigned int *)0x8C343FEC = (t9 + 0x1);
-                    t10 = FUN_8c0c4f38();
+                    t10 = sprMatchLoad();
                     t11 = t10;
                 }
                 t16 = t11;
@@ -6453,7 +6453,7 @@ int FUN_8c0b3244(void)
                 t14 = t0;
                 if (t0 == 3) {
                     t12 = *(int *)0x8C1891E8;
-                    t13 = FUN_8c0baa88();
+                    t13 = matchSceneInit();
                     *(unsigned int *)0x8C287C50 = 0x1;
                     *(unsigned int *)0x8C343FE8 = 0x1;
                     t14 = t13;
@@ -6467,44 +6467,44 @@ int FUN_8c0b3244(void)
     return t18;
 }
 
-int FUN_8c0b3364(void)
+int stageFreeAll(void)
 {
-    FUN_8c0c4ef2();
-    FUN_8c0b1968();
-    FUN_8c0c5ddc();
-    FUN_8c0c4f72();
-    FUN_8c0c4de8();
-    FUN_8c0b3090();
-    FUN_8c0c52e2();
-    FUN_8c0c4e70();
-    FUN_8c0c5b00();
-    FUN_8c0c5516();
-    FUN_8c0c4fe6();
-    FUN_8c0b1f5a();
-    FUN_8c0c50fa();
-    FUN_8c0b2b54();
-    FUN_8c0b2cee();
-    FUN_8c0c508e();
-    FUN_8c0c5750();
-    FUN_8c0c57e8();
-    FUN_8c0c591a();
-    FUN_8c0c58b4();
-    FUN_8c0c6cb0();
-    FUN_8c0e62e0();
-    FUN_8c0e90bc();
-    FUN_8c0d129c(0x2, 0x0, 0.0f);
-    FUN_8c0e8aba();
-    FUN_8c0e8b74();
-    FUN_8c0e8bf4();
-    FUN_8c0e8d46();
-    FUN_8c0e8d9a();
-    FUN_8c0d677a();
-    FUN_8c0d684c();
-    FUN_8c0d6890();
-    return FUN_8c0e412a();
+    sprAdvFree();
+    stageTexFree();
+    charaTexFreeAll();
+    sprMatchFree();
+    sprStartFree();
+    stageExtraTexFree();
+    sprSet163FreeAll();
+    sprSet109Free();
+    sprSet192Free();
+    sprSet173FreeAll();
+    sprSet115Free();
+    endingTexFree();
+    sprSet266Free();
+    stageWtcMainTexFree();
+    stageMinigameTexFree();
+    sprWtcFree();
+    sprSet280FreeAll();
+    sprSet322FreeAll();
+    sprSet331Free();
+    sprSet330Free();
+    uniformPreviewFree();
+    titleSprTexFree();
+    resCautionFreeAll();
+    hudPanelDraw(0x2, 0x0, 0.0f);
+    resWtcShopObjTexFree();
+    resEndObjTexFree();
+    resWtcShopSprTexFree();
+    resTitleObjTexFree();
+    resTitleSprTexFree();
+    endingCharaTexFreeAll();
+    endSprCharaTexFreeAll();
+    endSprTexFree();
+    return rankSprTexFree();
 }
 
-void FUN_8c0b38d0(void)
+void crowdAnimate(void)
 {
     int t0;
     int t1;
@@ -6527,13 +6527,13 @@ void FUN_8c0b38d0(void)
             t6 = (int)((int)t5 % (int)t4);
             *(unsigned int *)(((0x1E8 + t1) + 0x0)) = t6;
             t7 = *(int *)((t1 + 0x1E8));
-            FUN_8c015b7e(t1, (float)t7);
+            motionSetFrame(t1, (float)t7);
             t1 = (t1 + 0x1F4);
         } while ((unsigned int)t1 < (unsigned int)0x8C3484A0);
     }
 }
 
-void FUN_8c0b393e(void)
+void crowdAnimateAlt(void)
 {
     int t0;
     int t1;
@@ -6556,13 +6556,13 @@ void FUN_8c0b393e(void)
             t6 = (int)((int)t5 % (int)t4);
             *(unsigned int *)(((0x1E8 + t1) + 0x0)) = t6;
             t7 = *(int *)((t1 + 0x1E8));
-            FUN_8c015b7e(t1, (float)t7);
+            motionSetFrame(t1, (float)t7);
             t1 = (t1 + 0x1F4);
         } while ((unsigned int)t1 < (unsigned int)0x8C34A1EC);
     }
 }
 
-int FUN_8c0b5662(int a4, int a5, int a6)
+int fileLoadSync(int a4, int a5, int a6)
 {
     int t0;
     int t1;
@@ -6593,10 +6593,10 @@ int FUN_8c0b5662(int a4, int a5, int a6)
                 t5 = ADXF_GetStat(t1);
                 if (t5 == 3) break;
                 nlLocate(0x14, 0x14);
-                FUN_8c0d0c68();
-                FUN_8c0d1744();
-                FUN_8c01b250();
-                FUN_8c0eaba0();
+                frameHookNop();
+                msgWinStep();
+                fadeDraw();
+                nlWaitVSync();
             }
             ADXF_Close(t1);
             t12 = *(int *)0x8C34B138;
@@ -6612,10 +6612,10 @@ int FUN_8c0b5662(int a4, int a5, int a6)
             t14 = ADXF_GetStat(t1);
             if (t14 == 3) break;
             nlLocate(0x14, 0x14);
-            FUN_8c0d0c68();
-            FUN_8c0d1744();
-            FUN_8c01b250();
-            FUN_8c0eaba0();
+            frameHookNop();
+            msgWinStep();
+            fadeDraw();
+            nlWaitVSync();
         }
         ADXF_Close(t1);
         t21 = *(int *)0x8C34B138;
@@ -6657,7 +6657,7 @@ void fileLoadClose(void)
     }
 }
 
-int FUN_8c0b6c4a(int a4)
+int courtFraDrawNumber(int a4)
 {
     int t0;
     int t1;
@@ -6672,7 +6672,7 @@ int FUN_8c0b6c4a(int a4)
     return nlObjPut(t4);
 }
 
-int FUN_8c0b749a(int a4)
+int courtUsaDrawNumber(int a4)
 {
     int t0;
     int t1;
@@ -6687,7 +6687,7 @@ int FUN_8c0b749a(int a4)
     return nlObjPut(t4);
 }
 
-int FUN_8c0b834e(int a4)
+int courtAusDrawNumber(int a4)
 {
     int t0;
     int t1;
@@ -6702,7 +6702,7 @@ int FUN_8c0b834e(int a4)
     return nlObjPut(t4);
 }
 
-int FUN_8c0b8b74(int a4)
+int courtWinDrawNumber(int a4)
 {
     int t0;
     int t1;
@@ -6717,7 +6717,7 @@ int FUN_8c0b8b74(int a4)
     return nlObjPut(t4);
 }
 
-int FUN_8c0b8f76(int a4)
+int courtWinDrawSign(int a4)
 {
     int t0;
     int t3;
@@ -6765,7 +6765,7 @@ int FUN_8c0b8f76(int a4)
     return t18;
 }
 
-int FUN_8c0b9370(int a4)
+int stageSegaScoreDigits(int a4)
 {
     int t0;
     int t1;
@@ -6780,7 +6780,7 @@ int FUN_8c0b9370(int a4)
     return nlObjPut(t4);
 }
 
-int FUN_8c0baa88(void)
+int matchSceneInit(void)
 {
     int t0;
     int t3;
@@ -6789,21 +6789,21 @@ int FUN_8c0baa88(void)
     *(unsigned int *)0x8C18D2B8 = 0x0;
     t0 = *(int *)0x8C1891E8;
     if (t0 == 2) {
-        FUN_8c0cb8de();
+        staffMorphInit();
     }
     t3 = *(int *)0x8C1891E8;
     if (t3 == 4) {
-        FUN_8c088a16();
+        matchPropStart();
     }
-    FUN_8c0855b6();
+    resultFlagsClear();
     t7 = *(int *)0x8C1891E8;
-    FUN_8c08cdec();
-    FUN_8c0b34a4();
-    FUN_8c0b6230();
-    return FUN_8c087d02();
+    crowdSetup();
+    crowdInit();
+    courtPropsInit();
+    return ambLevelReset();
 }
 
-void FUN_8c0baacc(void)
+void matchStageSlot(void)
 {
     int t0;
 
@@ -6825,7 +6825,7 @@ void FUN_8c0baacc(void)
     }
 }
 
-void FUN_8c0bab88(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
+void primTexVertexSet(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
 {
     float u0;
     float u1;
@@ -6865,7 +6865,7 @@ void FUN_8c0bab88(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
     *(unsigned int *)((a8 + 0x0)) = t9;
 }
 
-void FUN_8c0babc0(int a4, int a5, int a6, int a7, int a8)
+void primVertexSet(int a4, int a5, int a6, int a7, int a8)
 {
     float u0;
     float u1;
@@ -6893,7 +6893,7 @@ void FUN_8c0babc0(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((a8 + 0x0)) = t6;
 }
 
-void FUN_8c0bcf76(int a4, int a5)
+void emotKeyAdd(int a4, int a5)
 {
     int t0;
     int t1;
@@ -6909,12 +6909,12 @@ void FUN_8c0bcf76(int a4, int a5)
     *(unsigned int *)((((((t2 << 1) + t2) << 2) + a4) + 0x4)) = 0x0;
     t3 = *(int *)((a4 + 0x264));
     *(unsigned int *)((a4 + 0x264)) = (t3 + 0x1);
-    FUN_8c0bced0(a4);
+    emotKeysSort(a4);
     t5 = *(int *)((a4 + 0x268));
     *(unsigned int *)((a4 + 0x268)) = (t5 + 0x1);
 }
 
-int FUN_8c0c2696(int a4)
+int stageSweScoreDigits(int a4)
 {
     int t0;
     int t1;
@@ -6929,7 +6929,7 @@ int FUN_8c0c2696(int a4)
     return nlObjPut(t4);
 }
 
-int FUN_8c0c2cd0(int a4)
+int stageGerCourtDraw(int a4)
 {
     int t0;
     int t3;
@@ -6977,7 +6977,7 @@ int FUN_8c0c2cd0(int a4)
     return t18;
 }
 
-int FUN_8c0c2d3e(int a4)
+int stageGerScoreDigits(int a4)
 {
     int t0;
     int t1;
@@ -6992,7 +6992,7 @@ int FUN_8c0c2d3e(int a4)
     return nlObjPut(t4);
 }
 
-int FUN_8c0c338e(int a4)
+int stageJpnCourtDraw(int a4)
 {
     int t0;
     int t3;
@@ -7040,7 +7040,7 @@ int FUN_8c0c338e(int a4)
     return t18;
 }
 
-int FUN_8c0c33fc(int a4)
+int stageJpnScoreDigits(int a4)
 {
     int t0;
     int t1;
@@ -7055,7 +7055,7 @@ int FUN_8c0c33fc(int a4)
     return nlObjPut(t4);
 }
 
-int FUN_8c0c3a7a(int a4)
+int stageRusScoreDigits(int a4)
 {
     int t0;
     int t1;
@@ -7070,7 +7070,7 @@ int FUN_8c0c3a7a(int a4)
     return nlObjPut(t4);
 }
 
-int FUN_8c0c40ca(int a4)
+int stageEspScoreDigits(int a4)
 {
     int t0;
     int t1;
@@ -7085,7 +7085,7 @@ int FUN_8c0c40ca(int a4)
     return nlObjPut(t4);
 }
 
-int FUN_8c0c4d3a(void)
+int sprStartLoad(void)
 {
     int t0;
     int t1;
@@ -7101,7 +7101,7 @@ int FUN_8c0c4d3a(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c08e654(t3);
+            sprTexLoad(t3);
             t5 = *(int *)0x8C1AECF8;
             t1 = (t1 + 0x1);
             *(unsigned int *)0x8C1AECF8 = (t5 + 0x1);
@@ -7109,10 +7109,10 @@ int FUN_8c0c4d3a(void)
         t6 = *(int *)0x8C1AECF4;
         *(unsigned int *)0x8C1AECF4 = (t6 + 0x1);
     }
-    return FUN_8c0c4d08();
+    return sprStartInit();
 }
 
-int FUN_8c0c4e2e(void)
+int sprSet109Load(void)
 {
     int t0;
     int t1;
@@ -7126,16 +7126,16 @@ int FUN_8c0c4e2e(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c08e654(t3);
+            sprTexLoad(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0x6);
         *(unsigned int *)0x8C1AECFC = 0x1;
-        return FUN_8c0c4cf4();
+        return sprSet109Init();
     }
     return 0;
 }
 
-int FUN_8c0c4eac(void)
+int sprAdvLoad(void)
 {
     int t0;
     int t1;
@@ -7151,7 +7151,7 @@ int FUN_8c0c4eac(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c08e654(t3);
+            sprTexLoad(t3);
             t5 = *(int *)0x8C1AED04;
             t1 = (t1 + 0x1);
             *(unsigned int *)0x8C1AED04 = (t5 + 0x1);
@@ -7159,10 +7159,10 @@ int FUN_8c0c4eac(void)
         t6 = *(int *)0x8C1AED00;
         *(unsigned int *)0x8C1AED00 = (t6 + 0x1);
     }
-    return FUN_8c0c4bbe();
+    return sprAdvInit();
 }
 
-int FUN_8c0c4f38(void)
+int sprMatchLoad(void)
 {
     int t0;
     int t1;
@@ -7177,16 +7177,16 @@ int FUN_8c0c4f38(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c08e654(t3);
+            sprTexLoad(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0x10);
         t5 = *(int *)0x8C1AED08;
         *(unsigned int *)0x8C1AED08 = (t5 + 0x1);
     }
-    return FUN_8c0c4b18();
+    return sprMatchInit();
 }
 
-int FUN_8c0c5058(void)
+int sprWtcLoad(void)
 {
     int t0;
     int t1;
@@ -7200,7 +7200,7 @@ int FUN_8c0c5058(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c08e654(t3);
+            sprTexLoad(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0xD);
         *(unsigned int *)0x8C1AED10 = 0x1;
@@ -7208,7 +7208,7 @@ int FUN_8c0c5058(void)
     return thunk_FUN_8c09e55a();
 }
 
-int FUN_8c0c508e(void)
+int sprWtcFree(void)
 {
     int t0;
     int t5;
@@ -7225,7 +7225,7 @@ int FUN_8c0c508e(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            t4 = FUN_8c08e694(t3);
+            t4 = sprTexFree(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0xD);
         *(unsigned int *)0x8C1AED10 = 0x0;
@@ -7234,7 +7234,7 @@ int FUN_8c0c508e(void)
     return t5;
 }
 
-int FUN_8c0c50c4(void)
+int sprSet266Load(void)
 {
     int t0;
     int t1;
@@ -7248,15 +7248,15 @@ int FUN_8c0c50c4(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c08e654(t3);
+            sprTexLoad(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0x5);
         *(unsigned int *)0x8C1AED14 = 0x1;
     }
-    return FUN_8c0c4cf0();
+    return sprSet266InitThunk();
 }
 
-int FUN_8c0c50fa(void)
+int sprSet266Free(void)
 {
     int t0;
     int t5;
@@ -7273,7 +7273,7 @@ int FUN_8c0c50fa(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            t4 = FUN_8c08e694(t3);
+            t4 = sprTexFree(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0x5);
         *(unsigned int *)0x8C1AED14 = 0x0;
@@ -7282,7 +7282,7 @@ int FUN_8c0c50fa(void)
     return t5;
 }
 
-int FUN_8c0c5130(void)
+int sprCommonLoad(void)
 {
     int t0;
     int t1;
@@ -7298,7 +7298,7 @@ int FUN_8c0c5130(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c08e654(t3);
+            sprTexLoad(t3);
             t5 = *(int *)0x8C1AED1C;
             t1 = (t1 + 0x1);
             *(unsigned int *)0x8C1AED1C = (t5 + 0x1);
@@ -7306,23 +7306,23 @@ int FUN_8c0c5130(void)
         t6 = *(int *)0x8C1AED18;
         *(unsigned int *)0x8C1AED18 = (t6 + 0x1);
     }
-    return FUN_8c0c4b62();
+    return sprCommonInit();
 }
 
-int FUN_8c0c52e2(void)
+int sprSet163FreeAll(void)
 {
     int t0;
     int t1;
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c0c52ba(t0);
+        t1 = sprSet163Free(t0);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0xA);
     return t1;
 }
 
-int FUN_8c0c533c(int a4)
+int sprSet173Setup(int a4)
 {
     int t0;
     int t1;
@@ -7367,11 +7367,11 @@ int FUN_8c0c533c(int a4)
     t10 = *(int *)((((t8 << 2) + 0x8C1248CC) + 0x0));
     *(unsigned int *)(((int)stk + 28)) = ((((t9 << 2) + t9) << 2) << 2);
     *(unsigned int *)(((int)stk + 32)) = (((((t9 << 2) + t9) << 2) << 2) + 0x8C37C2BC);
-    FUN_8c08e718((((((t9 << 2) + t9) << 2) << 2) + 0x8C37C2BC), t10, (((int)stk + 20) + 0x10), 0x80, 0x80, 0x0);
+    sprInitRectF((((((t9 << 2) + t9) << 2) << 2) + 0x8C37C2BC), t10, (((int)stk + 20) + 0x10), 0x80, 0x80, 0x0);
     t12 = *(int *)(((int)stk + 24));
     t13 = *(int *)(((int)stk + 28));
     t14 = *(int *)((t12 + 0x0));
-    t15 = FUN_8c08e718((t13 + 0x8C37C85C), t14, (((int)stk + 20) + 0x10), 0x80, 0x80, 0x1);
+    t15 = sprInitRectF((t13 + 0x8C37C85C), t14, (((int)stk + 20) + 0x10), 0x80, 0x80, 0x1);
     t16 = *(int *)(((int)stk + 32));
     t17 = *(int *)((t16 + 0x34));
     *(unsigned int *)((t16 + 0x34)) = (t17 | 0x5);
@@ -7381,7 +7381,7 @@ int FUN_8c0c533c(int a4)
     return t15;
 }
 
-int FUN_8c0c53c2(int a4)
+int sprSet173Put(int a4)
 {
     int t0;
     int t1;
@@ -7398,24 +7398,24 @@ int FUN_8c0c53c2(int a4)
     t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
     t3 = *(int *)(((int)stk + 16));
-    t4 = FUN_8c08e944((((((t3 << 2) + t3) << 2) << 2) + 0x8C37C2BC));
+    t4 = sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C37C2BC));
     return t4;
 }
 
-int FUN_8c0c5516(void)
+int sprSet173FreeAll(void)
 {
     int t0;
     int t1;
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c0c5460(t0);
+        t1 = sprSet173Free(t0);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0x12);
     return t1;
 }
 
-void FUN_8c0c5570(void)
+void sprSet173Restore(void)
 {
     int t0;
     int t1;
@@ -7428,14 +7428,14 @@ void FUN_8c0c5570(void)
         t2 = *(int *)((t1 + 0x0));
         if (t2 != 0) {
             t3 = *(int *)((t0 + 0x0));
-            FUN_8c0c5532(t3);
+            sprTexRestore(t3);
         }
         t1 = (t1 + 0x4);
         t0 = (t0 + 0x4);
     } while ((unsigned int)t1 < (unsigned int)0x8C1AEDB8);
 }
 
-void FUN_8c0c559e(void)
+void sprCommonRestore(void)
 {
     int t0;
     int t1;
@@ -7449,13 +7449,13 @@ void FUN_8c0c559e(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c0c5532(t3);
+            sprTexRestore(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0x23);
     }
 }
 
-void FUN_8c0c55f0(void)
+void sprMatchRestore(void)
 {
     int t0;
     int t1;
@@ -7469,13 +7469,13 @@ void FUN_8c0c55f0(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c0c5532(t3);
+            sprTexRestore(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0x23);
     }
 }
 
-void FUN_8c0c561a(void)
+void sprAdvRestore(void)
 {
     int t0;
     int t1;
@@ -7489,13 +7489,13 @@ void FUN_8c0c561a(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c0c5532(t3);
+            sprTexRestore(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0x38);
     }
 }
 
-void FUN_8c0c5644(void)
+void sprStartRestore(void)
 {
     int t0;
     int t1;
@@ -7509,13 +7509,13 @@ void FUN_8c0c5644(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c0c5532(t3);
+            sprTexRestore(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0x10);
     }
 }
 
-void FUN_8c0c566e(void)
+void sprWtcRestore(void)
 {
     int t0;
     int t1;
@@ -7529,13 +7529,13 @@ void FUN_8c0c566e(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c0c5532(t3);
+            sprTexRestore(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0xD);
     }
 }
 
-void FUN_8c0c5698(void)
+void sprSet266Restore(void)
 {
     int t0;
     int t1;
@@ -7549,26 +7549,26 @@ void FUN_8c0c5698(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c0c5532(t3);
+            sprTexRestore(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0x5);
     }
 }
 
-int FUN_8c0c5750(void)
+int sprSet280FreeAll(void)
 {
     int t0;
     int t1;
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c0c572c(t0);
+        t1 = sprSet280Free(t0);
         t0 = (t0 + 0x1);
     } while ((unsigned int)t0 < (unsigned int)0x3C);
     return t1;
 }
 
-void FUN_8c0c576c(void)
+void sprSet280Restore(void)
 {
     int t0;
     int t1;
@@ -7583,7 +7583,7 @@ void FUN_8c0c576c(void)
         t3 = *(int *)((t1 + 0x0));
         if (t3 != 0) {
             t4 = *(int *)((t2 + 0x0));
-            FUN_8c0c5532(t4);
+            sprTexRestore(t4);
         }
         t0 = (t0 + 0x1);
         t2 = (t2 + 0x4);
@@ -7591,20 +7591,20 @@ void FUN_8c0c576c(void)
     } while ((unsigned int)t0 < (unsigned int)0x33);
 }
 
-int FUN_8c0c57e8(void)
+int sprSet322FreeAll(void)
 {
     int t0;
     int t1;
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c0c57c4(t0);
+        t1 = sprSet322Free(t0);
         t0 = (t0 + 0x1);
     } while ((unsigned int)t0 < (unsigned int)0x8);
     return t1;
 }
 
-void FUN_8c0c5864(void)
+void sprSet322Restore(void)
 {
     int t0;
     int t1;
@@ -7619,7 +7619,7 @@ void FUN_8c0c5864(void)
         t3 = *(int *)((t1 + 0x0));
         if (t3 != 0) {
             t4 = *(int *)((t2 + 0x0));
-            FUN_8c0c5532(t4);
+            sprTexRestore(t4);
         }
         t0 = (t0 + 0x1);
         t2 = (t2 + 0x4);
@@ -7627,7 +7627,7 @@ void FUN_8c0c5864(void)
     } while ((unsigned int)t0 < (unsigned int)0x8);
 }
 
-void FUN_8c0c58e4(void)
+void sprSet331Load(void)
 {
     int t0;
     int t1;
@@ -7641,14 +7641,14 @@ void FUN_8c0c58e4(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c08e654(t3);
+            sprTexLoad(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0x5);
         *(unsigned int *)0x8C37CF0C = 0x1;
     }
 }
 
-int FUN_8c0c591a(void)
+int sprSet331Free(void)
 {
     int t0;
     int t5;
@@ -7665,7 +7665,7 @@ int FUN_8c0c591a(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            t4 = FUN_8c08e694(t3);
+            t4 = sprTexFree(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0x5);
         *(unsigned int *)0x8C37CF0C = 0x0;
@@ -7674,7 +7674,7 @@ int FUN_8c0c591a(void)
     return t5;
 }
 
-int FUN_8c0c5950(void)
+int sprSet331Restore(void)
 {
     int t0;
     int t5;
@@ -7691,7 +7691,7 @@ int FUN_8c0c5950(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            t4 = FUN_8c0c5532(t3);
+            t4 = sprTexRestore(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0x5);
         t5 = t4;
@@ -7699,7 +7699,7 @@ int FUN_8c0c5950(void)
     return t5;
 }
 
-int FUN_8c0c5a28(int a4)
+int sprSet192PutA(int a4)
 {
     int t0;
     int t1;
@@ -7716,11 +7716,11 @@ int FUN_8c0c5a28(int a4)
     t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
     *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
     t3 = *(int *)(((int)stk + 16));
-    t4 = FUN_8c08e944((((((t3 << 2) + t3) << 2) << 2) + 0x8C37CF10));
+    t4 = sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C37CF10));
     return t4;
 }
 
-void FUN_8c0c5a92(void)
+void sprSet192Load(void)
 {
     int t0;
     int t1;
@@ -7735,15 +7735,15 @@ void FUN_8c0c5a92(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            FUN_8c08e654(t3);
+            sprTexLoad(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0x12);
-        FUN_8c0c599c();
+        sprSet192Setup();
         *(unsigned int *)0x8C37DA50 = 0x1;
     }
 }
 
-int FUN_8c0c5b00(void)
+int sprSet192Free(void)
 {
     int t0;
     int t5;
@@ -7760,7 +7760,7 @@ int FUN_8c0c5b00(void)
         do {
             t3 = *(int *)((t2 + 0x0));
             t2 = (t2 + 0x4);
-            t4 = FUN_8c08e694(t3);
+            t4 = sprTexFree(t3);
             t1 = (t1 + 0x1);
         } while ((unsigned int)t1 < (unsigned int)0x12);
         *(unsigned int *)0x8C37DA50 = 0x0;
@@ -7769,7 +7769,7 @@ int FUN_8c0c5b00(void)
     return t5;
 }
 
-int FUN_8c0c5ddc(void)
+int charaTexFreeAll(void)
 {
     int t0;
     int t2;
@@ -7779,7 +7779,7 @@ int FUN_8c0c5ddc(void)
 
     t0 = 0x0;
     do {
-        FUN_8c0c5d80(t0);
+        charaTexFree(t0);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0x12);
     t2 = 0x0;
@@ -7804,7 +7804,7 @@ int FUN_8c0c5ddc(void)
     return t4;
 }
 
-void FUN_8c0c6476(void)
+void charaTexReloadAll(void)
 {
     int t0;
     int t1;
@@ -7823,14 +7823,14 @@ void FUN_8c0c6476(void)
         t3 = *(int *)((t2 + 0x0));
         if (t3 != 0) {
             t4 = *(int *)((t0 + 0x0));
-            FUN_8c0ea2a0(t4);
+            nlSetCommonTextureOffset(t4);
             t6 = 0x0;
             for (;;) {
-                t7 = FUN_8c0c5c32(t6);
+                t7 = charaModelCount(t6);
                 if ((int)t6 >= (int)t7) break;
                 t8 = *(int *)((t1 + 0x0));
                 t9 = *(int *)((t8 + (t6 << 2)));
-                FUN_8c0f1ff0();
+                nlObjPutSetGarbagedTexture();
                 t6 = (t6 + 0x1);
             }
         }
@@ -7840,20 +7840,20 @@ void FUN_8c0c6476(void)
     } while ((unsigned int)t2 < (unsigned int)0x8C1AFAAC);
 }
 
-int FUN_8c0c6e18(void)
+int commonSprInitAll(void)
 {
     int t0;
     int t1;
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c0c6d7a(((((((t0 << 2) + t0) << 2) << 2) + 0x8C37DBCC) + 0x50), t0);
+        t1 = commonSprInit(((((((t0 << 2) + t0) << 2) << 2) + 0x8C37DBCC) + 0x50), t0);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0x13);
     return t1;
 }
 
-void FUN_8c0c7050(void)
+void menuSprInitGroup(void)
 {
     int t0;
     int t1;
@@ -7865,14 +7865,14 @@ void FUN_8c0c7050(void)
         for (;;) {
             t2 = *(int *)(((((t0 << 2) << 2) + 0x8C1B2004) + 0xC));
             if ((int)t1 >= (int)t2) break;
-            FUN_8c0c6e4a((((((t1 << 2) + t1) << 2) << 2) + ((t0 * 0x1E0) + 0x8C37E20C)), t1, t0);
+            menuSprInit((((((t1 << 2) + t1) << 2) << 2) + ((t0 * 0x1E0) + 0x8C37E20C)), t1, t0);
             t1 = (t1 + 0x1);
         }
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0x4);
 }
 
-int FUN_8c0ca164(void)
+int lineJudgeExec(void)
 {
     int t0;
     int t1;
@@ -7967,13 +7967,13 @@ int FUN_8c0ca164(void)
                                                     if (t8 == 0) {
                                                         t9 = *(int *)0x8C20D150;
                                                         if (t9 != 3) {
-                                                            FUN_8c0c968c();
-                                                            return FUN_8c0c926c();
+                                                            lineJudgeUpdate();
+                                                            return lineJudgeDraw();
                                                         }
                                                         return t9;
                                                     }
-                                                    FUN_8c0c968c();
-                                                    return FUN_8c0c926c();
+                                                    lineJudgeUpdate();
+                                                    return lineJudgeDraw();
                                                 }
                                                 return t7;
                                             }
@@ -7981,61 +7981,61 @@ int FUN_8c0ca164(void)
                                             if (t12 == 0) {
                                                 t13 = *(int *)0x8C20D150;
                                                 if (t13 != 3) {
-                                                    FUN_8c0c968c();
-                                                    return FUN_8c0c926c();
+                                                    lineJudgeUpdate();
+                                                    return lineJudgeDraw();
                                                 }
                                                 return t13;
                                             }
-                                            FUN_8c0c968c();
-                                            return FUN_8c0c926c();
+                                            lineJudgeUpdate();
+                                            return lineJudgeDraw();
                                         }
                                         t16 = *(int *)0x8C20D14C;
                                         if (t16 == 0) {
                                             t17 = *(int *)0x8C20D150;
                                             if (t17 != 3) {
-                                                FUN_8c0c968c();
-                                                return FUN_8c0c926c();
+                                                lineJudgeUpdate();
+                                                return lineJudgeDraw();
                                             }
                                             return t17;
                                         }
-                                        FUN_8c0c968c();
-                                        return FUN_8c0c926c();
+                                        lineJudgeUpdate();
+                                        return lineJudgeDraw();
                                     }
                                     t20 = *(int *)0x8C20D14C;
                                     if (t20 == 0) {
                                         t21 = *(int *)0x8C20D150;
                                         if (t21 != 3) {
-                                            FUN_8c0c968c();
-                                            return FUN_8c0c926c();
+                                            lineJudgeUpdate();
+                                            return lineJudgeDraw();
                                         }
                                         return t21;
                                     }
-                                    FUN_8c0c968c();
-                                    return FUN_8c0c926c();
+                                    lineJudgeUpdate();
+                                    return lineJudgeDraw();
                                 }
                                 t24 = *(int *)0x8C20D14C;
                                 if (t24 == 0) {
                                     t25 = *(int *)0x8C20D150;
                                     if (t25 != 3) {
-                                        FUN_8c0c968c();
-                                        return FUN_8c0c926c();
+                                        lineJudgeUpdate();
+                                        return lineJudgeDraw();
                                     }
                                     return t25;
                                 }
-                                FUN_8c0c968c();
-                                return FUN_8c0c926c();
+                                lineJudgeUpdate();
+                                return lineJudgeDraw();
                             }
                             t28 = *(int *)0x8C20D14C;
                             if (t28 == 0) {
                                 t29 = *(int *)0x8C20D150;
                                 if (t29 != 3) {
-                                    FUN_8c0c968c();
-                                    return FUN_8c0c926c();
+                                    lineJudgeUpdate();
+                                    return lineJudgeDraw();
                                 }
                                 return t29;
                             }
-                            FUN_8c0c968c();
-                            return FUN_8c0c926c();
+                            lineJudgeUpdate();
+                            return lineJudgeDraw();
                         }
                         return t5;
                     }
@@ -8059,13 +8059,13 @@ int FUN_8c0ca164(void)
                                             if (t36 == 0) {
                                                 t37 = *(int *)0x8C20D150;
                                                 if (t37 != 3) {
-                                                    FUN_8c0c968c();
-                                                    return FUN_8c0c926c();
+                                                    lineJudgeUpdate();
+                                                    return lineJudgeDraw();
                                                 }
                                                 return t37;
                                             }
-                                            FUN_8c0c968c();
-                                            return FUN_8c0c926c();
+                                            lineJudgeUpdate();
+                                            return lineJudgeDraw();
                                         }
                                         return t35;
                                     }
@@ -8073,61 +8073,61 @@ int FUN_8c0ca164(void)
                                     if (t40 == 0) {
                                         t41 = *(int *)0x8C20D150;
                                         if (t41 != 3) {
-                                            FUN_8c0c968c();
-                                            return FUN_8c0c926c();
+                                            lineJudgeUpdate();
+                                            return lineJudgeDraw();
                                         }
                                         return t41;
                                     }
-                                    FUN_8c0c968c();
-                                    return FUN_8c0c926c();
+                                    lineJudgeUpdate();
+                                    return lineJudgeDraw();
                                 }
                                 t44 = *(int *)0x8C20D14C;
                                 if (t44 == 0) {
                                     t45 = *(int *)0x8C20D150;
                                     if (t45 != 3) {
-                                        FUN_8c0c968c();
-                                        return FUN_8c0c926c();
+                                        lineJudgeUpdate();
+                                        return lineJudgeDraw();
                                     }
                                     return t45;
                                 }
-                                FUN_8c0c968c();
-                                return FUN_8c0c926c();
+                                lineJudgeUpdate();
+                                return lineJudgeDraw();
                             }
                             t48 = *(int *)0x8C20D14C;
                             if (t48 == 0) {
                                 t49 = *(int *)0x8C20D150;
                                 if (t49 != 3) {
-                                    FUN_8c0c968c();
-                                    return FUN_8c0c926c();
+                                    lineJudgeUpdate();
+                                    return lineJudgeDraw();
                                 }
                                 return t49;
                             }
-                            FUN_8c0c968c();
-                            return FUN_8c0c926c();
+                            lineJudgeUpdate();
+                            return lineJudgeDraw();
                         }
                         t52 = *(int *)0x8C20D14C;
                         if (t52 == 0) {
                             t53 = *(int *)0x8C20D150;
                             if (t53 != 3) {
-                                FUN_8c0c968c();
-                                return FUN_8c0c926c();
+                                lineJudgeUpdate();
+                                return lineJudgeDraw();
                             }
                             return t53;
                         }
-                        FUN_8c0c968c();
-                        return FUN_8c0c926c();
+                        lineJudgeUpdate();
+                        return lineJudgeDraw();
                     }
                     t56 = *(int *)0x8C20D14C;
                     if (t56 == 0) {
                         t57 = *(int *)0x8C20D150;
                         if (t57 != 3) {
-                            FUN_8c0c968c();
-                            return FUN_8c0c926c();
+                            lineJudgeUpdate();
+                            return lineJudgeDraw();
                         }
                         return t57;
                     }
-                    FUN_8c0c968c();
-                    return FUN_8c0c926c();
+                    lineJudgeUpdate();
+                    return lineJudgeDraw();
                 }
                 return t33;
             }
@@ -8149,13 +8149,13 @@ int FUN_8c0ca164(void)
                                         if (t64 == 0) {
                                             t65 = *(int *)0x8C20D150;
                                             if (t65 != 3) {
-                                                FUN_8c0c968c();
-                                                return FUN_8c0c926c();
+                                                lineJudgeUpdate();
+                                                return lineJudgeDraw();
                                             }
                                             return t65;
                                         }
-                                        FUN_8c0c968c();
-                                        return FUN_8c0c926c();
+                                        lineJudgeUpdate();
+                                        return lineJudgeDraw();
                                     }
                                     return t63;
                                 }
@@ -8163,61 +8163,61 @@ int FUN_8c0ca164(void)
                                 if (t68 == 0) {
                                     t69 = *(int *)0x8C20D150;
                                     if (t69 != 3) {
-                                        FUN_8c0c968c();
-                                        return FUN_8c0c926c();
+                                        lineJudgeUpdate();
+                                        return lineJudgeDraw();
                                     }
                                     return t69;
                                 }
-                                FUN_8c0c968c();
-                                return FUN_8c0c926c();
+                                lineJudgeUpdate();
+                                return lineJudgeDraw();
                             }
                             t72 = *(int *)0x8C20D14C;
                             if (t72 == 0) {
                                 t73 = *(int *)0x8C20D150;
                                 if (t73 != 3) {
-                                    FUN_8c0c968c();
-                                    return FUN_8c0c926c();
+                                    lineJudgeUpdate();
+                                    return lineJudgeDraw();
                                 }
                                 return t73;
                             }
-                            FUN_8c0c968c();
-                            return FUN_8c0c926c();
+                            lineJudgeUpdate();
+                            return lineJudgeDraw();
                         }
                         t76 = *(int *)0x8C20D14C;
                         if (t76 == 0) {
                             t77 = *(int *)0x8C20D150;
                             if (t77 != 3) {
-                                FUN_8c0c968c();
-                                return FUN_8c0c926c();
+                                lineJudgeUpdate();
+                                return lineJudgeDraw();
                             }
                             return t77;
                         }
-                        FUN_8c0c968c();
-                        return FUN_8c0c926c();
+                        lineJudgeUpdate();
+                        return lineJudgeDraw();
                     }
                     t80 = *(int *)0x8C20D14C;
                     if (t80 == 0) {
                         t81 = *(int *)0x8C20D150;
                         if (t81 != 3) {
-                            FUN_8c0c968c();
-                            return FUN_8c0c926c();
+                            lineJudgeUpdate();
+                            return lineJudgeDraw();
                         }
                         return t81;
                     }
-                    FUN_8c0c968c();
-                    return FUN_8c0c926c();
+                    lineJudgeUpdate();
+                    return lineJudgeDraw();
                 }
                 t84 = *(int *)0x8C20D14C;
                 if (t84 == 0) {
                     t85 = *(int *)0x8C20D150;
                     if (t85 != 3) {
-                        FUN_8c0c968c();
-                        return FUN_8c0c926c();
+                        lineJudgeUpdate();
+                        return lineJudgeDraw();
                     }
                     return t85;
                 }
-                FUN_8c0c968c();
-                return FUN_8c0c926c();
+                lineJudgeUpdate();
+                return lineJudgeDraw();
             }
             return t61;
         }
@@ -8239,13 +8239,13 @@ int FUN_8c0ca164(void)
                                     if (t92 == 0) {
                                         t93 = *(int *)0x8C20D150;
                                         if (t93 != 3) {
-                                            FUN_8c0c968c();
-                                            return FUN_8c0c926c();
+                                            lineJudgeUpdate();
+                                            return lineJudgeDraw();
                                         }
                                         return t93;
                                     }
-                                    FUN_8c0c968c();
-                                    return FUN_8c0c926c();
+                                    lineJudgeUpdate();
+                                    return lineJudgeDraw();
                                 }
                                 return t91;
                             }
@@ -8253,68 +8253,68 @@ int FUN_8c0ca164(void)
                             if (t96 == 0) {
                                 t97 = *(int *)0x8C20D150;
                                 if (t97 != 3) {
-                                    FUN_8c0c968c();
-                                    return FUN_8c0c926c();
+                                    lineJudgeUpdate();
+                                    return lineJudgeDraw();
                                 }
                                 return t97;
                             }
-                            FUN_8c0c968c();
-                            return FUN_8c0c926c();
+                            lineJudgeUpdate();
+                            return lineJudgeDraw();
                         }
                         t100 = *(int *)0x8C20D14C;
                         if (t100 == 0) {
                             t101 = *(int *)0x8C20D150;
                             if (t101 != 3) {
-                                FUN_8c0c968c();
-                                return FUN_8c0c926c();
+                                lineJudgeUpdate();
+                                return lineJudgeDraw();
                             }
                             return t101;
                         }
-                        FUN_8c0c968c();
-                        return FUN_8c0c926c();
+                        lineJudgeUpdate();
+                        return lineJudgeDraw();
                     }
                     t104 = *(int *)0x8C20D14C;
                     if (t104 == 0) {
                         t105 = *(int *)0x8C20D150;
                         if (t105 != 3) {
-                            FUN_8c0c968c();
-                            return FUN_8c0c926c();
+                            lineJudgeUpdate();
+                            return lineJudgeDraw();
                         }
                         return t105;
                     }
-                    FUN_8c0c968c();
-                    return FUN_8c0c926c();
+                    lineJudgeUpdate();
+                    return lineJudgeDraw();
                 }
                 t108 = *(int *)0x8C20D14C;
                 if (t108 == 0) {
                     t109 = *(int *)0x8C20D150;
                     if (t109 != 3) {
-                        FUN_8c0c968c();
-                        return FUN_8c0c926c();
+                        lineJudgeUpdate();
+                        return lineJudgeDraw();
                     }
                     return t109;
                 }
-                FUN_8c0c968c();
-                return FUN_8c0c926c();
+                lineJudgeUpdate();
+                return lineJudgeDraw();
             }
             t112 = *(int *)0x8C20D14C;
             if (t112 == 0) {
                 t113 = *(int *)0x8C20D150;
                 if (t113 != 3) {
-                    FUN_8c0c968c();
-                    return FUN_8c0c926c();
+                    lineJudgeUpdate();
+                    return lineJudgeDraw();
                 }
                 return t113;
             }
-            FUN_8c0c968c();
-            return FUN_8c0c926c();
+            lineJudgeUpdate();
+            return lineJudgeDraw();
         }
         return t89;
     }
     return t88;
 }
 
-void FUN_8c0ca530(void)
+void netJudgeReact(void)
 {
     int t0;
     int t1;
@@ -8325,7 +8325,7 @@ void FUN_8c0ca530(void)
     if ((int)t0 <= (int)0x9) {
         t1 = *(int *)(((t0 << 2) + 0x8C1D0DF0));
         if (t1 != 0) {
-            FUN_8c014c34();
+            motionBackup();
             t3 = *(int *)0x8C124E54;
             t4 = *(int *)0x8C2873D4;
             motionSwitch(0x8C38A25C, t3, 0x0, t4, 1.0f);
@@ -8335,7 +8335,7 @@ void FUN_8c0ca530(void)
     }
 }
 
-int FUN_8c0ca740(void)
+int netJudgeDraw(void)
 {
     int t0;
     int t1;
@@ -8368,7 +8368,7 @@ int FUN_8c0ca740(void)
                 nlTranslate(u10, u9, u8);
                 t12 = *(short *)0x8C38A808;
                 nlRotateAY(t12);
-                FUN_8c0ca2c0(0x8C38A258);
+                netJudgePose(0x8C38A258);
                 return nlPopMatrix(0x1);
             }
             return t4;
@@ -8378,7 +8378,7 @@ int FUN_8c0ca740(void)
     return 0;
 }
 
-int FUN_8c0ca7f0(void)
+int netJudgeExec(void)
 {
     int t0;
     int t1;
@@ -8491,13 +8491,13 @@ int FUN_8c0ca7f0(void)
                                                     if (t8 == 0) {
                                                         t9 = *(int *)0x8C20D150;
                                                         if (t9 != 3) {
-                                                            FUN_8c0ca5a8();
-                                                            return FUN_8c0ca740();
+                                                            netJudgeUpdate();
+                                                            return netJudgeDraw();
                                                         }
                                                         return t9;
                                                     }
-                                                    FUN_8c0ca5a8();
-                                                    return FUN_8c0ca740();
+                                                    netJudgeUpdate();
+                                                    return netJudgeDraw();
                                                 }
                                                 return t7;
                                             }
@@ -8513,13 +8513,13 @@ int FUN_8c0ca7f0(void)
                                             if (t14 == 0) {
                                                 t15 = *(int *)0x8C20D150;
                                                 if (t15 != 3) {
-                                                    FUN_8c0ca5a8();
-                                                    return FUN_8c0ca740();
+                                                    netJudgeUpdate();
+                                                    return netJudgeDraw();
                                                 }
                                                 return t15;
                                             }
-                                            FUN_8c0ca5a8();
-                                            return FUN_8c0ca740();
+                                            netJudgeUpdate();
+                                            return netJudgeDraw();
                                         }
                                         return t13;
                                     }
@@ -8533,13 +8533,13 @@ int FUN_8c0ca7f0(void)
                                         if (t20 == 0) {
                                             t21 = *(int *)0x8C20D150;
                                             if (t21 != 3) {
-                                                FUN_8c0ca5a8();
-                                                return FUN_8c0ca740();
+                                                netJudgeUpdate();
+                                                return netJudgeDraw();
                                             }
                                             return t21;
                                         }
-                                        FUN_8c0ca5a8();
-                                        return FUN_8c0ca740();
+                                        netJudgeUpdate();
+                                        return netJudgeDraw();
                                     }
                                     return t19;
                                 }
@@ -8553,13 +8553,13 @@ int FUN_8c0ca7f0(void)
                                     if (t26 == 0) {
                                         t27 = *(int *)0x8C20D150;
                                         if (t27 != 3) {
-                                            FUN_8c0ca5a8();
-                                            return FUN_8c0ca740();
+                                            netJudgeUpdate();
+                                            return netJudgeDraw();
                                         }
                                         return t27;
                                     }
-                                    FUN_8c0ca5a8();
-                                    return FUN_8c0ca740();
+                                    netJudgeUpdate();
+                                    return netJudgeDraw();
                                 }
                                 return t25;
                             }
@@ -8573,13 +8573,13 @@ int FUN_8c0ca7f0(void)
                                 if (t32 == 0) {
                                     t33 = *(int *)0x8C20D150;
                                     if (t33 != 3) {
-                                        FUN_8c0ca5a8();
-                                        return FUN_8c0ca740();
+                                        netJudgeUpdate();
+                                        return netJudgeDraw();
                                     }
                                     return t33;
                                 }
-                                FUN_8c0ca5a8();
-                                return FUN_8c0ca740();
+                                netJudgeUpdate();
+                                return netJudgeDraw();
                             }
                             return t31;
                         }
@@ -8593,13 +8593,13 @@ int FUN_8c0ca7f0(void)
                             if (t38 == 0) {
                                 t39 = *(int *)0x8C20D150;
                                 if (t39 != 3) {
-                                    FUN_8c0ca5a8();
-                                    return FUN_8c0ca740();
+                                    netJudgeUpdate();
+                                    return netJudgeDraw();
                                 }
                                 return t39;
                             }
-                            FUN_8c0ca5a8();
-                            return FUN_8c0ca740();
+                            netJudgeUpdate();
+                            return netJudgeDraw();
                         }
                         return t37;
                     }
@@ -8623,13 +8623,13 @@ int FUN_8c0ca7f0(void)
                                             if (t46 == 0) {
                                                 t47 = *(int *)0x8C20D150;
                                                 if (t47 != 3) {
-                                                    FUN_8c0ca5a8();
-                                                    return FUN_8c0ca740();
+                                                    netJudgeUpdate();
+                                                    return netJudgeDraw();
                                                 }
                                                 return t47;
                                             }
-                                            FUN_8c0ca5a8();
-                                            return FUN_8c0ca740();
+                                            netJudgeUpdate();
+                                            return netJudgeDraw();
                                         }
                                         return t45;
                                     }
@@ -8645,13 +8645,13 @@ int FUN_8c0ca7f0(void)
                                     if (t52 == 0) {
                                         t53 = *(int *)0x8C20D150;
                                         if (t53 != 3) {
-                                            FUN_8c0ca5a8();
-                                            return FUN_8c0ca740();
+                                            netJudgeUpdate();
+                                            return netJudgeDraw();
                                         }
                                         return t53;
                                     }
-                                    FUN_8c0ca5a8();
-                                    return FUN_8c0ca740();
+                                    netJudgeUpdate();
+                                    return netJudgeDraw();
                                 }
                                 return t51;
                             }
@@ -8665,13 +8665,13 @@ int FUN_8c0ca7f0(void)
                                 if (t58 == 0) {
                                     t59 = *(int *)0x8C20D150;
                                     if (t59 != 3) {
-                                        FUN_8c0ca5a8();
-                                        return FUN_8c0ca740();
+                                        netJudgeUpdate();
+                                        return netJudgeDraw();
                                     }
                                     return t59;
                                 }
-                                FUN_8c0ca5a8();
-                                return FUN_8c0ca740();
+                                netJudgeUpdate();
+                                return netJudgeDraw();
                             }
                             return t57;
                         }
@@ -8685,13 +8685,13 @@ int FUN_8c0ca7f0(void)
                             if (t64 == 0) {
                                 t65 = *(int *)0x8C20D150;
                                 if (t65 != 3) {
-                                    FUN_8c0ca5a8();
-                                    return FUN_8c0ca740();
+                                    netJudgeUpdate();
+                                    return netJudgeDraw();
                                 }
                                 return t65;
                             }
-                            FUN_8c0ca5a8();
-                            return FUN_8c0ca740();
+                            netJudgeUpdate();
+                            return netJudgeDraw();
                         }
                         return t63;
                     }
@@ -8705,13 +8705,13 @@ int FUN_8c0ca7f0(void)
                         if (t70 == 0) {
                             t71 = *(int *)0x8C20D150;
                             if (t71 != 3) {
-                                FUN_8c0ca5a8();
-                                return FUN_8c0ca740();
+                                netJudgeUpdate();
+                                return netJudgeDraw();
                             }
                             return t71;
                         }
-                        FUN_8c0ca5a8();
-                        return FUN_8c0ca740();
+                        netJudgeUpdate();
+                        return netJudgeDraw();
                     }
                     return t69;
                 }
@@ -8725,13 +8725,13 @@ int FUN_8c0ca7f0(void)
                     if (t76 == 0) {
                         t77 = *(int *)0x8C20D150;
                         if (t77 != 3) {
-                            FUN_8c0ca5a8();
-                            return FUN_8c0ca740();
+                            netJudgeUpdate();
+                            return netJudgeDraw();
                         }
                         return t77;
                     }
-                    FUN_8c0ca5a8();
-                    return FUN_8c0ca740();
+                    netJudgeUpdate();
+                    return netJudgeDraw();
                 }
                 return t75;
             }
@@ -8753,13 +8753,13 @@ int FUN_8c0ca7f0(void)
                                         if (t84 == 0) {
                                             t85 = *(int *)0x8C20D150;
                                             if (t85 != 3) {
-                                                FUN_8c0ca5a8();
-                                                return FUN_8c0ca740();
+                                                netJudgeUpdate();
+                                                return netJudgeDraw();
                                             }
                                             return t85;
                                         }
-                                        FUN_8c0ca5a8();
-                                        return FUN_8c0ca740();
+                                        netJudgeUpdate();
+                                        return netJudgeDraw();
                                     }
                                     return t83;
                                 }
@@ -8775,13 +8775,13 @@ int FUN_8c0ca7f0(void)
                                 if (t90 == 0) {
                                     t91 = *(int *)0x8C20D150;
                                     if (t91 != 3) {
-                                        FUN_8c0ca5a8();
-                                        return FUN_8c0ca740();
+                                        netJudgeUpdate();
+                                        return netJudgeDraw();
                                     }
                                     return t91;
                                 }
-                                FUN_8c0ca5a8();
-                                return FUN_8c0ca740();
+                                netJudgeUpdate();
+                                return netJudgeDraw();
                             }
                             return t89;
                         }
@@ -8795,13 +8795,13 @@ int FUN_8c0ca7f0(void)
                             if (t96 == 0) {
                                 t97 = *(int *)0x8C20D150;
                                 if (t97 != 3) {
-                                    FUN_8c0ca5a8();
-                                    return FUN_8c0ca740();
+                                    netJudgeUpdate();
+                                    return netJudgeDraw();
                                 }
                                 return t97;
                             }
-                            FUN_8c0ca5a8();
-                            return FUN_8c0ca740();
+                            netJudgeUpdate();
+                            return netJudgeDraw();
                         }
                         return t95;
                     }
@@ -8815,13 +8815,13 @@ int FUN_8c0ca7f0(void)
                         if (t102 == 0) {
                             t103 = *(int *)0x8C20D150;
                             if (t103 != 3) {
-                                FUN_8c0ca5a8();
-                                return FUN_8c0ca740();
+                                netJudgeUpdate();
+                                return netJudgeDraw();
                             }
                             return t103;
                         }
-                        FUN_8c0ca5a8();
-                        return FUN_8c0ca740();
+                        netJudgeUpdate();
+                        return netJudgeDraw();
                     }
                     return t101;
                 }
@@ -8835,13 +8835,13 @@ int FUN_8c0ca7f0(void)
                     if (t108 == 0) {
                         t109 = *(int *)0x8C20D150;
                         if (t109 != 3) {
-                            FUN_8c0ca5a8();
-                            return FUN_8c0ca740();
+                            netJudgeUpdate();
+                            return netJudgeDraw();
                         }
                         return t109;
                     }
-                    FUN_8c0ca5a8();
-                    return FUN_8c0ca740();
+                    netJudgeUpdate();
+                    return netJudgeDraw();
                 }
                 return t107;
             }
@@ -8855,13 +8855,13 @@ int FUN_8c0ca7f0(void)
                 if (t114 == 0) {
                     t115 = *(int *)0x8C20D150;
                     if (t115 != 3) {
-                        FUN_8c0ca5a8();
-                        return FUN_8c0ca740();
+                        netJudgeUpdate();
+                        return netJudgeDraw();
                     }
                     return t115;
                 }
-                FUN_8c0ca5a8();
-                return FUN_8c0ca740();
+                netJudgeUpdate();
+                return netJudgeDraw();
             }
             return t113;
         }
@@ -8875,20 +8875,20 @@ int FUN_8c0ca7f0(void)
             if (t120 == 0) {
                 t121 = *(int *)0x8C20D150;
                 if (t121 != 3) {
-                    FUN_8c0ca5a8();
-                    return FUN_8c0ca740();
+                    netJudgeUpdate();
+                    return netJudgeDraw();
                 }
                 return t121;
             }
-            FUN_8c0ca5a8();
-            return FUN_8c0ca740();
+            netJudgeUpdate();
+            return netJudgeDraw();
         }
         return t119;
     }
     return t118;
 }
 
-int FUN_8c0cae5e(int a4)
+int staffShadowPut(int a4)
 {
     int t0;
     int t1;
@@ -8909,21 +8909,21 @@ int FUN_8c0cae5e(int a4)
                         *(unsigned int *)((((int)stk + 4) + 0x4)) = t2;
                         t3 = *(int *)(((0x5A4 + a4) + 0x0));
                         *(unsigned int *)((((int)stk + 4) + 0x0)) = t3;
-                        t4 = FUN_8c0caed4();
+                        t4 = staffShadowFlat();
                         return t4;
                     }
-                    return FUN_8c0cb0e0(a4);
+                    return staffShadowMulti(a4);
                 }
-                return FUN_8c0cb0e0(a4);
+                return staffShadowMulti(a4);
             }
-            return FUN_8c0cb0e0(a4);
+            return staffShadowMulti(a4);
         }
-        return FUN_8c0cb0e0(a4);
+        return staffShadowMulti(a4);
     }
     return 0;
 }
 
-int FUN_8c0cb8de(void)
+int staffMorphInit(void)
 {
     int t0;
     int t4;
@@ -8933,16 +8933,16 @@ int FUN_8c0cb8de(void)
     t0 = *(int *)0x8C1891E8;
     t4 = t0;
     if (t0 == 2) {
-        t1 = FUN_8c0cec24(0xC880640, 0x0);
+        t1 = staffMorphCapture(0xC880640, 0x0);
         *(unsigned int *)0x8C1D0194 = t1;
-        FUN_8c0cec24(0xC880640, 0x8C38AED0);
-        t3 = FUN_8c0cec24(0xC880960, 0x8C38B308);
+        staffMorphCapture(0xC880640, 0x8C38AED0);
+        t3 = staffMorphCapture(0xC880960, 0x8C38B308);
         t4 = t3;
     }
     return t4;
 }
 
-int FUN_8c0cb90c(void)
+int staffMorphReset(void)
 {
     int t16;
     int t0;
@@ -9008,7 +9008,7 @@ int FUN_8c0cb90c(void)
     return t16;
 }
 
-int FUN_8c0cba8c(int a4, int a5)
+int lineJudgeShadowPut(int a4, int a5)
 {
     int t0;
     int t1;
@@ -9040,7 +9040,7 @@ int FUN_8c0cba8c(int a4, int a5)
                             nlPopMatrix(0x1);
                             nlPushMatrix(0x0);
                             nlLoadMatrix((a5 + (((t0 << 2) << 2) << 2)));
-                            FUN_8c0cbb38(t0);
+                            lineJudgeShadowPart(t0);
                             t11 = nlPopMatrix(0x1);
                             t12 = t11;
                         }
@@ -9054,7 +9054,7 @@ int FUN_8c0cba8c(int a4, int a5)
                         nlPopMatrix(0x1);
                         nlPushMatrix(0x0);
                         nlLoadMatrix((a5 + (((t0 << 2) << 2) << 2)));
-                        FUN_8c0cbb38(t0);
+                        lineJudgeShadowPart(t0);
                         t22 = nlPopMatrix(0x1);
                         t23 = t22;
                     }
@@ -9068,7 +9068,7 @@ int FUN_8c0cba8c(int a4, int a5)
                     nlPopMatrix(0x1);
                     nlPushMatrix(0x0);
                     nlLoadMatrix((a5 + (((t0 << 2) << 2) << 2)));
-                    FUN_8c0cbb38(t0);
+                    lineJudgeShadowPart(t0);
                     t33 = nlPopMatrix(0x1);
                     t34 = t33;
                 }
@@ -9082,7 +9082,7 @@ int FUN_8c0cba8c(int a4, int a5)
                 nlPopMatrix(0x1);
                 nlPushMatrix(0x0);
                 nlLoadMatrix((a5 + (((t0 << 2) << 2) << 2)));
-                FUN_8c0cbb38(t0);
+                lineJudgeShadowPart(t0);
                 t44 = nlPopMatrix(0x1);
                 t45 = t44;
             }
@@ -9096,7 +9096,7 @@ int FUN_8c0cba8c(int a4, int a5)
             nlPopMatrix(0x1);
             nlPushMatrix(0x0);
             nlLoadMatrix((a5 + (((t0 << 2) << 2) << 2)));
-            FUN_8c0cbb38(t0);
+            lineJudgeShadowPart(t0);
             t55 = nlPopMatrix(0x1);
             t56 = t55;
         }
@@ -9105,7 +9105,7 @@ int FUN_8c0cba8c(int a4, int a5)
     return t56;
 }
 
-int FUN_8c0cc4ec(void)
+int lightAimFromMatrix(void)
 {
     int t0;
     int t9;
@@ -9157,9 +9157,9 @@ int FUN_8c0cc4ec(void)
                             u1 = *(float *)0x8C287920;
                             u2 = *(float *)0x8C28791C;
                             u3 = *(float *)0x8C287918;
-                            FUN_8c015eea(u3, u2, u1);
-                            FUN_8c015eea(0.0f, 0.0f, 0.0f);
-                            FUN_8c0161e8((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
+                            vecMake(u3, u2, u1);
+                            vecMake(0.0f, 0.0f, 0.0f);
+                            vecAnglesTo((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
                             t7 = *(short *)(((int)stk + 36));
                             *(unsigned short *)(((int)stk + 36)) = (-t7);
                             t8 = *(short *)(((int)stk + 32));
@@ -9172,9 +9172,9 @@ int FUN_8c0cc4ec(void)
                         u11 = *(float *)0x8C287920;
                         u12 = *(float *)0x8C28791C;
                         u13 = *(float *)0x8C287918;
-                        FUN_8c015eea(u13, u12, u11);
-                        FUN_8c015eea(0.0f, 0.0f, 0.0f);
-                        FUN_8c0161e8((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
+                        vecMake(u13, u12, u11);
+                        vecMake(0.0f, 0.0f, 0.0f);
+                        vecAnglesTo((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
                         t17 = *(short *)(((int)stk + 36));
                         *(unsigned short *)(((int)stk + 36)) = (-t17);
                         t18 = *(short *)(((int)stk + 32));
@@ -9187,9 +9187,9 @@ int FUN_8c0cc4ec(void)
                     u21 = *(float *)0x8C287920;
                     u22 = *(float *)0x8C28791C;
                     u23 = *(float *)0x8C287918;
-                    FUN_8c015eea(u23, u22, u21);
-                    FUN_8c015eea(0.0f, 0.0f, 0.0f);
-                    FUN_8c0161e8((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
+                    vecMake(u23, u22, u21);
+                    vecMake(0.0f, 0.0f, 0.0f);
+                    vecAnglesTo((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
                     t27 = *(short *)(((int)stk + 36));
                     *(unsigned short *)(((int)stk + 36)) = (-t27);
                     t28 = *(short *)(((int)stk + 32));
@@ -9202,9 +9202,9 @@ int FUN_8c0cc4ec(void)
                 u31 = *(float *)0x8C287920;
                 u32 = *(float *)0x8C28791C;
                 u33 = *(float *)0x8C287918;
-                FUN_8c015eea(u33, u32, u31);
-                FUN_8c015eea(0.0f, 0.0f, 0.0f);
-                FUN_8c0161e8((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
+                vecMake(u33, u32, u31);
+                vecMake(0.0f, 0.0f, 0.0f);
+                vecAnglesTo((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
                 t37 = *(short *)(((int)stk + 36));
                 *(unsigned short *)(((int)stk + 36)) = (-t37);
                 t38 = *(short *)(((int)stk + 32));
@@ -9217,9 +9217,9 @@ int FUN_8c0cc4ec(void)
             u41 = *(float *)0x8C287920;
             u42 = *(float *)0x8C28791C;
             u43 = *(float *)0x8C287918;
-            FUN_8c015eea(u43, u42, u41);
-            FUN_8c015eea(0.0f, 0.0f, 0.0f);
-            FUN_8c0161e8((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
+            vecMake(u43, u42, u41);
+            vecMake(0.0f, 0.0f, 0.0f);
+            vecAnglesTo((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
             t47 = *(short *)(((int)stk + 36));
             *(unsigned short *)(((int)stk + 36)) = (-t47);
             t48 = *(short *)(((int)stk + 32));
@@ -9232,9 +9232,9 @@ int FUN_8c0cc4ec(void)
         u51 = *(float *)0x8C287920;
         u52 = *(float *)0x8C28791C;
         u53 = *(float *)0x8C287918;
-        FUN_8c015eea(u53, u52, u51);
-        FUN_8c015eea(0.0f, 0.0f, 0.0f);
-        FUN_8c0161e8((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
+        vecMake(u53, u52, u51);
+        vecMake(0.0f, 0.0f, 0.0f);
+        vecAnglesTo((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
         t57 = *(short *)(((int)stk + 36));
         *(unsigned short *)(((int)stk + 36)) = (-t57);
         t58 = *(short *)(((int)stk + 32));
@@ -9245,7 +9245,7 @@ int FUN_8c0cc4ec(void)
     return t59;
 }
 
-void FUN_8c0cc56e(void)
+void lightVec3EqualArgs(void)
 {
     float u0;
     float u1;
@@ -9272,7 +9272,7 @@ void FUN_8c0cc56e(void)
     }
 }
 
-int FUN_8c0cdf64(int a4)
+int mtxGetYaw(int a4)
 {
     float u1;
     float u2;
@@ -9290,7 +9290,7 @@ int FUN_8c0cdf64(int a4)
     return t4;
 }
 
-int FUN_8c0ce564(int a4)
+int netTouchFlag(int a4)
 {
     int t0;
     int t1;
@@ -9351,27 +9351,27 @@ int FUN_8c0ce564(int a4)
     return t7;
 }
 
-int FUN_8c0cf7b0(void)
+int pauseQuit(void)
 {
     int t1;
     int t5;
 
     *(unsigned int *)0x8C421F64 = 0x0;
     *(unsigned int *)0x8C1D1278 = 0x1;
-    FUN_8c0d0a98(0x0, 0x2);
+    gameModeSet(0x0, 0x2);
     for (;;) {
-        t1 = FUN_8c0e8cec();
+        t1 = resSprTitleRead();
         if (t1 == 1) break;
-        FUN_8c0d1744();
-        FUN_8c01b250();
-        FUN_8c0eaba0();
+        msgWinStep();
+        fadeDraw();
+        nlWaitVSync();
     }
-    t5 = FUN_8c0e628c();
+    t5 = titleSprTexLoad();
     *(unsigned int *)0x8C38BA14 = 0x1;
     return t5;
 }
 
-void FUN_8c0d0fca(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
+void sprPutCentered(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
 {
     float u0;
     float u1;
@@ -9399,7 +9399,7 @@ void FUN_8c0d0fca(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
     *(unsigned int *)((a8 + 0x0)) = t6;
 }
 
-void FUN_8c0d17e4(int a4, int a5)
+void msgWinSet(int a4, int a5)
 {
     int t0;
     int t1;
@@ -9416,7 +9416,7 @@ void FUN_8c0d17e4(int a4, int a5)
     *(unsigned int *)0x8C38BA54 = t2;
 }
 
-int FUN_8c0d1854(void)
+int padUnplugCheck(void)
 {
     int t0;
     int t1;
@@ -9471,7 +9471,7 @@ int FUN_8c0d1854(void)
     return t14;
 }
 
-int FUN_8c0d2408(int a4, int a5)
+int seFootstepPlay(int a4, int a5)
 {
     int t0;
     int t13;
@@ -9530,7 +9530,7 @@ int FUN_8c0d2408(int a4, int a5)
     return t13;
 }
 
-int FUN_8c0d28be(void)
+int sndStopAll(void)
 {
     int t1;
 
@@ -9544,7 +9544,7 @@ int FUN_8c0d28be(void)
     return t1;
 }
 
-void FUN_8c0d292c(int a4)
+void sndStopAllExcept(int a4)
 {
     int t0;
 
@@ -9559,7 +9559,7 @@ void FUN_8c0d292c(int a4)
     } while ((int)t0 < (int)0x8);
 }
 
-int FUN_8c0d297a(void)
+int sndFadeFlagsClear(void)
 {
     int t0;
 
@@ -9572,7 +9572,7 @@ int FUN_8c0d297a(void)
     return t0;
 }
 
-int FUN_8c0d2b44(void)
+int sndSeStage(void)
 {
     int t0;
     int t1;
@@ -9592,15 +9592,15 @@ int FUN_8c0d2b44(void)
     return 0;
 }
 
-int FUN_8c0d3206(void)
+int sndJingleA1(void)
 {
     int t0;
     int t4;
 
     t0 = *(int *)0x8C421F60;
     if (t0 == 0) {
-        FUN_8c0d6cc0();
-        FUN_8c0d28be();
+        strmVoiceQueueClear();
+        sndStopAll();
         nlsndSeqRequest(0x10AA9);
         t4 = *(int *)0x8C38BA64;
         return nlsndSystemControl(0x5, 0x10A0, t4);
@@ -9608,7 +9608,7 @@ int FUN_8c0d3206(void)
     return 0;
 }
 
-int FUN_8c0d3314(int a4)
+int sndCrowdReact(int a4)
 {
     int t3;
     int t8;
@@ -9638,22 +9638,22 @@ int FUN_8c0d3314(int a4)
     return t10;
 }
 
-int FUN_8c0d365c(void)
+int sndPack2LoadSync(void)
 {
     int t2;
     int t8;
     int t7;
 
-    FUN_8c0d28be();
-    FUN_8c0d74a8(0x2, 0x3);
+    sndStopAll();
+    strmControl(0x2, 0x3);
     t2 = *(int *)0x8C1D2BDC;
     t8 = t2;
     if (t2 != 99) {
         if (t2 == 0) {
             nlsndPackFree();
         }
-        FUN_8c0ea094(0x8C880000, 0x100000);
-        FUN_8c0b5662(0x8C880000, 0x8C125C9C, 0x0);
+        cacheOcbiRange(0x8C880000, 0x100000);
+        fileLoadSync(0x8C880000, 0x8C125C9C, 0x0);
         t7 = nlsndPackLoad(0x8C880000, 0x5);
         *(unsigned int *)0x8C38BAB0 = t7;
         *(unsigned int *)0x8C1D2BDC = 0x63;
@@ -9662,7 +9662,7 @@ int FUN_8c0d365c(void)
     return t8;
 }
 
-void FUN_8c0d5600(void)
+void endingSprAnimInit(void)
 {
     int t0;
     int t1;
@@ -9674,40 +9674,40 @@ void FUN_8c0d5600(void)
         for (;;) {
             t2 = *(int *)(((((t0 << 2) << 2) + 0x8C1D2BE8) + 0xC));
             if ((int)t1 >= (int)t2) break;
-            FUN_8c0d5344((((((t1 << 2) + t1) << 2) << 2) + ((t0 * 0x960) + 0x8C407FDC)), t1, t0);
+            endingSprAnimStep((((((t1 << 2) + t1) << 2) << 2) + ((t0 * 0x960) + 0x8C407FDC)), t1, t0);
             t1 = (t1 + 0x1);
         }
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0x7);
 }
 
-int FUN_8c0d677a(void)
+int endingCharaTexFreeAll(void)
 {
     int t0;
     int t1;
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c0d6746(t0);
+        t1 = endingCharaTexFree(t0);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0x8);
     return t1;
 }
 
-int FUN_8c0d684c(void)
+int endSprCharaTexFreeAll(void)
 {
     int t0;
     int t1;
 
     t0 = 0x0;
     do {
-        t1 = FUN_8c0d6818(t0);
+        t1 = endSprCharaTexFree(t0);
         t0 = (t0 + 0x1);
     } while ((int)t0 < (int)0x8);
     return t1;
 }
 
-int FUN_8c0d6868(void)
+int endSprTexLoad(void)
 {
     int t0;
     int t2;
@@ -9715,14 +9715,14 @@ int FUN_8c0d6868(void)
     t0 = *(int *)0x8C1D3758;
     if (t0 != 1) {
         *(unsigned int *)0x8C1D3758 = 0x1;
-        FUN_8c0ea2a0(0x0);
+        nlSetCommonTextureOffset(0x0);
         t2 = *(int *)0x8C125E04;
-        return FUN_8c0f3dc0();
+        return nlSpriteLoadTextureOnce();
     }
     return t0;
 }
 
-int FUN_8c0d6890(void)
+int endSprTexFree(void)
 {
     int t0;
     int t2;
@@ -9730,14 +9730,14 @@ int FUN_8c0d6890(void)
     t0 = *(int *)0x8C1D3758;
     if (t0 != 0) {
         *(unsigned int *)0x8C1D3758 = 0x0;
-        FUN_8c0ea2a0(0x0);
+        nlSetCommonTextureOffset(0x0);
         t2 = *(int *)0x8C125E04;
         return nlSpriteFreeTextureOnce();
     }
     return 0;
 }
 
-int FUN_8c0d68b8(void)
+int endSprStageTexSet(void)
 {
     int t0;
     int t1;
@@ -9764,7 +9764,7 @@ int FUN_8c0d68b8(void)
     return t5;
 }
 
-void FUN_8c0d6a30(void)
+void strmStateReset(void)
 {
     int t0;
     int t1;
@@ -9784,7 +9784,7 @@ void FUN_8c0d6a30(void)
     } while ((unsigned int)t0 < (unsigned int)0x24);
 }
 
-int FUN_8c0d6c12(int a4)
+int strmVoiceQueueAdd(int a4)
 {
     int t6;
     int t0;
@@ -9821,7 +9821,7 @@ int FUN_8c0d6c12(int a4)
     return t6;
 }
 
-int FUN_8c0d6ca0(void)
+int strmVoiceQueueReset(void)
 {
     int t0;
     int t1;
@@ -9834,10 +9834,10 @@ int FUN_8c0d6ca0(void)
     } while ((unsigned int)t0 < (unsigned int)0x24);
     *(unsigned int *)0x8C40C230 = 0x0;
     *(unsigned int *)0x8C40C23C = 0x0;
-    return FUN_8c0d7e98();
+    return strmScoreReset();
 }
 
-void FUN_8c0d6cde(int a4)
+void strmBgmVolTo(int a4)
 {
     int t0;
     int t1;
@@ -9854,17 +9854,17 @@ void FUN_8c0d6cde(int a4)
     }
 }
 
-int FUN_8c0d75da(void)
+int strmBgmPlayStage(void)
 {
     int t0;
     int t1;
 
     t0 = *(int *)0x8C1891E8;
     t1 = *(int *)(((t0 << 2) + 0x8C1D48C0));
-    return FUN_8c0d6f40(t1);
+    return strmBgmPlay(t1);
 }
 
-int FUN_8c0d7a9c(int a4)
+int strmCallPair(int a4)
 {
     int t0;
     int t1;
@@ -9876,7 +9876,7 @@ int FUN_8c0d7a9c(int a4)
             t1 = *(int *)((0x8C1D4770 + (t0 << 2)));
             t2 = *(int *)(((((a4 - 1) << 2) + (0x8C1D4A44 + ((t1 << 2) << 1))) + 0x0));
             if (t2 != -1) {
-                return FUN_8c0d6e16(0x9, t2);
+                return strmVoicePlay(0x9, t2);
             }
             return t2;
         }
@@ -9885,7 +9885,7 @@ int FUN_8c0d7a9c(int a4)
     return 0;
 }
 
-int FUN_8c0d7ad2(void)
+int strmCallPending(void)
 {
     int t0;
     int t1;
@@ -9908,15 +9908,15 @@ int FUN_8c0d7ad2(void)
         t4 = ADXT_GetStat(t3);
         if (t4 != 5) {
             if (t4 == 0) {
-                t5 = FUN_8c0d6e16(0x9, t2);
+                t5 = strmVoicePlay(0x9, t2);
                 t7 = t5;
             } else {
-                t6 = FUN_8c0d6c12(t2);
+                t6 = strmVoiceQueueAdd(t2);
                 t7 = t6;
             }
             t9 = t7;
         } else {
-            t8 = FUN_8c0d6e16(0x9, t2);
+            t8 = strmVoicePlay(0x9, t2);
             t9 = t8;
         }
         *(unsigned int *)0x8C1D4A40 = 0x0;
@@ -9925,7 +9925,7 @@ int FUN_8c0d7ad2(void)
     return t10;
 }
 
-int FUN_8c0d7b34(void)
+int strmCallPlayerOnce(void)
 {
     int t0;
     int t171;
@@ -10047,7 +10047,7 @@ int FUN_8c0d7b34(void)
                     t4 = *(int *)0x8C287D5C;
                     t86 = t4;
                     if (t4 != 3) {
-                        t5 = FUN_8c01a5d6();
+                        t5 = serveGetServer();
                         t84 = t5;
                         if ((int)t5 >= 0) {
                             t81 = t5;
@@ -10073,16 +10073,16 @@ int FUN_8c0d7b34(void)
                                                         if (t13 == 0) {
                                                             t15 = *(int *)((((t14 << 2) + 0x8C1D4770) + 0x0));
                                                             t16 = *(int *)(((t11 << 2) + ((((((t15 << 2) << 1) + t15) << 2) << 1) + 0x8C1D4A68)));
-                                                            FUN_8c0d6e16(0x9, t16);
+                                                            strmVoicePlay(0x9, t16);
                                                         } else {
                                                             t18 = *(int *)((((t14 << 2) + 0x8C1D4770) + 0x0));
                                                             t19 = *(int *)(((t11 << 2) + ((((((t18 << 2) << 1) + t18) << 2) << 1) + 0x8C1D4A68)));
-                                                            FUN_8c0d6c12(t19);
+                                                            strmVoiceQueueAdd(t19);
                                                         }
                                                     } else {
                                                         t22 = *(int *)((((t14 << 2) + 0x8C1D4770) + 0x0));
                                                         t23 = *(int *)(((t11 << 2) + ((((((t22 << 2) << 1) + t22) << 2) << 1) + 0x8C1D4A68)));
-                                                        FUN_8c0d6e16(0x9, t23);
+                                                        strmVoicePlay(0x9, t23);
                                                     }
                                                     *(unsigned int *)(((t5 << 2) + 0x8C38BA84)) = 0x1;
                                                     t26 = 0x8C38BA84;
@@ -10101,16 +10101,16 @@ int FUN_8c0d7b34(void)
                                                     if (t34 == 0) {
                                                         t36 = *(int *)((((t35 << 2) + 0x8C1D4770) + 0x0));
                                                         t37 = *(int *)(((t32 << 2) + ((((((t36 << 2) << 1) + t36) << 2) << 1) + 0x8C1D4A68)));
-                                                        FUN_8c0d6e16(0x9, t37);
+                                                        strmVoicePlay(0x9, t37);
                                                     } else {
                                                         t39 = *(int *)((((t35 << 2) + 0x8C1D4770) + 0x0));
                                                         t40 = *(int *)(((t32 << 2) + ((((((t39 << 2) << 1) + t39) << 2) << 1) + 0x8C1D4A68)));
-                                                        FUN_8c0d6c12(t40);
+                                                        strmVoiceQueueAdd(t40);
                                                     }
                                                 } else {
                                                     t43 = *(int *)((((t35 << 2) + 0x8C1D4770) + 0x0));
                                                     t44 = *(int *)(((t32 << 2) + ((((((t43 << 2) << 1) + t43) << 2) << 1) + 0x8C1D4A68)));
-                                                    FUN_8c0d6e16(0x9, t44);
+                                                    strmVoicePlay(0x9, t44);
                                                 }
                                                 *(unsigned int *)(((t5 << 2) + 0x8C38BA84)) = 0x1;
                                                 t47 = 0x8C38BA84;
@@ -10132,16 +10132,16 @@ int FUN_8c0d7b34(void)
                                                     if (t56 == 0) {
                                                         t58 = *(int *)((((t57 << 2) + 0x8C1D4770) + 0x0));
                                                         t59 = *(int *)(((t54 << 2) + ((((((t58 << 2) << 1) + t58) << 2) << 1) + 0x8C1D4A68)));
-                                                        FUN_8c0d6e16(0x9, t59);
+                                                        strmVoicePlay(0x9, t59);
                                                     } else {
                                                         t61 = *(int *)((((t57 << 2) + 0x8C1D4770) + 0x0));
                                                         t62 = *(int *)(((t54 << 2) + ((((((t61 << 2) << 1) + t61) << 2) << 1) + 0x8C1D4A68)));
-                                                        FUN_8c0d6c12(t62);
+                                                        strmVoiceQueueAdd(t62);
                                                     }
                                                 } else {
                                                     t65 = *(int *)((((t57 << 2) + 0x8C1D4770) + 0x0));
                                                     t66 = *(int *)(((t54 << 2) + ((((((t65 << 2) << 1) + t65) << 2) << 1) + 0x8C1D4A68)));
-                                                    FUN_8c0d6e16(0x9, t66);
+                                                    strmVoicePlay(0x9, t66);
                                                 }
                                                 *(unsigned int *)(((t5 << 2) + 0x8C38BA84)) = 0x1;
                                                 t69 = 0x8C38BA84;
@@ -10160,7 +10160,7 @@ int FUN_8c0d7b34(void)
                     }
                     t168 = t86;
                 } else {
-                    t87 = FUN_8c01a5d6();
+                    t87 = serveGetServer();
                     t166 = t87;
                     if ((int)t87 >= 0) {
                         t163 = t87;
@@ -10186,16 +10186,16 @@ int FUN_8c0d7b34(void)
                                                     if (t95 == 0) {
                                                         t97 = *(int *)((((t96 << 2) + 0x8C1D4770) + 0x0));
                                                         t98 = *(int *)(((t93 << 2) + ((((((t97 << 2) << 1) + t97) << 2) << 1) + 0x8C1D4A68)));
-                                                        FUN_8c0d6e16(0x9, t98);
+                                                        strmVoicePlay(0x9, t98);
                                                     } else {
                                                         t100 = *(int *)((((t96 << 2) + 0x8C1D4770) + 0x0));
                                                         t101 = *(int *)(((t93 << 2) + ((((((t100 << 2) << 1) + t100) << 2) << 1) + 0x8C1D4A68)));
-                                                        FUN_8c0d6c12(t101);
+                                                        strmVoiceQueueAdd(t101);
                                                     }
                                                 } else {
                                                     t104 = *(int *)((((t96 << 2) + 0x8C1D4770) + 0x0));
                                                     t105 = *(int *)(((t93 << 2) + ((((((t104 << 2) << 1) + t104) << 2) << 1) + 0x8C1D4A68)));
-                                                    FUN_8c0d6e16(0x9, t105);
+                                                    strmVoicePlay(0x9, t105);
                                                 }
                                                 *(unsigned int *)(((t87 << 2) + 0x8C38BA84)) = 0x1;
                                                 t108 = 0x8C38BA84;
@@ -10214,16 +10214,16 @@ int FUN_8c0d7b34(void)
                                                 if (t116 == 0) {
                                                     t118 = *(int *)((((t117 << 2) + 0x8C1D4770) + 0x0));
                                                     t119 = *(int *)(((t114 << 2) + ((((((t118 << 2) << 1) + t118) << 2) << 1) + 0x8C1D4A68)));
-                                                    FUN_8c0d6e16(0x9, t119);
+                                                    strmVoicePlay(0x9, t119);
                                                 } else {
                                                     t121 = *(int *)((((t117 << 2) + 0x8C1D4770) + 0x0));
                                                     t122 = *(int *)(((t114 << 2) + ((((((t121 << 2) << 1) + t121) << 2) << 1) + 0x8C1D4A68)));
-                                                    FUN_8c0d6c12(t122);
+                                                    strmVoiceQueueAdd(t122);
                                                 }
                                             } else {
                                                 t125 = *(int *)((((t117 << 2) + 0x8C1D4770) + 0x0));
                                                 t126 = *(int *)(((t114 << 2) + ((((((t125 << 2) << 1) + t125) << 2) << 1) + 0x8C1D4A68)));
-                                                FUN_8c0d6e16(0x9, t126);
+                                                strmVoicePlay(0x9, t126);
                                             }
                                             *(unsigned int *)(((t87 << 2) + 0x8C38BA84)) = 0x1;
                                             t129 = 0x8C38BA84;
@@ -10245,16 +10245,16 @@ int FUN_8c0d7b34(void)
                                                 if (t138 == 0) {
                                                     t140 = *(int *)((((t139 << 2) + 0x8C1D4770) + 0x0));
                                                     t141 = *(int *)(((t136 << 2) + ((((((t140 << 2) << 1) + t140) << 2) << 1) + 0x8C1D4A68)));
-                                                    FUN_8c0d6e16(0x9, t141);
+                                                    strmVoicePlay(0x9, t141);
                                                 } else {
                                                     t143 = *(int *)((((t139 << 2) + 0x8C1D4770) + 0x0));
                                                     t144 = *(int *)(((t136 << 2) + ((((((t143 << 2) << 1) + t143) << 2) << 1) + 0x8C1D4A68)));
-                                                    FUN_8c0d6c12(t144);
+                                                    strmVoiceQueueAdd(t144);
                                                 }
                                             } else {
                                                 t147 = *(int *)((((t139 << 2) + 0x8C1D4770) + 0x0));
                                                 t148 = *(int *)(((t136 << 2) + ((((((t147 << 2) << 1) + t147) << 2) << 1) + 0x8C1D4A68)));
-                                                FUN_8c0d6e16(0x9, t148);
+                                                strmVoicePlay(0x9, t148);
                                             }
                                             *(unsigned int *)(((t87 << 2) + 0x8C38BA84)) = 0x1;
                                             t151 = 0x8C38BA84;
@@ -10280,18 +10280,18 @@ int FUN_8c0d7b34(void)
     return t171;
 }
 
-int FUN_8c0d7f96(void)
+int strmCrowdFadeOut(void)
 {
     int t0;
 
     t0 = *(int *)0x8C40C28C;
     if (t0 != 1) {
-        return FUN_8c0d9682(0x1, 0x5A, 0x0);
+        return evPackFade(0x1, 0x5A, 0x0);
     }
     return t0;
 }
 
-void FUN_8c0d9298(int a4)
+void evCrowdPointStart(int a4)
 {
     int t0;
     int t1;
@@ -10319,7 +10319,7 @@ void FUN_8c0d9298(int a4)
             if (t1 != 3) {
                 t2 = *(int *)0x8C40C28C;
                 if (t2 == 1) {
-                    FUN_8c0d3308();
+                    sndPack1FadeCancel();
                     t4 = *(int *)0x8C38BA64;
                     nlsndSystemControl(0x1, 0x10A0, t4);
                 }
@@ -10338,7 +10338,7 @@ void FUN_8c0d9298(int a4)
         } else {
             t17 = *(int *)0x8C40C28C;
             if (t17 == 1) {
-                FUN_8c0d3308();
+                sndPack1FadeCancel();
                 t19 = *(int *)0x8C38BA64;
                 nlsndSystemControl(0x1, 0x10A0, t19);
             }
@@ -10357,7 +10357,7 @@ void FUN_8c0d9298(int a4)
     }
 }
 
-int FUN_8c0d948a(int a4, int a5, int a6, int a7, int a8)
+int evSeDelayed(int a4, int a5, int a6, int a7, int a8)
 {
     int t0;
     float u1;
@@ -10372,7 +10372,7 @@ int FUN_8c0d948a(int a4, int a5, int a6, int a7, int a8)
     return t0;
 }
 
-int FUN_8c0d9532(int a4, int a5)
+int evSeRetry(int a4, int a5)
 {
     int t0;
     float u1;
@@ -10384,14 +10384,14 @@ int FUN_8c0d9532(int a4, int a5)
     return t0;
 }
 
-int FUN_8c0d98c6(int a4)
+int evPlayerCallTask(int a4)
 {
     int t0;
     int t1;
     int t2;
     int t3;
 
-    t0 = FUN_8c01a5d6();
+    t0 = serveGetServer();
     t1 = *(int *)0x8C185410;
     if (t1 == 0) {
         if ((int)t0 >= 0) {
@@ -10401,26 +10401,26 @@ int FUN_8c0d98c6(int a4)
                     t3 = *(int *)((a4 + 0x14));
                     *(unsigned int *)((a4 + 0x14)) = (t3 - 1);
                     if ((int)(t3 - 1) <= 0) {
-                        FUN_8c0d7b34();
+                        strmCallPlayerOnce();
                         *(unsigned int *)0x8C1D476C = 0x0;
-                        return FUN_8c010afa(a4);
+                        return nlCloseEvent2(a4);
                     }
                     return (t0 << 2);
                 }
                 *(unsigned int *)0x8C1D476C = 0x0;
-                return FUN_8c010afa(a4);
+                return nlCloseEvent2(a4);
             }
             *(unsigned int *)0x8C1D476C = 0x0;
-            return FUN_8c010afa(a4);
+            return nlCloseEvent2(a4);
         }
         *(unsigned int *)0x8C1D476C = 0x0;
-        return FUN_8c010afa(a4);
+        return nlCloseEvent2(a4);
     }
     *(unsigned int *)0x8C1D476C = 0x0;
-    return FUN_8c010afa(a4);
+    return nlCloseEvent2(a4);
 }
 
-void FUN_8c0d991a(int a4)
+void evPlayerCallStart(int a4)
 {
     int t0;
     int t1;
@@ -10445,7 +10445,7 @@ void FUN_8c0d991a(int a4)
                     if (t5 == 0) {
                         t6 = *(int *)0x8C287B14;
                         if (t6 == 0) {
-                            t7 = FUN_8c010976(0x18, 0x8C0D98C6);
+                            t7 = set_event2(0x18, 0x8C0D98C6);
                             u8 = *(float *)0x8C23D204;
                             *(unsigned int *)((t7 + 0x14)) = (int)((float)a4 / u8);
                         }
@@ -10456,7 +10456,7 @@ void FUN_8c0d991a(int a4)
     }
 }
 
-void FUN_8c0da18e(float f4)
+void evFlashStart(float f4)
 {
     int t0;
     int t1;
@@ -10470,7 +10470,7 @@ void FUN_8c0da18e(float f4)
     }
 }
 
-int FUN_8c0da8fc(int a4, int a5, int a6, float f4)
+int evNoticeStart(int a4, int a5, int a6, float f4)
 {
     int t16;
     int t13;
@@ -10499,7 +10499,7 @@ int FUN_8c0da8fc(int a4, int a5, int a6, float f4)
                 t9 = 0x0;
                 if (((((int)(a5 - 1) >= 0) ? (0x1 << ((a5 - 1) & 31)) : ((-(int)(a5 - 1) & 31) ? ((int)0x1 >> (-(int)(a5 - 1) & 31)) : ((int)0x1 >> 31))) & t0) == 0) {
                     t1 = set_event(0x28, 0x8C0DA8AA);
-                    FUN_8c0d129c(0x2, 0x0, 0.0f);
+                    hudPanelDraw(0x2, 0x0, 0.0f);
                     *(unsigned int *)((t1 + 0x14)) = a4;
                     *(float *)((t1 + 0x18)) = f4;
                     *(unsigned int *)((t1 + 0x1C)) = a5;
@@ -10524,7 +10524,7 @@ int FUN_8c0da8fc(int a4, int a5, int a6, float f4)
         t27 = 0x0;
         if (((((int)(a5 - 1) >= 0) ? (0x1 << ((a5 - 1) & 31)) : ((-(int)(a5 - 1) & 31) ? ((int)0x1 >> (-(int)(a5 - 1) & 31)) : ((int)0x1 >> 31))) & t18) == 0) {
             t19 = set_event(0x28, 0x8C0DA8AA);
-            FUN_8c0d129c(0x2, 0x0, 0.0f);
+            hudPanelDraw(0x2, 0x0, 0.0f);
             *(unsigned int *)((t19 + 0x14)) = a4;
             *(float *)((t19 + 0x18)) = f4;
             *(unsigned int *)((t19 + 0x1C)) = a5;
@@ -10544,14 +10544,14 @@ int FUN_8c0da8fc(int a4, int a5, int a6, float f4)
     return t31;
 }
 
-int FUN_8c0dee2c(int a4, float f4)
+int screenQuadPut(int a4, float f4)
 {
     int t1;
     int t2;
     int t5;
     int stk[27];
 
-    FUN_8c0f7cf0();
+    _quick_mvn();
     t1 = 0x0;
     do {
         t2 = *(int *)((a4 + (t1 << 2)));
@@ -10565,11 +10565,11 @@ int FUN_8c0dee2c(int a4, float f4)
         }
         t1 = (t1 + 0x1);
     } while ((int)t1 < (int)0x6);
-    t5 = FUN_8c0f70a0(0x6);
+    t5 = nlDispStrip(0x6);
     return t5;
 }
 
-int FUN_8c0df458(int a4)
+int eepromVmuLoad(int a4)
 {
     int t0;
     int t1;
@@ -10604,7 +10604,7 @@ int FUN_8c0df458(int a4)
     return t11;
 }
 
-int FUN_8c0df92a(void)
+int eepromGetDeuceMode(void)
 {
     int t0;
     int t1;
@@ -10615,12 +10615,12 @@ int FUN_8c0df92a(void)
         return t1;
     }
     if (t0 != 1) {
-        return FUN_8c0df91e();
+        return eepromGetDeuce();
     }
-    return FUN_8c0df924();
+    return eepromGetVsDeuce();
 }
 
-void FUN_8c0df948(void)
+void eepromIsMatchMax(void)
 {
     int t0;
     int t1;
@@ -10640,7 +10640,7 @@ void FUN_8c0df948(void)
     }
 }
 
-int FUN_8c0e0518(void)
+int BupCheckCard(void)
 {
     int t0;
     int t1;
@@ -10675,11 +10675,11 @@ int FUN_8c0e0518(void)
         t19 = 0xFFFFFFFD;
         if ((int)(t2 + 0x1) > (int)0x5) {
             if ((int)t0 >= 0) {
-                FUN_8c0e0710(0x0, 0x8C126AB0, 0x8C40C2F4, 0x128);
+                BupRequestLoad(0x0, 0x8C126AB0, 0x8C40C2F4, 0x128);
             }
             *(unsigned int *)0x8C1D78B0 = t0;
             *(unsigned int *)0x8C1D78B4 = 0x0;
-            FUN_8c0e8f3c(0x0);
+            resCautionReset(0x0);
             t17 = 0xFFFFFFFE;
             if (t0 != 0xFFFFFF03) {
                 t15 = 0xFFFFFFFE;
@@ -10750,7 +10750,7 @@ int FUN_8c0e0518(void)
     return t34;
 }
 
-int FUN_8c0e0710(int a4, int a5, int a6, int a7)
+int BupRequestLoad(int a4, int a5, int a6, int a7)
 {
     int t0;
     int t1;
@@ -10772,21 +10772,21 @@ int FUN_8c0e0710(int a4, int a5, int a6, int a7)
             *(unsigned int *)((((((t2 << 2) + t2) << 2) + 0x8C40C634) + 0x8)) = a5;
             *(unsigned int *)((((((t2 << 2) + t2) << 2) + 0x8C40C634) + 0xC)) = a6;
             *(unsigned int *)((((((t2 << 2) + t2) << 2) + 0x8C40C634) + 0x10)) = a7;
-            return FUN_8c02f59e(0xB);
+            return padLcdSetMode(0xB);
         }
         return t0;
     }
     return t0;
 }
 
-void FUN_8c0e0786(int a4, int a5, int a6, int a7)
+void BupRequestSave(int a4, int a5, int a6, int a7)
 {
     int t1;
     int t2;
     int t3;
     int t4;
 
-    FUN_8c0e0876();
+    BupCardWarning();
     t1 = *(int *)0x8C40C698;
     if (t1 != 0) {
         t2 = *(int *)0x8C40C6A4;
@@ -10802,12 +10802,12 @@ void FUN_8c0e0786(int a4, int a5, int a6, int a7)
             *(unsigned int *)((((((t3 << 2) + t3) << 2) + 0x8C40C634) + 0x8)) = a5;
             *(unsigned int *)((((((t3 << 2) + t3) << 2) + 0x8C40C634) + 0xC)) = a6;
             *(unsigned int *)((((((t3 << 2) + t3) << 2) + 0x8C40C634) + 0x10)) = a7;
-            FUN_8c02f59e(0xC);
+            padLcdSetMode(0xC);
         }
     }
 }
 
-void FUN_8c0e40e6(void)
+void rankSprTexLoad(void)
 {
     int t0;
     int t2;
@@ -10817,19 +10817,19 @@ void FUN_8c0e40e6(void)
     t0 = *(int *)0x8C1D824C;
     if (t0 == 0) {
         *(unsigned int *)0x8C1D824C = 0x1;
-        FUN_8c0ea2a0(0x0);
+        nlSetCommonTextureOffset(0x0);
         t2 = 0x0;
         t3 = 0x8C1D7900;
         do {
             t4 = *(int *)((t3 + 0x0));
             t3 = (t3 + 0x4);
-            FUN_8c0f3dc0();
+            nlSpriteLoadTextureOnce();
             t2 = (t2 + 0x1);
         } while ((unsigned int)t2 < (unsigned int)0xA);
     }
 }
 
-void FUN_8c0e41fc(int a4, int a5, int a6, int a7)
+void rankNameMatch(int a4, int a5, int a6, int a7)
 {
     int t0;
     int t1;
@@ -10879,7 +10879,7 @@ void FUN_8c0e41fc(int a4, int a5, int a6, int a7)
     }
 }
 
-void FUN_8c0e4234(int a4, int a5)
+void rankNameCopy(int a4, int a5)
 {
     int t0;
     int t1;
@@ -10910,7 +10910,7 @@ void FUN_8c0e4234(int a4, int a5)
     }
 }
 
-int FUN_8c0e628c(void)
+int titleSprTexLoad(void)
 {
     int t0;
     int t2;
@@ -10920,21 +10920,21 @@ int FUN_8c0e628c(void)
     t0 = *(int *)0x8C422044;
     if (t0 == 0) {
         *(unsigned int *)0x8C422044 = 0x1;
-        FUN_8c0ea2a0(0x0);
+        nlSetCommonTextureOffset(0x0);
         t2 = 0x0;
         t3 = 0x8C1D8250;
         do {
             t4 = *(int *)((t3 + 0x0));
             t3 = (t3 + 0x4);
-            FUN_8c0f3dc0();
+            nlSpriteLoadTextureOnce();
             t2 = (t2 + 0x1);
         } while ((unsigned int)t2 < (unsigned int)0xA);
-        return FUN_8c0c6e18();
+        return commonSprInitAll();
     }
     return 0;
 }
 
-void FUN_8c0e6324(void)
+void titleSprTexGarbage(void)
 {
     int t0;
     int t2;
@@ -10943,7 +10943,7 @@ void FUN_8c0e6324(void)
 
     t0 = *(int *)0x8C422044;
     if (t0 != 0) {
-        FUN_8c0ea2a0(0x0);
+        nlSetCommonTextureOffset(0x0);
         t2 = 0x0;
         t3 = 0x8C1D8250;
         do {
@@ -10955,7 +10955,7 @@ void FUN_8c0e6324(void)
     }
 }
 
-int FUN_8c0e7440(int a4, int a5)
+int shopPowi(int a4, int a5)
 {
     int t4;
     int t0;
@@ -10974,7 +10974,7 @@ int FUN_8c0e7440(int a4, int a5)
     return t4;
 }
 
-int FUN_8c0e84c0(int a4, float f4)
+int shopDrawCatIcon(int a4, float f4)
 {
     int t4;
     int t0;
@@ -11021,7 +11021,7 @@ int FUN_8c0e84c0(int a4, float f4)
                             *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
                             t2 = *(int *)(((((int)stk + 16) + 0x14) + 0x0));
                             *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-                            t3 = FUN_8c0de088(0x8C1DAA64, 0x1, 0x0, 1.0f, 1.0f, f4);
+                            t3 = sprListPut(0x8C1DAA64, 0x1, 0x0, 1.0f, 1.0f, f4);
                             t4 = t3;
                         }
                         t9 = t4;
@@ -11032,7 +11032,7 @@ int FUN_8c0e84c0(int a4, float f4)
                         *(unsigned int *)((((int)stk + 4) + 0x4)) = t6;
                         t7 = *(int *)(((((int)stk + 16) + 0x14) + 0x0));
                         *(unsigned int *)((((int)stk + 4) + 0x0)) = t7;
-                        t8 = FUN_8c0de088(0x8C1DA9F8, 0x1, 0x0, 1.0f, 1.0f, f4);
+                        t8 = sprListPut(0x8C1DA9F8, 0x1, 0x0, 1.0f, 1.0f, f4);
                         t9 = t8;
                     }
                     t14 = t9;
@@ -11043,7 +11043,7 @@ int FUN_8c0e84c0(int a4, float f4)
                     *(unsigned int *)((((int)stk + 4) + 0x4)) = t11;
                     t12 = *(int *)(((((int)stk + 16) + 0x14) + 0x0));
                     *(unsigned int *)((((int)stk + 4) + 0x0)) = t12;
-                    t13 = FUN_8c0de088(0x8C1DA98C, 0x1, 0x0, 1.0f, 1.0f, f4);
+                    t13 = sprListPut(0x8C1DA98C, 0x1, 0x0, 1.0f, 1.0f, f4);
                     t14 = t13;
                 }
                 t19 = t14;
@@ -11054,7 +11054,7 @@ int FUN_8c0e84c0(int a4, float f4)
                 *(unsigned int *)((((int)stk + 4) + 0x4)) = t16;
                 t17 = *(int *)(((((int)stk + 16) + 0x14) + 0x0));
                 *(unsigned int *)((((int)stk + 4) + 0x0)) = t17;
-                t18 = FUN_8c0de088(0x8C1DAAD0, 0x1, 0x0, 1.0f, 1.0f, f4);
+                t18 = sprListPut(0x8C1DAAD0, 0x1, 0x0, 1.0f, 1.0f, f4);
                 t19 = t18;
             }
             t24 = t19;
@@ -11065,7 +11065,7 @@ int FUN_8c0e84c0(int a4, float f4)
             *(unsigned int *)((((int)stk + 4) + 0x4)) = t21;
             t22 = *(int *)(((((int)stk + 16) + 0x14) + 0x0));
             *(unsigned int *)((((int)stk + 4) + 0x0)) = t22;
-            t23 = FUN_8c0de088(0x8C1DA920, 0x1, 0x0, 1.0f, 1.0f, f4);
+            t23 = sprListPut(0x8C1DA920, 0x1, 0x0, 1.0f, 1.0f, f4);
             t24 = t23;
         }
         t29 = t24;
@@ -11076,13 +11076,13 @@ int FUN_8c0e84c0(int a4, float f4)
         *(unsigned int *)((((int)stk + 4) + 0x4)) = t26;
         t27 = *(int *)(((((int)stk + 16) + 0x14) + 0x0));
         *(unsigned int *)((((int)stk + 4) + 0x0)) = t27;
-        t28 = FUN_8c0de088(0x8C1DA8B4, 0x1, 0x0, 1.0f, 1.0f, f4);
+        t28 = sprListPut(0x8C1DA8B4, 0x1, 0x0, 1.0f, 1.0f, f4);
         t29 = t28;
     }
     return t29;
 }
 
-int FUN_8c0e8744(void)
+int unlockCountW1(void)
 {
     int t0;
     int t1;
@@ -11109,7 +11109,7 @@ int FUN_8c0e8744(void)
     return t6;
 }
 
-int FUN_8c0e876e(void)
+int unlockCountW2(void)
 {
     int t0;
     int t1;
@@ -11129,7 +11129,7 @@ int FUN_8c0e876e(void)
     return t1;
 }
 
-int FUN_8c0e878e(void)
+int unlockCountW0(void)
 {
     int t0;
     int t1;
@@ -11149,7 +11149,7 @@ int FUN_8c0e878e(void)
     return t1;
 }
 
-void FUN_8c0e87ae(int a4)
+void unlockTestW0(int a4)
 {
     int t0;
 
@@ -11162,7 +11162,7 @@ void FUN_8c0e87ae(int a4)
     }
 }
 
-void FUN_8c0e87c8(int a4)
+void unlockTestW1(int a4)
 {
     int t0;
 
@@ -11172,7 +11172,7 @@ void FUN_8c0e87c8(int a4)
     }
 }
 
-void FUN_8c0e87de(int a4)
+void unlockTestW2(int a4)
 {
     int t0;
 
@@ -11185,7 +11185,7 @@ void FUN_8c0e87de(int a4)
     }
 }
 
-int FUN_8c0e87fa(void)
+int unlockApplyW1(void)
 {
     int t0;
     int t1;
@@ -11202,7 +11202,7 @@ int FUN_8c0e87fa(void)
     int t14;
     int stk[28];
 
-    t0 = FUN_8c0f7cf0();
+    t0 = _quick_mvn();
     *(unsigned int *)(((int)stk + 4)) = 0x8C185378;
     t1 = t0;
     t2 = 0x8C185330;
@@ -11237,7 +11237,7 @@ int FUN_8c0e87fa(void)
     return t1;
 }
 
-int FUN_8c0e8948(void)
+int resWtcShopLoadStep(void)
 {
     int t0;
     int t1;
@@ -11256,7 +11256,7 @@ int FUN_8c0e8948(void)
     *(unsigned int *)0x8C343FF8 = (t0 + 0x1);
     t1 = *(int *)0x8C343FF4;
     if (t1 == 0) {
-        t2 = FUN_8c0e89c0();
+        t2 = resWtcShopPolyRead();
         if (t2 == 1) {
             t3 = *(int *)0x8C343FF4;
             *(unsigned int *)0x8C343FF4 = (t3 + 0x1);
@@ -11264,24 +11264,24 @@ int FUN_8c0e8948(void)
     } else {
         t4 = *(int *)0x8C343FF4;
         if (t4 == 1) {
-            t5 = FUN_8c0e8a1c();
+            t5 = resWtcShopTexRead();
             if (t5 == 1) {
-                FUN_8c0e8a76();
+                resWtcShopObjTexLoad();
                 t7 = *(int *)0x8C343FF4;
                 *(unsigned int *)0x8C343FF4 = (t7 + 0x1);
             }
         } else {
             if (t4 == 2) {
-                t9 = FUN_8c0e8a58();
+                t9 = resFukuPolyRead();
                 if (t9 == 1) {
                     t10 = *(int *)0x8C343FF4;
                     *(unsigned int *)0x8C343FF4 = (t10 + 0x1);
                 }
             } else {
                 if (t4 == 3) {
-                    t11 = FUN_8c0e8a3a();
+                    t11 = resWtcShopSprRead();
                     if (t11 == 1) {
-                        FUN_8c0e8bb0();
+                        resWtcShopSprTexLoad();
                         t13 = *(int *)0x8C343FF4;
                         *(unsigned int *)0x8C343FF4 = (t13 + 0x1);
                         *(unsigned int *)0x8C287C50 = 0x1;
@@ -11296,7 +11296,7 @@ int FUN_8c0e8948(void)
     return t19;
 }
 
-int FUN_8c0e8a76(void)
+int resWtcShopObjTexLoad(void)
 {
     int t0;
     int t6;
@@ -11309,7 +11309,7 @@ int FUN_8c0e8a76(void)
     t6 = t0;
     if (t0 != 1) {
         *(unsigned int *)0x8C1DC508 = 0x1;
-        FUN_8c0ea2a0(0x3000);
+        nlSetCommonTextureOffset(0x3000);
         t2 = 0x0;
         t3 = 0x8C1DC4F8;
         do {
@@ -11323,7 +11323,7 @@ int FUN_8c0e8a76(void)
     return t6;
 }
 
-int FUN_8c0e8b30(void)
+int resEndObjTexLoad(void)
 {
     int t0;
     int t6;
@@ -11336,7 +11336,7 @@ int FUN_8c0e8b30(void)
     t6 = t0;
     if (t0 != 1) {
         *(unsigned int *)0x8C1DC518 = 0x1;
-        FUN_8c0ea2a0(0x3100);
+        nlSetCommonTextureOffset(0x3100);
         t2 = 0x0;
         t3 = 0x8C1DC50C;
         do {
@@ -11350,7 +11350,7 @@ int FUN_8c0e8b30(void)
     return t6;
 }
 
-int FUN_8c0e8bb0(void)
+int resWtcShopSprTexLoad(void)
 {
     int t0;
     int t6;
@@ -11363,13 +11363,13 @@ int FUN_8c0e8bb0(void)
     t6 = t0;
     if (t0 != 1) {
         *(unsigned int *)0x8C1DC530 = 0x1;
-        FUN_8c0ea2a0(0x0);
+        nlSetCommonTextureOffset(0x0);
         t2 = 0x0;
         t3 = 0x8C1DC51C;
         do {
             t4 = *(int *)((t3 + 0x0));
             t3 = (t3 + 0x4);
-            t5 = FUN_8c0f3dc0();
+            t5 = nlSpriteLoadTextureOnce();
             t2 = (t2 + 0x1);
         } while ((unsigned int)t2 < (unsigned int)0x5);
         t6 = t5;
@@ -11377,7 +11377,7 @@ int FUN_8c0e8bb0(void)
     return t6;
 }
 
-int FUN_8c0e8d0a(void)
+int resTitleObjTexLoad(void)
 {
     int t0;
     int t5;
@@ -11403,7 +11403,7 @@ int FUN_8c0e8d0a(void)
     return t5;
 }
 
-int FUN_8c0e8d56(void)
+int resTitleSprTexLoad(void)
 {
     int t0;
     int t6;
@@ -11416,13 +11416,13 @@ int FUN_8c0e8d56(void)
     t6 = t0;
     if (t0 != 1) {
         *(unsigned int *)0x8C1DC58C = 0x1;
-        FUN_8c0ea2a0(0x0);
+        nlSetCommonTextureOffset(0x0);
         t2 = 0x0;
         t3 = 0x8C1DC580;
         do {
             t4 = *(int *)((t3 + 0x0));
             t3 = (t3 + 0x4);
-            t5 = FUN_8c0f3dc0();
+            t5 = nlSpriteLoadTextureOnce();
             t2 = (t2 + 0x1);
         } while ((unsigned int)t2 < (unsigned int)0x3);
         t6 = t5;
@@ -11430,7 +11430,7 @@ int FUN_8c0e8d56(void)
     return t6;
 }
 
-int FUN_8c0e8e98(void)
+int resTitleLoadStep(void)
 {
     int t0;
     int t1;
@@ -11446,7 +11446,7 @@ int FUN_8c0e8e98(void)
     *(unsigned int *)0x8C343FF8 = (t0 + 0x1);
     t1 = *(int *)0x8C343FF4;
     if (t1 == 0) {
-        t2 = FUN_8c0e8dde();
+        t2 = resTitlePolyRead();
         if (t2 == 1) {
             t3 = *(int *)0x8C343FF4;
             *(unsigned int *)0x8C343FF4 = (t3 + 0x1);
@@ -11455,14 +11455,14 @@ int FUN_8c0e8e98(void)
     } else {
         t4 = *(int *)0x8C343FF4;
         if (t4 == 1) {
-            FUN_8c0e8d0a();
+            resTitleObjTexLoad();
             t6 = *(int *)0x8C343FF4;
             *(unsigned int *)0x8C343FF4 = (t6 + 0x1);
         } else {
             if (t4 == 2) {
-                t7 = FUN_8c0e8dfc();
+                t7 = resTitleSprRead();
                 if (t7 == 1) {
-                    FUN_8c0e8d56();
+                    resTitleSprTexLoad();
                     t9 = *(int *)0x8C343FF4;
                     *(unsigned int *)0x8C343FF4 = (t9 + 0x1);
                     *(unsigned int *)0x8C34A1EC = 0x0;
@@ -11477,7 +11477,7 @@ int FUN_8c0e8e98(void)
     return t14;
 }
 
-int FUN_8c0e902c(void)
+int resCautionTexGarbage(void)
 {
     int t1;
     int t2;
@@ -11486,7 +11486,7 @@ int FUN_8c0e902c(void)
     int t5;
     int t6;
 
-    FUN_8c0ea2a0(0x0);
+    nlSetCommonTextureOffset(0x0);
     t1 = 0x0;
     t2 = 0x8C1DC590;
     t3 = 0x8C1DC608;
@@ -11505,7 +11505,7 @@ int FUN_8c0e902c(void)
     return (t1 << 2);
 }
 
-int FUN_8c0e90bc(void)
+int resCautionFreeAll(void)
 {
     int t0;
     int t6;
@@ -11525,7 +11525,7 @@ int FUN_8c0e90bc(void)
                 t2 = *(int *)0x8C1D175C;
                 t4 = (t0 << 2);
                 if (t0 != t2) {
-                    t3 = FUN_8c0e8ffe(t0);
+                    t3 = resCautionTexFree(t0);
                     t4 = t3;
                 }
                 t5 = t4;
@@ -11537,7 +11537,7 @@ int FUN_8c0e90bc(void)
     return t6;
 }
 
-int FUN_8c0ea00c(void)
+int titleFrameCue(void)
 {
     int t0;
     int t1;
@@ -11551,19 +11551,19 @@ int FUN_8c0ea00c(void)
     t0 = *(int *)0x8C20D15C;
     t1 = *(int *)0x8C1DC714;
     if (t0 == t1) {
-        FUN_8c0d339a();
+        sndSe0B_02();
     }
     t3 = *(int *)0x8C20D15C;
     t4 = *(int *)0x8C1DC6AC;
     t6 = 0x8C1DC6AC;
     if (t3 == (t4 + 0x1)) {
-        t5 = FUN_8c0d33ba();
+        t5 = sndSe0B_00();
         t6 = t5;
     }
     t7 = *(int *)0x8C20D15C;
     t8 = *(int *)0x8C1DC6B4;
     if (t7 == (t8 - 9)) {
-        return FUN_8c0d33d0();
+        return sndSe0B_01();
     }
     return t6;
 }
@@ -11576,7 +11576,7 @@ int nlCommonTextureDummyFree(int a4)
     return 0;
 }
 
-int FUN_8c0eadc0(int a4)
+int nlSysInitStripContextVtx(int a4)
 {
     *(unsigned int *)((a4 + 0x0)) = 0x3F3FFFF;
     *(unsigned int *)((a4 + 0x4)) = 0x0;
@@ -11618,7 +11618,7 @@ int FUN_8c0eadc0(int a4)
     return kmSetVertexRenderState(0x8C454FC0, a4);
 }
 
-int FUN_8c0eae60(int a4)
+int nlSysInitStripContextBG(int a4)
 {
     *(unsigned int *)((a4 + 0x0)) = 0x3F3FFFF;
     *(unsigned int *)((a4 + 0x4)) = 0x0;
@@ -11660,7 +11660,7 @@ int FUN_8c0eae60(int a4)
     return kmSetBackGroundRenderState(a4);
 }
 
-void FUN_8c0eb220(void)
+void nlVtxBufScanInit(void)
 {
     int t0;
     int t1;
@@ -11739,16 +11739,16 @@ void nlRenderTextureFreeAll(void)
     }
 }
 
-int FUN_8c0ef0a0(int a4, int a5)
+int nlInitMatrix(int a4, int a5)
 {
     int t2;
     int t3;
     int t4;
     int t5;
 
-    FUN_8c0ef060(0x8C450874, 0x8C45088C, 0x3);
-    FUN_8c0ef060(0x8C450880, 0x8C45094C, 0x3);
-    t2 = FUN_8c0ef060(0x8C450868, a4, (a5 + 0x1));
+    nlInitMatrixStack(0x8C450874, 0x8C45088C, 0x3);
+    nlInitMatrixStack(0x8C450880, 0x8C45094C, 0x3);
+    t2 = nlInitMatrixStack(0x8C450868, a4, (a5 + 0x1));
     *(unsigned char *)0x8C450858 = 0x1;
     t3 = *(int *)0x8C450870;
     *(unsigned int *)0x8C450864 = t3;
@@ -11759,7 +11759,7 @@ int FUN_8c0ef0a0(int a4, int a5)
     return t2;
 }
 
-int FUN_8c0f2610(int a4, float f4)
+int nlObjPutTrnsl(int a4, float f4)
 {
     int t0;
 
@@ -11768,11 +11768,11 @@ int FUN_8c0f2610(int a4, float f4)
         nlInvLightVector();
     }
     nlPushMatrix(0x0);
-    FUN_8c0ef9b0(0x8C450B38);
+    nlMultiMatrixRevOrder8(0x8C450B38);
     return nlobjput_sub_trnsl(a4);
 }
 
-void FUN_8c0f27f0(float f4, float f5)
+void nlObjPutSetSaturate(float f4, float f5)
 {
     *(float *)0x8C1DCA90 = f5;
     *(float *)0x8C1DCA94 = (-f4);
@@ -12020,7 +12020,7 @@ int nlDispStripTexOfs(int a4, int a5, int a6)
     return t0;
 }
 
-int FUN_8c0f7200(int a4, int a5, int a6)
+int nlDispStripTexOfsTrnsl(int a4, int a5, int a6)
 {
     int t0;
 
@@ -12096,7 +12096,7 @@ int nlstripSetVertexContext(int a4)
     return kmSetVertexRenderState(0x8C454FC0, t24);
 }
 
-void FUN_0c14ab98(void)
+void _INITSCT(void)
 {
     int t0;
     int t1;
@@ -12165,19 +12165,19 @@ void FUN_0c14ab98(void)
     }
 }
 
-int FUN_8c1dd2ae(int a4)
+int ovMdlEntryTbl(int a4)
 {
     int t0;
     int t5;
     int t1;
     int t2;
 
-    t0 = strncmp((a4 + 0x30), 0x8C209544, 0x10);
+    t0 = memcmp((a4 + 0x30), 0x8C209544, 0x10);
     t5 = 0xFFFFFFFF;
     if (t0 == 0) {
         t1 = 0x1;
         for (;;) {
-            t2 = strncmp((((((t1 << 2) << 2) << 1) + (a4 + 0x20)) + 0x10), 0x8C209554, 0x10);
+            t2 = memcmp((((((t1 << 2) << 2) << 1) + (a4 + 0x20)) + 0x10), 0x8C209554, 0x10);
             if (t2 != 0) {
                 ovLibEntryTbl(((((t1 << 2) << 2) << 1) + (a4 + 0x20)));
                 t1 = (t1 + 0x1);
@@ -12190,19 +12190,19 @@ int FUN_8c1dd2ae(int a4)
     return t5;
 }
 
-int FUN_8c1dd306(int a4)
+int ovMdlDeleteTbl(int a4)
 {
     int t0;
     int t5;
     int t1;
     int t2;
 
-    t0 = strncmp((a4 + 0x30), 0x8C209544, 0x10);
+    t0 = memcmp((a4 + 0x30), 0x8C209544, 0x10);
     t5 = 0xFFFFFFFF;
     if (t0 == 0) {
         t1 = 0x1;
         for (;;) {
-            t2 = strncmp((((((t1 << 2) << 2) << 1) + (a4 + 0x20)) + 0x10), 0x8C209554, 0x10);
+            t2 = memcmp((((((t1 << 2) << 2) << 1) + (a4 + 0x20)) + 0x10), 0x8C209554, 0x10);
             if (t2 != 0) {
                 ovLibDeleteTbl(((((t1 << 2) << 2) << 1) + (a4 + 0x20)));
                 t1 = (t1 + 0x1);
@@ -12215,7 +12215,7 @@ int FUN_8c1dd306(int a4)
     return t5;
 }
 
-void FUN_0c14cfe2(int a4)
+void gdFsCheckMedia(int a4)
 {
     int t0;
     int t1;
@@ -12328,10 +12328,10 @@ int gdFsLoadDirG(int a4, int a5)
                     if (t18 == (0x96 + t12)) {
                         if (t14 != 0) {
                             if (t14 == -12) {
-                                FUN_0c14d2fa(t2);
+                                gdFsLockDir(t2);
                             }
                         } else {
-                            FUN_0c14d2fa(t2);
+                            gdFsLockDir(t2);
                         }
                     }
                 }
@@ -12360,10 +12360,10 @@ int gdFsLoadDirG(int a4, int a5)
                         if (t40 == (t33 + 0x96)) {
                             if (t36 != 0) {
                                 if (t36 == -12) {
-                                    FUN_0c14d2fa(t2);
+                                    gdFsLockDir(t2);
                                 }
                             } else {
-                                FUN_0c14d2fa(t2);
+                                gdFsLockDir(t2);
                             }
                         }
                     }
@@ -12399,10 +12399,10 @@ int gdFsLoadDirG(int a4, int a5)
                 if (t69 == (0x96 + t63)) {
                     if (t65 != 0) {
                         if (t65 == -12) {
-                            FUN_0c14d2fa(t2);
+                            gdFsLockDir(t2);
                         }
                     } else {
-                        FUN_0c14d2fa(t2);
+                        gdFsLockDir(t2);
                     }
                 }
             }
@@ -12499,7 +12499,7 @@ int ADXT_GetNumSmpl(int a4)
     t0 = *(signed char *)((a4 + 0x1));
     if ((int)t0 >= (int)0x2) {
         t1 = *(int *)((a4 + 0x4));
-        return FUN_8c1f09be(t1);
+        return ADXSJD_GetTotalNumSmpl(t1);
     }
     return 0x0;
 }
@@ -12512,7 +12512,7 @@ int ADXT_GetSfreq(int a4)
     t0 = *(signed char *)((a4 + 0x1));
     if ((int)t0 >= (int)0x2) {
         t1 = *(int *)((a4 + 0x4));
-        return FUN_8c1f0982(t1);
+        return ADXSJD_GetSfreq(t1);
     }
     return 0x0;
 }
@@ -12525,12 +12525,12 @@ int ADXT_GetNumChan(int a4)
     t0 = *(signed char *)((a4 + 0x1));
     if ((int)t0 >= (int)0x2) {
         t1 = *(int *)((a4 + 0x4));
-        return FUN_8c1f098e(t1);
+        return ADXSJD_GetNumChan(t1);
     }
     return 0x0;
 }
 
-int FUN_0c152340(void)
+int ADXT_ExecServer(void)
 {
     int t4;
     int t5;
@@ -12550,7 +12550,7 @@ int FUN_0c152340(void)
         t5 = *(signed char *)((t4 + 0x0));
         t7 = t5;
         if (t5 == 1) {
-            t6 = FUN_8c1f1808(t4);
+            t6 = ADXT_ExecHndl(t4);
             t7 = t6;
         }
         t4 = (t4 + 0x8C);
@@ -12753,7 +12753,7 @@ void kmSetPaletteBankData(int a4, int a5, int a6)
     if ((int)(a5 + (0x3FF & a4)) > (int)0x400) {
         t1 = (0x400 - (0x3FF & a4));
     }
-    FUN_8c1e28e0((0x8C470E08 + ((0x3FF & a4) << 2)), (a6 + ((0x3FF & a4) << 2)), (t1 << 2));
+    kmyMemCopy((0x8C470E08 + ((0x3FF & a4) << 2)), (a6 + ((0x3FF & a4) << 2)), (t1 << 2));
     if ((int)((((int)((t1 + (0x3FF & a4)) - 1) >> 4) - ((int)(0x3FF & a4) >> 4)) + 0x1) > 0) {
         t3 = ((int)(0x3FF & a4) >> 4);
         t4 = ((int)(0x3FF & a4) >> 4);
@@ -12796,7 +12796,7 @@ void kmSetPaletteBank(int a4, int a5, int a6)
     if (a5 == 0x100) {
         t1 = 0x30;
     }
-    FUN_8c1e28e0((((((t1 & a4) << 2) << 2) << 2) + 0x8C470E08), a6, (a5 << 2));
+    kmyMemCopy((((((t1 & a4) << 2) << 2) << 2) + 0x8C470E08), a6, (a5 << 2));
     t3 = a5;
     if ((int)a5 < 0) {
         t3 = (a5 + 0xF);
@@ -12836,7 +12836,7 @@ void kmSetPaletteEntry4bppMode(int a4, int a5, int a6)
     t1 = 0x0;
     t2 = a6;
     do {
-        FUN_8c1e28e0(0x8C470E08, t2, 0x40);
+        kmyMemCopy(0x8C470E08, t2, 0x40);
         t1 = (t1 + 0x1);
         t2 = (t2 + 0x40);
     } while ((int)t1 < (int)0x20);
@@ -12913,7 +12913,7 @@ int kmRenderTexture(int a4, int a5)
     return t8;
 }
 
-int FUN_8c1e3660(int a4)
+int kmRender(int a4)
 {
     int t0;
     int t10;
@@ -13009,7 +13009,7 @@ void kmLoadTexture(int a4, int a5)
         t1 = *(int *)((a4 + 0xC));
         t2 = *(int *)((a4 + 0x18));
         t3 = *(int *)((a4 + 0x1C));
-        FUN_8c1e4b74(t3, a5, t1, t2);
+        kmtex_ConvertSmallVQToMem(t3, a5, t1, t2);
     } else {
         t5 = *(int *)((a4 + 0x18));
         if ((0x4000000 & t5) == 0) {
@@ -13100,8 +13100,8 @@ void kmGetSystemMetrics(int a4)
 
     t0 = *(int *)((a4 + 0x0));
     if ((t0 & 1) != 0) {
-        FUN_8c1e28e0((a4 + 0x68), 0x8C45F6F4, 0xA0);
-        FUN_8c1e28e0((0x108 + a4), 0x8C45F818, 0xA0);
+        kmyMemCopy((a4 + 0x68), 0x8C45F6F4, 0xA0);
+        kmyMemCopy((0x108 + a4), 0x8C45F818, 0xA0);
     }
     t4 = *(int *)((a4 + 0x0));
     if ((t4 & 2) != 0) {
@@ -13160,7 +13160,7 @@ void kmGetSystemMetrics(int a4)
     }
 }
 
-int FUN_8c1e61d2(int a4, int a5, int a6, int a7)
+int kmiProcessVertex_16(int a4, int a5, int a6, int a7)
 {
     int t0;
     int t1;
@@ -13267,7 +13267,7 @@ void kmSetBorderColor(int a4, int a5, int a6, int a7, int a8)
     kmySetBorderColor(a8);
 }
 
-int FUN_0c15f460(int a4, int a5, int a6, int a7)
+int ccitt_updcrc(int a4, int a5, int a6, int a7)
 {
     int t0;
     int t1;
@@ -13295,7 +13295,7 @@ int FUN_0c15f460(int a4, int a5, int a6, int a7)
     return t0;
 }
 
-int FUN_8c1e6ac4(int a4, int a5, int a6)
+int gdFsStrncmpi(int a4, int a5, int a6)
 {
     int t10;
     int t0;
@@ -13319,10 +13319,10 @@ int FUN_8c1e6ac4(int a4, int a5, int a6)
             if (t3 != 0) {
                 t4 = *(signed char *)((t1 + 0x0));
                 t1 = (t1 + 0x1);
-                t5 = FUN_0c15f998(t4);
+                t5 = gdFsToUpper(t4);
                 t6 = *(signed char *)((t0 + 0x0));
                 t0 = (t0 + 0x1);
-                t7 = FUN_0c15f998(t6);
+                t7 = gdFsToUpper(t6);
                 if ((signed char)t5 == (signed char)t7) {
                     t2 = (t2 - 1);
                     if ((int)t2 <= 0) {
@@ -13344,7 +13344,7 @@ int FUN_8c1e6ac4(int a4, int a5, int a6)
     return t10;
 }
 
-int FUN_8c1e6b32(int a4, int a5)
+int gdFsStrcmpi(int a4, int a5)
 {
     int t0;
     int t1;
@@ -13363,10 +13363,10 @@ int FUN_8c1e6b32(int a4, int a5)
         if (t2 == 0) break;
         t3 = *(signed char *)((t1 + 0x0));
         t1 = (t1 + 0x1);
-        t4 = FUN_0c15f998(t3);
+        t4 = gdFsToUpper(t3);
         t5 = *(signed char *)((t0 + 0x0));
         t0 = (t0 + 0x1);
-        t6 = FUN_0c15f998(t5);
+        t6 = gdFsToUpper(t5);
         if ((signed char)t4 == (signed char)t6) continue;
         return 0x0;
     }
@@ -13687,11 +13687,11 @@ void ADXSTM_Stop(int a4)
     if (t0 == 1) {
         t1 = *(int *)((a4 + 0x8));
         if (t1 != 0) {
-            t2 = FUN_0c1614de();
+            t2 = syTmrGetCount();
             t3 = *(int *)((a4 + 0x8));
             gdFsStopRd(t3);
-            t5 = FUN_0c1614de();
-            t6 = FUN_8c1e8fa0(t2, t5);
+            t5 = syTmrGetCount();
+            t6 = syTmrDiffCount(t2, t5);
             *(unsigned int *)0x8C20C8A4 = t6;
             *(unsigned char *)((a4 + 0x2)) = 0x0;
         }
@@ -13877,7 +13877,7 @@ int SJUNI_Create(int a4, int a5, int a6)
     return (0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2));
 }
 
-int FUN_8c1f3f0a(void)
+int VQAllocEntry(void)
 {
     int t0;
     int t1;
@@ -13982,7 +13982,7 @@ void kmyReleaseFrameBufferHandle(int a4)
     }
 }
 
-int FUN_8c1f4f74(int a4)
+int SearchVQEntry(int a4)
 {
     int t0;
     int t1;
@@ -14042,7 +14042,7 @@ void kmyGetDisplayRegionSize(int a4, int a5, int a6, int a7)
     }
 }
 
-void FUN_8c1f5912(void)
+void Qreset(void)
 {
     int t0;
     int t1;
@@ -14158,7 +14158,7 @@ void kmyiInitializeInterrupt(int a4)
     if (t9 == 0x10000) {
         t10 = 0x8C1F5C40;
     }
-    FUN_8c1f5e60(t10);
+    kmiRegisterPhIntHandler(t10);
     *(unsigned int *)((t0 + 0x230)) = 0xE;
     *(unsigned int *)((t0 + 0x234)) = 0x0;
 }
@@ -14322,7 +14322,7 @@ int kmyRegisterNativeBuffer(int a4, int a5, int a6, int a7, int a8)
     int t15;
 
     *(unsigned int *)((a5 + 0x0)) = 0x0;
-    t0 = FUN_8c1f8a40();
+    t0 = kmyiCheckTAHandle();
     t16 = 0xEEEE;
     if (t0 != 0) {
         t1 = *(int *)0x8C474404;
@@ -14465,7 +14465,7 @@ int kmWaitVBlank(void)
     int t19;
     int stk[7];
 
-    t0 = FUN_8c1f56c0();
+    t0 = kmyGetInterruptLevel();
     t21 = 0x0;
     if (t0 == 0) {
         t1 = *(int *)0x8C45F904;
@@ -15046,7 +15046,7 @@ void kmiInitVertexBufferDesc(int a4)
     *(unsigned int *)((t0 + 0x18)) = (a4 + 0x38);
 }
 
-int FUN_8c1fc2ac(int a4)
+int kmtex_TextureSize(int a4)
 {
     int t0;
     int t1;
@@ -15063,22 +15063,22 @@ int FUN_8c1fc2ac(int a4)
 
     t0 = *(int *)((a4 + 0x0));
     if ((unsigned short)t0 == 3) {
-        t1 = FUN_8c1fc49c(a4);
+        t1 = kmtex_TextureSize_smallVQ(a4);
         t10 = t1;
         t11 = t1;
     } else {
         t2 = *(int *)((a4 + 0x18));
         if ((t2 & 0x40000000) != 0) {
-            t3 = FUN_8c1fc374(a4);
+            t3 = kmtex_TextureSize_VQ(a4);
             t8 = t3;
             t9 = t3;
         } else {
             t4 = *(int *)((a4 + 0x18));
             if ((t4 & 0x8000) != 0) {
-                t5 = FUN_8c1fc3f6(a4);
+                t5 = kmtex_TextureSize_Palettized(a4);
                 t7 = t5;
             } else {
-                t6 = FUN_8c1fc2f0(a4);
+                t6 = kmtex_TextureSize_Twiddled(a4);
                 t7 = t6;
             }
             t8 = t7;
@@ -15091,7 +15091,7 @@ int FUN_8c1fc2ac(int a4)
     return t10;
 }
 
-int FUN_8c1fc49c(int a4)
+int kmtex_TextureSize_smallVQ(int a4)
 {
     int t0;
     int t1;
@@ -15241,7 +15241,7 @@ void mpdrv_init_memory(void)
     *(unsigned int *)((t0 + 0x10F4)) = 0xA05F6C00;
 }
 
-int FUN_0c170b48(int a4)
+int fmMngAddData(int a4)
 {
     int t0;
     int t28;
@@ -15280,7 +15280,7 @@ int FUN_0c170b48(int a4)
         *(unsigned short *)(((a4 + 0x34) + 0x3E)) = t4;
         t5 = *(int *)((a4 + 0x28));
         t6 = *(int *)((a4 + 0xC));
-        FUN_0c17088c((a4 + 0x34), (t6 + ((((t5 + 0x1) << 2) << 2) << 2)), 0x40);
+        fmMngMcpy4((a4 + 0x34), (t6 + ((((t5 + 0x1) << 2) << 2) << 2)), 0x40);
         t8 = *(int *)((a4 + 0x10));
         t9 = *(int *)((a4 + 0x14));
         t27 = 0xFFFFFFF6;
@@ -15289,11 +15289,11 @@ int FUN_0c170b48(int a4)
             t11 = *(int *)((a4 + 0xC));
             t12 = *(int *)((a4 + 0x10));
             t13 = *(int *)((a4 + 0x18));
-            FUN_0c170908((t12 + 0x1), (t11 + ((((t10 + 0x1) << 2) << 2) << 2)), t13);
+            fmMngNum2Bit((t12 + 0x1), (t11 + ((((t10 + 0x1) << 2) << 2) << 2)), t13);
             t15 = *(int *)((a4 + 0x18));
             t16 = *(int *)((a4 + 0xC));
             t17 = *(int *)((a4 + 0x4));
-            t18 = FUN_8c2072b8();
+            t18 = syBtFlWrite();
             t19 = *(int *)((a4 + 0x18));
             t25 = 0xFFFFFFFE;
             if (t18 == (((t19 << 2) << 2) << 2)) {
@@ -15301,7 +15301,7 @@ int FUN_0c170b48(int a4)
                 t21 = *(int *)((a4 + 0x10));
                 *(unsigned int *)((a4 + 0x10)) = (t21 + 0x1);
                 t22 = *(int *)((a4 + 0x4));
-                t23 = FUN_8c2072b8();
+                t23 = syBtFlWrite();
                 t24 = 0x0;
                 if (t23 != 64) {
                     t24 = 0xFFFFFFFE;
@@ -15315,7 +15315,7 @@ int FUN_0c170b48(int a4)
     return t28;
 }
 
-int FUN_0c170c10(int a4)
+int fmMngReadData(int a4)
 {
     int t0;
     int t11;
@@ -15414,7 +15414,7 @@ int ADXB_DecodeHeader(int a4, int a5, int a6)
     if (t2 != 0) {
         return ADXB_DecodeHeaderWav(a4, a5, a6);
     }
-    t3 = FUN_8c2075fe(a5);
+    t3 = ADXB_CheckAiff(a5);
     if (t3 != 0) {
         return ADXB_DecodeHeaderAiff(a4, a5, a6);
     }
@@ -15462,7 +15462,7 @@ int ADXB_ExecHndl(int a4)
     return ADXB_ExecOneAdx(a4);
 }
 
-int FUN_0c1718c4(int a4)
+int mwlSbAllocWork(int a4)
 {
     int t5;
     int t0;
@@ -15520,7 +15520,7 @@ int mwlSbAlloc(void)
     return t5;
 }
 
-int FUN_0c171d48(int a4, int a5)
+int mwSbSetSfreq(int a4, int a5)
 {
     int t0;
     int t1;
@@ -15539,7 +15539,7 @@ int FUN_0c171d48(int a4, int a5)
     return t5;
 }
 
-int FUN_0c171db0(int a4, int a5)
+int mwSbSetBitPerSmpl(int a4, int a5)
 {
     int t0;
     int t1;
@@ -15611,7 +15611,7 @@ int kmySetSkipCount(int a4, int a5)
     return t7;
 }
 
-int FUN_8c205a58(int a4, int a5, int a6)
+int kmyObFindDevice(int a4, int a5, int a6)
 {
     int t0;
     int t6;
@@ -15642,7 +15642,7 @@ int FUN_8c205a58(int a4, int a5, int a6)
     return t6;
 }
 
-int FUN_8c205b00(int a4)
+int kmyiCheckRenderPacket(int a4)
 {
     int t0;
     int t1;
@@ -15708,7 +15708,7 @@ void kmyReleaseRenderPacket(int a4)
     int t2;
     int t3;
 
-    t0 = FUN_8c205b00(a4);
+    t0 = kmyiCheckRenderPacket(a4);
     if (t0 == 0) {
         return;
     }
@@ -16045,7 +16045,7 @@ void ADX_DecodeInfoAiff(int a4, int a5, int a6, int a7, int a8, int a9, int a10,
         return;
     }
     t1 = *(int *)(((int)stk + 24));
-    t2 = FUN_8c20731c(t1, (((int)stk + 4) + 0x4), (((int)stk + 4) + 0x8), (((int)stk + 4) + 0xC), (((int)stk + 8) + 0xC));
+    t2 = adxb_DecodeInfoAiffSub(t1, (((int)stk + 4) + 0x4), (((int)stk + 4) + 0x8), (((int)stk + 4) + 0xC), (((int)stk + 8) + 0xC));
     if (t2 != 0) {
         t3 = *(int *)(((int)stk + 24));
         t4 = *(int *)(((int)stk + 28));
@@ -16124,7 +16124,7 @@ int ADX_DecodeInfoWav(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
         t0 = 0x0;
         for (;;) {
             t1 = *(int *)0x8C20CCC4;
-            t2 = strncmp((t0 + a4), t1, 0x4);
+            t2 = memcmp((t0 + a4), t1, 0x4);
             if (t2 != 0) {
                 t0 = (t0 + 0x1);
                 if ((int)t0 >= (int)a5) break;
@@ -16150,7 +16150,7 @@ int ADX_DecodeInfoWav(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
                     t6 = 0x0;
                     for (;;) {
                         t7 = *(int *)0x8C20CCCC;
-                        t8 = strncmp((t6 + a4), t7, 0x4);
+                        t8 = memcmp((t6 + a4), t7, 0x4);
                         if (t8 != 0) {
                             t6 = (t6 + 0x1);
                             if ((int)t6 >= (int)a5) break;
@@ -16335,7 +16335,7 @@ int ADXPD_ExecHndl(int a4)
     return t20;
 }
 
-int FUN_0c174768(void)
+int syIntAdrChk_finish(void)
 {
     int t0;
     int t1;
@@ -16375,7 +16375,7 @@ int FUN_0c174768(void)
     return (t10 | 0x1);
 }
 
-int FUN_0c1747f4(int a4)
+int syIntAdrChk_printh(int a4)
 {
     int t0;
     int t1;
@@ -16387,7 +16387,7 @@ int FUN_0c1747f4(int a4)
         if ((int)(unsigned char)(0xF & (((int)(-t0) >= 0) ? (a4 << ((-t0) & 31)) : ((-(int)(-t0) & 31) ? ((unsigned int)a4 >> (-(int)(-t0) & 31)) : 0))) >= (int)0xA) {
             t1 = ((0xF & (((int)(-t0) >= 0) ? (a4 << ((-t0) & 31)) : ((-(int)(-t0) & 31) ? ((unsigned int)a4 >> (-(int)(-t0) & 31)) : 0))) + 0x37);
         }
-        t2 = FUN_8c208e6c(t1);
+        t2 = syIntAdrChk_putchar(t1);
         t0 = (t0 - 4);
     } while ((int)t0 >= 0);
     return t2;

@@ -106,7 +106,7 @@ int ADXB_GetLpEndOfst(int a4)
 }
 
 
-int FUN_0c17217a(int a4)
+int mwlSbGetGain(int a4)
 {
     int t0;
 
@@ -115,7 +115,7 @@ int FUN_0c17217a(int a4)
 }
 
 
-int FUN_0c1721da(int a4)
+int mwlSbGetDrctLvl(int a4)
 {
     int t0;
 

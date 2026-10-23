@@ -1,11 +1,11 @@
 /* Straight-line functions with calls and guards (batch gen_n): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c0cb90c(void);
-int FUN_8c0c824e(int a4);
-int FUN_8c0c6e4a(int a4, int a5, int a6);
+int staffMorphReset(void);
+int ballBoyRecall(int a4);
+int menuSprInit(int a4, int a5, int a6);
 
-int FUN_8c0c824e(int a4)
+int ballBoyRecall(int a4)
 {
     int t0;
     int t5;
@@ -15,14 +15,14 @@ int FUN_8c0c824e(int a4)
         return ((int (*)(int))(0x8C0C8484))(t0);
     }
     if (t0 == 2) {
-        FUN_8c0cb90c();
+        staffMorphReset();
     } else {
         t5 = t0;
     }
     return ((int (*)(int))(0x8C0C847A))(t5);
 }
 
-int FUN_8c0c6e4a(int a4, int a5, int a6)
+int menuSprInit(int a4, int a5, int a6)
 {
     int t0;
     float u1;

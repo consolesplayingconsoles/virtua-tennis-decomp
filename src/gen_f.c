@@ -1,15 +1,15 @@
 /* Straight-line functions with calls and guards (batch gen_f): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c015eea(float, float, float);
-int FUN_8c0161e8(int, int);
-int FUN_8c017c5e(int);
-int FUN_8c089cf6(int, int, int);
-int FUN_8c0c8ffe(void);
-int FUN_8c0ca1f8(void);
-int FUN_8c0ca4f2(void);
-int FUN_8c0ca862(void);
-int FUN_8c1f8a40(int);
+int vecMake(float, float, float);
+int vecAnglesTo(int, int);
+int mtxMultiKeepPos(int);
+int modelSetMaterial(int, int, int);
+int lineJudgeInit(void);
+int netJudgeInit(void);
+int netJudgeStart(void);
+int umpireInit(void);
+int kmyiCheckTAHandle(int);
 int fileLoadPoll(void);
 int fileLoadStart(int, int, int);
 int kmiFLWCTRLStartRenderEntry(void);
@@ -73,7 +73,7 @@ void motionBone(int a4)
     motionRotate(a4);
 }
 
-void FUN_8c016554(int a4, int a5)
+void camGetAngles(int a4, int a5)
 {
     float u0;
     float u1;
@@ -84,16 +84,16 @@ void FUN_8c016554(int a4, int a5)
     u0 = *(float *)0x8C287960;
     u1 = *(float *)0x8C28795C;
     u2 = *(float *)0x8C287958;
-    FUN_8c015eea(u2, u1, u0);
-    FUN_8c015eea(0.0f, 0.0f, 0.0f);
-    FUN_8c0161e8(a4, a5);
+    vecMake(u2, u1, u0);
+    vecMake(0.0f, 0.0f, 0.0f);
+    vecAnglesTo(a4, a5);
     t6 = *(short *)((a4 + 0x0));
     *(unsigned short *)((a4 + 0x0)) = (-t6);
     t7 = *(short *)((a5 + 0x0));
     *(unsigned short *)((a5 + 0x0)) = (-t7);
 }
 
-void FUN_8c03cbd6(int a4)
+void bodyPlacePoints(int a4)
 {
     float u1;
     float u2;
@@ -110,7 +110,7 @@ void FUN_8c03cbd6(int a4)
     u2 = *(float *)((a4 + 0x328));
     u3 = *(float *)((a4 + 0x324));
     nlTranslate(u3, u2, u1);
-    FUN_8c017c5e((0x350 + a4));
+    mtxMultiKeepPos((0x350 + a4));
     t6 = 0x0;
     for (;;) {
         t7 = *(int *)((a4 + 0x398));
@@ -129,7 +129,7 @@ void FUN_8c03cbd6(int a4)
     nlPopMatrix(0x1);
 }
 
-void FUN_8c0b1468(int a4)
+void stageLoadInit(int a4)
 {
     int t0;
     int t1;
@@ -169,7 +169,7 @@ void FUN_8c0b1468(int a4)
     }
 }
 
-void FUN_8c0b5a92(void)
+void stagePolyLoad(void)
 {
     int t0;
     int t1;
@@ -185,7 +185,7 @@ void FUN_8c0b5a92(void)
     fileLoadPoll();
 }
 
-void FUN_8c0b5ab4(void)
+void stageTexFileLoad(void)
 {
     int t0;
     int t1;
@@ -201,7 +201,7 @@ void FUN_8c0b5ab4(void)
     fileLoadPoll();
 }
 
-void FUN_8c0b5ad6(void)
+void kyakuPolyLoad(void)
 {
     int t0;
     int t1;
@@ -219,7 +219,7 @@ void FUN_8c0b5ad6(void)
     *(unsigned int *)0x8C34B144 = t4;
 }
 
-void FUN_8c0b69ca(void)
+void courtFraTexLoad(void)
 {
     int t0;
     int t1;
@@ -260,7 +260,7 @@ void FUN_8c0b69ca(void)
             t2 = 0x8C120B74;
             t10 = *(int *)(((t9 << 2) + t2));
             t11 = *(int *)(((t6 + (t3 << 2)) + 0x0));
-            t12 = FUN_8c089cf6(t11, t10, 0x320);
+            t12 = modelSetMaterial(t11, t10, 0x320);
             t2 = t12;
             t13 = *(int *)(((t6 + (t3 << 2)) + 0x0));
             t14 = nlObjPutLoadTexture(t13, 0x8C12CBEC);
@@ -271,7 +271,7 @@ void FUN_8c0b69ca(void)
     } while ((int)t3 < (int)0x30);
 }
 
-void FUN_8c0cbb6c(void)
+void staffRestart(void)
 {
     int t0;
 
@@ -280,13 +280,13 @@ void FUN_8c0cbb6c(void)
         *(unsigned int *)((t0 + 0x600)) = 0x0;
         t0 = (t0 + 0x67C);
     } while ((unsigned int)t0 < (unsigned int)0x8C37F77C);
-    FUN_8c0c8ffe();
-    FUN_8c0ca1f8();
-    FUN_8c0ca862();
-    FUN_8c0ca4f2();
+    lineJudgeInit();
+    netJudgeInit();
+    umpireInit();
+    netJudgeStart();
 }
 
-void FUN_8c0e89c0(void)
+void resWtcShopPolyRead(void)
 {
     int t0;
 
@@ -298,7 +298,7 @@ void FUN_8c0e89c0(void)
     fileLoadPoll();
 }
 
-void FUN_8c0e8a1c(void)
+void resWtcShopTexRead(void)
 {
     int t0;
 
@@ -310,7 +310,7 @@ void FUN_8c0e8a1c(void)
     fileLoadPoll();
 }
 
-void FUN_8c0e8a3a(void)
+void resWtcShopSprRead(void)
 {
     int t0;
 
@@ -322,7 +322,7 @@ void FUN_8c0e8a3a(void)
     fileLoadPoll();
 }
 
-void FUN_8c0e8a58(void)
+void resFukuPolyRead(void)
 {
     int t0;
 
@@ -334,7 +334,7 @@ void FUN_8c0e8a58(void)
     fileLoadPoll();
 }
 
-void FUN_8c0e8c92(void)
+void resEndSprRead(void)
 {
     int t0;
 
@@ -346,7 +346,7 @@ void FUN_8c0e8c92(void)
     fileLoadPoll();
 }
 
-void FUN_8c0e8cb0(void)
+void resEndPolyRead(void)
 {
     int t0;
 
@@ -358,7 +358,7 @@ void FUN_8c0e8cb0(void)
     fileLoadPoll();
 }
 
-void FUN_8c0e8cce(void)
+void resEndTexRead(void)
 {
     int t0;
 
@@ -370,7 +370,7 @@ void FUN_8c0e8cce(void)
     fileLoadPoll();
 }
 
-void FUN_8c0e8cec(void)
+void resSprTitleRead(void)
 {
     int t0;
 
@@ -382,7 +382,7 @@ void FUN_8c0e8cec(void)
     fileLoadPoll();
 }
 
-void FUN_8c0e8dde(void)
+void resTitlePolyRead(void)
 {
     int t0;
 
@@ -394,7 +394,7 @@ void FUN_8c0e8dde(void)
     fileLoadPoll();
 }
 
-void FUN_8c0e8dfc(void)
+void resTitleSprRead(void)
 {
     int t0;
 
@@ -406,7 +406,7 @@ void FUN_8c0e8dfc(void)
     fileLoadPoll();
 }
 
-void FUN_8c0e9120(void)
+void resGetRead(void)
 {
     int t0;
 
@@ -428,7 +428,7 @@ void kmyDeleteNativeBuffer(int a4, int a5)
     int t5;
     int t8;
 
-    t0 = FUN_8c1f8a40(a4);
+    t0 = kmyiCheckTAHandle(a4);
     if (t0 != 0) {
         t1 = kmyiCheckNativeHandle(a5);
         if (t1 != 0) {

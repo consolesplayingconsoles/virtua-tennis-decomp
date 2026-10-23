@@ -11,7 +11,7 @@ extern int kmyiCheckNativeHandle(int h);
 extern void ADXB_ExecOneAuUlaw(char *p);
 extern void ADXB_ExecOneAu8(char *p);
 extern void ADXB_ExecOneAu16(char *p);
-extern int strncmp(char *a, char *b, int n);
+extern int memcmp(char *a, char *b, int n);
 extern int kmiReadRegister(int a);
 
 extern unsigned int g_0c2af0bc;
@@ -163,7 +163,7 @@ void ADXB_ExecOneAu(char *p)
 
 int ADXB_CheckSpsd(char *p)
 {
-    return strncmp(p, g_8c20b990, 4) == 0;
+    return memcmp(p, g_8c20b990, 4) == 0;
 }
 
 void kmiGetITPCurrent(int *p)

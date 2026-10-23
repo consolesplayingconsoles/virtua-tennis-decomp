@@ -6,24 +6,24 @@ int ADXSJD_SetInSj(int, int);
 int ADXSJD_Start(void);
 int ADXSTM_Close(int);
 int ADXT_Stop(void);
-int FUN_0c0813d0(int);
-int FUN_0c089738(int, int);
-int FUN_0c171f6c(int, int, int);
-int FUN_0c172042(int, int, int);
-int FUN_0c1720ac(int, int, int);
-int FUN_0c172132(int, int);
-int FUN_8c010976(int, int);
-int FUN_8c015eea(float, float, float);
-int FUN_8c041c58(int, int, float, float);
-int FUN_8c08e718(int, int, int, int, int, int);
-int FUN_8c0e1e56(void);
-int FUN_8c0e2060(void);
-int FUN_8c0fc360(int, int, int, int);
-int FUN_8c100bd8(int, int, int);
-int FUN_8c1e1614(int);
-int FUN_8c1f0a7e(int, int, int, int);
-int FUN_8c1f1932(int, int);
-int FUN_8c1f3114(void);
+int abs(int);
+int _lsft(int, int);
+int mwlSbSetFx(int, int, int);
+int mwlSbSetPitch(int, int, int);
+int mwlSbSetFilter(int, int, int);
+int mwlSbSetGain(int, int);
+int set_event2(int, int);
+int vecMake(float, float, float);
+int cpuAimPointSet(int, int, float, float);
+int sprInitRectF(int, int, int, int, int, int);
+int rankDrawTbl1(void);
+int rankDrawTbl2(void);
+int nlObjPutMVAsm(int, int, int, int);
+int _setsbit(int, int, int);
+int ADXT_GetOutVol(int);
+int ADXSTMF_Create(int, int, int, int);
+int ADXF_Ocbi(int, int);
+int SJMEM_Lock(void);
 int SJMEM_Unlock(int, int);
 extern float _builtin_fipr(float *, float *);
 extern int _builtin_get_imask(void);
@@ -59,59 +59,59 @@ int set_event(int, int);
 int strncpy(int, int, int);
 int nlFreeTextureAll(void);
 int mwRnaSetPitch(int a4, int a5, int a6);
-int FUN_8c016d16(int a4, float f4, float f5);
-int FUN_8c05a3dc(int a4);
+int valStepToward(int a4, float f4, float f5);
+int cpuDblIsMyBall(int a4);
 int _mult64(int a4, int a5, int a6, int a7);
 int adxt_start_sj(int a4, int a5);
 int ADXSTM_OpenRange(int a4, int a5, int a6);
-int FUN_8c0a6544(void);
-int FUN_8c0d0bd8(void);
-void FUN_8c0eedf0(void);
+int decoGaugeSprInit(void);
+int padIdleFrames(void);
+void nlFastInvertMatrix(void);
 int adxf_SetCmdHstry(int a4, int a5, int a6, int a7, int a8);
 int SJMEM_IsGetChunk(int a4, int a5, int a6, int a7);
 float angleLerp(int a4, int a5, float f4);
 int nlsndPackFreeBG(int a4);
 int search_dir_by_startfat(int a4, int a5);
 int kmyGetFrameBufferSize(int a4);
-int FUN_8c200abc(int a4, int a5);
-int FUN_8c0ed520(int a4, float f4);
-int FUN_8c0f2300(int a4, int a5);
+int mwlSbSetDrctLvl(int a4, int a5);
+int nlSinfReduce(int a4, float f4);
+int nlObjPutMvSub(int a4, int a5);
 int mwRnaSetBitPerSmpl(int a4, int a5);
 int kmyConnectInterrupt(int a4, int a5, int a6);
 int kmySetPassInfo(int a4, int a5, int a6);
-int FUN_8c0d6d00(int a4, int a5);
-int FUN_8c1e2934(int a4, int a5);
+int strmBgmFadeOut(int a4, int a5);
+int kmyZeroMemory(int a4, int a5);
 int mwRnaSetOutPan(int a4, int a5, int a6);
 int SJRBF_GetNumData(int a4, int a5);
 int kmyAllocateFrameBuffer(int a4, int a5, int a6);
-int FUN_8c200b1c(int a4, int a5, int a6, int a7);
-int FUN_8c0da858(int a4);
+int mwSbSetExPrm(int a4, int a5, int a6, int a7);
+int evVoiceFadeOut(int a4);
 int search_fat_backward(int a4, int a5, int a6, int a7);
 int kmyGetPassInfo(int a4, int a5, int a6);
 int kmtex_ConfirmSmallVQ(int a4);
-int FUN_8c1fc2f0(int a4);
-float FUN_8c029a5c(float f4);
-int FUN_8c088a16(void);
-int FUN_8c0e1e06(void);
+int kmtex_TextureSize_Twiddled(int a4);
+float rndRangef(float f4);
+int matchPropStart(void);
+int rankDraw(void);
 float nlRoundUp(float f4);
 int nlsndStreamIsPlaying(int a4);
-int FUN_8c0f81d0(void);
+int nlInitInterruptDC(void);
 void syChainInit(void);
 int mwRnaSetDrctLvl(int a4, int a5);
 int syG2DmaSetProtect(int a4, int a5);
-int FUN_8c0b0068(int a4);
-int FUN_8c0ba2b4(int a4, float f4, float f5, float f6);
-int FUN_8c0da726(int a4);
+int entryGetColorId(int a4);
+int stageSegaQuadUVSet(int a4, float f4, float f5, float f6);
+int evFadeValueTask(int a4);
 int kmiConvertUVnum(int a4);
-int FUN_8c200824(int a4, int a5, int a6);
-int FUN_8c02f362(int a4, int a5, int a6, int a7, int a8, int a9);
+int mwSbSetPan(int a4, int a5, int a6);
+int padVibRequest(int a4, int a5, int a6, int a7, int a8, int a9);
 int adxf_CloseSjStm(int a4);
 int SJMEM_GetNumData(int a4, int a5);
 int kmyiSetScreenSize(int a4);
-void FUN_8c016eae(int a4, int a5, int a6, int a7, int a8);
-int FUN_8c04c298(int a4, int a5);
-int FUN_8c087f7e(int a4, int a5, int a6, int a7, int a8);
-int FUN_8c089176(int a4, int a5, int a6);
+void vecFromYaw(int a4, int a5, int a6, int a7, int a8);
+int cpuSglAimAddSides(int a4, int a5);
+int hudFadeOutStart(int a4, int a5, int a6, int a7, int a8);
+int exprPlayB(int a4, int a5, int a6);
 
 int nlFreeTextureAll(void)
 {
@@ -203,7 +203,7 @@ int mwRnaSetPitch(int a4, int a5, int a6)
     return 0x78;
 }
 
-int FUN_8c016d16(int a4, float f4, float f5)
+int valStepToward(int a4, float f4, float f5)
 {
     float u5;
     float u0;
@@ -233,7 +233,7 @@ int FUN_8c016d16(int a4, float f4, float f5)
     return ((int (*)(int, float, float, float, float))(0x8C016D78))(a4, f4, f5, u5, (f5 - f4));
 }
 
-int FUN_8c05a3dc(int a4)
+int cpuDblIsMyBall(int a4)
 {
     int t0;
     int t1;
@@ -278,9 +278,9 @@ int _mult64(int a4, int a5, int a6, int a7)
         t5 = *(short *)((a4 + 0x0));
         *(unsigned short *)((a4 + 0x0)) = (t5 + 0x1);
     } else {
-        FUN_0c089738((((int)stk + 4) + 0x8), 0x10);
+        _lsft((((int)stk + 4) + 0x8), 0x10);
     }
-    FUN_8c100bd8((((int)stk + 4) + 0x8), 0x10, 0x42);
+    _setsbit((((int)stk + 4) + 0x8), 0x10, 0x42);
     t11 = *(signed char *)(((((int)stk + 4) + 0x8) + 0x8));
     *(unsigned char *)(((((int)stk + 4) + 0x8) + 0x8)) = (t11 & 0xE0);
     t12 = *(int *)(((int)stk + 4));
@@ -337,14 +337,14 @@ int ADXSTM_OpenRange(int a4, int a5, int a6)
         ADXERR_CallErrFunc(0x8C20AA64, a4, a5);
         return 0x0;
     }
-    t2 = FUN_8c1f0a7e(t0, 0x0, (((a5 << 8) << 2) << 1), a6);
+    t2 = ADXSTMF_Create(t0, 0x0, (((a5 << 8) << 2) << 1), a6);
     if (t2 != 0) {
         strncpy((t2 + 0x40), 0x8C20AA9C, 0x20);
     }
     return t2;
 }
 
-int FUN_8c0a6544(void)
+int decoGaugeSprInit(void)
 {
     int t0;
     int t1;
@@ -371,7 +371,7 @@ int FUN_8c0a6544(void)
     for (;;) {
         t7 = *(int *)((t5 + 0x0));
         t5 = (t5 + 0x4);
-        t8 = FUN_8c08e718(t6, t7, ((int)stk + 12), 0x40, 0x40, 0x0);
+        t8 = sprInitRectF(t6, t7, ((int)stk + 12), 0x40, 0x40, 0x0);
         t4 = (t4 + 0x1);
         *(unsigned int *)((t6 + 0x34)) = 0x5;
         t6 = (t6 + 0x50);
@@ -382,7 +382,7 @@ int FUN_8c0a6544(void)
     return t8;
 }
 
-int FUN_8c0d0bd8(void)
+int padIdleFrames(void)
 {
     int t1;
     int t2;
@@ -456,7 +456,7 @@ int FUN_8c0d0bd8(void)
     return t27;
 }
 
-void FUN_8c0eedf0(void)
+void nlFastInvertMatrix(void)
 {
     float u2;
     float u6;
@@ -614,7 +614,7 @@ int SJMEM_IsGetChunk(int a4, int a5, int a6, int a7)
     int t7;
     int t13;
 
-    t0 = FUN_8c1f3114();
+    t0 = SJMEM_Lock();
     t18 = 0x0;
     if (a5 != 0) {
         if (a5 == 1) {
@@ -646,7 +646,7 @@ float angleLerp(int a4, int a5, float f4)
 
     if (f4 == 0.0f) {
     } else {
-        FUN_0c0813d0((a4 - a5));
+        abs((a4 - a5));
         
         u16 = f4;
     }
@@ -733,7 +733,7 @@ int kmyGetFrameBufferSize(int a4)
     return ((t9 * t10) * t11);
 }
 
-int FUN_8c200abc(int a4, int a5)
+int mwlSbSetDrctLvl(int a4, int a5)
 {
     int t14;
     int t0;
@@ -772,7 +772,7 @@ int FUN_8c200abc(int a4, int a5)
     return t14;
 }
 
-int FUN_8c0ed520(int a4, float f4)
+int nlSinfReduce(int a4, float f4)
 {
     float u0;
     float u1;
@@ -811,7 +811,7 @@ int FUN_8c0ed520(int a4, float f4)
     return ((int (*)(int, int, float, float, float))(0x8C0ED578))(t8, 0x3, ((f4 - ((float)(int)(u3 + (f4 / u5)) * u6)) + u7 * (float)(int)(u3 + (f4 / u5))), u9, (((f4 - ((float)(int)(u3 + (f4 / u5)) * u6)) + u7 * (float)(int)(u3 + (f4 / u5))) * ((f4 - ((float)(int)(u3 + (f4 / u5)) * u6)) + u7 * (float)(int)(u3 + (f4 / u5)))));
 }
 
-int FUN_8c0f2300(int a4, int a5)
+int nlObjPutMvSub(int a4, int a5)
 {
     int t0;
     int t1;
@@ -835,7 +835,7 @@ int FUN_8c0f2300(int a4, int a5)
             t5 = *(int *)0x8C450BFC;
             *(unsigned int *)0x8C458DA0 = t5;
             t6 = *(int *)0x8C450C00;
-            FUN_8c0fc360(a4, 0x8C458D98, a5, t6);
+            nlObjPutMVAsm(a4, 0x8C458D98, a5, t6);
         }
     }
     return nlPopMatrix(0x1);
@@ -914,7 +914,7 @@ int kmySetPassInfo(int a4, int a5, int a6)
     return 0xEEEE;
 }
 
-int FUN_8c0d6d00(int a4, int a5)
+int strmBgmFadeOut(int a4, int a5)
 {
     int t0;
     int t1;
@@ -922,7 +922,7 @@ int FUN_8c0d6d00(int a4, int a5)
 
     t0 = *(int *)0x8C38BA94;
     if (a4 != 0) {
-        t1 = FUN_8c1e1614(t0);
+        t1 = ADXT_GetOutVol(t0);
         *(unsigned int *)0x8C38BA68 = t1;
         *(unsigned int *)0x8C40C220 = 0x2;
         *(unsigned int *)0x8C40C22C = a5;
@@ -933,7 +933,7 @@ int FUN_8c0d6d00(int a4, int a5)
     return ADXT_Stop();
 }
 
-int FUN_8c1e2934(int a4, int a5)
+int kmyZeroMemory(int a4, int a5)
 {
     int t0;
     int t1;
@@ -1077,27 +1077,27 @@ int kmyAllocateFrameBuffer(int a4, int a5, int a6)
     return t3;
 }
 
-int FUN_8c200b1c(int a4, int a5, int a6, int a7)
+int mwSbSetExPrm(int a4, int a5, int a6, int a7)
 {
     if (a5 == 0) {
-        return FUN_0c171f6c(a4, a6, a7);
+        return mwlSbSetFx(a4, a6, a7);
     }
     if (a5 == 1) {
-        return FUN_0c172042(a4, a6, a7);
+        return mwlSbSetPitch(a4, a6, a7);
     }
     if (a5 == 2) {
-        return FUN_0c172132(a4, a6);
+        return mwlSbSetGain(a4, a6);
     }
     if (a5 == 3) {
-        return FUN_0c1720ac(a4, a6, a7);
+        return mwlSbSetFilter(a4, a6, a7);
     }
     if (a5 == 4) {
-        return FUN_8c200abc(a4, a6);
+        return mwlSbSetDrctLvl(a4, a6);
     }
     return a5;
 }
 
-int FUN_8c0da858(int a4)
+int evVoiceFadeOut(int a4)
 {
     int t0;
     float u1;
@@ -1110,7 +1110,7 @@ int FUN_8c0da858(int a4)
     u1 = *(float *)0x8C23D204;
     *(unsigned int *)((t0 + 0x14)) = (int)((float)a4 / u1);
     t2 = *(int *)0x8C38BA98;
-    t3 = FUN_8c1e1614(t2);
+    t3 = ADXT_GetOutVol(t2);
     *(float *)((t0 + 0x18)) = (float)t3;
     u4 = *(float *)0x8C0DA9A0;
     u5 = *(float *)((t0 + 0x18));
@@ -1199,7 +1199,7 @@ int kmtex_ConfirmSmallVQ(int a4)
     return 0x1;
 }
 
-int FUN_8c1fc2f0(int a4)
+int kmtex_TextureSize_Twiddled(int a4)
 {
     int t0;
     int t1;
@@ -1217,7 +1217,7 @@ int FUN_8c1fc2f0(int a4)
     return ((int (*)(int, int, int, int))(0x8C1FC364))(a4, t0, t1, (t1 * t0));
 }
 
-float FUN_8c029a5c(float f4)
+float rndRangef(float f4)
 {
     float u0;
     int t1;
@@ -1249,7 +1249,7 @@ float FUN_8c029a5c(float f4)
     return (u18 / u0);
 }
 
-int FUN_8c088a16(void)
+int matchPropStart(void)
 {
     int t0;
     int t1;
@@ -1270,7 +1270,7 @@ int FUN_8c088a16(void)
     return t2;
 }
 
-int FUN_8c0e1e06(void)
+int rankDraw(void)
 {
     float u0;
     float u1;
@@ -1285,12 +1285,12 @@ int FUN_8c0e1e06(void)
     u2 = *(float *)0x8C0E2030;
     t3 = *(int *)0x8C287ADC;
     if (t3 == 2) {
-        FUN_8c015eea(u2, u1, u0);
-        t5 = FUN_8c0e1e56();
+        vecMake(u2, u1, u0);
+        t5 = rankDrawTbl1();
         t8 = t5;
     } else {
-        FUN_8c015eea(u2, u1, u0);
-        t7 = FUN_8c0e2060();
+        vecMake(u2, u1, u0);
+        t7 = rankDrawTbl2();
         t8 = t7;
     }
     return t8;
@@ -1351,7 +1351,7 @@ int nlsndStreamIsPlaying(int a4)
     return t12;
 }
 
-int FUN_8c0f81d0(void)
+int nlInitInterruptDC(void)
 {
     return ((int (*)(int))(0x8C0F8100))(0x0);
 }
@@ -1433,7 +1433,7 @@ int syG2DmaSetProtect(int a4, int a5)
     return 0x0;
 }
 
-int FUN_8c0b0068(int a4)
+int entryGetColorId(int a4)
 {
     int t0;
     int t1;
@@ -1483,7 +1483,7 @@ int FUN_8c0b0068(int a4)
     return t15;
 }
 
-int FUN_8c0ba2b4(int a4, float f4, float f5, float f6)
+int stageSegaQuadUVSet(int a4, float f4, float f5, float f6)
 {
     int t0;
     int t1;
@@ -1509,7 +1509,7 @@ int FUN_8c0ba2b4(int a4, float f4, float f5, float f6)
     return 0x8C0BA360;
 }
 
-int FUN_8c0da726(int a4)
+int evFadeValueTask(int a4)
 {
     int t0;
     int t1;
@@ -1538,7 +1538,7 @@ int kmiConvertUVnum(int a4)
     return ((int (*)(int))(0x8C0EA5C0))(a4);
 }
 
-int FUN_8c200824(int a4, int a5, int a6)
+int mwSbSetPan(int a4, int a5, int a6)
 {
     int t1;
     int t3;
@@ -1561,7 +1561,7 @@ int FUN_8c200824(int a4, int a5, int a6)
     return nlsndStreamChgPan(t6, a5, t1);
 }
 
-int FUN_8c02f362(int a4, int a5, int a6, int a7, int a8, int a9)
+int padVibRequest(int a4, int a5, int a6, int a7, int a8, int a9)
 {
     int t0;
     int t1;
@@ -1628,7 +1628,7 @@ int adxf_CloseSjStm(int a4)
             if (t10 == 1) {
                 t11 = *(int *)((a4 + 0x2C));
                 t12 = *(int *)((a4 + 0x28));
-                FUN_8c1f1932(t12, t11);
+                ADXF_Ocbi(t12, t11);
             }
             t19 = *(int *)((a4 + 0x8));
             t20 = *(int *)((t19 + 0x0));
@@ -1678,7 +1678,7 @@ int kmyiSetScreenSize(int a4)
     return ((int (*)(int, int))(0x8C1F83E0))(a4, (0x42 & a4));
 }
 
-void FUN_8c016eae(int a4, int a5, int a6, int a7, int a8)
+void vecFromYaw(int a4, int a5, int a6, int a7, int a8)
 {
     int t1;
     int t6;
@@ -1690,7 +1690,7 @@ void FUN_8c016eae(int a4, int a5, int a6, int a7, int a8)
     nlPushUnitMatrix();
     t1 = *(short *)(((int)stk + 8));
     nlRotateAY((unsigned short)t1);
-    FUN_8c015eea(0.0f, 0.0f, 1.0f);
+    vecMake(0.0f, 0.0f, 1.0f);
     nlCalcPoint((((int)stk + 4) + 0x8), (((int)stk + 4) + 0x8));
     nlPopMatrix(0x1);
     t6 = *(int *)(((((int)stk + 4) + 0x8) + 0x8));
@@ -1701,7 +1701,7 @@ void FUN_8c016eae(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((a8 + 0x0)) = t8;
 }
 
-int FUN_8c04c298(int a4, int a5)
+int cpuSglAimAddSides(int a4, int a5)
 {
     float u0;
     float u1;
@@ -1712,18 +1712,18 @@ int FUN_8c04c298(int a4, int a5)
     u0 = *(float *)0x8C04C3B0;
     u1 = *(float *)((a4 + 0xB00));
     u2 = *(float *)0x8C287B40;
-    FUN_8c041c58(a5, 0x3, u2, (u1 * u0));
+    cpuAimPointSet(a5, 0x3, u2, (u1 * u0));
     u4 = *(float *)((a4 + 0xB00));
     u5 = *(float *)0x8C287B40;
-    FUN_8c041c58((a5 + 0x1), 0x3, (-u5), (u4 * u0));
+    cpuAimPointSet((a5 + 0x1), 0x3, (-u5), (u4 * u0));
     return ((a5 + 0x1) + 0x1);
 }
 
-int FUN_8c087f7e(int a4, int a5, int a6, int a7, int a8)
+int hudFadeOutStart(int a4, int a5, int a6, int a7, int a8)
 {
     int t0;
 
-    t0 = FUN_8c010976(0x40, 0x8C087EA4);
+    t0 = set_event2(0x40, 0x8C087EA4);
     *(unsigned int *)((t0 + 0x3C)) = a4;
     *(unsigned int *)((t0 + 0x28)) = a5;
     *(unsigned int *)((t0 + 0x2C)) = a6;
@@ -1737,7 +1737,7 @@ int FUN_8c087f7e(int a4, int a5, int a6, int a7, int a8)
     return 0x30;
 }
 
-int FUN_8c089176(int a4, int a5, int a6)
+int exprPlayB(int a4, int a5, int a6)
 {
     int t0;
     int t1;

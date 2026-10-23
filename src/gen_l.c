@@ -10,7 +10,7 @@ int vmsfs_write_retry(int, int, int);
 int vmsio_ismount(int);
 int write_dir_all(int);
 int vmsfs_format(int a4, int a5, int a6, int a7, int a8);
-int FUN_8c20731c(int a4, int a5, int a6, int a7, int a8);
+int adxb_DecodeInfoAiffSub(int a4, int a5, int a6, int a7, int a8);
 
 int vmsfs_format(int a4, int a5, int a6, int a7, int a8)
 {
@@ -377,7 +377,7 @@ int vmsfs_format(int a4, int a5, int a6, int a7, int a8)
     return ((int (*)(int))(0x8C1EBCBA))(t142);
 }
 
-int FUN_8c20731c(int a4, int a5, int a6, int a7, int a8)
+int adxb_DecodeInfoAiffSub(int a4, int a5, int a6, int a7, int a8)
 {
     int t0;
     int t1;

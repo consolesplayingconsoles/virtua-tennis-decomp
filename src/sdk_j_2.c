@@ -20,7 +20,7 @@ void ADXERR_CallErrFunc(char *msg);
 
 
 /* A translation by minus the vector v. */
-void FUN_0c0789c0(float *v)
+void nlTranslateNV(float *v)
 {
     nlTranslate(-v[0], -v[1], -v[2]);
 }

@@ -45,8 +45,8 @@ int FUN_0c072fe8(void);
 int FUN_0c0738bc(void);
 int FUN_0c080ae0(int, int, int);
 int FUN_0c151cac(int, int, int);
-int FUN_0c152292(int, int);
-int FUN_0c152330(int, int);
+int ADXT_SetReloadSct(int, int);
+int ADXT_SetAutoRcvr(int, int);
 int FUN_0c15fa1c(void);
 int FUN_0c167c4c(void);
 int FUN_0c16800c(void);
@@ -54,7 +54,7 @@ int FUN_0c169710(int);
 int FUN_0c16c634(int);
 int FUN_0c170880(void);
 int FUN_0c1708b2(void);
-int FUN_0c171e62(int, int, int);
+int mwlSbGetStreamParam(int, int, int);
 int FcvPlay(int, int, float);
 int GetMenuMode(int);
 int GetRotVec(int);
@@ -207,7 +207,7 @@ void ADXSJD_Stop(int a4)
 }
 
 
-int FUN_0c1688ce(int a4)
+int ADXSJD_GetLpEndOfst(int a4)
 {
     int t0;
 
@@ -216,7 +216,7 @@ int FUN_0c1688ce(int a4)
 }
 
 
-int FUN_0c1697c4(int a4)
+int ADXF_InitCache_P2_(int a4)
 {
     int t1;
 
@@ -262,7 +262,7 @@ void ADXB_Reset(int a4)
 }
 
 
-void FUN_0c17190c(int a4)
+void mwlSbFreeWork(int a4)
 {
     int t0;
 
@@ -275,16 +275,16 @@ void FUN_0c17190c(int a4)
 }
 
 
-void FUN_0c1720f4(int a4, int a5, int a6)
+void mwlSbGetFilter(int a4, int a5, int a6)
 {
     int t0;
     int t1;
     int t2;
     int t3;
 
-    t0 = FUN_0c171e62(a4, 0x9, 0x0);
+    t0 = mwlSbGetStreamParam(a4, 0x9, 0x0);
     *(unsigned short *)(((0x58 + a4) + 0x0)) = t0;
-    t1 = FUN_0c171e62(a4, 0xA, 0x0);
+    t1 = mwlSbGetStreamParam(a4, 0xA, 0x0);
     *(unsigned short *)(((0x5A + a4) + 0x0)) = t1;
     t2 = *(short *)((a4 + 0x58));
     *(unsigned int *)((a5 + 0x0)) = t2;

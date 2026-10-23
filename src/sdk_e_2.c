@@ -78,7 +78,7 @@ void nlObjPutMvSetMode(int mode)
 }
 
 
-int nlObjPutSetReplaceTextureDirName(char *p, void *name)
+int nlSpriteLoadTextureList(char *p, void *name)
 {
     int i, acc;
     char *e;

@@ -66,11 +66,11 @@ int FUN_0c168c7c(int);
 int FUN_0c16c634(int);
 int FUN_0c170848(int, int, int);
 int FUN_0c17085c(int);
-int FUN_0c17088c(int, int, int);
-int FUN_0c170908(int, int, int);
-int FUN_0c170956(int, int);
-int FUN_0c170a8c(int);
-int FUN_0c170b48(int);
+int fmMngMcpy4(int, int, int);
+int fmMngNum2Bit(int, int, int);
+int fmMngChkEmptyData(int, int);
+int fmMngSctRefresh(int);
+int fmMngAddData(int);
 int FUN_0c172f1e(int);
 int FUN_0c17467c(int);
 int GetMenuMode(int);
@@ -153,7 +153,7 @@ void p2_cache_set(void)
 }
 
 
-int FUN_0c15fa6c(int a4, int a5, int a6)
+int gdFsGetTokenSize(int a4, int a5, int a6)
 {
     int t0;
     int t1;
@@ -188,7 +188,7 @@ int FUN_0c15fa6c(int a4, int a5, int a6)
 }
 
 
-int FUN_0c162d2c(int a4, int a5)
+int pdVmsLcdBltAsmFlipV(int a4, int a5)
 {
     int t0;
     int t1;
@@ -228,7 +228,7 @@ int FUN_0c162d2c(int a4, int a5)
 }
 
 
-int FUN_0c162d5e(int a4, int a5)
+int pdVmsLcdBltAsmFlipH(int a4, int a5)
 {
     int t0;
     int t1;
@@ -268,7 +268,7 @@ int FUN_0c162d5e(int a4, int a5)
 }
 
 
-int FUN_0c162d8a(int a4, int a5)
+int pdVmsLcdBltAsmFlipHV(int a4, int a5)
 {
     int t0;
     int t1;
@@ -511,7 +511,7 @@ void ADXSTM_SetEos(int a4, int a5)
 }
 
 
-int FUN_0c1708d0(int a4, int a5, int a6)
+int fmMngBit2Num(int a4, int a5, int a6)
 {
     int t0;
     int t1;
@@ -546,7 +546,7 @@ int FUN_0c1708d0(int a4, int a5, int a6)
 }
 
 
-int FUN_0c170956(int a4, int a5)
+int fmMngChkEmptyData(int a4, int a5)
 {
     int t0;
     int t1;
@@ -586,7 +586,7 @@ int FUN_0c170956(int a4, int a5)
 }
 
 
-int FUN_0c170a8c(int a4)
+int fmMngSctRefresh(int a4)
 {
     int t0;
     int t1;
@@ -635,7 +635,7 @@ int FUN_0c170a8c(int a4)
                 for (;;) {
                     t10 = *(short *)((t9 + 0x0));
                     if ((unsigned short)t10 != 0xFFFF) {
-                        t11 = FUN_0c170956(a4, t9);
+                        t11 = fmMngChkEmptyData(a4, t9);
                         t5 = t11;
                         if (t5 == 0) {
                             t12 = FUN_0c170848(t8, t9, 0x40);
@@ -662,7 +662,7 @@ int FUN_0c170a8c(int a4)
                 }
                 t14 = *(int *)((a4 + 0x14));
                 t15 = *(int *)((a4 + 0x18));
-                FUN_0c170908(t7, t9, t15);
+                fmMngNum2Bit(t7, t9, t15);
                 t17 = *(int *)((a4 + 0x18));
                 t18 = FUN_0c170848((((((t14 + 0x1) << 2) << 2) << 2) + t1), t9, (((t17 << 2) << 2) << 2));
                 t19 = *(int *)((a4 + 0x18));
@@ -675,7 +675,7 @@ int FUN_0c170a8c(int a4)
             } else {
                 t21 = *(int *)((a4 + 0x14));
                 t22 = *(int *)((a4 + 0x18));
-                FUN_0c170908(0x0, (t2 + 0x40), t22);
+                fmMngNum2Bit(0x0, (t2 + 0x40), t22);
                 t24 = *(int *)((a4 + 0x18));
                 t25 = FUN_0c170848((((((t21 + 0x1) << 2) << 2) << 2) + t1), (t2 + 0x40), (((t24 << 2) << 2) << 2));
                 t26 = *(int *)((a4 + 0x18));
@@ -694,7 +694,7 @@ int FUN_0c170a8c(int a4)
 }
 
 
-int FUN_0c171cfe(int a4, int a5)
+int mwSbSetNumChan(int a4, int a5)
 {
     int t0;
     int t1;

@@ -29,7 +29,7 @@ void ADX_GetCoefficient(int a, int b, void *c, void *d);
 void ADXRNA_SetOutVol(int rna, int vol);
 
 
-int FUN_0c087e2a(int *p)
+int _fmtout_outerr(int *p)
 {
     if (p[0] == 1)
         return 0;
@@ -55,7 +55,7 @@ void ADXSJD_ExecHndl(char *sjd)
 }
 
 
-void FUN_0c1708bc(char *p, int n)
+void fmMngClearBuf(char *p, int n)
 {
     while (n > 0) {
         n--;
@@ -73,7 +73,7 @@ void memcpy2(short *d, short *s, int n)
 }
 
 
-int FUN_0c171e62(char *s, int b, int c)
+int mwlSbGetStreamParam(char *s, int b, int c)
 {
     return nlsndStreamGetParam(((int *)*(int *)(s + 28))[1], b, c);
 }

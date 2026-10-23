@@ -2,9 +2,9 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 int ADXERR_CallErrFunc(int, int);
-int FUN_0c0813d0(int, int);
-int FUN_8c0bcda0(void);
-int FUN_8c0f7cf0(void);
+int abs(int, int);
+int fadeScreenDraw(void);
+int _quick_mvn(void);
 int kmiWriteRegister(int, int);
 int nlFogDensityF(float);
 int nlFogTableColor(int);
@@ -15,9 +15,9 @@ int vmsfs_c_getstate(int, int);
 int vmsfs_fisexist(int, int);
 int vmsfs_xfind(int, int);
 
-void FUN_8c0163b2(int a4, int a5)
+void angDiff(int a4, int a5)
 {
-    FUN_0c0813d0(((unsigned short)a4 - (unsigned short)a5), a5);
+    abs(((unsigned short)a4 - (unsigned short)a5), a5);
     
     
     
@@ -25,16 +25,16 @@ void FUN_8c0163b2(int a4, int a5)
 
 void thunk_FUN_8c0bcda0(void)
 {
-    FUN_8c0bcda0();
+    fadeScreenDraw();
 }
 
-void FUN_8c03a04a(void)
+void miniBallCopySpawn(void)
 {
     set_event(0xA0, 0x8C03A068);
-    FUN_8c0f7cf0();
+    _quick_mvn();
 }
 
-void FUN_8c087ce6(void)
+void ambLevelGet(void)
 {
     int t0;
     int t1;
@@ -50,7 +50,7 @@ void FUN_8c087ce6(void)
     t2 = *(int *)0x8C301BE8;
 }
 
-void FUN_8c089672(int a4)
+void fogApply(int a4)
 {
     int t0;
     int t1;
@@ -65,13 +65,13 @@ void FUN_8c089672(int a4)
     nlFogDensityF(u4);
 }
 
-void FUN_8c08e93c(int a4, float f4)
+void sprPutAlpha(int a4, float f4)
 {
     *(float *)((a4 + 0x2C)) = f4;
     nlSprPut(a4, f4);
 }
 
-void FUN_0c076670(void)
+void nlPrintInitFontTexture(void)
 {
     *(unsigned int *)0x8C44F9AC = 0xA2000009;
     *(unsigned int *)0x8C44F9B0 = 0x80000000;
@@ -123,14 +123,14 @@ void vmsfs_setretry(int a4)
     *(unsigned int *)0x8C46215C = a4;
 }
 
-void FUN_8c1f56c0(void)
+void kmyGetInterruptLevel(void)
 {
     int t0;
 
     t0 = *(int *)0x8C470AA4;
 }
 
-void FUN_0c158f00(void)
+void kmiWriteDispModeRegisters(void)
 {
     int t0;
     int t2;

@@ -50,7 +50,7 @@ extern int pdGetPeripheral(int port);
 extern void FUN_0c039434(int mode);
 extern void FUN_0c076f70(void);
 
-extern void FUN_0c074680(int a, int b, int c);
+extern void FUN_8c0eaf00(int a, int b, int c);
 extern void FUN_0c05c8e8(void);
 extern void FUN_0c05ca3e(void);
 extern void FUN_0c05c81c(void);
@@ -253,7 +253,7 @@ extern void hudDraw(void);
 extern void FUN_0c051d22(void);
 extern void FUN_0c05153e(void);
 extern void nlRotateAZ(int a);
-extern void FUN_0c0789c0(Vec3f *v);
+extern void nlTranslateNV(Vec3f *v);
 extern void FUN_0c078ff0(void);
 extern void ADXF_Stop(int h);
 extern void ADXF_Close(int h);
@@ -274,7 +274,7 @@ void FUN_0c051a3a(void);
         nlRotateAZ(-(int)a[2]);                                     \
         nlRotateAX(-(int)a[0]);                                     \
         nlRotateAY(-(int)a[1]);                                     \
-        FUN_0c0789c0(&p);                                           \
+        nlTranslateNV(&p);                                           \
         FUN_0c077df0(1);                                            \
         FUN_0c078ff0();                                             \
     }
@@ -335,7 +335,7 @@ extern void FUN_0c07250c(void *a, void *b);
 extern void FUN_0c02f870(void);
 extern void gdc_SpriteFreeMenu(void);
 extern int gdc_FileLoad(int dst, int name, int size);
-extern void nlObjPutSetReplaceTextureDirName(void *tbl, void *dir);
+extern void nlSpriteLoadTextureList(void *tbl, void *dir);
 extern void Set_StandWaitDist(int mode);
 extern void kyakuInitStops(void);
 extern void FUN_0c0246dc(void);
@@ -410,7 +410,7 @@ extern void nlObjPut(void *obj);
 extern float getNearCoursePoint(int a, int i, int *res, float *pos);
 
 extern void gdFsMemcpy(char *src, char *dst, int n);
-extern int FUN_0c15fa92(char *name);
+extern int gdFsGetSearchID(char *name);
 
 extern int kmSetCheapShadowMode(int mode);
 extern void FUN_0c07d430(void);
@@ -435,7 +435,7 @@ extern void hudHidePickUpNag(void);
 
 /* Round an ASCII decimal string at digit n: when s[n] > '4' it becomes '0', the digit before it goes
    up by one, and carries ripple left (s[0] last). */
-void FUN_0c0886cc(char *s, int n)
+void _xtostr_rounddigits(char *s, int n)
 {
     char *q;
     int k;
@@ -460,7 +460,7 @@ void FUN_0c0886cc(char *s, int n)
 
 /* a -= b over n bytes, most significant first. Returns -1 when it underflows and sign is 0,
    otherwise 0 for a zero result and 1 for a nonzero one. */
-int FUN_0c08933c(int sign, unsigned char *a, unsigned char *b, int n)
+int _sub(int sign, unsigned char *a, unsigned char *b, int n)
 {
     int borrow = 0;
     int zero = 1;
@@ -500,7 +500,7 @@ void nlFogTableColor(int c)
 /* Parse one ISO 9660 directory record (rec) into out: +0 extent, +4 size, +8 flags, +9 the name's
    hash, +10 the name. Records shorter than 34 give 0. A plain file's name loses its ";1" (2 bytes);
    a directory's "." and ".." entries (names 0 and 1) become "." and "..". */
-int FUN_0c15fab8(unsigned char *rec, char *out)
+int gdFsGet1DirEnt(unsigned char *rec, char *out)
 {
     int n;
 
@@ -525,7 +525,7 @@ int FUN_0c15fab8(unsigned char *rec, char *out)
             out[12] = 0;
         }
     }
-    out[9] = FUN_0c15fa92(out + 10);
+    out[9] = gdFsGetSearchID(out + 10);
     return rec[0];
 }
 
@@ -567,7 +567,7 @@ int mwlRnaIsCopyEnd(char *h)
    in q the line is solved for z = t = (dz*px - dx*pz) / (k*dz - dx), x = k*t and y follows the line;
    with the same z, z stays p's, x = k*pz and y follows the line, or is out's own when q has the same
    x too. The result goes to out. (The factor k is the float argument.) */
-void FUN_0c07bee0(float *p, float *q, float *out, float k)
+void nlLineCalcFogB(float *p, float *q, float *out, float k)
 {
     float tmp[3];
     float dy = q[1] - p[1];
@@ -596,7 +596,7 @@ void FUN_0c07bee0(float *p, float *q, float *out, float k)
 
 
 /* The same with x and y swapped: y = k*t, and x follows the line. */
-void FUN_0c07bf70(float *p, float *q, float *out, float k)
+void nlLineCalcFogC(float *p, float *q, float *out, float k)
 {
     float tmp[3];
     float dy = q[1] - p[1];

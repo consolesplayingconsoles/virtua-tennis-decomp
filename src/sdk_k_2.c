@@ -28,7 +28,7 @@ int ADXSTM_Tell(int *h);
 int ADXSTM_Seek(int h, int pos);
 int FUN_0c1688b6(int a);
 int toupper_(int c);
-int FUN_0c15f998(int c);
+int gdFsToUpper(int c);
 
 extern char g_8c464598[];
 
@@ -74,18 +74,18 @@ int pdVibIsReady(int d)
 
 
 /* A name's hash: the sum of its upper-cased characters plus 218, shifted down by 2 and cut to a byte. */
-int FUN_0c15fa92(char *s)
+int gdFsGetSearchID(char *s)
 {
     unsigned int h = 218;
 
     while (*s)
-        h += (unsigned char)FUN_0c15f998(*s++);
+        h += (unsigned char)gdFsToUpper(*s++);
     return (unsigned char)(h >> 2);
 }
 
 
 /* 192 bytes from 8 source bytes each: bit 3 of each source byte, most significant first. */
-void FUN_0c162db6(char *dst, char *src)
+void pdVmsLcdBltAsm(char *dst, char *src)
 {
     int i, j;
 

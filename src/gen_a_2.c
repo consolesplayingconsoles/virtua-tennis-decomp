@@ -26,31 +26,31 @@ void ADXSTM_SetReqRdSize(char *a4, int a5)
 }
 
 
-void FUN_0c167c24(char *a4, int a5)
+void ADXAMP_SetSfreq(char *a4, int a5)
 {
     *(unsigned int *)(a4 + 32) = a5;
 }
 
 
-void FUN_0c1687f6(char *a4, int a5)
+void ADXSJD_SetDecPos(char *a4, int a5)
 {
     *(unsigned int *)(a4 + 52) = a5;
 }
 
 
-void FUN_0c168812(char *a4, int a5)
+void ADXSJD_SetTrapNumSmpl(char *a4, int a5)
 {
     *(unsigned int *)(a4 + 60) = a5;
 }
 
 
-void FUN_0c16881a(char *a4, int a5)
+void ADXSJD_SetTrapCnt(char *a4, int a5)
 {
     *(unsigned int *)(a4 + 64) = a5;
 }
 
 
-void FUN_0c168826(char *a4, int a5)
+void ADXSJD_SetTrapDtLen(char *a4, int a5)
 {
     *(unsigned int *)(a4 + 68) = a5;
 }
