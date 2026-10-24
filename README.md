@@ -26,11 +26,11 @@ FUNCTIONS LEFT  (70.3% complete) 964  of the 3251 functions that can be C (42 wi
 BYTES LEFT   (23.5% complete) 594046  of 776878 bytes of code that can be C
 FUNCTIONS                             
   unnamed                         16  functions still called FUN_... (16 of 3293)
-  Not written C                  766  499860 bytes
+  Not written C                   94  114364 bytes
   Written C with errors            0  0 bytes
-  Not drawn                       82  29428 bytes
-  Drawn with errors               64  58754 bytes
-  Checked with errors             52  6004 bytes
+  Not drawn                      664  409664 bytes
+  Drawn with errors               71  53308 bytes
+  Checked with errors            135  16710 bytes
   No C form                     1.3%  an instruction or a register convention with no C form (tools/5-generated/classify.py names it)
   documented                   58.1%  1912 named functions in docs/*.md
 GAME ASSETS (EXTRA)                   

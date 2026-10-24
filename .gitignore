@@ -18,3 +18,6 @@ disc/
 .idea/
 __pycache__/
 state/
+
+# patch leftovers
+*.orig
