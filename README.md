@@ -1,6 +1,6 @@
 # Virtua Tennis decomp
 
-![decomp progress](badges/progress.svg?p=67.6&b=21.5&a=80&s=0)
+![decomp progress](badges/progress.svg?p=68.0&b=22.1&a=80&s=0)
 
 **Explore this decomp project with [Shuriken Explorer](https://consolesplayingconsoles.github.io/dc-shuriken-explorer/) and see the game's models, skeletons, animations, textures, images, sounds, text and side-by-side C and assembly code directly in your browser.**
 
@@ -21,18 +21,18 @@ everything game-derived on your machine, and `.gitignore` keeps it out of git.
 
 <!-- progress -->
 ```
-TOTAL TEST COVERAGE             80.1%  the instructions the cases ran, of all instructions, over the 1786 functions that reached the check
-FUNCTIONS LEFT  (67.6% complete) 1039  of the 3202 functions that can be C (91 with no C form are counted apart)
-BYTES LEFT    (21.5% complete) 606876  of 772758 bytes of code that can be C
+TOTAL TEST COVERAGE             79.8%  the instructions the cases ran, of all instructions, over the 1800 functions that reached the check
+FUNCTIONS LEFT  (68.0% complete) 1025  of the 3202 functions that can be C (91 with no C form are counted apart)
+BYTES LEFT    (22.1% complete) 602100  of 772758 bytes of code that can be C
 FUNCTIONS                              
   unnamed                          16  functions still called FUN_... (16 of 3293)
   Not written C                   799  503594 bytes
-  Written C with errors            21  7040 bytes
+  Written C with errors             7  2264 bytes
   Not drawn                        84  29894 bytes
-  Drawn with errors                66  59G008 bytes
+  Drawn with errors                66  59008 bytes
   Checked with errors              69  7340 bytes
   No C form                      2.8%  an instruction or a register convention with no C form (tools/5-generated/classify.py names it)
-  documented                    57.7%  1899 named functions in docs/*.md
+  documented                    58.0%  1910 named functions in docs/*.md
 GAME ASSETS (EXTRA)                    
   models named                  23.3%  874 of 3745 models: a name, or a named table or collection
   characters named             100.0%  18 of 18 characters (note rules)

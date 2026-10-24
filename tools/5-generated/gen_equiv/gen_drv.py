@@ -284,7 +284,8 @@ def grow(name,runs,V,rng,HOT,budget=int(os.environ.get('GEN_BUDGET','1200'))):
         e=json.loads(json.dumps(d))
         n0,c0=original_runs(name,e)
         start,size=G.SPANS[name]
-        late=[a&~3 for a in LAST_READS if 0x0C000000<=(a&0x1FFFFFFF)<0x0D000000 and not start-0x1000<=a<start+size+0x1000][-10:]
+        ph=lambda x:x&0x1FFFFFFF      # the simulator reports reads at 0C..., functions.txt may say 8C...: the same bytes, compared as physical addresses
+        late=[a&~3 for a in LAST_READS if 0x0C000000<=(a&0x1FFFFFFF)<0x0D000000 and not ph(start)-0x1000<=ph(a)<ph(start)+size+0x1000][-10:]
         v=rng.choice(HOT) if rng.random()<0.7 else rng.choice(V)
         if late and rng.random()<0.8:
             # the words the original read last are the ones its final guard looked at: set one of them

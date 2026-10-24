@@ -432,10 +432,23 @@ def def_arity(fname):
                 _DEFS.setdefault(m.group(1),(sum(1 for x in ps if not (x.startswith('float') and '*' not in x)),sum(1 for x in ps if x.startswith('float') and '*' not in x)))      # a float pointer is an integer argument
     return _DEFS.get(fname)
 
+_DEFSW=None
+def def_stack_words(fname):
+    """Words a function's definition in src/ takes from the stack as a leading structure by value (`Stk4 s` is 4), or 0."""
+    global _DEFSW
+    if _DEFSW is None:
+        _DEFSW={}
+        for f in glob.glob('src/*.c'):
+            txt=open(f,errors='replace').read()
+            for m in re.finditer(r'^[A-Za-z_][\w \*]*?\b(\w+)\s*\(([^;{)]*)\)\s*\n\{',txt,re.M):
+                w=[int(k.group(1)) for x in m.group(2).split(',') for k in [re.match(r'\s*Stk(\d+)\s+\w+\s*$',x)] if k]
+                if w: _DEFSW.setdefault(m.group(1),w[0])
+    return _DEFSW.get(fname,0)
+
 def variadic_seen(types): return '...' in types
 def isfp(v): return isinstance(v,tuple) and v[0]=='fpend'      # a float kept on the pending stack
 STACKY=('stack','read r15','addr of local','fpush','addr loop variable','ex (\'addr\'')
-FLATTY=('bloat','unstructured','too long','stack pointer differs','loop exits','recursion','stack local in a loop')
+FLATTY=('flow braf','bloat','unstructured','too long','stack pointer differs','loop exits','recursion','stack local in a loop')
 def run(name,passthru=False):
     """The first reading keeps the stack as symbolic values; when that fails on the stack, the whole frame becomes a C array
     (narrow accesses, locals changed in loops, addresses of locals and reads of unwritten slots are then plain memory). When the
@@ -1113,6 +1126,14 @@ def _run(name,passthru=False,frame=False,flat=False):
             if hole and all(n in (4,5,6,7) for n in hole):
                 for n in hole: c.R['r%d'%n]=0
                 avail=sorted(set(avail)|set(hole))
+        if (c.pend and not spill and avail and len(avail)<4 and c.pcalls==0 and not c.pt
+                and not (len(c.pend)==1 and not isfp(c.pend[0]) and '@@F' in ex(c.pend[0]))):
+            # a word pushed for this call is an argument past the fourth, so r4-r7 are all positional: one this function never touched
+            # (and no call has changed) is its own incoming argument, passed on as it came (mwlRnaStartCopy, serveGetPos in playerInit).
+            # The hidden pointer of a returned structure is the one pushed word that is not
+            for n in range(4,8):
+                if n not in avail and 'r%d'%n not in c.R: avail.append(n)
+            avail.sort()
         ia=[]
         k=4
         while k in avail: ia.append(k); k+=1
@@ -1133,6 +1154,7 @@ def _run(name,passthru=False,frame=False,flat=False):
             args.append(ex(v)); types.append('int')
             if '@@F' in args[-1]: c.frame_regs.add('r%d'%n)
         hidden=None
+        pushed=bool(c.pend) and not spill
         if c.pend and not spill:
             # arguments pushed on the stack: the first of them was pushed last
             variadic=False
@@ -1152,6 +1174,11 @@ def _run(name,passthru=False,frame=False,flat=False):
         sa=getattr(c,'sarg',None); c.sarg=None
         if sa and not ind and not hidden and sa[2]==c.D and not variadic_seen(types):
             args.append('*(Stk%d *)(%s)'%(sa[0],sa[1])); types.append('Stk%d'%sa[0])       # the structure, by value, after the integer arguments
+        elif not sa and not pushed and not ind and not hidden and not variadic_seen(types) and not tail and def_stack_words(fname):
+            # nothing pushed and nothing copied to SP, but the callee's definition takes words from the stack: it reads the caller's own frame
+            # at SP (a debug print called without its pushed arguments). The frame the C keeps holds the same words
+            if not c.frame: raise Skip('stack words of the callee read from the frame')      # the first reading keeps the stack symbolic: read again with the frame as an array
+            n_=def_stack_words(fname); args.append('*(Stk%d *)((int)stk + @@F:%d@@)'%(n_,-c.D)); types.append('Stk%d'%n_)
         for n in fa: args.append(fx(c.gf('fr%d'%n))); types.append('float')
         if hidden: args.append(hidden); types.append('...')
         sig=tuple(types)

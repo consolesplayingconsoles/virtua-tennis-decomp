@@ -66,6 +66,7 @@ ADXF_GetPtinfoSize
 ADXF_GetStat
 ADXF_Init
 ADXF_InitCache_P2_
+ADXF_LoadPartition
 ADXF_Ocbi
 ADXF_ReadSj32
 ADXF_Tell
@@ -444,6 +445,7 @@ colliObjClear
 colliObjEntry
 commonEtcTexLoad
 commonLoadStart
+commonLoadStep
 commonSprInit
 commonSprInitAll
 commonSysInit
@@ -642,6 +644,7 @@ gdFsLockDir
 gdFsOpen
 gdFsOpenRange
 gdFsReadWG
+gdFsSearchPath_dds
 gdFsSetGlobalErrG
 gdFsSetTmode
 gdFsStrcmpi
@@ -785,6 +788,7 @@ kmiFLWCTRLGetFBLockStatus
 kmiFLWCTRLGetNBufLockStatus
 kmiFLWCTRLGetVBufLockStatus
 kmiFLWCTRLITPOverflowCallback
+kmiFLWCTRLLaunchPacket
 kmiFLWCTRLLockFB
 kmiFLWCTRLLockNBuf
 kmiFLWCTRLLockVBuf
@@ -839,8 +843,10 @@ kmyFreeArea
 kmyFreeSmallVQArea
 kmyGarbageCollection
 kmyGeneratePassInfo
+kmyGetDMAHANDLE
 kmyGetDMAValue
 kmyGetDeviceType
+kmyGetDisplayParametersInfo
 kmyGetDisplayRegionSize
 kmyGetFrameBufferAddress
 kmyGetFrameBufferHandle
@@ -901,6 +907,7 @@ kmySetStrideWidth
 kmySetStripBuffer
 kmySetTADMA
 kmySetTextureDMA
+kmySetVirticalFilterMode
 kmySetupTA
 kmyStartRenderTexture
 kmyUnloadDevice
@@ -1097,6 +1104,7 @@ mwlRnaInsrtSlntDat
 mwlRnaIsCopyEnd
 mwlRnaSetInitMember
 mwlRnaSetSvrInt
+mwlRnaStartCopy
 mwlRnaWaitTransEnd
 mwlSbAlloc
 mwlSbAllocWork
@@ -1219,6 +1227,7 @@ nlLineSetDiv
 nlLineSetThickness
 nlLoadDummyTexture
 nlLoadMatrix
+nlLoadMatrix33on44
 nlLoadMatrix8
 nlLoadRechangeMatrix
 nlLoadTextureMem
@@ -1269,6 +1278,7 @@ nlPrintTileClipMode
 nlPrintf
 nlPrnIndentOff
 nlPrnIndentOn
+nlPushMatrix
 nlPushUnitMatrix
 nlQuickInvertMatrix
 nlRand
@@ -1303,6 +1313,7 @@ nlSetFatalErrorMode
 nlSetFogVertexColor
 nlSetFontSize
 nlSetIntrFunction
+nlSetIntrPriority
 nlSetPalExtMode
 nlSetPaletteMap
 nlSetTextureParameter
@@ -1403,6 +1414,7 @@ nlsndStreamGetBitSize
 nlsndStreamGetBufInfo
 nlsndStreamGetFreq
 nlsndStreamGetHdInfo
+nlsndStreamGetParam
 nlsndStreamGetPlayPos
 nlsndStreamIsPlaying
 nlsndStreamOpen
@@ -1706,6 +1718,7 @@ stageSelSprInit
 stageSelSprInit2
 stageSelSprInit3
 stageSweCourtDraw
+stageTexLoad
 stageTexSetGarbagedAll
 stageWtcMainTexLoad
 str_len
@@ -1863,6 +1876,7 @@ vmsfs_c_fiber7
 vmsfs_c_setparam
 vmsfs_c_synch
 vmsfs_exit
+vmsfs_findfirst_ex
 vmsfs_format
 vmsfs_init
 vmsfs_load_file

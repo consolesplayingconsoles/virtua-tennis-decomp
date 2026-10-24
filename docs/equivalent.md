@@ -1463,6 +1463,25 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 21 of 21 instructions
 
+### ADXF_LoadPartition (`8C1E1BAE`, 420 bytes, `src/gen_ah.c`)
+- equivalent on 8 development and 7 holdout cases, in `tests/gen_ah/ADXF_LoadPartition.json`
+- case 5
+- case 7
+- case 29
+- case 48
+- case 106
+- case 172
+- case 207
+- case 222
+- case 34
+- case 9
+- case 44
+- case 67
+- case 113
+- case 183
+- case 215
+- the cases run 47 of 193 instructions
+
 ### ADXF_Ocbi (`8C1F1932`, 116 bytes, `src/gen_w.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_w/ADXF_Ocbi.json`
 - case 1
@@ -11111,6 +11130,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 13 of 13 instructions
 
+### commonLoadStep (`8C0DD7EC`, 310 bytes, `src/gen_ag.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ag/commonLoadStep.json`
+- case 4
+- case 6
+- case 0
+- case 1
+- case 3
+- case 5
+- case 2
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 92
+- case 97
+- case 104
+- case 71
+- case 62
+- case 37
+- case 119
+- case 94
+- case 57
+- case 63
+- case 59
+- case 86
+- case 47
+- case 54
+- case 103
+- case 40
+- case 49
+- case 55
+- the cases run 64 of 121 instructions
+
 ### commonSprInit (`8C0C6D7A`, 158 bytes, `src/gen_u.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_u/commonSprInit.json`
 - case 0
@@ -16902,6 +16961,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - big sector
 - the cases run 31 of 31 instructions
 
+### gdFsSearchPath_dds (`8C1E6E8E`, 342 bytes, `src/gen_af.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_af/gdFsSearchPath_dds.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 20
+- case 112
+- case 126
+- case 145
+- case 116
+- case 130
+- case 81
+- case 151
+- case 56
+- case 111
+- case 134
+- case 63
+- case 82
+- case 49
+- case 74
+- case 128
+- case 135
+- case 55
+- case 152
+- the cases run 64 of 158 instructions
+
 ### gdFsSetGlobalErrG (`8C1DD3C4`, 10 bytes, `src/vtsdk_c.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/vtsdk_c/gdFsSetGlobalErrG.json`
 - one
@@ -21022,6 +21121,22 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 40
 - the cases run 32 of 37 instructions
 
+### kmiFLWCTRLLaunchPacket (`8C1FA660`, 578 bytes, `src/gen_af.c`)
+- equivalent on 6 development and 6 holdout cases, in `tests/gen_af/kmiFLWCTRLLaunchPacket.json`
+- case 15
+- case 90
+- case 74
+- case 96
+- case 134
+- case 143
+- case 42
+- case 15
+- case 92
+- case 125
+- case 139
+- case 153
+- the cases run 220 of 227 instructions
+
 ### kmiFLWCTRLLockFB (`8C1F9B06`, 24 bytes, `src/gen_e.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_e/kmiFLWCTRLLockFB.json`
 - case 0
@@ -22495,6 +22610,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 24 of 24 instructions
 
+### kmyGetDMAHANDLE (`8C1F51A0`, 400 bytes, `src/gen_af.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_af/kmyGetDMAHANDLE.json`
+- case 65
+- case 80
+- case 21
+- case 66
+- case 0
+- case 65
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 130
+- case 139
+- case 86
+- case 135
+- case 91
+- case 134
+- case 92
+- case 90
+- case 75
+- case 102
+- case 77
+- case 120
+- case 106
+- case 45
+- case 126
+- case 154
+- case 128
+- case 83
+- the cases run 142 of 144 instructions
+
 ### kmyGetDMAValue (`8C205DE4`, 4 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/kmyGetDMAValue.json`
 - case 0
@@ -22546,6 +22701,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 - the cases run 3 of 3 instructions
+
+### kmyGetDisplayParametersInfo (`8C205640`, 428 bytes, `src/gen_af.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_af/kmyGetDisplayParametersInfo.json`
+- case 13
+- case 65
+- case 1
+- case 90
+- case 88
+- case 34
+- case 100
+- case 7
+- case 8
+- case 11
+- case 0
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 10
+- case 12
+- case 120
+- case 155
+- case 54
+- case 62
+- case 103
+- case 101
+- case 146
+- case 141
+- case 92
+- case 84
+- case 48
+- case 38
+- case 125
+- case 132
+- case 95
+- case 134
+- case 133
+- case 151
+- the cases run 97 of 174 instructions
 
 ### kmyGetDisplayRegionSize (`8C1F54C0`, 62 bytes, `src/gen_e.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_e/kmyGetDisplayRegionSize.json`
@@ -24123,6 +24318,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - negative b
 - a with 11 bits
 - a 0xEE000000
+
+### kmySetVirticalFilterMode (`8C1F7640`, 394 bytes, `src/gen_af.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_af/kmySetVirticalFilterMode.json`
+- case 16
+- case 33
+- case 0
+- case 81
+- case 9
+- case 39
+- case 4
+- case 6
+- case 7
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 19
+- case 21
+- case 22
+- case 23
+- case 132
+- case 118
+- case 126
+- case 121
+- case 145
+- case 135
+- case 133
+- case 101
+- case 97
+- case 60
+- case 152
+- case 74
+- case 127
+- case 149
+- case 55
+- case 110
+- case 111
+- case 112
+- the cases run 53 of 75 instructions
 
 ### kmySetupTA (`8C2060A0`, 118 bytes, `src/gen_c.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_c/kmySetupTA.json`
@@ -29457,6 +29692,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 60
 - the cases run 2 of 2 instructions
 
+### mwlRnaStartCopy (`8C1F2008`, 62 bytes, `src/gen_af.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_af/mwlRnaStartCopy.json`
+- case 0
+- case 2
+- case 3
+- case 4
+- case 6
+- case 7
+- case 9
+- case 10
+- case 13
+- case 14
+- case 16
+- case 17
+- case 18
+- case 21
+- case 22
+- case 23
+- case 24
+- case 25
+- case 73
+- case 139
+- case 64
+- case 108
+- case 86
+- case 110
+- case 116
+- case 119
+- case 88
+- case 141
+- case 98
+- case 157
+- case 92
+- case 128
+- case 143
+- case 91
+- case 100
+- case 122
+- the cases run 31 of 31 instructions
+
 ### mwlRnaWaitTransEnd (`8C1F2294`, 82 bytes, `src/gen_ae.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_ae/mwlRnaWaitTransEnd.json`
 - case 1
@@ -32631,6 +32906,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 106
 - the cases run 6 of 6 instructions
 
+### nlLoadMatrix33on44 (`8C0EF2C0`, 68 bytes, `src/gen_af.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_af/nlLoadMatrix33on44.json`
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- the cases run 25 of 25 instructions
+
 ### nlLoadMatrix8 (`8C0EF620`, 36 bytes, `src/gen_z.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_z/nlLoadMatrix8.json`
 - case 15
@@ -34034,6 +34349,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - bit 1
 - the cases run 5 of 5 instructions
 
+### nlPushMatrix (`8C0EFD20`, 132 bytes, `src/gen_af.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_af/nlPushMatrix.json`
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- case 15
+- the cases run 42 of 64 instructions
+
 ### nlPushUnitMatrix (`8C0EFDB0`, 26 bytes, `src/sdk_b_2.c`)
 - equivalent on 3 development and 1 holdout cases, in `tests/sdk_b_2/nlPushUnitMatrix.json`
 - matrix ptr
@@ -35006,6 +35361,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 83
 - case 70
 - the cases run 42 of 42 instructions
+
+### nlSetIntrPriority (`8C0F83F0`, 84 bytes, `src/gen_af.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_af/nlSetIntrPriority.json`
+- case 1
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 44
+- case 68
+- case 122
+- case 55
+- case 42
+- case 157
+- case 92
+- case 136
+- case 146
+- case 120
+- case 62
+- case 148
+- case 99
+- case 130
+- case 98
+- case 75
+- case 100
+- case 101
+- the cases run 12 of 38 instructions
 
 ### nlSetPalExtMode (`8C0EAB30`, 6 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/nlSetPalExtMode.json`
@@ -37888,6 +38283,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - 0x7f
 - 0x10
 - the cases run 7 of 7 instructions
+
+### nlsndStreamGetParam (`8C0F6930`, 444 bytes, `src/gen_af.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_af/nlsndStreamGetParam.json`
+- case 131
+- case 131
+- case 5
+- case 4
+- case 131
+- case 131
+- case 3
+- case 51
+- case 131
+- case 52
+- case 60
+- case 5
+- case 9
+- case 10
+- case 15
+- case 19
+- case 20
+- case 21
+- case 141
+- case 109
+- case 128
+- case 107
+- case 151
+- case 115
+- case 124
+- case 94
+- case 83
+- case 126
+- case 150
+- case 88
+- case 139
+- case 106
+- case 98
+- case 119
+- case 133
+- case 147
+- the cases run 109 of 135 instructions
 
 ### nlsndStreamGetPlayPos (`8C0F6510`, 46 bytes, `src/vtsdk_e.c`)
 - equivalent on 5 development and 3 holdout cases, in `tests/vtsdk_e/nlsndStreamGetPlayPos.json`
@@ -46343,6 +46778,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 48 of 55 instructions
 
+### stageTexLoad (`8C018184`, 796 bytes, `src/gen_af.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_af/stageTexLoad.json`
+- case 2
+- case 2
+- case 0
+- case 0
+- case 0
+- case 2
+- case 0
+- case 0
+- case 0
+- case 0
+- case 3
+- case 0
+- case 2
+- case 2
+- case 0
+- case 3
+- case 0
+- case 2
+- case 118
+- case 158
+- case 67
+- case 30
+- case 102
+- case 127
+- case 58
+- case 145
+- case 81
+- case 70
+- case 141
+- case 73
+- case 115
+- case 19
+- case 105
+- case 106
+- case 133
+- case 153
+- the cases run 306 of 306 instructions
+
 ### stageTexSetGarbagedAll (`8C0B2DC8`, 88 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/stageTexSetGarbagedAll.json`
 - case 0
@@ -50524,6 +50999,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - run
 - r4 set
 - dirty
+
+### vmsfs_findfirst_ex (`8C1ECD6C`, 318 bytes, `src/gen_af.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_af/vmsfs_findfirst_ex.json`
+- case 0
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 51
+- case 42
+- case 35
+- case 52
+- case 128
+- case 129
+- case 74
+- case 118
+- case 93
+- case 149
+- case 111
+- case 124
+- case 75
+- case 43
+- case 62
+- case 119
+- case 133
+- case 92
+- the cases run 69 of 140 instructions
 
 ### vmsfs_format (`8C1EB9A4`, 740 bytes, `src/gen_l.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_l/vmsfs_format.json`
