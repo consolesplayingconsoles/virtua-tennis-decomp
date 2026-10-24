@@ -21,18 +21,18 @@ everything game-derived on your machine, and `.gitignore` keeps it out of git.
 
 <!-- progress -->
 ```
-TOTAL TEST COVERAGE             77.1%  the instructions the cases ran, of all instructions, over the 1343 functions that reached the check
-FUNCTIONS LEFT  (56.3% complete) 1394  of the 3190 functions that can be C (103 with no C form are counted apart)
-BYTES LEFT    (17.6% complete) 559080  of 678422 bytes of code that can be C
+TOTAL TEST COVERAGE             80.1%  the instructions the cases ran, of all instructions, over the 1786 functions that reached the check
+FUNCTIONS LEFT  (67.6% complete) 1039  of the 3202 functions that can be C (91 with no C form are counted apart)
+BYTES LEFT    (21.5% complete) 606876  of 772758 bytes of code that can be C
 FUNCTIONS                              
-  unnamed                        1832  functions still called FUN_... (1832 of 3293)
-  Not written C                     0  0 bytes
-  Written C with errors           172  118072 bytes 
-  Not drawn                       636  125812 bytes
-  Drawn with errors               505  303278 bytes
-  Checked with errors              81  11918 bytes
-  No C form                      3.1%  an instruction or a register convention with no C form (tools/5-generated/classify.py names it)
-  documented                    23.3%  768 named functions in docs/*.md
+  unnamed                          16  functions still called FUN_... (16 of 3293)
+  Not written C                   799  503594 bytes
+  Written C with errors            21  7040 bytes
+  Not drawn                        84  29894 bytes
+  Drawn with errors                66  59G008 bytes
+  Checked with errors              69  7340 bytes
+  No C form                      2.8%  an instruction or a register convention with no C form (tools/5-generated/classify.py names it)
+  documented                    57.7%  1899 named functions in docs/*.md
 GAME ASSETS (EXTRA)                    
   models named                  23.3%  874 of 3745 models: a name, or a named table or collection
   characters named             100.0%  18 of 18 characters (note rules)
