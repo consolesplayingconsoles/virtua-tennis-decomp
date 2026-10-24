@@ -204,7 +204,30 @@ def reg_liveness(ins,addr2idx):
             else: out.add(r_)
         return out
     UD=[]
-    for mn,ops,pc in ins:
+    def call_args(i):
+        # the argument registers a call really reads: the block copy and division helpers their own registers, a named callee its
+        # known arity (callee_arity: its code or its proven definition), anything else all of r4-r7 and fr4-fr11
+        mn,ops,pc=ins[i]
+        nm=None
+        m_=re.search(r';\s*(?:=\s*[0-9a-fA-F]+\s+)?([A-Za-z_]\w*)\s*$',ops or '')
+        if m_ and mn in ('bsr',): nm=m_.group(1)
+        if mn=='jsr':
+            rr=re.search(r'@(r\d+)',ops or '')
+            for j in range(i-1,max(-1,i-8),-1):
+                mj,oj,_=ins[j]
+                if rr and re.search(r',\s*%s\s*(?:;|$)'%rr.group(1),(oj or '')):
+                    m2=re.search(r';\s*=\s*[0-9a-fA-F]+\s+([A-Za-z_]\w*)',oj or '')
+                    nm=m2.group(1) if (m2 and mj.startswith('mov')) else None
+                    break
+        if nm in ('_quick_mvn','_quick_odd_mvn','_quick_evn_mvn','_slow_mvn'): return {'r0','r1','r2'}
+        if nm in ('_divls','_divlu','_modls','_modlu','_divws'): return {'r0','r1'}
+        ar=None
+        if nm and not nm.startswith('_'):
+            try: ar=callee_arity(nm)
+            except Exception: ar=None
+        if ar: return {'r%d'%k for k in range(4,4+min(ar[0],4))}|{'fr%d'%k for k in range(4,4+min(ar[1],8))}
+        return {'r4','r5','r6','r7'}|{'fr%d'%k for k in range(4,12)}
+    for i_ud,(mn,ops,pc) in enumerate(ins):
         raw=(ops or '').split(';')[0].strip(); a=[x.strip() for x in re.split(r',(?![^(]*\))',raw)] if raw else []
         base=mn.split('/')[0].split('.')[0]
         use=set(); dfn=set()
@@ -213,7 +236,7 @@ def reg_liveness(ins,addr2idx):
                 use|=expand(x)
                 if x.endswith('+') or x.startswith('@-'): dfn|=expand(x)
         if mn in ('jsr','bsr','bsrf'):
-            use|=expand(raw)|{'r4','r5','r6','r7'}|{'fr%d'%k for k in range(4,12)}; dfn|={'r%d'%k for k in range(8)}|{'fr%d'%k for k in range(12)}
+            use|=expand(raw)|call_args(i_ud); dfn|={'r%d'%k for k in range(8)}|{'fr%d'%k for k in range(12)}
         elif mn in ('rts','rte'):
             use|={'r0','fr0','fr1'}|{'r%d'%k for k in range(8,15)}
         elif mn in ('nop','bra','bt','bf','bt/s','bf/s','clrt','sett','clrmac','fschg','frchg'):
@@ -402,11 +425,14 @@ def def_arity(fname):
     if _DEFS is None:
         _DEFS={}
         for f in glob.glob('src/*.c'):
-            for m in re.finditer(r'^[A-Za-z_][\w \*]*?\b(\w+)\s*\(([^;{)]*)\)\s*\n\{',open(f,errors='replace').read(),re.M):
-                ps=[x.strip() for x in m.group(2).split(',') if x.strip() and x.strip()!='void']
+            txt=open(f,errors='replace').read()
+            structs=set(re.findall(r'typedef\s+struct\s*\w*\s*\{[^{}]*\}\s*(\w+)\s*;',txt))|{'Stk%d'%k for k in range(1,65)}
+            for m in re.finditer(r'^[A-Za-z_][\w \*]*?\b(\w+)\s*\(([^;{)]*)\)\s*\n\{',txt,re.M):
+                ps=[x.strip() for x in m.group(2).split(',') if x.strip() and x.strip()!='void' and not (x.split()[0] in structs and '*' not in x)]      # a structure by value goes on the stack
                 _DEFS.setdefault(m.group(1),(sum(1 for x in ps if not (x.startswith('float') and '*' not in x)),sum(1 for x in ps if x.startswith('float') and '*' not in x)))      # a float pointer is an integer argument
     return _DEFS.get(fname)
 
+def variadic_seen(types): return '...' in types
 def isfp(v): return isinstance(v,tuple) and v[0]=='fpend'      # a float kept on the pending stack
 STACKY=('stack','read r15','addr of local','fpush','addr loop variable','ex (\'addr\'')
 FLATTY=('bloat','unstructured','too long','stack pointer differs','loop exits','recursion','stack local in a loop')
@@ -952,6 +978,12 @@ def _run(name,passthru=False,frame=False,flat=False):
     except Exception: CALLC={}
     def ind_variadic_hint(fname):
         return fname in ('nlPrintf','printf','sprintf','nlSprintf')
+    def note_sarg(n,d,sr):
+        # a block copy whose destination is the stack pointer itself: a structure passed by value (SHC builds the outgoing arguments
+        # there), taken by the next call at the same stack depth as its argument after the register ones
+        try:
+            if n%4==0 and 4<=n<=256 and ex(d)=='((int)stk + @@F:%d@@)'%(-c.D): c.sarg=(n//4,ex(sr),c.D)
+        except Exception: pass
     def do_call(fname,tail=False,ind=None,after=None,after2=None):
         if c.sz or c.swapped: raise Skip('call with the FPU mode changed')
         if fname in ('_divls','_divlu','_modls','_modlu'):
@@ -997,6 +1029,7 @@ def _run(name,passthru=False,frame=False,flat=False):
                 # (what the source wrote: a vector or table copied as a struct), instead of one load and store per word
                 k_=n//4
                 emit('{ struct mv%d { int w[%d]; }; *(struct mv%d *)(%s) = *(struct mv%d *)(%s); }'%(k_,k_,k_,ex(d),k_,ex(sr)))
+                note_sarg(n,d,sr)
             elif isint(n) and n%4==0 and n<=256 and fname in ('_quick_odd_mvn','_quick_evn_mvn'):
                 # these two read one word ahead of the store (the last word is read before the jump into the copy)
                 w=load('l',addr_expr(sr,n-4))
@@ -1008,6 +1041,7 @@ def _run(name,passthru=False,frame=False,flat=False):
             elif isint(n) and fname=='_slow_mvn' and 8<=n<=256 and os.environ.get('GEN_STRUCT_COPY','1')=='1':
                 # the byte mover: a struct of chars assigned, which the compiler turns back into the same call (one call, not a load and a store per byte)
                 emit('{ struct mvb%d { char b[%d]; }; *(struct mvb%d *)(%s) = *(struct mvb%d *)(%s); }'%(n,n,n,ex(d),n,ex(sr)))
+                note_sarg(n,d,sr)
             elif isint(n) and n<=64:
                 for off in range(n): store('b',addr_expr(d,off),load('b',addr_expr(sr,off)))
             else:                                   # any other length: a byte loop
@@ -1115,6 +1149,9 @@ def _run(name,passthru=False,frame=False,flat=False):
                 else: args.append(ex(v)); types.append('int')
             if variadic: types=['int','...']
             c.pend=[]
+        sa=getattr(c,'sarg',None); c.sarg=None
+        if sa and not ind and not hidden and sa[2]==c.D and not variadic_seen(types):
+            args.append('*(Stk%d *)(%s)'%(sa[0],sa[1])); types.append('Stk%d'%sa[0])       # the structure, by value, after the integer arguments
         for n in fa: args.append(fx(c.gf('fr%d'%n))); types.append('float')
         if hidden: args.append(hidden); types.append('...')
         sig=tuple(types)
@@ -1932,10 +1969,11 @@ def _run(name,passthru=False,frame=False,flat=False):
         for n in ints: emit('int R%d;'%n)
         for n in flts: emit('float F%d;'%n)
         emit('int T_;')
+        live0=c.live.get(0) if c.live else None      # the registers live at entry: only those are parameters (one written before it is read is not)
         for n in ints:
-            if 4<=n<=7: c.iuse.add(n); emit('R%d = a%d;'%(n,n))
+            if 4<=n<=7 and (live0 is None or 'r%d'%n in live0): c.iuse.add(n); emit('R%d = a%d;'%(n,n))
         for n in flts:
-            if 4<=n<=11: c.fuse.add(n); emit('F%d = f%d;'%(n,n))
+            if 4<=n<=11 and (live0 is None or 'fr%d'%n in live0): c.fuse.add(n); emit('F%d = f%d;'%(n,n))
         lead={0}
         for i_,(mn_,ops_,pc_) in enumerate(ins):
             if mn_ in ('bt','bf','bt/s','bf/s','bra'):

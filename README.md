@@ -1,6 +1,6 @@
 # Virtua Tennis decomp
 
-![decomp progress](badges/progress.svg?p=52.2&b=15.9&a=75&s=0)
+![decomp progress](badges/progress.svg?p=65.3&b=21.1&a=80&s=0)
 
 **Explore this decomp project with [Shuriken Explorer](https://consolesplayingconsoles.github.io/dc-shuriken-explorer/) and see the game's models, skeletons, animations, textures, images, sounds, text and side-by-side C and assembly code directly in your browser.**
 
@@ -27,7 +27,7 @@ BYTES LEFT    (17.6% complete) 559080  of 678422 bytes of code that can be C
 FUNCTIONS                              
   unnamed                        1832  functions still called FUN_... (1832 of 3293)
   Not written C                     0  0 bytes
-  Written C with errors           172  118072 bytes
+  Written C with errors           172  118072 bytes 
   Not drawn                       636  125812 bytes
   Drawn with errors               505  303278 bytes
   Checked with errors              81  11918 bytes
