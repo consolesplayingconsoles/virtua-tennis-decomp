@@ -295,6 +295,37 @@ class _PassThrough(Exception): pass
 _SCAN_FILE=os.path.join('state','arity_scan.json')
 try: _SCAN=json.load(open(_SCAN_FILE))
 except Exception: _SCAN={}
+_STACKW={}
+def callee_stack_words(fname):
+    """Words a function reads from the stack above its own frame, its stack arguments: loads at @r15 / @(k,r15) that, once the pushes and
+    the frame it has made so far are counted, lie at or above the stack pointer it was called with. From a straight scan of its code
+    up to its first return; 0 when it reads none or the code cannot be read. The compiler defers the stack adjustment of a call to a
+    later one, so which of the words still on the stack are a call's own is told by what its callee reads."""
+    if fname in _STACKW: return _STACKW[fname]
+    n=0
+    try:
+        out=subprocess.run(['python3','tools/shdis.py','--func',fname],capture_output=True,text=True).stdout.splitlines()[2:]
+        delta=0; seen=set()
+        for l in out:
+            m=re.match(r'([0-9a-f]{8}) ([0-9a-f]{4})\s+(\S+)\s*(.*)',l)
+            if not m: continue
+            mn=m.group(3); ops=m.group(4).split(';')[0].strip()
+            if mn in ('rts','rte'): break
+            a=[x.strip() for x in re.split(r',(?![^(]*\))',ops)] if ops else []
+            if len(a)==2 and a[1]=='@-r15' and mn in ('mov.l','sts.l','fmov.s','stc.l'): delta+=4; continue
+            if mn=='add' and len(a)==2 and a[1]=='r15' and a[0].startswith('#'): delta-=int(a[0][1:],0); continue
+            if len(a)==2 and a[0]=='@r15+' and mn in ('mov.l','lds.l','ldc.l','fmov.s'):
+                if -delta>=0 and mn in ('mov.l','fmov.s'): seen.add(-delta//4)
+                delta-=4; continue
+            if len(a)==2 and mn in ('mov.l','fmov.s'):
+                mm=re.fullmatch(r'@\((\d+),r15\)',a[0]); k=int(mm.group(1)) if mm else (0 if a[0]=='@r15' else None)
+                if k is not None and k-delta>=0 and (k-delta)%4==0: seen.add((k-delta)//4)
+        n=min(8,max(seen)+1) if seen else 0
+    except Exception:
+        n=0
+    _STACKW[fname]=n
+    return n
+
 def callee_arity(fname):
     """(integer arguments, float arguments) a function reads before it writes them, from a straight scan of its code up to its
     first return: r4-r7 and fr4-fr11. None when the code cannot be read. A guess for the prototype, not a proof: the call is
@@ -1102,8 +1133,11 @@ def _run(name,passthru=False,frame=False,flat=False):
             return True
         def teardown(x):                 # an instruction of the epilogue: the add before it frees the frame, not the call's arguments
             return bool(x) and (x[0]=='rts' or (x[0] in ('lds.l','mov.l','fmov.s') and '@r15+' in (x[1] or '')))
+        nsw=0 if ind else callee_stack_words(fname)
+        own_stack=bool(nsw) and len(c.pend)>=nsw
+        if own_stack: c.pend=c.pend[-nsw:]      # the words below this callee's own are earlier calls': their stack adjustment was deferred to this one
         cleanup=(isadd(after) and not teardown(after2)) or (bool(after) and (after[0] in ('bra','bsr') or after[0].startswith(('bt','bf'))) and isadd(after2))   # arguments are dropped right after the call, or in the delay slot of the branch after it
-        spill=bool(c.pend) and not cleanup and not ind_variadic_hint(fname) and ((bool(ar) and ar[0]<=4) or (ar is None and not ind_variadic_hint(fname)))    # a callee taking at most four integer arguments (or one whose arity is unknown, a pointer or an unnamed prototype) and no cleanup: what is on the stack was saved, not passed
+        spill=bool(c.pend) and not cleanup and not own_stack and not ind_variadic_hint(fname) and ((bool(ar) and ar[0]<=4) or (ar is None and not ind_variadic_hint(fname)))    # a callee taking at most four integer arguments (or one whose arity is unknown, a pointer or an unnamed prototype) and no cleanup: what is on the stack was saved, not passed
         if ar and (not c.pend or spill or (ar[0]==0 and not ar[1])):      # (a callee reading no register argument: everything it takes is on the stack)                    # the registers the callee reads: leftovers set for other reasons are not arguments
                                                  # (with arguments on the stack all four registers are positional: not trimmed)
             avail=[n for n in avail if n<4+ar[0]]
@@ -1126,13 +1160,16 @@ def _run(name,passthru=False,frame=False,flat=False):
             if hole and all(n in (4,5,6,7) for n in hole):
                 for n in hole: c.R['r%d'%n]=0
                 avail=sorted(set(avail)|set(hole))
-        if (c.pend and not spill and avail and len(avail)<4 and c.pcalls==0 and not c.pt
+        if (c.pend and not spill and avail and len(avail)<4 and not c.pt
                 and not (len(c.pend)==1 and not isfp(c.pend[0]) and '@@F' in ex(c.pend[0]))):
             # a word pushed for this call is an argument past the fourth, so r4-r7 are all positional: one this function never touched
-            # (and no call has changed) is its own incoming argument, passed on as it came (mwlRnaStartCopy, serveGetPos in playerInit).
+            # is its own incoming argument, passed on as it came (mwlRnaStartCopy, serveGetPos in playerInit); one an earlier call has changed
+            # is a leftover and goes as 0.
             # The hidden pointer of a returned structure is the one pushed word that is not
             for n in range(4,8):
-                if n not in avail and 'r%d'%n not in c.R: avail.append(n)
+                if n not in avail and 'r%d'%n not in c.R:
+                    if c.pcalls: c.R['r%d'%n]=0         # an earlier call has changed it: a leftover, passed as 0 (the check compares only registers the function set)
+                    avail.append(n)
             avail.sort()
         ia=[]
         k=4

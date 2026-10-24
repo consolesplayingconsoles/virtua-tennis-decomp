@@ -31935,6 +31935,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 102
 - the cases run 39 of 39 instructions
 
+### nlFreePalette (`8C0EA8A0`, 110 bytes, `src/gen_ai.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ai/nlFreePalette.json`
+- case 0
+- case 2
+- case 4
+- case 6
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 22
+- case 142
+- case 123
+- case 70
+- case 65
+- case 55
+- case 154
+- case 63
+- case 131
+- case 101
+- case 93
+- case 56
+- case 54
+- case 124
+- case 81
+- case 148
+- case 115
+- case 125
+- case 121
+- the cases run 38 of 51 instructions
+
 ### nlFreePaletteAll (`8C0EA890`, 16 bytes, `src/sdk_a_2.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/sdk_a_2/nlFreePaletteAll.json`
 - normal
@@ -40741,6 +40781,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 - the cases run 10 of 10 instructions
+
+### playerInit (`8C025CA4`, 1674 bytes, `src/gen_aj.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_aj/playerInit.json`
+- case 131
+- case 51
+- case 4
+- case 69
+- case 0
+- case 1
+- case 2
+- case 3
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 102
+- case 41
+- case 34
+- case 146
+- case 116
+- case 44
+- case 40
+- case 120
+- case 134
+- case 82
+- case 48
+- case 39
+- case 158
+- case 73
+- case 55
+- case 86
+- case 93
+- case 97
+- the cases run 575 of 678 instructions
 
 ### playerInputSide (`8C029CEC`, 76 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/playerInputSide.json`
@@ -51377,6 +51457,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 106
 - case 135
 - the cases run 44 of 81 instructions
+
+### vmsfs_xfind (`8C1ED77E`, 184 bytes, `src/gen_ai.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ai/vmsfs_xfind.json`
+- case 13
+- case 82
+- case 14
+- case 155
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 15
+- case 108
+- case 130
+- case 142
+- case 152
+- case 46
+- case 38
+- case 49
+- case 146
+- case 112
+- case 78
+- case 39
+- case 114
+- case 97
+- case 138
+- case 128
+- case 95
+- case 75
+- case 62
+- the cases run 75 of 75 instructions
 
 ### vmsio_init (`8C1FEBEC`, 8 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/vmsio_init.json`

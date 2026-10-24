@@ -1188,6 +1188,7 @@ nlFraction
 nlFree
 nlFree2
 nlFreeCommonTextureAll
+nlFreePalette
 nlFreePaletteAll
 nlFreeTextureAll
 nlGetAverageVector
@@ -1510,6 +1511,7 @@ phraseBigWordPut
 plPic2SeleLoad
 plPicLoad
 playerCpuInput
+playerInit
 playerInputSide
 playerRecA20Clear
 playerSetReceiveFlag
@@ -1887,6 +1889,7 @@ vmsfs_save_exec_file
 vmsfs_scanfile
 vmsfs_setretry
 vmsfs_setvolume
+vmsfs_xfind
 vmsio_init
 worldToScreen
 zoneListClear
