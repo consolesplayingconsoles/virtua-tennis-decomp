@@ -498,10 +498,6 @@ void mwlRnaSetSvrInt(void)
     
 }
 
-int mwRnaSetupSnd(void)
-{
-    return ((int (*)(void))(0x8C1F1CEE))();
-}
 
 void mwlRnaClearBuf(void)
 {

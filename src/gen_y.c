@@ -82,7 +82,7 @@ int ADXSTM_OpenFileRange(int a4, int a5, int a6, int a7);
 int countryStagePut(Stk4 s, float f4);
 int charaTexFree(int a4);
 int iconSlotPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5);
-int nlTanfReduce(int a4, float f4);
+float nlTanfReduce(int a4, float f4);
 void syCacheInit_P2_(int a4, int a5, int a6, int a7);
 float cpuLineCrossXZ(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14, int a15, int a16, float f4, float f5);
 void effHitFlashSpawn(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
@@ -153,41 +153,7 @@ int evPackRamp(int a4, int a5, int a6, int a7)
     return t4;
 }
 
-int nlCommonTextureGetNextTextureIndex(int a4, int a5, int a6)
-{
-    return ((int (*)(int, int, int, int))(0x8C0EA488))(a4, 0x0, a6, 0x0);
-}
 
-int nlsndSeqRequest(int a4)
-{
-    int t27;
-    int t2;
-    int t5;
-    int t20;
-
-    t27 = a4;
-    if ((*(int *)0x8C454CA4) != 0) {
-    } else {
-        *(unsigned int *)0x8C454CA4 = 0xFFFFFFFF;
-        if ((a4 & 128) == 0) {
-            t20 = a4;
-        } else {
-            t2 = nlsndG2Read((*(int *)0x8C454CA8));
-            if (t2 != 0) {
-            } else {
-                nlsndG2Write(a4, (*(int *)0x8C454CA8));
-                t5 = *(int *)0x8C454CA8;
-                *(unsigned int *)0x8C454CA8 = (t5 + 0x4);
-                if ((t5 + 0x4) == 0xA0800500) {
-                    *(unsigned int *)0x8C454CA8 = 0xA0800400;
-                }
-            }
-        }
-        *(unsigned int *)0x8C454CA4 = 0x0;
-        t27 = t20;
-    }
-    return ((int (*)(int))(0x8C0F5E54))(t27);
-}
 
 int kmyAllocateSmallVQArea(int a4, int a5, int a6)
 {
@@ -455,57 +421,38 @@ int charaTexFree(int a4)
     return 0x8C1AFA64;
 }
 
-int iconSlotPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5)
-{
-    int t6;
-    int t4;
-    int stk[19];
 
-    stk[7] = a8;
-    stk[8] = a9;
-    stk[9] = a10;
-    stk[10] = a11;
-    *(unsigned int *)(((int)stk + 16)) = a4;
-    t6 = 0x8C1AED70;
-    if ((*(int *)(((a4 << 2) + 0x8C1AED70))) != 0) {
-        *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (*(float *)0x8C0901A4));
-        *(float *)(((((int)stk + 16) + 0xC) + 0x4)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x4))) + 78.0f);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-        t4 = *(int *)(((int)stk + 16));
-        t6 = (sprPutScaledAlpha((((((t4 << 2) + t4) << 2) << 2) + 0x8C37C2BC), a5, a6, a7, *(Stk3 *)((((int)stk + 16) + 0xC)), f4, f5));
-    }
-    return t6;
-}
-
-int nlTanfReduce(int a4, float f4)
+float nlTanfReduce(int a4, float f4)
 {
-    float u1;
     float u3;
-    int t4;
-    float u5;
-    int t6;
-    float u7;
+    float x;
+    float r;
+    float u;
+    int q;
+    int k;
+    int t10;
 
-    u1 = -0.5f;
     if (!(0.0f > f4)) {
-        u1 = 0.5f;
+        u3 = *(float *)0x8C0ED65C;
+    } else {
+        u3 = *(float *)0x8C0ED660;
     }
-    *(unsigned int *)((a4 + 0x0)) = (int)(u1 + (f4 / 1.57079637f));
-    u3 = (f4 - ((float)(int)(u1 + (f4 / 1.57079637f)) * 1.57080078f));
-    u3 = u3 + 4.45445494e-06f * (float)(int)(u1 + (f4 / 1.57079637f));
-    t4 = 0xB;
-    u5 = 0.0f;
+    q = (int)(u3 + (f4 / *(float *)0x8C0ED664));
+    *(unsigned int *)((a4 + 0x0)) = q;
+    x = (f4 - ((float)q * *(float *)0x8C0ED668));
+    x = x + *(float *)0x8C0ED66C * (float)q;
+    r = (x * x);
+    u = 0.0f;
+    k = 0xB;
     for (;;) {
-        t6 = t4;
-        t4 = (t4 - 2);
-        u7 = ((float)t6 - u5);
-        u5 = (u3 * u3);
-        u5 = (u5 / u7);
-        if ((int)t4 < (int)0x3) {
+        t10 = k;
+        k = (k - 2);
+        u = (r / ((float)t10 - u));
+        if ((int)k < (int)0x3) {
             break;
         }
     }
-    return ((int (*)(int, int, float, float, float))(0x8C0ED648))(t4, 0x3, u3, u5, (u3 * u3));
+    return (x / (1.0f - u));
 }
 
 void syCacheInit_P2_(int a4, int a5, int a6, int a7)
@@ -672,28 +619,6 @@ int fileLoadCloseSlot(int a4)
     return t5;
 }
 
-void nlSinf(float f4)
-{
-    float t0;
-    float u1;
-    int t2;
-    int t3;
-    int stk[5];
-
-    *(float *)(((int)stk + 8)) = f4;
-    t0 = nlSinfReduce(((int)stk + 4), (f4 / (1.0f + 1.0f)));
-    u1 = 1.0f;
-    u1 = u1 + t0 * t0;
-    t2 = *(int *)(((int)stk + 4));
-    t3 = ((~(((~t2) + 0x1) & 0x1)) + 0x1);
-    if ((int)t2 >= 0) {
-        t3 = (t2 & 0x1);
-    }
-    if (t3 == 0) {
-        return;
-    }
-    ((int (*)(float))(0x8C0ED510))(((t0 * (1.0f + 1.0f)) / u1));
-}
 
 int _pd_peripheral_set_id(int a4, int a5, int a6, int a7)
 {
@@ -787,22 +712,6 @@ void hudNearAlpha(int a4)
     }
 }
 
-int iconSlotPutB(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5)
-{
-    int t3;
-    int stk[19];
-
-    stk[7] = a8;
-    stk[8] = a9;
-    stk[9] = a10;
-    stk[10] = a11;
-    *(unsigned int *)(((int)stk + 16)) = a4;
-    *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (*(float *)0x8C0901A4));
-    *(float *)(((((int)stk + 16) + 0xC) + 0x4)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x4))) + 78.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-    t3 = *(int *)(((int)stk + 16));
-    return (sprPutScaledAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C37CF10), a5, a6, a7, *(Stk3 *)((((int)stk + 16) + 0xC)), f4, f5));
-}
 
 int stageMinigameLoadBegin(int a4)
 {
@@ -837,30 +746,6 @@ void syChainMasterHandlerPVR_V(void)
     }
 }
 
-int mwRnaSetOutVol(int a4, int a5)
-{
-    int t3;
-    int t4;
-    int t1;
-
-    if (a4 == 0) {
-        mwRnaErrCallFunc(0x8C20AC30);
-        return ((int (*)(void))(0x8C1F2CAA))();
-    }
-    t3 = 0x0;
-    t4 = a4;
-    if ((int)a5 >= 0) {
-    } else {
-        t1 = a5;
-        if ((int)a5 <= (int)0xFFFFFC19) {
-            t1 = 0xFFFFFC19;
-        }
-        t3 = t1;
-        t4 = 0xFFFFFC19;
-    }
-    *(volatile int *)(((*(int *)(((*(int *)((a4 + 0x38))) + 0x0))) + 0x34));
-    return ((int (*)(int, int))(0x8C1F2CA2))(t4, t3);
-}
 
 int kmySetFlickerFilterMode(int a4, int a5)
 {
@@ -925,28 +810,6 @@ int hudCounterStep(int a4, int a5, int a6, int a7, int a8)
     return t10;
 }
 
-void nlTanf(float f4)
-{
-    float t0;
-    int t1;
-    int t2;
-    int stk[3];
-
-    t0 = nlTanfReduce(((int)stk + 4), f4);
-    t1 = *(int *)(((int)stk + 4));
-    t2 = ((~(((~t1) + 0x1) & 0x1)) + 0x1);
-    if ((int)t1 >= 0) {
-        t2 = (t1 & 0x1);
-    }
-    if (t2 == 0) {
-        return;
-    }
-    if (t0 != 0.0f) {
-        ((int (*)(float))(0x8C0ED5C8))(t0);
-    return;
-    }
-    ((int (*)(float))(0x8C0ED5E0))(t0);
-}
 
 void camWorldToView(Stk4 s)
 {
@@ -1002,45 +865,6 @@ int sklBindMatrices(int a4)
     return t13;
 }
 
-int nlLineClipNear(int a4, int a5)
-{
-    float u1;
-    int t24;
-    int t25;
-    float u27;
-    int t8;
-    int t9;
-    float u11;
-    int t17;
-    int t18;
-    float u20;
-
-    u1 = *(float *)0x8C458E3C;
-    if (u1 > (*(float *)((a4 + 0x8)))) {
-        if (u1 > (*(float *)((a5 + 0x8)))) {
-            t8 = a4;
-            t9 = a5;
-            u11 = u1;
-        } else {
-            nlLineClipPoint(a4, a5, a4);
-        }
-        t24 = t8;
-        t25 = t9;
-        u27 = u11;
-    } else {
-        if (u1 > (*(float *)((a5 + 0x8)))) {
-            nlLineClipPoint(a4, a5, a5);
-        } else {
-            t17 = a4;
-            t18 = a5;
-            u20 = u1;
-        }
-        t24 = t17;
-        t25 = t18;
-        u27 = u20;
-    }
-    return ((int (*)(int, int, float))(0x8C0F3514))(t24, t25, u27);
-}
 
 float evDist2d(Stk4 s)
 {
@@ -1067,18 +891,6 @@ float evDist2d(Stk4 s)
     return (-_builtin_sqrtf(u5));
 }
 
-int cpuDebugBallLine(void)
-{
-    float u0;
-    int stk[8];
-
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 4) + 0xC)) = *(struct mv3 *)(0x8C291F3C); }
-    u0 = *(float *)0x8C081138;
-    *(float *)(((int)stk + 20)) = u0;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(0x8C291F88); }
-    *(float *)(((int)stk + 8)) = u0;
-    return (nlSingleLine((((int)stk + 4) + 0xC), ((int)stk + 4), 0xFFFFFFFF, *(Stk3 *)(0x8C291F88)));
-}
 
 int hudWordFlagDraw(void)
 {

@@ -15,8 +15,9 @@ int strmCallNameScore(int);
 int strmCallScore(int, int, int, int);
 int FBmovedata(int a4, int a5, int a6);
 int mainDebugPause(int a4, int a5);
-float motionAngleBlend(int a4, int a5);
-int strmScoreAnnounce(void);
+int motionAngleBlend(int a4, int a5);
+void strmScoreAnnounce(void);
+int strmCallPending(void);
 int adxt_set_outpan(int a4);
 int kmyMoveParameterBoundary(int a4, int a5, int a6);
 
@@ -201,54 +202,31 @@ int mainDebugPause(int a4, int a5)
     goto L_8C010290;
 }
 
-float motionAngleBlend(int a4, int a5)
+int motionAngleBlend(int a4, int a5)
 {
-    int t0;
     int t3;
     float u4;
     float u5;
     float u7;
-    int t8;
-    float u10;
-    float u11;
-    float u12;
-    float u13;
-    float u14;
-    float u15;
-    float u27;
-    float u18;
+    float k;
 
-    t0 = abs((a4 - a5));
-    if ((int)t0 < (int)0x8000) {
-        t3 = *(int *)0x8C2871D4;
-        u4 = *(float *)((t3 + 0x0));
-        u5 = *(float *)((t3 + 0x4));
-        *(volatile float *)0x8C2873F4;
-        u7 = ((float)a5 * u4);
-        u7 = u7 + (u5 - u4) * (float)a4;
-        u27 = (u5 - u4);
-    } else {
-        t8 = *(int *)0x8C2871D4;
-        *(volatile float *)0x8C2873F4;
+    if (abs((a4 - a5)) >= 0x8000) {
         if ((int)a4 > (int)a5) {
-            u10 = *(float *)((t8 + 0x4));
-            u11 = *(float *)((t8 + 0x0));
-            u12 = ((float)(a5 + 0x10000) * u11);
-            u12 = u12 + (u10 - u11) * (float)a4;
-            u18 = (u10 - u11);
+            a5 = (a5 + 0x10000);
         } else {
-            u13 = *(float *)((t8 + 0x0));
-            u14 = *(float *)((t8 + 0x4));
-            u15 = ((float)(a5 - 65536) * u13);
-            u15 = u15 + (u14 - u13) * (float)a4;
-            u18 = (u14 - u13);
+            a5 = (a5 - 65536);
         }
-        u27 = u18;
     }
-    return u27;
+    t3 = *(int *)0x8C2871D4;
+    u4 = *(float *)((t3 + 0x0));
+    u5 = *(float *)((t3 + 0x4));
+    k = *(float *)0x8C2873F4;
+    u7 = ((float)a5 * u4);
+    u7 = u7 + (u5 - u4) * (float)a4;
+    return (int)(u7 * k);
 }
 
-int strmScoreAnnounce(void)
+void strmScoreAnnounce(void)
 {
     int t11;
     int t6;
@@ -308,7 +286,9 @@ int strmScoreAnnounce(void)
     }
     *(unsigned int *)0x8C1D4B48 = (*(int *)0x8C287B00);
     *(unsigned int *)0x8C1D4B4C = (*(int *)0x8C287B04);
-    return ((int (*)(int, int, int, int))(0x8C0D7E7C))(t51, t52, t53, t54);
+    if ((*(int *)0x8C1D4A40) != 0) {
+        strmCallPending();
+    }
 }
 
 int adxt_set_outpan(int a4)

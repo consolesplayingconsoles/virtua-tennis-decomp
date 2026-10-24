@@ -59,7 +59,7 @@ int set_event(int, int);
 int strncpy(int, int, int);
 int nlFreeTextureAll(void);
 int mwRnaSetPitch(int a4, int a5, int a6);
-int valStepToward(int a4, float f4, float f5);
+float valStepToward(int a4, float f4, float f5);
 int cpuDblIsMyBall(int a4);
 int _mult64(int a4, int a5, int a6, int a7);
 int adxt_start_sj(int a4, int a5);
@@ -69,12 +69,12 @@ int padIdleFrames(void);
 void nlFastInvertMatrix(void);
 int adxf_SetCmdHstry(int a4, int a5, int a6, int a7, int a8);
 int SJMEM_IsGetChunk(int a4, int a5, int a6, int a7);
-float angleLerp(int a4, int a5, float f4);
+int angleLerp(int a4, int a5, float f4);
 int nlsndPackFreeBG(int a4);
 int search_dir_by_startfat(int a4, int a5);
 int kmyGetFrameBufferSize(int a4);
 int mwlSbSetDrctLvl(int a4, int a5);
-int nlSinfReduce(int a4, float f4);
+float nlSinfReduce(int a4, float f4);
 int nlObjPutMvSub(int a4, int a5);
 int mwRnaSetBitPerSmpl(int a4, int a5);
 int kmyConnectInterrupt(int a4, int a5, int a6);
@@ -113,53 +113,6 @@ int cpuSglAimAddSides(int a4, int a5);
 int hudFadeOutStart(int a4, int a5, int a6, int a7, int a8);
 int exprPlayB(int a4, int a5, int a6);
 
-int nlFreeTextureAll(void)
-{
-    int t0;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t12;
-    int t13;
-    int t14;
-    int t15;
-
-    t0 = *(int *)0x8C458608;
-    t2 = 0x0;
-    t3 = t0;
-    for (;;) {
-        t4 = *(int *)0x8C45860C;
-        if ((int)t2 >= (int)t4) {
-            break;
-        }
-        t5 = *(int *)((t3 + 0x2C));
-        if (t5 != 0) {
-            t6 = *(int *)((t3 + 0x28));
-            if (t6 == 0) {
-                kmFreeTexture(t3);
-            }
-        }
-        t2 = (t2 + 0x1);
-        t3 = (t3 + 0x3C);
-    }
-    t12 = *(int *)0x8C458608;
-    t13 = t12;
-    t14 = 0x0;
-    for (;;) {
-        t15 = *(int *)0x8C45860C;
-        if ((int)t14 >= (int)t15) {
-            break;
-        }
-        *(unsigned int *)((t13 + 0x28)) = 0xFFFFFFFF;
-        t14 = (t14 + 0x1);
-        *(unsigned int *)((t13 + 0x2C)) = 0x0;
-        *(unsigned int *)((t13 + 0x38)) = 0xFFFFFFFF;
-        t13 = (t13 + 0x3C);
-    }
-    return ((int (*)(int, int, int))(0x8C0EA774))(t13, 0xFFFFFFFF, t14);
-}
 
 int mwRnaSetPitch(int a4, int a5, int a6)
 {
@@ -203,56 +156,36 @@ int mwRnaSetPitch(int a4, int a5, int a6)
     return 0x78;
 }
 
-int valStepToward(int a4, float f4, float f5)
+float valStepToward(int a4, float f4, float f5)
 {
-    float u5;
-    float u0;
-    float u7;
+    float d;
+    float ad;
+    float step;
+    float sgn;
 
-    u5 = 1000.0f;
+    d = (f5 - f4);
+    ad = d;
+    if (0.0f > d) {
+        ad = (f4 - f5);
+    }
     if ((int)a4 > 0) {
-        u0 = (f4 - f5);
-        if (!(0.0f > (f5 - f4))) {
-            u0 = (f5 - f4);
-        }
-        u5 = (u0 / (float)a4);
+        step = (ad / (float)a4);
+    } else {
+        step = 1000.0f;
     }
-    u7 = (f4 - f5);
-    if (!(0.0f > (f5 - f4))) {
-        u7 = (f5 - f4);
+    if (step > ad) {
+        return f5;
     }
-    if (u5 > u7) {
-        return ((int (*)(int, float, float, float))(0x8C016D82))(a4, f5, f5, u5);
+    if (d > 0.0f) {
+        sgn = 1.0f;
+    } else if (0.0f > d) {
+        sgn = -1.0f;
+    } else {
+        sgn = 0.0f;
     }
-    if ((f5 - f4) > 0.0f) {
-        return ((int (*)(int, float, float, float, float))(0x8C016D7A))(a4, f4, f5, u5, (f5 - f4));
-    }
-    if (0.0f > (f5 - f4)) {
-        return ((int (*)(int, float, float, float, float))(0x8C016D7A))(a4, f4, f5, u5, (f5 - f4));
-    }
-    return ((int (*)(int, float, float, float, float))(0x8C016D78))(a4, f4, f5, u5, (f5 - f4));
+    return (f4 + step * sgn);
 }
 
-int cpuDblIsMyBall(int a4)
-{
-    int t0;
-    int t1;
-    float u2;
-
-    t0 = *(int *)((a4 + 0xB5C));
-    t1 = *(int *)((a4 + 0xB60));
-    if ((t1 & 8) == 0) {
-        u2 = *(float *)0x8C291F50;
-        if (u2 > 0.0f) {
-            return ((int (*)(int, int, int))(0x8C05A43A))(a4, ((t0 * 0x160) + 0x8C2FC69C), 0x8C291F24);
-        }
-        if (0.0f > u2) {
-            return ((int (*)(int, int, int))(0x8C05A43A))(a4, ((t0 * 0x160) + 0x8C2FC69C), 0x8C291F24);
-        }
-        return ((int (*)(int, int, int))(0x8C05A43A))(a4, ((t0 * 0x160) + 0x8C2FC69C), 0x8C291F24);
-    }
-    return ((int (*)(int, int, int))(0x8C05A45E))(a4, ((t0 * 0x160) + 0x8C2FC69C), 0x8C291F24);
-}
 
 int _mult64(int a4, int a5, int a6, int a7)
 {
@@ -640,62 +573,26 @@ int SJMEM_IsGetChunk(int a4, int a5, int a6, int a7)
     return (((t18 == a6)) ? 1 : 0);
 }
 
-float angleLerp(int a4, int a5, float f4)
+int angleLerp(int a4, int a5, float f4)
 {
-    float u16;
+    float u14;
 
     if (f4 == 0.0f) {
-    } else {
-        abs((a4 - a5));
-        
-        u16 = f4;
+        return a4;
     }
-    return u16;
-}
-
-int nlsndPackFreeBG(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t13;
-    int stk[7] = {0};
-
-    t0 = nlsndCheckPackFreeError(a4);
-    if (t0 != 0) {
-        t13 = t0;
-    } else {
-        t1 = *(int *)0x8C454CE8;
-        t2 = *(int *)(((((a4 << 1) + a4) << 2) + 0x8C454DDC));
-        t3 = nlsndPackFreeInit(a4, t2, ((int)stk + 4));
-        *(unsigned int *)(((t1 + 0x18) + 0x0)) = t3;
-        t4 = *(int *)0x8C454CE8;
-        *(unsigned int *)((t4 + 0x0)) = 0x101;
-        t5 = *(int *)0x8C454CE8;
-        *(unsigned int *)((t5 + 0x8)) = (-t2);
-        t6 = *(int *)(((int)stk + 4));
-        t7 = *(int *)0x8C454CE8;
-        *(unsigned int *)((t7 + 0x10)) = t6;
+    if (abs((a4 - a5)) >= 0x8000) {
+        if (a4 > a5) {
+            a5 = (a5 + 0x10000);
+        } else {
+            a5 = (a5 + -65536);
+        }
     }
-    return ((int (*)(int))(0x8C0F59DA))(t13);
+    u14 = ((1.0f - f4) * (float)a4);
+    u14 = u14 + f4 * (float)a5;
+    return (int)u14;
 }
 
-int search_dir_by_startfat(int a4, int a5)
-{
-    int t0;
-    int t1;
-    int t2;
 
-    t0 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x28));
-    t1 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C));
-    t2 = *(int *)((t1 + 0x30));
-    return ((int (*)(int, int))(0x8C1EDB2C))(a4, a5);
-}
 
 int kmyGetFrameBufferSize(int a4)
 {
@@ -772,43 +669,37 @@ int mwlSbSetDrctLvl(int a4, int a5)
     return t14;
 }
 
-int nlSinfReduce(int a4, float f4)
+float nlSinfReduce(int a4, float f4)
 {
-    float u0;
-    float u1;
-    float u5;
-    float u6;
-    float u7;
-    int t8;
-    float u9;
-    int t10;
-    float u11;
     float u3;
+    float x;
+    float r;
+    float u;
+    int q;
+    int k;
+    int t10;
 
     if (!(0.0f > f4)) {
-        u0 = *(float *)0x8C0ED65C;
-        u3 = u0;
+        u3 = *(float *)0x8C0ED65C;
     } else {
-        u1 = *(float *)0x8C0ED660;
-        u3 = u1;
+        u3 = *(float *)0x8C0ED660;
     }
-    u5 = *(float *)0x8C0ED664;
-    *(unsigned int *)((a4 + 0x0)) = (int)(u3 + (f4 / u5));
-    u6 = *(float *)0x8C0ED668;
-    u7 = *(float *)0x8C0ED66C;
-    t8 = 0xB;
-    u9 = 0.0f;
+    q = (int)(u3 + (f4 / *(float *)0x8C0ED664));
+    *(unsigned int *)((a4 + 0x0)) = q;
+    x = (f4 - ((float)q * *(float *)0x8C0ED668));
+    x = x + *(float *)0x8C0ED66C * (float)q;
+    r = (x * x);
+    u = 0.0f;
+    k = 0xB;
     for (;;) {
-        t10 = t8;
-        t8 = (t8 - 2);
-        u11 = ((float)t10 - u9);
-        u9 = (((f4 - ((float)(int)(u3 + (f4 / u5)) * u6)) + u7 * (float)(int)(u3 + (f4 / u5))) * ((f4 - ((float)(int)(u3 + (f4 / u5)) * u6)) + u7 * (float)(int)(u3 + (f4 / u5))));
-        u9 = (u9 / u11);
-        if ((int)t8 < (int)0x3) {
+        t10 = k;
+        k = (k - 2);
+        u = (r / ((float)t10 - u));
+        if ((int)k < (int)0x3) {
             break;
         }
     }
-    return ((int (*)(int, int, float, float, float))(0x8C0ED578))(t8, 0x3, ((f4 - ((float)(int)(u3 + (f4 / u5)) * u6)) + u7 * (float)(int)(u3 + (f4 / u5))), u9, (((f4 - ((float)(int)(u3 + (f4 / u5)) * u6)) + u7 * (float)(int)(u3 + (f4 / u5))) * ((f4 - ((float)(int)(u3 + (f4 / u5)) * u6)) + u7 * (float)(int)(u3 + (f4 / u5)))));
+    return (x / (1.0f - u));
 }
 
 int nlObjPutMvSub(int a4, int a5)
@@ -933,57 +824,6 @@ int strmBgmFadeOut(int a4, int a5)
     return ADXT_Stop();
 }
 
-int kmyZeroMemory(int a4, int a5)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-
-    if (((a4 | a5) & 7) == 0) {
-        t0 = a4;
-        t1 = ((unsigned int)((unsigned int)a5 >> 2) >> 1);
-        for (;;) {
-            t1 = (t1 - 0x1);
-            *(float *)((t0 + 0x0)) = 0.0f;
-            *(float *)(((t0 + 0x0) + 4)) = 0.0f;
-            t0 = (t0 + 0x8);
-            if (t1 == 0) {
-                break;
-            }
-        }
-        return (a4 | a5);
-    }
-    if (((a4 | a5) & 3) == 0) {
-        t2 = a4;
-        t3 = ((unsigned int)a5 >> 2);
-        for (;;) {
-            t3 = (t3 - 0x1);
-            *(unsigned int *)((t2 + 0x0)) = 0x0;
-            t2 = (t2 + 0x4);
-            if (t3 == 0) {
-                break;
-            }
-        }
-        return 0x0;
-    }
-    if (((a4 | a5) & 1) == 0) {
-        t4 = a4;
-        t5 = ((unsigned int)a5 >> 1);
-        for (;;) {
-            t5 = (t5 - 0x1);
-            *(unsigned short *)((t4 + 0x0)) = 0x0;
-            t4 = (t4 + 0x2);
-            if (t5 == 0) {
-                break;
-            }
-        }
-        return 0x0;
-    }
-    return ((int (*)(int, int))(0x8C1E2988))(a4, (a5 - 0x1));
-}
 
 int mwRnaSetOutPan(int a4, int a5, int a6)
 {
@@ -1174,48 +1014,7 @@ int kmyGetPassInfo(int a4, int a5, int a6)
     return 0xEEEE;
 }
 
-int kmtex_ConfirmSmallVQ(int a4)
-{
-    int t0;
-    int t1;
 
-    t0 = *(int *)((a4 + 0xC));
-    if (t0 != 8) {
-        if (t0 != 16) {
-            if (t0 != 32) {
-                if (t0 != 64) {
-                    return ((int (*)(int, int))(0x8C1FC2A6))(a4, 0x80000000);
-                }
-                return ((int (*)(int, int))(0x8C1FC298))(a4, 0x80000000);
-            }
-            return ((int (*)(int, int))(0x8C1FC28E))(a4, 0x80000000);
-        }
-        return ((int (*)(int, int))(0x8C1FC280))(a4, 0x80000000);
-    }
-    t1 = *(int *)((a4 + 0x18));
-    if ((0x80000000 & t1) != 0) {
-        return 0x2;
-    }
-    return 0x1;
-}
-
-int kmtex_TextureSize_Twiddled(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-
-    t0 = *(int *)((a4 + 0x10));
-    t1 = *(int *)((a4 + 0xC));
-    t2 = *(int *)((a4 + 0x18));
-    if ((t2 & 0x80000000) != 0) {
-        if ((unsigned int)((unsigned int)t1 >> 1) < (unsigned int)((unsigned int)t0 >> 1)) {
-            return ((int (*)(int, int, int, int))(0x8C1FC342))(a4, ((unsigned int)t0 >> 1), ((unsigned int)t1 >> 1), (t1 * t0));
-        }
-        return ((int (*)(int, int, int, int))(0x8C1FC342))(a4, ((unsigned int)t0 >> 1), ((unsigned int)t1 >> 1), (t1 * t0));
-    }
-    return ((int (*)(int, int, int, int))(0x8C1FC364))(a4, t0, t1, (t1 * t0));
-}
 
 float rndRangef(float f4)
 {
@@ -1270,31 +1069,6 @@ int matchPropStart(void)
     return t2;
 }
 
-int rankDraw(void)
-{
-    float u0;
-    float u1;
-    float u2;
-    int t3;
-    int t5;
-    int t7;
-    int t8;
-
-    u0 = *(float *)0x8C0E2028;
-    u1 = *(float *)0x8C0E202C;
-    u2 = *(float *)0x8C0E2030;
-    t3 = *(int *)0x8C287ADC;
-    if (t3 == 2) {
-        vecMake(u2, u1, u0);
-        t5 = rankDrawTbl1();
-        t8 = t5;
-    } else {
-        vecMake(u2, u1, u0);
-        t7 = rankDrawTbl2();
-        t8 = t7;
-    }
-    return t8;
-}
 
 float nlRoundUp(float f4)
 {
@@ -1509,34 +1283,7 @@ int stageSegaQuadUVSet(int a4, float f4, float f5, float f6)
     return 0x8C0BA360;
 }
 
-int evFadeValueTask(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
 
-    t0 = *(int *)((a4 + 0x14));
-    if ((int)t0 > (int)0x28) {
-        t1 = *(int *)((a4 + 0x14));
-        t2 = *(int *)((a4 + 0x18));
-        return ((int (*)(int, int))(0x8C0DA790))(a4, 0x8C40C2EC);
-    }
-    return ((int (*)(int, int))(0x8C0DA784))(a4, 0x8C40C2EC);
-}
-
-int kmiConvertUVnum(int a4)
-{
-    if (a4 == 8) {
-        return ((int (*)(int))(0x8C0EA608))(0x0);
-    }
-    if (a4 == 16) {
-        return ((int (*)(int))(0x8C0EA608))(0x1);
-    }
-    if (a4 == 32) {
-        return ((int (*)(int))(0x8C0EA608))(0x2);
-    }
-    return ((int (*)(int))(0x8C0EA5C0))(a4);
-}
 
 int mwSbSetPan(int a4, int a5, int a6)
 {
@@ -1665,41 +1412,7 @@ int SJMEM_GetNumData(int a4, int a5)
     return 0x0;
 }
 
-int kmyiSetScreenSize(int a4)
-{
-    if ((0x20 & a4) != 0) {
-        if ((0x42 & a4) == 66) {
-            *(unsigned int *)0x8C45EEA0 = 0x200;
-            return ((int (*)(int, int))(0x8C1F83F4))(a4, (0x42 & a4));
-        }
-        *(unsigned int *)0x8C45EEA0 = 0x1E0;
-        return ((int (*)(int, int))(0x8C1F83F4))(a4, (0x42 & a4));
-    }
-    return ((int (*)(int, int))(0x8C1F83E0))(a4, (0x42 & a4));
-}
 
-void vecFromYaw(int a4, int a5, int a6, int a7, int a8)
-{
-    int t1;
-    int t6;
-    int t7;
-    int t8;
-    int stk[8] = {0};
-
-    *(unsigned short *)(((int)stk + 8)) = a4;
-    nlPushUnitMatrix();
-    t1 = *(short *)(((int)stk + 8));
-    nlRotateAY((unsigned short)t1);
-    vecMake(0.0f, 0.0f, 1.0f);
-    nlCalcPoint((((int)stk + 4) + 0x8), (((int)stk + 4) + 0x8));
-    nlPopMatrix(0x1);
-    t6 = *(int *)(((((int)stk + 4) + 0x8) + 0x8));
-    *(unsigned int *)((a8 + 0x8)) = t6;
-    t7 = *(int *)(((((int)stk + 4) + 0x8) + 0x4));
-    *(unsigned int *)((a8 + 0x4)) = t7;
-    t8 = *(int *)(((((int)stk + 4) + 0x8) + 0x0));
-    *(unsigned int *)((a8 + 0x0)) = t8;
-}
 
 int cpuSglAimAddSides(int a4, int a5)
 {

@@ -28,11 +28,6 @@ void thunk_FUN_8c0bcda0(void)
     fadeScreenDraw();
 }
 
-void miniBallCopySpawn(void)
-{
-    set_event(0xA0, 0x8C03A068);
-    _quick_mvn();
-}
 
 void ambLevelGet(void)
 {

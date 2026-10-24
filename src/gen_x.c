@@ -70,7 +70,7 @@ int vmsfs_mount2(int a4, int a5);
 int mwRnaStart(int a4);
 int SJMEM_GetChunk(int a4, int a5, int a6, int a7);
 int SJUNI_IsGetChunk(int a4, int a5, int a6, int a7);
-float angBlend(int a4, int a5, float f4);
+int angBlend(int a4, int a5, float f4);
 int padVibStopAll(void);
 int mtxGetAngles(int a4);
 void nlRotateV(int a4, int a5);
@@ -145,43 +145,8 @@ void unlockApplyW2(void)
     }
 }
 
-int nlSpriteGetNextSpriteIndex(int a4, int a5, int a6)
-{
-    return ((int (*)(int, int, int, int))(0x8C0F4A72))(a4, 0x0, a6, 0x8C454C8C);
-}
 
-int ADXT_GetTime(int a4, int a5, int a6)
-{
-    int t0;
 
-    t0 = *(signed char *)((a4 + 0x1));
-    if ((t0 != 3) && (t0 != 4)) {
-        if ((*(signed char *)((a4 + 0x1))) == 5) {
-            *(unsigned int *)((a5 + 0x0)) = (ADXSJD_GetTotalNumSmpl((*(int *)((a4 + 0x4)))));
-            *(unsigned int *)((a6 + 0x0)) = (ADXSJD_GetSfreq((*(int *)((a4 + 0x4)))));
-            *(unsigned int *)((a5 + 0x0)) = ((*(int *)((a5 + 0x0))) * ((int)((int)0x10 / (int)(ADXSJD_GetOutBps((*(int *)((a4 + 0x4))))))));
-            return ((int (*)(void))(0x8C1E152C))();
-        }
-        return ((int (*)(int, int, int))(0x8C1E1524))(t0, a5, a6);
-    }
-    ADXRNA_GetTime((*(int *)((a4 + 0xC))), a5, a6);
-    return ((int (*)(void))(0x8C1E152C))();
-}
-
-int vmsfs_mount2(int a4, int a5)
-{
-    int t1;
-    int t3;
-
-    if ((*(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x2))) == 0) {
-        return ((int (*)(int))(0x8C1EB884))(a4);
-    }
-    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x30)) = 0x1;
-    t1 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x4));
-    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x34)) = (*(int *)((((((t1 << 2) + t1) << 2) << 2) + 0x8C20C750)));
-    t3 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x30));
-    return ((int (*)(int, int, int))(0x8C1EB866))(a4, a5, t3);
-}
 
 int mwRnaStart(int a4)
 {
@@ -266,7 +231,7 @@ int SJUNI_IsGetChunk(int a4, int a5, int a6, int a7)
     return 0x0;
 }
 
-float angBlend(int a4, int a5, float f4)
+int angBlend(int a4, int a5, float f4)
 {
     int t0;
     int t1;
@@ -295,7 +260,7 @@ float angBlend(int a4, int a5, float f4)
     }
     u15 = ((1.0f - f4) * (float)(unsigned short)t2);
     u15 = u15 + f4 * (float)t13;
-    return f4;
+    return (int)u15;
 }
 
 int padVibStopAll(void)
@@ -541,55 +506,6 @@ int angLerp(int a4, int a5, float f4)
     return t4;
 }
 
-int nlLineSendVertex(int a4, int a5, int a6)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t6;
-    int t7;
-    int t8;
-
-    t0 = *(int *)((a6 + 0x0));
-    t1 = 0x0;
-    t2 = a5;
-    t3 = a4;
-    for (;;) {
-        if (t1 == 3) {
-            *(unsigned int *)((t3 + 0x0)) = 0xF0000000;
-        } else {
-            *(unsigned int *)((t3 + 0x0)) = 0xE0000000;
-        }
-        t6 = *(int *)((t2 + 0x0));
-        t2 = (t2 + 0x4);
-        t3 = (t3 + 0x4);
-        *(unsigned int *)((t3 + 0x0)) = t6;
-        t3 = (t3 + 0x4);
-        t7 = *(int *)((t2 + 0x0));
-        t2 = (t2 + 0x4);
-        *(unsigned int *)((t3 + 0x0)) = t7;
-        t3 = (t3 + 0x4);
-        t8 = *(int *)((t2 + 0x0));
-        t2 = (t2 + 0x4);
-        *(unsigned int *)((t3 + 0x0)) = t8;
-        t3 = (t3 + 0x4);
-        *(unsigned int *)((t3 + 0x0)) = t0;
-        t3 = (t3 + 0x4);
-        *(unsigned int *)((t3 + 0x0)) = 0x0;
-        t3 = (t3 + 0x4);
-        *(unsigned int *)((t3 + 0x0)) = t0;
-        t3 = (t3 + 0x4);
-        *(unsigned int *)((t3 + 0x0)) = 0x0;
-        prefetch(t3);
-        t1 = (t1 + 0x1);
-        t3 = (t3 + 0x4);
-        if ((int)t1 >= (int)0x4) {
-            break;
-        }
-    }
-    return ((int (*)(void))(0x8C0F358E))();
-}
 
 int mwRnaContinue(int a4)
 {
@@ -637,68 +553,8 @@ void kmiRegisterPhIntHandler(int a4)
     _builtin_set_imask(((unsigned int)((((*(int *)0x8C470AA8) & 0xF) << 2) << 2) >> 4));
 }
 
-int kmtex_GetTextureLevel(int a4, int a5)
-{
-    int t0;
 
-    t0 = a4;
-    if ((int)a4 >= (int)a5) {
-        t0 = a5;
-    }
-    if (t0 != 1) {
-        if (t0 != 2) {
-            if (t0 != 4) {
-                if (t0 != 8) {
-                    if (t0 != 16) {
-                        if (t0 != 32) {
-                            if (t0 != 64) {
-                                if (t0 != 0x80) {
-                                    if (t0 != 0x100) {
-                                        if (t0 != 0x200) {
-                                            if (t0 != 0x400) {
-                                                return ((int (*)(int, int))(0x8C1FC224))(t0, a5);
-                                            }
-                                            return ((int (*)(int, int))(0x8C1FC220))(t0, a5);
-                                        }
-                                        return ((int (*)(int, int))(0x8C1FC21C))(t0, a5);
-                                    }
-                                    return ((int (*)(int, int))(0x8C1FC218))(t0, a5);
-                                }
-                                return ((int (*)(int, int))(0x8C1FC214))(t0, a5);
-                            }
-                            return ((int (*)(int, int))(0x8C1FC210))(t0, a5);
-                        }
-                        return ((int (*)(int, int))(0x8C1FC20C))(t0, a5);
-                    }
-                    return ((int (*)(int, int))(0x8C1FC208))(t0, a5);
-                }
-                return ((int (*)(int, int))(0x8C1FC224))(t0, a5);
-            }
-            return ((int (*)(int, int))(0x8C1FC204))(t0, a5);
-        }
-        return ((int (*)(int, int))(0x8C1FC200))(t0, a5);
-    }
-    return 0x0;
-}
 
-int ndbBuildIndex(void)
-{
-    *(unsigned short *)0x8CB80000 = 0x0;
-    return ((int (*)(int, int, int))(0x8C08268A))(0x8CB80000, 0x8CB80000, 0x8CB90000);
-}
-
-int hudCallMsgDrawA9f0(float f4, float f5)
-{
-    int stk[14];
-
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)(0x8C10DB10); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(((int)stk + 28)); }
-    hudBarDrawAlt(*(Stk3 *)(((int)stk + 28)), (f4 * (*(float *)0x8C09A3A4)), f5);
-    *(float *)((((int)stk + 28) + 0x8)) = (*(float *)0x8C09A3AC);
-    *(float *)((((int)stk + 28) + 0x0)) = ((*(float *)((((int)stk + 28) + 0x0))) + (*(float *)0x8C09A3B0));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(((int)stk + 28)); }
-    return (sprPutCropV(0x8C33A9F0, 0x1, *(Stk3 *)(((int)stk + 28)), f4, 1.0f, f5));
-}
 
 int nlMakeProjConvMat(int a4)
 {
@@ -743,15 +599,6 @@ int pdLcdGetDirection(int a4)
     return (unsigned char)(*(signed char *)((0x8C20A8A0 + (((unsigned char)(*(signed char *)((t3 + (t1 + 0x12)))) << 2) + (unsigned char)(*(signed char *)(((t2 + 0x12) + 0x0)))))));
 }
 
-int vmsfs_read_disk_image(int a4, int a5)
-{
-    int t0;
-
-    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x30)) = 0x1;
-    t0 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x4));
-    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x34)) = (*(int *)((((((t0 << 2) + t0) << 2) << 2) + 0x8C20C788)));
-    return ((int (*)(int, int))(0x8C1EE976))(a4, a5);
-}
 
 int pdVibEnumerateUnit(int a4, int a5, int a6)
 {
@@ -878,44 +725,8 @@ int miniPlacePlayers(void)
     return t9;
 }
 
-int hudCallMsgDrawDa60(float f4, float f5)
-{
-    int stk[14];
 
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)(0x8C10DB10); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(((int)stk + 28)); }
-    hudBarDraw(*(Stk3 *)(((int)stk + 28)), (f4 * (*(float *)0x8C09A64C)), f5);
-    *(float *)((((int)stk + 28) + 0x8)) = (*(float *)0x8C09A650);
-    *(float *)((((int)stk + 28) + 0x0)) = ((*(float *)((((int)stk + 28) + 0x0))) + (*(float *)0x8C09A674));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(((int)stk + 28)); }
-    return (sprPutCropV(0x8C33DA60, 0x0, *(Stk3 *)(((int)stk + 28)), f4, 1.0f, f5));
-}
 
-int hudCallMsgDrawDb50(float f4, float f5)
-{
-    int stk[14];
-
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)(0x8C10DB10); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(((int)stk + 28)); }
-    hudBarDraw(*(Stk3 *)(((int)stk + 28)), (f4 * (*(float *)0x8C09A64C)), f5);
-    *(float *)((((int)stk + 28) + 0x8)) = (*(float *)0x8C09A650);
-    *(float *)((((int)stk + 28) + 0x0)) = ((*(float *)((((int)stk + 28) + 0x0))) + (*(float *)0x8C09A67C));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(((int)stk + 28)); }
-    return (sprPutCropV(0x8C33DB50, 0x0, *(Stk3 *)(((int)stk + 28)), f4, 1.0f, f5));
-}
-
-int hudCallMsgDrawDb00(float f4, float f5)
-{
-    int stk[14];
-
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)(0x8C10DB10); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(((int)stk + 28)); }
-    hudBarDraw(*(Stk3 *)(((int)stk + 28)), (f4 * 0.5f), f5);
-    *(float *)((((int)stk + 28) + 0x8)) = 0.00499999989f;
-    *(float *)((((int)stk + 28) + 0x0)) = ((*(float *)((((int)stk + 28) + 0x0))) + 80.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(((int)stk + 28)); }
-    return (sprPutCropV(0x8C33DB00, 0x0, *(Stk3 *)(((int)stk + 28)), f4, 1.0f, f5));
-}
 
 int fileLoadPollSlot(int a4)
 {
@@ -934,39 +745,6 @@ int fileLoadPollSlot(int a4)
     return (*(int *)((((a4 * 0x4C) + 0x8C34A238) + 0x4)));
 }
 
-int nlExp(float f4)
-{
-    float u0;
-    float u7;
-    float u8;
-    int t9;
-    float u10;
-    int t11;
-    float u12;
-    float u4;
-
-    u0 = *(float *)0x8C0ED0D8;
-    if (!(0.0f > f4)) {
-        u4 = (*(float *)0x8C0ED0DC);
-    } else {
-        u4 = (*(float *)0x8C0ED0E0);
-    }
-    u7 = (f4 - ((float)(int)(u4 + (f4 / u0)) * u0));
-    u8 = (f4 - ((float)(int)(u4 + (f4 / u0)) * u0));
-    t9 = 0xA;
-    u10 = ((u7 * u8) / (*(float *)0x8C0ED0E4));
-    for (;;) {
-        t11 = t9;
-        t9 = (t9 - 4);
-        u12 = ((float)t11 + u10);
-        u10 = (u7 * u8);
-        u10 = (u10 / u12);
-        if ((int)t9 < (int)0x6) {
-            break;
-        }
-    }
-    return ((int (*)(int, int, int, float))(0x8C0ECFAA))((int)(u4 + (f4 / u0)), t9, 0x6, (u7 * u8));
-}
 
 void kmiUnregisterInterruptHandler(void)
 {
@@ -1126,34 +904,6 @@ int adxt_stat_playing(int a4)
     return t16;
 }
 
-int kmyUseAnotherList(int a4, int a5)
-{
-    int t0;
-
-    t0 = *(int *)((a4 + 0x0));
-    if (a5 != 0) {
-        if (a5 != 1) {
-            if (a5 != 2) {
-                if (a5 != 3) {
-                    if (a5 != 4) {
-                        return ((int (*)(int, int, int, int))(0x8C20641A))(a4, a5, t0, 0xEEEE);
-                    }
-                    return ((int (*)(int, int, int, int))(0x8C206404))(a4, a5, t0, 0xEEEE);
-                }
-                if ((0x30 & t0) != 0) {
-                    return ((int (*)(int, int, int, int))(0x8C206410))(a4, a5, (t0 & 0xFFFF4FFF), 0xEEEE);
-                }
-                return ((int (*)(int, int, int, int))(0x8C206400))(a4, a5, t0, 0xEEEE);
-            }
-            return ((int (*)(int, int, int, int))(0x8C20641A))(a4, a5, t0, 0xEEEE);
-        }
-        if ((0x3000 & t0) != 0) {
-            return ((int (*)(int, int, int, int))(0x8C206410))(a4, a5, (t0 & 0xFFFFFF4F), 0xEEEE);
-        }
-        return ((int (*)(int, int, int, int))(0x8C20641C))(a4, 0xEEEE, t0, 0xEEEE);
-    }
-    return ((int (*)(int, int, int, int))(0x8C20641A))(a4, a5, t0, 0xEEEE);
-}
 
 int angStepToward(int a4, int a5, int a6)
 {

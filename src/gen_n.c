@@ -5,22 +5,6 @@ int staffMorphReset(void);
 int ballBoyRecall(int a4);
 int menuSprInit(int a4, int a5, int a6);
 
-int ballBoyRecall(int a4)
-{
-    int t0;
-    int t5;
-
-    t0 = *(int *)0x8C1891E8;
-    if ((int)t0 > (int)0x9) {
-        return ((int (*)(int))(0x8C0C8484))(t0);
-    }
-    if (t0 == 2) {
-        staffMorphReset();
-    } else {
-        t5 = t0;
-    }
-    return ((int (*)(int))(0x8C0C847A))(t5);
-}
 
 int menuSprInit(int a4, int a5, int a6)
 {

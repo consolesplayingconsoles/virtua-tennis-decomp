@@ -461,37 +461,6 @@ void vecLineCrossXZ(Stk13 s, float f4, float f5, float f6, float f7, float f8, f
     { struct mv3 { int w[3]; }; *(struct mv3 *)(s.w[0]) = *(struct mv3 *)(((int)stk + 4)); }
 }
 
-int nlRenderTextureBegin(int a4)
-{
-    int t1;
-    int t23;
-    int t10;
-    int t13;
-    int t14;
-
-    t1 = *(int *)0x8C44FBEC;
-    if ((int)(*(int *)0x8C44FBF4) >= 0) {
-        *(unsigned int *)0x8C44FBF4 = 0xFFFFFFFF;
-        nlSetWindowSize((*(float *)0x8C44FBF8), (*(float *)0x8C44FBFC), (*(float *)0x8C44FC00), (*(float *)0x8C44FC04));
-        nl_cancel_PixelClipping();
-    } else {
-        t10 = a4;
-    }
-    if (((unsigned int)a4 <= (unsigned int)(*(int *)0x8C44FBF0)) && ((t13 = *(int *)(((t1 + ((a4 << 2) << 2)) + 0x0)), (int)t13 >= 0) && (t14 = *(int *)(((t1 + ((a4 << 2) << 2)) + 0x4)), (int)t14 >= 0))) {
-        *(unsigned int *)0x8C44FBF4 = a4;
-        *(float *)0x8C44FBF8 = (*(float *)0x8C450B20);
-        *(float *)0x8C44FBFC = (*(float *)0x8C450B24);
-        *(float *)0x8C44FC00 = (*(float *)0x8C450B18);
-        *(float *)0x8C44FC04 = (*(float *)0x8C450B1C);
-        nlSetWindowSize(0.0f, 0.0f, (float)(*(short *)(((t1 + ((a4 << 2) << 2)) + 0xC))), (float)(*(short *)(((t1 + ((a4 << 2) << 2)) + 0xE))));
-        nl_cancel_PixelClipping();
-        t23 = *(signed char *)0x8C450858;
-        nlMatrixMode(0x3);
-        nl_set_cnv_proj_pers();
-        return nlMatrixMode(t23);
-    }
-    return ((int (*)(int))(0x8C0EE474))(t10);
-}
 
 void footMarkCheck(int a4, int a5)
 {
@@ -657,52 +626,6 @@ int vmsfs_setvolume(int a4, int a5)
     return 0xFFFFFF01;
 }
 
-int kmytex_GetSmallVQprofile(int a4, int a5)
-{
-    if (a5 != 1) {
-        if (a5 != 2) {
-            if (a5 != 3) {
-                if (a5 != 4) {
-                    if (a5 != 5) {
-                        if (a5 != 6) {
-                            if (a5 != 7) {
-                                if (a5 == 8) {
-                                    return ((int (*)(int, int, int, int))(0x8C1F94A0))(a4, a5, 0x1000, 0x800);
-                                }
-                                return ((int (*)(int, int, int, int))(0x8C1F94B0))(a4, a5, 0x1000, 0x800);
-                            }
-                            *(unsigned int *)((a4 + 0x0)) = 0x7000;
-                            return ((int (*)(int, int, int, int))(0x8C1F9460))(a4, 0x400, 0x1000, 0x800);
-                        }
-                        *(unsigned int *)((a4 + 0x0)) = 0x6000;
-                        *(unsigned int *)((a4 + 0x4)) = 0x200;
-                        *(unsigned int *)((a4 + 0x8)) = 0x160;
-                        *(unsigned int *)((a4 + 0xC)) = 0xF60;
-                        return ((int (*)(int, int, int, int))(0x8C1F94B6))(a4, a5, 0x1000, 0x800);
-                    }
-                    *(unsigned int *)((a4 + 0x0)) = 0x5000;
-                    return ((int (*)(int, int, int, int))(0x8C1F9460))(a4, 0x100, 0x1000, 0x800);
-                }
-                *(unsigned int *)((a4 + 0x0)) = 0x4000;
-                *(unsigned int *)((a4 + 0x4)) = 0x80;
-                *(unsigned int *)((a4 + 0x8)) = 0x60;
-                return ((int (*)(int, int, int, int))(0x8C1F94AC))(a4, a5, 0x1000, 0x800);
-            }
-            *(unsigned int *)((a4 + 0x0)) = 0x3000;
-            *(unsigned int *)((a4 + 0x4)) = 0x80;
-            *(unsigned int *)((a4 + 0x8)) = 0x40;
-            return ((int (*)(int, int, int, int))(0x8C1F94AC))(a4, a5, 0x1000, 0x800);
-        }
-        *(unsigned int *)((a4 + 0x0)) = 0x2000;
-        *(unsigned int *)((a4 + 0x4)) = 0x80;
-        *(unsigned int *)((a4 + 0x8)) = 0x20;
-        return ((int (*)(int, int, int, int))(0x8C1F94AC))(a4, a5, 0x1000, 0x800);
-    }
-    *(unsigned int *)((a4 + 0x0)) = 0x1000;
-    *(unsigned int *)((a4 + 0x4)) = 0x80;
-    *(unsigned int *)((a4 + 0x8)) = 0x20;
-    return ((int (*)(int, int, int, int))(0x8C1F94AC))(a4, a5, 0x1000, 0x800);
-}
 
 int SJRBF_UngetChunk(int a4, int a5, int a6)
 {

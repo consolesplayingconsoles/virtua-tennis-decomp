@@ -398,33 +398,6 @@ float nlSprPutPosSet(int a4, int a5, int a6, float f4, float f5, float f6, float
     return u12;
 }
 
-int nlsndStreamSetHdInfo(int a4, int a5)
-{
-    int t4;
-
-    if ((*(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)))) == 1) {
-        if ((*(signed char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x1))) == 0) {
-            nlsndG2WriteN(a5, ((((((((short)a4 << 1) + (short)a4) << 2) << 2) << 1) + 0xA0800100) + 0x20), 0x10);
-            *(unsigned int *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0xC)) = (unsigned short)(*(short *)((a5 + 0x2A)));
-            t4 = *(signed char *)((a5 + 0x8));
-            if ((short)(unsigned char)t4 != 0) {
-                if ((short)(unsigned char)t4 != 1) {
-                    if ((short)(unsigned char)t4 != 2) {
-                        if ((short)(unsigned char)t4 != 3) {
-                            return ((int (*)(int, int))(0x8C0F6456))(0x8C454CF4, (unsigned char)t4);
-                        }
-                        return ((int (*)(int, int))(0x8C0F6450))(0x8C454CF4, (unsigned char)t4);
-                    }
-                    return ((int (*)(int, int))(0x8C0F6450))(0x8C454CF4, (unsigned char)t4);
-                }
-                return ((int (*)(int, int))(0x8C0F6454))(0x8C454CF4, (unsigned char)t4);
-            }
-            return ((int (*)(int, int))(0x8C0F6454))(0x8C454CF4, (unsigned char)t4);
-        }
-        return ((int (*)(int, int))(0x8C0F6456))(a4, a5);
-    }
-    return ((int (*)(int, int))(0x8C0F6456))(a4, a5);
-}
 
 int mwlSbTrnsDat(int a4, int a5, int a6, int a7, int a8)
 {
@@ -660,35 +633,6 @@ int mainExitToBios(void)
     return t4;
 }
 
-int cpuStickNudge(int a4)
-{
-    int t0;
-    float u6;
-    float u8;
-    float u11;
-
-    t0 = *(int *)((a4 + 0xB5C));
-    if ((*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB7))) != 0) {
-        if ((unsigned char)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xAC))) != 1) {
-            u6 = *(float *)((a4 + 0xCF4));
-            u8 = (-u6);
-            if (!(0.0f > u6)) {
-                u8 = (*(float *)((a4 + 0xCF4)));
-            }
-            if (0.75f > u8) {
-                *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB7)) = 0x0;
-                return ((int (*)(int, int))(0x8C03DF52))(a4, ((t0 * 0x160) + 0x8C2FC69C));
-            }
-            u11 = *(float *)((a4 + 0xCF4));
-            
-            *(volatile short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x20));
-            return ((int (*)(int, int, float))(0x8C03DF3A))(a4, ((t0 * 0x160) + 0x8C2FC69C), u11);
-        }
-        *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB7)) = 0x0;
-        return ((int (*)(int, int))(0x8C03DF52))(a4, ((t0 * 0x160) + 0x8C2FC69C));
-    }
-    return ((int (*)(int, int))(0x8C03DF52))(a4, ((t0 * 0x160) + 0x8C2FC69C));
-}
 
 int hudBannerPut(Stk4 s, float f4)
 {
@@ -739,37 +683,6 @@ int adxt_RcvrReplay(int a4)
     return ADXCRS_Unlock();
 }
 
-int syIntAdrChk_putchar(int a4, int a5)
-{
-    int t0;
-    int t6;
-    int t8;
-
-    t0 = *(int *)0x8C47647C;
-    if (t0 != 0) {
-        if (t0 != 1) {
-            return ((int (*)(int, int, int))(0x8C208F1A))(a4, a5, a4);
-        }
-        *(volatile signed char *)((((*(int *)0x8C476474) + 0x10) + 0x0));
-        return ((int (*)(int, int, int))(0x8C208EF4))(0x8C476474, 0x80, a4);
-    }
-    for (;;) {
-        if (((unsigned short)(*(short *)(((*(int *)0x8C476478) + 0x10))) & 0x20) == 32) {
-            break;
-        }
-    }
-    *(unsigned char *)((((*(int *)0x8C476478) + 0xC) + 0x0)) = a4;
-    t6 = *(int *)0x8C476478;
-    *(unsigned short *)(((t6 + 0x10) + 0x0)) = ((*(short *)(((t6 + 0x10) + 0x0))) & 0xFFDF);
-    t8 = *(int *)0x8C476478;
-    *(unsigned short *)(((t8 + 0x10) + 0x0)) = ((*(short *)(((t8 + 0x10) + 0x0))) & 0xFFBF);
-    for (;;) {
-        if (((unsigned short)(*(short *)(((*(int *)0x8C476478) + 0x10))) & 0x40) == 64) {
-            break;
-        }
-    }
-    return ((int (*)(int, int, int))(0x8C208F1A))(0x8C476478, 0x40, a4);
-}
 
 int hudFramePutNarrow(Stk4 s, float f4)
 {

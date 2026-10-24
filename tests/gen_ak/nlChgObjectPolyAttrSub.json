@@ -1,0 +1,34 @@
+{
+ "dev": [
+  {
+   "about": "rescue: flips 8C0F79A2",
+   "regs": {},
+   "poke": {
+    "00000000": "1e00"
+   }
+  },
+  {
+   "about": "rescue: flips 8C0F79A2",
+   "regs": {},
+   "poke": {
+    "00000000": "feff"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "rescue: flips 8C0F79A2",
+   "regs": {},
+   "poke": {
+    "00000000": "1f00"
+   }
+  },
+  {
+   "about": "rescue: flips 8C0F79A2",
+   "regs": {},
+   "poke": {
+    "00000000": "ffff"
+   }
+  }
+ ]
+}

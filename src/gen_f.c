@@ -73,25 +73,6 @@ void motionBone(int a4)
     motionRotate(a4);
 }
 
-void camGetAngles(int a4, int a5)
-{
-    float u0;
-    float u1;
-    float u2;
-    int t6;
-    int t7;
-
-    u0 = *(float *)0x8C287960;
-    u1 = *(float *)0x8C28795C;
-    u2 = *(float *)0x8C287958;
-    vecMake(u2, u1, u0);
-    vecMake(0.0f, 0.0f, 0.0f);
-    vecAnglesTo(a4, a5);
-    t6 = *(short *)((a4 + 0x0));
-    *(unsigned short *)((a4 + 0x0)) = (-t6);
-    t7 = *(short *)((a5 + 0x0));
-    *(unsigned short *)((a5 + 0x0)) = (-t7);
-}
 
 void bodyPlacePoints(int a4)
 {
@@ -418,35 +399,6 @@ void resGetRead(void)
     fileLoadPoll();
 }
 
-void kmyDeleteNativeBuffer(int a4, int a5)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t8;
-
-    t0 = kmyiCheckTAHandle(a4);
-    if (t0 != 0) {
-        t1 = kmyiCheckNativeHandle(a5);
-        if (t1 != 0) {
-            t2 = *(int *)((a5 + 0x0));
-            t3 = *(int *)0x8C474400;
-            if ((t3 & (((int)t2 >= 0) ? (0x1 << (t2 & 31)) : ((-(int)t2 & 31) ? ((int)0x1 >> (-(int)t2 & 31)) : ((int)0x1 >> 31)))) != 0) {
-                t4 = *(int *)0x8C474400;
-                *(unsigned int *)0x8C474400 = (t4 & (~(((int)t2 >= 0) ? (0x1 << (t2 & 31)) : ((-(int)t2 & 31) ? ((int)0x1 >> (-(int)t2 & 31)) : ((int)0x1 >> 31)))));
-                t5 = *(int *)0x8C474404;
-                *(unsigned int *)0x8C474404 = (t5 - 1);
-            }
-            t8 = *(int *)((a5 + 0x88));
-            kmyReleaseRenderPacket();
-            *(unsigned int *)((a5 + 0x1C)) = 0x0;
-            *(unsigned int *)((a5 + 0x20)) = 0x0;
-        }
-    }
-}
 
 void kmiGuaranteeFFModeProcessOver(int a4, int a5)
 {

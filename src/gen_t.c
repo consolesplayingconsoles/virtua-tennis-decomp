@@ -165,31 +165,6 @@ void FBSortQueue(int a4, int a5)
     }
 }
 
-int nlsndIcsControl(int a4, int a5, int a6)
-{
-    int t0;
-
-    if (a5 != 0xA5) {
-        if (a5 != 0x10A5) {
-            if ((a5 != 0x20A5) && ((a5 != 0x30A5) && ((a5 != 0x40A5) && ((a5 != 0xA7) && (a5 != 0x10A7))))) {
-                if (a5 != 0x50A5) {
-                    if (a5 != 0xA6) {
-                        return ((int (*)(int, int, int, int))(0x8C0F5CB0))(0x7F, a5, a6, 0xF);
-                    }
-                    return ((int (*)(int, int, int, int))(0x8C0F5CA0))(0x7F, a5, a6, 0xF);
-                }
-                return ((int (*)(int, int, int, int))(0x8C0F5CC0))(0x7F, a5, ((a6 & 0xF) << 16), 0xF);
-            }
-            return ((int (*)(int, int, int, int))(0x8C0F5CC0))(0x7F, a5, (((a6 + 0x40) & 0x7F) << 16), 0xF);
-        }
-        return ((int (*)(int, int, int, int))(0x8C0F5CAC))(0x7F, a5, a6, 0xF);
-    }
-    t0 = nlsndSeqRequest(((((0x7F00 & a6) << 8) + ((a4 & 0xF) << 8)) + 0x70A5));
-    if (t0 != 0) {
-        return ((int (*)(int, int))(0x8C0F5CD0))(0x0, t0);
-    }
-    return ((int (*)(int, int))(0x8C0F5CC0))(0x0, t0);
-}
 
 int kmyInitDMADevice(void)
 {
@@ -389,64 +364,7 @@ int hudRankSprInit(void)
     return t10;
 }
 
-int kmiSetFBSurfaceDesc(int a4)
-{
-    int t1;
-    int t2;
-    int t4;
-    int t8;
-    int t10;
-    int t11;
-    int stk[16];
 
-    t1 = *(int *)0x8C20AE90;
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x0)) = (*(int *)0x8C20AE8C);
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x4)) = t1;
-    t2 = *(int *)0x8C20AE98;
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x8)) = (*(int *)0x8C20AE94);
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0xC)) = t2;
-    t4 = *(int *)0x8C20AEA0;
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x10)) = (*(int *)0x8C20AE9C);
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x14)) = t4;
-    t8 = 0x2;
-    if (((*(int *)((a4 + 0x4))) & 0x2) != 0) {
-    } else {
-        t8 = (*(int *)((a4 + 0xC)));
-    }
-    *(unsigned int *)(((int)stk + 4)) = 0x0;
-    t10 = *(int *)((a4 + 0x8));
-    if ((unsigned int)0x0 < (unsigned int)t8) {
-        t11 = *(int *)((t10 + 0x0));
-        *(unsigned int *)((t11 + 0x0)) = 0x1;
-        *(unsigned int *)((t11 + 0x8)) = (*(int *)0x8C45EFDC);
-        *(unsigned int *)((t11 + 0x4)) = (*(int *)(((((*(int *)0x8C45EFDC) << 2) + (((int)stk + 4) + 0x4)) + 0x0)));
-        *(unsigned int *)((t11 + 0x18)) = 0x0;
-        if ((*(int *)0x8C45EFF0) != 0) {
-            *(volatile int *)((t11 + 0x18));
-            return ((int (*)(int, int, int))(0x8C1FBE16))(a4, 0x2, t11);
-        }
-        return ((int (*)(int, int, int))(0x8C1FBE18))(a4, 0x2, t11);
-    }
-    return ((int (*)(int, int))(0x8C1FBE36))(a4, 0x2);
-}
-
-int menuTextNumPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
-{
-    int t0;
-    int stk[25];
-
-    stk[13] = a8;
-    stk[14] = a9;
-    stk[15] = a10;
-    stk[16] = a11;
-    if (a4 == 0) {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x24)); }
-        t0 = *(int *)0x8C10EF2C;
-        sprPutAtAlpha((((((t0 << 2) + t0) << 2) << 2) + 0x8C33506C), *(Stk3 *)((((int)stk + 16) + 0x24)), f4);
-        return ((int (*)(void))(0x8C092FBA))();
-    }
-    return ((int (*)(int, float))(0x8C092FB6))(a4, f4);
-}
 
 int stageSelSprInit2(void)
 {
@@ -529,13 +447,6 @@ int sprRecInit(int a4, int a5, int a6, int a7, int a8)
     return 0x2C;
 }
 
-int trigger(void)
-{
-    int stk[11];
-
-    *(unsigned char *)(((int)stk + 4)) = (*(signed char *)(((*(int *)0x8C47317C) + 0xFB0)));
-    return ((int (*)(void))(0x8C1E9912))();
-}
 
 int logoBDrawRot(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
 {
@@ -602,90 +513,7 @@ int stageSelSprInit3(void)
     return t14;
 }
 
-int nlsndSystemControl(int a4, int a5, int a6)
-{
-    if ((0xFF00 & a5) == 0) {
-        return ((int (*)(int, int, int, int))(0x8C0F5AE0))(a4, a5, a6, 0xF);
-    }
-    if ((a5 != 0x1A0) && ((a5 != 0x4A0) && ((a5 != 0x9A0) && ((a5 != 0xAA0) && ((a5 != 0x10A0) && ((a5 != 0x19A0) && (a5 != 0x1CA0))))))) {
-        if ((a5 != 0x5A0) && ((a5 != 0x6A0) && ((a5 != 0x7A0) && (a5 != 0x11A0)))) {
-            if (a5 != 0x1BA0) {
-                if (a5 != 0x30A0) {
-                    if (a5 != 0x28A0) {
-                        if (a5 != 0x29A0) {
-                            if (a5 != 0x2A0) {
-                                if (a5 != 0x3A0) {
-                                    return ((int (*)(int, int, int, int))(0x8C0F5AD0))(0x7F, a5, a6, 0xF);
-                                }
-                                return ((int (*)(int, int, int, int))(0x8C0F5AE0))(0x7F, a5, a6, 0xF);
-                            }
-                            return ((int (*)(int, int, int, int))(0x8C0F5AE0))(0x7F, a5, a6, 0xF);
-                        }
-                        return ((int (*)(int, int, int, int))(0x8C0F5AA0))(0x7F, a5, a6, 0xF);
-                    }
-                    return ((int (*)(int, int, int, int))(0x8C0F5AA0))(0x7F, a5, a6, 0xF);
-                }
-                return ((int (*)(int, int, int, int))(0x8C0F5AA0))(0x7F, a5, a6, 0xF);
-            }
-            return ((int (*)(int, int, int, int))(0x8C0F5AA4))(0x7F, a5, (a6 & 0xF), 0xF);
-        }
-        return ((int (*)(int, int, int, int))(0x8C0F5AA4))(0x7F, a5, ((a6 + 0x40) & 0x7F), 0xF);
-    }
-    return ((int (*)(int, int, int, int))(0x8C0F5AA4))(0x7F, a5, (a6 & 0x7F), 0xF);
-}
 
-int playerSetReceiveFlag(int a4, int a5)
-{
-    int t1;
-    float u3;
-    int t6;
-    int t4;
-    float u8;
-    int t11;
-    int t9;
-    int t13;
-    float u15;
-    float u20;
-
-    t1 = 0x1;
-    if (((*(int *)((a5 + 0x54))) & 8) != 0) {
-        t1 = 0x0;
-    }
-    u3 = *(float *)((a4 + 0xBA4));
-    t6 = 0x1;
-    if (u3 > 0.0f) {
-    } else {
-        t4 = 0x0;
-        if (0.0f > u3) {
-            t4 = 0xFFFFFFFF;
-        }
-        t6 = t4;
-    }
-    u8 = *(float *)((a4 + 0xAF0));
-    t11 = 0x1;
-    if (u8 > 0.0f) {
-    } else {
-        t9 = 0x0;
-        if (0.0f > u8) {
-            t9 = 0xFFFFFFFF;
-        }
-        t11 = t9;
-    }
-    t13 = t1;
-    if (t6 != t11) {
-        t13 = 0xFFFFFFFF;
-    }
-    u15 = *(float *)((a4 + 0xB00));
-    
-    u20 = *(float *)((a5 + 0x3C));
-    if (u20 > 0.0f) {
-        return ((int (*)(int, int, int, int, float, float))(0x8C026518))(a4, a5, t13, 0x1, u20, u15);
-    }
-    if (0.0f > u20) {
-        return ((int (*)(int, int, int, int, float, float))(0x8C026512))(a4, a5, t13, 0x1, u20, u15);
-    }
-    return ((int (*)(int, int, int, int, float, float))(0x8C026516))(a4, a5, t13, 0x1, u20, u15);
-}
 
 int resSpGetFree(int a4, int a5)
 {
@@ -754,62 +582,6 @@ int resSpGetFree(int a4, int a5)
     return 0x8C1DC64C;
 }
 
-int nlSearchPalette(int a4, int a5)
-{
-    int t1;
-    int t2;
-    int t4;
-    int t5;
-    int t6;
-    int t0;
-
-    if (a4 == 16) {
-        t1 = 0x0;
-        t2 = 0x0;
-        for (;;) {
-            t4 = ((t2 << 2) << 2);
-            t5 = 0x0;
-            t6 = 0x1;
-            for (;;) {
-                if (((*(short *)((((t2 << 1) + 0x8C424204) + 0x0))) & t6) == 0) {
-                    t1 = (t1 + 0x1);
-                    if ((int)t1 < (int)((int)(a5 + 0xF) >> 4)) {
-                        t0 = 0x10;
-                        t5 = (t5 + 0x1);
-                        t6 = (t6 + t6);
-                        t4 = (t4 + 0x1);
-                        if ((int)t5 >= (int)t0) {
-                            break;
-                        }
-                        continue;
-                    }
-                    break;
-                }
-                t1 = 0x0;
-                t0 = 0x10;
-                t5 = (t5 + 0x1);
-                t6 = (t6 + t6);
-                t4 = (t4 + 0x1);
-                if ((int)t5 >= (int)t0) {
-                    break;
-                }
-            }
-            t0 = 0x4;
-            t2 = (t2 + 0x1);
-            if ((int)t2 >= (int)t0) {
-                break;
-            }
-        }
-        return ((int (*)(int, int, int, int))(0x8C0EAA18))(t1, ((int)(a5 + 0xF) >> 4), 0x0, t4);
-    }
-    if ((unsigned int)0x8C424204 < (unsigned int)0x8C42420C) {
-        if (((*(short *)0x8C424204) & ((((int)((int)(a5 + 0xF) >> 4) >= 0) ? (0x1 << (((int)(a5 + 0xF) >> 4) & 31)) : ((-(int)((int)(a5 + 0xF) >> 4) & 31) ? ((int)0x1 >> (-(int)((int)(a5 + 0xF) >> 4) & 31)) : ((int)0x1 >> 31))) - 1)) == 0) {
-            return ((int (*)(int, int, int, int))(0x8C0EAA18))(((int)(a5 + 0xF) >> 4), ((int)(a5 + 0xF) >> 4), 0x8C424204, 0x0);
-        }
-        return ((int (*)(int, int, int, int))(0x8C0EAA14))(0x0, ((int)(a5 + 0xF) >> 4), 0x8C424206, 0x0);
-    }
-    return ((int (*)(int, int, int, int))(0x8C0EAA18))(0x0, ((int)(a5 + 0xF) >> 4), 0x8C424204, 0x0);
-}
 
 int adxsjd_get_wr(int a4, int a5, int a6, int a7)
 {
@@ -884,55 +656,6 @@ int miniPopupSpawn(Stk4 s)
     return t14;
 }
 
-int hudSlideShow(int a4)
-{
-    int t1;
-
-    if ((*(int *)0x8C421F60) == 0) {
-        t1 = set_event2(0x44, 0x8C0862BA);
-        *(unsigned int *)((t1 + 0x14)) = 0x0;
-        *(float *)((t1 + 0x24)) = 0.0f;
-        *(float *)((t1 + 0x28)) = 0.0f;
-        if (a4 != 0) {
-            if (a4 != 1) {
-                if (a4 != 2) {
-                    if (a4 != 3) {
-                        if (a4 != 4) {
-                            if (a4 != 5) {
-                                if (a4 != 6) {
-                                    return ((int (*)(int, int, float, float))(0x8C08647E))(t1, 0x78, 0.0f, 1.0f);
-                                }
-                                return ((int (*)(int, int, float, float))(0x8C08647E))(t1, 0x78, 0.0f, 1.0f);
-                            }
-                            return ((int (*)(int, int, float, float))(0x8C08647E))(t1, 0x78, 0.0f, 1.0f);
-                        }
-                        return ((int (*)(int, int, float, float))(0x8C086468))(t1, 0x78, 0.0f, 1.0f);
-                    }
-                    *(float *)((t1 + 0x2C)) = 1.0f;
-                    *(float *)((t1 + 0x30)) = 0.0f;
-                    *(unsigned int *)((t1 + 0x18)) = 0x5A;
-                    *(unsigned int *)((t1 + 0x40)) = 0x0;
-                    return ((int (*)(int, int, float, float))(0x8C08647E))(t1, 0x78, 0.0f, 1.0f);
-                }
-                *(float *)((t1 + 0x2C)) = 0.0f;
-                *(float *)((t1 + 0x30)) = 1.0f;
-                *(unsigned int *)((t1 + 0x18)) = 0x78;
-                *(unsigned int *)((t1 + 0x40)) = 0x0;
-                return ((int (*)(int, int, float, float))(0x8C08647E))(t1, 0x78, 0.0f, 1.0f);
-            }
-            *(float *)((t1 + 0x2C)) = 1.0f;
-            *(float *)((t1 + 0x30)) = 0.0f;
-            *(unsigned int *)((t1 + 0x18)) = 0x78;
-            return ((int (*)(int, int, float, float))(0x8C086474))(t1, 0x78, 0.0f, 1.0f);
-        }
-        *(float *)((t1 + 0x2C)) = 0.0f;
-        *(float *)((t1 + 0x30)) = 1.0f;
-        *(unsigned int *)((t1 + 0x18)) = 0x5A;
-        *(unsigned int *)((t1 + 0x40)) = 0x0;
-        return ((int (*)(int, int, float, float))(0x8C08647E))(t1, 0x78, 0.0f, 1.0f);
-    }
-    return ((int (*)(int))(0x8C08647E))(a4);
-}
 
 int crowdModelUpdate(int a4)
 {

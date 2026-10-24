@@ -85,7 +85,7 @@ void camGetPos(int a4, int a5, int a6, int a7, int a8);
 int kmyInitializeDriver(void);
 int syIntAdrChk_getchar(void);
 int shadowVolExtrude(int a4, int a5);
-int nlFloor(float f4);
+float nlFloor(float f4);
 void nlLoadRechangeMatrix(int a4);
 int SearchUsed(int a4, int a5);
 int get_data(int a4);
@@ -139,132 +139,11 @@ void _lsfts(int a4, int a5, int a6)
     }
 }
 
-int titleSprBlinkPut(float f4)
-{
-    int t0;
-    int t1;
-    int t6;
-    float u2;
-    float u3;
-    int t5;
 
-    t0 = *(int *)0x8C20D124;
-    t1 = (int)((int)t0 % (int)0x28);
-    t6 = t1;
-    if ((int)t1 < (int)0x1E) {
-        u2 = *(float *)0x8C0E643C;
-        u3 = *(float *)0x8C0E6440;
-        vecMake(u3, f4, u2);
-        t5 = sprListPut(0x8C1D8658, 0x3, 0xFF000000, 1.0f, 1.0f, 1.0f);
-        t6 = t5;
-    }
-    return t6;
-}
 
-int nlSetPaletteMap(int a4, int a5)
-{
-    return ((int (*)(int, int, int, int))(0x8C0EAA90))((((int)(a4 & 0xF) >= 0) ? (0x1 << ((a4 & 0xF) & 31)) : ((-(int)(a4 & 0xF) & 31) ? ((int)0x1 >> (-(int)(a4 & 0xF) & 31)) : ((int)0x1 >> 31))), ((int)(a5 + 0xF) >> 4), ((((int)a4 >> 4) << 1) + 0x8C424204), 0x1);
-}
 
-int nlArcSin(float f4)
-{
-    if ((f4 < 0.0f ? -f4 : f4) > 1.0f) {
-        if (!(f4 > 0.0f)) {
-            return ((int (*)(float))(0x8C0ECC92))(f4);
-        }
-        return ((int (*)(float))(0x8C0ECC92))(f4);
-    }
-    if (_builtin_sqrtf((1.0f - (f4 * f4))) != 0.0f) {
-        return nlArcTan((f4 / _builtin_sqrtf((1.0f - (f4 * f4)))));
-    }
-    if (f4 > 0.0f) {
-        return ((int (*)(float))(0x8C0ECC92))(f4);
-    }
-    return ((int (*)(float))(0x8C0ECC90))(f4);
-}
 
-int nlLineCalcFogA(int a4)
-{
-    float u0;
-    float u1;
-    float u2;
-    float u3;
-    float u4;
-    float u5;
-    float u6;
 
-    u0 = *(float *)((a4 + 0x4));
-    u1 = *(float *)0x8C454C48;
-    u2 = *(float *)((a4 + 0x8));
-    u3 = *(float *)0x8C454C4C;
-    u4 = *(float *)0x8C454C50;
-    u5 = *(float *)((a4 + 0x0));
-    u6 = *(float *)0x8C454C54;
-    if (u5 > (u1 * u2)) {
-        return ((int (*)(int, int, float, float, float, float, float, float))(0x8C0F3296))(a4, 0x2, u0, u5, (u3 * u2), (u4 * u2), (u1 * u2), (u6 * u2));
-    }
-    return ((int (*)(int, int, float, float, float, float, float, float))(0x8C0F3290))(a4, 0x0, u0, u5, (u3 * u2), (u4 * u2), (u1 * u2), (u6 * u2));
-}
-
-int kmytex_FBAllocEntry(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-
-    t0 = *(int *)0x8C20C9D0;
-    if ((unsigned int)0x0 < (unsigned int)t0) {
-        t1 = *(int *)0x8C20C9E8;
-        t2 = *(short *)(((0x0 + t1) + 0x0));
-        if (((unsigned short)t2 & 0x1) == 0) {
-            t3 = *(int *)0x8C20C9E8;
-            *(unsigned short *)(((t3 + 0x0) + 0x0)) = 0x1;
-            t4 = *(int *)0x8C20C9E8;
-            return (t4 + 0x0);
-        }
-        return ((int (*)(int, int, int, int))(0x8C1F92C0))(0x8C20C9C8, 0x0, 0x1, t0);
-    }
-    return ((int (*)(int, int, int, int))(0x8C1F92C6))(0x8C20C9C8, 0x0, 0x1, t0);
-}
-
-int mtxGetPos(int a4, int a5, int a6)
-{
-    float u0;
-    int t1;
-    int t2;
-    float u3;
-    float u4;
-    int t7;
-    float u8;
-    float u9;
-    int t10;
-    float u11;
-    int t12;
-    int stk[9] = {0};
-
-    *(unsigned int *)(((int)stk + 8)) = a4;
-    *(unsigned int *)(((int)stk + 12)) = a5;
-    *(unsigned int *)(((int)stk + 16)) = a6;
-    u0 = *(float *)((a6 + 0x0));
-    t1 = *(int *)(((int)stk + 12));
-    t2 = *(int *)(((int)stk + 8));
-    u3 = *(float *)((t1 + 0x0));
-    u4 = *(float *)((t2 + 0x0));
-    vecMake(u4, u3, u0);
-    nlCalcPoint(0x8C1016D4, (((int)stk + 4) + 0x10));
-    t7 = *(int *)(((int)stk + 8));
-    u8 = *(float *)(((int)stk + 20));
-    *(float *)((t7 + 0x0)) = u8;
-    u9 = *(float *)(((int)stk + 24));
-    t10 = *(int *)(((int)stk + 12));
-    *(float *)((t10 + 0x0)) = u9;
-    u11 = *(float *)(((int)stk + 28));
-    t12 = *(int *)(((int)stk + 16));
-    *(float *)((t12 + 0x0)) = u11;
-    return 0x18;
-}
 
 int evSprAnimStart(int a4, int a5, float f4)
 {
@@ -323,21 +202,6 @@ int nlSysMetricsInit(void)
     return 0x1E;
 }
 
-int nlChgModelPolyAttrOn(int a4)
-{
-    int t0;
-    int t1;
-
-    t0 = *(int *)((a4 + 0x0));
-    if ((int)t0 >= 0) {
-        t1 = *(int *)((a4 + 0x18));
-        if (t1 != 0) {
-            return ((int (*)(int, int, int))(0x8C0F78D0))((a4 + 0x18), 0xC0, 0x80);
-        }
-        return 0;
-    }
-    return 0;
-}
 
 int kmSetFogTable(int a4)
 {
@@ -405,25 +269,6 @@ int mwRnaExecServer(void)
     return t11;
 }
 
-int vecDistXZf(float f4, float f5, float f6, float f7)
-{
-    float u0;
-    float u2;
-    float u3;
-    int t5;
-    int stk[14] = {0};
-
-    *(float *)(((int)stk + 20)) = f5;
-    *(float *)(((int)stk + 12)) = f6;
-    *(float *)(((int)stk + 16)) = f7;
-    u0 = *(float *)(((int)stk + 20));
-    vecMake(f4, 0.0f, u0);
-    u2 = *(float *)(((int)stk + 16));
-    u3 = *(float *)(((int)stk + 12));
-    vecMake(u3, 0.0f, u2);
-    t5 = nlLength((((int)stk + 4) + 0x20), (((int)stk + 4) + 0x14));
-    return t5;
-}
 
 int sprCellInit(int a4, int a5)
 {
@@ -659,19 +504,6 @@ int exprPlayC(int a4, int a5)
     return 0xC58;
 }
 
-int nlSysSetDirectListTypeLatency2V(int a4)
-{
-    if (a4 != 0) {
-        if (a4 != 2) {
-            if (a4 != 4) {
-                return ((int (*)(int, int))(0x8C0EB5F2))(a4, 0x0);
-            }
-            return ((int (*)(int, int))(0x8C0EB5F2))(a4, 0x0);
-        }
-        return ((int (*)(int, int))(0x8C0EB5F2))(a4, 0x0);
-    }
-    return ((int (*)(int, int))(0x8C0EB5F2))(a4, 0x0);
-}
 
 void syCacheFinish_P2_(void)
 {
@@ -1181,19 +1013,6 @@ int _pd_peripheral_set_null(int a4)
     return 0x0;
 }
 
-int kmSetColorClampValue(int a4, int a5, int a6, int a7, int a8, int a9)
-{
-    int t0;
-    int t1;
-
-    t0 = *(int *)0x8C471E18;
-    *(unsigned int *)0x8C471E18 = ((t0 | 0x10) | 0x20);
-    *(unsigned int *)0x8C471E3C = a8;
-    *(unsigned int *)0x8C471E40 = a9;
-    t1 = *(int *)0x8C471E1C;
-    *(unsigned int *)0x8C471E1C = (t1 | 0x20);
-    return ((int (*)(int, int, int, int))(0x8C1E63D0))(0x8C471E18, 0x20, 0x8, 0x1);
-}
 
 int ADXAMP_Init(void)
 {
@@ -1315,24 +1134,6 @@ void nlQuickInvertMatrix(void)
     _builtin_ld_ext((float (*)[4])u16);
 }
 
-void camGetPos(int a4, int a5, int a6, int a7, int a8)
-{
-    int t4;
-    int t5;
-    int t6;
-    int stk[6] = {0};
-
-    nlPushMatrix(0x0);
-    nlLoadMatrix(0x8C287978);
-    mtxGetPos(((int)stk + 4), (((int)stk + 4) + 0x4), (((int)stk + 4) + 0x8));
-    nlPopMatrix(0x1);
-    t4 = *(int *)((((int)stk + 4) + 0x8));
-    *(unsigned int *)((a8 + 0x8)) = t4;
-    t5 = *(int *)((((int)stk + 4) + 0x4));
-    *(unsigned int *)((a8 + 0x4)) = t5;
-    t6 = *(int *)((((int)stk + 4) + 0x0));
-    *(unsigned int *)((a8 + 0x0)) = t6;
-}
 
 int kmyInitializeDriver(void)
 {
@@ -1410,21 +1211,25 @@ int shadowVolExtrude(int a4, int a5)
     return t6;
 }
 
-int nlFloor(float f4)
+float nlFloor(float f4)
 {
     float u0;
+    float a;
+    int t4;
 
     u0 = *(float *)0x8C0ED0E8;
-    if (u0 > (f4 < 0.0f ? -f4 : f4)) {
+    a = (f4 < 0.0f ? -f4 : f4);
+    if (u0 > a) {
+        t4 = (int)a;
         if (0.0f > f4) {
-            if (((f4 < 0.0f ? -f4 : f4) - (float)(int)(f4 < 0.0f ? -f4 : f4)) != 0.0f) {
-                return 0x8C0ED0E8;
+            if ((a - (float)t4) == 0.0f) {
+                return f4;
             }
-            return 0x8C0ED0E8;
+            return (float)(-1 - t4);
         }
-        return ((int (*)(int, float, float, float))(0x8C0ED000))((int)(f4 < 0.0f ? -f4 : f4), f4, (f4 < 0.0f ? -f4 : f4), (float)(int)(f4 < 0.0f ? -f4 : f4));
+        return (float)t4;
     }
-    return 0x8C0ED0E8;
+    return f4;
 }
 
 void nlLoadRechangeMatrix(int a4)
@@ -1524,33 +1329,6 @@ int SearchUsed(int a4, int a5)
     return t12;
 }
 
-int get_data(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-
-    t0 = *(signed char *)((a4 + 0x7));
-    if ((unsigned char)t0 == 1) {
-        t1 = *(signed char *)((a4 + 0x8));
-        if ((unsigned char)t1 == 5) {
-            *(unsigned char *)((a4 + 0x0)) = 0x1;
-            return ((int (*)(int, int, int))(0x8C1FE2AA))(a4, 0x0, 0x1);
-        }
-        *(unsigned char *)((a4 + 0x0)) = 0x0;
-        return ((int (*)(int, int, int))(0x8C1FE2AA))(a4, 0x0, 0x1);
-    }
-    t2 = *(signed char *)((a4 + 0x8));
-    if ((unsigned char)t2 != 0xFF) {
-        if ((unsigned char)t2 != 0) {
-            return ((int (*)(int, int, int))(0x8C1FE2A8))(a4, 0x0, 0x1);
-        }
-        *(unsigned char *)((a4 + 0x0)) = 0x0;
-        return ((int (*)(int, int, int))(0x8C1FE2AA))(a4, 0x0, 0x1);
-    }
-    *(unsigned char *)((a4 + 0x0)) = 0x0;
-    return ((int (*)(int, int, int))(0x8C1FE2AA))(a4, 0x0, 0x1);
-}
 
 int dbgMenuSetTitle(int a4, int a5, int a6)
 {
@@ -1581,35 +1359,8 @@ int dbgMenuSetTitle(int a4, int a5, int a6)
     return 0x1E0;
 }
 
-int sys_init(void)
-{
-    *(unsigned int *)0xFFA00020 = 0x0;
-    *(unsigned int *)0xFFA0002C = 0x1201;
-    *(unsigned int *)0xFFA00040 = 0x8201;
-    return ((int (*)(int, int, int, int))(0x8C0EAB8E))(0x8201, 0xFFA00040, 0x0, 0x10000);
-}
 
-int ADXB_EvokeExpandSte(int a4, int a5)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
 
-    t0 = *(int *)(((a4 + 0x50) + 0x20));
-    t1 = *(int *)((a4 + 0x50));
-    t2 = *(int *)((a4 + 0x8));
-    t3 = *(int *)(((a4 + 0x50) + 0x1C));
-    t4 = *(int *)(((a4 + 0x50) + 0x14));
-    ADXPD_EntrySte(t2, t1, (a5 << 1), (t4 + (t0 << 1)));
-    return ADXPD_Start(t2);
-}
-
-int dbgMenuDrawPage(void)
-{
-    return ((int (*)(void))(0x8C013380))();
-}
 
 int sprSet163Load(int a4)
 {

@@ -83,10 +83,6 @@ int vecLengthXZ(Stk4 s)
     return (nlScalor((((int)stk + 4) + 0x4)));
 }
 
-int perfMark(void)
-{
-    return ((int (*)(void))(0x8C017E36))();
-}
 
 int cpuAimPointSet(int a4, int a5, float f4, float f5)
 {
@@ -159,13 +155,6 @@ int cpuInitPoint(void)
     return ((int (*)(void))(0x8C056AAA))();
 }
 
-int nlSetFatalErrorMode(int a4)
-{
-    if (a4 == 0) {
-        return ((int (*)(int, int))(0x8C0EC094))(0x8C0EBFB0, 0x0);
-    }
-    return ((int (*)(int, int))(0x8C0EC094))(0x8C0EC070, 0x0);
-}
 
 int kmyInitializeCallback(void)
 {

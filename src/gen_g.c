@@ -293,22 +293,6 @@ void uniformPreviewFree(void)
     } while ((unsigned int)t7 < (unsigned int)0x8C37DBBC);
 }
 
-void netJudgeStart(void)
-{
-    int t0;
-    int t1;
-
-    t0 = *(int *)0x8C1891E8;
-    if ((int)t0 <= (int)0x9) {
-        t1 = *(int *)(((t0 << 2) + 0x8C1D0DF0));
-        if (t1 != 0) {
-            motionBackup();
-            motionSetSpeed(0x8C38A25C, 1.0f);
-            *(unsigned int *)0x8C38A814 = 0x2;
-            *(unsigned int *)0x8C38A80C = 0x1;
-        }
-    }
-}
 
 void strmVoiceQueueClear(void)
 {
@@ -397,137 +381,11 @@ void strmControl(int a4, int a5)
     }
 }
 
-void rankSprTexFree(void)
-{
-    int t0;
-    int t2;
-    int t3;
-    int t4;
 
-    t0 = *(int *)0x8C1D824C;
-    if (t0 != 0) {
-        *(unsigned int *)0x8C1D824C = 0x0;
-        nlSetCommonTextureOffset(0x0);
-        t2 = 0x0;
-        t3 = 0x8C1D7900;
-        do {
-            t4 = *(int *)((t3 + 0x0));
-            t3 = (t3 + 0x4);
-            nlSpriteFreeTextureOnce();
-            t2 = (t2 + 0x1);
-        } while ((unsigned int)t2 < (unsigned int)0xA);
-    }
-}
 
-void titleSprTexFree(void)
-{
-    int t0;
-    int t2;
-    int t3;
-    int t4;
 
-    t0 = *(int *)0x8C422044;
-    if (t0 != 0) {
-        *(unsigned int *)0x8C422044 = 0x0;
-        nlSetCommonTextureOffset(0x0);
-        t2 = 0x0;
-        t3 = 0x8C1D8250;
-        do {
-            t4 = *(int *)((t3 + 0x0));
-            t3 = (t3 + 0x4);
-            nlSpriteFreeTextureOnce();
-            t2 = (t2 + 0x1);
-        } while ((unsigned int)t2 < (unsigned int)0xA);
-    }
-}
 
-void resWtcShopObjTexFree(void)
-{
-    int t0;
-    int t2;
-    int t3;
-    int t4;
 
-    t0 = *(int *)0x8C1DC508;
-    if (t0 != 0) {
-        *(unsigned int *)0x8C1DC508 = 0x0;
-        nlSetCommonTextureOffset(0x3000);
-        t2 = 0x0;
-        t3 = 0x8C1DC4F8;
-        do {
-            t4 = *(int *)((t3 + 0x0));
-            t3 = (t3 + 0x4);
-            nlObjPutFreeTextureOnce();
-            t2 = (t2 + 0x1);
-        } while ((unsigned int)t2 < (unsigned int)0x4);
-    }
-}
-
-void resEndObjTexFree(void)
-{
-    int t0;
-    int t2;
-    int t3;
-    int t4;
-
-    t0 = *(int *)0x8C1DC518;
-    if (t0 != 0) {
-        *(unsigned int *)0x8C1DC518 = 0x0;
-        nlSetCommonTextureOffset(0x3100);
-        t2 = 0x0;
-        t3 = 0x8C1DC50C;
-        do {
-            t4 = *(int *)((t3 + 0x0));
-            t3 = (t3 + 0x4);
-            nlObjPutFreeTextureOnce();
-            t2 = (t2 + 0x1);
-        } while ((unsigned int)t2 < (unsigned int)0x3);
-    }
-}
-
-void resWtcShopSprTexFree(void)
-{
-    int t0;
-    int t2;
-    int t3;
-    int t4;
-
-    t0 = *(int *)0x8C1DC530;
-    if (t0 != 0) {
-        *(unsigned int *)0x8C1DC530 = 0x0;
-        nlSetCommonTextureOffset(0x0);
-        t2 = 0x0;
-        t3 = 0x8C1DC51C;
-        do {
-            t4 = *(int *)((t3 + 0x0));
-            t3 = (t3 + 0x4);
-            nlSpriteFreeTextureOnce();
-            t2 = (t2 + 0x1);
-        } while ((unsigned int)t2 < (unsigned int)0x5);
-    }
-}
-
-void resTitleSprTexFree(void)
-{
-    int t0;
-    int t2;
-    int t3;
-    int t4;
-
-    t0 = *(int *)0x8C1DC58C;
-    if (t0 != 0) {
-        *(unsigned int *)0x8C1DC58C = 0x0;
-        nlSetCommonTextureOffset(0x0);
-        t2 = 0x0;
-        t3 = 0x8C1DC580;
-        do {
-            t4 = *(int *)((t3 + 0x0));
-            t3 = (t3 + 0x4);
-            nlSpriteFreeTextureOnce();
-            t2 = (t2 + 0x1);
-        } while ((unsigned int)t2 < (unsigned int)0x3);
-    }
-}
 
 void nlRenderTextureFree(int a4)
 {
