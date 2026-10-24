@@ -1155,6 +1155,7 @@ mwRnaSetOutPan
 mwRnaSetOutVol
 mwRnaSetPitch
 mwRnaSetPlaySw
+mwRnaSetSfreq
 mwRnaSetStartSmpl
 mwRnaSetTransSw
 mwRnaSetupSnd
@@ -1204,6 +1205,7 @@ netHitNop
 netHitReset
 netJudgeDraw
 netJudgeExec
+netJudgeInit
 netJudgeReact
 netJudgeStart
 netTouchFlag

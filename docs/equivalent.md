@@ -32087,6 +32087,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 222
 - the cases run 61 of 61 instructions
 
+### mwRnaSetSfreq (`8C1F2C1E`, 58 bytes, `src/gen_aq.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_aq/mwRnaSetSfreq.json`
+- case 0
+- case 0
+- case 4
+- case 6
+- case 8
+- case 10
+- case 11
+- case 14
+- case 15
+- case 17
+- case 19
+- case 21
+- case 22
+- case 23
+- case 24
+- case 25
+- case 28
+- case 29
+- case 150
+- case 124
+- case 144
+- case 86
+- case 141
+- case 73
+- case 93
+- case 90
+- case 88
+- case 97
+- case 133
+- case 108
+- case 95
+- case 83
+- case 79
+- case 98
+- case 118
+- case 68
+- the cases run 29 of 29 instructions
+
 ### mwRnaSetStartSmpl (`8C1F2BA6`, 32 bytes, `src/sdk_zc_2.c`)
 - equivalent on 2 development and 1 holdout cases, in `tests/sdk_zc_2/mwRnaSetStartSmpl.json`
 - handle
@@ -33467,6 +33507,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 - the cases run 44 of 57 instructions
+
+### netJudgeInit (`8C0CA1F8`, 146 bytes, `src/gen_aq.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_aq/netJudgeInit.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 77
+- case 139
+- case 58
+- case 56
+- case 146
+- case 47
+- case 69
+- case 156
+- case 108
+- case 126
+- case 138
+- case 65
+- case 114
+- case 81
+- case 106
+- case 37
+- case 96
+- case 67
+- the cases run 73 of 73 instructions
 
 ### netJudgeReact (`8C0CA530`, 72 bytes, `src/gen_ao.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_ao/netJudgeReact.json`
