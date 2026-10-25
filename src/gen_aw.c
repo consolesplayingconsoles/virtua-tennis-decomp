@@ -45,7 +45,7 @@ int vmsfs_unmount(int);
 int vmsio_ismount(int);
 int vmsio_isready(int);
 void staffMorphBlend(int a4, int a5, int a6, float f4, float f5, float f6, float f7);
-float cpuInTriangle(Stk12 s);
+int cpuInTriangle(Stk12 s);
 int nlRenderTextureBegin(int a4);
 int vmsfs_sysdiskfree(int a4);
 int ikSolve2Bone(int a4, int a5, int a6, float f4, float f5, float f6, float f7);
@@ -127,13 +127,9 @@ void staffMorphBlend(int a4, int a5, int a6, float f4, float f5, float f6, float
     }
 }
 
-float cpuInTriangle(Stk12 s)
+int cpuInTriangle(Stk12 s)
 {
     float u15;
-    float t16;
-    float u25;
-    float t17;
-    float u22;
     int stk[42];
 
     stk[22] = s.w[0];
@@ -161,18 +157,16 @@ float cpuInTriangle(Stk12 s)
     nlOuterProduct((((int)stk + 4) + 0x30), (((int)stk + 4) + 0x24), (((int)stk + 4) + 0xC));
     nlOuterProduct((((int)stk + 4) + 0x24), (((int)stk + 4) + 0x3C), ((int)stk + 4));
     u15 = *(float *)0x8C0801C0;
-    t16 = nlInnerProduct((((int)stk + 4) + 0x18), (((int)stk + 4) + 0xC));
-    u25 = t16;
-    if (!(u15 > t16)) {
-        t17 = nlInnerProduct((((int)stk + 4) + 0x18), ((int)stk + 4));
-        u22 = t17;
-        if (!(u15 > t17)) {
-            
-            u22 = (nlInnerProduct((((int)stk + 4) + 0xC), ((int)stk + 4)));
-        }
-        u25 = u22;
+    if (u15 > nlInnerProduct((((int)stk + 4) + 0x18), (((int)stk + 4) + 0xC))) {
+        return 0;
     }
-    return u25;
+    if (u15 > nlInnerProduct((((int)stk + 4) + 0x18), ((int)stk + 4))) {
+        return 0;
+    }
+    if (u15 > nlInnerProduct((((int)stk + 4) + 0xC), ((int)stk + 4))) {
+        return 0;
+    }
+    return 1;
 }
 
 int nlRenderTextureBegin(int a4)

@@ -34,7 +34,7 @@ int strmBgmFadeOut(int, int);
 int strmVoiceQueueReset(void);
 int vecMake(int, int, int, int, int, float, float, float);
 int miniExec(void);
-float cpuShotAimStick(int a4);
+int cpuShotAimStick(int a4);
 void miniOnEvent(int a4, int a5, int a6, int a7, float f4, float f5, float f6);
 void dbgMenuExec(void);
 int resultExec(void);
@@ -541,7 +541,7 @@ int miniExec(void)
     return miniWallTargetsHit(0x8C2FBF54);
 }
 
-float cpuShotAimStick(int a4)
+int cpuShotAimStick(int a4)
 {
     float u0;
     float u30;
@@ -608,7 +608,7 @@ float cpuShotAimStick(int a4)
     R5 = (0x0);
     goto L_8C03F59C;
     L_8C03F59C:;
-    return F0;
+    return R5;
     L_8C03F002:;
     F14 = ((F5 - F8));
     F3 = (0.0f);
