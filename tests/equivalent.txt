@@ -210,6 +210,7 @@ ADX_DecodeInfo
 ADX_DecodeInfoAiff
 ADX_DecodeInfoAu
 ADX_DecodeInfoExADPCM2
+ADX_DecodeInfoExLoop
 ADX_DecodeInfoSpsd
 ADX_DecodeInfoWav
 ADX_DecodeMonoFloat
@@ -360,11 +361,13 @@ adxf_purge_all
 adxf_wait_1ms
 adxpd_error
 adxsjd_clear
+adxsjd_decexec_end
 adxsjd_decexec_start
 adxsjd_decode_exec
 adxsjd_decode_prep
 adxsjd_get_wr
 adxstm_sj_internal_error
+adxstmf_stat_exec
 adxt_RcvrReplay
 adxt_eos_entry
 adxt_set_outpan
@@ -397,6 +400,7 @@ ballBoyPoseRun
 ballBoyPropPut
 ballBoyRecall
 ballBoyReset
+ballBoyRunExec
 ballBoyRunSteer
 ballColliInit
 ballColliSync
@@ -415,6 +419,7 @@ bodyRaySphere
 btnGuideDraw
 btnGuideInitA
 btnGuideInitB
+buAnalyzeBackupFileImage
 buCalcBackupFileSize
 buCalcCRC
 buCloseFile
@@ -482,6 +487,7 @@ buUnmountDisk
 buWriteDiskImage
 buWriteFile
 cacheOcbiRange
+camGetAngles
 camGetPos
 camInit
 camMoveBegin
@@ -587,15 +593,20 @@ cpuAimAngleRate
 cpuAimDistRate
 cpuAimPointSet
 cpuDblAim
+cpuDblAimAddAngles
 cpuDblAimAddCorners
 cpuDblAimAddCorners2
+cpuDblAimAddCourt
 cpuDblAimAddCourt2
+cpuDblAimAddDeep
 cpuDblAimAddDeep2
+cpuDblAimAddLv13
 cpuDblAimAddMiddle
 cpuDblAimAddRandom
 cpuDblAimAddRange
 cpuDblAimAddRange2
 cpuDblAimAddShort
+cpuDblAimArc
 cpuDblCoverPos
 cpuDblMoodUpdate
 cpuDblNetmanPos
@@ -607,6 +618,8 @@ cpuDblPositionCalc
 cpuDblRecoverPosA
 cpuDblRecoverPosB
 cpuDblRecoverPosC
+cpuDblServe
+cpuDblShot
 cpuDblSignalDraw
 cpuDblSwingInput
 cpuDblTacticPos
@@ -633,6 +646,7 @@ cpuSegCrossXZ
 cpuSglAim
 cpuSglAimAddGrid
 cpuSglAimAddLv12
+cpuSglAimAddLv21
 cpuSglAimAddLv23
 cpuSglAimAddOpen
 cpuSglAimAddSides
@@ -646,8 +660,10 @@ cpuSglAimTableCall
 cpuSglChase
 cpuSglHitReady
 cpuSglMoodUpdate
+cpuSglMove
 cpuSglPickLv07
 cpuSglReceivePos
+cpuSglServe
 cpuSglShot
 cpuSglShotDefault
 cpuSglSwingInput
@@ -697,6 +713,7 @@ decoGaugeSprInit
 decoHeaderDraw
 decoHeaderDrawB
 decoSprInit
+decoSwingDraw
 decoWaveDraw
 deformModelRestore
 direntry
@@ -749,6 +766,7 @@ endingCameraSet
 endingCharaTexFree
 endingCharaTexFreeAll
 endingCharaTexLoad
+endingDraw
 endingFlyObjPut
 endingModelSet
 endingMotRequest
@@ -896,6 +914,7 @@ gdFsGetLE4
 gdFsGetNumRd
 gdFsGetSearchID
 gdFsGetStat
+gdFsGetStatG
 gdFsGetSysHn
 gdFsGetSysHnG
 gdFsGetToc
@@ -984,6 +1003,7 @@ hudFontNumPut
 hudFontSprSet
 hudFrameInit
 hudFramePutNarrow
+hudFramePutWide
 hudLabelSprInit
 hudLetPanel
 hudMatchDraw
@@ -1075,12 +1095,14 @@ kmRender
 kmRenderRect
 kmRenderTexture
 kmResetRenderer
+kmSetBackGround
 kmSetBackGroundPlane
 kmSetBackGroundRenderState
 kmSetBorderColor
 kmSetCheapShadowMode
 kmSetColorClampValue
 kmSetCullingRegister
+kmSetDisplayMode
 kmSetEORCallback
 kmSetFatalErrorCallback
 kmSetFogDensity
@@ -1096,15 +1118,18 @@ kmSetPixelClipping
 kmSetRegionClipping
 kmSetStrideWidth
 kmSetTexOverflowCallback
+kmSetVertexRenderState
 kmSetWaitVsyncCallback
 kmSetWaitVsyncCount
 kmWaitVBlank
 kmiAllocateFB
 kmiCalculateWorkSize
+kmiCallbackEndOf
 kmiCallbackError
 kmiCheckSysConfigSetting
 kmiConvertUVnum
 kmiCreateDummyRegionforAvoidCacheBug
+kmiFBControl
 kmiFLWCTRLCheckFinishPacket
 kmiFLWCTRLCheckFreeNBuf
 kmiFLWCTRLCheckTimeOut
@@ -1136,6 +1161,7 @@ kmiGuaranteeFFModeProcessOver
 kmiInitFBControl
 kmiInitVertexBufferDesc
 kmiInitializeDisplayModule
+kmiLaunchQ
 kmiProcessVertex_00
 kmiProcessVertex_03
 kmiProcessVertex_04
@@ -1148,10 +1174,12 @@ kmiRegisterPhIntHandler
 kmiSetDisplayClipSize
 kmiSetFBSurfaceDesc
 kmiSetFogDMA
+kmiStartupDMA
 kmiUnregisterInterruptHandler
 kmiWriteDispModeRegisters
 kmiWriteFBRegister
 kmiWriteRegister
+kmtex_CheckTextureFormat
 kmtex_ConfirmSmallVQ
 kmtex_GetTextureLevel
 kmtex_TextureSize
@@ -1171,6 +1199,7 @@ kmyConvertAddress64to32
 kmyCopyFromTexture
 kmyCopyPaletteData
 kmyCopyToFrameBuffer
+kmyCopyToTexture
 kmyCopyToTextureRom
 kmyDeleteNativeBuffer
 kmyDisablePassInfoPreSort
@@ -1188,6 +1217,7 @@ kmyGeneratePassInfo
 kmyGetBGPlaneBase
 kmyGetDMAHANDLE
 kmyGetDMAValue
+kmyGetDefaultFilterMode
 kmyGetDeviceType
 kmyGetDisplayParametersInfo
 kmyGetDisplayRegionSize
@@ -1201,6 +1231,7 @@ kmyGetPVRCoreRevision
 kmyGetPVRCoreType
 kmyGetPassInfo
 kmyGetRenderPacket
+kmyInitAllocator
 kmyInitDMADevice
 kmyInitializeAllRenderPackets
 kmyInitializeCallback
@@ -1208,6 +1239,10 @@ kmyInitializeDriver
 kmyInitializeFog
 kmyInitializeFogTable
 kmyInitializeInterrupt
+kmyInitializeJAMMA15KHz
+kmyInitializeJAMMA31KHz
+kmyInitializeNTSC
+kmyInitializePAL
 kmyInitializeRenderPacket
 kmyInitializeTA
 kmyIsDisplayOddField
@@ -1215,6 +1250,7 @@ kmyIsEnabledASyncCopy
 kmyMoveParameterBoundary
 kmyObFindDevice
 kmyPurgeCache
+kmyQueryFinishDMA
 kmyRegisterBGPlane
 kmyRegisterCallback
 kmyRegisterNativeBuffer
@@ -1261,6 +1297,7 @@ kmyStartRenderTexture
 kmyUnloadDevice
 kmyUnregisterCallback
 kmyUpdateFogParameter
+kmyUpdatePalette
 kmyUseAnotherList
 kmyWaitVBlank
 kmyWriteFogDMA
@@ -1281,6 +1318,7 @@ kmyiUnloadCallback
 kmyiUnloadInterrupt
 kmyiUnloadPVR2Hardware
 kmyiWaitScanline0
+kmytex_ABSalloc
 kmytex_FBAllocEntry
 kmytex_FBDeQueueEntry
 kmytex_FBEnQueueEntry
@@ -1288,6 +1326,8 @@ kmytex_FBEnQueueTop
 kmytex_FBFreeEntry
 kmytex_GetSmallVQprofile
 kmytex_GetfreememEx
+kmytex_TXalloc
+kmytex_TXalloc2
 kmytex_VQFreeEntry
 kyakuPolyLoad
 lerpf
@@ -1300,6 +1340,7 @@ lightRestore
 lightSet
 lightSetTarget
 lightStagePreset
+lightUpdate
 lightVec3EqualArgs
 lineJudgeCall
 lineJudgeExec
@@ -1307,6 +1348,7 @@ lineJudgeIdleAll
 lineJudgePose
 lineJudgeShadowPart
 lineJudgeShadowPut
+lineJudgeUpdate
 lineJudgeWakeAll
 logoADraw
 logoAInit
@@ -1315,6 +1357,7 @@ logoBDrawRot
 logoBInit
 logoSmallInit
 logoSmallPut
+logoWaveDraw
 logoWaveInit
 mainCheckDrive
 mainCheckReset
@@ -1326,6 +1369,7 @@ markerDraw
 markerHitSpawn
 markerShowStart
 matchCheckTiebreak
+matchExec
 matchFrame
 matchGetCpuRank
 matchNextSetup
@@ -1355,6 +1399,8 @@ menuSprInitGroup
 menuStatusDraw
 menuTextIconPut
 menuTextInit
+menuTextMsgPut
+menuTextMsgPutB
 menuTextTimePut
 miniBallCopySpawn
 miniBallObjSpawn
@@ -1378,11 +1424,13 @@ miniSetupObjects
 miniStart
 miniTargetDraw
 miniTargetSpawn
+miniTimerDraw
 miniWallTargetsHit
 miniWallTargetsInit
 minigamePolyLoad
 minigameSpriteLoad
 minigameTexFileLoad
+modeMarkPut
 modeMarkSprInit
 modelGetSize
 modelGetVertsInt
@@ -1391,7 +1439,9 @@ modelSetVertsInt
 modelSwapMaterial
 motFileInit
 motFileLoadBegin
+motFileLoadStep
 motFileRequest
+motionAdvance
 motionAdvanceSimple
 motionAngleBlend
 motionBackup
@@ -1402,6 +1452,7 @@ motionChange
 motionGetFrame
 motionGetSpeed
 motionIsEnd
+motionRoot2
 motionRootAtFrame
 motionRootAuto
 motionRootBone
@@ -1422,6 +1473,7 @@ mpdrv_dpf
 mpdrv_dreqcount
 mpdrv_frame_recv_main
 mpdrv_frame_recv_post
+mpdrv_frame_send
 mpdrv_get_autoflash
 mpdrv_get_debugmode
 mpdrv_get_device
@@ -1442,6 +1494,8 @@ mpdrv_hreset
 mpdrv_init_memory
 mpdrv_insertnop
 mpdrv_ischanged
+mpdrv_make_deviceinfo
+mpdrv_make_exdevicedata
 mpdrv_make_rootdevicedata
 mpdrv_memset_l
 mpdrv_nopcount
@@ -1527,6 +1581,7 @@ mwRnaSetPitch
 mwRnaSetPlaySw
 mwRnaSetSfreq
 mwRnaSetStartSmpl
+mwRnaSetStmHdInfo
 mwRnaSetTransSw
 mwRnaSetupSnd
 mwRnaStart
@@ -1543,11 +1598,13 @@ mwlRnaAddWrPos
 mwlRnaAlloc
 mwlRnaClearBuf
 mwlRnaDummyFunc
+mwlRnaExecSvrHndl
 mwlRnaInsrtSlntDat
 mwlRnaIsCopyEnd
 mwlRnaSetInitMember
 mwlRnaSetSvrInt
 mwlRnaStartCopy
+mwlRnaStartTrans
 mwlRnaWaitTransEnd
 mwlSbAlloc
 mwlSbAllocWork
@@ -1602,6 +1659,7 @@ nlCalcPoint4
 nlCalcVector
 nlCeil
 nlChangeDisplayMode
+nlCharacter
 nlChgModelPolyAttrOn
 nlChgObjectPolyAttrOff
 nlChgObjectPolyAttrOn
@@ -1670,6 +1728,7 @@ nlInnerProduct
 nlIntrDefaultFunction
 nlInvLightVectorUseViewMatrix
 nlInvertAbsSqrt
+nlInvertMatrix
 nlInvertSqrt
 nlLUDecomp
 nlLdexpf
@@ -1754,6 +1813,7 @@ nlPrnIndentOff
 nlPrnIndentOn
 nlPushMatrix
 nlPushUnitMatrix
+nlPuts
 nlQuickInvertMatrix
 nlRand
 nlRandom
@@ -1767,6 +1827,7 @@ nlRenderTextureFreeAll
 nlRenderTextureInit
 nlRenderTextureSet
 nlRenderTextureSet_Stride
+nlRenderTextureSet_Sub
 nlRotate
 nlRotateAX
 nlRotateAY
@@ -1804,7 +1865,9 @@ nlSinfReduce
 nlSingleLine
 nlSingleLineSub
 nlSinh
+nlSprPut
 nlSprPutPosSet
+nlSpriteChangePalette
 nlSpriteClearSpriteIndex
 nlSpriteF2ARGB
 nlSpriteF2C
@@ -1862,8 +1925,10 @@ nl_objput_mv_xchg_p0p1
 nl_requset_PixelClipping
 nl_set_cnv_proj_pers
 nl_system_config_init
+nldispstripSub
 nldispstripTexOfsSub
 nldispstripTexSub
+nlkmCreateTextureSurface_stride
 nlsndBlockMove
 nlsndBlockMoveStatus
 nlsndCheckPackFreeError
@@ -1914,6 +1979,7 @@ nlsndStreamGetFreq
 nlsndStreamGetHdInfo
 nlsndStreamGetParam
 nlsndStreamGetPlayPos
+nlsndStreamInit
 nlsndStreamIsPlaying
 nlsndStreamOpen
 nlsndStreamPause
@@ -1995,10 +2061,12 @@ panelPartAPut
 panelPartBPut
 panelPartCPut
 panelSprInit
+panelTopPut
 panelWideInit
 panelWidePut
 panelWordsInit
 pauseDistXZArgs
+pauseExec
 pauseQuit
 pauseScaleVecArgs
 pdExecPeripheralServer
@@ -2081,6 +2149,7 @@ primSprDraw
 primSprDrawOfs
 primSprDrawScale
 primSprDrawScaleAlpha
+primSprDrawScaleFadeY
 primSprDrawScaleOfs
 primSprSetSize
 primTexVertexSet
@@ -2144,6 +2213,7 @@ resultBoxDraw
 resultExec
 resultFlagSet
 resultFlagsClear
+resultTeamsDrawAlt
 rippleStart
 rndRangef
 sceneObjPutInit
@@ -2188,12 +2258,14 @@ selCellClearCur
 selCellSetChosen
 selCellSetCursor
 selConstStub
+selCursorDraw
 selCursorInit
 selCursorPlace
 selCursorPos
 selCursorReset
 selFirstJoinedPort
 selGridClear
+selInit
 selInitB
 selJoinBlocked
 selJoinCheck
@@ -2225,6 +2297,7 @@ shadowNullCb
 shadowPartPut
 shadowPartPutProj
 shadowPartPutStage
+shadowPlayerDraw
 shadowPlayerScale
 shadowVolExtrude
 shadowVolExtrudeTmp
@@ -2236,6 +2309,7 @@ shopDrawCount
 shopDrawPrice
 shopInit
 shopPowi
+shopPreviewExec
 shopPutItemModel
 shotAim
 shotCheckNet
@@ -2252,6 +2326,7 @@ sndFadeFlagsClear
 sndFxReset
 sndIcsSet
 sndJingleA1
+sndLoadStep
 sndPack1FadeCancel
 sndPack2LoadSync
 sndPack4Free
@@ -2392,6 +2467,7 @@ stageRusScoreboardDraw
 stageSegaCourtDraw
 stageSegaQuadUVSet
 stageSegaScoreDigits
+stageSegaScoreboardDraw
 stageSelFramePut
 stageSelMarkDraw
 stageSelSprInit
@@ -2414,6 +2490,7 @@ standBoxesDraw
 standDraw
 standRowBarDraw
 standSort
+standTableDraw
 str_len
 stripQuadDrawA
 stripQuadDrawB
@@ -2477,7 +2554,9 @@ syCfgGetSoundMode
 syCfgIIDCheckSum
 syCfgInit
 syCfgSetSoundMode
+syChainAddHandler
 syChainClx1Handler
+syChainDeleteHandler
 syChainInit
 syChainMasterHandler
 syChainMasterHandlerPVR_H
@@ -2659,10 +2738,14 @@ vmsfs_c_synch
 vmsfs_diskfree
 vmsfs_dpf
 vmsfs_exit
+vmsfs_fclose
+vmsfs_fcreate
 vmsfs_fgetinfo
 vmsfs_fgetsize
 vmsfs_findfirst_ex
+vmsfs_findnext_ex
 vmsfs_fopen
+vmsfs_format
 vmsfs_fread
 vmsfs_fread1
 vmsfs_fseek
@@ -2673,6 +2756,7 @@ vmsfs_getinfo
 vmsfs_getvolume
 vmsfs_init
 vmsfs_init_work_new
+vmsfs_init_work_normal
 vmsfs_isformat
 vmsfs_ismount
 vmsfs_isready
@@ -2692,8 +2776,10 @@ vmsfs_stat
 vmsfs_sysdiskfree
 vmsfs_unmount
 vmsfs_write_disk_image
+vmsfs_xcreate
 vmsfs_xfind
 vmsfs_xwrite1
+vmsio_block_read
 vmsio_exit
 vmsio_get_media_info
 vmsio_init
@@ -2705,9 +2791,11 @@ winDrawFilled
 winPartsPut
 winTriPartsPut
 windowBgDraw
+windowFrameDraw
 windowFrameInit
 worldToScreen
 write_dir
+write_dir_all
 write_fat
 write_fat_1
 write_sys
