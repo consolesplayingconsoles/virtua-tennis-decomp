@@ -260,23 +260,6 @@ int hudBannerInit(void)
     return ((int (*)(int, int, float, float))(0x8C09914A))(0x8C33D790, 0x8C10F970, 1.0f, u3);
 }
 
-int hudBarDraw(Stk4 s, float f4, float f5)
-{
-    int stk[28];
-
-    stk[16] = s.w[0];
-    stk[17] = s.w[1];
-    stk[18] = s.w[2];
-    stk[19] = s.w[3];
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x18)); }
-    sprPutCropV(0x8C33DE20, 0x0, *(Stk3 *)((((int)stk + 40) + 0x18)), f4, 1.0f, f5);
-    *(float *)(((((int)stk + 40) + 0x18) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x18) + 0x0))) + (*(float *)0x8C09B3E8));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0x18)); }
-    sprPutCropV(0x8C33DE70, 0x0, *(Stk3 *)((((int)stk + 40) + 0x18)), f4, 1.0f, f5);
-    *(float *)(((((int)stk + 40) + 0x18) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x18) + 0x0))) + (*(float *)0x8C09B3D8));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0x18)); }
-    return (sprPutCropV(0x8C33DEC0, 0x0, *(Stk3 *)((((int)stk + 40) + 0x18)), f4, 1.0f, f5));
-}
 
 int entryGridMove(int a4, int a5)
 {
@@ -426,24 +409,6 @@ int mwlSbTrnsDat(int a4, int a5, int a6, int a7, int a8)
     return t5;
 }
 
-int sprInitRectF(int a4, int a5, int a6, int a7, int a8, int a9)
-{
-    *(unsigned int *)((a4 + 0x0)) = a5;
-    *(unsigned int *)((a4 + 0x28)) = 0x0;
-    *(float *)((a4 + 0x4)) = 0.0f;
-    *(float *)((a4 + 0x8)) = 0.0f;
-    *(float *)((a4 + 0xC)) = (*(float *)0x8C08E994);
-    *(float *)((a4 + 0x18)) = ((*(float *)(((((a9 << 2) << 2) + a6) + 0x0))) / (float)a7);
-    *(float *)((a4 + 0x1C)) = ((*(float *)(((((a9 << 2) << 2) + a6) + 0x4))) / (float)a8);
-    *(float *)((a4 + 0x20)) = ((*(float *)((a4 + 0x18))) + ((*(float *)(((((a9 << 2) << 2) + a6) + 0x8))) / (float)a7));
-    *(float *)((a4 + 0x24)) = ((*(float *)((a4 + 0x1C))) + ((*(float *)(((((a9 << 2) << 2) + a6) + 0xC))) / (float)a8));
-    *(float *)((a4 + 0x10)) = ((*(float *)((a4 + 0x20))) - (*(float *)((a4 + 0x18))));
-    *(float *)((a4 + 0x14)) = ((*(float *)((a4 + 0x24))) - (*(float *)((a4 + 0x1C))));
-    *(float *)((a4 + 0x2C)) = 1.0f;
-    *(unsigned int *)((a4 + 0x30)) = 0xFFFFFFFF;
-    *(unsigned int *)((a4 + 0x34)) = 0xA;
-    return 0x2C;
-}
 
 int logoBDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
 {

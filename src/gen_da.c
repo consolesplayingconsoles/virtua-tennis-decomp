@@ -181,16 +181,6 @@ int kdSetFT4Control(int a4, int a5)
     return t0;
 }
 
-int kdSetSetCondition(int a4, int a5, int a6, int a7)
-{
-    int t0;
-
-    t0 = mpdrv_set_setcond(a4, a5, a6, a7);
-    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
-        kdRecvFrame();
-    }
-    return t0;
-}
 
 int kdSetTransmitAgain(int a4)
 {

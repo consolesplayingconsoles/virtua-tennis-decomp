@@ -267,51 +267,7 @@ void seNetHit2(void)
     }
 }
 
-int ADXERR_CallErrFunc(Stk4 s)
-{
-    int t0;
-    int t3;
-    int t6;
-    int stk[15];
 
-    stk[3] = s.w[0];
-    stk[4] = s.w[1];
-    stk[5] = s.w[2];
-    stk[6] = s.w[3];
-    t0 = ((((int)stk + 4) + 0x8) + 0x4);
-    if ((0x3 & ((((int)stk + 4) + 0x8) + 0x4)) != 0) {
-        t0 = ((((int)stk + 4) + 0x8) + 0x8);
-    }
-    t3 = *(int *)0x8C20C89C;
-    t6 = (vsprintf(0x8C46AD24, s.w[0], t0));
-    if (t3 != 0) {
-        t6 = (((int (*)(int, int))(t3))((*(int *)0x8C20C8A0), 0x8C46AD24));
-    }
-    return t6;
-}
-
-int mwRnaErrCallFunc(Stk4 s)
-{
-    int t0;
-    int t3;
-    int t6;
-    int stk[15];
-
-    stk[3] = s.w[0];
-    stk[4] = s.w[1];
-    stk[5] = s.w[2];
-    stk[6] = s.w[3];
-    t0 = ((((int)stk + 4) + 0x8) + 0x4);
-    if ((0x3 & ((((int)stk + 4) + 0x8) + 0x4)) != 0) {
-        t0 = ((((int)stk + 4) + 0x8) + 0x8);
-    }
-    t3 = *(int *)0x8C20CA48;
-    t6 = (vsprintf(0x8C473758, s.w[0], t0));
-    if (t3 != 0) {
-        t6 = (((int (*)(int, int))(t3))((*(int *)0x8C20CA4C), 0x8C473758));
-    }
-    return t6;
-}
 
 int motionBoneOffset(int a4)
 {
@@ -1540,19 +1496,6 @@ void miniEffectSpawn(Stk4 s)
     *(unsigned int *)((t0 + 0x20)) = 0x0;
 }
 
-int sprPutAt(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
-{
-    int stk[14];
-
-    stk[2] = a8;
-    stk[3] = a9;
-    stk[4] = a10;
-    stk[5] = a11;
-    *(float *)((a4 + 0x4)) = (*(float *)(((((int)stk + 4) + 0x4) + 0x0)));
-    *(float *)((a4 + 0x8)) = (*(float *)(((((int)stk + 4) + 0x4) + 0x4)));
-    *(float *)((a4 + 0xC)) = (*(float *)(((((int)stk + 4) + 0x4) + 0x8)));
-    return (nlSprPut(a4, (((int)stk + 4) + 0x4), a6, a7));
-}
 
 
 int kmyEnableInterrupt(void)

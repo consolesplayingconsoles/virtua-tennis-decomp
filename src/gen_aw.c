@@ -127,47 +127,6 @@ void staffMorphBlend(int a4, int a5, int a6, float f4, float f5, float f6, float
     }
 }
 
-int cpuInTriangle(Stk12 s)
-{
-    float u15;
-    int stk[42];
-
-    stk[22] = s.w[0];
-    stk[23] = s.w[1];
-    stk[24] = s.w[2];
-    stk[25] = s.w[3];
-    stk[26] = s.w[4];
-    stk[27] = s.w[5];
-    stk[28] = s.w[6];
-    stk[29] = s.w[7];
-    stk[30] = s.w[8];
-    stk[31] = s.w[9];
-    stk[32] = s.w[10];
-    stk[33] = s.w[11];
-    *(float *)(((int)stk + 44)) = 0.0f;
-    *(float *)(((int)stk + 56)) = 0.0f;
-    *(float *)(((int)stk + 68)) = 0.0f;
-    *(float *)(((int)stk + 64)) = ((*(float *)(((((int)stk + 4) + 0x54) + 0x0))) - (*(float *)(((((int)stk + 4) + 0x78) + 0x0))));
-    *(float *)(((int)stk + 72)) = ((*(float *)(((((int)stk + 4) + 0x54) + 0x8))) - (*(float *)(((((int)stk + 4) + 0x78) + 0x8))));
-    *(float *)(((int)stk + 52)) = ((*(float *)(((((int)stk + 4) + 0x60) + 0x0))) - (*(float *)(((((int)stk + 4) + 0x78) + 0x0))));
-    *(float *)(((int)stk + 60)) = ((*(float *)(((((int)stk + 4) + 0x60) + 0x8))) - (*(float *)(((((int)stk + 4) + 0x78) + 0x8))));
-    *(float *)(((int)stk + 40)) = ((*(float *)(((((int)stk + 4) + 0x6C) + 0x0))) - (*(float *)(((((int)stk + 4) + 0x78) + 0x0))));
-    *(float *)(((int)stk + 48)) = ((*(float *)(((((int)stk + 4) + 0x6C) + 0x8))) - (*(float *)(((((int)stk + 4) + 0x78) + 0x8))));
-    nlOuterProduct((((int)stk + 4) + 0x3C), (((int)stk + 4) + 0x30), (((int)stk + 4) + 0x18));
-    nlOuterProduct((((int)stk + 4) + 0x30), (((int)stk + 4) + 0x24), (((int)stk + 4) + 0xC));
-    nlOuterProduct((((int)stk + 4) + 0x24), (((int)stk + 4) + 0x3C), ((int)stk + 4));
-    u15 = *(float *)0x8C0801C0;
-    if (u15 > nlInnerProduct((((int)stk + 4) + 0x18), (((int)stk + 4) + 0xC))) {
-        return 0;
-    }
-    if (u15 > nlInnerProduct((((int)stk + 4) + 0x18), ((int)stk + 4))) {
-        return 0;
-    }
-    if (u15 > nlInnerProduct((((int)stk + 4) + 0xC), ((int)stk + 4))) {
-        return 0;
-    }
-    return 1;
-}
 
 int nlRenderTextureBegin(int a4)
 {

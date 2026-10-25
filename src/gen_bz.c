@@ -498,10 +498,6 @@ int syRtcFinish(void)
     return syChainDeleteHandler((*(int *)0x8C45A6EC));
 }
 
-int kdGetDeviceInfo(int a4)
-{
-    return (mpdrv_get_deviceinfo(a4));
-}
 
 int kdGetPortStatus(int a4)
 {

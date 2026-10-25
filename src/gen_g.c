@@ -18,23 +18,6 @@ int nlObjPutLoadTexture(int, int);
 int nlScaleVector(int, int, float);
 int nlSpriteFreeTextureOnce(void);
 
-void vecMake(int a4, int a5, int a6, int a7, int a8, float f4, float f5, float f6)
-{
-    int t0;
-    int t1;
-    int t2;
-    int stk[5];
-
-    *(float *)((((int)stk + 4) + 0x0)) = f4;
-    *(float *)((((int)stk + 4) + 0x4)) = f5;
-    *(float *)((((int)stk + 4) + 0x8)) = f6;
-    t0 = *(int *)((((int)stk + 4) + 0x8));
-    *(unsigned int *)((a8 + 0x8)) = t0;
-    t1 = *(int *)((((int)stk + 4) + 0x4));
-    *(unsigned int *)((a8 + 0x4)) = t1;
-    t2 = *(int *)((((int)stk + 4) + 0x0));
-    *(unsigned int *)((a8 + 0x0)) = t2;
-}
 
 void vecDiv(int a4, int a5, int a6, int a7, int a8, float f4)
 {

@@ -842,21 +842,6 @@ void vecAdd(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((a8 + 0x0)) = t3;
 }
 
-void vecSub(int a4, int a5, int a6, int a7, int a8)
-{
-    int t1;
-    int t2;
-    int t3;
-    int stk[2];
-
-    nlSubVector((((int)stk + 4) + 0x8), (((int)stk + 4) + 0x14));
-    t1 = *(int *)(((((int)stk + 4) + 0x8) + 0x8));
-    *(unsigned int *)((a8 + 0x8)) = t1;
-    t2 = *(int *)(((((int)stk + 4) + 0x8) + 0x4));
-    *(unsigned int *)((a8 + 0x4)) = t2;
-    t3 = *(int *)(((((int)stk + 4) + 0x8) + 0x0));
-    *(unsigned int *)((a8 + 0x0)) = t3;
-}
 
 void vecScale(int a4, int a5, int a6, int a7, int a8)
 {
@@ -3791,79 +3776,9 @@ void sprInitPos(int a4, int a5)
     *(unsigned int *)((a4 + 0x34)) = 0xA;
 }
 
-void sprPutCropV(int a4, int a5, float f4, float f5, float f6)
-{
-    float u0;
-    float u1;
-    float u2;
-    float u3;
-    float u4;
-    float u5;
-    int t9;
-    int t10;
-    int t11;
-    float u13;
-    float u14;
-    float u15;
-    int stk[12];
-
-    u0 = *(float *)((a4 + 0x18));
-    *(float *)(((int)stk + 20)) = u0;
-    u1 = *(float *)((a4 + 0x20));
-    *(float *)(((int)stk + 16)) = u1;
-    u2 = *(float *)((a4 + 0x1C));
-    u3 = *(float *)((a4 + 0x24));
-    u4 = *(float *)((a4 + 0x10));
-    *(float *)(((int)stk + 24)) = u4;
-    u5 = *(float *)((a4 + 0x14));
-    if (a5 == 0) {
-        *(float *)((a4 + 0x24)) = ((f6 * u5) + u2);
-        *(float *)((a4 + 0x14)) = (f6 * u5);
-    }
-    if (a5 == 1) {
-        *(float *)((a4 + 0x1C)) = ((u2 - (f6 * u5)) + u5);
-        *(float *)((a4 + 0x14)) = (f6 * u5);
-    }
-    t9 = *(int *)(((((int)stk + 16) + 0x20) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t9;
-    t10 = *(int *)(((((int)stk + 16) + 0x20) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t10;
-    t11 = *(int *)(((((int)stk + 16) + 0x20) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t11;
-    sprPutAtAlpha(a4);
-    u13 = *(float *)(((int)stk + 20));
-    *(float *)((a4 + 0x18)) = u13;
-    *(float *)((a4 + 0x1C)) = u2;
-    u14 = *(float *)(((int)stk + 16));
-    *(float *)((a4 + 0x20)) = u14;
-    *(float *)((a4 + 0x24)) = u3;
-    u15 = *(float *)(((int)stk + 24));
-    *(float *)((a4 + 0x10)) = u15;
-    *(float *)((a4 + 0x14)) = u5;
-}
 
 
 
-int menuIconPut(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int stk[6];
-
-    *(unsigned int *)(((int)stk + 16)) = a4;
-    t0 = *(int *)(((((int)stk + 16) + 0x8) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-    t1 = *(int *)(((((int)stk + 16) + 0x8) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-    t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = *(int *)(((int)stk + 16));
-    t4 = sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C334434));
-    return t4;
-}
 
 int menuIconPutRot(int a4, int a5)
 {
@@ -3907,26 +3822,6 @@ int logoBInit(void)
     return t2;
 }
 
-int numPutSprite(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int stk[6];
-
-    *(unsigned int *)(((int)stk + 16)) = a4;
-    t0 = *(int *)(((((int)stk + 16) + 0x8) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-    t1 = *(int *)(((((int)stk + 16) + 0x8) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-    t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = *(int *)(((int)stk + 16));
-    t4 = sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C3373BC));
-    return t4;
-}
 
 void scoreInit(void)
 {
@@ -3974,23 +3869,6 @@ void scoreInit(void)
 }
 
 
-int panelLogoPut(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int stk[5];
-
-    t0 = *(int *)(((((int)stk + 16) + 0x4) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-    t1 = *(int *)(((((int)stk + 16) + 0x4) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-    t2 = *(int *)(((((int)stk + 16) + 0x4) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = sprPutAtAlpha(0x8C337C50);
-    return t3;
-}
 
 int panelWideInit(void)
 {
@@ -4024,26 +3902,6 @@ int panelWordsInit(void)
     return t1;
 }
 
-int panelWordPut(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int stk[6];
-
-    *(unsigned int *)(((int)stk + 16)) = a4;
-    t0 = *(int *)(((((int)stk + 16) + 0x8) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-    t1 = *(int *)(((((int)stk + 16) + 0x8) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-    t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = *(int *)(((int)stk + 16));
-    t4 = sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C337DE0));
-    return t4;
-}
 
 int phraseBigInit(void)
 {
@@ -4058,26 +3916,6 @@ int phraseBigInit(void)
     return t1;
 }
 
-int phraseBigWordPut(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int stk[6];
-
-    *(unsigned int *)(((int)stk + 16)) = a4;
-    t0 = *(int *)(((((int)stk + 16) + 0x8) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-    t1 = *(int *)(((((int)stk + 16) + 0x8) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-    t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = *(int *)(((int)stk + 16));
-    t4 = sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C338240));
-    return t4;
-}
 
 
 
@@ -4182,23 +4020,6 @@ int hudScoreIconPutFull(void)
 }
 
 
-int hudBannerSubPut(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int stk[5];
-
-    t0 = *(int *)(((((int)stk + 16) + 0x4) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-    t1 = *(int *)(((((int)stk + 16) + 0x4) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-    t2 = *(int *)(((((int)stk + 16) + 0x4) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = sprPutAtAlpha(0x8C33D7E0);
-    return t3;
-}
 
 
 
@@ -4218,47 +4039,8 @@ int hudLabelSprInit(void)
     return t1;
 }
 
-int hudLabelPut(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int stk[6];
-
-    *(unsigned int *)(((int)stk + 16)) = a4;
-    t0 = *(int *)(((((int)stk + 16) + 0x8) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-    t1 = *(int *)(((((int)stk + 16) + 0x8) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-    t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = *(int *)(((int)stk + 16));
-    t4 = *(int *)(((t3 << 2) + 0x8C10FF30));
-    t5 = sprPutAtAlpha((((((t4 << 2) + t4) << 2) << 2) + 0x8C33ECD0));
-    return t5;
-}
 
 
-int hudSignLastPut(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int stk[5];
-
-    t0 = *(int *)(((((int)stk + 16) + 0x4) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-    t1 = *(int *)(((((int)stk + 16) + 0x4) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-    t2 = *(int *)(((((int)stk + 16) + 0x4) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = sprPutAtAlpha(0x8C33FA90);
-    return t3;
-}
 
 int panelSprInit(void)
 {
@@ -4355,59 +4137,7 @@ int standBgDraw(void)
 
 
 
-int decoPairPut(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t7;
-    int t6;
-    int stk[6];
 
-    if (a4 == 0) {
-        t0 = *(int *)(((((int)stk + 16) + 0x8) + 0x8));
-        *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-        t1 = *(int *)(((((int)stk + 16) + 0x8) + 0x4));
-        *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-        t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
-        *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-        t6 = 0x7D0;
-    } else {
-        t3 = *(int *)(((((int)stk + 16) + 0x8) + 0x8));
-        *(unsigned int *)((((int)stk + 4) + 0x8)) = t3;
-        t4 = *(int *)(((((int)stk + 16) + 0x8) + 0x4));
-        *(unsigned int *)((((int)stk + 4) + 0x4)) = t4;
-        t5 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
-        *(unsigned int *)((((int)stk + 4) + 0x0)) = t5;
-        t6 = 0x820;
-    }
-    t7 = sprPutAtAlpha((t6 + 0x8C341A38));
-    return t7;
-}
-
-void decoSprPut(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int stk[6];
-
-    *(unsigned int *)(((int)stk + 16)) = a4;
-    if ((int)a4 <= (int)0x1C) {
-        t0 = *(int *)(((((int)stk + 16) + 0x8) + 0x8));
-        *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-        t1 = *(int *)(((((int)stk + 16) + 0x8) + 0x4));
-        *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-        t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
-        *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-        t3 = *(int *)(((int)stk + 16));
-        sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C341A38));
-    }
-}
 
 int decoGaugeBarPut(int a4, int a5, int a6)
 {
@@ -4457,46 +4187,6 @@ int decoGaugeBarPut(int a4, int a5, int a6)
     return t13;
 }
 
-int decoGaugeFramePut(int a4, int a5)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-    int t10;
-    int stk[8];
-
-    *(unsigned int *)(((int)stk + 20)) = a4;
-    *(unsigned int *)(((int)stk + 16)) = a5;
-    if ((int)a5 < 0) {
-        t0 = *(int *)(((((int)stk + 16) + 0x10) + 0x8));
-        *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-        t1 = *(int *)(((((int)stk + 16) + 0x10) + 0x4));
-        *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-        t2 = *(int *)(((((int)stk + 16) + 0x10) + 0x0));
-        *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-        t3 = *(int *)(((int)stk + 20));
-        t4 = sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C3422A8));
-        t10 = t4;
-    } else {
-        t5 = *(int *)(((((int)stk + 16) + 0x10) + 0x8));
-        *(unsigned int *)((((int)stk + 4) + 0x8)) = t5;
-        t6 = *(int *)(((((int)stk + 16) + 0x10) + 0x4));
-        *(unsigned int *)((((int)stk + 4) + 0x4)) = t6;
-        t7 = *(int *)(((((int)stk + 16) + 0x10) + 0x0));
-        *(unsigned int *)((((int)stk + 4) + 0x0)) = t7;
-        t8 = *(int *)(((int)stk + 16));
-        t9 = sprPutAtAlpha(((((((t8 << 2) + t8) << 2) << 2) + 0x8C3422A8) + 0x5A0));
-        t10 = t9;
-    }
-    return t10;
-}
 
 int selRestart(void)
 {
@@ -6558,26 +6248,6 @@ int sprSet173Setup(int a4)
     return t15;
 }
 
-int sprSet173Put(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int stk[6];
-
-    *(unsigned int *)(((int)stk + 16)) = a4;
-    t0 = *(int *)(((((int)stk + 16) + 0x8) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-    t1 = *(int *)(((((int)stk + 16) + 0x8) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-    t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = *(int *)(((int)stk + 16));
-    t4 = sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C37C2BC));
-    return t4;
-}
 
 int sprSet173FreeAll(void)
 {
@@ -6876,26 +6546,6 @@ int sprSet331Restore(void)
     return t5;
 }
 
-int sprSet192PutA(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int stk[6];
-
-    *(unsigned int *)(((int)stk + 16)) = a4;
-    t0 = *(int *)(((((int)stk + 16) + 0x8) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-    t1 = *(int *)(((((int)stk + 16) + 0x8) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-    t2 = *(int *)(((((int)stk + 16) + 0x8) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = *(int *)(((int)stk + 16));
-    t4 = sprPutAtAlpha((((((t3 << 2) + t3) << 2) << 2) + 0x8C37CF10));
-    return t4;
-}
 
 void sprSet192Load(void)
 {
@@ -11626,14 +11276,6 @@ void kmSetFogTableColor(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)0x8C4709EC = (t0 | 0x1);
 }
 
-void kmSetFogVertexColor(int a4, int a5, int a6, int a7, int a8)
-{
-    int t0;
-
-    *(unsigned int *)0x8C4709F0 = a8;
-    t0 = *(int *)0x8C4709EC;
-    *(unsigned int *)0x8C4709EC = t0;
-}
 
 void kmSetPaletteBankData(int a4, int a5, int a6)
 {
@@ -12162,10 +11804,6 @@ int kmiProcessVertex_16(int a4, int a5, int a6, int a7)
     return t34;
 }
 
-void kmSetBorderColor(int a4, int a5, int a6, int a7, int a8)
-{
-    kmySetBorderColor(a8);
-}
 
 int ccitt_updcrc(int a4, int a5, int a6, int a7)
 {
@@ -15135,3 +14773,13 @@ int syIntAdrChk_printh(int a4)
     } while ((int)t0 >= 0);
     return t2;
 }
+
+void kmSetFogVertexColor(int a4, int a5, int a6, int a7, int a8)
+{
+    int t0;
+
+    *(unsigned int *)0x8C4709F0 = a8;
+    t0 = *(int *)0x8C4709EC;
+    *(unsigned int *)0x8C4709EC = t0;
+}
+

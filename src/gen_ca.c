@@ -112,16 +112,6 @@ int buSetFileParam(int a4, int a5, int a6)
     return vmsfs_fsetparam((*(int *)(((int)stk + 4))), (*(short *)(((int)stk + 8))), (*(signed char *)(((int)stk + 12))));
 }
 
-int kdSetBlockWrite(Stk4 s)
-{
-    int t0;
-
-    t0 = mpdrv_set_bwrite(s.w[0], s.w[1], s.w[2]);
-    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
-        kdRecvFrame();
-    }
-    return t0;
-}
 
 int fmcalccrc(int a4, int a5, int a6, int a7)
 {
@@ -244,14 +234,6 @@ int kdDevGetFD(int a4, int a5)
     return t4;
 }
 
-int mpdrv_set_bwrite_ns(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
-{
-    int stk[7];
-
-    *(unsigned int *)((((int)stk + 12) + 0x0)) = a5;
-    *(unsigned int *)((((int)stk + 12) + 0x4)) = ((((a6 << 16) << 8) | (a7 << 16)) | a8);
-    return (mpdrv_setcmd(a4, 0xC, ((int)stk + 12), 0x2, a9));
-}
 
 int vmsfs_setdevicetype(int a4)
 {

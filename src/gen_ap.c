@@ -671,22 +671,6 @@ void camGetPos(Stk4 s)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(s.w[0]) = *(struct mv3 *)(((int)stk + 4)); }
 }
 
-int sprPutAtAlpha(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
-{
-    int stk[16];
-
-    stk[4] = a8;
-    stk[5] = a9;
-    stk[6] = a10;
-    stk[7] = a11;
-    *(float *)(((int)stk + 4)) = f4;
-    nlSetCommonTextureOffset((*(int *)((a4 + 0x0))));
-    *(float *)((a4 + 0x4)) = (*(float *)(((((int)stk + 4) + 0xC) + 0x0)));
-    *(float *)((a4 + 0x8)) = (*(float *)(((((int)stk + 4) + 0xC) + 0x4)));
-    *(float *)((a4 + 0xC)) = (*(float *)(((((int)stk + 4) + 0xC) + 0x8)));
-    *(float *)((a4 + 0x2C)) = (*(float *)(((int)stk + 4)));
-    return (nlSprPut(a4));
-}
 
 int resGetTexLoad(int a4)
 {

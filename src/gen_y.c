@@ -811,21 +811,6 @@ int hudCounterStep(int a4, int a5, int a6, int a7, int a8)
 }
 
 
-void camWorldToView(Stk4 s)
-{
-    int stk[15];
-
-    stk[3] = s.w[0];
-    stk[4] = s.w[1];
-    stk[5] = s.w[2];
-    stk[6] = s.w[3];
-    nlPushMatrix(0x0);
-    nlLoadMatrix(0x8C287938);
-    nlTranslate((*(float *)(((((int)stk + 4) + 0xC) + 0x0))), (*(float *)(((((int)stk + 4) + 0xC) + 0x4))), (*(float *)(((((int)stk + 4) + 0xC) + 0x8))));
-    mtxGetPos((((int)stk + 4) + 0xC), ((((int)stk + 4) + 0xC) + 0x4), ((((int)stk + 4) + 0xC) + 0x8));
-    nlPopMatrix(0x1);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(s.w[0]) = *(struct mv3 *)((((int)stk + 4) + 0xC)); }
-}
 
 int decoGaugeDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
 {

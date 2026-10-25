@@ -2426,10 +2426,6 @@ int buSetRetryCount(void)
     return vmsfs_setretry();
 }
 
-int buUnmountDisk(void)
-{
-    return buUnmount();
-}
 
 void syCfgExit(void)
 {
@@ -2777,10 +2773,6 @@ int vmsfs_c_fiber1(void)
     return vmsfs_c_dispatch(0x1);
 }
 
-int vmsfs_c_fiber6(void)
-{
-    return vmsfs_c_dispatch(0x6);
-}
 
 int ADXAMP_GetStat(int a4)
 {
