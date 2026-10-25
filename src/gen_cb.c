@@ -1,0 +1,728 @@
+/* Straight-line functions with calls and guards (batch gen_cb): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+typedef struct { int w[4]; } Stk4;
+extern int _builtin_get_imask(void);
+extern void _builtin_set_imask(int);
+int buFbrSleepFiber(int, int, int, int, float, float, float, float, float, float, float, float);
+int copy_device(void);
+int gdFsSearchName(int, int, int);
+int init_sub(void);
+int kdDevGetFD(int, int);
+int kdGetDevice(int);
+int kdGetDeviceInfo(int);
+int kdSetHandler(int, int);
+int kdSetSetCondition(void);
+int memcmp(int, int, int);
+int memset(int, int, int);
+int mpdrv_init(int, int, int);
+int mpdrv_init_ex(int, int, int, int);
+int nlGetMatrix(int);
+int nlUnitMatrix(void);
+int ovGetLibTbl(int);
+int ovLockCs(int);
+int ovUnlockCs(int);
+int pdTmrIsReady(int);
+int pdVibSetUnitInfo(int, int, int, int, int, int);
+int set_file_info(int, int, int, int);
+int str_len(int);
+int syRtcAicaSetDateHi(int);
+int syRtcAicaSetDateLo(int);
+int syRtcAicaSetWriteFlag(void);
+int syRtcDateToCount(void);
+int syRtcGetCountForce(void);
+int vmsfs_read_retry(int, int, int);
+int vsprintf(int, int, int);
+int kdInitSystemEx(int a4, int a5, int a6, int a7);
+int pdTmrAlarm(int a4, int a5);
+int kdInitSystem(int a4, int a5);
+int read_fat(int a4);
+int ovSearchLibByUuid(int a4);
+int syRtcSetDate(void);
+int search_fat_free(int a4, int a5);
+int search_fat(int a4, int a5);
+int ovLibEntryTbl(int a4);
+int gdFsReopenHn(int a4, int a5, int a6, int a7);
+int search_fat_used(int a4);
+int gdFsSeek(int a4, int a5, int a6);
+int gdFsGetDirInfoG(int a4, int a5);
+int kdDevGetControllerInfo(int a4, int a5);
+int kdDevGetSIPInfo(int a4, int a5);
+int kdDevGetGunInfo(int a4, int a5);
+int vmsfs_resetwork(int a4);
+int cmp_fname(int a4, int a5);
+int mpdrv_sdckbenable(int a4);
+int mpdrv_dpf(Stk4 s);
+int fmMngWrite(int a4, int a5);
+int vmsio_isready(int a4);
+int search_exec_file(int a4, int a5);
+void buDisableServer(void);
+int vmsfs_init_work_new(int a4);
+int vmsfs_dpf(Stk4 s);
+int nlInitMatrixStack(int a4, int a5, int a6);
+int kdDevGetTimerInfo(int a4, int a5);
+int vmsfs_isready(void);
+int mpdrv_sdckbdisable(int a4);
+int buFbrEndFiber(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11);
+int kdDevGetVibrationInfo(int a4, int a5);
+void pdVibGetUnitInfoCallback(int a4, int a5, int a6, int a7);
+
+int kdInitSystemEx(int a4, int a5, int a6, int a7)
+{
+    int t0;
+    int t3;
+
+    t0 = _builtin_get_imask();
+    _builtin_set_imask(0xF);
+    *(unsigned int *)0x8C1FEB48 = ((*(int *)0x8C1FEB48) | 0xA0000000);
+    init_sub();
+    t3 = mpdrv_init_ex(a4, a5, a6, a7);
+    copy_device();
+    *(unsigned int *)0x8C4620DC = 0x1;
+    _builtin_set_imask(((unsigned int)(((t0 & 0xF) << 2) << 2) >> 4));
+    return t3;
+}
+
+int pdTmrAlarm(int a4, int a5)
+{
+    int t0;
+    int t6;
+    int stk[5];
+
+    *(unsigned int *)(((int)stk + 8)) = a4;
+    t0 = pdTmrIsReady(a4);
+    if (t0 == 0) {
+        return 0xFFFFFFFE;
+    }
+    *(unsigned char *)((((int)stk + 4) + 0x0)) = (*(signed char *)((a5 + 0x0)));
+    *(unsigned char *)(((((int)stk + 4) + 0x1) + 0x0)) = (*(signed char *)((a5 + 0x1)));
+    *(unsigned char *)((((((int)stk + 4) + 0x1) + 0x1) + 0x0)) = (*(signed char *)((a5 + 0x2)));
+    *(unsigned char *)(((((((int)stk + 4) + 0x1) + 0x1) + 0x1) + 0x0)) = (*(signed char *)((a5 + 0x3)));
+    *(volatile int *)(((int)stk + 8));
+    t6 = kdSetSetCondition();
+    if ((int)t6 < 0) {
+        return 0xFFFFFFFF;
+    }
+    return 0x0;
+}
+
+int kdInitSystem(int a4, int a5)
+{
+    int t0;
+    int t3;
+
+    t0 = _builtin_get_imask();
+    _builtin_set_imask(0xF);
+    *(unsigned int *)0x8C1FEB48 = ((*(int *)0x8C1FEB48) | 0xA0000000);
+    init_sub();
+    t3 = mpdrv_init(a5, 0xC000, a4);
+    copy_device();
+    *(unsigned int *)0x8C4620DC = 0x1;
+    _builtin_set_imask(((unsigned int)(((t0 & 0xF) << 2) << 2) >> 4));
+    return t3;
+}
+
+int read_fat(int a4)
+{
+    int t1;
+    int t7;
+    int t2;
+    int t6;
+
+    t1 = *(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x10));
+    t7 = 0x0;
+    if ((int)t1 > 0) {
+        t2 = 0x0;
+        for (;;) {
+            t6 = vmsfs_read_retry(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0xC))) + t2), (((t2 << 8) << 1) + (*(int *)((((a4 * 0x148) + 0x8C464598) + 0x24)))));
+            if ((int)t6 < 0) {
+                break;
+            }
+            t2 = (t2 + 0x1);
+            if ((int)t2 >= (int)t1) {
+                return 0x0;
+            }
+        }
+        t7 = t6;
+    }
+    return t7;
+}
+
+int ovSearchLibByUuid(int a4)
+{
+    int t0;
+    int t1;
+    int t5;
+    int stk[8];
+
+    *(unsigned int *)(((int)stk + 4)) = a4;
+    t0 = ovGetLibTbl((((int)stk + 4) + 0x4));
+    t1 = 0x0;
+    for (;;) {
+        if ((int)t1 >= (int)(*(int *)((t0 + 0x0)))) {
+            return 0xFFFFFFFE;
+        }
+        t5 = memcmp((*(int *)(((int)stk + 4))), ((*(int *)(((((t1 << 2) << 1) + (t0 + 0x8)) + 0x0))) + 0x10), 0x10);
+        if (t5 == 0) {
+            break;
+        }
+        t1 = (t1 + 0x1);
+    }
+    return t1;
+}
+
+int syRtcSetDate(void)
+{
+    int t1;
+    int t23;
+    int t3;
+    int t19;
+    int t5;
+    int t15;
+    int t6;
+    int t11;
+    int t8;
+    int stk[3];
+
+    syRtcDateToCount();
+    t1 = syRtcAicaSetWriteFlag();
+    t23 = t1;
+    if (t1 == 0) {
+        t3 = syRtcAicaSetDateLo((unsigned short)(*(int *)(((int)stk + 4))));
+        t19 = t3;
+        if (t3 == 0) {
+            t5 = syRtcAicaSetDateHi((unsigned short)((unsigned int)(*(int *)(((int)stk + 4))) >> 16));
+            t15 = t5;
+            if (t5 == 0) {
+                t6 = syRtcGetCountForce();
+                t11 = 0xFFFFFFFF;
+                if ((t6 != (*(int *)(((int)stk + 4)))) && (t8 = *(int *)(((int)stk + 4)), t6 != (t8 + 0x1))) {
+                } else {
+                    *(unsigned int *)0x8C45A6E4 = t6;
+                    t11 = 0x0;
+                }
+                t15 = t11;
+            }
+            t19 = t15;
+        }
+        t23 = t19;
+    }
+    return t23;
+}
+
+int search_fat_free(int a4, int a5)
+{
+    int t1;
+    int t2;
+    int t6;
+    int t7;
+
+    t1 = *(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30));
+    if ((int)(t1 - 1) >= (int)a5) {
+        t2 = (t1 - 1);
+        for (;;) {
+            t6 = ((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x24))), (t2 << 1));
+            if ((unsigned short)t6 == 0xFFFC) {
+                break;
+            }
+            t2 = (t2 - 1);
+            if ((int)t2 < (int)a5) {
+                return 0xFFFFFFFF;
+            }
+        }
+        t7 = t2;
+    } else {
+        t7 = 0xFFFFFFFF;
+    }
+    return t7;
+}
+
+int search_fat(int a4, int a5)
+{
+    int t1;
+    int t2;
+    int t6;
+    int t8;
+    int stk[6];
+
+    *(unsigned short *)(((int)stk + 4)) = a5;
+    t1 = *(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30));
+    if ((int)(t1 - 1) >= 0) {
+        t2 = (t1 - 1);
+        for (;;) {
+            t6 = ((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x24))), (t2 << 1));
+            if ((unsigned short)t6 == (unsigned short)(*(short *)(((int)stk + 4)))) {
+                break;
+            }
+            t2 = (t2 - 1);
+            if ((int)t2 < 0) {
+                return 0xFFFFFFFF;
+            }
+        }
+        t8 = t2;
+    } else {
+        t8 = 0xFFFFFFFF;
+    }
+    return t8;
+}
+
+int ovLibEntryTbl(int a4)
+{
+    int t1;
+    int t3;
+    int t4;
+    int stk[6];
+
+    *(unsigned int *)(((int)stk + 8)) = a4;
+    ovLockCs(((int)stk + 4));
+    t1 = ovGetLibTbl((((int)stk + 4) + 0x8));
+    t3 = ovSearchLibByUuid(((*(int *)(((int)stk + 8))) + 0x10));
+    if ((int)t3 < 0) {
+        t4 = *(int *)((t1 + 0x0));
+        *(unsigned int *)((((t1 + 0x8) + ((t4 << 2) << 1)) + 0x0)) = (*(int *)(((int)stk + 8)));
+        *(unsigned int *)(((((t4 << 2) << 1) + (t1 + 0x8)) + 0x4)) = 0x0;
+        *(unsigned int *)((t1 + 0x0)) = ((*(int *)((t1 + 0x0))) + 0x1);
+    }
+    ovUnlockCs(((int)stk + 4));
+    return 0x0;
+}
+
+int gdFsReopenHn(int a4, int a5, int a6, int a7)
+{
+    int t0;
+    int t1;
+
+    if ((a4 != 0) && (t0 = *(int *)((a4 + 0x0)), t1 = *(int *)((t0 + 0x1C)), t1 != a4)) {
+        *(unsigned int *)((a4 + 0x4)) = a5;
+        *(unsigned int *)((a4 + 0x8)) = a6;
+        *(unsigned int *)((a4 + 0xC)) = a7;
+        *(unsigned int *)((a4 + 0x10)) = ((int)(a7 + 0x7FF) >> 11);
+        *(unsigned int *)((a4 + 0x14)) = 0x0;
+        *(unsigned int *)((a4 + 0x18)) = 0x0;
+        *(unsigned int *)((a4 + 0x1C)) = 0x0;
+        *(unsigned int *)((a4 + 0x20)) = 0x0;
+        *(unsigned int *)((a4 + 0x3C)) = 0x0;
+        *(unsigned int *)((a4 + 0x44)) = 0x0;
+        *(unsigned short *)((a4 + 0x48)) = 0x0;
+        *(unsigned short *)((a4 + 0x4A)) = 0x0;
+        *(unsigned short *)((a4 + 0x4C)) = 0x1;
+        *(unsigned short *)((a4 + 0x50)) = 0x0;
+        *(unsigned short *)((a4 + 0x52)) = 0x0;
+        return a4;
+    }
+    return 0x0;
+}
+
+int search_fat_used(int a4)
+{
+    int t0;
+    int t6;
+
+    t0 = 0x0;
+    for (;;) {
+        if ((int)t0 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30)))) {
+            return 0xFFFFFFFF;
+        }
+        t6 = ((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x24))), (t0 << 1));
+        if (((unsigned short)t6 != 0xFFFC) && ((unsigned short)t6 != 0xFFFF)) {
+            break;
+        }
+        t0 = (t0 + 0x1);
+    }
+    return t0;
+}
+
+int gdFsSeek(int a4, int a5, int a6)
+{
+    int t4;
+    int t5;
+
+    if (a4 != 0) {
+        if ((*(short *)((a4 + 0x4C))) == 0) {
+            return 0xFFFFFFF6;
+        }
+        t4 = *(int *)((a4 + 0x10));
+        if (a6 != 0) {
+            if (a6 != 1) {
+                if (a6 != 2) {
+                    return 0xFFFFFFF0;
+                }
+                if (((int)(a5 + t4) >= 0) && ((int)(a5 + t4) <= (int)t4)) {
+                    *(unsigned int *)((a4 + 0x14)) = (a5 + t4);
+                    return 0x0;
+                }
+                return 0xFFFFFFEF;
+            }
+            t5 = *(int *)((a4 + 0x14));
+            if (((int)(t5 + a5) >= 0) && ((int)(t5 + a5) <= (int)t4)) {
+                *(unsigned int *)((a4 + 0x14)) = (t5 + a5);
+                return 0x0;
+            }
+            return 0xFFFFFFEF;
+        }
+        if (((int)a5 >= 0) && ((int)a5 <= (int)t4)) {
+            *(unsigned int *)((a4 + 0x14)) = a5;
+            return 0x0;
+        }
+        return 0xFFFFFFEF;
+    }
+    return 0xFFFFFFF6;
+}
+
+int gdFsGetDirInfoG(int a4, int a5)
+{
+    int t2;
+    int t4;
+
+    t2 = gdFsSearchName(a4, (*(int *)(((*(int *)0x8C20C204) + 0x10))), 0x0);
+    if (t2 == 0) {
+        return 0xFFFFFFF8;
+    }
+    t4 = *(int *)(((*(int *)0x8C20C204) + 0x10));
+    *(unsigned int *)((a5 + 0x0)) = ((*(int *)((((t4 + 0x10) + ((t2 - 1) * 0x2C)) + 0x0))) + 0x96);
+    *(unsigned int *)((a5 + 0x4)) = (*(int *)((((t4 + 0x10) + ((t2 - 1) * 0x2C)) + 0x4)));
+    *(unsigned char *)((a5 + 0x8)) = (*(signed char *)((((t4 + 0x10) + ((t2 - 1) * 0x2C)) + 0x8)));
+    return 0x0;
+}
+
+int kdDevGetControllerInfo(int a4, int a5)
+{
+    int t0;
+
+    t0 = kdDevGetFD(a5, 0x1);
+    if (t0 == 0) {
+        return 0xFFFFFFFF;
+    }
+    *(unsigned int *)((a4 + 0x0)) = (((((unsigned char)(*(signed char *)((t0 + 0x1))) << 16) | ((unsigned char)(*(signed char *)((t0 + 0x2))) << 8)) | (((unsigned char)(*(signed char *)((t0 + 0x0))) << 16) << 8)) | (unsigned char)(*(signed char *)((t0 + 0x3))));
+    return 0x0;
+}
+
+int kdDevGetSIPInfo(int a4, int a5)
+{
+    int t0;
+
+    t0 = kdDevGetFD(a5, 0x10);
+    if (t0 == 0) {
+        return 0xFFFFFFFF;
+    }
+    *(unsigned int *)((a4 + 0x0)) = (((((unsigned char)(*(signed char *)((t0 + 0x1))) << 16) | ((unsigned char)(*(signed char *)((t0 + 0x2))) << 8)) | (((unsigned char)(*(signed char *)((t0 + 0x0))) << 16) << 8)) | (unsigned char)(*(signed char *)((t0 + 0x3))));
+    return 0x0;
+}
+
+int kdDevGetGunInfo(int a4, int a5)
+{
+    int t0;
+
+    t0 = kdDevGetFD(a5, 0x20);
+    if (t0 == 0) {
+        return 0xFFFFFFFF;
+    }
+    *(unsigned int *)((a4 + 0x0)) = (((((unsigned char)(*(signed char *)((t0 + 0x1))) << 16) | ((unsigned char)(*(signed char *)((t0 + 0x2))) << 8)) | (((unsigned char)(*(signed char *)((t0 + 0x0))) << 16) << 8)) | (unsigned char)(*(signed char *)((t0 + 0x3))));
+    return 0x0;
+}
+
+int vmsfs_resetwork(int a4)
+{
+    memset(((a4 * 0x148) + 0x8C464598), 0x0, 0x148);
+    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x1C)) = ((a4 * 0x4C) + 0x8C468FF8);
+    return 0x0;
+}
+
+int cmp_fname(int a4, int a5)
+{
+    int t0;
+    int t1;
+    int t2;
+    int t3;
+    int t4;
+
+    t0 = str_len(a4);
+    t1 = str_len(a5);
+    if (t0 == t1) {
+        if ((int)t0 > 0) {
+            t2 = a5;
+            t3 = a4;
+            t4 = 0x0;
+            for (;;) {
+                if ((*(signed char *)((t3 + 0x0))) != (*(signed char *)((t2 + 0x0)))) {
+                    break;
+                }
+                t4 = (t4 + 0x1);
+                t2 = (t2 + 0x1);
+                t3 = (t3 + 0x1);
+                if ((int)t4 >= (int)t0) {
+                    return 0x1;
+                }
+            }
+            return 0x0;
+        }
+        return 0x1;
+    }
+    return 0x0;
+}
+
+int mpdrv_sdckbenable(int a4)
+{
+    int t0;
+    int t6;
+
+    t0 = *(int *)0x8C47317C;
+    *(unsigned int *)((t0 + 0xFCC)) = ((*(int *)((t0 + 0xFCC))) + ((*(int *)(((0xFD8 + t0) + 0x0))) << 2));
+    *(unsigned int *)(((*(int *)(((*(int *)0x8C47317C) + 0xFCC))) + 0x0)) = ((a4 << 16) | 0x200);
+    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFD8)) = 0x1;
+    t6 = *(int *)0x8C47317C;
+    *(unsigned int *)((t6 + 0xFDC)) = ((*(int *)((t6 + 0xFDC))) + 0x4);
+    return 0x0;
+}
+
+int mpdrv_dpf(Stk4 s)
+{
+    int t10;
+    int t2;
+    int t5;
+    int t7;
+    int stk[15];
+
+    stk[3] = s.w[0];
+    stk[4] = s.w[1];
+    stk[5] = s.w[2];
+    stk[6] = s.w[3];
+    t10 = 0x10C8;
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10C8))) != 0) {
+        t2 = ((((int)stk + 4) + 0x8) + 0x4);
+        if ((0x3 & ((((int)stk + 4) + 0x8) + 0x4)) != 0) {
+            t2 = ((((int)stk + 4) + 0x8) + 0x8);
+        }
+        t5 = *(int *)0x8C20CA2C;
+        t7 = (vsprintf(0x8C471F80, s.w[0], t2));
+        if (t5 != 0) {
+            t7 = (((int (*)(int))(t5))(0x8C471F80));
+        }
+        t10 = t7;
+    }
+    return t10;
+}
+
+int fmMngWrite(int a4, int a5)
+{
+    int t0;
+    int t5;
+
+    t0 = *(int *)0x8C20CA44;
+    if (t0 == 0) {
+        return 0xFFFFFFF5;
+    }
+    if ((*(int *)((t0 + 0x1C))) != 0) {
+        return 0xFFFFFFF7;
+    }
+    if (((int)a4 >= 0) && (t5 = *(int *)((t0 + 0x14)), (int)a4 < (int)t5)) {
+        *(unsigned int *)((t0 + 0x1C)) = 0x2;
+        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x20)) = 0x2;
+        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x28)) = a4;
+        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x30)) = a5;
+        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x24)) = 0x0;
+        return 0x0;
+    }
+    return 0xFFFFFFFB;
+}
+
+int vmsio_isready(int a4)
+{
+    int t0;
+    int t1;
+    int t2;
+    int t4;
+
+    t0 = *(int *)(((a4 << 2) + 0x8C20B048));
+    t1 = kdGetDevice(t0);
+    t2 = kdGetDeviceInfo(t0);
+    if (((*(signed char *)((t1 + 0x0))) != 0) && (t4 = *(int *)((t2 + 0x0)), (t4 & 2) != 0)) {
+        return 0x1;
+    }
+    return 0x0;
+}
+
+int search_exec_file(int a4, int a5)
+{
+    int t1;
+    int t2;
+    int t6;
+
+    t1 = (*(int *)((((a4 * 0x148) + 0x8C464598) + 0x28)));
+    t2 = 0x0;
+    for (;;) {
+        if ((int)t2 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30)))) {
+            return 0xFFFFFFFF;
+        }
+        t6 = *(signed char *)((t1 + 0x0));
+        if ((unsigned char)t6 == 0xCC) {
+            break;
+        }
+        t1 = (t1 + 0x20);
+        t2 = (t2 + 0x1);
+    }
+    set_file_info(t1, a5, ((a4 * 0x148) + 0x8C464598), (unsigned char)t6);
+    return t2;
+}
+
+void buDisableServer(void)
+{
+    int t0;
+
+    t0 = _builtin_get_imask();
+    _builtin_set_imask(0xF);
+    kdSetHandler((*(int *)0x8C209A94), 0x0);
+    _builtin_set_imask(((unsigned int)(((t0 & 0xF) << 2) << 2) >> 4));
+}
+
+int vmsfs_init_work_new(int a4)
+{
+    int t0;
+
+    t0 = *(int *)0x8C464594;
+    if (a4 != 15) {
+        if (a4 != 33) {
+            if (a4 != 65) {
+                if (a4 != 122) {
+                    return 0xFFFFFF00;
+                }
+                *(unsigned int *)((t0 + 0x4)) = 0x3;
+                return 0x0;
+            }
+            *(unsigned int *)((t0 + 0x4)) = 0x2;
+            return 0x0;
+        }
+        *(unsigned int *)((t0 + 0x4)) = 0x1;
+        return 0x0;
+    }
+    *(unsigned int *)((t0 + 0x4)) = 0x0;
+    return 0x0;
+}
+
+int vmsfs_dpf(Stk4 s)
+{
+    int t0;
+    int t3;
+    int t5;
+    int stk[15];
+
+    stk[3] = s.w[0];
+    stk[4] = s.w[1];
+    stk[5] = s.w[2];
+    stk[6] = s.w[3];
+    t0 = ((((int)stk + 4) + 0x8) + 0x4);
+    if ((0x3 & ((((int)stk + 4) + 0x8) + 0x4)) != 0) {
+        t0 = ((((int)stk + 4) + 0x8) + 0x8);
+    }
+    t3 = *(int *)0x8C20C728;
+    t5 = (vsprintf(0x8C46A4A4, s.w[0], t0));
+    if (t3 != 0) {
+        t5 = (((int (*)(int))(t3))(0x8C46A4A4));
+    }
+    return t5;
+}
+
+int nlInitMatrixStack(int a4, int a5, int a6)
+{
+    int t0;
+    int t2;
+
+    t0 = a6;
+    if (a5 != ((a5 + 0x1F) & 0xFFFFFFE0)) {
+        t0 = (a6 - 1);
+    }
+    t2 = t0;
+    if ((int)t0 > (int)0x7FFF) {
+        t2 = 0x7FFF;
+    }
+    *(unsigned short *)((a4 + 0x2)) = t2;
+    *(unsigned short *)((a4 + 0x0)) = 0x0;
+    *(unsigned int *)((a4 + 0x8)) = ((a5 + 0x1F) & 0xFFFFFFE0);
+    *(unsigned int *)((a4 + 0x4)) = ((a5 + 0x1F) & 0xFFFFFFE0);
+    nlUnitMatrix();
+    nlGetMatrix((*(int *)((a4 + 0x8))));
+    return (*(int *)((a4 + 0x4)));
+}
+
+int kdDevGetTimerInfo(int a4, int a5)
+{
+    int t0;
+
+    t0 = kdDevGetFD(a5, 0x8);
+    if (t0 == 0) {
+        return 0xFFFFFFFF;
+    }
+    *(unsigned char *)((a4 + 0x0)) = (*(signed char *)((t0 + 0x0)));
+    *(unsigned char *)((a4 + 0x1)) = (*(signed char *)((t0 + 0x1)));
+    *(unsigned char *)((a4 + 0x2)) = (*(signed char *)((t0 + 0x2)));
+    *(unsigned char *)((a4 + 0x3)) = (*(signed char *)((t0 + 0x3)));
+    return 0x0;
+}
+
+int vmsfs_isready(void)
+{
+    int t0;
+    int t1;
+    int t2;
+    int t3;
+
+    t0 = 0x0;
+    t1 = 0x1;
+    t2 = 0x0;
+    for (;;) {
+        t3 = vmsio_isready(t2);
+        t2 = (t2 + 0x1);
+        if (t3 != 0) {
+            t0 = (t0 | t1);
+        }
+        t1 = (t1 << 1);
+        if ((int)t2 >= (int)0x8) {
+            break;
+        }
+    }
+    return t0;
+}
+
+int mpdrv_sdckbdisable(int a4)
+{
+    int t0;
+    int t6;
+
+    t0 = *(int *)0x8C47317C;
+    *(unsigned int *)((t0 + 0xFCC)) = ((*(int *)((t0 + 0xFCC))) + ((*(int *)(((0xFD8 + t0) + 0x0))) << 2));
+    *(unsigned int *)(((*(int *)(((*(int *)0x8C47317C) + 0xFCC))) + 0x0)) = ((a4 << 16) | 0x400);
+    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFD8)) = 0x1;
+    t6 = *(int *)0x8C47317C;
+    *(unsigned int *)((t6 + 0xFDC)) = ((*(int *)((t6 + 0xFDC))) + 0x4);
+    return 0x0;
+}
+
+int buFbrEndFiber(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11)
+{
+    *(unsigned int *)(((*(int *)(((*(int *)0x8C4762C8) + 0xD78))) + 0xC)) = 0x3;
+    return buFbrSleepFiber(0x0, a5, a6, a7, f4, f5, f6, f7, f8, f9, f10, f11);
+}
+
+int kdDevGetVibrationInfo(int a4, int a5)
+{
+    int t0;
+
+    t0 = kdDevGetFD(a5, 0x100);
+    if (t0 == 0) {
+        return 0xFFFFFFFF;
+    }
+    *(unsigned int *)((a4 + 0x0)) = (unsigned char)(*(signed char *)((t0 + 0x0)));
+    *(unsigned int *)((a4 + 0x4)) = (unsigned char)(*(signed char *)((t0 + 0x1)));
+    return 0x0;
+}
+
+void pdVibGetUnitInfoCallback(int a4, int a5, int a6, int a7)
+{
+    int t3;
+
+    if ((*(int *)((((a4 * 0x1C) + 0x8C46A904) + 0xC))) != 0) {
+        t3 = pdVibSetUnitInfo(a4, a5, a6, a7, ((*(int *)((((a4 * 0x1C) + 0x8C46A904) + 0x4)))), 0x0);
+        ((int (*)(int, int))((*(int *)((((a4 * 0x1C) + 0x8C46A904) + 0xC)))))(t3, (*(int *)((((a4 * 0x1C) + 0x8C46A904) + 0x8))));
+    return;
+    }
+}
