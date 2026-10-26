@@ -12307,6 +12307,21 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 123
 - the cases run 113 of 113 instructions
 
+### ballMove (`8C023520`, 3074 bytes, `src/ballmove_b.c`)
+- equivalent on 8 development and 3 holdout cases, in `tests/ballmove_b/ballMove.json`
+- 2 players, full substeps, the default flight
+- half substeps (the scaled branch)
+- player 0 swinging (0x100), reach table entry 0
+- both swinging with 0x4000 (records the hit position)
+- 4 players, footstep sound on
+- selection word 16: the second restitution row
+- no players
+- limit 0: the player loops from the first substep
+- 3 players, half substeps, swinging
+- selection word 1, limit 12
+- mirror flight (z falling)
+- the cases run 1124 of 1332 instructions
+
 ### ballWallStop (`8C0CDC3C`, 360 bytes, `src/gen_bb.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_bb/ballWallStop.json`
 - case 1
@@ -18815,46 +18830,6 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 56
 - the cases run 316 of 480 instructions
 
-### cpuDblPoachCheck (`8C062EDA`, 1260 bytes, `src/gen_bo.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bo/cpuDblPoachCheck.json`
-- case 0
-- case 6
-- case 0
-- case 12
-- case 0
-- case 0
-- case 0
-- case 4
-- case 7
-- case 1
-- case 2
-- case 3
-- case 5
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 158
-- case 83
-- case 88
-- case 131
-- case 74
-- case 95
-- case 145
-- case 104
-- case 132
-- case 112
-- case 128
-- case 87
-- case 82
-- case 69
-- case 103
-- case 116
-- case 118
-- case 123
-- the cases run 222 of 550 instructions
-
 ### cpuDblPosition (`8C06AB78`, 492 bytes, `src/gen_fa.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_fa/cpuDblPosition.json`
 - case 154
@@ -21827,6 +21802,19 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 3
 - case 5
 - the cases run 88 of 88 instructions
+
+### cursorBoxPut (`8C0DEB64`, 712 bytes, `src/gen_gm.c`)
+- equivalent on 6 development and 3 holdout cases, in `tests/gen_gm/cursorBoxPut.json`
+- mode 0, size 60 (half size from fr5), position (100.0, 50.0, 0.5)
+- mode 1, size 50, dimmed, position (-20.0, 8.0, 1.0)
+- mode 2, size 120 (r5 used), position (320.0, 240.0, 0.25)
+- mode 0, size 10 raised to 46, position (0.0, 0.0, 0.0)
+- mode 1, size 200, r5 3, position (12.5, -7.0, 3.0)
+- mode 5, size exactly 92, position (640.0, 1.0, 0.001)
+- mode 0, size 70, position (33.0, 44.0, 55.0)
+- mode 1, size 150, position (-1.0, -2.0, -3.0)
+- mode 3, size 30, position (7.0, 300.0, 0.75)
+- the cases run 331 of 331 instructions
 
 ### dbgHookNop (`8C0892EC`, 4 bytes, `src/gen_r.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_r/dbgHookNop.json`
@@ -74651,6 +74639,32 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 68
 - the cases run 32 of 32 instructions
 
+### shadowVolBuildDir (`8C011C10`, 978 bytes, `src/shadow_b.c`)
+- equivalent on 6 development and 3 holdout cases, in `tests/shadow_b/shadowVolBuildDir.json`
+- one span, 3 points, all facing: steps 3, 4, 5
+- break at the first point (even step), then 1 more point
+- break at the second point (odd step)
+- 12 points: the 10-step limit, then 2 more
+- a span with no points, then one with 2
+- two records, two spans each, mixed breaks
+- 4 points, break at the third
+- two records, 1 span each
+- 11 points then a break
+- the cases run 458 of 467 instructions
+
+### shadowVolBuildPoint (`8C01184C`, 950 bytes, `src/shadow_b.c`)
+- equivalent on 6 development and 3 holdout cases, in `tests/shadow_b/shadowVolBuildPoint.json`
+- one span, 3 points, all facing: steps 3, 4, 5
+- break at the first point (even step), then 1 more point
+- break at the second point (odd step)
+- 12 points: the 10-step limit, then 2 more
+- a span with no points, then one with 2
+- two records, two spans each, mixed breaks
+- 4 points, break at the third
+- two records, 1 span each
+- 11 points then a break
+- the cases run 450 of 459 instructions
+
 ### shadowVolExtrude (`8C011FF0`, 56 bytes, `src/gen_p.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_p/shadowVolExtrude.json`
 - case 0
@@ -76430,6 +76444,27 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 124
 - case 157
 - the cases run 0 of 136 instructions (nothing compared: no case showed a write, a call, a device access or a change of SR, and the C returns nothing)
+
+### sprListPutEx (`8C0DDC30`, 1102 bytes, `src/sprlist_b.c`)
+- equivalent on 13 development and 4 holdout cases, in `tests/sprlist_b/sprListPutEx.json`
+- count 0: nothing drawn
+- mode 1, 2 entries: every vertex the second colour
+- mode 2, one entry
+- mode 3, one entry
+- mode 4, one entry
+- mode 2, 3 entries, progress inside the first entry
+- mode 3, 3 entries, progress inside the first entry
+- mode 4, 3 entries, progress inside the first entry
+- mode 2, 3 entries, progress past it (distance test)
+- mode 3, 3 entries, distance test
+- mode 4, 3 entries, distance test
+- mode 0: base colour only
+- mode 7: base colour only
+- mode 2, 2 entries
+- mode 3, 2 entries
+- mode 4, 2 entries, inside
+- mode 1, 1 entry
+- the cases run 528 of 538 instructions
 
 ### sprListPutGrad (`8C0DE2D4`, 248 bytes, `src/gen_at.c`)
 - equivalent on 8 development and 7 holdout cases, in `tests/gen_at/sprListPutGrad.json`

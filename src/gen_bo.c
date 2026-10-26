@@ -16,7 +16,7 @@ int sndSeStage(void);
 int cpuSglAimAddLv12(int a4, int a5);
 int cpuDblAimAddDeep2(int a4, int a5);
 void cpuDblMoodUpdate(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7, float f8, float f9, float f10);
-void netHitBall(int a4, int a5, float f4, float f5, float f6, float f7);
+void netHitBall(int a4);
 void cpuDblPoachCheck(int a4, float f4, float f5, float f6);
 
 int cpuSglAimAddLv12(int a4, int a5)
@@ -1711,7 +1711,8 @@ void cpuDblMoodUpdate(int a4, int a5, int a6, int a7, float f4, float f5, float 
     goto L_8C057364;
 }
 
-void netHitBall(int a4, int a5, float f4, float f5, float f6, float f7)
+/* manual: one argument, the ball: the generated form also took r5 and fr4-fr7, which the code never reads (its entry sets r4, fr4 and fr6 first) */
+void netHitBall(int a4)
 {
     float u4;
     int t7;

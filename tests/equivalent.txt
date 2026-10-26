@@ -438,6 +438,7 @@ ballColliInit
 ballColliSync
 ballExec
 ballInit
+ballMove
 ballWallStop
 bcd2bin
 bcdtime2fad
@@ -662,7 +663,6 @@ cpuDblNetmanPos
 cpuDblPartnerSignal
 cpuDblPathCross
 cpuDblPickTactic
-cpuDblPoachCheck
 cpuDblPosition
 cpuDblPositionCalc
 cpuDblReceivePos
@@ -747,6 +747,7 @@ crowdInit
 crowdInitAlt
 crowdModelUpdate
 crowdSetup
+cursorBoxPut
 dbgHookNop
 dbgLinePut
 dbgLineStart
@@ -2454,6 +2455,8 @@ shadowPartPutProj
 shadowPartPutStage
 shadowPlayerDraw
 shadowPlayerScale
+shadowVolBuildDir
+shadowVolBuildPoint
 shadowVolExtrude
 shadowVolExtrudeTmp
 shadowVolPutDir
@@ -2512,6 +2515,7 @@ sprInitPos
 sprInitRect
 sprInitRectF
 sprListPut
+sprListPutEx
 sprListPutGrad
 sprListPutScaleY
 sprMatchFree
