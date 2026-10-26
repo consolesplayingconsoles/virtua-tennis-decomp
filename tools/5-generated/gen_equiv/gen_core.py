@@ -1063,7 +1063,9 @@ def _run(name,passthru=False,frame=False,flat=False):
         try:
             # the argument is the copy at SP, the bytes the callee receives: not the source, whose register (a C variable in the flat and
             # loop forms) can be reused before the call (hudFontNumPut, Virtua Tennis: r2 held the point, then the callee's address)
-            if n%4==0 and 4<=n<=256 and ex(d)=='((int)stk + @@F:%d@@)'%(-c.D): c.sarg=(n//4,ex(d),c.D)
+            if n%4==0 and 4<=n<=256 and ex(d)=='((int)stk + @@F:%d@@)'%(-c.D):
+                c.sarg=(n//4,ex(d),c.D)
+                c.sargs=[s_ for s_ in getattr(c,'sargs',[]) if s_[2]!=c.D]+[c.sarg]      # every structure copied to SP: two by value (cpuLineXAtZ)
         except Exception: pass
     def do_call(fname,tail=False,ind=None,after=None,after2=None):
         if c.sz or c.swapped: raise Skip('call with the FPU mode changed')
@@ -1171,7 +1173,8 @@ def _run(name,passthru=False,frame=False,flat=False):
             return True
         def teardown(x):                 # an instruction of the epilogue: the add before it frees the frame, not the call's arguments
             return bool(x) and (x[0]=='rts' or (x[0] in ('lds.l','mov.l','fmov.s') and '@r15+' in (x[1] or '')))
-        nsw=0 if ind else callee_stack_words(fname)
+        nsw=0 if ind else max(callee_stack_words(fname),def_stack_words(fname))      # what its code reads, or its definition takes when more:
+                                                 # a variadic print reads only its format directly (ADXERR_CallErrFunc's Stk3: three words pushed)
         own_stack=bool(nsw) and len(c.pend)>=nsw
         if own_stack: c.pend=c.pend[-nsw:]      # the words below this callee's own are earlier calls': their stack adjustment was deferred to this one
         # a callee whose definition returns a structure by value, called with one word pushed: the word is SHC's hidden return pointer,
@@ -1255,8 +1258,14 @@ def _run(name,passthru=False,frame=False,flat=False):
             if variadic: types=['int','...']
             c.pend=[]
         sa=getattr(c,'sarg',None); c.sarg=None
-        if sa and not ind and not hidden and sa[2]==c.D and not variadic_seen(types):
-            args.append('*(Stk%d *)(%s)'%(sa[0],sa[1])); types.append('Stk%d'%sa[0])       # the structure, by value, after the integer arguments
+        chain=[]                       # the structures by value: the one at SP, then each one copied right above the one before it
+        if sa and sa[2]==c.D:
+            byD={s_[2]:s_ for s_ in getattr(c,'sargs',[])}; d_=c.D
+            while d_ in byD:
+                chain.append(byD[d_]); d_-=4*byD[d_][0]
+        c.sargs=[]
+        if chain and not ind and not hidden and not variadic_seen(types):
+            for s_ in chain: args.append('*(Stk%d *)(%s)'%(s_[0],s_[1])); types.append('Stk%d'%s_[0])       # by value, after the integer arguments
         elif not sa and not pushed and not ind and not hidden and not variadic_seen(types) and not tail and def_stack_words(fname):
             # nothing pushed and nothing copied to SP, but the callee's definition takes words from the stack: it reads the caller's own frame
             # at SP (a debug print called without its pushed arguments). The frame the C keeps holds the same words

@@ -206,6 +206,7 @@ ADXT_Pause
 ADXT_SetAutoRcvr
 ADXT_SetOutVol
 ADXT_SetReloadSct
+ADXT_StartAfs
 ADXT_StartSj
 ADXT_Stop
 ADX_DecodeInfo
@@ -254,6 +255,7 @@ Qreset
 SJMEM_Create
 SJMEM_Destroy
 SJMEM_EntryErrFunc
+SJMEM_Error
 SJMEM_Finish
 SJMEM_GetBufPtr
 SJMEM_GetBufSize
@@ -270,6 +272,7 @@ SJMEM_Unlock
 SJRBF_Create
 SJRBF_Destroy
 SJRBF_EntryErrFunc
+SJRBF_Error
 SJRBF_Finish
 SJRBF_GetBufPtr
 SJRBF_GetBufSize
@@ -287,6 +290,7 @@ SJRBF_Unlock
 SJUNI_Create
 SJUNI_Destroy
 SJUNI_EntryErrFunc
+SJUNI_Error
 SJUNI_Finish
 SJUNI_GetChunk
 SJUNI_GetNumChainPool
@@ -364,6 +368,7 @@ adxf_SetAfsFileInfo
 adxf_SetCmdHstry
 adxf_SetFileInfo
 adxf_purge_all
+adxf_read_sj32
 adxf_wait_1ms
 adxpd_error
 adxsjd_clear
@@ -420,7 +425,9 @@ bcdtime2fad
 bgScreenDraw
 bgSprInitRect
 bgTilesInit
+bodyCreate
 bodyGroundFriction
+bodyInit
 bodyLinePerp
 bodyPlacePoints
 bodyRaySphere
@@ -613,6 +620,7 @@ cpuDblAimAddCorners
 cpuDblAimAddCorners2
 cpuDblAimAddCourt
 cpuDblAimAddCourt2
+cpuDblAimAddCross
 cpuDblAimAddDeep
 cpuDblAimAddDeep2
 cpuDblAimAddLv13
@@ -623,10 +631,17 @@ cpuDblAimAddRange
 cpuDblAimAddRange2
 cpuDblAimAddShort
 cpuDblAimArc
+cpuDblAimRateA
+cpuDblAimRateB
+cpuDblAimRateC
+cpuDblAimRateD
+cpuDblAimRateE
+cpuDblChase
 cpuDblCoverPos
 cpuDblMoodUpdate
 cpuDblNetmanPos
 cpuDblPartnerSignal
+cpuDblPathCross
 cpuDblPickTactic
 cpuDblPoachCheck
 cpuDblPosition
@@ -639,6 +654,7 @@ cpuDblShot
 cpuDblSignalDraw
 cpuDblSwingInput
 cpuDblTacticPos
+cpuDblThink
 cpuDblThinkAll
 cpuDebugBallLine
 cpuDebugLine
@@ -665,11 +681,14 @@ cpuSglAimAddLv12
 cpuSglAimAddLv21
 cpuSglAimAddLv23
 cpuSglAimAddOpen
+cpuSglAimAddReach
 cpuSglAimAddSides
 cpuSglAimLv09
+cpuSglAimLv17
 cpuSglAimLv21
 cpuSglAimPickNet
 cpuSglAimRateOpp
+cpuSglAimRateOpp3
 cpuSglAimScore
 cpuSglAimScore2
 cpuSglAimScoreAngle
@@ -685,6 +704,7 @@ cpuSglServe
 cpuSglShot
 cpuSglShotDefault
 cpuSglSwingInput
+cpuSglThink
 cpuSglThinkAll
 cpuShotAimCheck
 cpuShotAimStick
@@ -706,6 +726,7 @@ crowdFrameTcw
 crowdInit
 crowdInitAlt
 crowdModelUpdate
+crowdSetup
 dbgHookNop
 dbgLinePut
 dbgLineStart
@@ -766,7 +787,9 @@ effHitFlashSpawn
 effServeSpeedCalc
 effServeSpeedShow
 emotDebugPrint
+emotEditExec
 emotFaceVtxGet
+emotGraphDraw
 emotKeyAdd
 emotKeyCopy
 emotKeyDel
@@ -962,6 +985,7 @@ gdFsOpenRangeG
 gdFsRead
 gdFsReadWG
 gdFsReinit
+gdFsReinitG
 gdFsReopenHn
 gdFsReqDrvStat
 gdFsReqDrvStatG
@@ -1310,6 +1334,7 @@ kmyInitializeRenderPacket
 kmyInitializeTA
 kmyIsDisplayOddField
 kmyIsEnabledASyncCopy
+kmyMemCopy
 kmyMoveParameterBoundary
 kmyObFindDevice
 kmyPurgeCache
@@ -1366,6 +1391,7 @@ kmyWaitVBlank
 kmyWriteFogDMA
 kmyWriteFogTable
 kmyWritePaletteDMA
+kmyZeroMemory
 kmyiCheckNativeHandle
 kmyiCheckRenderPacket
 kmyiCheckTAHandle
@@ -1460,6 +1486,8 @@ menuIconPutRot
 menuItemDraw0
 menuItemDraw2
 menuItemTextPut
+menuListDraw
+menuResultDraw
 menuResultExec
 menuSprInit
 menuSprInitGroup
@@ -1701,6 +1729,7 @@ mwlSbSetGain
 mwlSbSetPitch
 mwlSbTrnsDat
 ndbBuildIndex
+ndbClear
 ndbEditDrawMatches
 ndbEditFields
 ndbEditInput
@@ -1991,6 +2020,7 @@ nlSysSetTextureSize
 nlSysSetVertexBufferBaseAddress
 nlSysUseLatency2V
 nlTan
+nlTanf
 nlTanfReduce
 nlTanh
 nlTranslate
@@ -2234,6 +2264,7 @@ prefetch
 primFrameCorners
 primLineH
 primLineV
+primPanelDraw
 primRect
 primRectDirX
 primRectDirY
@@ -2374,7 +2405,9 @@ selInitB
 selJoinBlocked
 selJoinCheck
 selModeTrack
+selPanelDraw
 selPortReset
+selPortsExec
 selRestart
 selSideCheck
 selSlot0FlagClear
@@ -2877,11 +2910,13 @@ vmsfs_isready
 vmsfs_load_file
 vmsfs_load_file_ex
 vmsfs_memcmp
+vmsfs_memcpyl
 vmsfs_mount2
 vmsfs_read_disk_image
 vmsfs_resetwork
 vmsfs_rewrite_exec_file
 vmsfs_save_exec_file
+vmsfs_save_file
 vmsfs_scanfile
 vmsfs_setdevicetype
 vmsfs_setretry

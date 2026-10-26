@@ -1,0 +1,78 @@
+{
+ "dev": [
+  {
+   "about": "endless case 0",
+   "poke": {},
+   "endless": true,
+   "steps": 20000
+  },
+  {
+   "about": "endless case 1",
+   "poke": {},
+   "endless": true,
+   "steps": 20000
+  },
+  {
+   "about": "endless case 2",
+   "poke": {},
+   "endless": true,
+   "steps": 20000
+  },
+  {
+   "about": "endless case 3",
+   "poke": {},
+   "endless": true,
+   "steps": 20000
+  },
+  {
+   "about": "endless case 4",
+   "poke": {},
+   "endless": true,
+   "steps": 20000
+  },
+  {
+   "about": "endless case 5",
+   "poke": {},
+   "endless": true,
+   "steps": 20000
+  }
+ ],
+ "holdout": [
+  {
+   "about": "endless case 6",
+   "poke": {},
+   "endless": true,
+   "steps": 20000
+  },
+  {
+   "about": "endless case 7",
+   "poke": {},
+   "endless": true,
+   "steps": 20000
+  },
+  {
+   "about": "endless case 8",
+   "poke": {},
+   "endless": true,
+   "steps": 20000
+  },
+  {
+   "about": "endless case 9",
+   "poke": {},
+   "endless": true,
+   "steps": 20000
+  },
+  {
+   "about": "endless case 10",
+   "poke": {},
+   "endless": true,
+   "steps": 20000
+  },
+  {
+   "about": "endless case 11",
+   "poke": {},
+   "endless": true,
+   "steps": 20000
+  }
+ ]
+}
