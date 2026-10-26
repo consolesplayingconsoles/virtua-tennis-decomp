@@ -1325,7 +1325,6 @@ int FUN_8c0eb200(int a4, int a5, int a6, int a7)
     return (kmSetBorderColor((a4 | 0xFF000000), a5, a6, a7, (a4 | 0xFF000000)));
 }
 
-
 int screenSegVisible(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
 {
     int t7;
@@ -1376,19 +1375,5 @@ int winDrawB(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, f
     *(volatile int *)(((int)stk + 36));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x2C)); }
     return (winPartsPut(0x8C1D7414, 0x8C1D7480, 0x1, (*(int *)(((int)stk + 32))), *(Stk3 *)((((int)stk + 16) + 0x2C)), f6, f5));
-}
-
-int motionRootAtFrame(int a4, int a5, int a6, int a7, int a8)
-{
-    int t1;
-    float u3;
-    int t5;
-    int t6;
-
-    t1 = *(int *)((a4 + 0x54));
-    u3 = *(float *)((((*(int *)((a4 + 0x20))) + 0xC) + 0x0));
-    t5 = *(int *)(((*(int *)((a4 + 0x20))) + 0x4));
-    t6 = *(int *)(((*(int *)((a4 + 0x20))) + 0x10));
-    return (vecMake(a4, ((((int)((float)a5 * u3) * t6) << 1) + (((int)((float)a5 * u3) * t6) << 2)), a6, a7, a8, (((float)(*(short *)((((t1 + t5) + ((((int)((float)a5 * u3) * t6) << 1) + (((int)((float)a5 * u3) * t6) << 2))) + 0x0))) * u3) / (*(float *)((((*(int *)((a4 + 0x20))) + 0x14) + 0x0)))), 0.0f, (((float)(-(*(short *)((((t1 + t5) + ((((int)((float)a5 * u3) * t6) << 1) + (((int)((float)a5 * u3) * t6) << 2))) + 0x4)))) * u3) / (*(float *)((((*(int *)((a4 + 0x20))) + 0x1C) + 0x0))))));
 }
 

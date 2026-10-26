@@ -1112,49 +1112,4 @@ void syIntInit(int a4, int a5)
     _builtin_set_cr((_builtin_get_cr() & 0xEFFFFFFF));
 }
 
-int windowBgDraw(int a4, int a5, int a6, int a7, float f4)
-{
-    int t61;
-    float u53;
-    float u55;
-    int stk[75];
-
-    t61 = 0xFFFFFF48;
-    if ((int)a4 < 0) {
-    } else {
-        *(unsigned int *)(((int)stk + 80)) = (*(int *)(((a4 << 2) + 0x8C10F5B0)));
-        *(float *)(((int)stk + 88)) = 0.0f;
-        *(float *)(((int)stk + 84)) = 93.0f;
-        *(float *)(((int)stk + 68)) = (*(float *)(((0xE8 + ((int)stk + 68)) + 0x8)));
-        *(float *)(((int)stk + 72)) = (*(float *)(((0xE8 + ((int)stk + 68)) + 0x4)));
-        *(float *)(((int)stk + 76)) = (*(float *)(((0xE8 + ((int)stk + 68)) + 0x0)));
-        if (a5 == 1) {
-            *(float *)(((int)stk + 88)) = ((1.0f - f4) * 93.0f);
-            vecMake((a4 << 2), a5, a6, a7, (((int)stk + 68) + 0x3C), ((f4 * 93.0f) + (*(float *)(((int)stk + 76)))), (*(float *)(((int)stk + 72))), (*(float *)(((int)stk + 68))));
-            vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 68) + 0x30), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x0))), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x4))), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x8))));
-            vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 68) + 0x24), ((f4 * 93.0f) + (*(float *)(((0xE8 + ((int)stk + 68)) + 0x0)))), (120.0f + (*(float *)(((0xE8 + ((int)stk + 68)) + 0x4)))), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x8))));
-            vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 68) + 0x18), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x0))), (120.0f + (*(float *)(((0xE8 + ((int)stk + 68)) + 0x4)))), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x8))));
-        } else {
-            if (a5 == 0) {
-                *(float *)(((int)stk + 84)) = (f4 * 93.0f);
-                vecMake((a4 << 2), a5, a6, a7, (((int)stk + 68) + 0x3C), ((*(float *)(((int)stk + 76))) + 93.0f), (*(float *)(((int)stk + 72))), (*(float *)(((int)stk + 68))));
-                vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 68) + 0x30), ((*(float *)(((0xE8 + ((int)stk + 68)) + 0x0))) + ((1.0f - f4) * 93.0f)), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x4))), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x8))));
-                vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 68) + 0x24), ((*(float *)(((0xE8 + ((int)stk + 68)) + 0x0))) + 93.0f), (120.0f + (*(float *)(((0xE8 + ((int)stk + 68)) + 0x4)))), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x8))));
-                vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 68) + 0x18), ((*(float *)(((0xE8 + ((int)stk + 68)) + 0x0))) + ((1.0f - f4) * 93.0f)), (120.0f + (*(float *)(((0xE8 + ((int)stk + 68)) + 0x4)))), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x8))));
-            }
-        }
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)((((int)stk + 68) + 0x3C)); }
-        u53 = *(float *)(((int)stk + 84));
-        primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (((int)stk + 68) + 0x48), (u53 / 128.0f), 1.0f);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 68) + 0x30)); }
-        u55 = *(float *)(((int)stk + 88));
-        primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (0x1C + (((int)stk + 68) + 0x48)), (u55 / 128.0f), 1.0f);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)((((int)stk + 68) + 0x24)); }
-        primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (0x38 + (((int)stk + 68) + 0x48)), (u53 / 128.0f), 0.0625f);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 68) + 0x18)); }
-        primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (0x54 + (((int)stk + 68) + 0x48)), (u55 / 128.0f), 0.0625f);
-        t61 = (nlDispStripTexOfsTrnsl(0x4, (((int)stk + 68) + 0x48), (*(int *)(((int)stk + 80)))));
-    }
-    return t61;
-}
 

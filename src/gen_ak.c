@@ -1245,8 +1245,6 @@ int charaTexCount(int a4)
     return 0x0;
 }
 
-
-
 int screenSegVisibleRaised(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12)
 {
     float u0;
@@ -1357,57 +1355,5 @@ int winDrawA(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, f
     *(volatile int *)(((int)stk + 36));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x2C)); }
     return (winPartsPut(0x8C1D7300, 0x8C1D736C, 0x1, (*(int *)(((int)stk + 32))), *(Stk3 *)((((int)stk + 16) + 0x2C)), f6, f5));
-}
-
-int fadeScreenStart(int a4, int a5, int a6, int a7)
-{
-    int t1;
-    float u7;
-    int t10;
-    int stk[13];
-
-    *(unsigned int *)(((int)stk + 16)) = a4;
-    *(unsigned int *)(((int)stk + 20)) = a5;
-    *(unsigned int *)(((int)stk + 24)) = a6;
-    vecMake(a4, a5, a6, a7, (((int)stk + 16) + 0xC), 320.0f, 240.0f, 9.99999975e-06f);
-    t1 = set_event(0x78, 0x8C084BCE);
-    *(unsigned int *)((t1 + 0x14)) = (*(int *)(((int)stk + 24)));
-    *(unsigned int *)((t1 + 0x18)) = (*(int *)(((int)stk + 24)));
-    *(unsigned int *)((t1 + 0x24)) = (*(int *)(((int)stk + 16)));
-    *(unsigned int *)((t1 + 0x20)) = (*(int *)(((int)stk + 20)));
-    u7 = 0.0f;
-    if ((*(int *)(((int)stk + 16))) == 2) {
-        u7 = 1.0f;
-    }
-    *(float *)((t1 + 0x1C)) = u7;
-    if ((*(int *)(((int)stk + 20))) == 0) {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-        t10 = 0x22;
-    } else {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-        t10 = 0x21;
-    }
-    sprInitPos((t1 + 0x28), t10, *(Stk3 *)((((int)stk + 16) + 0xC)));
-    *(float *)((t1 + 0x38)) = 40.0f;
-    *(float *)((t1 + 0x3C)) = 30.0f;
-    return 0x3C;
-}
-
-int hudValueDraw(int a4, int a5, int a6, int a7, float f4)
-{
-    int stk[18];
-
-    *(unsigned int *)(((int)stk + 44)) = a4;
-    vecMake(a4, a5, a6, a7, (((int)stk + 44) + 0x4), (*(float *)0x8C0986B0), (*(float *)0x8C0986AC), 1.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 44) + 0x4)); }
-    hudFramePutNarrow(*(Stk3 *)((((int)stk + 44) + 0x4)), (f4 * (*(float *)0x8C0986BC)));
-    *(float *)(((((int)stk + 44) + 0x4) + 0x8)) = ((*(float *)(((((int)stk + 44) + 0x4) + 0x8))) - 0.0500000007f);
-    *(float *)(((((int)stk + 44) + 0x4) + 0x0)) = ((*(float *)(((((int)stk + 44) + 0x4) + 0x0))) + (*(float *)0x8C0986C8));
-    *(float *)(((((int)stk + 44) + 0x4) + 0x4)) = ((*(float *)(((((int)stk + 44) + 0x4) + 0x4))) - 7.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 44) + 0x4)); }
-    sprPutAtAlpha(0x8C33BC60, *(Stk3 *)((((int)stk + 44) + 0x4)), f4);
-    *(float *)(((((int)stk + 44) + 0x4) + 0x0)) = ((*(float *)(((((int)stk + 44) + 0x4) + 0x0))) - (*(float *)0x8C0986D8));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 44) + 0x4)); }
-    return (hudNumPut((*(int *)(((int)stk + 44))), *(Stk3 *)((((int)stk + 44) + 0x4)), f4));
 }
 
