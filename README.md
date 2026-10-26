@@ -1,6 +1,6 @@
 # Virtua Tennis decomp
 
-![decomp progress](badges/progress.svg?p=95.0&b=70.6&a=50&s=0)
+![decomp progress](badges/progress.svg?p=95.1&b=72.4&a=51&s=0)
 
 **Explore this decomp project with [Shuriken Explorer](https://consolesplayingconsoles.github.io/dc-shuriken-explorer/) and see the game's models, skeletons, animations, textures, images, sounds, text and side-by-side C and assembly code directly in your browser.**
 
@@ -21,18 +21,18 @@ everything game-derived on your machine, and `.gitignore` keeps it out of git.
 
 <!-- progress -->
 ```
-TOTAL TEST COVERAGE            49.8%  the instructions the cases ran, of all instructions, over the 3300 functions that can be C; the 2957 functions that reached the check are measured, the others count 0
-FUNCTIONS LEFT  (95.0% complete) 164  of the 3300 functions that can be C (12 with no C form are counted apart)
-BYTES LEFT   (70.6% complete) 233708  of 794572 bytes of code that can be C
+TOTAL TEST COVERAGE            51.4%  the instructions the cases ran, of all instructions, over the 3300 functions that can be C; the 2958 functions that reached the check are measured, the others count 0
+FUNCTIONS LEFT  (95.1% complete) 163  of the 3300 functions that can be C (12 with no C form are counted apart)
+BYTES LEFT   (72.4% complete) 219122  of 794572 bytes of code that can be C
 FUNCTIONS                             
   unnamed                         35  functions still called FUN_... (35 of 3312)
-  Not written C                    1  14586 bytes
+  Not written C                    0  0 bytes
   Written C with errors            0  0 bytes
   Not drawn                       13  18606 bytes
   Drawn with errors               31  70676 bytes
   Checked with errors            119  129840 bytes
   No C form                     0.4%  an instruction or a register convention with no C form (tools/5-generated/classify.py names it)
-  documented                   89.3%  2956 named functions in docs/*.md
+  documented                   89.3%  2957 named functions in docs/*.md
 GAME ASSETS (EXTRA)                   
   models named                 23.3%  874 of 3745 models: a name, or a named table or collection
   characters named            100.0%  18 of 18 characters (note rules)

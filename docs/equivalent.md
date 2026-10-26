@@ -14757,6 +14757,165 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 31 of 31 instructions
 
+### cameraExec (`8C02A014`, 14586 bytes, `src/camera_b.c`)
+- equivalent on 78 development and 77 holdout cases, in `tests/camera_b/cameraExec.json`
+- mode 7, case 175
+- mode 11, case 131
+- mode 8, case 128
+- mode 4, case 124
+- mode 5, case 125
+- mode 10, case 130
+- mode 0, case 120
+- mode 7, case 127
+- mode 7, case 175
+- mode 0, case 132
+- mode 2, case 134
+- mode 4, case 136
+- mode 6, case 138
+- mode 8, case 140
+- mode 10, case 142
+- mode 0, case 144
+- mode 2, case 146
+- mode 4, case 148
+- mode 6, case 150
+- mode 8, case 152
+- mode 10, case 154
+- mode 0, case 156
+- mode 2, case 158
+- mode 4, case 160
+- directed: flips 8C02A04C (taken)
+- directed: flips 8C02A07C (taken)
+- directed: flips 8C02A178 (taken)
+- directed: flips 8C02A23C (taken)
+- directed: flips 8C02A298 (taken)
+- directed: flips 8C02A4B2 (taken)
+- directed: flips 8C02A5A6 (not taken)
+- directed: flips 8C02A702 (taken)
+- directed: flips 8C02A83E (taken)
+- directed: flips 8C02A926 (taken)
+- directed: flips 8C02AA42 (taken)
+- directed: flips 8C02ACB6 (taken)
+- directed: flips 8C02A2AE (taken)
+- directed: flips 8C02A4EE (taken)
+- directed: flips 8C02A70C (taken)
+- directed: flips 8C02AB46 (taken)
+- directed: flips 8C02AE28 (not taken)
+- directed: flips 8C02B398 (not taken)
+- directed: flips 8C02B892 (taken)
+- directed: flips 8C02C2FA (taken)
+- directed: flips 8C02C512 (not taken)
+- directed: flips 8C02C70C (not taken)
+- directed: flips 8C02CC54 (taken)
+- directed: flips 8C02CDB0 (taken)
+- directed: flips 8C02A71A (taken)
+- directed: flips 8C02A93E (taken)
+- directed: flips 8C02AB5E (taken)
+- directed: flips 8C02AE3E (taken)
+- directed: flips 8C02AF4C (taken)
+- directed: flips 8C02B3A8 (not taken)
+- directed: flips 8C02B6B8 (taken)
+- directed: flips 8C02B7B2 (taken)
+- directed: flips 8C02B920 (taken)
+- directed: flips 8C02C7D4 (taken)
+- directed: flips 8C02CCD8 (taken)
+- directed: flips 8C02CDBA (taken)
+- directed: flips 8C02AF58 (taken)
+- directed: flips 8C02B3B6 (not taken)
+- directed: flips 8C02C7D8 (not taken)
+- directed: flips 8C02C92E (taken)
+- directed: flips 8C02CE3A (taken)
+- directed: flips 8C02CEFC (taken)
+- directed: flips 8C02D01A (taken)
+- directed: flips 8C02D090 (not taken)
+- directed: flips 8C02D7DE (not taken)
+- directed: arguments changed together for 8C02B3B6
+- directed: flips 8C02B04E (taken)
+- directed: flips 8C02B3D4 (taken)
+- directed: flips 8C02C9CC (not taken)
+- directed: flips 8C02D09E (not taken)
+- directed: flips 8C02D368 (taken)
+- directed: flips 8C02D2A4 (not taken)
+- directed: flips 8C02D2AC (not taken)
+- directed: flips 8C02D568 (not taken)
+- mode 1, case 121
+- mode 9, case 129
+- mode 7, case 175
+- mode 2, case 122
+- mode 3, case 123
+- mode 6, case 126
+- mode 7, case 175
+- mode 7, case 175
+- mode 7, case 127
+- mode 1, case 133
+- mode 3, case 135
+- mode 5, case 137
+- mode 7, case 139
+- mode 9, case 141
+- mode 11, case 143
+- mode 1, case 145
+- mode 3, case 147
+- mode 5, case 149
+- mode 7, case 151
+- mode 9, case 153
+- mode 11, case 155
+- mode 1, case 157
+- mode 3, case 159
+- mode 5, case 161
+- directed: flips 8C02A06A (not taken)
+- directed: flips 8C02A162 (taken)
+- directed: flips 8C02A1E8 (taken)
+- directed: flips 8C02A272 (not taken)
+- directed: flips 8C02A49A (taken)
+- directed: flips 8C02A572 (taken)
+- directed: flips 8C02A5D4 (taken)
+- directed: flips 8C02A82E (taken)
+- directed: flips 8C02A8F6 (taken)
+- directed: flips 8C02AA32 (taken)
+- directed: flips 8C02AB3C (taken)
+- directed: flips 8C02ADF4 (not taken)
+- directed: flips 8C02A4BA (taken)
+- directed: flips 8C02A500 (taken)
+- directed: flips 8C02A930 (taken)
+- directed: flips 8C02ACC8 (not taken)
+- directed: flips 8C02AE34 (taken)
+- directed: flips 8C02B6AA (not taken)
+- directed: flips 8C02BA14 (not taken)
+- directed: flips 8C02C504 (taken)
+- directed: flips 8C02C536 (taken)
+- directed: flips 8C02C7CC (taken)
+- directed: flips 8C02CCCE (taken)
+- directed: flips 8C02CDFC (taken)
+- directed: flips 8C02A738 (taken)
+- directed: flips 8C02A95C (taken)
+- directed: flips 8C02ABC8 (taken)
+- directed: flips 8C02AF00 (not taken)
+- directed: flips 8C02B022 (not taken)
+- directed: flips 8C02B604 (taken)
+- directed: flips 8C02B726 (not taken)
+- directed: flips 8C02B832 (taken)
+- directed: flips 8C02C304 (taken)
+- directed: flips 8C02CC7E (taken)
+- directed: flips 8C02CCE6 (taken)
+- directed: flips 8C02CE0A (taken)
+- directed: flips 8C02B030 (not taken)
+- directed: flips 8C02B934 (taken)
+- directed: flips 8C02C8E4 (taken)
+- directed: flips 8C02CE26 (taken)
+- directed: flips 8C02CEBA (not taken)
+- directed: flips 8C02CF44 (taken)
+- directed: flips 8C02D084 (not taken)
+- directed: flips 8C02D298 (taken)
+- directed: flips 8C02D838 (not taken)
+- directed: flips 8C02AF62 (taken)
+- directed: flips 8C02B150 (not taken)
+- directed: flips 8C02C9BE (not taken)
+- directed: flips 8C02CA1A (taken)
+- directed: flips 8C02D29C (taken)
+- directed: flips 8C02D2A0 (taken)
+- directed: flips 8C02D408 (taken)
+- directed: flips 8C02D558 (not taken)
+- the cases run 4940 of 5627 instructions
+
 ### cameraFovFit (`8C02DAF2`, 770 bytes, `src/gen_be.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_be/cameraFovFit.json`
 - rescue: empty case

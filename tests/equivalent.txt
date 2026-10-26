@@ -543,6 +543,7 @@ camViewToWorld
 camWorldToView
 cameraCalcPoint
 cameraCalcPointInv
+cameraExec
 cameraFovFit
 cameraFovForSize
 ccitt_updcrc
