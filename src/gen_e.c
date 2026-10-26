@@ -2548,72 +2548,6 @@ int cpuSglSwingInput(int a4)
     return t35;
 }
 
-int cpuInFan(int a4, int a5)
-{
-    int t16;
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-    int t10;
-    int t11;
-    int t12;
-    int t13;
-    int t14;
-    int t15;
-    int stk[20];
-
-    t16 = 0x0;
-    if (0x1 != 0) {
-        t0 = a5;
-        t1 = 0x1;
-        for (;;) {
-            t2 = *(int *)(((((int)stk + 52) + 0x1C) + 0x8));
-            *(unsigned int *)((((int)stk + 40) + 0x8)) = t2;
-            t3 = *(int *)(((((int)stk + 52) + 0x1C) + 0x4));
-            *(unsigned int *)((((int)stk + 40) + 0x4)) = t3;
-            t4 = *(int *)(((((int)stk + 52) + 0x1C) + 0x0));
-            *(unsigned int *)((((int)stk + 40) + 0x0)) = t4;
-            t5 = *(int *)(((0xAE8 + a4) + 0x8));
-            *(unsigned int *)((((int)stk + 28) + 0x8)) = t5;
-            t6 = *(int *)(((0xAE8 + a4) + 0x4));
-            *(unsigned int *)((((int)stk + 28) + 0x4)) = t6;
-            t7 = *(int *)(((0xAE8 + a4) + 0x0));
-            *(unsigned int *)((((int)stk + 28) + 0x0)) = t7;
-            t8 = ((~(((~t1) + 0x1) & 0x7)) + 0x1);
-            if ((int)t1 >= 0) {
-                t8 = (t1 & 0x7);
-            }
-            t9 = *(int *)((((((t8 << 1) + t8) << 2) + a5) + 0x8));
-            *(unsigned int *)((((int)stk + 16) + 0x8)) = t9;
-            t10 = *(int *)((((((t8 << 1) + t8) << 2) + a5) + 0x4));
-            *(unsigned int *)((((int)stk + 16) + 0x4)) = t10;
-            t11 = *(int *)((((((t8 << 1) + t8) << 2) + a5) + 0x0));
-            *(unsigned int *)((((int)stk + 16) + 0x0)) = t11;
-            t12 = *(int *)((t0 + 0x8));
-            *(unsigned int *)((((int)stk + 4) + 0x8)) = t12;
-            t13 = *(int *)((t0 + 0x4));
-            *(unsigned int *)((((int)stk + 4) + 0x4)) = t13;
-            t14 = *(int *)((t0 + 0x0));
-            *(unsigned int *)((((int)stk + 4) + 0x0)) = t14;
-            t15 = cpuInTriangle();
-            if ((signed char)t15 != 0) break;
-            t1 = (t1 + 0x1);
-            t0 = (t0 + 0xC);
-            if ((int)t1 >= (int)0x9) {
-                return 0x0;
-            }
-        }
-        t16 = 0x1;
-    }
-    return t16;
-}
 
 int ndbLoadRequest(void)
 {
@@ -7695,40 +7629,6 @@ int netJudgeExec(void)
     return t118;
 }
 
-int staffShadowPut(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int stk[6];
-
-    t0 = *(int *)0x8C1891E8;
-    if ((int)t0 <= (int)0x9) {
-        if (t0 != 1) {
-            if (t0 != 4) {
-                if (t0 != 8) {
-                    if (t0 != 7) {
-                        t1 = *(int *)(((0x5A4 + a4) + 0x8));
-                        *(unsigned int *)((((int)stk + 4) + 0x8)) = t1;
-                        t2 = *(int *)(((0x5A4 + a4) + 0x4));
-                        *(unsigned int *)((((int)stk + 4) + 0x4)) = t2;
-                        t3 = *(int *)(((0x5A4 + a4) + 0x0));
-                        *(unsigned int *)((((int)stk + 4) + 0x0)) = t3;
-                        t4 = staffShadowFlat();
-                        return t4;
-                    }
-                    return staffShadowMulti(a4);
-                }
-                return staffShadowMulti(a4);
-            }
-            return staffShadowMulti(a4);
-        }
-        return staffShadowMulti(a4);
-    }
-    return 0;
-}
 
 int staffMorphInit(void)
 {
@@ -12072,43 +11972,6 @@ int open_file_handle(void)
     return t0;
 }
 
-int pdVibGetDirection(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t6;
-    int t5;
-    int t4;
-    int t3;
-    int t7;
-    int t8;
-    int t9;
-
-    t0 = *(signed char *)((a4 + 0x8C20A9DC));
-    t1 = kdGetDeviceInfo();
-    t2 = kdGetDeviceInfo();
-    t6 = 0x1;
-    if (a4 != 2) {
-        t5 = 0x1;
-        if (a4 != 8) {
-            t4 = 0x1;
-            if (a4 != 14) {
-                t3 = 0x1;
-                if (a4 != 20) {
-                    t3 = 0x0;
-                }
-                t4 = t3;
-            }
-            t5 = t4;
-        }
-        t6 = t5;
-    }
-    t7 = *(signed char *)(((t2 + 0x12) + 0x0));
-    t8 = *(signed char *)((t6 + (t1 + 0x12)));
-    t9 = *(signed char *)((0x8C20A9F4 + (((unsigned char)t8 << 2) + (unsigned char)t7)));
-    return (unsigned char)t9;
-}
 
 void ADXAMP_Start(int a4)
 {
@@ -14781,5 +14644,72 @@ void kmSetFogVertexColor(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)0x8C4709F0 = a8;
     t0 = *(int *)0x8C4709EC;
     *(unsigned int *)0x8C4709EC = t0;
+}
+
+int cpuInFan(int a4, int a5)
+{
+    int t16;
+    int t0;
+    int t1;
+    int t2;
+    int t3;
+    int t4;
+    int t5;
+    int t6;
+    int t7;
+    int t8;
+    int t9;
+    int t10;
+    int t11;
+    int t12;
+    int t13;
+    int t14;
+    int t15;
+    int stk[20];
+
+    t16 = 0x0;
+    if (0x1 != 0) {
+        t0 = a5;
+        t1 = 0x1;
+        for (;;) {
+            t2 = *(int *)(((((int)stk + 52) + 0x1C) + 0x8));
+            *(unsigned int *)((((int)stk + 40) + 0x8)) = t2;
+            t3 = *(int *)(((((int)stk + 52) + 0x1C) + 0x4));
+            *(unsigned int *)((((int)stk + 40) + 0x4)) = t3;
+            t4 = *(int *)(((((int)stk + 52) + 0x1C) + 0x0));
+            *(unsigned int *)((((int)stk + 40) + 0x0)) = t4;
+            t5 = *(int *)(((0xAE8 + a4) + 0x8));
+            *(unsigned int *)((((int)stk + 28) + 0x8)) = t5;
+            t6 = *(int *)(((0xAE8 + a4) + 0x4));
+            *(unsigned int *)((((int)stk + 28) + 0x4)) = t6;
+            t7 = *(int *)(((0xAE8 + a4) + 0x0));
+            *(unsigned int *)((((int)stk + 28) + 0x0)) = t7;
+            t8 = ((~(((~t1) + 0x1) & 0x7)) + 0x1);
+            if ((int)t1 >= 0) {
+                t8 = (t1 & 0x7);
+            }
+            t9 = *(int *)((((((t8 << 1) + t8) << 2) + a5) + 0x8));
+            *(unsigned int *)((((int)stk + 16) + 0x8)) = t9;
+            t10 = *(int *)((((((t8 << 1) + t8) << 2) + a5) + 0x4));
+            *(unsigned int *)((((int)stk + 16) + 0x4)) = t10;
+            t11 = *(int *)((((((t8 << 1) + t8) << 2) + a5) + 0x0));
+            *(unsigned int *)((((int)stk + 16) + 0x0)) = t11;
+            t12 = *(int *)((t0 + 0x8));
+            *(unsigned int *)((((int)stk + 4) + 0x8)) = t12;
+            t13 = *(int *)((t0 + 0x4));
+            *(unsigned int *)((((int)stk + 4) + 0x4)) = t13;
+            t14 = *(int *)((t0 + 0x0));
+            *(unsigned int *)((((int)stk + 4) + 0x0)) = t14;
+            t15 = cpuInTriangle();
+            if ((signed char)t15 != 0) break;
+            t1 = (t1 + 0x1);
+            t0 = (t0 + 0xC);
+            if ((int)t1 >= (int)0x9) {
+                return 0x0;
+            }
+        }
+        t16 = 0x1;
+    }
+    return t16;
 }
 

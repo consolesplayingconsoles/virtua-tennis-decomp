@@ -326,24 +326,6 @@ void _duchek(float f4, float f5)
     }
 }
 
-int kmyFreeSmallVQArea(int a4, int a5)
-{
-    int t3;
-    int t5;
-    int stk[14];
-
-    *(unsigned int *)(((int)stk + 28)) = a4;
-    *(unsigned int *)(((int)stk + 24)) = a5;
-    kmytex_GetSmallVQprofile((((int)stk + 24) + 0x8), (*(int *)(((int)stk + 28))));
-    t3 = *(int *)(((((int)stk + 24) + 0x8) + 0x4));
-    *(unsigned int *)(((int)stk + 4)) = (*(int *)(((((int)stk + 24) + 0x8) + 0x0)));
-    *(unsigned int *)(((int)stk + 8)) = t3;
-    t5 = *(int *)(((((int)stk + 24) + 0x8) + 0xC));
-    *(unsigned int *)(((int)stk + 12)) = (*(int *)(((((int)stk + 24) + 0x8) + 0x8)));
-    *(unsigned int *)(((int)stk + 16)) = t5;
-    *(unsigned int *)(((int)stk + 20)) = (*(int *)(((((int)stk + 24) + 0x8) + 0x10)));
-    return (VQFBfree((*(int *)(((int)stk + 24)))));
-}
 
 int kmyRequestDMA(int a4)
 {
@@ -520,27 +502,7 @@ void nlInitHeapMemory2(int a4, int a5)
     *(unsigned int *)((((a4 + (a5 & 0xFFFFFFFC)) - 0x4) + 0x0)) = ((a5 & 0xFFFFFFFC) - 4);
 }
 
-int panelMenuSprInitA(void)
-{
-    int t0;
-    int stk[8];
 
-    { struct mv4 { int w[4]; }; *(struct mv4 *)(((int)stk + 12)) = *(struct mv4 *)(0x8C1102F8); }
-    t0 = sprInitRectF(0x8C3403F0, 0x7C, (((int)stk + 4) + 0x8), 0x10);
-    *(unsigned int *)0x8C340424 = 0x1005;
-    return t0;
-}
-
-int panelMenuSprInitB(void)
-{
-    int t0;
-    int stk[8];
-
-    { struct mv4 { int w[4]; }; *(struct mv4 *)(((int)stk + 12)) = *(struct mv4 *)(0x8C110308); }
-    t0 = sprInitRectF(0x8C340440, 0x1E, (((int)stk + 4) + 0x8), 0x20);
-    *(unsigned int *)0x8C340474 = 0x5;
-    return t0;
-}
 
 int entryPortAtRound5Clean(int a4)
 {
@@ -1265,16 +1227,6 @@ int matchSetSlowMotion(int a4, float f4)
     return 0x8C01AF4C;
 }
 
-int ballColliInit(void)
-{
-    int t1;
-
-    colliObjInit(0x8C291F30, (1.0f + 1.0f));
-    *(unsigned int *)0x8C2FC010 = 0x1;
-    t1 = *(int *)0x8C2FC018;
-    *(unsigned int *)0x8C2FC018 = (t1 | 0x4);
-    return (t1 | 0x4);
-}
 
 int cpuVecCos(Stk4 s)
 {

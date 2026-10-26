@@ -36,3 +36,4 @@ void sprPutCropV(int a4, int a5, int a6, int a7, int a8, float f4, float f5, flo
     *(float *)((a4 + 0x10)) = (*(float *)(((int)stk + 24)));
     *(float *)((a4 + 0x14)) = u5;
 }
+

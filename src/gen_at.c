@@ -442,158 +442,6 @@ int ADXB_ExecOneAuUlaw(int a4, int a5, int a6, int a7)
     return t85;
 }
 
-void vecSegCrossXZ(Stk10 s)
-{
-    float u4;
-    float u5;
-    float u6;
-    float u7;
-    float u8;
-    float u9;
-    float u10;
-    float u11;
-    float u12;
-    float u13;
-    float u14;
-    float u15;
-    float u16;
-    float u17;
-    float u18;
-    float u19;
-    float u20;
-    float u21;
-    float u22;
-    float u23;
-    int stk[43];
-
-    stk[25] = s.w[0];
-    stk[26] = s.w[1];
-    stk[27] = s.w[2];
-    stk[28] = s.w[3];
-    stk[29] = s.w[4];
-    stk[30] = s.w[5];
-    stk[31] = s.w[6];
-    stk[32] = s.w[7];
-    stk[33] = s.w[8];
-    stk[34] = s.w[9];
-    nlSubVector3op((((int)stk + 56) + 0x18), (((int)stk + 56) + 0x38), (((int)stk + 56) + 0x2C));
-    nlSubVector3op((((int)stk + 56) + 0xC), (((int)stk + 56) + 0x50), (((int)stk + 56) + 0x44));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 44)) = *(struct mv3 *)((((int)stk + 56) + 0xC)); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((((int)stk + 44) + 0x50)); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x30)); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x50)); }
-    vecLineCrossXZ(((int)stk + 56));
-    u4 = *(float *)((((int)stk + 56) + 0x0));
-    if ((*(float *)(((int)stk + 80))) != 0.0f) {
-        u5 = *(float *)(((int)stk + 80));
-        if (!(0.0f > ((u4 - *(float *)&s.w[0]) / u5)) && !(((u4 - *(float *)&s.w[0]) / u5) > 1.0f)) {
-            u6 = *(float *)(((int)stk + 68));
-            if (u6 != 0.0f) {
-                if (!(0.0f > ((u4 - *(float *)&s.w[6]) / u6)) && !(((u4 - *(float *)&s.w[6]) / u6) > 1.0f)) {
-                    u7 = *(float *)(((int)stk + 88));
-                    u8 = *(float *)((((int)stk + 56) + 0x8));
-                    if (u7 != 0.0f) {
-                        if (!(0.0f > ((u8 - *(float *)&s.w[2]) / u7)) && !(((u8 - *(float *)&s.w[2]) / u7) > 1.0f)) {
-                            u9 = *(float *)(((int)stk + 76));
-                            if (u9 != 0.0f) {
-                                if (!(0.0f > ((u8 - *(float *)&s.w[8]) / u9)) && !(((u8 - *(float *)&s.w[8]) / u9) > 1.0f)) {
-                                    return;
-                                }
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    u10 = *(float *)(((int)stk + 76));
-                    if (u10 != 0.0f) {
-                        if (!(0.0f > ((u8 - *(float *)&s.w[8]) / u10)) && !(((u8 - *(float *)&s.w[8]) / u10) > 1.0f)) {
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            u11 = *(float *)(((int)stk + 88));
-            u12 = *(float *)((((int)stk + 56) + 0x8));
-            if (u11 != 0.0f) {
-                if (!(0.0f > ((u12 - *(float *)&s.w[2]) / u11)) && !(((u12 - *(float *)&s.w[2]) / u11) > 1.0f)) {
-                    u13 = *(float *)(((int)stk + 76));
-                    if (u13 != 0.0f) {
-                        if (!(0.0f > ((u12 - *(float *)&s.w[8]) / u13)) && !(((u12 - *(float *)&s.w[8]) / u13) > 1.0f)) {
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            u14 = *(float *)(((int)stk + 76));
-            if (u14 != 0.0f) {
-                if (!(0.0f > ((u12 - *(float *)&s.w[8]) / u14)) && !(((u12 - *(float *)&s.w[8]) / u14) > 1.0f)) {
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        return;
-    }
-    u15 = *(float *)(((int)stk + 68));
-    if (u15 != 0.0f) {
-        if (!(0.0f > ((u4 - *(float *)&s.w[6]) / u15)) && !(((u4 - *(float *)&s.w[6]) / u15) > 1.0f)) {
-            u16 = *(float *)(((int)stk + 88));
-            u17 = *(float *)((((int)stk + 56) + 0x8));
-            if (u16 != 0.0f) {
-                if (!(0.0f > ((u17 - *(float *)&s.w[2]) / u16)) && !(((u17 - *(float *)&s.w[2]) / u16) > 1.0f)) {
-                    u18 = *(float *)(((int)stk + 76));
-                    if (u18 != 0.0f) {
-                        if (!(0.0f > ((u17 - *(float *)&s.w[8]) / u18)) && !(((u17 - *(float *)&s.w[8]) / u18) > 1.0f)) {
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            u19 = *(float *)(((int)stk + 76));
-            if (u19 != 0.0f) {
-                if (!(0.0f > ((u17 - *(float *)&s.w[8]) / u19)) && !(((u17 - *(float *)&s.w[8]) / u19) > 1.0f)) {
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        return;
-    }
-    u20 = *(float *)(((int)stk + 88));
-    u21 = *(float *)((((int)stk + 56) + 0x8));
-    if (u20 != 0.0f) {
-        if (!(0.0f > ((u21 - *(float *)&s.w[2]) / u20)) && !(((u21 - *(float *)&s.w[2]) / u20) > 1.0f)) {
-            u22 = *(float *)(((int)stk + 76));
-            if (u22 != 0.0f) {
-                if (!(0.0f > ((u21 - *(float *)&s.w[8]) / u22)) && !(((u21 - *(float *)&s.w[8]) / u22) > 1.0f)) {
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        return;
-    }
-    u23 = *(float *)(((int)stk + 76));
-    if (u23 != 0.0f) {
-        if (!(0.0f > ((u21 - *(float *)&s.w[8]) / u23)) && !(((u21 - *(float *)&s.w[8]) / u23) > 1.0f)) {
-            return;
-        }
-        return;
-    }
-}
 
 float ADX_DecodeMonoFloat(int a4, int a5, int a6, int a7, int a8, int a9, float f4, float f5, float f6, float f7, float f8, float f9, float f10)
 {
@@ -1076,56 +924,6 @@ void umpCallScore(void)
     }
 }
 
-int hudCallNumPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5)
-{
-    int t0;
-    int t1;
-    int t27;
-    int t31;
-    int t29;
-    int stk[22];
-
-    stk[10] = a8;
-    stk[11] = a9;
-    stk[12] = a10;
-    stk[13] = a11;
-    t0 = (int)((int)a4 % (int)0xA);
-    t1 = (int)((int)a4 / (int)0xA);
-    if (t0 == 1) {
-        *(float *)(((((int)stk + 16) + 0x18) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x18) + 0x0))) + 7.0f);
-    }
-    if ((int)a4 > (int)0xA) {
-        *(float *)(((((int)stk + 16) + 0x18) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x18) + 0x0))) + 6.0f);
-    }
-    if (a4 == 11) {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x18)); }
-        hudCallDigitPut(t0, *(Stk3 *)((((int)stk + 16) + 0x18)), f4, f5);
-        *(float *)(((((int)stk + 16) + 0x18) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x18) + 0x0))) - 20.0f);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x18)); }
-        t31 = (hudCallDigitPut(t1, *(Stk3 *)((((int)stk + 16) + 0x18)), f4, f5));
-    } else {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x18)); }
-        hudCallDigitPut(t0, *(Stk3 *)((((int)stk + 16) + 0x18)), f4, f5);
-        if (t1 == 1) {
-            *(float *)(((((int)stk + 16) + 0x18) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x18) + 0x0))) - 15.0f);
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x18)); }
-            t29 = (hudCallDigitPut(t1, *(Stk3 *)((((int)stk + 16) + 0x18)), f4, f5));
-        } else {
-            t27 = t1;
-            if (t1 != 0) {
-                *(float *)(((((int)stk + 16) + 0x18) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x18) + 0x0))) - (*(float *)0x8C0996E4));
-                if (t0 == 1) {
-                    *(float *)(((((int)stk + 16) + 0x18) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x18) + 0x0))) - (*(float *)0x8C0996E8));
-                }
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x18)); }
-                t27 = (hudCallDigitPut(t1, *(Stk3 *)((((int)stk + 16) + 0x18)), f4, f5));
-            }
-            t29 = t27;
-        }
-        t31 = t29;
-    }
-    return t31;
-}
 
 int nlsndIcsControl(int a4, int a5, int a6)
 {
@@ -1473,59 +1271,6 @@ int kmiFLWCTRLEORCallBackFunc(int a4, int a5)
     return 0x0;
 }
 
-int msgWinFramePut(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7)
-{
-    float u1;
-    float u2;
-    float u3;
-    float u4;
-    float u5;
-    int t6;
-    float u23;
-    int t24;
-    int t25;
-    int t29;
-    int stk[33];
-
-    if ((int)(*(int *)0x8C38BA50) < (int)0xF) {
-        u1 = *(float *)((a4 + 0x0));
-        u2 = *(float *)(((a4 + 0x24) + 0x0));
-        u3 = *(float *)((a4 + 0x4));
-        u4 = *(float *)(((a4 + 0x24) + 0x4));
-        u5 = *(float *)0x8C0D127C;
-        t6 = a4;
-        for (;;) {
-            *(float *)((t6 + 0x0)) = ((u1 + ((u2 - u1) / (1.0f + 1.0f))) + ((((*(float *)((t6 + 0x0))) - (u1 + ((u2 - u1) / (1.0f + 1.0f)))) * (float)(*(int *)0x8C38BA50)) / u5));
-            *(float *)((t6 + 0x4)) = ((u3 + ((u4 - u3) / (1.0f + 1.0f))) + ((((*(float *)((t6 + 0x4))) - (u3 + ((u4 - u3) / (1.0f + 1.0f)))) * (float)(*(int *)0x8C38BA50)) / u5));
-            t6 = (t6 + 0xC);
-            if ((unsigned int)t6 >= (unsigned int)(a4 + 0x30)) {
-                break;
-            }
-        }
-    }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((a4 + 0xC)); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((a4 + 0x24)); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(a4); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((a4 + 0x18)); }
-    primFrameCorners(0x2, 0xFFFFFFFF, a6, a7, *(Stk3 *)((a4 + 0x18)));
-    u23 = *(float *)0x8C0D128C;
-    t24 = ((int)stk + 52);
-    t25 = a4;
-    for (;;) {
-        *(float *)((t24 + 0x0)) = (*(float *)((t25 + 0x0)));
-        *(float *)((t24 + 0x4)) = (*(float *)((t25 + 0x4)));
-        *(float *)((t24 + 0x8)) = ((*(float *)((t25 + 0x8))) + u23);
-        *(unsigned int *)((t24 + 0xC)) = 0xC8000000;
-        t24 = (t24 + 0x10);
-        t25 = (t25 + 0xC);
-        if ((unsigned int)t24 >= (unsigned int)(((int)stk + 52) + 0x40)) {
-            break;
-        }
-    }
-    t29 = nlDispStripTrnsl(0x4, ((int)stk + 52));
-    *(unsigned int *)0x8C38BA50 = ((*(int *)0x8C38BA50) + 0x1);
-    return t29;
-}
 
 int nlCreateVertexBuffer(int a4, int a5, int a6, int a7)
 {
@@ -2036,3 +1781,58 @@ int phraseInit(void)
     }
     return (phraseWordsInitB());
 }
+
+int msgWinFramePut(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7)
+{
+    float u1;
+    float u2;
+    float u3;
+    float u4;
+    float u5;
+    int t6;
+    float u23;
+    int t24;
+    int t25;
+    int t29;
+    int stk[33];
+
+    if ((int)(*(int *)0x8C38BA50) < (int)0xF) {
+        u1 = *(float *)((a4 + 0x0));
+        u2 = *(float *)(((a4 + 0x24) + 0x0));
+        u3 = *(float *)((a4 + 0x4));
+        u4 = *(float *)(((a4 + 0x24) + 0x4));
+        u5 = *(float *)0x8C0D127C;
+        t6 = a4;
+        for (;;) {
+            *(float *)((t6 + 0x0)) = ((u1 + ((u2 - u1) / (1.0f + 1.0f))) + ((((*(float *)((t6 + 0x0))) - (u1 + ((u2 - u1) / (1.0f + 1.0f)))) * (float)(*(int *)0x8C38BA50)) / u5));
+            *(float *)((t6 + 0x4)) = ((u3 + ((u4 - u3) / (1.0f + 1.0f))) + ((((*(float *)((t6 + 0x4))) - (u3 + ((u4 - u3) / (1.0f + 1.0f)))) * (float)(*(int *)0x8C38BA50)) / u5));
+            t6 = (t6 + 0xC);
+            if ((unsigned int)t6 >= (unsigned int)(a4 + 0x30)) {
+                break;
+            }
+        }
+    }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((a4 + 0xC)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((a4 + 0x24)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(a4); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((a4 + 0x18)); }
+    primFrameCorners(0x2, 0xFFFFFFFF, a6, a7, *(Stk3 *)((a4 + 0x18)));
+    u23 = *(float *)0x8C0D128C;
+    t24 = ((int)stk + 52);
+    t25 = a4;
+    for (;;) {
+        *(float *)((t24 + 0x0)) = (*(float *)((t25 + 0x0)));
+        *(float *)((t24 + 0x4)) = (*(float *)((t25 + 0x4)));
+        *(float *)((t24 + 0x8)) = ((*(float *)((t25 + 0x8))) + u23);
+        *(unsigned int *)((t24 + 0xC)) = 0xC8000000;
+        t24 = (t24 + 0x10);
+        t25 = (t25 + 0xC);
+        if ((unsigned int)t24 >= (unsigned int)(((int)stk + 52) + 0x40)) {
+            break;
+        }
+    }
+    t29 = nlDispStripTrnsl(0x4, ((int)stk + 52));
+    *(unsigned int *)0x8C38BA50 = ((*(int *)0x8C38BA50) + 0x1);
+    return t29;
+}
+

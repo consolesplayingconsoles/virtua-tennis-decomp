@@ -653,139 +653,6 @@ int sceneTwoPlayerSetup(int a4, int a5, int a6)
     return (vecMake(0x0, 0x0, 0x0, 0x0, 0x8C32DDA4, 0.0f, 0.0f, 0.0f));
 }
 
-int menuItemTextPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
-{
-    int t54;
-    int t50;
-    int stk[19];
-
-    stk[7] = a8;
-    stk[8] = a9;
-    stk[9] = a10;
-    stk[10] = a11;
-    *(float *)(((((int)stk + 16) + 0xC) + 0x4)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x4))) - (1.0f + 1.0f));
-    *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + 4.0f);
-    t54 = a4;
-    if ((unsigned int)a4 >= (unsigned int)0x10) {
-    } else {
-        switch ((a4 << 1)) {
-            case 0:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F7C8));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C1850D0);
-            }
-                break;
-            case 2:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F7CC));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C1850D4);
-            }
-                break;
-            case 4:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F7D0));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C1850D8);
-            }
-                break;
-            case 6:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F7D4));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C1850DC);
-            }
-                break;
-            case 8:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F7D8));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C1850E0);
-            }
-                break;
-            case 10:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F7DC));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C1850E4);
-            }
-                break;
-            case 12:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F7E0));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C1850E8);
-            }
-                break;
-            case 14:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F7E4));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C1850EC);
-            }
-                break;
-            case 16:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F7E8));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C1850F0);
-            }
-                break;
-            case 18:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F7EC));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C1850F4);
-            }
-                break;
-            case 20:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F7F0));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C1850F8);
-            }
-                break;
-            case 22:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F7F4));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C1850FC);
-            }
-                break;
-            case 24:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F7F8));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C185100);
-            }
-                break;
-            case 26:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F7FC));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C185104);
-            }
-                break;
-            case 28:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F800));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C185108);
-            }
-                break;
-            default:
-            {
-                *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + (float)(*(int *)0x8C10F804));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t50 = (*(int *)0x8C18510C);
-            }
-                break;
-        }
-        t54 = (menuTextMsgPut(t50, *(Stk3 *)((((int)stk + 16) + 0xC)), f4));
-    }
-    return t54;
-}
 
 int fadeQuadDraw(int a4, int a5, int a6, float f4, float f5)
 {
@@ -1266,6 +1133,34 @@ int netJudgePose(int a4)
     return t77;
 }
 
+
+void ADXF_Ocbi(int a4, int a5)
+{
+    int t1;
+    int t2;
+    int stk[6];
+
+    if (a5 == 0) {
+        return;
+    }
+    if ((unsigned int)a5 >= (unsigned int)0x30000) {
+        *(unsigned short *)(((int)stk + 4)) = (_builtin_get_imask());
+        _builtin_set_imask(0xF);
+        ((int (*)(int, int))(0xAC1F19C4))(a4, a5);
+    return;
+    }
+    t1 = (0x1FFFFFE0 & a4);
+    t2 = ((unsigned int)((unsigned int)((unsigned int)(((0x1F & a4) + a5) + 0x1F) >> 2) >> 2) >> 1);
+    for (;;) {
+        iaOcbi((void *)t1);
+        t2 = (t2 - 0x1);
+        t1 = (t1 + 0x20);
+        if (t2 == 0) {
+            break;
+        }
+    }
+}
+
 int entryCharaSelDraw(void)
 {
     int t10;
@@ -1387,29 +1282,3 @@ int entryCharaSelDraw(void)
     return (selCharInfoDraw(0x3, t53));
 }
 
-void ADXF_Ocbi(int a4, int a5)
-{
-    int t1;
-    int t2;
-    int stk[6];
-
-    if (a5 == 0) {
-        return;
-    }
-    if ((unsigned int)a5 >= (unsigned int)0x30000) {
-        *(unsigned short *)(((int)stk + 4)) = (_builtin_get_imask());
-        _builtin_set_imask(0xF);
-        ((int (*)(int, int))(0xAC1F19C4))(a4, a5);
-    return;
-    }
-    t1 = (0x1FFFFFE0 & a4);
-    t2 = ((unsigned int)((unsigned int)((unsigned int)(((0x1F & a4) + a5) + 0x1F) >> 2) >> 2) >> 1);
-    for (;;) {
-        iaOcbi((void *)t1);
-        t2 = (t2 - 0x1);
-        t1 = (t1 + 0x20);
-        if (t2 == 0) {
-            break;
-        }
-    }
-}

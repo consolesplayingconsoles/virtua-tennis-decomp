@@ -69,44 +69,6 @@ int cpuSglReceivePos(int a4, float f4, float f5);
 void umpCallDeuce(int a4);
 void titleSprAnim(int a4);
 
-int decoHeaderDrawB(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
-{
-    int stk[51];
-
-    stk[39] = a8;
-    stk[40] = a9;
-    stk[41] = a10;
-    stk[42] = a11;
-    *(unsigned int *)(((int)stk + 108)) = a4;
-    *(unsigned int *)(((int)stk + 112)) = a5;
-    vecMake(a4, a5, a6, a7, (((int)stk + 104) + 0xC), ((*(float *)(((((int)stk + 104) + 0x34) + 0x0))) + -17.0f), ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 21.0f), ((*(float *)(((((int)stk + 104) + 0x34) + 0x8))) + -0.00100000005f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)((((int)stk + 100) + 0x10)); }
-    sprPutAtAlpha(0x8C341D58, *(Stk3 *)((((int)stk + 100) + 0x10)), 1.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
-    sprPutAtAlpha(0x8C342028, *(Stk3 *)((((int)stk + 104) + 0x34)), 0.349999994f);
-    *(unsigned int *)(((int)stk + 104)) = 0x8C342078;
-    primSprSetSize(0x8C342078, 1.0f, 20.0f);
-    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 20.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
-    sprPutAtAlpha((*(int *)(((int)stk + 104))), *(Stk3 *)((((int)stk + 104) + 0x34)), 0.349999994f);
-    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 1.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
-    sprPutAtAlpha(0x8C3420C8, *(Stk3 *)((((int)stk + 104) + 0x34)), 0.349999994f);
-    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 1.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
-    sprPutAtAlpha(0x8C342118, *(Stk3 *)((((int)stk + 104) + 0x34)), 0.349999994f);
-    *(unsigned int *)(((int)stk + 104)) = 0x8C342168;
-    primSprSetSize(0x8C342168, 1.0f, 46.0f);
-    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 46.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
-    sprPutAtAlpha((*(int *)(((int)stk + 104))), *(Stk3 *)((((int)stk + 104) + 0x34)), 0.349999994f);
-    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 1.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
-    sprPutAtAlpha(0x8C3421B8, *(Stk3 *)((((int)stk + 104) + 0x34)), 0.349999994f);
-    *(float *)(((((int)stk + 104) + 0x34) + 0x8)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x8))) - 0.00999999978f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
-    return (decoSwingDraw((*(int *)(((int)stk + 108))), (*(int *)(((int)stk + 112))), *(Stk3 *)((((int)stk + 104) + 0x34)), 1.0f));
-}
 
 int BupLoadFile(int a4, int a5, int a6, int a7)
 {
@@ -810,79 +772,6 @@ int cpuDblSwingInput(int a4)
     goto L_8C057B86;
 }
 
-void segPlaneHit(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14)
-{
-    float u2;
-    float u3;
-    float u4;
-    float u5;
-    float u6;
-    float u7;
-    float u8;
-    float u9;
-    float u10;
-    float u11;
-    float u12;
-    float u13;
-    float u17;
-    float u19;
-    float u21;
-    float u22;
-    float u23;
-    float u24;
-    float u25;
-    float u26;
-    int stk[45];
-
-    stk[30] = a8;
-    stk[31] = a9;
-    stk[32] = a10;
-    stk[33] = a11;
-    stk[34] = a12;
-    stk[35] = a13;
-    stk[36] = a14;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 48)) = *(struct mv3 *)((a4 + 0xC)); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)(a4); }
-    vecSub(a4, a5, a6, a7, (((int)stk + 60) + 0x18));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((a4 + 0x18)); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(a4); }
-    vecSub(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x28));
-    u2 = *(float *)(((((int)stk + 32) + 0x28) + 0x0));
-    u3 = *(float *)(((((int)stk + 60) + 0x18) + 0x4));
-    u4 = *(float *)(((((int)stk + 32) + 0x28) + 0x8));
-    u5 = *(float *)(((((int)stk + 60) + 0x18) + 0x8));
-    u6 = *(float *)(((((int)stk + 60) + 0x18) + 0x0));
-    u7 = *(float *)(((((int)stk + 32) + 0x28) + 0x4));
-    u8 = *(float *)(((a4 + 0xC) + 0x0));
-    u9 = *(float *)(((a4 + 0xC) + 0x4));
-    u10 = ((u3 * u4) - (u5 * u7));
-    u11 = ((u5 * u2) - (u6 * u4));
-    u12 = *(float *)(((a4 + 0xC) + 0x8));
-    u13 = ((u6 * u7) - (u3 * u2));
-    u17 = ((((u5 * u2) - (u6 * u4))) * (*(float *)(((((int)stk + 60) + 0x4C) + 0x4))));
-    u17 = u17 + (*(float *)(((((int)stk + 60) + 0x4C) + 0x0))) * ((u3 * u4) - (u5 * u7));
-    u19 = u17;
-    u19 = u19 + (*(float *)(((((int)stk + 60) + 0x4C) + 0x8))) * ((u6 * u7) - (u3 * u2));
-    if (u19 > (*(float *)0x8C089B78)) {
-        u21 = *(float *)(((((int)stk + 60) + 0x40) + 0x0));
-        u22 = ((u3 * u4) - (u5 * u7));
-        u23 = *(float *)(((((int)stk + 60) + 0x40) + 0x4));
-        u24 = ((u5 * u2) - (u6 * u4));
-        u25 = *(float *)(((((int)stk + 60) + 0x40) + 0x8));
-        u26 = ((u6 * u7) - (u3 * u2));
-        if (!(0.0f > (((((-(u22 * u21)) - (u24 * u23)) - (u26 * u25)) - (((-(u8 * u10)) - (u9 * u11)) - (u12 * u13))) / u19)) && !((((((-(u22 * u21)) - (u24 * u23)) - (u26 * u25)) - (((-(u8 * u10)) - (u9 * u11)) - (u12 * u13))) / u19) > 1.0f)) {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 48)) = *(struct mv3 *)((((int)stk + 60) + 0x40)); }
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)((((int)stk + 60) + 0x4C)); }
-            vecScale(0x0, 0x0, 0x0, 0x0, (0xC + ((int)stk + 24)), (((((-(u22 * u21)) - (u24 * u23)) - (u26 * u25)) - (((-(u8 * u10)) - (u9 * u11)) - (u12 * u13))) / u19), ((((-(u22 * u21)) - (u24 * u23)) - (u26 * u25)) - (((-(u8 * u10)) - (u9 * u11)) - (u12 * u13))), (u24 * u23), u19, (((-(u8 * u10)) - (u9 * u11)) - (u12 * u13)), (u6 * u7), u2);
-            vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x18));
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(a8) = *(struct mv3 *)(((int)stk + 60)); }
-        } else {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(a8) = *(struct mv3 *)(0x8C1016D4); }
-        }
-    } else {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(a8) = *(struct mv3 *)(0x8C1016D4); }
-    }
-}
 
 int seFootLand(int a4, int a5, float f4)
 {
@@ -1126,51 +1015,6 @@ int nlObjPutFreeTextureOnce_Sub(int a4, int a5, int a6)
     goto L_8C0F2142;
 }
 
-void ballMarkCheck(int a4, int a5, int a6, int a7)
-{
-    float t2;
-    float u3;
-    int t5;
-    int t15;
-    float u18;
-    int stk[28];
-
-    if ((*(int *)0x8C287C60) != 0) {
-    } else {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(0x8C291F24); }
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(0x8C291F30); }
-        vecSub(a4, a5, a6, a7, (0x18 + ((int)stk + 8)));
-        t2 = vecLength(*(Stk4 *)((int)stk + 32));
-        u3 = *(float *)0x8C291F34;
-        if (0.400000006f > u3) {
-            if (t2 > 1.5f) {
-                t5 = abs((int)(u3 - (*(float *)0x8C291F28)));
-                if ((float)t5 > 0.5f) {
-                    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 44) + 0xC), (*(float *)0x8C291F30), 0.0f, (*(float *)0x8C291F38));
-                    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 40) + 0x4), (*(float *)0x8C291F24), 0.0f, (*(float *)0x8C291F2C));
-                    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x20), 0.0f, 0.0f, 1.0f);
-                    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0xC)); }
-                    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x24)); }
-                    vecSub(0x0, 0x0, 0x0, 0x0, (((int)stk + 8) + 0x48));
-                    FUN_8c0f0860((((int)stk + 44) + 0x24));
-                    t15 = set_event(0x6C, 0x8C084CBC);
-                    { struct mv3 { int w[3]; }; *(struct mv3 *)((t15 + 0x14)) = *(struct mv3 *)(0x8C291F30); }
-                    *(unsigned int *)((t15 + 0x24)) = 0x258;
-                    u18 = 0.699999988f;
-                    if ((*(int *)0x8C1891E8) == 2) {
-                        u18 = 0.5f;
-                    }
-                    *(float *)((t15 + 0x28)) = u18;
-                    nlPushMatrix(0x0);
-                    nlUnitMatrix();
-                    nlRotateV((((int)stk + 44) + 0x18), (((int)stk + 44) + 0x24));
-                    nlGetMatrix((t15 + 0x2C));
-                    nlPopMatrix(0x1);
-                }
-            }
-        }
-    }
-}
 
 int padLcdLine(int a4, int a5, int a6, int a7)
 {
@@ -1686,3 +1530,165 @@ void titleSprAnim(int a4)
         }
     }
 }
+
+
+
+void segPlaneHit(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14)
+{
+    float u2;
+    float u3;
+    float u4;
+    float u5;
+    float u6;
+    float u7;
+    float u8;
+    float u9;
+    float u10;
+    float u11;
+    float u12;
+    float u13;
+    float u17;
+    float u19;
+    float u21;
+    float u22;
+    float u23;
+    float u24;
+    float u25;
+    float u26;
+    int stk[45];
+
+    stk[30] = a8;
+    stk[31] = a9;
+    stk[32] = a10;
+    stk[33] = a11;
+    stk[34] = a12;
+    stk[35] = a13;
+    stk[36] = a14;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 48)) = *(struct mv3 *)((a4 + 0xC)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)(a4); }
+    vecSub(a4, a5, a6, a7, (((int)stk + 60) + 0x18));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((a4 + 0x18)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(a4); }
+    vecSub(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x28));
+    u2 = *(float *)(((((int)stk + 32) + 0x28) + 0x0));
+    u3 = *(float *)(((((int)stk + 60) + 0x18) + 0x4));
+    u4 = *(float *)(((((int)stk + 32) + 0x28) + 0x8));
+    u5 = *(float *)(((((int)stk + 60) + 0x18) + 0x8));
+    u6 = *(float *)(((((int)stk + 60) + 0x18) + 0x0));
+    u7 = *(float *)(((((int)stk + 32) + 0x28) + 0x4));
+    u8 = *(float *)(((a4 + 0xC) + 0x0));
+    u9 = *(float *)(((a4 + 0xC) + 0x4));
+    u10 = ((u3 * u4) - (u5 * u7));
+    u11 = ((u5 * u2) - (u6 * u4));
+    u12 = *(float *)(((a4 + 0xC) + 0x8));
+    u13 = ((u6 * u7) - (u3 * u2));
+    u17 = ((((u5 * u2) - (u6 * u4))) * (*(float *)(((((int)stk + 60) + 0x4C) + 0x4))));
+    u17 = u17 + (*(float *)(((((int)stk + 60) + 0x4C) + 0x0))) * ((u3 * u4) - (u5 * u7));
+    u19 = u17;
+    u19 = u19 + (*(float *)(((((int)stk + 60) + 0x4C) + 0x8))) * ((u6 * u7) - (u3 * u2));
+    if (u19 > (*(float *)0x8C089B78)) {
+        u21 = *(float *)(((((int)stk + 60) + 0x40) + 0x0));
+        u22 = ((u3 * u4) - (u5 * u7));
+        u23 = *(float *)(((((int)stk + 60) + 0x40) + 0x4));
+        u24 = ((u5 * u2) - (u6 * u4));
+        u25 = *(float *)(((((int)stk + 60) + 0x40) + 0x8));
+        u26 = ((u6 * u7) - (u3 * u2));
+        if (!(0.0f > (((((-(u22 * u21)) - (u24 * u23)) - (u26 * u25)) - (((-(u8 * u10)) - (u9 * u11)) - (u12 * u13))) / u19)) && !((((((-(u22 * u21)) - (u24 * u23)) - (u26 * u25)) - (((-(u8 * u10)) - (u9 * u11)) - (u12 * u13))) / u19) > 1.0f)) {
+            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 48)) = *(struct mv3 *)((((int)stk + 60) + 0x40)); }
+            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)((((int)stk + 60) + 0x4C)); }
+            vecScale(0x0, 0x0, 0x0, 0x0, (0xC + ((int)stk + 24)), (((((-(u22 * u21)) - (u24 * u23)) - (u26 * u25)) - (((-(u8 * u10)) - (u9 * u11)) - (u12 * u13))) / u19), ((((-(u22 * u21)) - (u24 * u23)) - (u26 * u25)) - (((-(u8 * u10)) - (u9 * u11)) - (u12 * u13))), (u24 * u23), u19, (((-(u8 * u10)) - (u9 * u11)) - (u12 * u13)), (u6 * u7), u2);
+            vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x18));
+            { struct mv3 { int w[3]; }; *(struct mv3 *)(a8) = *(struct mv3 *)(((int)stk + 60)); }
+        } else {
+            { struct mv3 { int w[3]; }; *(struct mv3 *)(a8) = *(struct mv3 *)(0x8C1016D4); }
+        }
+    } else {
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(a8) = *(struct mv3 *)(0x8C1016D4); }
+    }
+}
+
+void ballMarkCheck(int a4, int a5, int a6, int a7)
+{
+    float t2;
+    float u3;
+    int t5;
+    int t15;
+    float u18;
+    int stk[28];
+
+    if ((*(int *)0x8C287C60) != 0) {
+    } else {
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(0x8C291F24); }
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(0x8C291F30); }
+        vecSub(a4, a5, a6, a7, (0x18 + ((int)stk + 8)));
+        t2 = vecLength(*(Stk4 *)((int)stk + 32));
+        u3 = *(float *)0x8C291F34;
+        if (0.400000006f > u3) {
+            if (t2 > 1.5f) {
+                t5 = abs((int)(u3 - (*(float *)0x8C291F28)));
+                if ((float)t5 > 0.5f) {
+                    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 44) + 0xC), (*(float *)0x8C291F30), 0.0f, (*(float *)0x8C291F38));
+                    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 40) + 0x4), (*(float *)0x8C291F24), 0.0f, (*(float *)0x8C291F2C));
+                    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x20), 0.0f, 0.0f, 1.0f);
+                    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0xC)); }
+                    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x24)); }
+                    vecSub(0x0, 0x0, 0x0, 0x0, (((int)stk + 8) + 0x48));
+                    FUN_8c0f0860((((int)stk + 44) + 0x24));
+                    t15 = set_event(0x6C, 0x8C084CBC);
+                    { struct mv3 { int w[3]; }; *(struct mv3 *)((t15 + 0x14)) = *(struct mv3 *)(0x8C291F30); }
+                    *(unsigned int *)((t15 + 0x24)) = 0x258;
+                    u18 = 0.699999988f;
+                    if ((*(int *)0x8C1891E8) == 2) {
+                        u18 = 0.5f;
+                    }
+                    *(float *)((t15 + 0x28)) = u18;
+                    nlPushMatrix(0x0);
+                    nlUnitMatrix();
+                    nlRotateV((((int)stk + 44) + 0x18), (((int)stk + 44) + 0x24));
+                    nlGetMatrix((t15 + 0x2C));
+                    nlPopMatrix(0x1);
+                }
+            }
+        }
+    }
+}
+
+int decoHeaderDrawB(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+{
+    int stk[51];
+
+    stk[39] = a8;
+    stk[40] = a9;
+    stk[41] = a10;
+    stk[42] = a11;
+    *(unsigned int *)(((int)stk + 108)) = a4;
+    *(unsigned int *)(((int)stk + 112)) = a5;
+    vecMake(a4, a5, a6, a7, (((int)stk + 104) + 0xC), ((*(float *)(((((int)stk + 104) + 0x34) + 0x0))) + -17.0f), ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 21.0f), ((*(float *)(((((int)stk + 104) + 0x34) + 0x8))) + -0.00100000005f));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)((((int)stk + 100) + 0x10)); }
+    sprPutAtAlpha(0x8C341D58, *(Stk3 *)((((int)stk + 100) + 0x10)), 1.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
+    sprPutAtAlpha(0x8C342028, *(Stk3 *)((((int)stk + 104) + 0x34)), 0.349999994f);
+    *(unsigned int *)(((int)stk + 104)) = 0x8C342078;
+    primSprSetSize(0x8C342078, 1.0f, 20.0f);
+    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 20.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
+    sprPutAtAlpha((*(int *)(((int)stk + 104))), *(Stk3 *)((((int)stk + 104) + 0x34)), 0.349999994f);
+    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 1.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
+    sprPutAtAlpha(0x8C3420C8, *(Stk3 *)((((int)stk + 104) + 0x34)), 0.349999994f);
+    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 1.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
+    sprPutAtAlpha(0x8C342118, *(Stk3 *)((((int)stk + 104) + 0x34)), 0.349999994f);
+    *(unsigned int *)(((int)stk + 104)) = 0x8C342168;
+    primSprSetSize(0x8C342168, 1.0f, 46.0f);
+    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 46.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
+    sprPutAtAlpha((*(int *)(((int)stk + 104))), *(Stk3 *)((((int)stk + 104) + 0x34)), 0.349999994f);
+    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 1.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
+    sprPutAtAlpha(0x8C3421B8, *(Stk3 *)((((int)stk + 104) + 0x34)), 0.349999994f);
+    *(float *)(((((int)stk + 104) + 0x34) + 0x8)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x8))) - 0.00999999978f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
+    return (decoSwingDraw((*(int *)(((int)stk + 108))), (*(int *)(((int)stk + 112))), *(Stk3 *)((((int)stk + 104) + 0x34)), 1.0f));
+}
+

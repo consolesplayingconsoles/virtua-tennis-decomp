@@ -231,10 +231,6 @@ float nlLog2(float f4)
     return (t0 / (*(float *)0x8C0ED208));
 }
 
-int nlRenderTextureSet(void)
-{
-    return (nlRenderTextureSet_Sub());
-}
 
 int nlRenderTextureSet_Stride(void)
 {

@@ -1388,43 +1388,6 @@ void selCursorPos(int a4, int a5, int a6, int a7, int a8)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(a8) = *(struct mv3 *)(((int)stk + 8)); }
 }
 
-int sseleSlotEntry(int a4)
-{
-    int t17;
-    int t18;
-    int t19;
-    int t24;
-    int t23;
-
-    *(unsigned int *)(((0x8C3437E4 + (a4 << 2)) + 0x0)) = 0x0;
-    *(unsigned int *)(((0x8C343824 + (a4 << 2)) + 0x0)) = 0x1;
-    *(unsigned short *)0x8C343260 = ((*(short *)0x8C343260) | (*(short *)(((a4 << 1) + 0x8C185298))));
-    *(unsigned int *)(((((*(int *)(((0x8C3437A4 + (a4 << 2)) + 0x0))) * 0x38) + 0x8C343264) + 0x18)) = 0x1;
-    *(unsigned short *)(((((*(int *)(((0x8C3437A4 + (a4 << 2)) + 0x0))) * 0x38) + 0x8C343264) + 0x14)) = 0x0;
-    *(unsigned int *)(((((*(int *)(((0x8C3437A4 + (a4 << 2)) + 0x0))) * 0x38) + 0x8C343264) + 0x2C)) = 0xFFFFFFFF;
-    if ((*(int *)(((((*(int *)((((a4 << 2) + 0x8C3437A4) + 0x0))) * 0x38) + 0x8C343264) + 0x8))) == 0) {
-        selCursorReset(a4);
-    }
-    t17 = *(int *)0x8C287ADC;
-    if (t17 == 2) {
-        t18 = entryCountJoined();
-        if (t18 == 1) {
-            t19 = *(int *)0x8C287ADC;
-            t24 = t19;
-            if (t19 == 2) {
-                *(unsigned int *)(((((selSlot0FlagClear()) * 0x38) + 0x8C343264) + 0x18)) = 0x1;
-                *(unsigned short *)(((0x14 + (((selSlot0FlagClear()) * 0x38) + 0x8C343264)) + 0x0)) = 0x0;
-                *(unsigned int *)(((((selSlot0FlagClear()) * 0x38) + 0x8C343264) + 0x2C)) = 0xFFFFFFFF;
-                t23 = selSlot0FlagClear();
-                *(unsigned int *)((((t23 * 0x38) + 0x8C343264) + 0x0)) = 0xFFFFFFFF;
-                t24 = ((t23 * 0x38) + 0x8C343264);
-            }
-            return t24;
-        }
-        return t18;
-    }
-    return t17;
-}
 
 int nlSingleLineSub(int a4, int a5, int a6, int a7)
 {

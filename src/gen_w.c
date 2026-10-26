@@ -423,40 +423,6 @@ int kdSetARControlEx(int a4, int a5, int a6)
     return t2;
 }
 
-int mwRnaSetFx(int a4, int a5, int a6)
-{
-    int t3;
-    int t1;
-    int t5;
-    int t8;
-    int t12;
-    int t10;
-
-    if (a4 == 0) {
-        t12 = (mwRnaErrCallFunc(0x8C20AC30));
-    } else {
-        if (((int)a5 >= 0) && ((int)a5 <= (int)0x10)) {
-            t3 = 0xFFFFFFD3;
-            if ((int)a6 < (int)0xFFFFFFD3) {
-            } else {
-                t1 = a6;
-                if ((int)a6 > 0) {
-                    t1 = 0x0;
-                }
-                t3 = t1;
-            }
-            t5 = *(int *)((a4 + 0x38));
-            t8 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)((t5 + 0x0))) + 0x44)))))(t5, 0x0, a5, t3);
-            *(unsigned int *)((a4 + 0x6C)) = a5;
-            *(unsigned int *)((a4 + 0x70)) = t3;
-            t10 = 0x70;
-        } else {
-            t10 = (mwRnaErrCallFunc(0x8C20AD08));
-        }
-        t12 = t10;
-    }
-    return t12;
-}
 
 int nl_system_config_init(int a4)
 {
@@ -903,5 +869,40 @@ float iconSlotPutC(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
         u10 = (u2 + 120.0f);
     }
     return u10;
+}
+
+int mwRnaSetFx(int a4, int a5, int a6)
+{
+    int t3;
+    int t1;
+    int t5;
+    int t8;
+    int t12;
+    int t10;
+
+    if (a4 == 0) {
+        t12 = (mwRnaErrCallFunc(0x8C20AC30));
+    } else {
+        if (((int)a5 >= 0) && ((int)a5 <= (int)0x10)) {
+            t3 = 0xFFFFFFD3;
+            if ((int)a6 < (int)0xFFFFFFD3) {
+            } else {
+                t1 = a6;
+                if ((int)a6 > 0) {
+                    t1 = 0x0;
+                }
+                t3 = t1;
+            }
+            t5 = *(int *)((a4 + 0x38));
+            t8 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)((t5 + 0x0))) + 0x44)))))(t5, 0x0, a5, t3);
+            *(unsigned int *)((a4 + 0x6C)) = a5;
+            *(unsigned int *)((a4 + 0x70)) = t3;
+            t10 = 0x70;
+        } else {
+            t10 = (mwRnaErrCallFunc(0x8C20AD08));
+        }
+        t12 = t10;
+    }
+    return t12;
 }
 

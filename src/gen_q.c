@@ -117,13 +117,6 @@ int shadowVolPutPoint(int a4, float f4, float f5, float f6, float f7)
     return nlPopMatrix(0x1);
 }
 
-int nlSetFogVertexColor(int a4)
-{
-    int t0;
-
-    t0 = kmSetFogVertexColor();
-    return t0;
-}
 
 float nlCot(int a4)
 {

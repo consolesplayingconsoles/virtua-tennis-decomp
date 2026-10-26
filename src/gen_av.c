@@ -349,37 +349,6 @@ float cpuPointBehind(int a4, int a5, int a6, int a7)
     return u24;
 }
 
-int primLineH(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13)
-{
-    int t5;
-    int t17;
-    int stk[46];
-
-    stk[32] = a8;
-    stk[33] = a9;
-    stk[34] = a10;
-    stk[35] = a11;
-    stk[36] = a12;
-    stk[37] = a13;
-    *(unsigned int *)(((int)stk + 20)) = a4;
-    t5 = a4;
-    if ((*(float *)(((((int)stk + 20) + 0x6C) + 0x0))) > (*(float *)(((((int)stk + 20) + 0x78) + 0x0)))) {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 20) + 0x4)) = *(struct mv3 *)((((int)stk + 20) + 0x6C)); }
-        { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 20) + 0x6C)) = *(struct mv3 *)((((int)stk + 20) + 0x78)); }
-        { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 20) + 0x78)) = *(struct mv3 *)((((int)stk + 20) + 0x4)); }
-        t5 = (((int)stk + 20) + 0x4);
-    }
-    vecMake(t5, a5, a6, a7, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x78) + 0x0))), (*(float *)(((((int)stk + 20) + 0x78) + 0x4))), (*(float *)(((((int)stk + 20) + 0x78) + 0x8))));
-    primVertexSet(a5, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x10));
-    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x6C) + 0x0))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x4))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
-    primVertexSet(a5, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x10)));
-    t17 = *(int *)(((int)stk + 20));
-    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x78) + 0x0))), ((*(float *)(((((int)stk + 20) + 0x78) + 0x4))) + (float)t17), (*(float *)(((((int)stk + 20) + 0x78) + 0x8))));
-    primVertexSet(a5, 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x10)));
-    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x6C) + 0x0))), ((*(float *)(((((int)stk + 20) + 0x6C) + 0x4))) + (float)t17), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
-    primVertexSet(a5, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x10)));
-    return (nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x10)));
-}
 
 int fadeScreenDraw(int a4, int a5, int a6, int a7, float f4, float f5)
 {
@@ -1735,3 +1704,36 @@ int kmiFLWCTRLVsyncCallBackFunc(int a4, int a5, int a6, int a7)
     *(unsigned int *)0x8C45F904 = ((*(int *)0x8C45F904) + 0x1);
     return 0x0;
 }
+
+int primLineH(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13)
+{
+    int t5;
+    int t17;
+    int stk[46];
+
+    stk[32] = a8;
+    stk[33] = a9;
+    stk[34] = a10;
+    stk[35] = a11;
+    stk[36] = a12;
+    stk[37] = a13;
+    *(unsigned int *)(((int)stk + 20)) = a4;
+    t5 = a4;
+    if ((*(float *)(((((int)stk + 20) + 0x6C) + 0x0))) > (*(float *)(((((int)stk + 20) + 0x78) + 0x0)))) {
+        { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 20) + 0x4)) = *(struct mv3 *)((((int)stk + 20) + 0x6C)); }
+        { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 20) + 0x6C)) = *(struct mv3 *)((((int)stk + 20) + 0x78)); }
+        { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 20) + 0x78)) = *(struct mv3 *)((((int)stk + 20) + 0x4)); }
+        t5 = (((int)stk + 20) + 0x4);
+    }
+    vecMake(t5, a5, a6, a7, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x78) + 0x0))), (*(float *)(((((int)stk + 20) + 0x78) + 0x4))), (*(float *)(((((int)stk + 20) + 0x78) + 0x8))));
+    primVertexSet(a5, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x10));
+    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x6C) + 0x0))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x4))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
+    primVertexSet(a5, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x10)));
+    t17 = *(int *)(((int)stk + 20));
+    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x78) + 0x0))), ((*(float *)(((((int)stk + 20) + 0x78) + 0x4))) + (float)t17), (*(float *)(((((int)stk + 20) + 0x78) + 0x8))));
+    primVertexSet(a5, 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x10)));
+    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x6C) + 0x0))), ((*(float *)(((((int)stk + 20) + 0x6C) + 0x4))) + (float)t17), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
+    primVertexSet(a5, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x10)));
+    return (nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x10)));
+}
+

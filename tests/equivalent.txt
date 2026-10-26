@@ -402,6 +402,7 @@ ballBoyRecall
 ballBoyReset
 ballBoyRunExec
 ballBoyRunSteer
+ballColliInit
 ballColliSync
 ballInit
 ballWallStop
@@ -611,6 +612,7 @@ cpuDblNetmanPos
 cpuDblPartnerSignal
 cpuDblPickTactic
 cpuDblPoachCheck
+cpuDblPosition
 cpuDblPositionCalc
 cpuDblRecoverPosA
 cpuDblRecoverPosB
@@ -974,6 +976,7 @@ hudCallMsgDrawD8d0
 hudCallMsgDrawD970
 hudCallMsgDrawD9c0
 hudCallMsgDrawDa10
+hudCallNumPut
 hudCallPointsDraw
 hudCallSprInit
 hudCallSprInit2
@@ -1063,6 +1066,7 @@ kdSetAllStatusRequestEx
 kdSetBlockRead
 kdSetBlockReadEx
 kdSetBlockWrite
+kdSetBlockWriteEx
 kdSetCallback
 kdSetDeviceKill
 kdSetDeviceKillEx
@@ -1200,6 +1204,7 @@ kmyAllocateArea
 kmyAllocateAreaWithAddress
 kmyAllocateFrameBuffer
 kmyAllocateNativeCommandBuffer
+kmyAllocateSmallVQArea
 kmyConnectInterrupt
 kmyConnectRenderPacket
 kmyContinueTA
@@ -1219,6 +1224,7 @@ kmyEnableInterrupt
 kmyEnablePassInfoPreSort
 kmyEnablePassInfoZClear
 kmyFreeArea
+kmyFreeSmallVQArea
 kmyGarbageCollection
 kmyGeneratePassInfo
 kmyGetBGPlaneBase
@@ -1377,6 +1383,7 @@ markerDraw
 markerHitSpawn
 markerShowStart
 matchCheckTiebreak
+matchExec
 matchFrame
 matchGetCpuRank
 matchNextSetup
@@ -1398,6 +1405,7 @@ menuIconInitA
 menuIconInitB
 menuIconPut
 menuIconPutRot
+menuItemTextPut
 menuResultExec
 menuSprInit
 menuSprInitGroup
@@ -1407,6 +1415,7 @@ menuTextMsgPut
 menuTextMsgPutB
 menuTextTimePut
 miniBallCopySpawn
+miniBallObjSpawn
 miniBowlingScore
 miniClearTables
 miniDrawModels
@@ -1579,6 +1588,7 @@ mwRnaSetDrctLvl
 mwRnaSetOutPan
 mwRnaSetOutVol
 mwRnaSetPitch
+mwRnaSetPlaySw
 mwRnaSetSfreq
 mwRnaSetStmHdInfo
 mwRnaSetTransSw
@@ -1824,6 +1834,7 @@ nlRenderTextureEnd
 nlRenderTextureFree
 nlRenderTextureFreeAll
 nlRenderTextureInit
+nlRenderTextureSet
 nlRenderTextureSet_Stride
 nlRenderTextureSet_Sub
 nlRotate
@@ -1847,6 +1858,7 @@ nlSetCommonTextureOffset
 nlSetDummyTextureParameter
 nlSetFatalErrorMode
 nlSetFogColor
+nlSetFogVertexColor
 nlSetFontSize
 nlSetIntrFunction
 nlSetIntrPriority
@@ -2031,6 +2043,7 @@ padLcdClear
 padLcdDraw
 padLcdLine
 padLcdLine3D
+padLcdLineTo3D
 padLcdMessage
 padLcdModeClear
 padLcdPixel
@@ -2045,10 +2058,16 @@ padVibExec
 padVibOff
 padVibRequest
 padVibStopAll
+padVmsBeep
 paletteUpload
 panelBodyPut
+panelDrawA
+panelDrawB
+panelDrawC
 panelLogoInit
 panelLogoPut
+panelMenuSprInitA
+panelMenuSprInitB
 panelMenuSprInitC
 panelMenuSprPutA
 panelPartAPut
@@ -2086,16 +2105,19 @@ pdSetMode
 pdSetOptimize
 pdSetThreshold
 pdTmrAlarm
+pdTmrGetTime
 pdTmrGetTimeCallback
 pdTmrIsReady
 pdTmrSetTime
 pdTmrSetTimeCallback
 pdVibEnumUnitCallback
 pdVibEnumerateUnit
+pdVibGetDirection
 pdVibGetInfo
 pdVibGetUnitInfoCallback
 pdVibIsReady
 pdVibMxIsReady
+pdVibMxSetStopTime
 pdVibMxStart
 pdVibMxStop
 pdVibSetStopTime
@@ -2214,6 +2236,7 @@ screenOutcodeMargin
 screenPlanePut
 screenProject
 screenQuadPut
+screenSphereVisible
 seBallSpeed
 seFootLand
 seFootSlide
@@ -2345,7 +2368,6 @@ sprPutAlpha
 sprPutAt
 sprPutAtAlpha
 sprPutCentered
-sprPutCropV
 sprPutScaleXArgs
 sprPutScaledAlpha
 sprRecInit
@@ -2369,6 +2391,7 @@ sprSet192Free
 sprSet192Load
 sprSet192PutA
 sprSet192PutB
+sprSet192Setup
 sprSet266Free
 sprSet266InitThunk
 sprSet266Load
@@ -2395,6 +2418,7 @@ sprStartRestore
 sprWtcFree
 sprWtcLoad
 sprWtcRestore
+sseleSlotEntry
 staffInitAll
 staffLookAtBall
 staffMorphBlend
@@ -2404,6 +2428,7 @@ staffMorphReset
 staffRestart
 staffShadowFlat
 staffShadowPart
+staffShadowPut
 stageCrowdTexLoad
 stageEspCourtDraw
 stageEspScoreDigits
@@ -2417,6 +2442,7 @@ stageGerScoreboardDraw
 stageJpnCourtDraw
 stageJpnScoreDigits
 stageJpnScoreboardDraw
+stageLoadBegin
 stageLoadBeginLong
 stageLoadEnding
 stageLoadEndingModels
@@ -2676,6 +2702,7 @@ vecLineCrossXZ
 vecMake
 vecOrbit
 vecScale
+vecSegCrossXZ
 vecStepToward
 vecSub
 vecTableGet
@@ -2749,7 +2776,9 @@ vmsfs_write_disk_image
 vmsfs_xcreate
 vmsfs_xfind
 vmsfs_xwrite1
+vmsio_block_read
 vmsio_exit
+vmsio_get_media_info
 vmsio_init
 vmsio_ismount
 vmsio_isready
@@ -2766,3 +2795,4 @@ write_fat_1
 write_sys
 zoneListClear
 zoneListSample
+sprPutCropV

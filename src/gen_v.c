@@ -487,39 +487,6 @@ int panelWidePut(Stk4 s, float f4)
     return (sprPutAtAlpha(0x8C337D90, *(Stk3 *)((((int)stk + 52) + 0x14)), f4));
 }
 
-int sprSet192Setup(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int stk[23];
-
-    { struct mv8 { int w[8]; }; *(struct mv8 *)((((int)stk + 20) + 0x8)) = *(struct mv8 *)(0x8C124AC0); }
-    *(unsigned int *)(((int)stk + 20)) = 0x8C124AC0;
-    t0 = 0x0;
-    t1 = 0x8C124A78;
-    for (;;) {
-        t2 = *(int *)((t1 + 0x0));
-        *(unsigned int *)(((int)stk + 24)) = (0x8C37CF10 + t0);
-        t3 = ((int (*)(int, int, int, int))(sprInitRectF))((0x8C37CF10 + t0), t2, (((int)stk + 20) + 0x8), 0x80);
-        t4 = *(int *)((t1 + 0x0));
-        t1 = (t1 + 0x4);
-        t5 = ((int (*)(int, int, int, int, int, int, int, int))(sprInitRectF))((0x8C37D4B0 + t0), t4, (((int)stk + 20) + 0x8), 0x80, 0x80, 0x1, 0x80, 0x0);
-        t6 = *(int *)(((int)stk + 24));
-        *(unsigned int *)((t6 + 0x34)) = ((*(int *)((t6 + 0x34))) | 0x5);
-        *(unsigned int *)(((0x8C37D4B0 + t0) + 0x34)) = ((*(int *)(((0x8C37D4B0 + t0) + 0x34))) | 0x5);
-        *(unsigned int *)(((0x8C37D4B0 + t0) + 0x28)) = 0xFFFFC000;
-        t0 = (t0 + 0x50);
-        if ((unsigned int)t1 >= (unsigned int)(*(int *)(((int)stk + 20)))) {
-            break;
-        }
-    }
-    return t5;
-}
 
 int buInit(int a4, int a5, int a6, int a7)
 {
@@ -732,30 +699,6 @@ int ADXSTMF_Create(int a4, int a5, int a6, int a7)
     return t14;
 }
 
-int mwRnaSetNumChan(int a4, int a5)
-{
-    int t4;
-    int t7;
-
-    if (a4 == 0) {
-        return (mwRnaErrCallFunc(0x8C20AC30));
-    }
-    if ((int)a5 > (int)(unsigned char)(*(signed char *)((a4 + 0x2)))) {
-        return (mwRnaErrCallFunc(0x8C20ACD4));
-    }
-    *(unsigned char *)((a4 + 0x3)) = a5;
-    t4 = *(int *)((a4 + 0x38));
-    t7 = ((int (*)(int, int))((*(int *)(((*(int *)((t4 + 0x0))) + 0x1C)))))(t4, (signed char)a5);
-    if (a5 == 1) {
-        *(unsigned int *)(((a4 + 0x64) + 0x0)) = 0x0;
-        *(unsigned int *)((a4 + 0x68)) = 0x0;
-    } else {
-        *(unsigned int *)(((a4 + 0x64) + 0x0)) = 0xFFFFFFF1;
-        *(unsigned int *)((a4 + 0x68)) = 0xF;
-    }
-    mwRnaSetOutPan(a4, 0x0, (*(int *)(((a4 + 0x64) + 0x0))));
-    return mwRnaSetOutPan(a4, 0x1, (*(int *)((a4 + 0x68))));
-}
 
 int SJRBF_IsGetChunk(int a4, int a5, int a6, int a7)
 {
@@ -947,3 +890,29 @@ int _pow10(int a4, int a5, int a6)
     *(unsigned short *)((a5 + 0x0)) = ((*(short *)((a5 + 0x0))) - t9);
     return (memmove((*(int *)(((int)stk + 4))), t5, (*(int *)(((int)stk + 8)))));
 }
+
+int mwRnaSetNumChan(int a4, int a5)
+{
+    int t4;
+    int t7;
+
+    if (a4 == 0) {
+        return (mwRnaErrCallFunc(0x8C20AC30));
+    }
+    if ((int)a5 > (int)(unsigned char)(*(signed char *)((a4 + 0x2)))) {
+        return (mwRnaErrCallFunc(0x8C20ACD4));
+    }
+    *(unsigned char *)((a4 + 0x3)) = a5;
+    t4 = *(int *)((a4 + 0x38));
+    t7 = ((int (*)(int, int))((*(int *)(((*(int *)((t4 + 0x0))) + 0x1C)))))(t4, (signed char)a5);
+    if (a5 == 1) {
+        *(unsigned int *)(((a4 + 0x64) + 0x0)) = 0x0;
+        *(unsigned int *)((a4 + 0x68)) = 0x0;
+    } else {
+        *(unsigned int *)(((a4 + 0x64) + 0x0)) = 0xFFFFFFF1;
+        *(unsigned int *)((a4 + 0x68)) = 0xF;
+    }
+    mwRnaSetOutPan(a4, 0x0, (*(int *)(((a4 + 0x64) + 0x0))));
+    return mwRnaSetOutPan(a4, 0x1, (*(int *)((a4 + 0x68))));
+}
+

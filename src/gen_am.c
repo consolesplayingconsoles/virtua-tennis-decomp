@@ -306,22 +306,6 @@ int kmyGetBGPlaneBase(int a4, int a5)
     return 0x0;
 }
 
-int padVmsBeep(int a4, int a5)
-{
-    int t7;
-    int t8;
-
-    *(unsigned char *)0x8C2FBC4C = (*(signed char *)0x8C2FBC48);
-    *(unsigned char *)0x8C2FBC4D = (*(signed char *)0x8C2FBC49);
-    *(unsigned char *)0x8C2FBC48 = a5;
-    *(unsigned char *)0x8C2FBC49 = (((int)((unsigned int)((int)((unsigned int)a5 + (unsigned int)0x0)) + ((((int)0x0 > (int)a5)) ? 1u : 0u))) >> 1);
-    *(unsigned char *)0x8C2FBC4A = 0x0;
-    *(unsigned char *)0x8C2FBC4B = 0x0;
-    if (((*(signed char *)0x8C2FBC4C) == (*(signed char *)0x8C2FBC48)) && (t7 = *(signed char *)0x8C2FBC4D, t8 = *(signed char *)0x8C2FBC49, t7 == t8)) {
-        return 0x0;
-    }
-    return pdTmrAlarm((*(int *)(((a4 << 2) + 0x8C159AF0))));
-}
 
 int seFootSurface(float f4, float f5)
 {
@@ -363,19 +347,6 @@ int seFootSurface(float f4, float f5)
     return t53;
 }
 
-int texPicPut(int a4, int a5, int a6, int a7, float f4)
-{
-    int stk[10];
-
-    *(float *)(((int)stk + 20)) = f4;
-    vecMake(a4, a5, a6, a7, (((int)stk + 20) + 0x4), 320.0f, 240.0f, 9.99999975e-05f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x8)); }
-    sprInitPos(0x8C340714, 0x21, *(Stk3 *)((((int)stk + 16) + 0x8)));
-    *(float *)0x8C340740 = (*(float *)(((int)stk + 20)));
-    *(float *)0x8C340724 = 40.0f;
-    *(float *)0x8C340728 = 30.0f;
-    return (thunk_FUN_8c0f41f0(0x8C340714));
-}
 
 void strmCallNameScore(int a4)
 {
@@ -396,17 +367,6 @@ void strmCallNameScore(int a4)
     }
 }
 
-int motionRootFirst(int a4, int a5, int a6, int a7, int a8)
-{
-    int t1;
-    int t2;
-    float u7;
-
-    t1 = *(int *)((a4 + 0x54));
-    t2 = *(int *)(((*(int *)((a4 + 0x20))) + 0x4));
-    u7 = *(float *)((((*(int *)((a4 + 0x20))) + 0xC) + 0x0));
-    return (vecMake(a4, a5, a6, a7, a8, (((float)(*(short *)(((t1 + t2) + 0x0))) * u7) / (*(float *)((((*(int *)((a4 + 0x20))) + 0x14) + 0x0)))), 0.0f, (((float)(-(*(short *)(((t1 + t2) + 0x4)))) * u7) / (*(float *)((((*(int *)((a4 + 0x20))) + 0x1C) + 0x0))))));
-}
 
 int ovLibOpen(int a4)
 {
@@ -849,3 +809,31 @@ int shadowPartPutProj(int a4)
 {
     return nlObjPutMvOpenedVolume((*(int *)(((a4 << 2) + 0x8C18251C))));
 }
+
+
+int texPicPut(int a4, int a5, int a6, int a7, float f4)
+{
+    int stk[10];
+
+    *(float *)(((int)stk + 20)) = f4;
+    vecMake(a4, a5, a6, a7, (((int)stk + 20) + 0x4), 320.0f, 240.0f, 9.99999975e-05f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x8)); }
+    sprInitPos(0x8C340714, 0x21, *(Stk3 *)((((int)stk + 16) + 0x8)));
+    *(float *)0x8C340740 = (*(float *)(((int)stk + 20)));
+    *(float *)0x8C340724 = 40.0f;
+    *(float *)0x8C340728 = 30.0f;
+    return (thunk_FUN_8c0f41f0(0x8C340714));
+}
+
+int motionRootFirst(int a4, int a5, int a6, int a7, int a8)
+{
+    int t1;
+    int t2;
+    float u7;
+
+    t1 = *(int *)((a4 + 0x54));
+    t2 = *(int *)(((*(int *)((a4 + 0x20))) + 0x4));
+    u7 = *(float *)((((*(int *)((a4 + 0x20))) + 0xC) + 0x0));
+    return (vecMake(a4, a5, a6, a7, a8, (((float)(*(short *)(((t1 + t2) + 0x0))) * u7) / (*(float *)((((*(int *)((a4 + 0x20))) + 0x14) + 0x0)))), 0.0f, (((float)(-(*(short *)(((t1 + t2) + 0x4)))) * u7) / (*(float *)((((*(int *)((a4 + 0x20))) + 0x1C) + 0x0))))));
+}
+

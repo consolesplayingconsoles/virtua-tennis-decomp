@@ -1540,30 +1540,6 @@ int nlsndPackLoadStatus(int a4)
     return t204;
 }
 
-int fadeQuadDrawB(int a4, int a5, int a6, int a7, float f4)
-{
-    int t4;
-    int t13;
-    int stk[70];
-
-    *(unsigned int *)(((int)stk + 84)) = (int)((float)a4 * ((*(float *)((a6 + 0x20))) - (*(float *)((a6 + 0x18)))));
-    *(unsigned int *)(((int)stk + 88)) = (int)((float)a5 * ((*(float *)((a6 + 0x24))) - (*(float *)((a6 + 0x1C)))));
-    t4 = *(int *)(((int)stk + 84));
-    vecMake((0xFF & (int)(f4 * 255.0f)), a5, a6, a7, (((int)stk + 84) + 0x2C), ((float)t4 + (*(float *)((a6 + 0x4)))), (*(float *)((a6 + 0x8))), (*(float *)((a6 + 0xC))));
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 80) + 0x24), (*(float *)((a6 + 0x4))), (*(float *)((a6 + 0x8))), (*(float *)((a6 + 0xC))));
-    t13 = *(int *)(((int)stk + 88));
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 76) + 0x1C), ((float)t4 + (*(float *)((a6 + 0x4)))), ((float)t13 + (*(float *)((a6 + 0x8)))), (*(float *)((a6 + 0xC))));
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 72) + 0x14), (*(float *)((a6 + 0x4))), ((float)t13 + (*(float *)((a6 + 0x8)))), (*(float *)((a6 + 0xC))));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)((((int)stk + 68) + 0x3C)); }
-    primTexVertexSet(0xFFFFFFFF, (((((0xFF & (int)(f4 * 255.0f)) << 16) | ((0xFF & (int)(f4 * 255.0f)) << 8)) | (0xFF & (int)(f4 * 255.0f))) | 0xFF000000), 0x0, 0x0, (((int)stk + 68) + 0x48), (*(float *)((a6 + 0x20))), ((-(*(float *)((a6 + 0x1C)))) + 1.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x40)); }
-    primTexVertexSet(0xFFFFFFFF, (((((0xFF & (int)(f4 * 255.0f)) << 16) | ((0xFF & (int)(f4 * 255.0f)) << 8)) | (0xFF & (int)(f4 * 255.0f))) | 0xFF000000), 0x0, 0x0, (0x1C + (((int)stk + 68) + 0x48)), (*(float *)((a6 + 0x18))), ((-(*(float *)((a6 + 0x1C)))) + 1.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)((((int)stk + 36) + 0x44)); }
-    primTexVertexSet(0xFFFFFFFF, (((((0xFF & (int)(f4 * 255.0f)) << 16) | ((0xFF & (int)(f4 * 255.0f)) << 8)) | (0xFF & (int)(f4 * 255.0f))) | 0xFF000000), 0x0, 0x0, (0x38 + (((int)stk + 68) + 0x48)), (*(float *)((a6 + 0x20))), ((-(*(float *)((a6 + 0x24)))) + 1.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x48)); }
-    primTexVertexSet(0xFFFFFFFF, (((((0xFF & (int)(f4 * 255.0f)) << 16) | ((0xFF & (int)(f4 * 255.0f)) << 8)) | (0xFF & (int)(f4 * 255.0f))) | 0xFF000000), 0x0, 0x0, (0x54 + (((int)stk + 68) + 0x48)), (*(float *)((a6 + 0x18))), ((-(*(float *)((a6 + 0x24)))) + 1.0f));
-    return (nlDispStripTexOfsTrnsl(0x4, (((int)stk + 68) + 0x48), (*(int *)((a6 + 0x0)))));
-}
 
 int nlChangeDisplayMode(int a4, int a5)
 {
@@ -1628,3 +1604,29 @@ int nlChangeDisplayMode(int a4, int a5)
     }
     return t30;
 }
+
+int fadeQuadDrawB(int a4, int a5, int a6, int a7, float f4)
+{
+    int t4;
+    int t13;
+    int stk[70];
+
+    *(unsigned int *)(((int)stk + 84)) = (int)((float)a4 * ((*(float *)((a6 + 0x20))) - (*(float *)((a6 + 0x18)))));
+    *(unsigned int *)(((int)stk + 88)) = (int)((float)a5 * ((*(float *)((a6 + 0x24))) - (*(float *)((a6 + 0x1C)))));
+    t4 = *(int *)(((int)stk + 84));
+    vecMake((0xFF & (int)(f4 * 255.0f)), a5, a6, a7, (((int)stk + 84) + 0x2C), ((float)t4 + (*(float *)((a6 + 0x4)))), (*(float *)((a6 + 0x8))), (*(float *)((a6 + 0xC))));
+    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 80) + 0x24), (*(float *)((a6 + 0x4))), (*(float *)((a6 + 0x8))), (*(float *)((a6 + 0xC))));
+    t13 = *(int *)(((int)stk + 88));
+    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 76) + 0x1C), ((float)t4 + (*(float *)((a6 + 0x4)))), ((float)t13 + (*(float *)((a6 + 0x8)))), (*(float *)((a6 + 0xC))));
+    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 72) + 0x14), (*(float *)((a6 + 0x4))), ((float)t13 + (*(float *)((a6 + 0x8)))), (*(float *)((a6 + 0xC))));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)((((int)stk + 68) + 0x3C)); }
+    primTexVertexSet(0xFFFFFFFF, (((((0xFF & (int)(f4 * 255.0f)) << 16) | ((0xFF & (int)(f4 * 255.0f)) << 8)) | (0xFF & (int)(f4 * 255.0f))) | 0xFF000000), 0x0, 0x0, (((int)stk + 68) + 0x48), (*(float *)((a6 + 0x20))), ((-(*(float *)((a6 + 0x1C)))) + 1.0f));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x40)); }
+    primTexVertexSet(0xFFFFFFFF, (((((0xFF & (int)(f4 * 255.0f)) << 16) | ((0xFF & (int)(f4 * 255.0f)) << 8)) | (0xFF & (int)(f4 * 255.0f))) | 0xFF000000), 0x0, 0x0, (0x1C + (((int)stk + 68) + 0x48)), (*(float *)((a6 + 0x18))), ((-(*(float *)((a6 + 0x1C)))) + 1.0f));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)((((int)stk + 36) + 0x44)); }
+    primTexVertexSet(0xFFFFFFFF, (((((0xFF & (int)(f4 * 255.0f)) << 16) | ((0xFF & (int)(f4 * 255.0f)) << 8)) | (0xFF & (int)(f4 * 255.0f))) | 0xFF000000), 0x0, 0x0, (0x38 + (((int)stk + 68) + 0x48)), (*(float *)((a6 + 0x20))), ((-(*(float *)((a6 + 0x24)))) + 1.0f));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x48)); }
+    primTexVertexSet(0xFFFFFFFF, (((((0xFF & (int)(f4 * 255.0f)) << 16) | ((0xFF & (int)(f4 * 255.0f)) << 8)) | (0xFF & (int)(f4 * 255.0f))) | 0xFF000000), 0x0, 0x0, (0x54 + (((int)stk + 68) + 0x48)), (*(float *)((a6 + 0x18))), ((-(*(float *)((a6 + 0x24)))) + 1.0f));
+    return (nlDispStripTexOfsTrnsl(0x4, (((int)stk + 68) + 0x48), (*(int *)((a6 + 0x0)))));
+}
+

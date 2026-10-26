@@ -1031,34 +1031,6 @@ int ADXAMP_Init(void)
     return t2;
 }
 
-void padLcdLineTo3D(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t4;
-    int t6;
-    int t7;
-    int t8;
-    int stk[12] = {0};
-
-    *(unsigned int *)(((int)stk + 16)) = a4;
-    t0 = *(int *)((a4 + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-    t1 = *(int *)((a4 + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-    t2 = *(int *)((a4 + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    padLcdProject(0x8C2FBC04, (((int)stk + 4) + 0x10));
-    t4 = *(int *)0x8C2FBC44;
-    padLcdLine(t4, 0x8C2FBBF8, (((int)stk + 4) + 0x10), 0x1);
-    t6 = *(int *)(((((int)stk + 4) + 0x10) + 0x8));
-    *(unsigned int *)0x8C2FBC00 = t6;
-    t7 = *(int *)(((((int)stk + 4) + 0x10) + 0x4));
-    *(unsigned int *)0x8C2FBBFC = t7;
-    t8 = *(int *)(((((int)stk + 4) + 0x10) + 0x0));
-    *(unsigned int *)0x8C2FBBF8 = t8;
-}
 
 void nlQuickInvertMatrix(void)
 {

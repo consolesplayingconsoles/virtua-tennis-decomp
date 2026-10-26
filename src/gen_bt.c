@@ -535,138 +535,6 @@ int shadowBallDraw(int a4)
     return (nlPopMatrix(0x1));
 }
 
-int menuItemDraw2(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
-{
-    float t2;
-    float u10;
-    int t20;
-    int t25;
-    float u29;
-    int t30;
-    float t78;
-    float t86;
-    int t87;
-    int t88;
-    int t90;
-    int t95;
-    float u105;
-    float u111;
-    float u126;
-    int t136;
-    float u133;
-    float u8;
-    float u12;
-    int stk[37];
-
-    stk[25] = a8;
-    stk[26] = a9;
-    stk[27] = a10;
-    stk[28] = a11;
-    *(unsigned int *)(((int)stk + 32)) = a4;
-    *(unsigned short *)0x8C334D9A = ((*(short *)0x8C334D9A) + 0x200);
-    t2 = nlCos((unsigned short)(*(short *)0x8C334D9A));
-    if (!(0.0f > t2)) {
-        u8 = (nlCos((unsigned short)(*(short *)0x8C334D9A)));
-    } else {
-        u8 = (-(nlCos((unsigned short)(*(short *)0x8C334D9A))));
-    }
-    u10 = u8;
-    if (!(u8 > 0.200000003f)) {
-        u10 = 0.200000003f;
-    }
-    if (a5 != 0) {
-        *(float *)(((int)stk + 36)) = 1.0f;
-        u12 = u10;
-    } else {
-        *(float *)(((int)stk + 36)) = 0.5f;
-        u12 = 0.0f;
-    }
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x8), ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + 30.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x4))) + 5.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -0.00100000005f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
-    menuIconPut(0xC, *(Stk3 *)((((int)stk + 32) + 0x8)));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 32) + 0x44)); }
-    t20 = ((int (*)(int, Stk3))(cursorBoxPut))(0x0, *(Stk3 *)((((int)stk + 32) + 0x44)));
-    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 20), (*(float *)(((((int)stk + 32) + 0x44) + 0x0))), (*(float *)(((((int)stk + 32) + 0x44) + 0x4))), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -9.99999975e-05f));
-    t25 = ((int (*)(int))(cursorBoxPut))(0x1);
-    *(float *)(((((int)stk + 32) + 0x44) + 0x4)) = ((*(float *)(((((int)stk + 32) + 0x44) + 0x4))) + 21.0f);
-    *(float *)(((((int)stk + 32) + 0x44) + 0x0)) = ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + -7.0f);
-    *(float *)(((((int)stk + 32) + 0x44) + 0x8)) = ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) - 0.00100000005f);
-    u29 = *(float *)(((((int)stk + 32) + 0x44) + 0x4));
-    t30 = *(int *)(((int)stk + 32));
-    if (t30 != 0) {
-        if (t30 != 1) {
-            if (t30 != 2) {
-                if (t30 != 3) {
-                } else {
-                    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x8), ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + 35.0f), (u29 + 5.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -0.00100000005f));
-                    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
-                    menuIconPut(0xF, *(Stk3 *)((((int)stk + 32) + 0x8)));
-                    *(float *)(((((int)stk + 32) + 0x8) + 0x0)) = ((*(float *)(((((int)stk + 32) + 0x8) + 0x0))) + 40.0f);
-                    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
-                    menuIconPut(0x10, *(Stk3 *)((((int)stk + 32) + 0x8)));
-                }
-            } else {
-                vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x8), ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + 56.0f), (u29 + 5.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -0.00100000005f));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
-                menuIconPut(0x10, *(Stk3 *)((((int)stk + 32) + 0x8)));
-            }
-        } else {
-            vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x8), ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + 45.0f), (u29 + 5.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -0.00100000005f));
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
-            menuIconPut(0xE, *(Stk3 *)((((int)stk + 32) + 0x8)));
-        }
-    } else {
-        vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x8), ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + 57.0f), (u29 + 5.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -0.00100000005f));
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
-        menuIconPut(0xD, *(Stk3 *)((((int)stk + 32) + 0x8)));
-    }
-    t78 = nlCos((unsigned short)(*(short *)0x8C1846B6));
-    if (t78 > 0.0f) {
-        *(unsigned short *)0x8C1846B6 = ((*(short *)0x8C1846B6) + 0x1400);
-    } else {
-        *(unsigned short *)0x8C1846B6 = ((*(short *)0x8C1846B6) + 0x600);
-    }
-    t86 = nlCos((unsigned short)(*(short *)0x8C1846B8));
-    t87 = *(short *)0x8C1846B8;
-    t88 = 0x600;
-    if (0.0f > t86) {
-        t88 = 0x1400;
-    }
-    *(unsigned short *)0x8C1846B8 = (t87 + t88);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x44)); }
-    t90 = ((int (*)(int, Stk3))(cursorBoxPut))(0x0, *(Stk3 *)((((int)stk + 32) + 0x44)));
-    if (a5 != 0) {
-        vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 20), (*(float *)(((((int)stk + 32) + 0x44) + 0x0))), (*(float *)(((((int)stk + 32) + 0x44) + 0x4))), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -9.99999975e-05f));
-        t95 = ((int (*)(int))(cursorBoxPut))(0x1);
-    }
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x8), ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + 10.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x4))) + 4.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -0.00100000005f));
-    if (a5 != 0) {
-        u105 = (*(float *)(((((int)stk + 32) + 0x8) + 0x0)));
-        u105 = u105 + 1.0f * (nlCos((unsigned short)(*(short *)0x8C1846B8)));
-        *(float *)(((((int)stk + 32) + 0x8) + 0x0)) = u105;
-    }
-    if ((int)(*(int *)(((int)stk + 32))) > 0) {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
-        u111 = 57.0f;
-        u111 = u111 + 195.0f * u12;
-        menuIconPutRot(0x7, ((((0xFF & (int)u111) << 16) | ((((int)((*(float *)(((int)stk + 36))) * 255.0f) & 0xFF) << 16) << 8)) | 0xEC00), *(Stk3 *)((((int)stk + 32) + 0x8)));
-    }
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x8), ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + 120.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x4))) + 4.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -0.00100000005f));
-    if (a5 != 0) {
-        u126 = (*(float *)(((((int)stk + 32) + 0x8) + 0x0)));
-        u126 = u126 + 1.0f * (nlCos((unsigned short)(*(short *)0x8C1846B6)));
-        *(float *)(((((int)stk + 32) + 0x8) + 0x0)) = u126;
-    }
-    *(float *)(((((int)stk + 32) + 0x8) + 0x4)) = ((*(float *)(((((int)stk + 32) + 0x8) + 0x4))) + 0.0f);
-    t136 = 0x4;
-    if ((int)(*(int *)(((int)stk + 32))) < (int)0x3) {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
-        u133 = 57.0f;
-        u133 = u133 + 195.0f * u12;
-        t136 = (menuIconPutRot(0x8, ((((0xFF & (int)u133) << 16) | ((((int)((*(float *)(((int)stk + 36))) * 255.0f) & 0xFF) << 16) << 8)) | 0xEC00), *(Stk3 *)((((int)stk + 32) + 0x8))));
-    }
-    return t136;
-}
 
 int standBarDraw(int a4, int a5, int a6)
 {
@@ -1493,3 +1361,137 @@ int hudMatchDraw(int a4, float f4)
     }
     return t264;
 }
+
+int menuItemDraw2(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+{
+    float t2;
+    float u10;
+    int t20;
+    int t25;
+    float u29;
+    int t30;
+    float t78;
+    float t86;
+    int t87;
+    int t88;
+    int t90;
+    int t95;
+    float u105;
+    float u111;
+    float u126;
+    int t136;
+    float u133;
+    float u8;
+    float u12;
+    int stk[37];
+
+    stk[25] = a8;
+    stk[26] = a9;
+    stk[27] = a10;
+    stk[28] = a11;
+    *(unsigned int *)(((int)stk + 32)) = a4;
+    *(unsigned short *)0x8C334D9A = ((*(short *)0x8C334D9A) + 0x200);
+    t2 = nlCos((unsigned short)(*(short *)0x8C334D9A));
+    if (!(0.0f > t2)) {
+        u8 = (nlCos((unsigned short)(*(short *)0x8C334D9A)));
+    } else {
+        u8 = (-(nlCos((unsigned short)(*(short *)0x8C334D9A))));
+    }
+    u10 = u8;
+    if (!(u8 > 0.200000003f)) {
+        u10 = 0.200000003f;
+    }
+    if (a5 != 0) {
+        *(float *)(((int)stk + 36)) = 1.0f;
+        u12 = u10;
+    } else {
+        *(float *)(((int)stk + 36)) = 0.5f;
+        u12 = 0.0f;
+    }
+    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x8), ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + 30.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x4))) + 5.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -0.00100000005f));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
+    menuIconPut(0xC, *(Stk3 *)((((int)stk + 32) + 0x8)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 32) + 0x44)); }
+    t20 = ((int (*)(int, Stk3))(cursorBoxPut))(0x0, *(Stk3 *)((((int)stk + 32) + 0x44)));
+    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 20), (*(float *)(((((int)stk + 32) + 0x44) + 0x0))), (*(float *)(((((int)stk + 32) + 0x44) + 0x4))), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -9.99999975e-05f));
+    t25 = ((int (*)(int))(cursorBoxPut))(0x1);
+    *(float *)(((((int)stk + 32) + 0x44) + 0x4)) = ((*(float *)(((((int)stk + 32) + 0x44) + 0x4))) + 21.0f);
+    *(float *)(((((int)stk + 32) + 0x44) + 0x0)) = ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + -7.0f);
+    *(float *)(((((int)stk + 32) + 0x44) + 0x8)) = ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) - 0.00100000005f);
+    u29 = *(float *)(((((int)stk + 32) + 0x44) + 0x4));
+    t30 = *(int *)(((int)stk + 32));
+    if (t30 != 0) {
+        if (t30 != 1) {
+            if (t30 != 2) {
+                if (t30 != 3) {
+                } else {
+                    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x8), ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + 35.0f), (u29 + 5.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -0.00100000005f));
+                    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
+                    menuIconPut(0xF, *(Stk3 *)((((int)stk + 32) + 0x8)));
+                    *(float *)(((((int)stk + 32) + 0x8) + 0x0)) = ((*(float *)(((((int)stk + 32) + 0x8) + 0x0))) + 40.0f);
+                    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
+                    menuIconPut(0x10, *(Stk3 *)((((int)stk + 32) + 0x8)));
+                }
+            } else {
+                vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x8), ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + 56.0f), (u29 + 5.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -0.00100000005f));
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
+                menuIconPut(0x10, *(Stk3 *)((((int)stk + 32) + 0x8)));
+            }
+        } else {
+            vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x8), ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + 45.0f), (u29 + 5.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -0.00100000005f));
+            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
+            menuIconPut(0xE, *(Stk3 *)((((int)stk + 32) + 0x8)));
+        }
+    } else {
+        vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x8), ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + 57.0f), (u29 + 5.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -0.00100000005f));
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
+        menuIconPut(0xD, *(Stk3 *)((((int)stk + 32) + 0x8)));
+    }
+    t78 = nlCos((unsigned short)(*(short *)0x8C1846B6));
+    if (t78 > 0.0f) {
+        *(unsigned short *)0x8C1846B6 = ((*(short *)0x8C1846B6) + 0x1400);
+    } else {
+        *(unsigned short *)0x8C1846B6 = ((*(short *)0x8C1846B6) + 0x600);
+    }
+    t86 = nlCos((unsigned short)(*(short *)0x8C1846B8));
+    t87 = *(short *)0x8C1846B8;
+    t88 = 0x600;
+    if (0.0f > t86) {
+        t88 = 0x1400;
+    }
+    *(unsigned short *)0x8C1846B8 = (t87 + t88);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x44)); }
+    t90 = ((int (*)(int, Stk3))(cursorBoxPut))(0x0, *(Stk3 *)((((int)stk + 32) + 0x44)));
+    if (a5 != 0) {
+        vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 20), (*(float *)(((((int)stk + 32) + 0x44) + 0x0))), (*(float *)(((((int)stk + 32) + 0x44) + 0x4))), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -9.99999975e-05f));
+        t95 = ((int (*)(int))(cursorBoxPut))(0x1);
+    }
+    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x8), ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + 10.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x4))) + 4.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -0.00100000005f));
+    if (a5 != 0) {
+        u105 = (*(float *)(((((int)stk + 32) + 0x8) + 0x0)));
+        u105 = u105 + 1.0f * (nlCos((unsigned short)(*(short *)0x8C1846B8)));
+        *(float *)(((((int)stk + 32) + 0x8) + 0x0)) = u105;
+    }
+    if ((int)(*(int *)(((int)stk + 32))) > 0) {
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
+        u111 = 57.0f;
+        u111 = u111 + 195.0f * u12;
+        menuIconPutRot(0x7, ((((0xFF & (int)u111) << 16) | ((((int)((*(float *)(((int)stk + 36))) * 255.0f) & 0xFF) << 16) << 8)) | 0xEC00), *(Stk3 *)((((int)stk + 32) + 0x8)));
+    }
+    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x8), ((*(float *)(((((int)stk + 32) + 0x44) + 0x0))) + 120.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x4))) + 4.0f), ((*(float *)(((((int)stk + 32) + 0x44) + 0x8))) + -0.00100000005f));
+    if (a5 != 0) {
+        u126 = (*(float *)(((((int)stk + 32) + 0x8) + 0x0)));
+        u126 = u126 + 1.0f * (nlCos((unsigned short)(*(short *)0x8C1846B6)));
+        *(float *)(((((int)stk + 32) + 0x8) + 0x0)) = u126;
+    }
+    *(float *)(((((int)stk + 32) + 0x8) + 0x4)) = ((*(float *)(((((int)stk + 32) + 0x8) + 0x4))) + 0.0f);
+    t136 = 0x4;
+    if ((int)(*(int *)(((int)stk + 32))) < (int)0x3) {
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x8)); }
+        u133 = 57.0f;
+        u133 = u133 + 195.0f * u12;
+        t136 = (menuIconPutRot(0x8, ((((0xFF & (int)u133) << 16) | ((((int)((*(float *)(((int)stk + 36))) * 255.0f) & 0xFF) << 16) << 8)) | 0xEC00), *(Stk3 *)((((int)stk + 32) + 0x8))));
+    }
+    return t136;
+}
+

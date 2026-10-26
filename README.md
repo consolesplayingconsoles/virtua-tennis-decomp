@@ -1,6 +1,6 @@
 # Virtua Tennis decomp
 
-![decomp progress](badges/progress.svg?p=88.7&b=56.6&a=39&s=0)
+![decomp progress](badges/progress.svg?p=89.6&b=57.5&a=40&s=0)
 
 **Explore this decomp project with [Shuriken Explorer](https://consolesplayingconsoles.github.io/dc-shuriken-explorer/) and see the game's models, skeletons, animations, textures, images, sounds, text and side-by-side C and assembly code directly in your browser.**
 
@@ -21,18 +21,18 @@ everything game-derived on your machine, and `.gitignore` keeps it out of git.
 
 <!-- progress -->
 ```
-TOTAL TEST COVERAGE            39.0%  the instructions the cases ran, of all instructions, over the 3251 functions that can be C; the 2747 functions that reached the check are measured, the others count 0
-FUNCTIONS LEFT  (88.7% complete) 367  of the 3251 functions that can be C (42 with no C form are counted apart)
-BYTES LEFT   (56.6% complete) 337004  of 776878 bytes of code that can be C
+TOTAL TEST COVERAGE            39.5%  the instructions the cases ran, of all instructions, over the 3251 functions that can be C; the 2777 functions that reached the check are measured, the others count 0
+FUNCTIONS LEFT  (89.6% complete) 339  of the 3251 functions that can be C (42 with no C form are counted apart)
+BYTES LEFT   (57.5% complete) 329978  of 776878 bytes of code that can be C
 FUNCTIONS                             
   unnamed                         16  functions still called FUN_... (16 of 3293)
-  Not written C                   64  51370 bytes
+  Not written C                   54  50426 bytes
   Written C with errors            0  0 bytes
-  Not drawn                       57  30974 bytes
-  Drawn with errors               64  70812 bytes
-  Checked with errors            182  183848 bytes
+  Not drawn                        9  9866 bytes
+  Drawn with errors               61  70236 bytes
+  Checked with errors            215  199450 bytes
   No C form                     1.3%  an instruction or a register convention with no C form (tools/5-generated/classify.py names it)
-  documented                   84.2%  2774 named functions in docs/*.md
+  documented                   85.1%  2803 named functions in docs/*.md
 GAME ASSETS (EXTRA)                   
   models named                 23.3%  874 of 3745 models: a name, or a named table or collection
   characters named            100.0%  18 of 18 characters (note rules)

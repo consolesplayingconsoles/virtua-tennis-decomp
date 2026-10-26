@@ -134,33 +134,6 @@ int ADXT_StartSj(int a4, int a5);
 int fadeDraw(int a4, int a5, int a6, int a7, float f4, float f5);
 int sunMatrixSet(int a4, int a5);
 
-int winDrawB(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5, float f6)
-{
-    float u0;
-    int stk[27];
-
-    stk[15] = a8;
-    stk[16] = a9;
-    stk[17] = a10;
-    stk[18] = a11;
-    *(unsigned int *)(((int)stk + 32)) = a4;
-    *(unsigned int *)(((int)stk + 36)) = a5;
-    *(unsigned int *)(((int)stk + 40)) = 0x8C1D7414;
-    *(float *)0x8C1D74E0 = f4;
-    *(float *)0x8C1D74A4 = f4;
-    *(float *)0x8C1D748C = f4;
-    *(float *)0x8C1D7468 = f4;
-    *(float *)0x8C1D7450 = f4;
-    u0 = *(float *)0x8C0DEB40;
-    *(float *)0x8C1D7510 = (f4 + u0);
-    *(float *)0x8C1D74F8 = (f4 + u0);
-    *(float *)0x8C1D74BC = (f4 + u0);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x1C)); }
-    winTriPartsPut(0x8C1D7480, 0x2, (*(int *)(((int)stk + 32))), (*(int *)(((int)stk + 36))), *(Stk3 *)((((int)stk + 32) + 0x1C)), f6, f5);
-    *(volatile int *)(((int)stk + 36));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x2C)); }
-    return (winPartsPut(0x8C1D7414, 0x8C1D7480, 0x1, (*(int *)(((int)stk + 32))), *(Stk3 *)((((int)stk + 16) + 0x2C)), f6, f5));
-}
 
 void umpCallFault(void)
 {
@@ -438,35 +411,6 @@ int muneTexLoad(int a4, int a5, int a6)
     return t25;
 }
 
-int pdTmrGetTime(int a4, int a5, int a6, int a7)
-{
-    int t0;
-    int t1;
-    int t6;
-    int t2;
-    int t3;
-    int t8;
-
-    t0 = *(signed char *)((a4 + 0x8C20A958));
-    *(unsigned int *)(((((((unsigned char)t0 << 1) + (unsigned char)t0) << 2) + 0x8C46A8A4) + 0x0)) = a5;
-    *(unsigned int *)(((((((unsigned char)t0 << 1) + (unsigned char)t0) << 2) + 0x8C46A8A4) + 0x4)) = a7;
-    *(unsigned int *)(((((((unsigned char)t0 << 1) + (unsigned char)t0) << 2) + 0x8C46A8A4) + 0x8)) = a6;
-    t1 = pdTmrIsReady(a4);
-    t6 = 0xFFFFFFFE;
-    if (t1 == 0) {
-    } else {
-        t2 = kdSetBlockReadEx(a4);
-        t3 = 0x0;
-        if ((int)t2 < 0) {
-            t3 = 0xFFFFFFFF;
-        }
-        t6 = t3;
-    }
-    if (((int)t6 < 0) && (a6 != 0)) {
-        t8 = ((int (*)(int, int))(a6))(t6, a7);
-    }
-    return 0x0;
-}
 
 int camSceneReset(void)
 {
@@ -608,29 +552,6 @@ void umpCallOut(void)
     }
 }
 
-int screenSegVisible(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
-{
-    int t7;
-    int t11;
-    int stk[38];
-
-    stk[26] = a8;
-    stk[27] = a9;
-    stk[28] = a10;
-    stk[29] = a11;
-    *(unsigned int *)(((int)stk + 76)) = a4;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 48)) = *(struct mv3 *)((((int)stk + 60) + 0x2C)); }
-    camWorldToView((((int)stk + 60) + 0x14));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((((int)stk + 60) + 0x14)); }
-    screenProject((((int)stk + 32) + 0x24), (((int)stk + 32) + 0x28), *(Stk3 *)((((int)stk + 60) + 0x14)));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x54)); }
-    camWorldToView((((int)stk + 60) + 0x14));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 60) + 0x14)); }
-    screenProject((((int)stk + 4) + 0x38), (((int)stk + 4) + 0x3C), *(Stk3 *)((((int)stk + 60) + 0x14)));
-    t7 = screenOutcodeMargin((*(int *)(((int)stk + 68))), (*(int *)(((int)stk + 72))), (*(int *)(((int)stk + 76))));
-    t11 = screenOutcodeMargin((*(int *)(((int)stk + 60))), (*(int *)(((int)stk + 64))), (*(int *)(((int)stk + 76))));
-    return (((((unsigned short)t7 & (unsigned short)t11) == 0)) ? 1 : 0);
-}
 
 int umpCallDoubleFault(void)
 {
@@ -947,19 +868,6 @@ int nlSpriteSetGarbagedTextureOnce_Sub(int a4, int a5, int a6)
     return t19;
 }
 
-int motionRootAtFrame(int a4, int a5, int a6, int a7, int a8)
-{
-    int t1;
-    float u3;
-    int t5;
-    int t6;
-
-    t1 = *(int *)((a4 + 0x54));
-    u3 = *(float *)((((*(int *)((a4 + 0x20))) + 0xC) + 0x0));
-    t5 = *(int *)(((*(int *)((a4 + 0x20))) + 0x4));
-    t6 = *(int *)(((*(int *)((a4 + 0x20))) + 0x10));
-    return (vecMake(a4, ((((int)((float)a5 * u3) * t6) << 1) + (((int)((float)a5 * u3) * t6) << 2)), a6, a7, a8, (((float)(*(short *)((((t1 + t5) + ((((int)((float)a5 * u3) * t6) << 1) + (((int)((float)a5 * u3) * t6) << 2))) + 0x0))) * u3) / (*(float *)((((*(int *)((a4 + 0x20))) + 0x14) + 0x0)))), 0.0f, (((float)(-(*(short *)((((t1 + t5) + ((((int)((float)a5 * u3) * t6) << 1) + (((int)((float)a5 * u3) * t6) << 2))) + 0x4)))) * u3) / (*(float *)((((*(int *)((a4 + 0x20))) + 0x1C) + 0x0))))));
-}
 
 int ambEventStart(void)
 {
@@ -1090,46 +998,6 @@ int menuTextTimePut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int
     return (((int (*)(int, Stk3, float))(menuTextNumPut))(t3, *(Stk3 *)((((int)stk + 28) + 0x10)), f4));
 }
 
-int stageLoadBegin(int a4)
-{
-    int t11;
-    int t2;
-    int t17;
-    int t18;
-    int t19;
-    int t20;
-
-    stageLoadInit(a4);
-    if (((*(int *)0x8C287D5C) != 2) && (t2 = *(int *)0x8C287D5C, t2 != 3)) {
-    } else {
-        stageWtcMainTexFree();
-    }
-    *(unsigned int *)0x8C287C50 = 0x3E8;
-    resultFlagsClear();
-    *(unsigned int *)0x8C181638 = 0x0;
-    *(unsigned int *)0x8C343254 = 0xFFFFFFFF;
-    if (a4 == 1) {
-        *(unsigned int *)0x8C185644 = 0x1;
-        *(unsigned int *)0x8C34400C = 0x0;
-        standSort();
-    } else {
-        *(unsigned int *)0x8C185644 = 0x0;
-        *(unsigned int *)0x8C34400C = 0x1;
-        t11 = 0x2;
-        if ((*(int *)0x8C29B27C) == 0) {
-        } else {
-            t11 = (*(int *)0x8C287C58);
-        }
-        *(unsigned int *)0x8C1891F0 = t11;
-        t17 = 0x8C1891F0;
-        t18 = 0x1;
-        t19 = 0x8C185644;
-        t20 = 0x8C343FE8;
-    }
-    *(unsigned int *)0x8C287C50 = 0x1F4;
-    stageTexFree(t17, t18, t19, t20, a4);
-    return charaTexFreeAll();
-}
 
 void umpCallMatchPoint(void)
 {
@@ -1253,10 +1121,6 @@ int texPicInit(int a4, int a5, int a6, int a7)
     return 0x14;
 }
 
-int FUN_8c0eb200(int a4, int a5, int a6, int a7)
-{
-    return (kmSetBorderColor((a4 | 0xFF000000), a5, a6, a7, (a4 | 0xFF000000)));
-}
 
 int strmBgmSetVol(int a4)
 {
@@ -1455,3 +1319,76 @@ int sunMatrixSet(int a4, int a5)
     nlGetMatrix(0x8C2878F8);
     return nlPopMatrix(0x1);
 }
+
+int FUN_8c0eb200(int a4, int a5, int a6, int a7)
+{
+    return (kmSetBorderColor((a4 | 0xFF000000), a5, a6, a7, (a4 | 0xFF000000)));
+}
+
+
+int screenSegVisible(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+{
+    int t7;
+    int t11;
+    int stk[38];
+
+    stk[26] = a8;
+    stk[27] = a9;
+    stk[28] = a10;
+    stk[29] = a11;
+    *(unsigned int *)(((int)stk + 76)) = a4;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 48)) = *(struct mv3 *)((((int)stk + 60) + 0x2C)); }
+    camWorldToView((((int)stk + 60) + 0x14));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((((int)stk + 60) + 0x14)); }
+    screenProject((((int)stk + 32) + 0x24), (((int)stk + 32) + 0x28), *(Stk3 *)((((int)stk + 60) + 0x14)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x54)); }
+    camWorldToView((((int)stk + 60) + 0x14));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 60) + 0x14)); }
+    screenProject((((int)stk + 4) + 0x38), (((int)stk + 4) + 0x3C), *(Stk3 *)((((int)stk + 60) + 0x14)));
+    t7 = screenOutcodeMargin((*(int *)(((int)stk + 68))), (*(int *)(((int)stk + 72))), (*(int *)(((int)stk + 76))));
+    t11 = screenOutcodeMargin((*(int *)(((int)stk + 60))), (*(int *)(((int)stk + 64))), (*(int *)(((int)stk + 76))));
+    return (((((unsigned short)t7 & (unsigned short)t11) == 0)) ? 1 : 0);
+}
+
+int winDrawB(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5, float f6)
+{
+    float u0;
+    int stk[27];
+
+    stk[15] = a8;
+    stk[16] = a9;
+    stk[17] = a10;
+    stk[18] = a11;
+    *(unsigned int *)(((int)stk + 32)) = a4;
+    *(unsigned int *)(((int)stk + 36)) = a5;
+    *(unsigned int *)(((int)stk + 40)) = 0x8C1D7414;
+    *(float *)0x8C1D74E0 = f4;
+    *(float *)0x8C1D74A4 = f4;
+    *(float *)0x8C1D748C = f4;
+    *(float *)0x8C1D7468 = f4;
+    *(float *)0x8C1D7450 = f4;
+    u0 = *(float *)0x8C0DEB40;
+    *(float *)0x8C1D7510 = (f4 + u0);
+    *(float *)0x8C1D74F8 = (f4 + u0);
+    *(float *)0x8C1D74BC = (f4 + u0);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x1C)); }
+    winTriPartsPut(0x8C1D7480, 0x2, (*(int *)(((int)stk + 32))), (*(int *)(((int)stk + 36))), *(Stk3 *)((((int)stk + 32) + 0x1C)), f6, f5);
+    *(volatile int *)(((int)stk + 36));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x2C)); }
+    return (winPartsPut(0x8C1D7414, 0x8C1D7480, 0x1, (*(int *)(((int)stk + 32))), *(Stk3 *)((((int)stk + 16) + 0x2C)), f6, f5));
+}
+
+int motionRootAtFrame(int a4, int a5, int a6, int a7, int a8)
+{
+    int t1;
+    float u3;
+    int t5;
+    int t6;
+
+    t1 = *(int *)((a4 + 0x54));
+    u3 = *(float *)((((*(int *)((a4 + 0x20))) + 0xC) + 0x0));
+    t5 = *(int *)(((*(int *)((a4 + 0x20))) + 0x4));
+    t6 = *(int *)(((*(int *)((a4 + 0x20))) + 0x10));
+    return (vecMake(a4, ((((int)((float)a5 * u3) * t6) << 1) + (((int)((float)a5 * u3) * t6) << 2)), a6, a7, a8, (((float)(*(short *)((((t1 + t5) + ((((int)((float)a5 * u3) * t6) << 1) + (((int)((float)a5 * u3) * t6) << 2))) + 0x0))) * u3) / (*(float *)((((*(int *)((a4 + 0x20))) + 0x14) + 0x0)))), 0.0f, (((float)(-(*(short *)((((t1 + t5) + ((((int)((float)a5 * u3) * t6) << 1) + (((int)((float)a5 * u3) * t6) << 2))) + 0x4)))) * u3) / (*(float *)((((*(int *)((a4 + 0x20))) + 0x1C) + 0x0))))));
+}
+

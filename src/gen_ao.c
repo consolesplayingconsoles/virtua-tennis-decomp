@@ -1703,21 +1703,6 @@ void perfMark(void)
     
 }
 
-int titleSprBlinkPut(int a4, int a5, int a6, int a7, float f4)
-{
-    int t1;
-    int t7;
-    int stk[8];
-
-    *(float *)(((int)stk + 20)) = f4;
-    t1 = (int)((int)(*(int *)0x8C20D124) % (int)0x28);
-    t7 = t1;
-    if ((int)t1 < (int)0x1E) {
-        vecMake(a4, a5, a6, a7, ((int)stk + 8), (*(float *)0x8C0E6440), (*(float *)(((int)stk + 20))), (*(float *)0x8C0E643C));
-        t7 = (sprListPut(0x8C1D8658, 0x3, 0xFF000000, 1.0f, 1.0f, 1.0f));
-    }
-    return t7;
-}
 
 void sys_init(void)
 {
@@ -1748,20 +1733,6 @@ void sys_init(void)
     }
 }
 
-int mtxGetPos(int a4, int a5, int a6, int a7)
-{
-    int stk[9];
-
-    *(unsigned int *)(((int)stk + 8)) = a4;
-    *(unsigned int *)(((int)stk + 12)) = a5;
-    *(unsigned int *)(((int)stk + 16)) = a6;
-    vecMake(a4, a5, a6, a7, (((int)stk + 8) + 0xC), (*(float *)(((*(int *)(((int)stk + 8))) + 0x0))), (*(float *)(((*(int *)(((int)stk + 12))) + 0x0))), (*(float *)((a6 + 0x0))));
-    nlCalcPoint(0x8C1016D4, (((int)stk + 4) + 0x10));
-    *(float *)(((*(int *)(((int)stk + 8))) + 0x0)) = (*(float *)(((int)stk + 20)));
-    *(float *)(((*(int *)(((int)stk + 12))) + 0x0)) = (*(float *)(((int)stk + 24)));
-    *(float *)(((*(int *)(((int)stk + 16))) + 0x0)) = (*(float *)(((int)stk + 28)));
-    return 0x18;
-}
 
 int netJudgeReact(void)
 {
@@ -1807,3 +1778,35 @@ int nlLineClipNear(int a4, int a5)
     }
     return t22;
 }
+
+int mtxGetPos(int a4, int a5, int a6, int a7)
+{
+    int stk[9];
+
+    *(unsigned int *)(((int)stk + 8)) = a4;
+    *(unsigned int *)(((int)stk + 12)) = a5;
+    *(unsigned int *)(((int)stk + 16)) = a6;
+    vecMake(a4, a5, a6, a7, (((int)stk + 8) + 0xC), (*(float *)(((*(int *)(((int)stk + 8))) + 0x0))), (*(float *)(((*(int *)(((int)stk + 12))) + 0x0))), (*(float *)((a6 + 0x0))));
+    nlCalcPoint(0x8C1016D4, (((int)stk + 4) + 0x10));
+    *(float *)(((*(int *)(((int)stk + 8))) + 0x0)) = (*(float *)(((int)stk + 20)));
+    *(float *)(((*(int *)(((int)stk + 12))) + 0x0)) = (*(float *)(((int)stk + 24)));
+    *(float *)(((*(int *)(((int)stk + 16))) + 0x0)) = (*(float *)(((int)stk + 28)));
+    return 0x18;
+}
+
+int titleSprBlinkPut(int a4, int a5, int a6, int a7, float f4)
+{
+    int t1;
+    int t7;
+    int stk[8];
+
+    *(float *)(((int)stk + 20)) = f4;
+    t1 = (int)((int)(*(int *)0x8C20D124) % (int)0x28);
+    t7 = t1;
+    if ((int)t1 < (int)0x1E) {
+        vecMake(a4, a5, a6, a7, ((int)stk + 8), (*(float *)0x8C0E6440), (*(float *)(((int)stk + 20))), (*(float *)0x8C0E643C));
+        t7 = (sprListPut(0x8C1D8658, 0x3, 0xFF000000, 1.0f, 1.0f, 1.0f));
+    }
+    return t7;
+}
+

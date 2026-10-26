@@ -230,42 +230,6 @@ int nlsndPackLoad(int a4, int a5)
     return t35;
 }
 
-int mwRnaSetPlaySw(int a4, int a5)
-{
-    int t4;
-    int t5;
-    int t8;
-    int t13;
-    int t14;
-    int t17;
-    int stk[6];
-
-    *(unsigned int *)(((int)stk + 8)) = a5;
-    if (a4 == 0) {
-        return (mwRnaErrCallFunc(0x8C20AC30));
-    }
-    ovLockCs_8c200114((((int)stk + 8) + 0x4));
-    if ((*(int *)(((int)stk + 8))) == 0) {
-        t4 = mwRnaGetPlaySw(a4);
-        if (t4 != 0) {
-            t5 = *(int *)((a4 + 0x38));
-            *(unsigned int *)(((int)stk + 8)) = t5;
-            t8 = ((int (*)(int))((*(int *)(((*(int *)((t5 + 0x0))) + 0x14)))))(t5);
-            *(unsigned char *)((a4 + 0x1)) = ((*(signed char *)((a4 + 0x1))) & 0x5);
-        }
-    } else {
-        if ((*(int *)(((int)stk + 8))) == 1) {
-            t13 = mwRnaGetPlaySw(a4);
-            if (t13 != 1) {
-                t14 = *(int *)((a4 + 0x38));
-                *(unsigned int *)(((int)stk + 8)) = t14;
-                t17 = ((int (*)(int))((*(int *)(((*(int *)((t14 + 0x0))) + 0x10)))))(t14);
-                *(unsigned char *)((a4 + 0x1)) = ((*(signed char *)((a4 + 0x1))) | 0x2);
-            }
-        }
-    }
-    return (ovUnlockCs_8c20012c((((int)stk + 8) + 0x4)));
-}
 
 int objListPut(int a4, int a5, int a6)
 {
@@ -431,24 +395,6 @@ int nlInitEvent(void)
     return t13;
 }
 
-int kdSetBlockWriteEx(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
-{
-    int t2;
-
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
-        mpdrv_dpf(0x8C20A820);
-        return 0xFFFFFFFE;
-    }
-    t2 = mpdrv_set_bwrite_ns(a4);
-    if ((int)t2 > 0) {
-        kdSetCallback(a4, a11, t2);
-    }
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
-    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
-        kdRecvFrame();
-    }
-    return t2;
-}
 
 int nlsndPackLoadBG(int a4, int a5, int a6)
 {

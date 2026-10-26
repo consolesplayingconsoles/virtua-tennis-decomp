@@ -192,57 +192,6 @@ int kmyInitDMADevice(void)
     return 0x0;
 }
 
-int screenSphereVisible(Stk4 s, float f4)
-{
-    int t26;
-    int t4;
-    float u5;
-    float u6;
-    float u7;
-    int t19;
-    int t11;
-    float u12;
-    float u13;
-    float u14;
-    int t17;
-    int stk[25];
-
-    stk[13] = s.w[0];
-    stk[14] = s.w[1];
-    stk[15] = s.w[2];
-    stk[16] = s.w[3];
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x20)); }
-    camWorldToView();
-    t26 = 0x0;
-    if (f4 > (*(float *)(((((int)stk + 20) + 0x8) + 0x8)))) {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x8)); }
-        screenProject((((int)stk + 8) + 0xC), (((int)stk + 8) + 0x10), *(Stk3 *)((((int)stk + 20) + 0x8)));
-        t4 = abs((*(int *)(((int)stk + 20))));
-        u5 = *(float *)(((((int)stk + 20) + 0x8) + 0x8));
-        u6 = *(float *)0x8C287A10;
-        u7 = (-u5);
-        if (!(0.0f > u5)) {
-            u7 = u5;
-        }
-        t19 = 0x0;
-        if ((((u6 * f4) / u7) + (*(float *)0x8C08A2CC)) > (float)t4) {
-            t11 = abs((*(int *)(((int)stk + 24))));
-            u12 = *(float *)(((((int)stk + 20) + 0x8) + 0x8));
-            u13 = *(float *)0x8C287A10;
-            u14 = (-u12);
-            if (!(0.0f > u12)) {
-                u14 = u12;
-            }
-            t17 = 0x0;
-            if ((((u13 * f4) / u14) + (*(float *)0x8C08A2D0)) > (float)t11) {
-                t17 = 0x1;
-            }
-            t19 = t17;
-        }
-        t26 = t19;
-    }
-    return t26;
-}
 
 int logoADraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
 {

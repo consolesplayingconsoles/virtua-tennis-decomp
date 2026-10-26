@@ -392,125 +392,6 @@ int stageTexSetGarbaged(void)
     goto L_8C0B1FE6;
 }
 
-int titleMenuLayout(int a4, int a5, int a6, int a7, float f4, float f5)
-{
-    int t11;
-    int t13;
-    int t18;
-    int t19;
-    int t23;
-    int t24;
-    int t25;
-    int t27;
-    int t28;
-    int t35;
-    int t95;
-    int t37;
-    int t43;
-    int t50;
-    int t90;
-    int t51;
-    int t53;
-    int t54;
-    int t61;
-    int t85;
-    int t62;
-    int t64;
-    int t70;
-    int t77;
-    int t81;
-    int stk[66];
-
-    *(unsigned int *)(((int)stk + 56)) = a4;
-    *(unsigned int *)(((int)stk + 60)) = a5;
-    *(unsigned int *)(((int)stk + 68)) = (((int)stk + 48) + 0x24);
-    vecMake(a4, a5, a6, a7, (((int)stk + 48) + 0x24), 0.0f, 0.0f, 0.449999988f);
-    vecMake(0x0, 0x0, 0x0, 0x0, (0xC + (((int)stk + 48) + 0x24)), 256.0f, 0.0f, 0.449999988f);
-    vecMake(0x0, 0x0, 0x0, 0x0, (0x18 + (((int)stk + 48) + 0x24)), 0.0f, 256.0f, 0.449999988f);
-    vecMake(0x0, 0x0, 0x0, 0x0, (0x24 + (((int)stk + 48) + 0x24)), 256.0f, 256.0f, 0.449999988f);
-    vecMake(0x0, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 48) + 0x24)), 512.0f, 0.0f, 0.449999988f);
-    *(unsigned int *)(((int)stk + 64)) = ((((int)stk + 48) + 0x24) + 0x3C);
-    vecMake(0x0, 0x0, 0x0, 0x0, ((((int)stk + 48) + 0x24) + 0x3C), 410.0f, 20.0f, 0.100000001f);
-    *(unsigned int *)(((int)stk + 52)) = ((((int)stk + 48) + 0x24) + 0x48);
-    vecMake(0x0, 0x0, 0x0, 0x0, ((((int)stk + 48) + 0x24) + 0x48), 20.0f, 420.0f, 0.100000001f);
-    vecMake(0x0, 0x0, 0x0, 0x0, ((((int)stk + 48) + 0x24) + 0x54), 25.0f, 113.0f, 0.200000003f);
-    vecMake(0x0, 0x0, 0x0, 0x0, (0x60 + (((int)stk + 48) + 0x24)), 20.0f, 173.0f, 0.100000001f);
-    vecMake(0x0, 0x0, 0x0, 0x0, ((((int)stk + 48) + 0x24) + 0x6C), 20.0f, 173.0f, 0.100000001f);
-    *(unsigned int *)(((int)stk + 48)) = ((((int)stk + 48) + 0x24) + 0x78);
-    vecMake(0x0, 0x0, 0x0, 0x0, ((((int)stk + 48) + 0x24) + 0x78), 200.0f, 239.0f, 0.100000001f);
-    t11 = 0x0;
-    for (;;) {
-        *(float *)(((t11 + (((int)stk + 48) + 0x24)) + 0x8)) = ((*(float *)(((t11 + (((int)stk + 48) + 0x24)) + 0x8))) + f5);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)((t11 + 0x8C421F9C)) = *(struct mv3 *)((t11 + (((int)stk + 48) + 0x24))); }
-        t13 = (t11 + (((int)stk + 48) + 0x24));
-        t11 = (t11 + 0xC);
-        if ((unsigned int)t11 >= (unsigned int)0x84) {
-            break;
-        }
-    }
-    t18 = 0x8C37DC1C;
-    t19 = (*(int *)(((int)stk + 68)));
-    for (;;) {
-        if ((unsigned int)t19 >= (unsigned int)(*(int *)(((int)stk + 64)))) {
-            break;
-        }
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)(t19); }
-        t23 = ((int (*)(int, int, int, int, Stk3, float))(sprPutAtAlpha))(t18, 0x84, t13, 0x8C421F9C, *(Stk3 *)(t19), (*(float *)(((*(int *)(((int)stk + 60))) + 0x0))));
-        t19 = (t19 + 0xC);
-        t18 = (t18 + 0x50);
-    }
-    t24 = *(int *)(((int)stk + 52));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)(t24); }
-    t25 = *(int *)(((int)stk + 60));
-    t27 = ((int (*)(int, int, int, int, Stk3, float))(sprPutAtAlpha))(0x8C37DF8C, 0x84, t13, 0x8C421F9C, *(Stk3 *)(t24), (*(float *)(((t25 + 0x8) + 0x0))));
-    t28 = *(int *)(((int)stk + 52));
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x24), ((*(float *)((t28 + 0x0))) + 162.0f), (*(float *)((t28 + 0x4))), (*(float *)((t28 + 0x8))));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 36) + 0x24)); }
-    t35 = *(int *)(((int)stk + 56));
-    t95 = (((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37DFDC, *(Stk3 *)((((int)stk + 36) + 0x24)), (*(float *)(((t25 + 0x8) + 0x0)))));
-    if (t35 != 0) {
-    } else {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)(((((int)stk + 48) + 0x24) + 0x54)); }
-        t37 = ((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37DDAC, *(Stk3 *)(((((int)stk + 48) + 0x24) + 0x54)), (*(float *)(((t25 + 0x8) + 0x0))));
-        vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x24), ((*(float *)((((((int)stk + 48) + 0x24) + 0x54) + 0x0))) + 256.0f), (*(float *)((((((int)stk + 48) + 0x24) + 0x54) + 0x4))), (*(float *)((((((int)stk + 48) + 0x24) + 0x54) + 0x8))));
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 36) + 0x24)); }
-        t43 = ((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37DDFC, *(Stk3 *)((((int)stk + 36) + 0x24)), (*(float *)(((t25 + 0x8) + 0x0))));
-        vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x24), ((*(float *)((((((int)stk + 48) + 0x24) + 0x54) + 0x0))) + 512.0f), (*(float *)((((((int)stk + 48) + 0x24) + 0x54) + 0x4))), (*(float *)((((((int)stk + 48) + 0x24) + 0x54) + 0x8))));
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 36) + 0x24)); }
-        t50 = *(int *)(((int)stk + 56));
-        t90 = (((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37DE4C, *(Stk3 *)((((int)stk + 36) + 0x24)), (*(float *)(((t25 + 0x8) + 0x0)))));
-        if (t50 == 0) {
-            t51 = *(int *)(((int)stk + 48));
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)(t51); }
-            t53 = ((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37DE9C, *(Stk3 *)(t51), (*(float *)(((t25 + 0x8) + 0x0))));
-            t54 = *(int *)(((int)stk + 48));
-            vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x24), ((*(float *)((t54 + 0x0))) + 256.0f), (*(float *)((t54 + 0x4))), (*(float *)((t54 + 0x8))));
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 36) + 0x24)); }
-            t61 = *(int *)(((int)stk + 56));
-            t85 = (((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37DEEC, *(Stk3 *)((((int)stk + 36) + 0x24)), (*(float *)(((t25 + 0x8) + 0x0)))));
-            if (t61 == 0) {
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)(((((int)stk + 48) + 0x24) + 0x6C)); }
-                t62 = *(int *)(((int)stk + 60));
-                t64 = ((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37E11C, *(Stk3 *)(((((int)stk + 48) + 0x24) + 0x6C)), (*(float *)(((t62 + 0x4) + 0x0))));
-                vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x24), ((*(float *)((((((int)stk + 48) + 0x24) + 0x6C) + 0x0))) + 256.0f), (*(float *)((((((int)stk + 48) + 0x24) + 0x6C) + 0x4))), (*(float *)((((((int)stk + 48) + 0x24) + 0x6C) + 0x8))));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 36) + 0x24)); }
-                t70 = ((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37E16C, *(Stk3 *)((((int)stk + 36) + 0x24)), (*(float *)(((t62 + 0x4) + 0x0))));
-                vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x24), ((*(float *)((((((int)stk + 48) + 0x24) + 0x6C) + 0x0))) + 512.0f), (*(float *)((((((int)stk + 48) + 0x24) + 0x6C) + 0x4))), (*(float *)((((((int)stk + 48) + 0x24) + 0x6C) + 0x8))));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 36) + 0x24)); }
-                t77 = *(int *)(((int)stk + 56));
-                t81 = (((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37E1BC, *(Stk3 *)((((int)stk + 36) + 0x24)), (*(float *)(((t62 + 0x4) + 0x0)))));
-                if (t77 == 0) {
-                    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 36), 256.0f, 305.0f, 0.100000001f);
-                    t81 = (sprListPut(0x8C1D90C0, 0x1, 0xFF000000, (*(float *)(((t25 + 0x8) + 0x0))), 1.0f, 1.0f));
-                }
-                t85 = t81;
-            }
-            t90 = t85;
-        }
-        t95 = t90;
-    }
-    return t95;
-}
 
 int courtFraDrawScoreboard(void)
 {
@@ -1987,3 +1868,124 @@ int evSkidMarkSpawn(int a4, int a5, int a6)
     }
     return t536;
 }
+
+int titleMenuLayout(int a4, int a5, int a6, int a7, float f4, float f5)
+{
+    int t11;
+    int t13;
+    int t18;
+    int t19;
+    int t23;
+    int t24;
+    int t25;
+    int t27;
+    int t28;
+    int t35;
+    int t95;
+    int t37;
+    int t43;
+    int t50;
+    int t90;
+    int t51;
+    int t53;
+    int t54;
+    int t61;
+    int t85;
+    int t62;
+    int t64;
+    int t70;
+    int t77;
+    int t81;
+    int stk[66];
+
+    *(unsigned int *)(((int)stk + 56)) = a4;
+    *(unsigned int *)(((int)stk + 60)) = a5;
+    *(unsigned int *)(((int)stk + 68)) = (((int)stk + 48) + 0x24);
+    vecMake(a4, a5, a6, a7, (((int)stk + 48) + 0x24), 0.0f, 0.0f, 0.449999988f);
+    vecMake(0x0, 0x0, 0x0, 0x0, (0xC + (((int)stk + 48) + 0x24)), 256.0f, 0.0f, 0.449999988f);
+    vecMake(0x0, 0x0, 0x0, 0x0, (0x18 + (((int)stk + 48) + 0x24)), 0.0f, 256.0f, 0.449999988f);
+    vecMake(0x0, 0x0, 0x0, 0x0, (0x24 + (((int)stk + 48) + 0x24)), 256.0f, 256.0f, 0.449999988f);
+    vecMake(0x0, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 48) + 0x24)), 512.0f, 0.0f, 0.449999988f);
+    *(unsigned int *)(((int)stk + 64)) = ((((int)stk + 48) + 0x24) + 0x3C);
+    vecMake(0x0, 0x0, 0x0, 0x0, ((((int)stk + 48) + 0x24) + 0x3C), 410.0f, 20.0f, 0.100000001f);
+    *(unsigned int *)(((int)stk + 52)) = ((((int)stk + 48) + 0x24) + 0x48);
+    vecMake(0x0, 0x0, 0x0, 0x0, ((((int)stk + 48) + 0x24) + 0x48), 20.0f, 420.0f, 0.100000001f);
+    vecMake(0x0, 0x0, 0x0, 0x0, ((((int)stk + 48) + 0x24) + 0x54), 25.0f, 113.0f, 0.200000003f);
+    vecMake(0x0, 0x0, 0x0, 0x0, (0x60 + (((int)stk + 48) + 0x24)), 20.0f, 173.0f, 0.100000001f);
+    vecMake(0x0, 0x0, 0x0, 0x0, ((((int)stk + 48) + 0x24) + 0x6C), 20.0f, 173.0f, 0.100000001f);
+    *(unsigned int *)(((int)stk + 48)) = ((((int)stk + 48) + 0x24) + 0x78);
+    vecMake(0x0, 0x0, 0x0, 0x0, ((((int)stk + 48) + 0x24) + 0x78), 200.0f, 239.0f, 0.100000001f);
+    t11 = 0x0;
+    for (;;) {
+        *(float *)(((t11 + (((int)stk + 48) + 0x24)) + 0x8)) = ((*(float *)(((t11 + (((int)stk + 48) + 0x24)) + 0x8))) + f5);
+        { struct mv3 { int w[3]; }; *(struct mv3 *)((t11 + 0x8C421F9C)) = *(struct mv3 *)((t11 + (((int)stk + 48) + 0x24))); }
+        t13 = (t11 + (((int)stk + 48) + 0x24));
+        t11 = (t11 + 0xC);
+        if ((unsigned int)t11 >= (unsigned int)0x84) {
+            break;
+        }
+    }
+    t18 = 0x8C37DC1C;
+    t19 = (*(int *)(((int)stk + 68)));
+    for (;;) {
+        if ((unsigned int)t19 >= (unsigned int)(*(int *)(((int)stk + 64)))) {
+            break;
+        }
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)(t19); }
+        t23 = ((int (*)(int, int, int, int, Stk3, float))(sprPutAtAlpha))(t18, 0x84, t13, 0x8C421F9C, *(Stk3 *)(t19), (*(float *)(((*(int *)(((int)stk + 60))) + 0x0))));
+        t19 = (t19 + 0xC);
+        t18 = (t18 + 0x50);
+    }
+    t24 = *(int *)(((int)stk + 52));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)(t24); }
+    t25 = *(int *)(((int)stk + 60));
+    t27 = ((int (*)(int, int, int, int, Stk3, float))(sprPutAtAlpha))(0x8C37DF8C, 0x84, t13, 0x8C421F9C, *(Stk3 *)(t24), (*(float *)(((t25 + 0x8) + 0x0))));
+    t28 = *(int *)(((int)stk + 52));
+    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x24), ((*(float *)((t28 + 0x0))) + 162.0f), (*(float *)((t28 + 0x4))), (*(float *)((t28 + 0x8))));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 36) + 0x24)); }
+    t35 = *(int *)(((int)stk + 56));
+    t95 = (((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37DFDC, *(Stk3 *)((((int)stk + 36) + 0x24)), (*(float *)(((t25 + 0x8) + 0x0)))));
+    if (t35 != 0) {
+    } else {
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)(((((int)stk + 48) + 0x24) + 0x54)); }
+        t37 = ((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37DDAC, *(Stk3 *)(((((int)stk + 48) + 0x24) + 0x54)), (*(float *)(((t25 + 0x8) + 0x0))));
+        vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x24), ((*(float *)((((((int)stk + 48) + 0x24) + 0x54) + 0x0))) + 256.0f), (*(float *)((((((int)stk + 48) + 0x24) + 0x54) + 0x4))), (*(float *)((((((int)stk + 48) + 0x24) + 0x54) + 0x8))));
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 36) + 0x24)); }
+        t43 = ((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37DDFC, *(Stk3 *)((((int)stk + 36) + 0x24)), (*(float *)(((t25 + 0x8) + 0x0))));
+        vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x24), ((*(float *)((((((int)stk + 48) + 0x24) + 0x54) + 0x0))) + 512.0f), (*(float *)((((((int)stk + 48) + 0x24) + 0x54) + 0x4))), (*(float *)((((((int)stk + 48) + 0x24) + 0x54) + 0x8))));
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 36) + 0x24)); }
+        t50 = *(int *)(((int)stk + 56));
+        t90 = (((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37DE4C, *(Stk3 *)((((int)stk + 36) + 0x24)), (*(float *)(((t25 + 0x8) + 0x0)))));
+        if (t50 == 0) {
+            t51 = *(int *)(((int)stk + 48));
+            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)(t51); }
+            t53 = ((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37DE9C, *(Stk3 *)(t51), (*(float *)(((t25 + 0x8) + 0x0))));
+            t54 = *(int *)(((int)stk + 48));
+            vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x24), ((*(float *)((t54 + 0x0))) + 256.0f), (*(float *)((t54 + 0x4))), (*(float *)((t54 + 0x8))));
+            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 36) + 0x24)); }
+            t61 = *(int *)(((int)stk + 56));
+            t85 = (((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37DEEC, *(Stk3 *)((((int)stk + 36) + 0x24)), (*(float *)(((t25 + 0x8) + 0x0)))));
+            if (t61 == 0) {
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)(((((int)stk + 48) + 0x24) + 0x6C)); }
+                t62 = *(int *)(((int)stk + 60));
+                t64 = ((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37E11C, *(Stk3 *)(((((int)stk + 48) + 0x24) + 0x6C)), (*(float *)(((t62 + 0x4) + 0x0))));
+                vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x24), ((*(float *)((((((int)stk + 48) + 0x24) + 0x6C) + 0x0))) + 256.0f), (*(float *)((((((int)stk + 48) + 0x24) + 0x6C) + 0x4))), (*(float *)((((((int)stk + 48) + 0x24) + 0x6C) + 0x8))));
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 36) + 0x24)); }
+                t70 = ((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37E16C, *(Stk3 *)((((int)stk + 36) + 0x24)), (*(float *)(((t62 + 0x4) + 0x0))));
+                vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x24), ((*(float *)((((((int)stk + 48) + 0x24) + 0x6C) + 0x0))) + 512.0f), (*(float *)((((((int)stk + 48) + 0x24) + 0x6C) + 0x4))), (*(float *)((((((int)stk + 48) + 0x24) + 0x6C) + 0x8))));
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 36) + 0x24)); }
+                t77 = *(int *)(((int)stk + 56));
+                t81 = (((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C37E1BC, *(Stk3 *)((((int)stk + 36) + 0x24)), (*(float *)(((t62 + 0x4) + 0x0)))));
+                if (t77 == 0) {
+                    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 36), 256.0f, 305.0f, 0.100000001f);
+                    t81 = (sprListPut(0x8C1D90C0, 0x1, 0xFF000000, (*(float *)(((t25 + 0x8) + 0x0))), 1.0f, 1.0f));
+                }
+                t85 = t81;
+            }
+            t90 = t85;
+        }
+        t95 = t90;
+    }
+    return t95;
+}
+

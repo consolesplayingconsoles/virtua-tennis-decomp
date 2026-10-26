@@ -661,50 +661,6 @@ int nlSpriteChangePalette(int a4, int a5, int a6, int a7)
     return t68;
 }
 
-int primSprDrawScaleFadeY(int a4, int a5, int a6, float f4, float f5, float f6, float f7)
-{
-    float u0;
-    float u1;
-    float u3;
-    float u4;
-    int t6;
-    float u7;
-    float u8;
-    int t10;
-    int t14;
-    int t15;
-    float u16;
-    int t20;
-    int t25;
-    int stk[76];
-
-    u0 = *(float *)((a4 + 0x20));
-    u1 = *(float *)((a4 + 0x18));
-    *(unsigned int *)(((int)stk + 92)) = (int)(((f4 * (u0 - u1))) * (float)a5);
-    u3 = *(float *)((a4 + 0x24));
-    u4 = *(float *)((a4 + 0x1C));
-    *(unsigned int *)(((int)stk + 88)) = (int)(((f5 * (u3 - u4))) * (float)a6);
-    t6 = *(int *)(((int)stk + 92));
-    u7 = *(float *)(((0xDC + ((int)stk + 84)) + 0x8));
-    u8 = *(float *)(((0xDC + ((int)stk + 84)) + 0x4));
-    *(float *)(((int)stk + 84)) = (float)t6;
-    t10 = ((int (*)(int, int, int, int, int, float, float, float, float, float))(vecMake))(0xFFFFFF, a5, a6, 0xFF, (((int)stk + 84) + 0x34), ((float)t6 + (*(float *)(((0xDC + ((int)stk + 84)) + 0x0)))), u8, u7, f7, 255.0f);
-    t14 = ((int (*)(int, int, int, int, int, float, float, float))(vecMake))(0x0, 0x0, 0x0, 0x0, (((int)stk + 80) + 0x2C), (*(float *)(((0xDC + ((int)stk + 84)) + 0x0))), (*(float *)(((0xDC + ((int)stk + 84)) + 0x4))), (*(float *)(((0xDC + ((int)stk + 84)) + 0x8))));
-    t15 = *(int *)(((int)stk + 88));
-    u16 = *(float *)(((0xDC + ((int)stk + 84)) + 0x8));
-    *(float *)(((int)stk + 96)) = (float)t15;
-    t20 = ((int (*)(int, int, int, int, int, float, float, float))(vecMake))(0x0, 0x0, 0x0, 0x0, (((int)stk + 76) + 0x24), ((*(float *)(((int)stk + 84))) + (*(float *)(((0xDC + ((int)stk + 84)) + 0x0)))), ((float)t15 + (*(float *)(((0xDC + ((int)stk + 84)) + 0x4)))), u16);
-    t25 = ((int (*)(int, int, int, int, int, float, float, float))(vecMake))(0x0, 0x0, 0x0, 0x0, (((int)stk + 72) + 0x1C), (*(float *)(((0xDC + ((int)stk + 84)) + 0x0))), ((*(float *)(((int)stk + 96))) + (*(float *)(((0xDC + ((int)stk + 84)) + 0x4)))), (*(float *)(((0xDC + ((int)stk + 84)) + 0x8))));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)((((int)stk + 68) + 0x44)); }
-    primTexVertexSet((((((int)(f6 * 255.0f) & 0xFF) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (((int)stk + 68) + 0x50), u0, ((-u4) + 1.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x48)); }
-    primTexVertexSet((((((int)(f6 * 255.0f) & 0xFF) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (0x1C + (((int)stk + 68) + 0x50)), u1, ((-u4) + 1.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)((((int)stk + 36) + 0x4C)); }
-    primTexVertexSet((((((int)(f7 * 255.0f) & 0xFF) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (0x38 + (((int)stk + 68) + 0x50)), u0, ((-u3) + 1.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x50)); }
-    primTexVertexSet((((((int)(f7 * 255.0f) & 0xFF) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (0x54 + (((int)stk + 68) + 0x50)), u1, ((-u3) + 1.0f));
-    return (nlDispStripTexOfsTrnsl(0x4, (((int)stk + 68) + 0x50), (*(int *)((a4 + 0x0)))));
-}
 
 int motionAdvance(int a4)
 {
@@ -947,132 +903,6 @@ int nlkmCreateTextureSurface_stride(int a4, int a5, int a6)
     return (kmyAllocateArea(0x1, ((a5 * a6) << 1), (a4 + 0x1C)));
 }
 
-int mwlRnaStartTrans(int a4, int a5, int a6, int a7)
-{
-    int t1;
-    int t4;
-    int t5;
-    int t17;
-    int t18;
-    int t20;
-    int t21;
-    int t24;
-    int t27;
-    int t28;
-    int t29;
-    int t37;
-    int t38;
-    int t40;
-    int t41;
-    int t42;
-    int t44;
-    int t45;
-    int t46;
-    int t47;
-    int t63;
-    int t64;
-    int t65;
-    int t67;
-    int t68;
-    int t69;
-    int t31;
-    int t34;
-    int t70;
-    int t58;
-    int stk[13];
-
-    t1 = (int)((int)0x20 / (int)(*(int *)((a4 + 0x8))));
-    t4 = (int)((int)((*(int *)((a4 + 0x28))) - (*(int *)((a4 + 0x34)))) / (int)((t1 << 2) << 1));
-    t5 = 0x0;
-    for (;;) {
-        if ((int)t5 >= (int)(unsigned char)(*(signed char *)((a4 + 0x3)))) {
-            break;
-        }
-        if ((*(int *)((((t5 << 2) + (a4 + 0x10)) + 0x0))) == 0) {
-            mwRnaErrCallFunc(0x8C20ACB0);
-        }
-        t17 = *(int *)((((t5 << 2) + (a4 + 0x10)) + 0x0));
-        *(unsigned int *)(((int)stk + 8)) = t17;
-        t18 = *(int *)((a4 + 0x8));
-        t20 = *(int *)(((*(int *)((t17 + 0x0))) + 0x18));
-        t21 = ((t4 * ((t1 << 2) << 1)) * t18);
-        if ((int)((t4 * ((t1 << 2) << 1)) * t18) < 0) {
-            t21 = (((t4 * ((t1 << 2) << 1)) * t18) + 0x7);
-        }
-        t24 = ((int (*)(int, int, int, int))(t20))((*(int *)(((int)stk + 8))), 0x1, (((t21 >> 1) >> 1) >> 1), (((t5 << 2) << 1) + (a4 + 0x18)));
-        t5 = (t5 + 0x1);
-    }
-    if ((unsigned char)(*(signed char *)((a4 + 0x3))) == 1) {
-        t31 = (*(int *)((a4 + 0x1C)));
-        t34 = a7;
-    } else {
-        *(unsigned int *)(((int)stk + 16)) = (a4 + 0x18);
-        t27 = *(int *)(((a4 + 0x18) + 0x4));
-        *(unsigned int *)(((int)stk + 12)) = ((a4 + 0x18) + 0x8);
-        t28 = *(int *)((((a4 + 0x18) + 0x8) + 0x4));
-        t29 = t28;
-        if ((int)t27 < (int)t28) {
-            t29 = t27;
-        }
-        t31 = t29;
-        t34 = t28;
-    }
-    t37 = (int)((int)t31 / (int)(*(int *)((a4 + 0x8))));
-    t38 = ((t37 << 2) << 1);
-    if ((int)((t37 << 2) << 1) >= (int)(t4 * ((t1 << 2) << 1))) {
-        t38 = (t4 * ((t1 << 2) << 1));
-    }
-    t40 = *(int *)((a4 + 0x28));
-    t41 = *(int *)((a4 + 0x2C));
-    t42 = t38;
-    if ((int)t38 >= (int)(t40 - t41)) {
-        t42 = (t40 - t41);
-    }
-    t44 = (int)((int)t42 / (int)((t1 << 2) << 1));
-    if ((int)(t44 * ((t1 << 2) << 1)) <= 0) {
-        t45 = (t44 * ((t1 << 2) << 1));
-        t46 = 0x0;
-        t47 = 0x0;
-        for (;;) {
-            if ((int)t46 >= (int)(unsigned char)(*(signed char *)((a4 + 0x3)))) {
-                break;
-            }
-            t47 = t46;
-            t47 = (t47 << 2);
-            if ((*(int *)((((a4 + 0x10) + t47) + 0x0))) == 0) {
-                mwRnaErrCallFunc(0x8C20ACB0);
-            } else {
-                t58 = t34;
-            }
-            t45 = a4;
-            t45 = (t45 + 0x10);
-            t45 = (t45 + t47);
-            t45 = (*(int *)((t45 + 0x0)));
-            t63 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)((t45 + 0x0))) + 0x1C)))))(t45, 0x1, (((t46 << 2) << 1) + (a4 + 0x18)), t58);
-            t46 = (t46 + 0x1);
-        }
-        t70 = 0x0;
-    } else {
-        t64 = 0x8C46EB4C;
-        t65 = 0x0;
-        for (;;) {
-            if ((int)t65 >= (int)(unsigned char)(*(signed char *)((a4 + 0x3)))) {
-                break;
-            }
-            t67 = *(int *)((a4 + 0x2C));
-            t68 = *(int *)(((((t65 << 2) << 1) + (a4 + 0x18)) + 0x0));
-            *(unsigned int *)0x8C46EB4C = 0x0;
-            t64 = a4;
-            t69 = mwlRnaStartCopy(t64, t65, t67, t68, (t44 * ((t1 << 2) << 1)));
-            t65 = (t65 + 0x1);
-            *(unsigned int *)0x8C46EB50 = 0x0;
-            t64 = t69;
-        }
-        *(unsigned int *)((a4 + 0x3C)) = t64;
-        t70 = t64;
-    }
-    return t70;
-}
 
 void syChainDeleteHandler(int a4)
 {
@@ -1778,3 +1608,176 @@ int vmsfs_init_work_normal(int a4, int a5, int a6)
     R8 = ((*(int *)((R12 + 0x0))));
     goto L_8C1EB316;
 }
+
+int mwlRnaStartTrans(int a4, int a5, int a6, int a7)
+{
+    int t1;
+    int t4;
+    int t5;
+    int t17;
+    int t18;
+    int t20;
+    int t21;
+    int t24;
+    int t27;
+    int t28;
+    int t29;
+    int t37;
+    int t38;
+    int t40;
+    int t41;
+    int t42;
+    int t44;
+    int t45;
+    int t46;
+    int t47;
+    int t63;
+    int t64;
+    int t65;
+    int t67;
+    int t68;
+    int t69;
+    int t31;
+    int t34;
+    int t70;
+    int t58;
+    int stk[13];
+
+    t1 = (int)((int)0x20 / (int)(*(int *)((a4 + 0x8))));
+    t4 = (int)((int)((*(int *)((a4 + 0x28))) - (*(int *)((a4 + 0x34)))) / (int)((t1 << 2) << 1));
+    t5 = 0x0;
+    for (;;) {
+        if ((int)t5 >= (int)(unsigned char)(*(signed char *)((a4 + 0x3)))) {
+            break;
+        }
+        if ((*(int *)((((t5 << 2) + (a4 + 0x10)) + 0x0))) == 0) {
+            mwRnaErrCallFunc(0x8C20ACB0);
+        }
+        t17 = *(int *)((((t5 << 2) + (a4 + 0x10)) + 0x0));
+        *(unsigned int *)(((int)stk + 8)) = t17;
+        t18 = *(int *)((a4 + 0x8));
+        t20 = *(int *)(((*(int *)((t17 + 0x0))) + 0x18));
+        t21 = ((t4 * ((t1 << 2) << 1)) * t18);
+        if ((int)((t4 * ((t1 << 2) << 1)) * t18) < 0) {
+            t21 = (((t4 * ((t1 << 2) << 1)) * t18) + 0x7);
+        }
+        t24 = ((int (*)(int, int, int, int))(t20))((*(int *)(((int)stk + 8))), 0x1, (((t21 >> 1) >> 1) >> 1), (((t5 << 2) << 1) + (a4 + 0x18)));
+        t5 = (t5 + 0x1);
+    }
+    if ((unsigned char)(*(signed char *)((a4 + 0x3))) == 1) {
+        t31 = (*(int *)((a4 + 0x1C)));
+        t34 = a7;
+    } else {
+        *(unsigned int *)(((int)stk + 16)) = (a4 + 0x18);
+        t27 = *(int *)(((a4 + 0x18) + 0x4));
+        *(unsigned int *)(((int)stk + 12)) = ((a4 + 0x18) + 0x8);
+        t28 = *(int *)((((a4 + 0x18) + 0x8) + 0x4));
+        t29 = t28;
+        if ((int)t27 < (int)t28) {
+            t29 = t27;
+        }
+        t31 = t29;
+        t34 = t28;
+    }
+    t37 = (int)((int)t31 / (int)(*(int *)((a4 + 0x8))));
+    t38 = ((t37 << 2) << 1);
+    if ((int)((t37 << 2) << 1) >= (int)(t4 * ((t1 << 2) << 1))) {
+        t38 = (t4 * ((t1 << 2) << 1));
+    }
+    t40 = *(int *)((a4 + 0x28));
+    t41 = *(int *)((a4 + 0x2C));
+    t42 = t38;
+    if ((int)t38 >= (int)(t40 - t41)) {
+        t42 = (t40 - t41);
+    }
+    t44 = (int)((int)t42 / (int)((t1 << 2) << 1));
+    if ((int)(t44 * ((t1 << 2) << 1)) <= 0) {
+        t45 = (t44 * ((t1 << 2) << 1));
+        t46 = 0x0;
+        t47 = 0x0;
+        for (;;) {
+            if ((int)t46 >= (int)(unsigned char)(*(signed char *)((a4 + 0x3)))) {
+                break;
+            }
+            t47 = t46;
+            t47 = (t47 << 2);
+            if ((*(int *)((((a4 + 0x10) + t47) + 0x0))) == 0) {
+                mwRnaErrCallFunc(0x8C20ACB0);
+            } else {
+                t58 = t34;
+            }
+            t45 = a4;
+            t45 = (t45 + 0x10);
+            t45 = (t45 + t47);
+            t45 = (*(int *)((t45 + 0x0)));
+            t63 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)((t45 + 0x0))) + 0x1C)))))(t45, 0x1, (((t46 << 2) << 1) + (a4 + 0x18)), t58);
+            t46 = (t46 + 0x1);
+        }
+        t70 = 0x0;
+    } else {
+        t64 = 0x8C46EB4C;
+        t65 = 0x0;
+        for (;;) {
+            if ((int)t65 >= (int)(unsigned char)(*(signed char *)((a4 + 0x3)))) {
+                break;
+            }
+            t67 = *(int *)((a4 + 0x2C));
+            t68 = *(int *)(((((t65 << 2) << 1) + (a4 + 0x18)) + 0x0));
+            *(unsigned int *)0x8C46EB4C = 0x0;
+            t64 = a4;
+            t69 = mwlRnaStartCopy(t64, t65, t67, t68, (t44 * ((t1 << 2) << 1)));
+            t65 = (t65 + 0x1);
+            *(unsigned int *)0x8C46EB50 = 0x0;
+            t64 = t69;
+        }
+        *(unsigned int *)((a4 + 0x3C)) = t64;
+        t70 = t64;
+    }
+    return t70;
+}
+
+int primSprDrawScaleFadeY(int a4, int a5, int a6, float f4, float f5, float f6, float f7)
+{
+    float u0;
+    float u1;
+    float u3;
+    float u4;
+    int t6;
+    float u7;
+    float u8;
+    int t10;
+    int t14;
+    int t15;
+    float u16;
+    int t20;
+    int t25;
+    int stk[76];
+
+    u0 = *(float *)((a4 + 0x20));
+    u1 = *(float *)((a4 + 0x18));
+    *(unsigned int *)(((int)stk + 92)) = (int)(((f4 * (u0 - u1))) * (float)a5);
+    u3 = *(float *)((a4 + 0x24));
+    u4 = *(float *)((a4 + 0x1C));
+    *(unsigned int *)(((int)stk + 88)) = (int)(((f5 * (u3 - u4))) * (float)a6);
+    t6 = *(int *)(((int)stk + 92));
+    u7 = *(float *)(((0xDC + ((int)stk + 84)) + 0x8));
+    u8 = *(float *)(((0xDC + ((int)stk + 84)) + 0x4));
+    *(float *)(((int)stk + 84)) = (float)t6;
+    t10 = ((int (*)(int, int, int, int, int, float, float, float, float, float))(vecMake))(0xFFFFFF, a5, a6, 0xFF, (((int)stk + 84) + 0x34), ((float)t6 + (*(float *)(((0xDC + ((int)stk + 84)) + 0x0)))), u8, u7, f7, 255.0f);
+    t14 = ((int (*)(int, int, int, int, int, float, float, float))(vecMake))(0x0, 0x0, 0x0, 0x0, (((int)stk + 80) + 0x2C), (*(float *)(((0xDC + ((int)stk + 84)) + 0x0))), (*(float *)(((0xDC + ((int)stk + 84)) + 0x4))), (*(float *)(((0xDC + ((int)stk + 84)) + 0x8))));
+    t15 = *(int *)(((int)stk + 88));
+    u16 = *(float *)(((0xDC + ((int)stk + 84)) + 0x8));
+    *(float *)(((int)stk + 96)) = (float)t15;
+    t20 = ((int (*)(int, int, int, int, int, float, float, float))(vecMake))(0x0, 0x0, 0x0, 0x0, (((int)stk + 76) + 0x24), ((*(float *)(((int)stk + 84))) + (*(float *)(((0xDC + ((int)stk + 84)) + 0x0)))), ((float)t15 + (*(float *)(((0xDC + ((int)stk + 84)) + 0x4)))), u16);
+    t25 = ((int (*)(int, int, int, int, int, float, float, float))(vecMake))(0x0, 0x0, 0x0, 0x0, (((int)stk + 72) + 0x1C), (*(float *)(((0xDC + ((int)stk + 84)) + 0x0))), ((*(float *)(((int)stk + 96))) + (*(float *)(((0xDC + ((int)stk + 84)) + 0x4)))), (*(float *)(((0xDC + ((int)stk + 84)) + 0x8))));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)((((int)stk + 68) + 0x44)); }
+    primTexVertexSet((((((int)(f6 * 255.0f) & 0xFF) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (((int)stk + 68) + 0x50), u0, ((-u4) + 1.0f));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x48)); }
+    primTexVertexSet((((((int)(f6 * 255.0f) & 0xFF) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (0x1C + (((int)stk + 68) + 0x50)), u1, ((-u4) + 1.0f));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)((((int)stk + 36) + 0x4C)); }
+    primTexVertexSet((((((int)(f7 * 255.0f) & 0xFF) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (0x38 + (((int)stk + 68) + 0x50)), u0, ((-u3) + 1.0f));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x50)); }
+    primTexVertexSet((((((int)(f7 * 255.0f) & 0xFF) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (0x54 + (((int)stk + 68) + 0x50)), u1, ((-u3) + 1.0f));
+    return (nlDispStripTexOfsTrnsl(0x4, (((int)stk + 68) + 0x50), (*(int *)((a4 + 0x0)))));
+}
+

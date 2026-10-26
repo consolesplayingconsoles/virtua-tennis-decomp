@@ -899,29 +899,6 @@ int vmsfs_fseek(int a4, int a5, int a6, int a7)
     return t16;
 }
 
-int pdVibMxSetStopTime(int a4, int a5)
-{
-    int t1;
-    int t4;
-    int stk[9];
-
-    *(unsigned int *)(((int)stk + 20)) = a4;
-    *(unsigned int *)(((int)stk + 24)) = a5;
-    t1 = pdVibMxIsReady((*(int *)(((int)stk + 20))));
-    if (t1 == 0) {
-        return 0xFFFFFFFE;
-    }
-    *(unsigned int *)(((int)stk + 16)) = 0x0;
-    *(unsigned char *)((((int)stk + 16) + 0x0)) = 0x0;
-    *(unsigned char *)(((((int)stk + 16) + 0x1) + 0x0)) = 0x2;
-    *(unsigned char *)((((((int)stk + 16) + 0x1) + 0x1) + 0x0)) = (*(int *)(((int)stk + 24)));
-    *(volatile int *)(((int)stk + 20));
-    t4 = kdSetBlockWrite(0x0, (((int)stk + 12) + 0x4), 0x1);
-    if ((int)t4 < 0) {
-        return 0xFFFFFFFF;
-    }
-    return 0x0;
-}
 
 int kdDevGetStorageInfo(int a4, int a5)
 {

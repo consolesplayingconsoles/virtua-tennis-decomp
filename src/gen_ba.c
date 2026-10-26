@@ -887,46 +887,6 @@ int staffLookAtBall(int a4, int a5, int a6, int a7)
     return (nlRotateAY(t56));
 }
 
-int primSprDrawScaleAlpha(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
-{
-    float u0;
-    float u1;
-    float u3;
-    float u4;
-    int t6;
-    float u7;
-    float u8;
-    int t15;
-    float u16;
-    int stk[75];
-
-    u0 = *(float *)((a4 + 0x20));
-    u1 = *(float *)((a4 + 0x18));
-    *(unsigned int *)(((int)stk + 92)) = (int)(((f4 * (u0 - u1))) * (float)a5);
-    u3 = *(float *)((a4 + 0x24));
-    u4 = *(float *)((a4 + 0x1C));
-    *(unsigned int *)(((int)stk + 96)) = (int)(((f5 * (u3 - u4))) * (float)a6);
-    t6 = *(int *)(((int)stk + 92));
-    u7 = *(float *)(((0xD8 + ((int)stk + 84)) + 0x8));
-    u8 = *(float *)(((0xD8 + ((int)stk + 84)) + 0x4));
-    *(float *)(((int)stk + 84)) = (float)t6;
-    vecMake(a4, a5, a6, a7, (((int)stk + 84) + 0x34), ((float)t6 + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x0)))), u8, u7);
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 80) + 0x2C), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x0))), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x4))), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x8))));
-    t15 = *(int *)(((int)stk + 96));
-    u16 = *(float *)(((0xD8 + ((int)stk + 84)) + 0x8));
-    *(float *)(((int)stk + 88)) = (float)t15;
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 76) + 0x24), ((*(float *)(((int)stk + 84))) + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x0)))), ((float)t15 + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x4)))), u16);
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 72) + 0x1C), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x0))), ((*(float *)(((int)stk + 88))) + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x4)))), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x8))));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)((((int)stk + 68) + 0x44)); }
-    primTexVertexSet(((((0xFF & (int)(f6 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (((int)stk + 68) + 0x50), u0, ((-u4) + 1.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x48)); }
-    primTexVertexSet(((((0xFF & (int)(f6 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (0x1C + (((int)stk + 68) + 0x50)), u1, ((-u4) + 1.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)((((int)stk + 36) + 0x4C)); }
-    primTexVertexSet(((((0xFF & (int)(f6 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (0x38 + (((int)stk + 68) + 0x50)), u0, ((-u3) + 1.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x50)); }
-    primTexVertexSet(((((0xFF & (int)(f6 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (0x54 + (((int)stk + 68) + 0x50)), u1, ((-u3) + 1.0f));
-    return (nlDispStripTexOfsTrnsl(0x4, (((int)stk + 68) + 0x50), (*(int *)((a4 + 0x0)))));
-}
 
 int selCursorInit(int a4)
 {
@@ -1037,53 +997,6 @@ int resultBoxDraw(int a4, int a5, int a6, int a7)
     return (nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x10)));
 }
 
-int sseleGridDraw(int a4, int a5, int a6, int a7)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t6;
-    int t8;
-    int t10;
-    int t5;
-    int stk[19];
-
-    t0 = 0x8C0C18AC;
-    t1 = 0x0;
-    for (;;) {
-        *(unsigned int *)(((int)stk + 20)) = (t1 << 2);
-        t2 = (t1 << 2);
-        t3 = 0x0;
-        for (;;) {
-            t6 = 0x0;
-            if ((t1 == (*(int *)0x8C37B764)) && (t2 = 0x8C37B768, t5 = *(int *)((t2 + 0x0)), t0 = t5, t3 == t0)) {
-                t6 = 0x1;
-            }
-            t2 = 0x12B;
-            t0 = (vecMake(a4, a5, a6, a7, (((int)stk + 20) + 0x4), (float)((t1 * 0x78) + 0x20), (float)((t3 * 0x52) + t2), 5.0f));
-            t2 = t3;
-            t0 = 0xC;
-            t8 = ((t3 << 2) + t2);
-            t2 = 0x8C0F7DAC;
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 20) + 0x4)); }
-            t2 = t3;
-            t10 = ((t3 << 2) + t2);
-            t2 = (*(int *)(((int)stk + 20)));
-            t0 = 0x8C12333C;
-            *(volatile int *)(((((t10 << 2) + 0x8C1AC160) + t2) + 0x0));
-            t0 = (stageSelNameDraw((*(int *)((((t8 + t1) << 2) + t0))), t6, *(Stk3 *)((((int)stk + 20) + 0x4))));
-            t2 = 0x2;
-            t3 = (t3 + 0x1);
-            if ((int)t3 < (int)t2) continue;
-            break;
-        }
-        t1 = (t1 + 0x1);
-        if ((int)t1 < (int)0x5) continue;
-        break;
-    }
-    return t0;
-}
 
 int kmiWriteFBRegister(Stk29 s)
 {
@@ -1800,3 +1713,93 @@ int primSprDraw(int a4, int a5, int a6, int a7)
     primTexVertexSet(a7, 0xFF000000, 0x0, 0x0, (0x54 + (((int)stk + 68) + 0x50)), u1, ((-u2) + 1.0f));
     return (nlDispStripTexOfsTrnsl(0x4, (((int)stk + 68) + 0x50), (*(int *)((a4 + 0x0)))));
 }
+
+int primSprDrawScaleAlpha(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
+{
+    float u0;
+    float u1;
+    float u3;
+    float u4;
+    int t6;
+    float u7;
+    float u8;
+    int t15;
+    float u16;
+    int stk[75];
+
+    u0 = *(float *)((a4 + 0x20));
+    u1 = *(float *)((a4 + 0x18));
+    *(unsigned int *)(((int)stk + 92)) = (int)(((f4 * (u0 - u1))) * (float)a5);
+    u3 = *(float *)((a4 + 0x24));
+    u4 = *(float *)((a4 + 0x1C));
+    *(unsigned int *)(((int)stk + 96)) = (int)(((f5 * (u3 - u4))) * (float)a6);
+    t6 = *(int *)(((int)stk + 92));
+    u7 = *(float *)(((0xD8 + ((int)stk + 84)) + 0x8));
+    u8 = *(float *)(((0xD8 + ((int)stk + 84)) + 0x4));
+    *(float *)(((int)stk + 84)) = (float)t6;
+    vecMake(a4, a5, a6, a7, (((int)stk + 84) + 0x34), ((float)t6 + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x0)))), u8, u7);
+    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 80) + 0x2C), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x0))), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x4))), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x8))));
+    t15 = *(int *)(((int)stk + 96));
+    u16 = *(float *)(((0xD8 + ((int)stk + 84)) + 0x8));
+    *(float *)(((int)stk + 88)) = (float)t15;
+    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 76) + 0x24), ((*(float *)(((int)stk + 84))) + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x0)))), ((float)t15 + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x4)))), u16);
+    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 72) + 0x1C), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x0))), ((*(float *)(((int)stk + 88))) + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x4)))), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x8))));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)((((int)stk + 68) + 0x44)); }
+    primTexVertexSet(((((0xFF & (int)(f6 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (((int)stk + 68) + 0x50), u0, ((-u4) + 1.0f));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x48)); }
+    primTexVertexSet(((((0xFF & (int)(f6 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (0x1C + (((int)stk + 68) + 0x50)), u1, ((-u4) + 1.0f));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)((((int)stk + 36) + 0x4C)); }
+    primTexVertexSet(((((0xFF & (int)(f6 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (0x38 + (((int)stk + 68) + 0x50)), u0, ((-u3) + 1.0f));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x50)); }
+    primTexVertexSet(((((0xFF & (int)(f6 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (0x54 + (((int)stk + 68) + 0x50)), u1, ((-u3) + 1.0f));
+    return (nlDispStripTexOfsTrnsl(0x4, (((int)stk + 68) + 0x50), (*(int *)((a4 + 0x0)))));
+}
+
+int sseleGridDraw(int a4, int a5, int a6, int a7)
+{
+    int t0;
+    int t1;
+    int t2;
+    int t3;
+    int t6;
+    int t8;
+    int t10;
+    int t5;
+    int stk[19];
+
+    t0 = 0x8C0C18AC;
+    t1 = 0x0;
+    for (;;) {
+        *(unsigned int *)(((int)stk + 20)) = (t1 << 2);
+        t2 = (t1 << 2);
+        t3 = 0x0;
+        for (;;) {
+            t6 = 0x0;
+            if ((t1 == (*(int *)0x8C37B764)) && (t2 = 0x8C37B768, t5 = *(int *)((t2 + 0x0)), t0 = t5, t3 == t0)) {
+                t6 = 0x1;
+            }
+            t2 = 0x12B;
+            t0 = (vecMake(a4, a5, a6, a7, (((int)stk + 20) + 0x4), (float)((t1 * 0x78) + 0x20), (float)((t3 * 0x52) + t2), 5.0f));
+            t2 = t3;
+            t0 = 0xC;
+            t8 = ((t3 << 2) + t2);
+            t2 = 0x8C0F7DAC;
+            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 20) + 0x4)); }
+            t2 = t3;
+            t10 = ((t3 << 2) + t2);
+            t2 = (*(int *)(((int)stk + 20)));
+            t0 = 0x8C12333C;
+            *(volatile int *)(((((t10 << 2) + 0x8C1AC160) + t2) + 0x0));
+            t0 = (stageSelNameDraw((*(int *)((((t8 + t1) << 2) + t0))), t6, *(Stk3 *)((((int)stk + 20) + 0x4))));
+            t2 = 0x2;
+            t3 = (t3 + 0x1);
+            if ((int)t3 < (int)t2) continue;
+            break;
+        }
+        t1 = (t1 + 0x1);
+        if ((int)t1 < (int)0x5) continue;
+        break;
+    }
+    return t0;
+}
+

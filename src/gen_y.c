@@ -155,42 +155,6 @@ int evPackRamp(int a4, int a5, int a6, int a7)
 
 
 
-int kmyAllocateSmallVQArea(int a4, int a5, int a6)
-{
-    int t3;
-    int t5;
-    int t9;
-    int t11;
-    int t17;
-    int t18;
-    int stk[14];
-
-    *(unsigned int *)(((int)stk + 28)) = a4;
-    *(unsigned int *)(((int)stk + 24)) = a6;
-    kmytex_GetSmallVQprofile((((int)stk + 24) + 0x8), a5);
-    if (((*(int *)(((int)stk + 28))) & 1) != 0) {
-        t3 = *(int *)(((((int)stk + 24) + 0x8) + 0x4));
-        *(unsigned int *)(((int)stk + 4)) = (*(int *)(((((int)stk + 24) + 0x8) + 0x0)));
-        *(unsigned int *)(((int)stk + 8)) = t3;
-        t5 = *(int *)(((((int)stk + 24) + 0x8) + 0xC));
-        *(unsigned int *)(((int)stk + 12)) = (*(int *)(((((int)stk + 24) + 0x8) + 0x8)));
-        *(unsigned int *)(((int)stk + 16)) = t5;
-        *(unsigned int *)(((int)stk + 20)) = (*(int *)(((((int)stk + 24) + 0x8) + 0x10)));
-        t17 = 0x1;
-        t18 = (*(int *)(((int)stk + 24)));
-    } else {
-        t9 = *(int *)(((((int)stk + 24) + 0x8) + 0x4));
-        *(unsigned int *)(((int)stk + 4)) = (*(int *)(((((int)stk + 24) + 0x8) + 0x0)));
-        *(unsigned int *)(((int)stk + 8)) = t9;
-        t11 = *(int *)(((((int)stk + 24) + 0x8) + 0xC));
-        *(unsigned int *)(((int)stk + 12)) = (*(int *)(((((int)stk + 24) + 0x8) + 0x8)));
-        *(unsigned int *)(((int)stk + 16)) = t11;
-        *(unsigned int *)(((int)stk + 20)) = (*(int *)(((((int)stk + 24) + 0x8) + 0x10)));
-        t17 = 0x0;
-        t18 = (*(int *)(((int)stk + 24)));
-    }
-    return (VQalloc(t17, t18));
-}
 
 int shadowBallScale(float f4)
 {
@@ -227,59 +191,8 @@ int shadowBallScale(float f4)
     return mathLineY(u14, u15, u16, u17, f4);
 }
 
-int panelDrawA(Stk4 s, float f4)
-{
-    int stk[25];
 
-    stk[13] = s.w[0];
-    stk[14] = s.w[1];
-    stk[15] = s.w[2];
-    stk[16] = s.w[3];
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0xC)); }
-    panelTopPut(*(Stk3 *)((((int)stk + 40) + 0xC)), f4);
-    *(float *)(((((int)stk + 40) + 0xC) + 0x4)) = ((*(float *)(((((int)stk + 40) + 0xC) + 0x4))) + 43.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0xC)); }
-    panelBodyPut(*(Stk3 *)((((int)stk + 40) + 0xC)), f4);
-    *(float *)(((((int)stk + 40) + 0xC) + 0x4)) = ((*(float *)(((((int)stk + 40) + 0xC) + 0x4))) + 144.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0xC)); }
-    return (panelPartAPut(*(Stk3 *)((((int)stk + 40) + 0xC)), f4));
-}
 
-int panelDrawB(Stk4 s, float f4)
-{
-    int stk[25];
-
-    stk[13] = s.w[0];
-    stk[14] = s.w[1];
-    stk[15] = s.w[2];
-    stk[16] = s.w[3];
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0xC)); }
-    panelTopPut(*(Stk3 *)((((int)stk + 40) + 0xC)), f4);
-    *(float *)(((((int)stk + 40) + 0xC) + 0x4)) = ((*(float *)(((((int)stk + 40) + 0xC) + 0x4))) + 43.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0xC)); }
-    panelBodyPut(*(Stk3 *)((((int)stk + 40) + 0xC)), f4);
-    *(float *)(((((int)stk + 40) + 0xC) + 0x4)) = ((*(float *)(((((int)stk + 40) + 0xC) + 0x4))) + 144.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0xC)); }
-    return (panelPartBPut(*(Stk3 *)((((int)stk + 40) + 0xC)), f4));
-}
-
-int panelDrawC(Stk4 s, float f4)
-{
-    int stk[25];
-
-    stk[13] = s.w[0];
-    stk[14] = s.w[1];
-    stk[15] = s.w[2];
-    stk[16] = s.w[3];
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0xC)); }
-    panelTopPut(*(Stk3 *)((((int)stk + 40) + 0xC)), f4);
-    *(float *)(((((int)stk + 40) + 0xC) + 0x4)) = ((*(float *)(((((int)stk + 40) + 0xC) + 0x4))) + 43.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0xC)); }
-    panelBodyPut(*(Stk3 *)((((int)stk + 40) + 0xC)), f4);
-    *(float *)(((((int)stk + 40) + 0xC) + 0x4)) = ((*(float *)(((((int)stk + 40) + 0xC) + 0x4))) + 144.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0xC)); }
-    return (panelPartCPut(*(Stk3 *)((((int)stk + 40) + 0xC)), f4));
-}
 
 int rankEntryMain(float f4)
 {
@@ -671,25 +584,6 @@ int _pd_peripheral_set_id(int a4, int a5, int a6, int a7)
     return t23;
 }
 
-int miniBallObjSpawn(void)
-{
-    int t0;
-    int t1;
-    int t3;
-    int t6;
-    int t4;
-
-    t0 = set_event(0x11C, 0x8C038B24);
-    t1 = 0x8C291F24;
-    t3 = (t0 + 0x14);
-    for (;;) { t4 = *(int *)t1; t1 = (t1 + 4); if ((unsigned int)((0x8C291F24 + 140)) < (unsigned int)t1) break; *(unsigned int *)t3 = t4; t3 = (t3 + 4); }
-    *(unsigned int *)((t0 + 0x118)) = 0x0;
-    colliObjInit((t0 + 0x20), (1.0f + 1.0f));
-    *(unsigned int *)((t0 + 0xD0)) = 0x1;
-    t6 = *(int *)((t0 + 0xD8));
-    *(unsigned int *)(((0xD8 + t0) + 0x0)) = (t6 | 0x4);
-    return (t6 | 0x4);
-}
 
 void hudNearAlpha(int a4)
 {
