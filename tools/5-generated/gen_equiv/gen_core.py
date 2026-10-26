@@ -83,6 +83,8 @@ class Ctx:
         if r not in s.FR:
             n=int(r[2:])
             if 4<=n<=11: s.FR[r]=('s','f%d'%n); s.fuse.add(n)
+            elif getattr(s,'uninit',None) and getattr(s,'wrote_somewhere',set()) & {r}:
+                s.uninit(r)                  # the same for a float register: set on another path (uiPanelPut's fr15, kept from one round for the next)
             else: raise Skip('read '+r)
         return s.FR[r]
 def ex(v):
@@ -673,8 +675,12 @@ def _run(name,passthru=False,frame=False,flat=False):
                 elif c.frame: c.R[a[1]]=load('l',('expr','((int)stk + @@F:%d@@)'%ab))
             return
         if mn=='fmov.s' and a[0]=='@r15+' :
+            ab=-c.D
             c.D-=4
             if c.pend and isfp(c.pend[-1]): c.FR[a[1]]=c.pend.pop()[1]
+            elif int(a[1][2:])<12 and ab<0:          # a float kept across calls that took the pending pushes (cpuDblReceivePos): the push
+                if (ab,'f') in c.stack: c.FR[a[1]]=c.stack[(ab,'f')]      # stored it in the frame, read it back there; fr12-fr15 popped
+                elif c.frame: c.FR[a[1]]=fload(('expr','((int)stk + @@F:%d@@)'%ab))      # are the epilogue's restores
             return
         if mn in('add','sub') and a[1]=='r15':
             if a[0].startswith('#'): n=int(a[0][1:])
@@ -1184,7 +1190,9 @@ def _run(name,passthru=False,frame=False,flat=False):
         if sret and not (len(c.pend)==1 and not isfp(c.pend[0])): sret=0
         cleanup=(isadd(after) and (not teardown(after2) or (bool(c.pend) and c.D-4*len(c.pend)>=getattr(c,'pro_D',0)))) or (bool(after) and (after[0] in ('bra','bsr') or after[0].startswith(('bt','bf'))) and isadd(after2))   # arguments are dropped right after the call, or in the delay slot of the branch after it
         spill=bool(c.pend) and not cleanup and not own_stack and not sret and not ind_variadic_hint(fname) and ((bool(ar) and ar[0]<=4) or (ar is None and not ind_variadic_hint(fname)))    # a callee taking at most four integer arguments (or one whose arity is unknown, a pointer or an unnamed prototype) and no cleanup: what is on the stack was saved, not passed
-        if ar and (not c.pend or spill or sret or (ar[0]==0 and not ar[1])):      # (a callee reading no register argument: everything it takes is on the stack)                    # the registers the callee reads: leftovers set for other reasons are not arguments
+        positional=not c.pend and not ind and int_stack_words(fname)      # stack words written through the frame, none pushed: r4-r7 come
+                                                 # before them and are the first arguments as set (courtDrawStageModels' callers)
+        if ar and not positional and (not c.pend or spill or sret or (ar[0]==0 and not ar[1])):      # (a callee reading no register argument: everything it takes is on the stack)                    # the registers the callee reads: leftovers set for other reasons are not arguments
                                                  # (with arguments on the stack all four registers are positional: not trimmed)
             avail=[n for n in avail if n<4+ar[0]]
             fav=[n for n in fav if n<4+ar[1]]
@@ -1415,9 +1423,12 @@ def _run(name,passthru=False,frame=False,flat=False):
         c.xf_entry=True
     c.xf_snapshot=xf_snapshot
     def uninit(r):
-        v=fresh(False); emit('int %s;'%v); c.R[r]=('e',v)
+        isf=r.startswith('fr')
+        v=fresh(isf); emit('%s %s;'%('float' if isf else 'int',v)); (c.FR if isf else c.R)[r]=('e',v)
     c.uninit=uninit
     c.wrote_somewhere={'r%d'%int(m_.group(1)) for x_ in ins for m_ in [re.search(r',r(\d+)\s*(;|$)',x_[1].split(';')[0])] if m_ and x_[0] not in ('cmp/eq','cmp/ge','cmp/gt','cmp/hi','cmp/hs','tst') and 8<=int(m_.group(1))<=14}
+    c.wrote_somewhere|={'fr%d'%int(m_.group(1)) for x_ in ins for m_ in [re.search(r'(?:^|,)\s*fr(\d+)\s*$',x_[1].split(';')[0].strip())]      # float registers too, but
+                        if m_ and x_[0].startswith('f') and not x_[0].startswith('fcmp') and not 4<=int(m_.group(1))<=11}   # not the arguments fr4-fr11
 
     # registers that a loop changes from one pass to the next are C variables updated where the instruction runs;
     # everything else stays a symbolic expression
@@ -1552,8 +1563,14 @@ def _run(name,passthru=False,frame=False,flat=False):
         argslots={}
         for k in sorted(set(stA[3])|set(stB[3])):
             if k[0]>=0 and stA[3].get(k)!=stB[3].get(k):          # a stack argument slot the arms left different: a variable carries it
-                if k[1]=='f': raise Skip('float stack argument slot written in one arm')
                 nslot=8+k[0]//4
+                if k[1]=='f':           # the float form: the arm that did not write it leaves the parameter's bits, read as a float (sprPutCropH)
+                    tv=fresh(True); emit('float %s;'%tv)
+                    for blk_,st_ in ((A,stA),(B,stB)):
+                        v_=st_[3].get(k)
+                        if v_ is None: c.iuse.add(nslot); v_=('e','*(float *)&a%d'%nslot)
+                        blk_.append('%s = %s;'%(tv,fx(v_)))
+                    argslots[k]=('e',tv); continue
                 tv=fresh(False); emit('int %s = 0;'%tv)
                 for blk_,st_ in ((A,stA),(B,stB)):
                     v_=st_[3].get(k)
