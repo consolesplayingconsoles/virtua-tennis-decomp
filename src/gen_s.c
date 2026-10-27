@@ -870,30 +870,4 @@ int ADXAMP_ExecServer(void)
     return t3;
 }
 
-void footMarkCheck(int a4, int a5)
-{
-    int t1;
-    int t2;
-    float t4;
-    int t10;
-    int stk[15];
-
-    *(unsigned int *)(((int)stk + 44)) = a5;
-    if ((int)(*(int *)0x8C287ADC) <= (int)0x2) {
-        t1 = *(int *)(((int)stk + 44));
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(((0xAB8 + a4) + (((t1 << 1) + t1) << 2))); }
-        t2 = *(int *)((a4 + 0xB5C));
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((0x8C38B8D4 + ((((t2 << 1) + t2) << 2) << 1)) + (((t1 << 1) + t1) << 2))); }
-        vecSub(a4, a5, (0x18 + ((int)stk + 8)));
-        t4 = vecLength();
-        if (t4 > (*(float *)0x8C0CDF3C)) {
-            if ((*(float *)0x8C0CDF40) > (*(float *)((((0xAB8 + a4) + (((t1 << 1) + t1) << 2)) + 0x4)))) {
-                t10 = *(int *)((a4 + 0xB5C));
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((((((t10 << 1) + t10) << 2) << 1) + 0x8C38B8D4) + (((t1 << 1) + t1) << 2))) = *(struct mv3 *)(((0xAB8 + a4) + (((t1 << 1) + t1) << 2))); }
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)(((0xAB8 + a4) + (((t1 << 1) + t1) << 2))); }
-                evBallMarkSpawn(0x4000, *(Stk3 *)(((0xAB8 + a4) + (((t1 << 1) + t1) << 2))));
-            }
-        }
-    }
-}
 

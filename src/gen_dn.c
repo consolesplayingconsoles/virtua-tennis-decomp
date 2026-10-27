@@ -3,15 +3,17 @@
 
 int nlSetCommonTextureOffset(int);
 int nlSprPut(int);
-int sprPutAtAlpha(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4);
+typedef struct { int w[3]; } Stk3;
+int sprPutAtAlpha(int a4, Stk3 v, float f4);
 
-int sprPutAtAlpha(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4)
+/* manual: the sprite, a vector by value on the stack and the alpha: the generated form also took r5-r7, which the code never reads */
+int sprPutAtAlpha(int a4, Stk3 v, float f4)
 {
     int stk[15];
 
-    stk[4] = a8;
-    stk[5] = a9;
-    stk[6] = a10;
+    stk[4] = v.w[0];
+    stk[5] = v.w[1];
+    stk[6] = v.w[2];
     *(float *)(((int)stk + 4)) = f4;
     nlSetCommonTextureOffset((*(int *)((a4 + 0x0))));
     *(float *)((a4 + 0x4)) = (*(float *)(((((int)stk + 4) + 0xC) + 0x0)));

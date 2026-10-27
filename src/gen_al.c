@@ -1325,27 +1325,4 @@ int FUN_8c0eb200(int a4, int a5, int a6, int a7)
     return (kmSetBorderColor((a4 | 0xFF000000), a5, a6, a7, (a4 | 0xFF000000)));
 }
 
-int screenSegVisible(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
-{
-    int t7;
-    int t11;
-    int stk[38];
-
-    stk[26] = a8;
-    stk[27] = a9;
-    stk[28] = a10;
-    stk[29] = a11;
-    *(unsigned int *)(((int)stk + 76)) = a4;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 48)) = *(struct mv3 *)((((int)stk + 60) + 0x2C)); }
-    camWorldToView((((int)stk + 60) + 0x14));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((((int)stk + 60) + 0x14)); }
-    screenProject((((int)stk + 32) + 0x24), (((int)stk + 32) + 0x28), *(Stk3 *)((((int)stk + 60) + 0x14)));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x54)); }
-    camWorldToView((((int)stk + 60) + 0x14));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 60) + 0x14)); }
-    screenProject((((int)stk + 4) + 0x38), (((int)stk + 4) + 0x3C), *(Stk3 *)((((int)stk + 60) + 0x14)));
-    t7 = screenOutcodeMargin((*(int *)(((int)stk + 68))), (*(int *)(((int)stk + 72))), (*(int *)(((int)stk + 76))));
-    t11 = screenOutcodeMargin((*(int *)(((int)stk + 60))), (*(int *)(((int)stk + 64))), (*(int *)(((int)stk + 76))));
-    return (((((unsigned short)t7 & (unsigned short)t11) == 0)) ? 1 : 0);
-}
 

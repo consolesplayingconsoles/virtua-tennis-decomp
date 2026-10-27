@@ -439,6 +439,7 @@ ballColliInit
 ballColliSync
 ballExec
 ballInit
+ballMarkCheck
 ballMove
 ballWallStop
 bcd2bin
@@ -564,7 +565,6 @@ check_file_correct
 check_isopen
 circuitApplyResult
 circuitDrawBar
-circuitDrawFrame
 circuitDrawGameIcon
 circuitDrawGameInfo
 circuitDrawMatchIcon
@@ -620,6 +620,7 @@ courtAusDrawSign
 courtColliEntry
 courtColliInit
 courtDistScale
+courtDrawStageModels
 courtFraDrawAnim
 courtFraDrawNumber
 courtFraDrawScoreboard
@@ -752,7 +753,6 @@ crowdCheerStopAfter
 crowdDrawBlock
 crowdDrawBlockAlt
 crowdDrawMember
-crowdDrawUsa
 crowdFrameTcw
 crowdInit
 crowdInitAlt
@@ -778,12 +778,12 @@ dbgMenuSetTitle
 dbgMenuSetValue
 dbgVdEdit
 debugTexRelease
-decoGaugeBarPut
 decoGaugeDraw
 decoGaugeFramePut
 decoGaugeSprInit
 decoHeaderDraw
 decoHeaderDrawB
+decoNumDraw
 decoPairPut
 decoSprInit
 decoSprPut
@@ -812,10 +812,12 @@ eepromVmuLoad
 eepromVmuSave
 eepromVmuSave0
 effBallTrailSpawn
+effBounceDustCheck
 effBounceDustSpawn
 effCloseCounted
 effEventTestExec
 effEventTestStart
+effFootDust
 effHitFlashSpawn
 effServeSpeedCalc
 effServeSpeedShow
@@ -956,6 +958,7 @@ fogApply
 fogSetColor
 fogSetDensity
 fogSetPreset
+footMarkCheck
 frameHookNop
 frameWaitHook
 frame_make
@@ -1465,6 +1468,7 @@ kmytex_VQFreeEntry
 kyakuPolyLoad
 lerpf
 lightAimFromMatrix
+lightCamCalc
 lightExec
 lightOverrideAmbient
 lightOverrideDiffuse
@@ -1516,6 +1520,7 @@ matchSceneInit
 matchSetSlowMotion
 matchSetupPlayers
 matchStageSlot
+matchStart
 mathLerp
 mathLineY
 memcmp
@@ -1567,8 +1572,6 @@ miniSetModel
 miniSetupObjects
 miniStart
 miniTargetDraw
-miniTargetInit
-miniTargetSpawn
 miniTimerDraw
 miniWallTargetsHit
 miniWallTargetsInit
@@ -2008,7 +2011,6 @@ nlScaleVector
 nlScalor
 nlSearchPalette
 nlSec
-nlSetBackColorZ
 nlSetCommonTextureOffset
 nlSetDummyTextureParameter
 nlSetFatalErrorMode
@@ -2311,6 +2313,7 @@ playerDrawModel
 playerExec
 playerHumanPressed
 playerInputSide
+playerMoveToTarget
 playerPivotTurn
 playerReadPad
 playerRecA20Clear
@@ -2422,7 +2425,10 @@ screenOutcodeMargin
 screenPlanePut
 screenProject
 screenQuadPut
+screenSegVisible
+screenSegVisibleRaised
 screenSphereVisible
+screenSphereVisibleRaised
 seBallSpeed
 seFootLand
 seFootSlide
@@ -2443,6 +2449,7 @@ search_fat_free_xross
 search_fat_used
 search_free_dir
 search_subst_fat_top
+segPlaneHit
 selCellClear
 selCellClearCur
 selCellSetChosen
