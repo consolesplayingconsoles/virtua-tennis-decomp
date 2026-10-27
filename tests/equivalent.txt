@@ -425,6 +425,7 @@ angleLerp
 arcadeNextMatch
 arcadeNextStage
 arcadePickRival
+atcomResetBlackList
 ballBoyDrawIdle
 ballBoyDrawRun
 ballBoyExec
@@ -529,6 +530,7 @@ buUnmountDisk
 buWriteDiskImage
 buWriteFile
 cacheOcbiRange
+camExec
 camGetAngles
 camGetPos
 camInit
@@ -630,6 +632,7 @@ courtFraDrawSign
 courtFraTexLoad
 courtLimitZ
 courtPropPickPose
+courtPropsDraw
 courtPropsInit
 courtUsaDrawExtras
 courtUsaDrawNumber
@@ -665,6 +668,7 @@ cpuDblAimRateD
 cpuDblAimRateE
 cpuDblChase
 cpuDblCoverPos
+cpuDblInput
 cpuDblMoodUpdate
 cpuDblMove
 cpuDblNetmanPos
@@ -752,10 +756,14 @@ crowdAnimateAlt
 crowdCheerStart
 crowdCheerStop
 crowdCheerStopAfter
+crowdDrawAus
 crowdDrawBlock
 crowdDrawBlockAlt
+crowdDrawFra
 crowdDrawMember
+crowdDrawSega
 crowdDrawUsa
+crowdDrawWin
 crowdFrameTcw
 crowdInit
 crowdInitAlt
@@ -1089,6 +1097,7 @@ hudDigitInit
 hudDigitSmallInit
 hudDoubleFaultPanel
 hudFadeInStart
+hudFadeNearPlayers
 hudFadeOutStart
 hudFaultPanel
 hudFlagInit
@@ -1137,6 +1146,7 @@ iconSlotPutC
 ikSolve2Bone
 infoPlayerDraw
 infoPlayerDrawWrap
+infoWinDraw
 initSprFree
 initSprLoad
 initSprPut0
@@ -2322,6 +2332,7 @@ playerCalcMotionSpeeds
 playerCpuInput
 playerDrawMarker
 playerDrawModel
+playerDrawNodeFacing
 playerExec
 playerHumanPressed
 playerInputSide
@@ -2331,6 +2342,7 @@ playerReadPad
 playerRecA20Clear
 playerSetReceiveFlag
 playerSetup
+playerSolveArmReach
 prefetch
 primFrameCorners
 primLineH
@@ -2412,6 +2424,7 @@ resWtcShopSprRead
 resWtcShopSprTexFree
 resWtcShopSprTexLoad
 resWtcShopTexRead
+restart_t404
 resultBoxDraw
 resultDoublesDraw
 resultDraw
@@ -2490,6 +2503,7 @@ selRestart
 selSideCheck
 selSlot0FlagClear
 selSlot0FlagSet
+send_message_in_current_mode
 serveGetPos
 serveGetReceiver
 serveGetServer
@@ -2531,6 +2545,7 @@ shotAim
 shotCheckNet
 sklBindMatrices
 sklDrawNodeOne
+sklDrawNodeTrnsl
 sndCrowdAmb
 sndCrowdAmbStart
 sndCrowdBallReact
@@ -2807,6 +2822,7 @@ syIntAdrChk_finish
 syIntAdrChk_getchar
 syIntAdrChk_printh
 syIntAdrChk_putchar
+syIntChkDump
 syIntInit
 syMmuAddEntry
 syMmuCacheCtrl

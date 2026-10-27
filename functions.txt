@@ -875,7 +875,7 @@ F 8c0b1f14 70 endingTexLoad
 F 8c0b1f5a 62 endingTexFree
 F 8c0b1f98 870 stageTexSetGarbaged
 F 8c0b22fe 48 commonEtcTexSetGarbaged
-F 8c0b2420 10 restart_t404(void)
+F 8c0b2420 10 restart_t404
 F 8c0b242a 392 stageLoadTimedStep
 F 8c0b25d0 58 stageLoadTimedInit
 F 8c0b2634 548 stageLoadEnding
@@ -1063,7 +1063,6 @@ F 8c0c5058 54 sprWtcLoad
 F 8c0c508e 54 sprWtcFree
 F 8c0c50c4 54 sprSet266Load
 F 8c0c50fa 54 sprSet266Free
-F 8c0c50fa 74 sprSet266Free
 F 8c0c5130 70 sprCommonLoad
 F 8c0c51e0 166 sprSet163Setup
 F 8c0c5286 52 sprSet163Load
@@ -1254,7 +1253,7 @@ F 8c0d33ba 22 sndSe0B_00
 F 8c0d33d0 22 sndSe0B_01
 F 8c0d33e6 3972 sndLoadStep
 F 8c0d3634 8 sndCrowdAmb
-F 8c0d3654 8 atcomResetBlackList(void)
+F 8c0d3654 8 atcomResetBlackList
 F 8c0d365c 84 sndPack2LoadSync
 F 8c0d36b0 16 sndStrmVolDefault
 F 8c0d3bd0 350 endingCameraSet
@@ -3307,7 +3306,7 @@ F 8c208da0 204 syIntAdrChk_init
 F 8c208e6c 178 syIntAdrChk_putchar
 F 8c208f1e 58 syIntAdrChk_getchar
 F 8c208f58 86 syIntAdrChk_finish
-F 8c208fae 54 send_message_in_current_mode(char*)
+F 8c208fae 54 send_message_in_current_mode
 F 8c208fe4 60 syIntAdrChk_printh
 F 8c209020 258 ADX_DecodeMonoFloat
 F 8c209138 476 ADX_DecodeSteFloat

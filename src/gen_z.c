@@ -421,23 +421,6 @@ int effEventTestExec(int a4)
     return t1;
 }
 
-int markerHitSpawn(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
-{
-    int t0;
-    int stk[15];
-
-    stk[3] = a8;
-    stk[4] = a9;
-    stk[5] = a10;
-    stk[6] = a11;
-    *(unsigned int *)(((int)stk + 4)) = a4;
-    t0 = set_event(0x2C, 0x8C088DD2);
-    *(unsigned int *)((t0 + 0x18)) = (*(int *)(((int)stk + 4)));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((t0 + 0x1C)) = *(struct mv3 *)((((int)stk + 4) + 0x8)); }
-    *(unsigned int *)((t0 + 0x14)) = 0x3;
-    *(float *)((t0 + 0x28)) = 1.0f;
-    return 0x28;
-}
 
 int nlGetMatrix(int a4)
 {
