@@ -12719,8 +12719,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 75
 - the cases run 132 of 132 instructions
 
-### bodyCreate (`8C03C388`, 194 bytes, `src/gen_fr.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_fr/bodyCreate.json`
+### bodyCreate (`8C03C388`, 194 bytes, `src/gen_ii.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_ii/bodyCreate.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 97 of 97 instructions
@@ -19075,6 +19075,95 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 90
 - the cases run 247 of 395 instructions
 
+### cpuDblHitCheck (`8C0585AA`, 7730 bytes, `src/gen_if.c`)
+- equivalent on 43 development and 42 holdout cases, in `tests/gen_if/cpuDblHitCheck.json`
+- case 1
+- case 2
+- case 5
+- case 6
+- case 11
+- case 13
+- case 15
+- case 17
+- case 18
+- case 19
+- case 21
+- case 22
+- case 26
+- case 32
+- case 34
+- case 36
+- case 37
+- case 38
+- directed: flips 8C0585E6 (not taken)
+- directed: flips 8C0585F8 (not taken)
+- directed: flips 8C05861A (taken)
+- directed: flips 8C05863C (taken)
+- directed: flips 8C0588FC (taken)
+- directed: flips 8C058912 (taken)
+- directed: flips 8C05892C (taken)
+- directed: flips 8C058964 (not taken)
+- directed: flips 8C0589A2 (not taken)
+- directed: flips 8C058646 (not taken)
+- directed: flips 8C058688 (not taken)
+- directed: flips 8C0587A8 (not taken)
+- directed: flips 8C058B2A (not taken)
+- directed: flips 8C0586F6 (taken)
+- directed: flips 8C058718 (taken)
+- directed: flips 8C058750 (not taken)
+- directed: flips 8C058860 (taken)
+- directed: flips 8C058B44 (not taken)
+- directed: flips 8C058CB4 (taken)
+- directed: flips 8C058D36 (taken)
+- directed: flips 8C0591B0 (not taken)
+- directed: flips 8C05A050 (taken)
+- directed: flips 8C05A094 (not taken)
+- directed: flips 8C05A0B4 (not taken)
+- directed: flips 8C058790 (taken)
+- case 80
+- case 108
+- case 150
+- case 95
+- case 94
+- case 74
+- case 143
+- case 147
+- case 78
+- case 112
+- case 142
+- case 146
+- case 159
+- case 89
+- case 137
+- case 115
+- case 82
+- case 111
+- directed: flips 8C058608 (taken)
+- directed: flips 8C05862A (not taken)
+- directed: flips 8C058666 (not taken)
+- directed: flips 8C0588FC (taken)
+- directed: flips 8C058912 (taken)
+- directed: flips 8C058946 (taken)
+- directed: flips 8C05898E (not taken)
+- directed: flips 8C0589EC (not taken)
+- directed: flips 8C058676 (not taken)
+- directed: flips 8C0586EA (taken)
+- directed: flips 8C058A1A (taken)
+- directed: flips 8C058CA0 (not taken)
+- directed: flips 8C058706 (taken)
+- directed: flips 8C058728 (taken)
+- directed: flips 8C058860 (taken)
+- directed: flips 8C058876 (taken)
+- directed: flips 8C058B6C (not taken)
+- directed: flips 8C058D2A (not taken)
+- directed: flips 8C058D4A (not taken)
+- directed: flips 8C059C10 (not taken)
+- directed: flips 8C05A068 (not taken)
+- directed: flips 8C05A094 (not taken)
+- directed: flips 8C058768 (not taken)
+- directed: flips 8C058820 (not taken)
+- the cases run 1276 of 3374 instructions
+
 ### cpuDblInit (`8C05689C`, 1286 bytes, `src/gen_k.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_k/cpuDblInit.json`
 - case 52
@@ -20253,37 +20342,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 158
 - the cases run 78 of 78 instructions
 
-### cpuInFan (`8C07FE70`, 156 bytes, `src/gen_gv.c`)
-- equivalent on 14 development and 14 holdout cases, in `tests/gen_gv/cpuInFan.json`
-- case 90
-- case 8
-- case 20
-- case 25
-- case 33
-- case 41
-- case 65
-- case 69
-- case 73
-- case 84
-- case 87
-- case 131
-- case 142
-- case 152
-- case 4
-- case 19
-- case 22
-- case 28
-- case 38
-- case 50
-- case 67
-- case 70
-- case 74
-- case 86
-- case 130
-- case 141
-- case 150
-- case 157
-- the cases run 72 of 78 instructions
+### cpuInFan (`8C07FE70`, 156 bytes, `src/gen_ih.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_ih/cpuInFan.json`
+- rescue: empty case
+- rescue: empty case
+- the cases run 71 of 78 instructions
 
 ### cpuInRange (`8C08101C`, 46 bytes, `src/gen_am.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_am/cpuInRange.json`
@@ -21435,6 +21498,95 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 145
 - case 68
 - the cases run 33 of 194 instructions
+
+### cpuSglHitCheck (`8C042C2C`, 7560 bytes, `src/gen_if.c`)
+- equivalent on 43 development and 42 holdout cases, in `tests/gen_if/cpuSglHitCheck.json`
+- case 1
+- case 2
+- case 9
+- case 10
+- case 11
+- case 14
+- case 17
+- case 18
+- case 19
+- case 27
+- case 28
+- case 31
+- case 33
+- case 35
+- case 36
+- case 39
+- case 41
+- case 42
+- directed: flips 8C042C52 (not taken)
+- directed: flips 8C042C64 (not taken)
+- directed: flips 8C042C86 (taken)
+- directed: flips 8C042CC2 (not taken)
+- directed: flips 8C042F40 (taken)
+- directed: flips 8C042F56 (taken)
+- directed: flips 8C042F9E (taken)
+- directed: flips 8C042FE6 (not taken)
+- directed: flips 8C043030 (not taken)
+- directed: flips 8C042CD2 (not taken)
+- directed: flips 8C042D18 (taken)
+- directed: flips 8C04305E (taken)
+- directed: flips 8C0432F2 (not taken)
+- directed: flips 8C042D24 (taken)
+- directed: flips 8C042D70 (taken)
+- directed: flips 8C042DA8 (not taken)
+- directed: flips 8C042EB4 (taken)
+- directed: flips 8C043184 (not taken)
+- directed: flips 8C043306 (taken)
+- directed: flips 8C043358 (not taken)
+- directed: flips 8C043378 (not taken)
+- directed: flips 8C0441EC (not taken)
+- directed: flips 8C044648 (not taken)
+- directed: flips 8C044674 (not taken)
+- directed: flips 8C042DC0 (not taken)
+- case 149
+- case 116
+- case 76
+- case 97
+- case 106
+- case 94
+- case 107
+- case 86
+- case 129
+- case 81
+- case 83
+- case 156
+- case 145
+- case 75
+- case 105
+- case 117
+- case 111
+- case 123
+- directed: flips 8C042C74 (taken)
+- directed: flips 8C042C98 (taken)
+- directed: flips 8C042F40 (taken)
+- directed: flips 8C042F56 (taken)
+- directed: flips 8C042F84 (taken)
+- directed: flips 8C042FBC (not taken)
+- directed: flips 8C042FFA (not taken)
+- directed: flips 8C042CA2 (not taken)
+- directed: flips 8C042CE4 (not taken)
+- directed: flips 8C042E00 (not taken)
+- directed: flips 8C04316A (not taken)
+- directed: flips 8C04331A (not taken)
+- directed: flips 8C042D34 (taken)
+- directed: flips 8C042D80 (taken)
+- directed: flips 8C042EB4 (taken)
+- directed: flips 8C042ECA (taken)
+- directed: flips 8C0431C6 (not taken)
+- directed: flips 8C04332A (not taken)
+- directed: flips 8C043364 (taken)
+- directed: flips 8C04379E (not taken)
+- directed: flips 8C044630 (taken)
+- directed: flips 8C044674 (not taken)
+- directed: flips 8C044694 (not taken)
+- directed: flips 8C042DE8 (taken)
+- the cases run 1208 of 3320 instructions
 
 ### cpuSglHitReady (`8C044C64`, 344 bytes, `src/gen_bc.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_bc/cpuSglHitReady.json`
@@ -72441,12 +72593,6 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 29 of 39 instructions
 
-### rankDrawCharaIcon (`8C0E11E8`, 424 bytes, `src/gen_az.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_az/rankDrawCharaIcon.json`
-- rescue: empty case
-- rescue: empty case
-- the cases run 125 of 188 instructions
-
 ### rankDrawGlyph (`8C0E0E84`, 622 bytes, `src/gen_bj.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_bj/rankDrawGlyph.json`
 - rescue: empty case
@@ -93397,44 +93543,44 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 56
 - the cases run 57 of 57 instructions
 
-### winPartsPut (`8C0DE654`, 426 bytes, `src/gen_az.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_az/winPartsPut.json`
-- case 103
+### winPartsPut (`8C0DE654`, 426 bytes, `src/gen_ig.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ig/winPartsPut.json`
+- case 57
+- case 0
 - case 1
 - case 2
+- case 3
 - case 4
 - case 5
+- case 6
 - case 7
 - case 10
 - case 11
 - case 12
+- case 13
+- case 14
 - case 15
 - case 16
 - case 17
 - case 18
-- case 20
-- case 25
-- case 27
-- case 30
-- case 32
-- case 146
-- case 153
-- case 112
-- case 90
-- case 104
-- case 151
-- case 123
-- case 132
+- case 120
+- case 122
 - case 93
-- case 141
-- case 96
-- case 147
-- case 144
-- case 89
-- case 110
+- case 87
+- case 76
+- case 119
+- case 61
+- case 140
+- case 124
 - case 134
-- case 138
-- case 137
+- case 72
+- case 156
+- case 91
+- case 70
+- case 115
+- case 106
+- case 159
+- case 121
 - the cases run 186 of 199 instructions
 
 ### winTriPartsPut (`8C0DE808`, 398 bytes, `src/gen_ba.c`)

@@ -668,6 +668,7 @@ cpuDblAimRateD
 cpuDblAimRateE
 cpuDblChase
 cpuDblCoverPos
+cpuDblHitCheck
 cpuDblInput
 cpuDblMoodUpdate
 cpuDblMove
@@ -730,6 +731,7 @@ cpuSglAimScore2
 cpuSglAimScoreAngle
 cpuSglAimTableCall
 cpuSglChase
+cpuSglHitCheck
 cpuSglHitReady
 cpuSglInit
 cpuSglMoodUpdate
@@ -2370,7 +2372,6 @@ rankCursorChar
 rankDispExec
 rankDispLoad
 rankDraw
-rankDrawCharaIcon
 rankDrawGlyph
 rankDrawString
 rankDrawTbl1
