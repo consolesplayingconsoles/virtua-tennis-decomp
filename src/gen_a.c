@@ -218,8 +218,10 @@ int motFileLoadBegin(int);
 int motFileRequest(int);
 int mwRnaDiscardData(void);
 int mwRnaErrEntryFunc(int, int);
+int thunk_mwRnaErrEntryFunc(int, int);
 int mwRnaExecServer(void);
 int mwRnaFinish(void);
+int thunk_mwRnaFinish(void);
 int mwRnaGetBitPerSmpl(void);
 int mwRnaGetNumData(void);
 int mwRnaGetOutPan(void);
@@ -228,6 +230,7 @@ int mwRnaGetSfreq(void);
 int mwRnaGetStat(void);
 int mwRnaGetTime(void);
 int mwRnaInit(void);
+int thunk_mwRnaInit(void);
 int mwRnaSetBitPerSmpl(void);
 int mwRnaSetNumChan(void);
 int mwRnaSetOutPan(void);
@@ -2456,11 +2459,11 @@ int ADXT_Init(void)
     SJRBF_Init();
     SJMEM_Init();
     ADXCRS_Init();
-    mwRnaInit();
+    thunk_mwRnaInit();
     ADXSTM_Init();
     ADXSJD_Init();
     ADXERR_Init();
-    mwRnaErrEntryFunc(0x8C1E0D30, 0x0);
+    thunk_mwRnaErrEntryFunc(0x8C1E0D30, 0x0);
     return memset(0x8C20C258, 0x0, 0x460);
 }
 
@@ -2469,7 +2472,7 @@ int ADXT_Finish(void)
     ADXERR_Finish();
     ADXSJD_Finish();
     ADXSTM_Finish();
-    mwRnaFinish();
+    thunk_mwRnaFinish();
     SJMEM_Finish();
     SJRBF_Finish();
     SJUNI_Finish();

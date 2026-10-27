@@ -1848,7 +1848,7 @@ F 8c0f82a0 4 nlIntrDefaultFunction
 F 8c0f82b0 98 nlSetIntrFunction
 F 8c0f83f0 84 nlSetIntrPriority
 F 8c0f8490 32 nlSynchFunction
-F 8c0f84c0 6 kmSetHSyncLine
+F 8c0f84c0 6 thunk_kmSetHSyncLine
 F 8c0f8500 136 kmLoadTextureRom
 F 8c0f8590 142 FUN_8c0f8590
 F 8c0f861e 458 kmyCopyToTextureRom
@@ -2203,7 +2203,7 @@ F 8c1e161e 6 ADXT_SetReloadSct
 F 8c1e16bc 6 ADXT_SetAutoRcvr
 F 8c1e16cc 100 ADXT_ExecServer
 F 8c1e1766 152 ADXT_Pause
-F 8c1e183a 6 ADXERR_EntryErrFunc
+F 8c1e183a 6 thunk_ADXERR_EntryErrFunc
 F 8c1e1846 46 ADXT_DiscardSmpl
 F 8c1e1a60 92 adxf_SetCmdHstry
 F 8c1e1abc 10 adxf_wait_1ms
@@ -2606,8 +2606,8 @@ F 8c1f0150 26 ADXERR_Init
 F 8c1f016a 26 ADXERR_Finish
 F 8c1f0184 10 ADXERR_EntryErrFunc
 F 8c1f018e 62 ADXERR_CallErrFunc
-F 8c1f01e4 6 mwRnaInit
-F 8c1f01ea 6 mwRnaFinish
+F 8c1f01e4 6 thunk_mwRnaInit
+F 8c1f01ea 6 thunk_mwRnaFinish
 F 8c1f01f0 270 mwRnaCreate
 F 8c1f01f6 18 ADXRNA_Destroy
 F 8c1f0208 6 ADXRNA_Start
@@ -2722,7 +2722,7 @@ F 8c1f1c56 148 mwRnaFinish
 F 8c1f1cea 10 mwRnaSetupSnd
 F 8c1f1d28 76 mwlRnaSetInitMember
 F 8c1f1d74 40 mwlRnaAlloc
-F 8c1f1d9c 270 mwRnaCreate
+F 8c1f1d9c 270 mwRnaCreate_8c1f1d9c
 F 8c1f1eaa 112 mwRnaDestroy
 F 8c1f1f1a 114 mwRnaStart
 F 8c1f1f8c 4 mwlRnaClearBuf
@@ -2768,7 +2768,7 @@ F 8c1f2e90 48 mwRnaGetOutPan
 F 8c1f2ec0 64 mwRnaGetFx
 F 8c1f2f00 64 mwRnaGetPitch
 F 8c1f2f40 32 mwRnaGetDrctLvl
-F 8c1f2f60 6 mwRnaErrEntryFunc
+F 8c1f2f60 6 thunk_mwRnaErrEntryFunc
 F 8c1f2fb6 40 mwRnaGetFilter
 F 8c1f2fde 308 mwRnaSetStmHdInfo
 F 8c1f3114 24 SJMEM_Lock

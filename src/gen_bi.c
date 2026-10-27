@@ -3,6 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 int ADXERR_EntryErrFunc(int, int);
+int thunk_ADXERR_EntryErrFunc(int, int);
 int ADXT_Init(void);
 int BupInit(void);
 extern void _builtin_set_imask(int);
@@ -124,7 +125,7 @@ int sysInit(void)
     gdFsEntryErrFuncAll(0x8C010DC8, 0x0);
     ADXT_Init();
     *(unsigned int *)0x8C40C5C4 = ((*(int *)0x8C40C5C4) | 0x1);
-    ADXERR_EntryErrFunc(0x8C0E92AA, 0x0);
+    thunk_ADXERR_EntryErrFunc(0x8C0E92AA, 0x0);
     *(unsigned int *)0x8C423BD4 = 0x0;
     nlInitInterruptDC();
     nlSetIntrFunction(0x1, 0x8C010DA8);

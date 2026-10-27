@@ -2202,33 +2202,6 @@ void ballColliSync(void)
     }
 }
 
-int miniTargetSpawn(int a4, int a5)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int stk[12];
-
-    *(unsigned int *)(((int)stk + 20)) = a4;
-    *(unsigned int *)(((int)stk + 16)) = a5;
-    t0 = set_event(0x528, 0x8C037F98);
-    t1 = *(int *)(((int)stk + 20));
-    *(unsigned int *)((t0 + 0x14)) = t1;
-    *(unsigned int *)((t0 + 0x524)) = 0x0;
-    t2 = *(int *)(((((int)stk + 16) + 0x20) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t2;
-    t3 = *(int *)(((((int)stk + 16) + 0x20) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t3;
-    t4 = *(int *)(((((int)stk + 16) + 0x20) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t4;
-    t5 = *(int *)(((int)stk + 16));
-    t6 = miniTargetInit(t0, t5);
-    return t6;
-}
 
 int miniClearTables(void)
 {
@@ -4073,53 +4046,6 @@ int standBgDraw(void)
 
 
 
-int decoGaugeBarPut(int a4, int a5, int a6)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-    int t10;
-    int t11;
-    int t12;
-    int t13;
-    int stk[9];
-
-    *(unsigned int *)(((int)stk + 24)) = a4;
-    *(unsigned int *)(((int)stk + 20)) = a5;
-    *(unsigned int *)(((int)stk + 16)) = a6;
-    t0 = *(int *)(((int)stk + 20));
-    if ((int)t0 < 0) {
-        t1 = *(int *)(((((int)stk + 16) + 0x14) + 0x8));
-        *(unsigned int *)((((int)stk + 4) + 0x8)) = t1;
-        t2 = *(int *)(((((int)stk + 16) + 0x14) + 0x4));
-        *(unsigned int *)((((int)stk + 4) + 0x4)) = t2;
-        t3 = *(int *)(((((int)stk + 16) + 0x14) + 0x0));
-        *(unsigned int *)((((int)stk + 4) + 0x0)) = t3;
-        t4 = *(int *)(((int)stk + 24));
-        t5 = *(int *)(((int)stk + 16));
-        t6 = sprPutCropH((((((t4 << 2) + t4) << 2) << 2) + 0x8C3422A8), t5, 0x40);
-        t13 = t6;
-    } else {
-        t7 = *(int *)(((((int)stk + 16) + 0x14) + 0x8));
-        *(unsigned int *)((((int)stk + 4) + 0x8)) = t7;
-        t8 = *(int *)(((((int)stk + 16) + 0x14) + 0x4));
-        *(unsigned int *)((((int)stk + 4) + 0x4)) = t8;
-        t9 = *(int *)(((((int)stk + 16) + 0x14) + 0x0));
-        *(unsigned int *)((((int)stk + 4) + 0x0)) = t9;
-        t10 = *(int *)(((int)stk + 20));
-        t11 = *(int *)(((int)stk + 16));
-        t12 = sprPutCropH(((((((t10 << 2) + t10) << 2) << 2) + 0x8C3422A8) + 0x5A0), t11, 0x40);
-        t13 = t12;
-    }
-    return t13;
-}
 
 
 int selRestart(void)

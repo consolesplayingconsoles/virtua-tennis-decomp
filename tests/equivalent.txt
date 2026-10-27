@@ -67,6 +67,7 @@ ADXCRS_Init
 ADXCRS_Lock
 ADXCRS_Unlock
 ADXERR_CallErrFunc
+ADXERR_EntryErrFunc
 ADXERR_Finish
 ADXERR_Init
 ADXF_Close
@@ -565,6 +566,7 @@ check_file_correct
 check_isopen
 circuitApplyResult
 circuitDrawBar
+circuitDrawFrame
 circuitDrawGameIcon
 circuitDrawGameInfo
 circuitDrawMatchIcon
@@ -753,6 +755,7 @@ crowdCheerStopAfter
 crowdDrawBlock
 crowdDrawBlockAlt
 crowdDrawMember
+crowdDrawUsa
 crowdFrameTcw
 crowdInit
 crowdInitAlt
@@ -778,6 +781,7 @@ dbgMenuSetTitle
 dbgMenuSetValue
 dbgVdEdit
 debugTexRelease
+decoGaugeBarPut
 decoGaugeDraw
 decoGaugeFramePut
 decoGaugeSprInit
@@ -1233,6 +1237,7 @@ kmSetFogDensity
 kmSetFogTable
 kmSetFogTableColor
 kmSetFogVertexColor
+kmSetHSyncLine
 kmSetPALEXTCallback
 kmSetPaletteBank
 kmSetPaletteBankData
@@ -1572,6 +1577,8 @@ miniSetModel
 miniSetupObjects
 miniStart
 miniTargetDraw
+miniTargetInit
+miniTargetSpawn
 miniTimerDraw
 miniWallTargetsHit
 miniWallTargetsInit
@@ -1713,11 +1720,14 @@ muneSlotReset
 muneTexLoad
 mwRnaAdjustBuf
 mwRnaContinue
+mwRnaCreate
+mwRnaCreate_8c1f1d9c
 mwRnaDestroy
 mwRnaDiscardData
 mwRnaErrCallFunc
 mwRnaErrEntryFunc
 mwRnaExecServer
+mwRnaFinish
 mwRnaFlush
 mwRnaGetAutoSw
 mwRnaGetBitPerSmpl
@@ -1734,6 +1744,7 @@ mwRnaGetSfreq
 mwRnaGetStat
 mwRnaGetTime
 mwRnaGetTransSw
+mwRnaInit
 mwRnaIsPause
 mwRnaPause
 mwRnaSetBitPerSmpl
@@ -2011,6 +2022,7 @@ nlScaleVector
 nlScalor
 nlSearchPalette
 nlSec
+nlSetBackColorZ
 nlSetCommonTextureOffset
 nlSetDummyTextureParameter
 nlSetFatalErrorMode
@@ -2828,6 +2840,7 @@ sysSetVideoMode
 sys_init
 texPicInit
 texPicPut
+thunk_ADXERR_EntryErrFunc
 thunk_FUN_8c032f6c
 thunk_FUN_8c09e55a
 thunk_FUN_8c0bcda0
@@ -2838,6 +2851,10 @@ thunk_FUN_8c1e0150
 thunk_FUN_8c1e6b1c
 thunk_FUN_8c1ff1bc
 thunk_FUN_8c1ff1ee
+thunk_kmSetHSyncLine
+thunk_mwRnaErrEntryFunc
+thunk_mwRnaFinish
+thunk_mwRnaInit
 titleFrameCue
 titleMenuLayout
 titleObjSpinPut

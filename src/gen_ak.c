@@ -103,32 +103,6 @@ int winDrawA(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, f
 int swingBlurSpawn(int a4, int a5, int a6, int a7);
 int charaTexCount(int a4);
 
-int circuitDrawFrame(void)
-{
-    int t8;
-    int stk[15];
-
-    sprSheetSet(0x8C1082C0);
-    sprSheetPut(0x0, 30.0f, 32.0f, 51.0f, 1.0f);
-    sprSheetSet(0x8C1082E4);
-    *(unsigned int *)(((int)stk + 4)) = 0x8C287658;
-    *(float *)0x8C287668 = ((*(float *)0x8C287668) * 280.0f);
-    sprSheetPut(0x0, 0.0f, 0.0f, 51.0999985f, 0.5f);
-    sprSheetSet(0x8C108308);
-    sprSheetPut(0x0, 280.0f, 0.0f, 51.0999985f, 0.5f);
-    sprSheetSet(0x8C10832C);
-    t8 = *(int *)(((int)stk + 4));
-    *(float *)((t8 + 0x10)) = ((*(float *)((t8 + 0x10))) * 640.0f);
-    sprSheetPut(0x0, 0.0f, 360.0f, 51.0999985f, 0.5f);
-    uiScanlinesPut();
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x0)) = 0xFF000000;
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x4)) = 0xFF000000;
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x8)) = 0xFF00BABA;
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0xC)) = 0xFF00BABA;
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x10)) = 0xFF00BABA;
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x14)) = 0xFF00BABA;
-    return (screenQuadPut((((int)stk + 4) + 0x4), 640.0f));
-}
 
 
 int primRect(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
@@ -950,43 +924,6 @@ float nlTanh(int a4)
     return u20;
 }
 
-int nlSetBackColorZ(int a4, int a5, int a6, float f4)
-{
-    int t0;
-    int t2;
-    int stk[30];
-
-    *(unsigned int *)0x8C1DC894 = a4;
-    *(unsigned int *)0x8C1DC898 = a5;
-    *(unsigned int *)0x8C1DC89C = a6;
-    *(unsigned int *)(((((int)stk + 4) + 0xC) + 0x0)) = 0xE0000000;
-    *(float *)(((((int)stk + 4) + 0xC) + 0x4)) = 0.0f;
-    *(float *)(((((int)stk + 4) + 0xC) + 0x8)) = 0.0f;
-    *(float *)(((((int)stk + 4) + 0xC) + 0xC)) = (1.0f / f4);
-    *(unsigned int *)(((((int)stk + 4) + 0xC) + 0x10)) = a4;
-    *(unsigned int *)(((((int)stk + 4) + 0xC) + 0x18)) = a4;
-    *(unsigned int *)((((((int)stk + 4) + 0xC) + 0x20) + 0x0)) = 0xE0000000;
-    t0 = *(short *)0x8C458DD8;
-    t2 = (short)t0;
-    if ((*(short *)0x8C458DDE) != 0) {
-        t2 = ((short)t0 << 1);
-    }
-    *(float *)((((((int)stk + 4) + 0xC) + 0x20) + 0x4)) = (float)t2;
-    *(float *)((((((int)stk + 4) + 0xC) + 0x20) + 0x8)) = 0.0f;
-    *(float *)((((((int)stk + 4) + 0xC) + 0x20) + 0xC)) = (1.0f / f4);
-    *(unsigned int *)((((((int)stk + 4) + 0xC) + 0x20) + 0x10)) = a5;
-    *(unsigned int *)((((((int)stk + 4) + 0xC) + 0x20) + 0x18)) = a5;
-    *(unsigned int *)((((((int)stk + 4) + 0xC) + 0x40) + 0x0)) = 0xF0000000;
-    *(float *)((((((int)stk + 4) + 0xC) + 0x40) + 0x4)) = 0.0f;
-    *(float *)((((((int)stk + 4) + 0xC) + 0x40) + 0x8)) = (float)(*(short *)0x8C458DDA);
-    *(float *)((((((int)stk + 4) + 0xC) + 0x40) + 0xC)) = (1.0f / f4);
-    *(unsigned int *)((((((int)stk + 4) + 0xC) + 0x40) + 0x10)) = a6;
-    *(unsigned int *)((((((int)stk + 4) + 0xC) + 0x40) + 0x18)) = a6;
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = (((int)stk + 4) + 0xC);
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = ((((int)stk + 4) + 0xC) + 0x20);
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = ((((int)stk + 4) + 0xC) + 0x40);
-    return (kmSetBackGroundPlane(((int)stk + 4), 0x0));
-}
 
 int cpuDebugLine(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
 {
@@ -1244,6 +1181,5 @@ int charaTexCount(int a4)
     }
     return 0x0;
 }
-
 
 
