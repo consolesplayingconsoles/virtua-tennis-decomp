@@ -1325,6 +1325,8 @@ int FUN_8c0eb200(int a4, int a5, int a6, int a7)
     return (kmSetBorderColor((a4 | 0xFF000000), a5, a6, a7, (a4 | 0xFF000000)));
 }
 
+
+
 int screenSegVisible(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
 {
     int t7;
@@ -1349,31 +1351,4 @@ int screenSegVisible(int a4, int a5, int a6, int a7, int a8, int a9, int a10, in
     return (((((unsigned short)t7 & (unsigned short)t11) == 0)) ? 1 : 0);
 }
 
-int winDrawB(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5, float f6)
-{
-    float u0;
-    int stk[27];
-
-    stk[15] = a8;
-    stk[16] = a9;
-    stk[17] = a10;
-    stk[18] = a11;
-    *(unsigned int *)(((int)stk + 32)) = a4;
-    *(unsigned int *)(((int)stk + 36)) = a5;
-    *(unsigned int *)(((int)stk + 40)) = 0x8C1D7414;
-    *(float *)0x8C1D74E0 = f4;
-    *(float *)0x8C1D74A4 = f4;
-    *(float *)0x8C1D748C = f4;
-    *(float *)0x8C1D7468 = f4;
-    *(float *)0x8C1D7450 = f4;
-    u0 = *(float *)0x8C0DEB40;
-    *(float *)0x8C1D7510 = (f4 + u0);
-    *(float *)0x8C1D74F8 = (f4 + u0);
-    *(float *)0x8C1D74BC = (f4 + u0);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x1C)); }
-    winTriPartsPut(0x8C1D7480, 0x2, (*(int *)(((int)stk + 32))), (*(int *)(((int)stk + 36))), *(Stk3 *)((((int)stk + 32) + 0x1C)), f6, f5);
-    *(volatile int *)(((int)stk + 36));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x2C)); }
-    return (winPartsPut(0x8C1D7414, 0x8C1D7480, 0x1, (*(int *)(((int)stk + 32))), *(Stk3 *)((((int)stk + 16) + 0x2C)), f6, f5));
-}
 

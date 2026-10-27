@@ -891,28 +891,4 @@ int _pow10(int a4, int a5, int a6)
     return (memmove((*(int *)(((int)stk + 4))), t5, (*(int *)(((int)stk + 8)))));
 }
 
-int mwRnaSetNumChan(int a4, int a5)
-{
-    int t4;
-    int t7;
-
-    if (a4 == 0) {
-        return (mwRnaErrCallFunc(0x8C20AC30));
-    }
-    if ((int)a5 > (int)(unsigned char)(*(signed char *)((a4 + 0x2)))) {
-        return (mwRnaErrCallFunc(0x8C20ACD4));
-    }
-    *(unsigned char *)((a4 + 0x3)) = a5;
-    t4 = *(int *)((a4 + 0x38));
-    t7 = ((int (*)(int, int))((*(int *)(((*(int *)((t4 + 0x0))) + 0x1C)))))(t4, (signed char)a5);
-    if (a5 == 1) {
-        *(unsigned int *)(((a4 + 0x64) + 0x0)) = 0x0;
-        *(unsigned int *)((a4 + 0x68)) = 0x0;
-    } else {
-        *(unsigned int *)(((a4 + 0x64) + 0x0)) = 0xFFFFFFF1;
-        *(unsigned int *)((a4 + 0x68)) = 0xF;
-    }
-    mwRnaSetOutPan(a4, 0x0, (*(int *)(((a4 + 0x64) + 0x0))));
-    return mwRnaSetOutPan(a4, 0x1, (*(int *)((a4 + 0x68))));
-}
 

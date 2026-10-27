@@ -1245,6 +1245,7 @@ int charaTexCount(int a4)
     return 0x0;
 }
 
+
 int screenSegVisibleRaised(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12)
 {
     float u0;
@@ -1327,33 +1328,5 @@ int screenSphereVisibleRaised(Stk4 s, float f4)
         t25 = t18;
     }
     return t25;
-}
-
-int winDrawA(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5, float f6)
-{
-    float u0;
-    int stk[27];
-
-    stk[15] = a8;
-    stk[16] = a9;
-    stk[17] = a10;
-    stk[18] = a11;
-    *(unsigned int *)(((int)stk + 32)) = a4;
-    *(unsigned int *)(((int)stk + 36)) = a5;
-    *(unsigned int *)(((int)stk + 40)) = 0x8C1D7300;
-    *(float *)0x8C1D73CC = f4;
-    *(float *)0x8C1D7390 = f4;
-    *(float *)0x8C1D7378 = f4;
-    *(float *)0x8C1D7354 = f4;
-    *(float *)0x8C1D733C = f4;
-    u0 = *(float *)0x8C0DEB40;
-    *(float *)0x8C1D73FC = (f4 + u0);
-    *(float *)0x8C1D73E4 = (f4 + u0);
-    *(float *)0x8C1D73A8 = (f4 + u0);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x1C)); }
-    winTriPartsPut(0x8C1D736C, 0x2, ((*(int *)(((int)stk + 32))) + 0xF), (*(int *)(((int)stk + 36))), *(Stk3 *)((((int)stk + 32) + 0x1C)), f6, f5);
-    *(volatile int *)(((int)stk + 36));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x2C)); }
-    return (winPartsPut(0x8C1D7300, 0x8C1D736C, 0x1, (*(int *)(((int)stk + 32))), *(Stk3 *)((((int)stk + 16) + 0x2C)), f6, f5));
 }
 

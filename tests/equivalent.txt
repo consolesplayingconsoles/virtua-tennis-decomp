@@ -443,6 +443,7 @@ ballWallStop
 bcd2bin
 bcdtime2fad
 bgScreenDraw
+bgSprInitAll
 bgSprInitRect
 bgTilesInit
 bodyCreate
@@ -683,6 +684,7 @@ cpuDebugLine2
 cpuDistXZ
 cpuEdgeX
 cpuGiveUpCheck
+cpuInFan
 cpuInRange
 cpuInTriangle
 cpuInit
@@ -1044,6 +1046,7 @@ hudBarDrawAlt
 hudBarSprInit
 hudBgTileInit
 hudCallDigitPut
+hudCallMsgDrawA9f0
 hudCallMsgDrawD830
 hudCallMsgDrawD8d0
 hudCallMsgDrawD970
@@ -1071,8 +1074,10 @@ hudFadeOutStart
 hudFaultPanel
 hudFlagInit
 hudFont2DigitPut
+hudFont2SprInit
 hudFont2SprSet
 hudFontNumPut
+hudFontSprInit
 hudFontSprSet
 hudFrameInit
 hudFramePutNarrow
@@ -1102,6 +1107,7 @@ hudScoreShow
 hudSignFirstPut
 hudSignLastPut
 hudSignPut
+hudSignSprInit
 hudSignSprSet
 hudSlideShow
 hudValueDraw
@@ -1672,8 +1678,10 @@ mpdrv_swapmode
 mpdrv_timeout
 mpdrv_v2p
 msgEventStart
+msgWinFramePut
 msgWinPut
 msgWinSet
+msgWinStep
 mtxGetAngles
 mtxGetPos
 mtxGetWorldPos
@@ -1706,6 +1714,8 @@ mwRnaIsPause
 mwRnaPause
 mwRnaSetBitPerSmpl
 mwRnaSetDrctLvl
+mwRnaSetFx
+mwRnaSetNumChan
 mwRnaSetOutPan
 mwRnaSetOutVol
 mwRnaSetPitch
@@ -2195,6 +2205,7 @@ panelDrawB
 panelDrawC
 panelLogoInit
 panelLogoPut
+panelLogoSetup
 panelLogoSwingDraw
 panelLogoSwingDraw2
 panelMenuSprInitA
@@ -2582,6 +2593,7 @@ sprTexRestore
 sprWtcFree
 sprWtcLoad
 sprWtcRestore
+sseleBarDraw
 sseleGridDraw
 sseleScanlines
 sseleSlotEntry
@@ -2698,6 +2710,7 @@ sunMatrixSet
 sunPut
 swingBlurPut
 swingBlurSpawn
+swingTrackTip
 syBtExit
 syBtFlDeleteSct
 syBtFlGetInfo
@@ -2963,6 +2976,8 @@ vmsio_get_media_info
 vmsio_init
 vmsio_ismount
 vmsio_isready
+winDrawA
+winDrawB
 winDrawFilled
 winPartsPut
 winTriPartsPut
