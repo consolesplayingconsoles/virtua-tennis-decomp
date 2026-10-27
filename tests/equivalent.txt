@@ -1230,6 +1230,7 @@ kmGetSystemMetrics
 kmInitDevice
 kmLoadTexture
 kmLoadTextureRom
+kmProcessVertexRenderState
 kmQueryFinishLastTextureDMA
 kmRender
 kmRenderRect
@@ -1554,6 +1555,7 @@ menuItemDraw1
 menuItemDraw2
 menuItemTextPut
 menuListDraw
+menuListExec
 menuResultDraw
 menuResultExec
 menuSprInit
@@ -1813,6 +1815,7 @@ ndbClear
 ndbEditDrawMatches
 ndbEditFields
 ndbEditInput
+ndbEditShowEntry
 ndbIsValid
 ndbKeyEqual
 ndbLoadRequest
@@ -2372,6 +2375,7 @@ rankCursorChar
 rankDispExec
 rankDispLoad
 rankDraw
+rankDrawCharaIcon
 rankDrawGlyph
 rankDrawString
 rankDrawTbl1

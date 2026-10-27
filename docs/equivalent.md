@@ -38279,6 +38279,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 132
 - the cases run 58 of 58 instructions
 
+### kmProcessVertexRenderState (`8C1E40C0`, 1670 bytes, `src/gen_ik.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ik/kmProcessVertexRenderState.json`
+- case 94
+- case 57
+- case 15
+- case 126
+- case 134
+- case 142
+- case 1
+- case 60
+- case 74
+- case 0
+- case 4
+- case 5
+- case 8
+- case 9
+- case 11
+- case 12
+- case 13
+- case 14
+- case 82
+- case 58
+- case 128
+- case 79
+- case 100
+- case 159
+- case 155
+- case 156
+- case 139
+- case 125
+- case 108
+- case 67
+- case 90
+- case 95
+- case 63
+- case 109
+- case 148
+- case 51
+- the cases run 504 of 607 instructions
+
 ### kmQueryFinishLastTextureDMA (`8C1E2F70`, 32 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/kmQueryFinishLastTextureDMA.json`
 - case 0
@@ -48064,6 +48104,23 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 111
 - the cases run 377 of 377 instructions
 
+### menuListExec (`8C0CFD18`, 944 bytes, `src/gen_ij.c`)
+- equivalent on 7 development and 6 holdout cases, in `tests/gen_ij/menuListExec.json`
+- case 30
+- case 143
+- case 98
+- case 179
+- case 218
+- case 317
+- case 369
+- case 83
+- case 45
+- case 133
+- case 211
+- case 234
+- case 324
+- the cases run 254 of 405 instructions
+
 ### menuResultDraw (`8C0D043C`, 920 bytes, `src/gen_fw.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_fw/menuResultDraw.json`
 - case 47
@@ -55723,6 +55780,34 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 120
 - case 148
 - the cases run 118 of 189 instructions
+
+### ndbEditShowEntry (`8C0822D8`, 412 bytes, `src/gen_ik.c`)
+- equivalent on 12 development and 12 holdout cases, in `tests/gen_ik/ndbEditShowEntry.json`
+- case 0
+- case 1
+- case 3
+- case 6
+- case 23
+- case 28
+- case 69
+- case 77
+- case 90
+- case 98
+- case 102
+- case 133
+- case 13
+- case 2
+- case 4
+- case 7
+- case 24
+- case 57
+- case 75
+- case 81
+- case 92
+- case 101
+- case 111
+- case 158
+- the cases run 182 of 182 instructions
 
 ### ndbIsValid (`8C082884`, 64 bytes, `src/gen_d.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_d/ndbIsValid.json`
@@ -72592,6 +72677,12 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - rescue: empty case
 - the cases run 29 of 39 instructions
+
+### rankDrawCharaIcon (`8C0E11E8`, 424 bytes, `src/gen_ij.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_ij/rankDrawCharaIcon.json`
+- rescue: empty case
+- rescue: empty case
+- the cases run 125 of 188 instructions
 
 ### rankDrawGlyph (`8C0E0E84`, 622 bytes, `src/gen_bj.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_bj/rankDrawGlyph.json`
