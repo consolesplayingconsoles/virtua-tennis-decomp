@@ -1245,7 +1245,6 @@ int charaTexCount(int a4)
     return 0x0;
 }
 
-
 int screenSegVisibleRaised(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12)
 {
     float u0;

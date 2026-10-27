@@ -1325,8 +1325,6 @@ int FUN_8c0eb200(int a4, int a5, int a6, int a7)
     return (kmSetBorderColor((a4 | 0xFF000000), a5, a6, a7, (a4 | 0xFF000000)));
 }
 
-
-
 int screenSegVisible(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
 {
     int t7;
@@ -1350,5 +1348,4 @@ int screenSegVisible(int a4, int a5, int a6, int a7, int a8, int a9, int a10, in
     t11 = screenOutcodeMargin((*(int *)(((int)stk + 60))), (*(int *)(((int)stk + 64))), (*(int *)(((int)stk + 76))));
     return (((((unsigned short)t7 & (unsigned short)t11) == 0)) ? 1 : 0);
 }
-
 

@@ -85,7 +85,7 @@ int syRtcAicaSetWriteFlag(void)
 void mwRnaSetStartSmpl(int *h, int smpl, int c, int d)
 {
     if (!h) {
-        mwRnaErrCallFunc(h, smpl, c, d, (char *)0x0C176680);
+        mwRnaErrCallFunc(h, smpl, c, d, (char *)0x8C20AC30);
         return;
     }
     h[17] = smpl;
@@ -96,7 +96,7 @@ void mwRnaSetStartSmpl(int *h, int smpl, int c, int d)
 void mwRnaFlush(int *h, int b, int c, int d)
 {
     if (!h) {
-        mwRnaErrCallFunc(h, b, c, d, (char *)0x0C176680);
+        mwRnaErrCallFunc(h, b, c, d, (char *)0x8C20AC30);
         return;
     }
     if (((unsigned char *)h)[6] != 1) {
@@ -109,7 +109,7 @@ void mwRnaFlush(int *h, int b, int c, int d)
 void mwRnaGetFilter(int *h, int *lo, int *hi, int d)
 {
     if (!h) {
-        mwRnaErrCallFunc(h, (int)lo, (int)hi, d, (char *)0x0C176680);
+        mwRnaErrCallFunc(h, (int)lo, (int)hi, d, (char *)0x8C20AC30);
         return;
     }
     *lo = h[31];
@@ -120,28 +120,36 @@ void mwRnaGetFilter(int *h, int *lo, int *hi, int d)
 /* The effect pair (+108, +112); -1 for both on a null handle. */
 void mwRnaGetFx(int *h, int *a, int *b, int d)
 {
+    int stk[2];         /* the original keeps b at sp and a at sp + 4, above the message it pushes */
+
+    stk[1] = (int)a;
+    stk[0] = (int)b;
     if (!h) {
-        mwRnaErrCallFunc(h, (int)a, (int)b, d, (char *)0x0C176680);
-        *a = -1;
-        *b = -1;
+        mwRnaErrCallFunc(h, (int)a, (int)b, d, (char *)0x8C20AC30);
+        *(int *)stk[1] = -1;
+        *(int *)stk[0] = -1;
         return;
     }
-    *a = h[27];
-    *b = h[28];
+    *(int *)stk[1] = h[27];
+    *(int *)stk[0] = h[28];
 }
 
 
 /* The pitch pair (+116, +120); -1 for both on a null handle. */
 void mwRnaGetPitch(int *h, int *a, int *b, int d)
 {
+    int stk[2];         /* the original keeps b at sp and a at sp + 4, above the message it pushes */
+
+    stk[1] = (int)a;
+    stk[0] = (int)b;
     if (!h) {
-        mwRnaErrCallFunc(h, (int)a, (int)b, d, (char *)0x0C176680);
-        *a = -1;
-        *b = -1;
+        mwRnaErrCallFunc(h, (int)a, (int)b, d, (char *)0x8C20AC30);
+        *(int *)stk[1] = -1;
+        *(int *)stk[0] = -1;
         return;
     }
-    *a = h[29];
-    *b = h[30];
+    *(int *)stk[1] = h[29];
+    *(int *)stk[0] = h[30];
 }
 
 

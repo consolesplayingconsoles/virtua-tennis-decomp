@@ -404,6 +404,7 @@ adxt_set_outpan
 adxt_start_sj
 adxt_start_stm
 adxt_stat_decend
+adxt_stat_decinfo
 adxt_stat_playend
 adxt_stat_playing
 adxt_stat_prep
@@ -612,6 +613,7 @@ countryNamePutC
 countryNameTagPut
 countryStagePut
 courtAngleInSector
+courtAusDraw
 courtAusDrawNumber
 courtAusDrawScoreboard
 courtAusDrawSign
@@ -661,10 +663,12 @@ cpuDblAimRateE
 cpuDblChase
 cpuDblCoverPos
 cpuDblMoodUpdate
+cpuDblMove
 cpuDblNetmanPos
 cpuDblPartnerSignal
 cpuDblPathCross
 cpuDblPickTactic
+cpuDblPoachCheck
 cpuDblPosition
 cpuDblPositionCalc
 cpuDblReceivePos
@@ -674,6 +678,8 @@ cpuDblRecoverPosC
 cpuDblServe
 cpuDblShot
 cpuDblSignalDraw
+cpuDblSupportT55
+cpuDblSupportT57
 cpuDblSwingInput
 cpuDblTacticPos
 cpuDblThink
@@ -743,6 +749,8 @@ crowdAnimateAlt
 crowdCheerStart
 crowdCheerStop
 crowdCheerStopAfter
+crowdDrawBlock
+crowdDrawBlockAlt
 crowdDrawMember
 crowdDrawUsa
 crowdFrameTcw
@@ -788,6 +796,7 @@ displaypolygondata_sidx
 easeSin
 eepromBootLoad
 eepromCfgInit
+eepromDriveSelect
 eepromGetBoard
 eepromGetDeuce
 eepromGetDeuceMode
@@ -854,6 +863,7 @@ entryAnyAtRound5Clean
 entryAssignSelecters
 entryAssignSlotIds
 entryCharaCursorInit
+entryCharaSelDraw
 entryClearJoined
 entryClearUnsetSlots
 entryCountJoined
@@ -865,6 +875,7 @@ entryGetColorId
 entryGetRound
 entryGridCount
 entryGridMove
+entryGridSettingsStep
 entryInit
 entryIsVersus
 entryPartnerIsHuman
@@ -1045,6 +1056,7 @@ hudBarDraw
 hudBarDrawAlt
 hudBarSprInit
 hudBgTileInit
+hudCallDeuceDraw
 hudCallDigitPut
 hudCallMsgDrawA9f0
 hudCallMsgDrawD830
@@ -1102,6 +1114,7 @@ hudPointPanelShow
 hudPointsPut
 hudRankIconPut
 hudRankSprInit
+hudScoreBoardDraw
 hudScoreIconPutFull
 hudScoreShow
 hudSignFirstPut
@@ -1115,6 +1128,7 @@ hudWordFlagDraw
 hwInit
 iconSlotPutC
 ikSolve2Bone
+infoPlayerDraw
 infoPlayerDrawWrap
 initSprFree
 initSprLoad
@@ -1183,6 +1197,7 @@ kdSetSetConditionEx
 kdSetTransmitAgain
 kdVbInHandler
 kdVbOverHandler
+kmBeginPass
 kmBeginScene
 kmBlankScreen
 kmChangeDisplayFilterMode
@@ -1314,6 +1329,7 @@ kmyCopyPaletteData
 kmyCopyToFrameBuffer
 kmyCopyToTexture
 kmyCopyToTextureRom
+kmyCreateRegionArray
 kmyDeleteNativeBuffer
 kmyDisablePassInfoPreSort
 kmyDisablePassInfoZClear
@@ -1512,6 +1528,7 @@ menuIconInitB
 menuIconPut
 menuIconPutRot
 menuItemDraw0
+menuItemDraw1
 menuItemDraw2
 menuItemTextPut
 menuListDraw
@@ -1698,13 +1715,17 @@ mwRnaDiscardData
 mwRnaErrCallFunc
 mwRnaErrEntryFunc
 mwRnaExecServer
+mwRnaFlush
 mwRnaGetAutoSw
 mwRnaGetBitPerSmpl
 mwRnaGetDrctLvl
+mwRnaGetFilter
+mwRnaGetFx
 mwRnaGetNumData
 mwRnaGetNumRoom
 mwRnaGetOutPan
 mwRnaGetOutVol
+mwRnaGetPitch
 mwRnaGetPlaySw
 mwRnaGetSfreq
 mwRnaGetStat
@@ -1721,6 +1742,7 @@ mwRnaSetOutVol
 mwRnaSetPitch
 mwRnaSetPlaySw
 mwRnaSetSfreq
+mwRnaSetStartSmpl
 mwRnaSetStmHdInfo
 mwRnaSetTransSw
 mwRnaSetupSnd
@@ -2208,6 +2230,7 @@ panelLogoPut
 panelLogoSetup
 panelLogoSwingDraw
 panelLogoSwingDraw2
+panelMenuItemPut
 panelMenuSprInitA
 panelMenuSprInitB
 panelMenuSprInitC
@@ -2317,12 +2340,14 @@ primVertexSet
 quadFadeStart
 racketHitCheck
 rankCursorChar
+rankDispExec
 rankDispLoad
 rankDraw
 rankDrawCharaIcon
 rankDrawGlyph
 rankDrawString
 rankDrawTbl1
+rankDrawTbl2
 rankEntryMain
 rankInsert1
 rankInsert2
@@ -2438,6 +2463,7 @@ selInitB
 selJoinBlocked
 selJoinCheck
 selModeTrack
+selModelSpawn
 selPanelDraw
 selPortReset
 selPortsExec
@@ -2478,6 +2504,7 @@ shopDrawCatIcon
 shopDrawCount
 shopDrawPrice
 shopInit
+shopItemTblInit
 shopPowi
 shopPreviewExec
 shopPutItemModel
@@ -2677,6 +2704,7 @@ stripQuadDrawA
 stripQuadDrawB
 strlen
 strmBgmFadeOut
+strmBgmPlay
 strmBgmPlayStage
 strmBgmSetVol
 strmBgmVolTo

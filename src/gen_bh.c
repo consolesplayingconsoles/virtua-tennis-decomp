@@ -1248,4 +1248,3 @@ int BupFailDialog(int a4)
     return 0x0;
 }
 
-
