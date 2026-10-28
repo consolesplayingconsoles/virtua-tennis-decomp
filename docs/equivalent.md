@@ -18115,6 +18115,118 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 87
 - the cases run 11 of 11 instructions
 
+### cpuChasePlan (`8C03F630`, 9768 bytes, `src/cpuchase_b.c`)
+- equivalent on 54 development and 54 holdout cases, in `tests/cpuchase_b/cpuChasePlan.json`
+- case 0
+- case 0
+- case 1
+- case 4
+- case 10
+- case 0
+- case 0
+- case 42
+- case 2
+- case 3
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- directed: flips 8C03F670 (not taken)
+- directed: flips 8C03F718 (taken)
+- directed: flips 8C040A00 (not taken)
+- directed: flips 8C0417F0 (taken)
+- directed: flips 8C041866 (taken)
+- directed: flips 8C04192A (taken)
+- directed: flips 8C0419EC (not taken)
+- directed: flips 8C041AF4 (taken)
+- directed: flips 8C041BD8 (taken)
+- directed: flips 8C03F724 (taken)
+- directed: flips 8C03F8CC (taken)
+- directed: flips 8C03F8EA (taken)
+- directed: flips 8C03F760 (taken)
+- directed: flips 8C03F9B6 (not taken)
+- directed: flips 8C03FE0E (taken)
+- directed: flips 8C03FF52 (not taken)
+- directed: flips 8C03FFD2 (taken)
+- directed: flips 8C0400A2 (not taken)
+- directed: flips 8C0402D6 (not taken)
+- directed: flips 8C0405C8 (taken)
+- directed: flips 8C040606 (taken)
+- directed: flips 8C040668 (taken)
+- directed: flips 8C0408B0 (taken)
+- directed: flips 8C040998 (not taken)
+- directed: flips 8C03FA02 (taken)
+- directed: flips 8C03FA96 (taken)
+- directed: flips 8C040408 (not taken)
+- directed: flips 8C0404B8 (taken)
+- directed: flips 8C040544 (taken)
+- directed: flips 8C04074C (taken)
+- directed: flips 8C040866 (taken)
+- directed: flips 8C0408CC (taken)
+- directed: flips 8C040A1C (taken)
+- directed: flips 8C040A60 (taken)
+- directed: flips 8C040A7C (taken)
+- directed: flips 8C040D8E (not taken)
+- case 40
+- case 44
+- case 82
+- case 86
+- case 147
+- case 88
+- case 89
+- case 137
+- case 126
+- case 113
+- case 96
+- case 122
+- case 107
+- case 98
+- case 50
+- case 76
+- case 146
+- case 151
+- directed: flips 8C03F694 (not taken)
+- directed: flips 8C03F8AE (not taken)
+- directed: flips 8C0417D4 (taken)
+- directed: flips 8C041816 (taken)
+- directed: flips 8C0418EC (taken)
+- directed: flips 8C0419A6 (not taken)
+- directed: flips 8C041A98 (taken)
+- directed: flips 8C041B82 (taken)
+- directed: flips 8C041C08 (taken)
+- directed: flips 8C03F8CC (taken)
+- directed: flips 8C03F8EA (taken)
+- directed: flips 8C03F906 (taken)
+- directed: flips 8C03F782 (taken)
+- directed: flips 8C03FC60 (not taken)
+- directed: flips 8C03FE4C (not taken)
+- directed: flips 8C03FF94 (not taken)
+- directed: flips 8C03FFF4 (taken)
+- directed: flips 8C040102 (not taken)
+- directed: flips 8C0403CE (not taken)
+- directed: flips 8C0405E6 (taken)
+- directed: flips 8C04062C (taken)
+- directed: flips 8C040696 (taken)
+- directed: flips 8C040952 (taken)
+- directed: flips 8C0409DA (not taken)
+- directed: flips 8C03FA3C (taken)
+- directed: flips 8C03FACA (not taken)
+- directed: flips 8C040484 (taken)
+- directed: flips 8C040502 (taken)
+- directed: flips 8C04071E (taken)
+- directed: flips 8C040830 (taken)
+- directed: flips 8C04088A (not taken)
+- directed: flips 8C04092E (taken)
+- directed: flips 8C040A1C (taken)
+- directed: flips 8C040A60 (taken)
+- directed: flips 8C040AE8 (not taken)
+- directed: flips 8C040EF8 (taken)
+- the cases run 2789 of 4212 instructions
+
 ### cpuDblAim (`8C06F2DC`, 38 bytes, `src/gen_z.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_z/cpuDblAim.json`
 - case 0
@@ -21432,6 +21544,137 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 402
 - case 102
 - the cases run 103 of 120 instructions
+
+### cpuSglAimTable (`8C0502D4`, 18398 bytes, `src/aimtable_b.c`)
+- equivalent on 58 development and 69 holdout cases, in `tests/aimtable_b/cpuSglAimTable.json`
+- case 0
+- case 2
+- case 4
+- case 6
+- case 7
+- directed: flips 8C050326 (taken)
+- directed: flips 8C050392 (not taken)
+- directed: flips 8C0503BC (not taken)
+- directed: flips 8C0503D4 (taken)
+- directed: flips 8C0503F0 (not taken)
+- directed: flips 8C050420 (not taken)
+- directed: flips 8C0505D2 (taken)
+- directed: flips 8C0505F2 (not taken)
+- directed: flips 8C0507FA (taken)
+- directed: flips 8C050A28 (taken)
+- directed: flips 8C050A56 (taken)
+- directed: flips 8C051188 (taken)
+- directed: flips 8C050624 (not taken)
+- directed: flips 8C051274 (not taken)
+- directed: flips 8C0512AE (not taken)
+- directed: flips 8C0512F4 (taken)
+- directed: flips 8C051AF8 (not taken)
+- directed: flips 8C051B32 (taken)
+- directed: flips 8C0522FC (not taken)
+- directed: flips 8C052314 (not taken)
+- directed: flips 8C0529EA (taken)
+- directed: flips 8C052A02 (taken)
+- directed: flips 8C052FFA (taken)
+- directed: flips 8C0530B0 (not taken)
+- directed: flips 8C052360 (not taken)
+- directed: flips 8C0523A2 (taken)
+- directed: flips 8C053432 (not taken)
+- directed: flips 8C0536EE (not taken)
+- directed: flips 8C053972 (taken)
+- directed: flips 8C053D40 (not taken)
+- directed: flips 8C0542F2 (not taken)
+- directed: flips 8C054382 (not taken)
+- directed: flips 8C05346C (not taken)
+- directed: flips 8C053532 (not taken)
+- directed: flips 8C053AD0 (not taken)
+- directed: flips 8C053AF8 (not taken)
+- directed: flips 8C0514F0 (taken)
+- directed: flips 8C05196E (taken)
+- directed: flips 8C053B08 (not taken)
+- directed: flips 8C0540E2 (not taken)
+- directed: flips 8C0543C4 (not taken)
+- directed: flips 8C0543EC (not taken)
+- directed: flips 8C0545A2 (not taken)
+- directed: flips 8C054A5A (not taken)
+- directed: flips 8C0516C4 (not taken)
+- directed: flips 8C052B72 (taken)
+- directed: flips 8C053F22 (not taken)
+- directed: flips 8C0543FC (not taken)
+- directed: flips 8C052C62 (not taken)
+- directed: flips 8C052F64 (taken)
+- directed: flips 8C054626 (taken)
+- directed: flips 8C0548D0 (not taken)
+- directed: flips 8C0546BC (not taken)
+- case 146
+- case 132
+- case 75
+- case 122
+- case 158
+- case 87
+- case 72
+- case 142
+- case 90
+- case 141
+- case 54
+- case 117
+- case 51
+- case 98
+- case 106
+- case 139
+- case 127
+- directed: flips 8C050334 (taken)
+- directed: flips 8C0503AA (taken)
+- directed: flips 8C0503BC (not taken)
+- directed: flips 8C0503F0 (not taken)
+- directed: flips 8C050408 (taken)
+- directed: flips 8C05046C (taken)
+- directed: flips 8C0505E0 (taken)
+- directed: flips 8C0507E4 (taken)
+- directed: flips 8C050A06 (not taken)
+- directed: flips 8C050A40 (taken)
+- directed: flips 8C05117A (taken)
+- directed: flips 8C051268 (not taken)
+- directed: flips 8C050624 (not taken)
+- directed: flips 8C051280 (not taken)
+- directed: flips 8C0512AE (not taken)
+- directed: flips 8C05130C (taken)
+- directed: flips 8C051B1A (taken)
+- directed: flips 8C051B32 (taken)
+- directed: flips 8C052308 (not taken)
+- directed: flips 8C0529C8 (not taken)
+- directed: flips 8C052A02 (taken)
+- directed: flips 8C052FE2 (not taken)
+- directed: flips 8C053088 (not taken)
+- directed: flips 8C0533E0 (not taken)
+- directed: flips 8C052360 (not taken)
+- directed: flips 8C0533F0 (taken)
+- directed: flips 8C0536C6 (not taken)
+- directed: flips 8C053964 (taken)
+- directed: flips 8C053A8E (not taken)
+- directed: flips 8C053E28 (not taken)
+- directed: flips 8C05433E (not taken)
+- directed: flips 8C054592 (not taken)
+- directed: flips 8C0534F6 (not taken)
+- directed: flips 8C053AD0 (not taken)
+- directed: flips 8C053AF8 (not taken)
+- directed: flips 8C053D64 (not taken)
+- directed: flips 8C051524 (not taken)
+- directed: flips 8C053B08 (not taken)
+- directed: flips 8C053E38 (taken)
+- directed: flips 8C05410A (not taken)
+- directed: flips 8C0543C4 (not taken)
+- directed: flips 8C0543EC (not taken)
+- directed: flips 8C054616 (not taken)
+- directed: flips 8C05169C (not taken)
+- directed: flips 8C051A4C (taken)
+- directed: flips 8C052E74 (taken)
+- directed: flips 8C053F4A (not taken)
+- directed: flips 8C0543FC (not taken)
+- directed: flips 8C052C8A (not taken)
+- directed: flips 8C0543FC (not taken)
+- directed: flips 8C0548A8 (not taken)
+- directed: flips 8C054694 (not taken)
+- the cases run 4994 of 8252 instructions
 
 ### cpuSglAimTableCall (`8C0502C8`, 12 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/cpuSglAimTableCall.json`
@@ -33913,6 +34156,12 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 124
 - the cases run 84 of 84 instructions
 
+### hudFlagPut (`8C095574`, 70 bytes, `src/gen_im.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_im/hudFlagPut.json`
+- rescue: empty case
+- rescue: empty case
+- the cases run 35 of 35 instructions
+
 ### hudFont2DigitPut (`8C09ADB0`, 656 bytes, `src/gen_bi.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_bi/hudFont2DigitPut.json`
 - case 126
@@ -34818,6 +35067,12 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 40
 - case 59
 - the cases run 71 of 71 instructions
+
+### hudProfileDraw (`8C094EFC`, 482 bytes, `src/gen_il.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_il/hudProfileDraw.json`
+- rescue: empty case
+- rescue: empty case
+- the cases run 95 of 188 instructions
 
 ### hudRankIconPut (`8C09AA36`, 412 bytes, `src/gen_az.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_az/hudRankIconPut.json`
@@ -77697,6 +77952,26 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 149
 - the cases run 80 of 80 instructions
 
+### shopDrawMenu (`8C0E74F0`, 640 bytes, `src/gen_il.c`)
+- equivalent on 8 development and 8 holdout cases, in `tests/gen_il/shopDrawMenu.json`
+- case 0
+- case 2
+- case 4
+- case 34
+- case 69
+- case 112
+- case 129
+- case 154
+- case 1
+- case 3
+- case 6
+- case 49
+- case 89
+- case 128
+- case 150
+- case 159
+- the cases run 258 of 258 instructions
+
 ### shopDrawPrice (`8C0E726A`, 470 bytes, `src/gen_ax.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_ax/shopDrawPrice.json`
 - case 0
@@ -78008,6 +78283,12 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 104
 - case 137
 - the cases run 30 of 34 instructions
+
+### sklDrawNode (`8C01B950`, 304 bytes, `src/gen_im.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_im/sklDrawNode.json`
+- rescue: empty case
+- rescue: empty case
+- the cases run 58 of 128 instructions
 
 ### sklDrawNodeOne (`8C0CFBA0`, 170 bytes, `src/gen_ad.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_ad/sklDrawNodeOne.json`

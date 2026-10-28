@@ -644,6 +644,7 @@ courtWinDrawSign
 cpuAimAngleRate
 cpuAimDistRate
 cpuAimPointSet
+cpuChasePlan
 cpuDblAim
 cpuDblAimAddAngles
 cpuDblAimAddCorners
@@ -729,6 +730,7 @@ cpuSglAimRateOpp3
 cpuSglAimScore
 cpuSglAimScore2
 cpuSglAimScoreAngle
+cpuSglAimTable
 cpuSglAimTableCall
 cpuSglChase
 cpuSglHitCheck
@@ -1103,6 +1105,7 @@ hudFadeNearPlayers
 hudFadeOutStart
 hudFaultPanel
 hudFlagInit
+hudFlagPut
 hudFont2DigitPut
 hudFont2SprInit
 hudFont2SprSet
@@ -1130,6 +1133,7 @@ hudPanelShow9a504
 hudPlayerMarkers
 hudPointPanelShow
 hudPointsPut
+hudProfileDraw
 hudRankIconPut
 hudRankSprInit
 hudScoreBoardDraw
@@ -2540,6 +2544,7 @@ shadowVolPutDirA
 shadowVolPutPoint
 shopDrawCatIcon
 shopDrawCount
+shopDrawMenu
 shopDrawPrice
 shopInit
 shopItemTblInit
@@ -2549,6 +2554,7 @@ shopPutItemModel
 shotAim
 shotCheckNet
 sklBindMatrices
+sklDrawNode
 sklDrawNodeOne
 sklDrawNodeTrnsl
 sndCrowdAmb
