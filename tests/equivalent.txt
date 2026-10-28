@@ -897,6 +897,7 @@ entryAssignSelecters
 entryAssignSlotIds
 entryCharaCursorInit
 entryCharaSelDraw
+entryCharaSelExec
 entryCharaSelPort
 entryClearJoined
 entryClearUnsetSlots
@@ -2426,6 +2427,7 @@ rankEntryMain
 rankInsert1
 rankInsert2
 rankNameCopy
+rankNameEntryExec
 rankNameFilter
 rankNameMatch
 rankSprTexFree
