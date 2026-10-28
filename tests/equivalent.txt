@@ -373,6 +373,7 @@ _unpack
 _xtostr_rounddigits
 abs
 advDrawFigure
+advExec
 advFovKey
 advInit
 advPeriOff
@@ -432,6 +433,7 @@ ballBoyDrawIdle
 ballBoyDrawRun
 ballBoyExec
 ballBoyIdleExec
+ballBoyInit
 ballBoyPoseIdle
 ballBoyPoseRun
 ballBoyPropPut
@@ -458,6 +460,7 @@ bodyInit
 bodyLinePerp
 bodyPlacePoints
 bodyRaySphere
+bodyStep
 btnGuideDraw
 btnGuideDrawA
 btnGuideDrawB
@@ -574,8 +577,10 @@ circuitDrawFrame
 circuitDrawGameIcon
 circuitDrawGameInfo
 circuitDrawMatchIcon
+circuitDrawMatchInfo
 circuitDrawPicture
 circuitDrawPrompt
+circuitDrawStage
 circuitDrawStatus
 circuitMapInit
 circuitMenuCursor
@@ -723,6 +728,7 @@ cpuSglAimAddLv12
 cpuSglAimAddLv21
 cpuSglAimAddLv23
 cpuSglAimAddOpen
+cpuSglAimAddRange
 cpuSglAimAddReach
 cpuSglAimAddSides
 cpuSglAimLv09
@@ -730,6 +736,7 @@ cpuSglAimLv17
 cpuSglAimLv21
 cpuSglAimPickNet
 cpuSglAimRateOpp
+cpuSglAimRateOpp2
 cpuSglAimRateOpp3
 cpuSglAimScore
 cpuSglAimScore2
@@ -740,6 +747,7 @@ cpuSglChase
 cpuSglHitCheck
 cpuSglHitReady
 cpuSglInit
+cpuSglInput
 cpuSglMoodUpdate
 cpuSglMove
 cpuSglPickLv07
@@ -873,6 +881,7 @@ endingModelSet
 endingMotRequest
 endingNop
 endingPlayerExec
+endingSceneDraw
 endingScreenObjPut
 endingScreenObjPutTrnsl
 endingSprAnimInit
@@ -888,6 +897,7 @@ entryAssignSelecters
 entryAssignSlotIds
 entryCharaCursorInit
 entryCharaSelDraw
+entryCharaSelPort
 entryClearJoined
 entryClearUnsetSlots
 entryCountJoined
@@ -898,12 +908,15 @@ entryFirstPortMask
 entryGetColorId
 entryGetRound
 entryGridCount
+entryGridDraw
+entryGridDrawCursors
 entryGridMove
 entryGridSettingsStep
 entryInit
 entryIsVersus
 entryPartnerIsHuman
 entryPartnerSlot
+entryPickRandomChara
 entryPickRandomCourt
 entryPortAtRound5Clean
 entryPortContinue
@@ -962,6 +975,7 @@ fileLoadStartOfs
 fileLoadStartSlot
 fileLoadStartSlotOfs
 fileLoadSync
+flareSunDraw
 fmMngBit2Num
 fmMngChkEmptyData
 fmMngClearBuf
@@ -1081,8 +1095,10 @@ hudBarDraw
 hudBarDrawAlt
 hudBarSprInit
 hudBgTileInit
+hudCallAdvDraw
 hudCallDeuceDraw
 hudCallDigitPut
+hudCallGameDraw
 hudCallMsgDrawA9f0
 hudCallMsgDrawD830
 hudCallMsgDrawD8d0
@@ -1137,12 +1153,14 @@ hudPanelShow9a3dc
 hudPanelShow9a470
 hudPanelShow9a504
 hudPlayerMarkers
+hudPlayerPanelDraw
 hudPointPanelShow
 hudPointsPut
 hudProfileDraw
 hudRankIconPut
 hudRankSprInit
 hudScoreBoardDraw
+hudScoreIconPut
 hudScoreIconPutFull
 hudScoreShow
 hudSignFirstPut
@@ -1154,6 +1172,8 @@ hudSlideShow
 hudValueDraw
 hudWordFlagDraw
 hwInit
+iconSlotPut
+iconSlotPutB
 iconSlotPutC
 ikSolve2Bone
 infoPlayerDraw
@@ -1290,6 +1310,7 @@ kmiFLWCTRLCheckTimeOut
 kmiFLWCTRLCheckVBufOverflow
 kmiFLWCTRLEORCallBackFunc
 kmiFLWCTRLEOVCallBackFunc
+kmiFLWCTRLFinalizePass
 kmiFLWCTRLFindFreeNBuf
 kmiFLWCTRLFindTailQueue
 kmiFLWCTRLFindTopQueue
@@ -1582,6 +1603,7 @@ menuTextNumPut
 menuTextTimePut
 miniBallCopySpawn
 miniBallObjSpawn
+miniBowlingDraw
 miniBowlingScore
 miniClearTables
 miniDrawModels
@@ -1590,6 +1612,7 @@ miniEp2TargetSpawn
 miniExec
 miniHudDraw
 miniLaunchAimed
+miniLaunchBall
 miniLobTargetSpawn
 miniMessageSpawn
 miniOnEvent
@@ -1598,6 +1621,7 @@ miniPlayerInput
 miniPointPopSpawn
 miniPopupSpawn
 miniReset
+miniResultStart
 miniRoundStart
 miniSetModel
 miniSetupObjects
@@ -2356,9 +2380,11 @@ playerDrawModel
 playerDrawNodeFacing
 playerExec
 playerHumanPressed
+playerInit
 playerInputSide
 playerMoveToTarget
 playerPivotTurn
+playerPut
 playerReadPad
 playerRecA20Clear
 playerSetReceiveFlag
@@ -2481,6 +2507,7 @@ seBallSpeed
 seFootLand
 seFootSlide
 seFootSurface
+seFootstepCheck
 seFootstepPlay
 seNetHit
 seNetHit2
@@ -2560,6 +2587,7 @@ shadowVolPutDir
 shadowVolPutDirA
 shadowVolPutPoint
 shopDrawCatIcon
+shopDrawCatPanel
 shopDrawCount
 shopDrawMenu
 shopDrawPrice
@@ -2694,6 +2722,7 @@ staffMorphInit
 staffMorphReset
 staffRestart
 staffShadowFlat
+staffShadowMulti
 staffShadowPart
 staffShadowPut
 stageCrowdTexLoad
@@ -2740,6 +2769,7 @@ stageSegaScoreboardDraw
 stageSelFramePut
 stageSelIconPut
 stageSelMarkDraw
+stageSelNameDraw
 stageSelSprInit
 stageSelSprInit2
 stageSelSprInit3
@@ -2761,6 +2791,7 @@ standDraw
 standPanelDraw
 standRowBarDraw
 standSort
+standTableDraw
 str_len
 stripQuadDrawA
 stripQuadDrawB
@@ -2770,6 +2801,7 @@ strmBgmPlay
 strmBgmPlayStage
 strmBgmSetVol
 strmBgmVolTo
+strmCallMatchIntro
 strmCallName
 strmCallNameScore
 strmCallPair
@@ -2841,6 +2873,7 @@ syG2DmaSetProtect
 syG2DmaSuspend
 syG2DmaSuspendAll
 syG2FifoIsEmpty
+syG2Read
 syG2SysInit
 syG2Write
 syHwCacheFinish
@@ -2976,6 +3009,7 @@ unlockTestW1
 unlockTestW2
 valStepToward
 vecAdd
+vecAnglesTo
 vecCross
 vecDist
 vecDistXZ
