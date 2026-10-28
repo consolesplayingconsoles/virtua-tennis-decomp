@@ -72115,6 +72115,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 55
 - the cases run 112 of 112 instructions
 
+### playerChooseSwing (`8C028DE0`, 2344 bytes, `src/gen_it.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_it/playerChooseSwing.json`
+- case 155
+- case 122
+- case 4
+- case 2
+- case 49
+- case 0
+- case 1
+- case 3
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 101
+- case 118
+- case 65
+- case 154
+- case 54
+- case 43
+- case 93
+- case 84
+- case 133
+- case 136
+- case 131
+- case 41
+- case 38
+- case 77
+- case 126
+- case 124
+- case 95
+- case 80
+- the cases run 497 of 1026 instructions
+
 ### playerControl (`8C01DE1A`, 21482 bytes, `src/gen_io.c`)
 - equivalent on 71 development and 70 holdout cases, in `tests/gen_io/playerControl.json`
 - case 1
@@ -76888,6 +76928,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - rescue: empty case
 - the cases run 127 of 720 instructions
+
+### selCursorInputC (`8C0A9BC0`, 1814 bytes, `src/gen_iu.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_iu/selCursorInputC.json`
+- case 2
+- case 2
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 125
+- case 71
+- case 137
+- case 120
+- case 64
+- case 122
+- case 150
+- case 73
+- case 119
+- case 45
+- case 79
+- case 124
+- case 141
+- case 57
+- case 81
+- case 63
+- case 92
+- case 123
+- the cases run 399 of 831 instructions
 
 ### selCursorPlace (`8C0A675A`, 120 bytes, `src/gen_w.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_w/selCursorPlace.json`

@@ -2348,6 +2348,7 @@ phraseWordsInitB
 plPic2SeleLoad
 plPicLoad
 playerCalcMotionSpeeds
+playerChooseSwing
 playerControl
 playerCpuInput
 playerDrawMarker
@@ -2507,6 +2508,7 @@ selCursorDraw
 selCursorInit
 selCursorInput
 selCursorInputB
+selCursorInputC
 selCursorPlace
 selCursorPos
 selCursorReset
