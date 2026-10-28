@@ -25433,6 +25433,41 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 105 of 416 instructions
 
+### emotFaceReset (`8C0BE222`, 176 bytes, `src/gen_is.c`)
+- equivalent on 16 development and 15 holdout cases, in `tests/gen_is/emotFaceReset.json`
+- case 0
+- case 10
+- case 16
+- case 19
+- case 24
+- case 28
+- case 34
+- case 44
+- case 46
+- case 49
+- case 51
+- case 56
+- case 65
+- case 73
+- case 78
+- case 82
+- case 7
+- case 11
+- case 18
+- case 23
+- case 27
+- case 29
+- case 43
+- case 45
+- case 48
+- case 50
+- case 53
+- case 63
+- case 70
+- case 74
+- case 81
+- the cases run 88 of 88 instructions
+
 ### emotFaceVtxGet (`8C0BDE4C`, 218 bytes, `src/gen_av.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_av/emotFaceVtxGet.json`
 - case 14
@@ -25618,6 +25653,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 126
 - case 73
 - the cases run 54 of 54 instructions
+
+### emotKeysDefault (`8C0BEA4E`, 10818 bytes, `src/gen_iq.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_iq/emotKeysDefault.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 76
+- case 65
+- case 145
+- case 58
+- case 73
+- case 121
+- case 118
+- case 113
+- case 44
+- case 143
+- case 147
+- case 102
+- case 152
+- case 131
+- case 77
+- case 132
+- case 36
+- case 142
+- the cases run 4671 of 4671 instructions
 
 ### emotKeysInit (`8C0BCEA8`, 40 bytes, `src/gen_a.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_a/emotKeysInit.json`
@@ -63015,6 +63090,26 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 3 of 3 instructions
 
+### nlSetPaletteData (`8C0F88F0`, 44 bytes, `src/gen_ir.c`)
+- equivalent on 8 development and 8 holdout cases, in `tests/gen_ir/nlSetPaletteData.json`
+- case 0
+- case 2
+- case 4
+- case 6
+- case 8
+- case 10
+- case 12
+- case 14
+- case 1
+- case 3
+- case 5
+- case 7
+- case 9
+- case 11
+- case 13
+- case 15
+- the cases run 14 of 22 instructions
+
 ### nlSetPaletteMap (`8C0EAA30`, 108 bytes, `src/gen_ao.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_ao/nlSetPaletteMap.json`
 - case 4
@@ -72020,6 +72115,151 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 55
 - the cases run 112 of 112 instructions
 
+### playerControl (`8C01DE1A`, 21482 bytes, `src/gen_io.c`)
+- equivalent on 71 development and 70 holdout cases, in `tests/gen_io/playerControl.json`
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- directed: flips 8C01DE60 (not taken)
+- directed: flips 8C01DF12 (not taken)
+- directed: flips 8C01E0A4 (taken)
+- directed: flips 8C01E0D8 (taken)
+- directed: flips 8C01F39E (taken)
+- directed: flips 8C01F5AA (taken)
+- directed: flips 8C01F996 (taken)
+- directed: flips 8C01FB2C (taken)
+- directed: flips 8C01FBCC (taken)
+- directed: flips 8C01FC7C (not taken)
+- directed: flips 8C01DF66 (taken)
+- directed: flips 8C01E3E6 (taken)
+- directed: flips 8C01E446 (taken)
+- directed: flips 8C01E4A0 (not taken)
+- directed: flips 8C01EB26 (taken)
+- directed: flips 8C01EB4C (taken)
+- directed: flips 8C01EF10 (taken)
+- directed: flips 8C01EF4C (not taken)
+- directed: flips 8C01EF6E (not taken)
+- directed: flips 8C01F1DA (not taken)
+- directed: flips 8C01F5AA (taken)
+- directed: flips 8C021C38 (taken)
+- directed: flips 8C021D0A (taken)
+- directed: flips 8C021E26 (taken)
+- directed: flips 8C01E47C (not taken)
+- directed: flips 8C01E574 (taken)
+- directed: flips 8C01E5FA (not taken)
+- directed: flips 8C01EF9C (not taken)
+- directed: flips 8C01F084 (not taken)
+- directed: flips 8C021E32 (taken)
+- directed: flips 8C0221A4 (taken)
+- directed: flips 8C02232E (not taken)
+- directed: flips 8C0227A6 (taken)
+- directed: flips 8C01E640 (taken)
+- directed: flips 8C01E72E (taken)
+- directed: flips 8C01E892 (not taken)
+- directed: flips 8C01E8EA (taken)
+- directed: flips 8C01E9D2 (taken)
+- directed: flips 8C01EA1C (taken)
+- directed: flips 8C01EBF2 (not taken)
+- directed: flips 8C01ED1C (taken)
+- directed: flips 8C01EE12 (taken)
+- directed: flips 8C021E54 (taken)
+- directed: flips 8C0224F2 (not taken)
+- directed: flips 8C02289A (taken)
+- directed: flips 8C022A3A (taken)
+- directed: flips 8C022CD8 (not taken)
+- directed: flips 8C022E38 (taken)
+- directed: flips 8C01EC50 (not taken)
+- directed: flips 8C01ED32 (not taken)
+- directed: flips 8C0228AE (taken)
+- directed: flips 8C022A9A (not taken)
+- directed: flips 8C022F4C (not taken)
+- case 130
+- case 41
+- case 140
+- case 72
+- case 46
+- case 134
+- case 55
+- case 121
+- case 82
+- case 101
+- case 113
+- case 135
+- case 143
+- case 103
+- case 123
+- case 78
+- case 63
+- case 145
+- directed: flips 8C01DE82 (taken)
+- directed: flips 8C01E094 (taken)
+- directed: flips 8C01E0C8 (taken)
+- directed: flips 8C01E2E2 (not taken)
+- directed: flips 8C01F580 (taken)
+- directed: flips 8C01F996 (taken)
+- directed: flips 8C01F9BA (taken)
+- directed: flips 8C01FB40 (taken)
+- directed: flips 8C01FBFC (not taken)
+- directed: flips 8C01DF5E (not taken)
+- directed: flips 8C01E38E (not taken)
+- directed: flips 8C01E456 (taken)
+- directed: flips 8C01E460 (taken)
+- directed: flips 8C01EAFA (taken)
+- directed: flips 8C01EB3A (taken)
+- directed: flips 8C01EBB6 (not taken)
+- directed: flips 8C01EF3A (taken)
+- directed: flips 8C01EF4C (not taken)
+- directed: flips 8C01F06E (taken)
+- directed: flips 8C01F348 (taken)
+- directed: flips 8C01FD16 (taken)
+- directed: flips 8C021C9C (taken)
+- directed: flips 8C021DAA (not taken)
+- directed: flips 8C021EEC (not taken)
+- directed: flips 8C01E4CE (taken)
+- directed: flips 8C01E588 (taken)
+- directed: flips 8C01EBD0 (not taken)
+- directed: flips 8C01F034 (not taken)
+- directed: flips 8C01F15E (taken)
+- directed: flips 8C022132 (taken)
+- directed: flips 8C022236 (taken)
+- directed: flips 8C0225AE (taken)
+- directed: flips 8C01E4DC (taken)
+- directed: flips 8C01E718 (taken)
+- directed: flips 8C01E814 (not taken)
+- directed: flips 8C01EBE0 (taken)
+- directed: flips 8C01E932 (not taken)
+- directed: flips 8C01E9D2 (taken)
+- directed: flips 8C01EBF2 (not taken)
+- directed: flips 8C01EC22 (not taken)
+- directed: flips 8C01EDF2 (taken)
+- directed: flips 8C01EE62 (taken)
+- directed: flips 8C0223BC (taken)
+- directed: flips 8C0227CC (taken)
+- directed: flips 8C022972 (taken)
+- directed: flips 8C022A80 (taken)
+- directed: flips 8C022CDE (taken)
+- directed: flips 8C022E48 (taken)
+- directed: flips 8C01EC7C (not taken)
+- directed: flips 8C0228A2 (taken)
+- directed: flips 8C022A8C (not taken)
+- directed: flips 8C022EFE (not taken)
+- the cases run 4768 of 9108 instructions
+
 ### playerCpuInput (`8C03D058`, 20 bytes, `src/gen_e.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_e/playerCpuInput.json`
 - case 0
@@ -74933,6 +75173,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 - the cases run 8 of 8 instructions
+
+### resultSideDraw (`8C0A0B7C`, 3118 bytes, `src/gen_ip.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ip/resultSideDraw.json`
+- case 4
+- case 0
+- case 4
+- case 1
+- case 2
+- case 3
+- case 5
+- case 6
+- case 7
+- case 8
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 139
+- case 43
+- case 42
+- case 57
+- case 108
+- case 112
+- case 53
+- case 40
+- case 82
+- case 137
+- case 97
+- case 70
+- case 61
+- case 72
+- case 96
+- case 100
+- case 64
+- case 125
+- the cases run 1463 of 1463 instructions
 
 ### resultTallyStart (`8C085EB4`, 514 bytes, `src/gen_in.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_in/resultTallyStart.json`

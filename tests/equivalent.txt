@@ -843,11 +843,13 @@ effServeSpeedCalc
 effServeSpeedShow
 emotDebugPrint
 emotEditExec
+emotFaceReset
 emotFaceVtxGet
 emotGraphDraw
 emotKeyAdd
 emotKeyCopy
 emotKeyDel
+emotKeysDefault
 emotKeysInit
 emotKeysSort
 emotRetOne
@@ -2058,6 +2060,7 @@ nlSetFontSize
 nlSetIntrFunction
 nlSetIntrPriority
 nlSetPalExtMode
+nlSetPaletteData
 nlSetPaletteMap
 nlSetPixelClipping
 nlSetTextureParameter
@@ -2345,6 +2348,7 @@ phraseWordsInitB
 plPic2SeleLoad
 plPicLoad
 playerCalcMotionSpeeds
+playerControl
 playerCpuInput
 playerDrawMarker
 playerDrawModel
@@ -2447,6 +2451,7 @@ resultDraw
 resultExec
 resultFlagSet
 resultFlagsClear
+resultSideDraw
 resultTallyStart
 resultTeamsDraw
 resultTeamsDrawAlt
