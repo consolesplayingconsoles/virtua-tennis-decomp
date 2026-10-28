@@ -259,6 +259,7 @@ FUN_8c0c49f8
 FUN_8c0c4a6c
 FUN_8c0eaf00
 FUN_8c0f0860
+FUN_8c0f8590
 FUN_8c1e3080
 FUN_8c1e3180
 FUN_8c1e4a80
@@ -356,6 +357,7 @@ _mult64
 _mvito4b
 _mvsto2b
 _pd_peripheral_error
+_pd_peripheral_set_data
 _pd_peripheral_set_id
 _pd_peripheral_set_null
 _pow10
@@ -671,6 +673,7 @@ cpuDblChase
 cpuDblCoverPos
 cpuDblHitCheck
 cpuDblInput
+cpuDblIsMyBall
 cpuDblMoodUpdate
 cpuDblMove
 cpuDblNetmanPos
@@ -706,6 +709,7 @@ cpuInit
 cpuInitPoint
 cpuLineCrossXZ
 cpuLineXAtZ
+cpuMeterInput
 cpuOppLineX
 cpuPointBehind
 cpuPointOverInput
@@ -1265,6 +1269,7 @@ kmSetRegionClipping
 kmSetStrideWidth
 kmSetSystemConfiguration
 kmSetTexOverflowCallback
+kmSetUserClipping
 kmSetVertexRenderState
 kmSetWaitVsyncCallback
 kmSetWaitVsyncCount
@@ -1334,6 +1339,7 @@ kmiWriteFBRegister
 kmiWriteRegister
 kmtex_CheckTextureFormat
 kmtex_ConfirmSmallVQ
+kmtex_ConvertSmallVQToMem
 kmtex_GetTextureLevel
 kmtex_TextureSize
 kmtex_TextureSize_Palettized
@@ -1820,6 +1826,7 @@ ndbEditDrawMatches
 ndbEditFields
 ndbEditInput
 ndbEditShowEntry
+ndbGetTargets
 ndbIsValid
 ndbKeyEqual
 ndbLoadRequest
@@ -2440,6 +2447,7 @@ resultDraw
 resultExec
 resultFlagSet
 resultFlagsClear
+resultTallyStart
 resultTeamsDraw
 resultTeamsDrawAlt
 rippleStart
@@ -2492,6 +2500,8 @@ selCharInfoDraw
 selConstStub
 selCursorDraw
 selCursorInit
+selCursorInput
+selCursorInputB
 selCursorPlace
 selCursorPos
 selCursorReset
@@ -2825,6 +2835,7 @@ syG2DmaSuspend
 syG2DmaSuspendAll
 syG2FifoIsEmpty
 syG2SysInit
+syG2Write
 syHwCacheFinish
 syHwFinish
 syHwInit
