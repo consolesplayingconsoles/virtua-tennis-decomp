@@ -1856,6 +1856,23 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - clean
 - other r0
 
+### ADXF_AddPartition (`8C1E1D52`, 454 bytes, `src/gen_jk.c`)
+- equivalent on 7 development and 6 holdout cases, in `tests/gen_jk/ADXF_AddPartition.json`
+- case 6
+- case 36
+- case 76
+- case 86
+- case 96
+- case 104
+- case 116
+- case 35
+- case 70
+- case 83
+- case 89
+- case 100
+- case 109
+- the cases run 33 of 195 instructions
+
 ### ADXF_Close (`8C1E2164`, 80 bytes, `src/sdk_ze_2.c`)
 - equivalent on 3 development and 1 holdout cases, in `tests/sdk_ze_2/ADXF_Close.json`
 - reading
@@ -5921,6 +5938,30 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - 255
 - big
 - the cases run 18 of 18 instructions
+
+### FBCompQueue (`8C1F4F94`, 470 bytes, `src/gen_jk.c`)
+- equivalent on 10 development and 10 holdout cases, in `tests/gen_jk/FBCompQueue.json`
+- case 101
+- case 0
+- case 42
+- case 40
+- case 51
+- case 77
+- case 84
+- case 90
+- case 93
+- case 104
+- case 14
+- case 34
+- case 27
+- case 45
+- case 66
+- case 83
+- case 86
+- case 92
+- case 96
+- case 106
+- the cases run 108 of 208 instructions
 
 ### FBSortQueue (`8C1F4EC0`, 180 bytes, `src/gen_t.c`)
 - equivalent on 18 development and 14 holdout cases, in `tests/gen_t/FBSortQueue.json`
@@ -46884,6 +46925,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 21
 - the cases run 21 of 21 instructions
+
+### latticeBind (`8C08D034`, 498 bytes, `src/gen_jk.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_jk/latticeBind.json`
+- case 0
+- case 0
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 59
+- case 147
+- case 56
+- case 63
+- case 0
+- case 137
+- case 87
+- case 35
+- case 103
+- case 72
+- case 69
+- case 48
+- case 61
+- case 68
+- case 44
+- case 53
+- case 140
+- case 117
+- the cases run 110 of 248 instructions
 
 ### lerpf (`8C014AC4`, 14 bytes, `src/gen_aa.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_aa/lerpf.json`

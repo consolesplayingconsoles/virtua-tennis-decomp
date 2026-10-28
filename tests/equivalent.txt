@@ -70,6 +70,7 @@ ADXERR_CallErrFunc
 ADXERR_EntryErrFunc
 ADXERR_Finish
 ADXERR_Init
+ADXF_AddPartition
 ADXF_Close
 ADXF_ExecServer
 ADXF_Finish
@@ -235,6 +236,7 @@ BupRequestLoad
 BupRequestSave
 BupSaveFile
 DECtoBCD
+FBCompQueue
 FBSortQueue
 FBfree
 FBmovedata
@@ -1518,6 +1520,7 @@ kmytex_TXalloc
 kmytex_TXalloc2
 kmytex_VQFreeEntry
 kyakuPolyLoad
+latticeBind
 lerpf
 lightAimFromMatrix
 lightCamCalc
