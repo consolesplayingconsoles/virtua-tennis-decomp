@@ -50,15 +50,15 @@ int mtxGetPos(int a4, int a5, int a6);
 
 int primSprDrawScaleOfs(int a4, int a5, int a6, int a7, float f4, float f5)
 {
-    float u0;
-    float u1;
-    float u3;
-    float u4;
-    int t6;
-    float u7;
-    float u8;
-    int t13;
-    float u14;
+    register float u0;
+    register float u1;
+    register float u3;
+    register float u4;
+    register int t6;
+    register float u7;
+    register float u8;
+    register int t13;
+    register float u14;
     int stk[74];
 
     u0 = *(float *)((a4 + 0x20));
@@ -91,15 +91,15 @@ int primSprDrawScaleOfs(int a4, int a5, int a6, int a7, float f4, float f5)
 
 int primSprDrawOfs(int a4, int a5, int a6, int a7)
 {
-    float u0;
-    float u1;
-    float u2;
-    float u3;
-    int t4;
-    float u5;
-    float u6;
-    int t11;
-    float u12;
+    register float u0;
+    register float u1;
+    register float u2;
+    register float u3;
+    register int t4;
+    register float u5;
+    register float u6;
+    register int t11;
+    register float u12;
     int stk[74];
 
     u0 = *(float *)((a4 + 0x20));
@@ -189,43 +189,6 @@ int endingCameraSet(void)
     return t38;
 }
 
-int decoHeaderDrawB(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
-{
-    int stk[50];
-
-    stk[39] = a8;
-    stk[40] = a9;
-    stk[41] = a10;
-    *(unsigned int *)(((int)stk + 108)) = a4;
-    *(unsigned int *)(((int)stk + 112)) = a5;
-    *(Stk3 *)((((int)stk + 104) + 0xC)) = vecMake(((*(float *)(((((int)stk + 104) + 0x34) + 0x0))) + -17.0f), ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 21.0f), ((*(float *)(((((int)stk + 104) + 0x34) + 0x8))) + -0.00100000005f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)((((int)stk + 100) + 0x10)); }
-    sprPutAtAlpha(0x8C341D58, *(Stk3 *)(((int)stk + 88)), 1.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
-    sprPutAtAlpha(0x8C342028, *(Stk3 *)(((int)stk + 76)), 0.349999994f);
-    *(unsigned int *)(((int)stk + 104)) = 0x8C342078;
-    primSprSetSize(0x8C342078, 1.0f, 20.0f);
-    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 20.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
-    sprPutAtAlpha((*(int *)(((int)stk + 104))), *(Stk3 *)(((int)stk + 64)), 0.349999994f);
-    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 1.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
-    sprPutAtAlpha(0x8C3420C8, *(Stk3 *)(((int)stk + 52)), 0.349999994f);
-    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 1.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
-    sprPutAtAlpha(0x8C342118, *(Stk3 *)(((int)stk + 40)), 0.349999994f);
-    *(unsigned int *)(((int)stk + 104)) = 0x8C342168;
-    primSprSetSize(0x8C342168, 1.0f, 46.0f);
-    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 46.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
-    sprPutAtAlpha((*(int *)(((int)stk + 104))), *(Stk3 *)(((int)stk + 28)), 0.349999994f);
-    *(float *)(((((int)stk + 104) + 0x34) + 0x4)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x4))) + 1.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
-    sprPutAtAlpha(0x8C3421B8, *(Stk3 *)(((int)stk + 16)), 0.349999994f);
-    *(float *)(((((int)stk + 104) + 0x34) + 0x8)) = ((*(float *)(((((int)stk + 104) + 0x34) + 0x8))) - 0.00999999978f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 104) + 0x34)); }
-    return (decoSwingDraw((*(int *)(((int)stk + 108))), (*(int *)(((int)stk + 112))), *(Stk3 *)(((int)stk + 4)), 1.0f));
-}
 
 int menuStatusDraw(void)
 {

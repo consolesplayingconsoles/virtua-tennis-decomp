@@ -216,36 +216,36 @@ int kmiSetNativeBufferInfo(int a4, int a5)
 
 int nlSpriteLoadTextureOnce_Sub(int a4, int a5, int a6, int a7)
 {
-    int t6;
-    int t15;
-    int t18;
-    int t19;
-    int t26;
-    int t33;
-    int t42;
-    int t44;
-    int t45;
-    int t61;
-    int t73;
-    int t75;
+    register int t6;
+    register int t15;
+    register int t18;
+    register int t19;
+    register int t26;
+    register int t33;
+    register int t42;
+    register int t44;
+    register int t45;
+    register int t61;
+    register int t73;
+    register int t75;
     int stk[12];
 
-    int R0;
-    int R1;
-    int R2;
-    int R3;
-    int R4;
-    int R5;
-    int R6;
-    int R7;
-    int R8;
-    int R9;
-    int R10;
-    int R11;
-    int R12;
-    int R13;
-    int R14;
-    int T_;
+    register int R0;
+    register int R1;
+    register int R2;
+    register int R3;
+    register int R4;
+    register int R5;
+    register int R6;
+    register int R7;
+    register int R8;
+    register int R9;
+    register int R10;
+    register int R11;
+    register int R12;
+    register int R13;
+    register int R14;
+    register int T_;
     R4 = a4;
     R5 = a5;
     R6 = a6;
@@ -528,25 +528,25 @@ int mpdrv_init_globals(void)
 
 int kmiFLWCTRLGetRenderPacket(int a4, int a5)
 {
-    int t2;
-    int t4;
-    int t9;
-    int t11;
-    int t12;
-    int t19;
-    int t23;
-    int t25;
-    int t26;
-    int t33;
-    int t35;
-    int t36;
-    int t43;
-    int t49;
-    int t61;
-    int t62;
-    int t1;
-    int t6;
-    int t7;
+    register int t2;
+    register int t4;
+    register int t9;
+    register int t11;
+    register int t12;
+    register int t19;
+    register int t23;
+    register int t25;
+    register int t26;
+    register int t33;
+    register int t35;
+    register int t36;
+    register int t43;
+    register int t49;
+    register int t61;
+    register int t62;
+    register int t1;
+    register int t6;
+    register int t7;
 
     if (((*(int *)0x8C45F93C) == 4) && (t1 = *(int *)0x8C45EFEC, t1 != 0)) {
         *(unsigned int *)0x8C4607E8 = 0x1;
@@ -840,91 +840,3 @@ int mpdrv_init_ex(int a4, int a5, int a6, int a7)
     return 0x0;
 }
 
-int kdSendFrame(int a4, int a5)
-{
-    int t151;
-    int t8;
-    int t26;
-    int t49;
-    int t72;
-    int t95;
-    int t113;
-    int t119;
-    int t126;
-    int t137;
-    int t147;
-
-    t151 = 0x0;
-    if ((*(int *)0x8C4620DC) == 0) {
-    } else {
-        *(unsigned int *)0x8C4620F0 = ((*(int *)0x8C4620F4) - 1);
-        *(unsigned int *)0x8C4620F4 = 0x0;
-        t8 = a5;
-        if ((*(int *)0x8C4620EC) != 0) {
-            *(unsigned int *)0x8C4620F8 = ((*(int *)0xA05F80C4) & 0x3FF);
-            *(unsigned int *)0x8C4620FC = ((short)((unsigned int)(*(int *)0xA05F80C4) >> 16) & 0x3FF);
-            t8 = 0xA05F80C4;
-        }
-        *(unsigned int *)0x8C4620EC = 0x0;
-        if ((*(int *)0x8C4620E8) != 0) {
-            *(unsigned int *)0xA05F8040 = (*(int *)0x8C4620E4);
-            *(unsigned int *)0xA05F80E8 = ((*(int *)0xA05F80E8) & 0xFFFFFFF7);
-            *(unsigned int *)0x8C4620E8 = 0x0;
-        }
-        if (((*(int *)0xA05F6908) & 0xF00) != 0) {
-            if (((*(int *)0xA05F6908) & 0x800) != 0) {
-                *(unsigned int *)0x8C461E78 = ((*(int *)0x8C461E78) + 0x1);
-                if ((*(int *)0x8C461E94) != 0) {
-                    t26 = ((int (*)(int, int, int, int))((*(int *)0x8C461E94)))(0x1, 0xFFFFFFFE, (*(int *)0x8C461E64), (*(int *)0xA05F6908));
-                }
-            }
-            if (((*(int *)0xA05F6908) & 0x400) != 0) {
-                *(unsigned int *)0x8C461E7C = ((*(int *)0x8C461E7C) + 0x1);
-                if ((*(int *)0x8C461E94) != 0) {
-                    t49 = ((int (*)(int, int, int, int))((*(int *)0x8C461E94)))(0x1, 0xFFFFFFFD, (*(int *)0x8C461E64), (*(int *)0xA05F6908));
-                }
-            }
-            if (((*(int *)0xA05F6908) & 0x200) != 0) {
-                *(unsigned int *)0x8C461E80 = ((*(int *)0x8C461E80) + 0x1);
-                if ((*(int *)0x8C461E94) != 0) {
-                    t72 = ((int (*)(int, int, int, int))((*(int *)0x8C461E94)))(0x1, 0xFFFFFFFC, (*(int *)0x8C461E64), (*(int *)0xA05F6908));
-                }
-            }
-            if (((*(int *)0xA05F6908) & 0x100) != 0) {
-                *(unsigned int *)0x8C461E84 = ((*(int *)0x8C461E84) + 0x1);
-                if ((*(int *)0x8C461E94) != 0) {
-                    t95 = ((int (*)(int, int, int, int))((*(int *)0x8C461E94)))(0x1, 0xFFFFFFFB, (*(int *)0x8C461E64), (*(int *)0xA05F6908));
-                }
-            }
-            *(unsigned int *)0xA05F6908 = 0xF00;
-            kdRecvFrame();
-            t113 = ((int (*)(void))(mpdrv_frame_send))();
-            if ((int)t113 >= 0) {
-                copy_device();
-            } else {
-                if ((*(int *)0x8C461E94) != 0) {
-                    t119 = ((int (*)(int, int, int, int))((*(int *)0x8C461E94)))(0x1, 0xFFFFFFFA, (*(int *)0x8C461E64), t113);
-                }
-            }
-            t147 = t113;
-        } else {
-            t126 = ((int (*)(int, int, int))(mpdrv_frame_send))(0x8C4620E8, t8, 0x8C4620EC);
-            if ((int)t126 >= 0) {
-                *(unsigned int *)0x8C46210C = 0x0;
-                *(unsigned short *)(((((*(int *)0x8C4620E0) << 1) + 0x8C461E90) + 0x0)) = 0x0;
-                *(unsigned short *)(((((*(int *)0x8C4620E0) << 1) + 0x8C461E88) + 0x0)) = ((*(int *)0xA05F810C) & 0x3FF);
-                copy_device();
-                *(unsigned int *)0x8C461E5C = ((*(int *)0x8C461E5C) + 0x1);
-            } else {
-                kdRecvFrame();
-                *(unsigned int *)0x8C461E6C = ((*(int *)0x8C461E6C) + 0x1);
-                if ((*(int *)0x8C461E94) != 0) {
-                    t137 = ((int (*)(int, int, int, int))((*(int *)0x8C461E94)))(0x1, 0xFFFFFFF9, (*(int *)0x8C461E64), t126);
-                }
-            }
-            t147 = t126;
-        }
-        t151 = t147;
-    }
-    return t151;
-}

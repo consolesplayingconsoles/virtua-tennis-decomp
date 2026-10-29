@@ -1,0 +1,96 @@
+/* Straight-line functions with calls and guards (batch gen_rb): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+int mpdrv_make_deviceinfo(int a4, int a5, int a6);
+
+int mpdrv_make_deviceinfo(int a4, int a5, int a6)
+{
+    int stk[1];
+
+    int R0;
+    int R1;
+    int R2;
+    int R3;
+    int R4;
+    int R5;
+    int R6;
+    int R7;
+    int R12;
+    int R14;
+    float F0;
+    float F15;
+    int T_;
+    R4 = a4;
+    R6 = a6;
+    *(unsigned int *)((R4 + 0x0)) = ((((((unsigned char)(*(signed char *)(((R6 + 0x4) + 0x1))) << 16) & 0xFF0000) | (((unsigned char)(*(signed char *)(((R6 + 0x4) + 0x2))) << 8) & 0xFF00)) | ((((unsigned char)(*(signed char *)(((R6 + 0x4) + 0x0))) << 16) << 8) & 0xFF000000)) | (unsigned char)(*(signed char *)(((R6 + 0x4) + 0x3))));
+    R5 = (((R6 + 0x4) + 0x4));
+    R6 = ((R4 + 0x4));
+    R7 = (0x0);
+    L_8C1FE524:;
+    if (((unsigned int)R6 < (unsigned int)(R4 + 0x8))) goto L_8C1FE51E;
+    R6 = ((R4 + 0x8));
+    L_8C1FE538:;
+    if (((unsigned int)R6 < (unsigned int)(R4 + 0xC))) goto L_8C1FE532;
+    R6 = ((R4 + 0xC));
+    L_8C1FE54C:;
+    if (((unsigned int)R6 < (unsigned int)(R4 + 0x10))) goto L_8C1FE546;
+    *(unsigned char *)((R4 + 0x11)) = (*(signed char *)((R5 + 0x0)));
+    R5 = ((R5 + 0x1));
+    if (((*(signed char *)((R4 + 0x10))) == 0)) goto L_8C1FE590;
+    *(unsigned char *)(((R4 + 0x12) + 0x0)) = ((*(signed char *)((R5 + 0x0))) & 0x3);
+    *(unsigned char *)(((0x13 + R4) + 0x0)) = (((unsigned int)(unsigned char)(*(signed char *)((R5 + 0x0))) >> 2) & 0x3);
+    L_8C1FE5A4:;
+    if (((*(int *)((0x10C4 + (*(int *)0x8C47317C)))) != 1)) goto L_8C1FE5C8;
+    R6 = ((R4 + 0x14));
+    L_8C1FE5BC:;
+    if (!(((unsigned int)R6 < (unsigned int)(R4 + 0x33)))) goto L_8C1FE5E2;
+    *(unsigned char *)((R6 + 0x0)) = (*(signed char *)((R5 + 0x0)));
+    R5 = ((R5 + 0x1));
+    R6 = ((R6 + 0x1));
+    goto L_8C1FE5BC;
+    L_8C1FE5E2:;
+    *(unsigned char *)((R4 + 0x33)) = R7;
+    R6 = ((R4 + 0x34));
+    L_8C1FE5F2:;
+    if (((unsigned int)R6 < (unsigned int)(R4 + 0x70))) goto L_8C1FE5EC;
+    *(unsigned char *)((R4 + 0x70)) = R7;
+    *(unsigned short *)(((0x74 + R4) + 0x0)) = (((unsigned char)(*(signed char *)((R5 + 0x1))) << 8) | (unsigned char)(*(signed char *)((R5 + 0x0))));
+    *(unsigned short *)((R4 + 0x76)) = (((unsigned char)(*(signed char *)((R5 + 0x3))) << 8) | (unsigned char)(*(signed char *)((R5 + 0x2))));
+    return 0x0;
+    L_8C1FE5EC:;
+    *(unsigned char *)((R6 + 0x0)) = (*(signed char *)((R5 + 0x0)));
+    R5 = ((R5 + 0x1));
+    R6 = ((R6 + 0x1));
+    goto L_8C1FE5F2;
+    L_8C1FE5C8:;
+    R5 = ((R5 + 0x1));
+    R6 = ((R4 + 0x14));
+    L_8C1FE5D6:;
+    if (((unsigned int)R6 < (unsigned int)(R4 + 0x32))) goto L_8C1FE5D0;
+    *(unsigned char *)((R4 + 0x32)) = R7;
+    goto L_8C1FE5E2;
+    L_8C1FE5D0:;
+    *(unsigned char *)((R6 + 0x0)) = (*(signed char *)((R5 + 0x0)));
+    R5 = ((R5 + 0x1));
+    R6 = ((R6 + 0x1));
+    goto L_8C1FE5D6;
+    L_8C1FE590:;
+    *(unsigned char *)(((R4 + 0x12) + 0x0)) = (*(signed char *)((0x8C20CA30 + ((unsigned char)(*(signed char *)((R5 + 0x0))) & 0xF))));
+    *(unsigned char *)((R4 + 0x13)) = R7;
+    goto L_8C1FE5A4;
+    L_8C1FE546:;
+    *(unsigned char *)((R6 + 0x0)) = (*(signed char *)((R5 + 0x0)));
+    R5 = ((R5 + 0x1));
+    R6 = ((R6 + 0x1));
+    goto L_8C1FE54C;
+    L_8C1FE532:;
+    *(unsigned char *)((R6 + 0x0)) = (*(signed char *)((R5 + 0x0)));
+    R5 = ((R5 + 0x1));
+    R6 = ((R6 + 0x1));
+    goto L_8C1FE538;
+    L_8C1FE51E:;
+    *(unsigned char *)((R6 + 0x0)) = (*(signed char *)((R5 + 0x0)));
+    R5 = ((R5 + 0x1));
+    R6 = ((R6 + 0x1));
+    goto L_8C1FE524;
+}

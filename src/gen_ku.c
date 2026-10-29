@@ -1,229 +1,153 @@
 /* Straight-line functions with calls and guards (batch gen_ku): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int cpuAimPointSet(int, int, float, float);
-int cpuShotRange(int, int, int, int, int, float, float);
-int cpuSglAimAddOpen(int a4, int a5, float f4, float f5);
+int miniPlacePlayers(void);
+int motionSet(int, int, int, int, int, int, float);
+float nlRandom(void);
+int miniRoundStart(int a4, int a5, int a6, int a7);
 
-int cpuSglAimAddOpen(int a4, int a5, float f4, float f5)
+int miniRoundStart(int a4, int a5, int a6, int a7)
 {
     int t0;
-    float u3;
-    float u11;
-    float u17;
+    int t4;
+    int t6;
+    int t9;
+    int t12;
     float u21;
-    float u75;
-    float u79;
-    float u128;
-    float u132;
-    float u157;
-    float u161;
-    int stk[17];
+    int t27;
+    int t31;
+    int t40;
+    int t115;
+    int t117;
+    int t119;
+    int t123;
+    int t133;
+    int t142;
+    int t144;
+    int t146;
+    int t148;
+    int t207;
+    int t208;
+    int t116;
+    int t137;
+    int t143;
 
-    int R0;
-    int R1;
-    int R2;
-    int R3;
-    int R4;
-    int R5;
-    int R6;
-    int R7;
-    int R11;
-    int R12;
-    int R13;
-    int R14;
-    float F2;
-    float F3;
-    float F4;
-    float F5;
-    int T_;
-    R4 = a4;
-    R5 = a5;
-    F4 = f4;
-    F5 = f5;
-    t0 = *(int *)((R4 + 0xB5C));
-    *(unsigned int *)(((int)stk + 8)) = 0x8C291F24;
-    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x4);
-    cpuShotRange(R4, (((int)stk + 4) + 0x20), (((int)stk + 4) + 0x14), (((int)stk + 4) + 0x8), (((int)stk + 8) + 0x4), F4, F5);
-    u3 = *(float *)(((*(int *)(((int)stk + 8))) + 0x60));
-    R11 = (R4);
-    R12 = ((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84));
-    R13 = (0x8C041C58);
-    R14 = (R5);
-    F5 = (u3);
-    if ((0.0f > u3)) goto L_8C04C336;
-    F3 = (F5);
-    L_8C04C33A:;
-    u11 = *(float *)((R11 + 0xAF0));
-    R0 = (0xAF0);
-    F4 = (u11);
-    if ((0.0f > u11)) goto L_8C04C348;
-    F2 = (F4);
-    L_8C04C34C:;
-    if ((F3 > F2)) goto L_8C04C354;
-    u17 = *(float *)((R12 + R0));
-    F4 = (u17);
-    if ((0.0f > u17)) goto L_8C04C496;
-    F3 = (F4);
-    L_8C04C49A:;
-    u21 = *(float *)(((int)stk + 32));
-    F5 = (u21);
-    if ((0.0f > u21)) goto L_8C04C4AA;
-    F2 = (F5);
-    L_8C04C4AE:;
-    if ((!(F3 > F2))) goto L_8C04C522;
-    if (((*(float *)(((int)stk + 36))) > (*(float *)((R12 + 0xAE8))))) goto L_8C04C592;
-    if (!(((*(float *)(((int)stk + 24))) > (*(float *)((R12 + 0xAE8)))))) goto L_8C04C630;
-    cpuAimPointSet(R14, 0x1, (*(float *)(((int)stk + 36))), (*(float *)(((int)stk + 32))));
-    cpuAimPointSet((R14 + 0x1), 0x1, (*(float *)(((int)stk + 24))), (*(float *)(((int)stk + 32))));
-    cpuAimPointSet(((R14 + 0x1) + 0x1), 0x1, (*(float *)(((int)stk + 36))), (*(float *)(((int)stk + 32))));
-    cpuAimPointSet((((R14 + 0x1) + 0x1) + 0x1), 0x1, (*(float *)(((int)stk + 24))), (*(float *)(((int)stk + 32))));
-    R14 = (((((R14 + 0x1) + 0x1) + 0x1) + 0x1));
-    goto L_8C04C50E;
-    L_8C04C630:;
-    cpuAimPointSet(R14, 0x1, (*(float *)(((int)stk + 36))), (*(float *)(((int)stk + 32))));
-    R14 = ((R14 + 0x1));
-    L_8C04C640:;
-    cpuAimPointSet(R14, 0x1, (*(float *)(((int)stk + 36))), (*(float *)(((int)stk + 32))));
-    R14 = ((R14 + 0x1));
-    L_8C04C650:;
-    F4 = ((*(float *)(((int)stk + 36))));
-    F5 = ((*(float *)(((int)stk + 44))));
-    L_8C04C658:;
-    cpuAimPointSet(R14, 0x1, F4, F5);
-    R14 = ((R14 + 0x1));
-    L_8C04C660:;
-    return R14;
-    L_8C04C50E:;
-    cpuAimPointSet(R14, 0x1, (*(float *)(((int)stk + 36))), (*(float *)(((int)stk + 44))));
-    R14 = ((R14 + 0x1));
-    L_8C04C5B2:;
-    cpuAimPointSet(R14, 0x1, (*(float *)(((int)stk + 24))), (*(float *)(((int)stk + 44))));
-    R14 = ((R14 + 0x1));
-    goto L_8C04C660;
-    L_8C04C592:;
-    cpuAimPointSet(R14, 0x1, (*(float *)(((int)stk + 24))), (*(float *)(((int)stk + 32))));
-    R14 = ((R14 + 0x1));
-    L_8C04C5A2:;
-    cpuAimPointSet(R14, 0x1, (*(float *)(((int)stk + 24))), (*(float *)(((int)stk + 32))));
-    R14 = ((R14 + 0x1));
-    goto L_8C04C5B2;
-    L_8C04C522:;
-    u75 = *(float *)((R12 + 0xAF0));
-    F4 = (u75);
-    if ((0.0f > u75)) goto L_8C04C530;
-    F3 = (F4);
-    L_8C04C534:;
-    u79 = *(float *)(((int)stk + 32));
-    F5 = (u79);
-    if ((0.0f > u79)) goto L_8C04C542;
-    F2 = (F5);
-    L_8C04C546:;
-    if ((!(F3 > F2))) goto L_8C04C586;
-    if (((*(float *)(((int)stk + 36))) > (*(float *)((R12 + 0xAE8))))) goto L_8C04C5A2;
-    if ((!((*(float *)(((int)stk + 24))) > (*(float *)((R12 + 0xAE8)))))) goto L_8C04C640;
-    L_8C04C562:;
-    cpuAimPointSet(R14, 0x1, (*(float *)(((int)stk + 36))), (*(float *)(((int)stk + 44))));
-    cpuAimPointSet((R14 + 0x1), 0x1, (*(float *)(((int)stk + 24))), (*(float *)(((int)stk + 44))));
-    R14 = (((R14 + 0x1) + 0x1));
-    L_8C04C616:;
-    cpuAimPointSet(R14, 0x1, (*(float *)(((int)stk + 36))), (*(float *)(((int)stk + 32))));
-    R14 = ((R14 + 0x1));
-    F4 = ((*(float *)(((int)stk + 24))));
-    F5 = ((*(float *)(((int)stk + 32))));
-    goto L_8C04C658;
-    L_8C04C586:;
-    if ((!((*(float *)(((int)stk + 36))) > (*(float *)((R12 + 0xAE8)))))) goto L_8C04C5CA;
-    goto L_8C04C592;
-    L_8C04C5CA:;
-    if ((!((*(float *)(((int)stk + 24))) > (*(float *)((R12 + 0xAE8)))))) goto L_8C04C630;
-    cpuAimPointSet(R14, 0x1, (*(float *)(((int)stk + 36))), (*(float *)(((int)stk + 44))));
-    cpuAimPointSet((R14 + 0x1), 0x1, (*(float *)(((int)stk + 24))), (*(float *)(((int)stk + 44))));
-    cpuAimPointSet(((R14 + 0x1) + 0x1), 0x1, (*(float *)(((int)stk + 36))), (*(float *)(((int)stk + 32))));
-    cpuAimPointSet((((R14 + 0x1) + 0x1) + 0x1), 0x1, (*(float *)(((int)stk + 24))), (*(float *)(((int)stk + 32))));
-    R14 = (((((R14 + 0x1) + 0x1) + 0x1) + 0x1));
-    goto L_8C04C616;
-    L_8C04C542:;
-    F2 = ((-F5));
-    goto L_8C04C546;
-    L_8C04C530:;
-    F3 = ((-F4));
-    goto L_8C04C534;
-    L_8C04C4AA:;
-    F2 = ((-F5));
-    goto L_8C04C4AE;
-    L_8C04C496:;
-    F3 = ((-F4));
-    goto L_8C04C49A;
-    L_8C04C354:;
-    u128 = *(float *)((R12 + R0));
-    F4 = (u128);
-    if ((0.0f > u128)) goto L_8C04C360;
-    F3 = (F4);
-    L_8C04C364:;
-    u132 = *(float *)(((int)stk + 32));
-    F5 = (u132);
-    if ((0.0f > u132)) goto L_8C04C372;
-    F2 = (F5);
-    L_8C04C376:;
-    if ((!(F3 > F2))) goto L_8C04C396;
-    if (((*(float *)(((int)stk + 36))) > (*(float *)((R12 + 0xAE8))))) goto L_8C04C412;
-    if ((!((*(float *)(((int)stk + 24))) > (*(float *)((R12 + 0xAE8)))))) goto L_8C04C466;
-    goto L_8C04C50E;
-    L_8C04C466:;
-    cpuAimPointSet(R14, 0x1, (*(float *)(((int)stk + 36))), (*(float *)(((int)stk + 32))));
-    cpuAimPointSet((R14 + 0x1), 0x1, (*(float *)(((int)stk + 36))), (*(float *)(((int)stk + 44))));
-    R14 = (((R14 + 0x1) + 0x1));
-    goto L_8C04C650;
-    L_8C04C412:;
-    cpuAimPointSet(R14, 0x1, (*(float *)(((int)stk + 24))), (*(float *)(((int)stk + 32))));
-    cpuAimPointSet((R14 + 0x1), 0x1, (*(float *)(((int)stk + 24))), (*(float *)(((int)stk + 44))));
-    R14 = (((R14 + 0x1) + 0x1));
-    goto L_8C04C5B2;
-    L_8C04C396:;
-    u157 = *(float *)((R12 + 0xAF0));
-    F5 = (u157);
-    if ((0.0f > u157)) goto L_8C04C3C8;
-    F3 = (F5);
-    L_8C04C3CC:;
-    u161 = *(float *)(((int)stk + 32));
-    F4 = (u161);
-    if ((0.0f > u161)) goto L_8C04C3DA;
-    F2 = (F4);
-    L_8C04C3DE:;
-    if ((!(F3 > F2))) goto L_8C04C406;
-    if ((!((*(float *)(((int)stk + 36))) > (*(float *)((R12 + 0xAE8)))))) goto L_8C04C3F2;
-    goto L_8C04C5A2;
-    L_8C04C3F2:;
-    if ((!((*(float *)(((int)stk + 24))) > (*(float *)((R12 + 0xAE8)))))) goto L_8C04C402;
-    goto L_8C04C562;
-    L_8C04C402:;
-    goto L_8C04C640;
-    L_8C04C406:;
-    if ((!((*(float *)(((int)stk + 36))) > (*(float *)((R12 + 0xAE8)))))) goto L_8C04C436;
-    goto L_8C04C412;
-    L_8C04C436:;
-    if ((!((*(float *)(((int)stk + 24))) > (*(float *)((R12 + 0xAE8)))))) goto L_8C04C466;
-    cpuAimPointSet(R14, 0x1, (*(float *)(((int)stk + 36))), (*(float *)(((int)stk + 44))));
-    cpuAimPointSet((R14 + 0x1), 0x1, (*(float *)(((int)stk + 24))), (*(float *)(((int)stk + 44))));
-    R14 = (((R14 + 0x1) + 0x1));
-    goto L_8C04C562;
-    L_8C04C3DA:;
-    F2 = ((-F4));
-    goto L_8C04C3DE;
-    L_8C04C3C8:;
-    F3 = ((-F5));
-    goto L_8C04C3CC;
-    L_8C04C372:;
-    F2 = ((-F5));
-    goto L_8C04C376;
-    L_8C04C360:;
-    F3 = ((-F4));
-    goto L_8C04C364;
-    L_8C04C348:;
-    F2 = ((-F4));
-    goto L_8C04C34C;
-    L_8C04C336:;
-    F3 = ((-F5));
-    goto L_8C04C33A;
+    t0 = *(int *)0x8C2FBEF0;
+    if ((*(int *)((t0 + 0x20))) == 2) {
+        *(unsigned int *)((t0 + 0x20)) = 0x1;
+    }
+    *(unsigned int *)(((*(int *)0x8C2FBEF0) + 0x18)) = 0x0;
+    t4 = *(int *)0x8C2FBEF0;
+    *(unsigned int *)((t4 + 0x8)) = ((*(int *)((t4 + 0x8))) & 0xFFFFFFDF);
+    t6 = *(int *)0x8C2FBEF0;
+    *(unsigned int *)((t6 + 0x8)) = ((*(int *)((t6 + 0x8))) | 0x10);
+    *(unsigned int *)0x8C2FC0C8 = 0x0;
+    t9 = *(int *)(((*(int *)0x8C2FBEF0) + 0x0));
+    if (t9 != 3) {
+        if (t9 != 1) {
+            if (t9 != 2) {
+                if (t9 == 4) {
+                    *(float *)0x8C2895E4 = 0.0f;
+                    *(float *)0x8C28886C = 0.0f;
+                    *(float *)0x8C2895EC = -50.0f;
+                    *(unsigned int *)0x8C287B14 = 0x0;
+                    *(unsigned int *)0x8C287B10 = 0x0;
+                } else {
+                    if (t9 == 0) {
+                        *(float *)0x8C2895E4 = 0.0f;
+                        *(float *)0x8C28886C = 0.0f;
+                        *(float *)0x8C288874 = 64.0f;
+                        *(float *)0x8C2895EC = -79.2333298f;
+                        *(unsigned int *)0x8C287B14 = 0x0;
+                        *(unsigned int *)0x8C287B10 = 0x0;
+                        if ((0x800 & (*(int *)(((*(int *)0x8C2FBEF0) + 0x8)))) != 0) {
+                        } else {
+                            t12 = *(int *)0x8C2FBEF0;
+                            *(unsigned int *)((t12 + 0x8)) = (0xFFFFFFEF & (*(int *)((t12 + 0x8))));
+                        }
+                    } else {
+                        if (t9 == 5) {
+                            *(unsigned int *)(((0x24 + (*(int *)0x8C2FBEF0)) + 0x0)) = (int)((nlRandom()) * 10.0f);
+                            u21 = *(float *)0x8C2895E4;
+                            t27 = *(int *)(((*(int *)0x8C2FBEF0) + 0x24));
+                            *(float *)0x8C2895E4 = ((float)((u21 > 0.0f) - (0.0f > u21)) * (*(float *)(((((t27 << 2) + t27) << 2) + 0x8C10B980))));
+                            *(unsigned int *)0x8C287B14 = 0x0;
+                            *(unsigned int *)0x8C287B10 = 0x0;
+                            if ((0x800 & (*(int *)(((*(int *)0x8C2FBEF0) + 0x8)))) == 0) {
+                                t31 = *(int *)0x8C2FBEF0;
+                                *(unsigned int *)((t31 + 0x8)) = (0xFFFFFFEF & (*(int *)((t31 + 0x8))));
+                            }
+                        } else {
+                            if (t9 == 6) {
+                                *(float *)0x8C2895E4 = 0.0f;
+                                *(float *)0x8C2895EC = -118.849998f;
+                                *(unsigned int *)0x8C287B14 = 0x0;
+                                *(unsigned int *)0x8C287B10 = 0x0;
+                                if ((0x800 & (*(int *)(((*(int *)0x8C2FBEF0) + 0x8)))) == 0) {
+                                    t40 = *(int *)0x8C2FBEF0;
+                                    *(unsigned int *)((t40 + 0x8)) = (0xFFFFFFEF & (*(int *)((t40 + 0x8))));
+                                }
+                            } else {
+                                if (t9 == 7) {
+                                    *(float *)0x8C2895E4 = 0.0f;
+                                    *(float *)0x8C28886C = 0.0f;
+                                    *(unsigned int *)0x8C287B14 = 0x0;
+                                    *(unsigned int *)0x8C287B10 = 0x0;
+                                    motionSet(0x8C288AFC, 0x29DE0, 0x1, 0x12755C, ((*(int *)((((*(int *)0x8C289754) * 0x6C) + 0x8C102424)))), ((*(int *)0x8C2873D0)), 1.0f);
+                                    *(unsigned int *)0x8C28983C = 0x8C01DE1A;
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                *(float *)0x8C2895E4 = 0.0f;
+                *(unsigned int *)0x8C287B14 = 0x0;
+                *(unsigned int *)0x8C287B10 = 0x0;
+                if ((*(int *)(((*(int *)0x8C2FBEF0) + 0x10))) == 1) {
+                    t115 = *(int *)0x8C2FC158;
+                    if ((t115 != 10) && (t116 = *(int *)0x8C2FC154, (t116 + t115) != 10)) {
+                        t117 = *(int *)0x8C2FBEF0;
+                        *(unsigned int *)((t117 + 0x8)) = (0xFFFFFFEF & (*(int *)((t117 + 0x8))));
+                        t119 = *(int *)0x8C2FBEF0;
+                        *(unsigned int *)((t119 + 0x8)) = (0x200 | (*(int *)((t119 + 0x8))));
+                        *(float *)0x8C28886C = ((*(float *)0x8C28886C) * (-1.0f));
+                    } else {
+                        *(unsigned int *)(((*(int *)0x8C2FBEF0) + 0x28)) = 0xFFFFFFFF;
+                        t123 = *(int *)0x8C2FBEF0;
+                        *(unsigned int *)((t123 + 0x8)) = ((*(int *)((t123 + 0x8))) & 0xFFFFFDFF);
+                    }
+                } else {
+                    t133 = *(int *)(((*(int *)0x8C2FBEF0) + 0x10));
+                    if ((((((int)((unsigned int)((int)((unsigned int)(t133 - 1) + (unsigned int)0x0)) + ((((int)0x0 > (int)(t133 - 1))) ? 1u : 0u))) >> 1) & 0x1) == 0) && ((t133 != 2) || (t137 = *(int *)0x8C2FC154, t137 != 10))) {
+                        *(float *)0x8C28886C = ((*(float *)0x8C28886C) * (-1.0f));
+                    }
+                    t142 = *(int *)(((*(int *)0x8C2FBEF0) + 0x10));
+                    if (((0x1 & t142) == 0) && ((t142 != 2) || (t143 = *(int *)0x8C2FC154, t143 != 10))) {
+                        t144 = *(int *)0x8C2FBEF0;
+                        *(unsigned int *)((t144 + 0x8)) = (0xFFFFFFEF & (*(int *)((t144 + 0x8))));
+                        t146 = *(int *)0x8C2FBEF0;
+                        *(unsigned int *)((t146 + 0x8)) = (0x200 | (*(int *)((t146 + 0x8))));
+                    } else {
+                        t148 = *(int *)0x8C2FBEF0;
+                        *(unsigned int *)((t148 + 0x8)) = ((*(int *)((t148 + 0x8))) & 0xFFFFFDFF);
+                    }
+                }
+            }
+        } else {
+            *(float *)0x8C28886C = 0.0f;
+            *(unsigned int *)0x8C287B14 = 0x0;
+            *(unsigned int *)0x8C287B10 = 0x0;
+        }
+    } else {
+        *(float *)0x8C2895E4 = 0.0f;
+        *(float *)0x8C28886C = 0.0f;
+        *(unsigned int *)0x8C287B14 = 0x0;
+        *(unsigned int *)0x8C287B10 = 0x0;
+    }
+    miniPlacePlayers();
+    t207 = *(int *)0x8C2FBEF0;
+    t208 = *(int *)((t207 + 0x8));
+    *(unsigned int *)((t207 + 0x8)) = (t208 & 0xFFFFF7FF);
+    return (t208 & 0xFFFFF7FF);
 }

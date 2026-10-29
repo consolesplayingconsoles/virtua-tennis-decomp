@@ -1,0 +1,91 @@
+/* Straight-line functions with calls and guards (batch gen_uh): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+float cpuAimDistRate(int, int, int, int, int);
+int cpuShotRange(int, int, int, int, int, float, float);
+float cpuSglAimScore2(int a4, int a5, float f4, float f5);
+
+float cpuSglAimScore2(int a4, int a5, float f4, float f5)
+{
+    int stk[22];
+
+    register int R2;
+    register int R3;
+    register int R6;
+    register int R7;
+    register float F0;
+    register float F3;
+    register int T_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    register float w0_0;
+    register float w0_1;
+    register float w0_2;
+    register float w0_3;
+    register float w0_4;
+    v0_1 = a4;
+    v0_0 = a5;
+    w0_0 = f4;
+    w0_1 = f5;
+    *(unsigned int *)(((int)stk + 8)) = v0_0;
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x4);
+    v0_3 = *(int *)(((int)stk + 8));
+    v0_4 = ((cpuShotRange(v0_1, (((int)stk + 4) + 0x2C), (((int)stk + 4) + 0x20), (((int)stk + 4) + 0x14), (((int)stk + 8) + 0x4), w0_0, w0_1)));
+    v0_0 = ((v0_3 - 1));
+    v0_1 = (v0_1);
+    v0_2 = (0x8C2FCC6C);
+    w0_2 = (0.0f);
+    w0_3 = (0.0f);
+    if (((int)(v0_3 - 1) < 0)) goto L_8C0561BA;
+    L_8C0560E8:;
+    w0_4 = *(float *)((v0_2 + 0x8));
+    w0_0 = ((*(float *)((v0_2 + 0x0))));
+    w0_1 = (w0_4);
+    if ((!(0.0f > w0_4))) goto L_8C0560F6;
+    w0_1 = ((-w0_1));
+    L_8C0560F6:;
+    v0_3 = (0x8C07F54E);
+    if (((unsigned char)(*(signed char *)((v0_2 + 0xC))) != 1)) goto L_8C056156;
+    if ((!(w0_0 > (*(float *)(((int)stk + 48)))))) goto L_8C056120;
+    if ((!((*(float *)(((int)stk + 36))) > w0_0))) goto L_8C056120;
+    if ((!(w0_1 > (*(float *)(((int)stk + 56)))))) goto L_8C056120;
+    if (((*(float *)(((int)stk + 44))) > w0_1)) goto L_8C0561AE;
+    L_8C056120:;
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x10);
+    *(float *)((v0_2 + 0x1C)) = (cpuAimDistRate((0xB9C + v0_1), v0_2, (((int)stk + 4) + 0x2C), (((int)stk + 4) + 0x20), (((int)stk + 8) + 0x10)));
+    *(float *)((v0_2 + 0x0)) = (*(float *)(((int)stk + 24)));
+    *(float *)((v0_2 + 0x8)) = (*(float *)(((int)stk + 32)));
+    v0_4 = (0x1C);
+    if (((*(float *)((v0_2 + 0x1C))) > w0_3)) goto L_8C0561A8;
+    L_8C0561B2:;
+    v0_3 = (int)(v0_0 - 1) >= 0;
+    v0_0 = ((v0_0 - 1));
+    v0_2 = ((v0_2 + 0x20));
+    if (v0_3) goto L_8C0560E8;
+    L_8C0561BA:;
+    return w0_3;
+    L_8C0561A8:;
+    v0_4 = (0x1C);
+    w0_3 = ((*(float *)((v0_2 + 0x1C))));
+    goto L_8C0561B2;
+    L_8C0561AE:;
+    *(float *)((v0_2 + 0x1C)) = w0_2;
+    v0_4 = (0x1C);
+    goto L_8C0561B2;
+    L_8C056156:;
+    if ((!(w0_0 > (*(float *)(((int)stk + 24)))))) goto L_8C056176;
+    if ((!((*(float *)(((int)stk + 12))) > w0_0))) goto L_8C056176;
+    if ((!(w0_1 > (*(float *)(((int)stk + 32)))))) goto L_8C056176;
+    if (((*(float *)(((int)stk + 20))) > w0_1)) goto L_8C0561AE;
+    L_8C056176:;
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x28);
+    *(float *)((v0_2 + 0x1C)) = (cpuAimDistRate((0xB9C + v0_1), v0_2, (((int)stk + 4) + 0x14), (((int)stk + 4) + 0x8), (((int)stk + 8) + 0x28)));
+    *(float *)((v0_2 + 0x0)) = (*(float *)(((int)stk + 48)));
+    *(float *)((v0_2 + 0x8)) = (*(float *)(((int)stk + 56)));
+    v0_4 = (0x1C);
+    if ((!((*(float *)((v0_2 + 0x1C))) > w0_3))) goto L_8C0561B2;
+    goto L_8C0561A8;
+}

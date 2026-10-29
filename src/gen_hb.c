@@ -39,9 +39,6 @@ int entryGridSettingsStep(int a4, int a5);
 int courtAusDraw(int a4);
 void strmBgmPlay(int a4, int a5, int a6, int a7);
 
-
-
-
 int courtAusDraw(int a4)
 {
     int t1;

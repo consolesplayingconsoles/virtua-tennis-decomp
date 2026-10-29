@@ -180,29 +180,29 @@ int sndStagePackLoad(int a4, int a5, int a6, int a7)
 
 int ndbEditFields(int a4)
 {
-    int t1;
-    int t94;
-    int t98;
-    int t103;
-    int t108;
-    int t122;
-    int t123;
-    int t124;
-    int t125;
-    int t15;
-    int t20;
-    int t25;
-    int t31;
-    int t45;
-    int t50;
-    int t55;
-    int t61;
-    int t71;
-    int t77;
-    int t95;
-    int t99;
-    int t104;
-    int t109;
+    register int t1;
+    register int t94;
+    register int t98;
+    register int t103;
+    register int t108;
+    register int t122;
+    register int t123;
+    register int t124;
+    register int t125;
+    register int t15;
+    register int t20;
+    register int t25;
+    register int t31;
+    register int t45;
+    register int t50;
+    register int t55;
+    register int t61;
+    register int t71;
+    register int t77;
+    register int t95;
+    register int t99;
+    register int t104;
+    register int t109;
 
     t1 = *(int *)(((*(int *)0x8C29B89C) + 0x8));
     if ((t1 & 5) != 0) {
@@ -373,203 +373,8 @@ float circuitNumDraw(int a4, int a5, int a6, float f4, float f5, float f6)
 }
 
 
-int entryPortJoin(int a4)
-{
-    int t2;
-    int t11;
-    int t12;
-    int t13;
-    int t14;
-    int t25;
-    int t27;
 
-    *(unsigned int *)(((0x8C3437A4 + (a4 << 2)) + 0x0)) = (entryCountJoined());
-    if ((*(int *)0x8C287ADC) == 2) {
-        t2 = entryCountJoined();
-        if ((int)t2 > 0) {
-            *(unsigned int *)(((0x8C3437A4 + (a4 << 2)) + 0x0)) = (selSlot0FlagClear());
-        }
-    }
-    *(unsigned short *)0x8C343260 = ((*(short *)0x8C343260) | (*(short *)((((a4 << 1) + 0x8C185298) + 0x0))));
-    t11 = *(short *)0x8C343262;
-    t12 = *(short *)((((a4 << 1) + 0x8C185298) + 0x0));
-    *(unsigned short *)0x8C343262 = (t11 | t12);
-    *(unsigned int *)(((0x8C343724 + (a4 << 2)) + 0x0)) = 0x0;
-    *(unsigned int *)(((0x8C343744 + (a4 << 2)) + 0x0)) = 0x0;
-    *(unsigned int *)(((0x8C343764 + (a4 << 2)) + 0x0)) = 0x0;
-    *(unsigned int *)(((0x8C343784 + (a4 << 2)) + 0x0)) = 0x0;
-    *(unsigned int *)(((0x8C3437E4 + (a4 << 2)) + 0x0)) = 0x0;
-    *(unsigned int *)(((0x8C343824 + (a4 << 2)) + 0x0)) = 0x1;
-    t13 = (t11 | t12);
-    t14 = 0x0;
-    for (;;) {
-        if ((unsigned int)t14 >= (unsigned int)0x20) {
-            break;
-        }
-        t13 = 0x1CC;
-        t13 = (t13 + 0x8C343258);
-        t13 = (t13 + (((a4 << 2) << 2) << 1));
-        *(unsigned int *)((t14 + t13)) = 0xFFFFFFFF;
-        t13 = 0x2CC;
-        t13 = (t13 + 0x8C343258);
-        t13 = (t13 + (((a4 << 2) << 2) << 1));
-        *(unsigned int *)((t14 + t13)) = 0xFFFFFFFF;
-        t13 = 0x3CC;
-        t13 = (t13 + 0x8C343258);
-        t13 = (t13 + (((a4 << 2) << 2) << 1));
-        *(unsigned int *)((t14 + t13)) = 0xFFFFFFFF;
-        t14 = (t14 + 0x4);
-    }
-    if ((*(int *)0x8C287ADC) == 2) {
-        *(unsigned int *)(((0x8C3437C4 + (a4 << 2)) + 0x0)) = (*(int *)(((0x8C3437A4 + (a4 << 2)) + 0x0)));
-        *(unsigned int *)(((((*(int *)(((0x8C3437A4 + (a4 << 2)) + 0x0))) * 0x38) + 0x8C343264) + 0x18)) = 0x1;
-        *(unsigned int *)(((((*(int *)(((0x8C3437A4 + (a4 << 2)) + 0x0))) * 0x38) + 0x8C343264) + 0x4)) = a4;
-        *(unsigned int *)(((((*(int *)(((0x8C3437A4 + (a4 << 2)) + 0x0))) * 0x38) + 0x8C343264) + 0x8)) = 0x0;
-        *(unsigned short *)(((((*(int *)(((0x8C3437A4 + (a4 << 2)) + 0x0))) * 0x38) + 0x8C343264) + 0x14)) = 0x0;
-        *(unsigned int *)(((((*(int *)(((0x8C3437A4 + (a4 << 2)) + 0x0))) * 0x38) + 0x8C343264) + 0x30)) = 0xFFFFFFFF;
-        *(unsigned int *)(((((*(int *)(((0x8C3437A4 + (a4 << 2)) + 0x0))) * 0x38) + 0x8C343264) + 0x34)) = 0xFFFFFFFF;
-        *(unsigned int *)(((((*(int *)(((0x8C3437A4 + (a4 << 2)) + 0x0))) * 0x38) + 0x8C343264) + 0x2C)) = 0xFFFFFFFF;
-        t25 = *(int *)(((0x8C3437A4 + (a4 << 2)) + 0x0));
-        *(unsigned int *)((((t25 * 0x38) + 0x8C343264) + 0x28)) = 0x0;
-        selCursorReset(a4, ((t25 * 0x38) + 0x8C343264));
-        t27 = *(int *)0x8C287D5C;
-        if (t27 == 1) {
-            return selCursorInit(a4);
-        }
-        return t27;
-    }
-    return selCursorInit(a4);
-}
 
-int hudCallWordsDraw(int a4, int a5, int a6, int a7, float f4)
-{
-    int t50;
-    int stk[15];
-
-    if (a4 == 0) {
-        vecMake(a4, a5, a6, a7, ((int)stk + 20), 342.0f, 270.0f, 0.0500000007f);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(((int)stk + 20)); }
-        phraseBigWordPut(0x9, *(Stk3 *)(((int)stk + 20)));
-        *(float *)((((int)stk + 20) + 0x0)) = ((*(float *)((((int)stk + 20) + 0x0))) - 90.0f);
-        if (a5 == 0) {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((int)stk + 20)); }
-            phraseBigWordPut(0x1, *(Stk3 *)(((int)stk + 20)));
-        }
-        if (a5 == 1) {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((int)stk + 20)); }
-            phraseBigWordPut(0x3, *(Stk3 *)(((int)stk + 20)));
-        }
-        if (a5 == 2) {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((int)stk + 20)); }
-            phraseBigWordPut(0x5, *(Stk3 *)(((int)stk + 20)));
-        }
-        if (a5 == 3) {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((int)stk + 20)); }
-            phraseBigWordPut(0x7, *(Stk3 *)(((int)stk + 20)));
-        }
-        *(float *)((((int)stk + 20) + 0x0)) = ((*(float *)((((int)stk + 20) + 0x0))) + 147.0f);
-        *(float *)((((int)stk + 20) + 0x4)) = ((*(float *)((((int)stk + 20) + 0x4))) + 1.0f);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((int)stk + 20)); }
-        t50 = 0xB;
-    } else {
-        vecMake(a4, a5, a6, a7, ((int)stk + 20), 346.0f, 270.0f, 0.0500000007f);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(((int)stk + 20)); }
-        phraseBigWordPut(0x0, *(Stk3 *)(((int)stk + 20)));
-        *(float *)((((int)stk + 20) + 0x0)) = ((*(float *)((((int)stk + 20) + 0x0))) - 103.0f);
-        if (a5 == 0) {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((int)stk + 20)); }
-            phraseBigWordPut(0x2, *(Stk3 *)(((int)stk + 20)));
-        }
-        if (a5 == 1) {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((int)stk + 20)); }
-            phraseBigWordPut(0x4, *(Stk3 *)(((int)stk + 20)));
-        }
-        if (a5 == 2) {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((int)stk + 20)); }
-            phraseBigWordPut(0x6, *(Stk3 *)(((int)stk + 20)));
-        }
-        if (a5 == 3) {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((int)stk + 20)); }
-            phraseBigWordPut(0x8, *(Stk3 *)(((int)stk + 20)));
-        }
-        *(float *)((((int)stk + 20) + 0x0)) = ((*(float *)((((int)stk + 20) + 0x0))) + 173.0f);
-        *(float *)((((int)stk + 20) + 0x4)) = ((*(float *)((((int)stk + 20) + 0x4))) + 1.0f);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((int)stk + 20)); }
-        t50 = 0xA;
-    }
-    return (phraseBigWordPut(t50, *(Stk3 *)(((int)stk + 20))));
-}
-
-int cpuDblRecoverPosC(int a4, int a5, int a6)
-{
-    int t0;
-    int t4;
-    int t5;
-    int t23;
-    int t24;
-    int t39;
-    int t52;
-    int t41;
-    int t42;
-    int t78;
-    int t13;
-    int t65;
-    int t32;
-    int t47;
-
-    t0 = *(int *)((a4 + 0xB5C));
-    if ((*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x140))) == 0) {
-        t4 = *(int *)((a4 + 0xB5C));
-        t5 = serveGetServer();
-        if (t4 == t5) {
-            *(float *)((a5 + 0x0)) = ((float)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D))) * 16.4549999f);
-            *(float *)((a6 + 0x0)) = (-((((*(float *)((a4 + 0xB00))) * (((-((float)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12B))) * 0.300000012f)) + 1.0f)))) * 118.849998f));
-            t13 = 0x8C06F250;
-        } else {
-            *(float *)((a5 + 0x0)) = ((float)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D))) * 16.4549999f);
-            *(float *)((a6 + 0x0)) = (*(float *)((a4 + 0xAF0)));
-            t13 = 0xAF0;
-        }
-        t78 = t13;
-    } else {
-        if ((unsigned char)(*(signed char *)((0x140 + ((t0 * 0x160) + 0x8C2FC69C)))) == 1) {
-            *(unsigned char *)((0x13D + ((t0 * 0x160) + 0x8C2FC69C))) = ((short)(*(signed char *)((0x13D + ((t0 * 0x160) + 0x8C2FC69C)))) * (short)0xFFFFFFFF);
-            t23 = *(int *)((a4 + 0xB5C));
-            t24 = serveGetServer();
-            if (t23 == t24) {
-                *(float *)((a5 + 0x0)) = ((float)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D))) * 16.4549999f);
-                *(float *)((a6 + 0x0)) = (-((((*(float *)((a4 + 0xB00))) * (((-((float)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12B))) * 0.300000012f)) + 1.0f)))) * 118.849998f));
-                t32 = 0x8C06F250;
-            } else {
-                *(float *)((a5 + 0x0)) = ((float)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D))) * 16.4549999f);
-                *(float *)((a6 + 0x0)) = (*(float *)((a4 + 0xAF0)));
-                t32 = 0xAF0;
-            }
-            t65 = t32;
-        } else {
-            t39 = *(signed char *)((0x140 + ((t0 * 0x160) + 0x8C2FC69C)));
-            t52 = (unsigned char)t39;
-            if ((unsigned char)t39 == 2) {
-                *(unsigned char *)((0x13D + ((t0 * 0x160) + 0x8C2FC69C))) = ((short)(*(signed char *)((0x13D + ((t0 * 0x160) + 0x8C2FC69C)))) * (short)0xFFFFFFFF);
-                t41 = *(int *)((a4 + 0xB5C));
-                t42 = serveGetServer();
-                if (t41 == t42) {
-                    *(float *)((a5 + 0x0)) = ((float)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D))) * 38.3949966f);
-                    *(float *)((a6 + 0x0)) = (-((*(float *)((a4 + 0xB00))) * 83.1949997f));
-                    t47 = 0xB00;
-                } else {
-                    *(float *)((a5 + 0x0)) = (*(float *)((a4 + 0xAE8)));
-                    *(float *)((a6 + 0x0)) = (*(float *)((a4 + 0xAF0)));
-                    t47 = 0xAF0;
-                }
-                t52 = t47;
-            }
-            t65 = t52;
-        }
-        t78 = t65;
-    }
-    return t78;
-}
 
 void dbgMenuDrawPage(void)
 {

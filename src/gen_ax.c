@@ -156,114 +156,6 @@ int cpuDblRecoverPosA(int a4, int a5, int a6)
     return t86;
 }
 
-int matchFrame(void)
-{
-    int t0;
-    float u27;
-    float u37;
-    float u39;
-    int t61;
-    int t63;
-    int t64;
-    int t109;
-    int t111;
-    int t6;
-    int t62;
-    int t68;
-    int stk[15];
-
-    t0 = *(int *)0x8C287D5C;
-    if ((t0 != 2) && (t0 != 3)) {
-    } else {
-        circuitRateStep();
-    }
-    if (((*(int *)0x8C287C60) == 0) && (t6 = *(int *)0x8C287B44, t6 == 0)) {
-        *(unsigned int *)0x8C287B88 = ((*(int *)0x8C287B88) + 0x1);
-        if ((*(float *)0x8C23D204) > 1.0f) {
-            if (((int)((int)(*(int *)0x8C287B88) % (int)0x6)) == 0) {
-                *(unsigned int *)0x8C287B88 = ((*(int *)0x8C287B88) + 0x1);
-            }
-        }
-    }
-    if ((*(int *)0x8C287C60) == 0) {
-        u27 = *(float *)0x8C287C40;
-        if ((*(float *)0x8C287C3C) == 1.0f) {
-            *(float *)0x8C287C3C = ((*(float *)0x8C287C3C) - u27);
-        } else {
-            *(float *)0x8C287C3C = ((*(float *)0x8C287C3C) - ((float)(*(int *)0x8C301BF0) * u27));
-        }
-        u37 = *(float *)0x8C287C3C;
-        if (((*(int *)0x8C287B3C) & 0x200000) != 0) {
-            u39 = *(float *)0x8C287C44;
-            if (u39 > u37) {
-                *(float *)0x8C287C3C = u39;
-            }
-        } else {
-            if (0.0f > u37) {
-                *(float *)0x8C287C3C = 0.0f;
-                *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFBFFFF);
-            }
-        }
-    }
-    t61 = (netHitNop());
-    t63 = 0x8C287D84;
-    t64 = 0x0;
-    for (;;) {
-        if ((int)t64 >= (int)(*(int *)0x8C287ADC)) {
-            break;
-        }
-        if (t64 == 0) {
-            t61 = (perfMark(0x8C102324));
-        } else {
-            t68 = t62;
-        }
-        t62 = t68;
-        t61 = (motionBackup(t63));
-        t61 = 0xD40;
-        t62 = (*(int *)((t63 + t61)));
-        t61 = (((int (*)(int))(t62))(t63));
-        if (t64 == 0) {
-            t61 = (perfPrint());
-        }
-        t62 = 0xD78;
-        t64 = (t64 + 0x1);
-        t63 = (t63 + t62);
-    }
-    ballExec(0x8C291F24, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24), *(int *)((int)stk + 4 + 28));
-    sndCrowdBallReact(0x8C291F24);
-    ballWallStop(0x8C291F24);
-    matchExec();
-    perfMark(0x8C10232C);
-    if ((*(int *)0x8C34B148) != 7) {
-        ballBoyExec(0x8C291F24);
-        lineJudgeExec(0x8C291F24);
-        netJudgeExec(0x8C291F24);
-        umpireExec();
-    }
-    if ((*(int *)0x8C287B2C) == 0) {
-        staffRestart();
-    }
-    perfPrint();
-    miniExec(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24), *(int *)((int)stk + 4 + 28));
-    if ((*(int *)0x8C421F60) == 0) {
-        if (((*(int *)0x8C287B3C) & 8) != 0) {
-            *(unsigned int *)0x8C38BA70 = 0x0;
-        } else {
-            *(unsigned int *)0x8C38BA70 = 0x1;
-        }
-    }
-    replaySnapshot();
-    cameraExec((*(int *)0x8C287B44), 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24), *(int *)((int)stk + 4 + 28));
-    t109 = 0x0;
-    for (;;) {
-        t111 = dbgMenuGetValue((*(int *)0x8C287C4C), 0x2);
-        if ((int)t109 >= (int)(t111 * 0x186A0)) {
-            break;
-        }
-        t109 = (t109 + 0x1);
-    }
-    return courtColliEntry();
-}
 
 
 
@@ -303,41 +195,41 @@ int miniHudDraw(void)
 
 int stageCrowdTexLoad(void)
 {
-    int t12;
-    int t15;
-    int t24;
-    int t25;
-    int t33;
-    int t34;
-    int t44;
-    int t45;
-    int t55;
-    int t56;
-    int t66;
-    int t67;
-    int t76;
-    int t77;
-    int t86;
-    int t87;
-    int t96;
-    int t97;
-    int t106;
-    int t107;
+    register int t12;
+    register int t15;
+    register int t24;
+    register int t25;
+    register int t33;
+    register int t34;
+    register int t44;
+    register int t45;
+    register int t55;
+    register int t56;
+    register int t66;
+    register int t67;
+    register int t76;
+    register int t77;
+    register int t86;
+    register int t87;
+    register int t96;
+    register int t97;
+    register int t106;
+    register int t107;
     int stk[10];
 
-    int R0;
-    int R2;
-    int R3;
-    int R4;
-    int R5;
-    int R8;
-    int R9;
-    int R10;
-    int R11;
-    int R12;
-    int R13;
-    int R14;
-    int T_;
+    register int R0;
+    register int R2;
+    register int R3;
+    register int R4;
+    register int R5;
+    register int R8;
+    register int R9;
+    register int R10;
+    register int R11;
+    register int R12;
+    register int R13;
+    register int R14;
+    register int T_;
     L_8C0B1C54:;
     *(unsigned int *)0x8C188E80 = 0x0;
     nlSetCommonTextureOffset(0xF00);
@@ -555,75 +447,17 @@ int stageCrowdTexLoad(void)
 }
 
 
-int courtFraDrawAnim(void)
-{
-    float t6;
-    float t18;
-    float t30;
-    float t42;
-    int t48;
-    int t63;
-    int t49;
-    int t62;
-
-    nlPushMatrix(0x0);
-    nlTranslate((*(float *)0x8C120B44), (*(float *)0x8C120B48), (*(float *)0x8C120B4C));
-    t6 = nlSin((unsigned short)(*(short *)0x8C189FBC));
-    nlRotateAY((int)(7168.0f * t6));
-    nlObjPut((*(int *)((0x8C189D6C + ((*(int *)0x8C189FAC) << 2)))));
-    nlPopMatrix(0x1);
-    nlPushMatrix(0x0);
-    nlTranslate((*(float *)0x8C120B50), (*(float *)0x8C120B54), (*(float *)0x8C120B58));
-    t18 = nlSin((unsigned short)(*(short *)0x8C189FBE));
-    nlRotateAY((int)(7168.0f * t18));
-    nlObjPut((*(int *)(((((*(int *)0x8C189FB0) << 2) + 0x8C189D6C) + 0xC0))));
-    nlPopMatrix(0x1);
-    nlPushMatrix(0x0);
-    nlTranslate((*(float *)0x8C120B5C), (*(float *)0x8C120B60), (*(float *)0x8C120B64));
-    t30 = nlSin((unsigned short)(*(short *)0x8C189FC0));
-    nlRotateAY((int)(7168.0f * t30));
-    nlObjPut((*(int *)((((*(int *)0x8C189FB4) << 2) + 0x8C189EEC))));
-    nlPopMatrix(0x1);
-    nlPushMatrix(0x0);
-    nlTranslate((*(float *)0x8C120B68), (*(float *)0x8C120B6C), (*(float *)0x8C120B70));
-    t42 = nlSin((unsigned short)(*(short *)0x8C189FC2));
-    nlRotateAY((int)(7168.0f * t42));
-    nlObjPut((*(int *)((((*(int *)0x8C189FB8) << 2) + 0x8C189EEC))));
-    t48 = *(int *)0x8C287C60;
-    t63 = (nlPopMatrix(0x1));
-    if (t48 == 0) {
-        t49 = 0x8C189FBC;
-        for (;;) {
-            *(unsigned short *)((t49 + 0x0)) = ((*(short *)((t49 + 0x0))) + 0x100);
-            t49 = (t49 + 0x2);
-            if ((unsigned int)t49 >= (unsigned int)0x8C189FC4) {
-                break;
-            }
-        }
-        *(unsigned int *)0x8C189FAC = ((*(int *)0x8C189FAC) + 0x1);
-        *(unsigned int *)0x8C189FB0 = ((*(int *)0x8C189FB0) + 0x1);
-        *(unsigned int *)0x8C189FB4 = ((*(int *)0x8C189FB4) + 0x1);
-        *(unsigned int *)0x8C189FB8 = ((*(int *)0x8C189FB8) + 0x1);
-        *(unsigned int *)0x8C189FAC = ((int)((int)(*(int *)0x8C189FAC) % (int)0x30));
-        *(unsigned int *)0x8C189FB0 = ((int)((int)(*(int *)0x8C189FB0) % (int)0x30));
-        *(unsigned int *)0x8C189FB4 = ((int)((int)(*(int *)0x8C189FB4) % (int)0x30));
-        t62 = (int)((int)(*(int *)0x8C189FB8) % (int)0x30);
-        *(unsigned int *)0x8C189FB8 = t62;
-        t63 = t62;
-    }
-    return t63;
-}
 
 int shopDrawPrice(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
 {
-    int t9;
-    int t10;
-    int t12;
-    int t13;
-    int t28;
-    int t6;
-    float u14;
-    int t25;
+    register int t9;
+    register int t10;
+    register int t12;
+    register int t13;
+    register int t28;
+    register int t6;
+    register float u14;
+    register int t25;
     int stk[51];
 
     stk[39] = a8;
@@ -694,154 +528,4 @@ int shopDrawPrice(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a
     }
     return t28;
 }
-
-void syIntInit(int a4, int a5)
-{
-    int t0;
-    int t5;
-    int t6;
-    int t7;
-    int t9;
-    int t11;
-    int t12;
-    int t14;
-    int t15;
-    int t16;
-    int t18;
-    int t20;
-    int t21;
-    int t23;
-    int t24;
-    int t25;
-    int t27;
-    int t29;
-    int t30;
-    int t32;
-    int t33;
-    int t34;
-    int t36;
-    int t38;
-    int t39;
-    int t40;
-    int t43;
-
-    t0 = _builtin_get_imask();
-    _builtin_set_imask(0xF);
-    *(unsigned int *)0xFF00001C = ((*(int *)0xFF00001C) | 0x800);
-    if (a4 == 0x80000000) {
-        *(unsigned int *)0x8C1FC76C = 0x8C1FC964;
-        *(unsigned int *)0x8C1FC7C8 = 0x8C1FC964;
-        *(unsigned int *)0x8C1FCB0C = 0x0;
-        *(unsigned int *)0x8C1FCB04 = a5;
-    } else {
-        *(unsigned int *)0x8C1FC76C = 0x8C1FC7FC;
-        *(unsigned int *)0x8C1FC7C8 = 0x8C1FC7FC;
-        *(unsigned int *)0x8C1FCB0C = 0x0;
-        *(unsigned int *)0x8C1FCB04 = 0x0;
-    }
-    t5 = 0x8C1FCB0C;
-    t6 = 0x8C1FC7CC;
-    t7 = ((int)_builtin_get_vbr());
-    for (;;) {
-        if ((unsigned int)t6 > (unsigned int)0x8C1FC7FC) {
-            break;
-        }
-        t5 = (*(int *)((t6 + 0x0)));
-        t6 = (t6 + 0x4);
-        *(unsigned int *)((t7 + 0x0)) = t5;
-        t7 = (t7 + 0x4);
-    }
-    t9 = (int)_builtin_get_vbr();
-    t11 = ((int)_builtin_get_vbr());
-    t12 = (((unsigned int)((unsigned int)((unsigned int)(t7 - t9) >> 2) >> 2) >> 1) + 0x1);
-    for (;;) {
-        iaOcbp((void *)t11);
-        t12 = (t12 - 0x1);
-        t11 = (t11 + 0x20);
-        if (t12 == 0) {
-            break;
-        }
-    }
-    t14 = t5;
-    t15 = 0x8C1FC738;
-    t16 = (((int)_builtin_get_vbr()) + 0x100);
-    for (;;) {
-        if ((unsigned int)t15 > (unsigned int)0x8C1FC770) {
-            break;
-        }
-        t14 = (*(int *)((t15 + 0x0)));
-        t15 = (t15 + 0x4);
-        *(unsigned int *)((t16 + 0x0)) = t14;
-        t16 = (t16 + 0x4);
-    }
-    t18 = (int)_builtin_get_vbr();
-    t20 = (((int)_builtin_get_vbr()) + 0x400);
-    t21 = (((unsigned int)((unsigned int)((unsigned int)(0xFFFFFF00 + (t16 - t18)) >> 2) >> 2) >> 1) + 0x1);
-    for (;;) {
-        iaOcbp((void *)t20);
-        t21 = (t21 - 0x1);
-        t20 = (t20 + 0x20);
-        if (t21 == 0) {
-            break;
-        }
-    }
-    t23 = t14;
-    t24 = 0x8C1FC738;
-    t25 = (((int)_builtin_get_vbr()) + 0x400);
-    for (;;) {
-        if ((unsigned int)t24 > (unsigned int)0x8C1FC770) {
-            break;
-        }
-        t23 = (*(int *)((t24 + 0x0)));
-        t24 = (t24 + 0x4);
-        *(unsigned int *)((t25 + 0x0)) = t23;
-        t25 = (t25 + 0x4);
-    }
-    t27 = (int)_builtin_get_vbr();
-    t29 = (((int)_builtin_get_vbr()) + 0x1000);
-    t30 = (((unsigned int)((unsigned int)((unsigned int)(0xFFFFFC00 + (t25 - t27)) >> 2) >> 2) >> 1) + 0x1);
-    for (;;) {
-        iaOcbp((void *)t29);
-        t30 = (t30 - 0x1);
-        t29 = (t29 + 0x20);
-        if (t30 == 0) {
-            break;
-        }
-    }
-    t32 = t23;
-    t33 = 0x8C1FC770;
-    t34 = (((int)_builtin_get_vbr()) + 0x600);
-    for (;;) {
-        if ((unsigned int)t33 > (unsigned int)0x8C1FC7CC) {
-            break;
-        }
-        t32 = (*(int *)((t33 + 0x0)));
-        t33 = (t33 + 0x4);
-        *(unsigned int *)((t34 + 0x0)) = t32;
-        t34 = (t34 + 0x4);
-    }
-    t36 = (int)_builtin_get_vbr();
-    t38 = (((int)_builtin_get_vbr()) + 0x1800);
-    t39 = (((unsigned int)((unsigned int)((unsigned int)(0xFFFFFA00 + (t34 - t36)) >> 2) >> 2) >> 1) + 0x1);
-    for (;;) {
-        iaOcbp((void *)t38);
-        t39 = (t39 - 0x1);
-        t38 = (t38 + 0x20);
-        if (t39 == 0) {
-            break;
-        }
-    }
-    _builtin_set_imask(((unsigned int)(((t0 & 0xF) << 2) << 2) >> 4));
-    t40 = 0xFFFFFE40;
-    for (;;) {
-        t43 = (((int)_builtin_get_vbr()) + (((t40 >> 1) >> 1) >> 1));
-        t40 = (t40 + 0x20);
-        *(unsigned int *)(((t43 + 0x200) + 0x0)) = 0x8C1FC640;
-        if ((int)t40 >= (int)0x620) {
-            break;
-        }
-    }
-    _builtin_set_cr((_builtin_get_cr() & 0xEFFFFFFF));
-}
-
 

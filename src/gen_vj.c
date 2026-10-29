@@ -1,0 +1,92 @@
+/* Straight-line functions with calls and guards (batch gen_vj): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+int serveGetServer(void);
+int cpuDblRecoverPosC(int a4, int a5, int a6);
+
+int cpuDblRecoverPosC(int a4, int a5, int a6)
+{
+    int stk[7];
+
+    register int R1;
+    register int R2;
+    register int R3;
+    register int R9;
+    register int R14;
+    register float F2;
+    register float F3;
+    register int T_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register float w0_0;
+    v0_0 = a4;
+    v0_1 = a5;
+    v0_2 = a6;
+    *(unsigned int *)(((int)stk + 16)) = v0_0;
+    *(unsigned int *)(((int)stk + 12)) = v0_1;
+    *(unsigned int *)(((int)stk + 8)) = v0_2;
+    v0_0 = *(int *)(((*(int *)(((int)stk + 16))) + 0xB5C));
+    *(unsigned int *)(((int)stk + 4)) = ((v0_0 * 0x160) + 0x8C2FC69C);
+    if (((*(signed char *)((((v0_0 * 0x160) + 0x8C2FC69C) + 0x140))) != 0)) goto L_8C06F1A4;
+    v0_0 = *(int *)(((*(int *)(((int)stk + 16))) + 0xB5C));
+    v0_1 = v0_0 != (serveGetServer());
+    v0_0 = (v0_0);
+    if (v0_1) goto L_8C06F182;
+    *(float *)(((*(int *)(((int)stk + 12))) + 0x0)) = ((float)(*(signed char *)(((*(int *)(((int)stk + 4))) + 0x13D))) * 16.4549999f);
+    w0_0 = ((-((float)(*(signed char *)(((*(int *)(((int)stk + 4))) + 0x12B))) * 0.300000012f)) + 1.0f);
+    w0_0 = ((*(float *)(((*(int *)(((int)stk + 16))) + 0xB00))) * w0_0);
+    *(float *)(((*(int *)(((int)stk + 8))) + 0x0)) = (-(w0_0 * 118.849998f));
+    v0_0 = (0x8C06F250);
+    w0_0 = (1.0f);
+    w0_0 = (0.300000012f);
+    L_8C06F2BA:;
+    return v0_0;
+    L_8C06F182:;
+    *(float *)(((*(int *)(((int)stk + 12))) + 0x0)) = ((float)(*(signed char *)(((*(int *)(((int)stk + 4))) + 0x13D))) * 16.4549999f);
+    *(float *)(((*(int *)(((int)stk + 8))) + 0x0)) = (*(float *)(((*(int *)(((int)stk + 16))) + 0xAF0)));
+    v0_0 = (0xAF0);
+    goto L_8C06F2BA;
+    L_8C06F1A4:;
+    if (((unsigned char)(*(signed char *)((0x140 + (*(int *)(((int)stk + 4)))))) != 1)) goto L_8C06F254;
+    v0_0 = *(int *)(((int)stk + 4));
+    *(unsigned char *)((0x13D + v0_0)) = ((short)(*(signed char *)((0x13D + v0_0))) * (short)0xFFFFFFFF);
+    v0_0 = *(int *)(((*(int *)(((int)stk + 16))) + 0xB5C));
+    v0_1 = v0_0 != (serveGetServer());
+    v0_0 = (v0_0);
+    if (v0_1) goto L_8C06F20E;
+    *(float *)(((*(int *)(((int)stk + 12))) + 0x0)) = ((float)(*(signed char *)(((*(int *)(((int)stk + 4))) + 0x13D))) * 16.4549999f);
+    w0_0 = ((-((float)(*(signed char *)(((*(int *)(((int)stk + 4))) + 0x12B))) * 0.300000012f)) + 1.0f);
+    w0_0 = ((*(float *)(((*(int *)(((int)stk + 16))) + 0xB00))) * w0_0);
+    *(float *)(((*(int *)(((int)stk + 8))) + 0x0)) = (-(w0_0 * 118.849998f));
+    v0_0 = (0x8C06F250);
+    w0_0 = (1.0f);
+    w0_0 = (0.300000012f);
+    goto L_8C06F2BA;
+    L_8C06F20E:;
+    *(float *)(((*(int *)(((int)stk + 12))) + 0x0)) = ((float)(*(signed char *)(((*(int *)(((int)stk + 4))) + 0x13D))) * 16.4549999f);
+    *(float *)(((*(int *)(((int)stk + 8))) + 0x0)) = (*(float *)(((*(int *)(((int)stk + 16))) + 0xAF0)));
+    v0_0 = (0xAF0);
+    goto L_8C06F2BA;
+    L_8C06F254:;
+    v0_1 = *(signed char *)((0x140 + (*(int *)(((int)stk + 4)))));
+    v0_0 = ((unsigned char)v0_1);
+    if (((unsigned char)v0_1 != 2)) goto L_8C06F2BA;
+    v0_0 = *(int *)(((int)stk + 4));
+    *(unsigned char *)((0x13D + v0_0)) = ((short)(*(signed char *)((0x13D + v0_0))) * (short)0xFFFFFFFF);
+    v0_0 = *(int *)(((*(int *)(((int)stk + 16))) + 0xB5C));
+    v0_1 = v0_0 != (serveGetServer());
+    v0_0 = (v0_0);
+    if (v0_1) goto L_8C06F2A6;
+    *(float *)(((*(int *)(((int)stk + 12))) + 0x0)) = ((float)(*(signed char *)(((*(int *)(((int)stk + 4))) + 0x13D))) * 38.3949966f);
+    w0_0 = *(float *)(((*(int *)(((int)stk + 16))) + 0xB00));
+    *(float *)(((*(int *)(((int)stk + 8))) + 0x0)) = (-(w0_0 * 83.1949997f));
+    v0_0 = (0xB00);
+    w0_0 = ((-(w0_0 * 83.1949997f)));
+    goto L_8C06F2BA;
+    L_8C06F2A6:;
+    *(float *)(((*(int *)(((int)stk + 12))) + 0x0)) = (*(float *)(((*(int *)(((int)stk + 16))) + 0xAE8)));
+    *(float *)(((*(int *)(((int)stk + 8))) + 0x0)) = (*(float *)(((*(int *)(((int)stk + 16))) + 0xAF0)));
+    v0_0 = (0xAF0);
+    goto L_8C06F2BA;
+}

@@ -1,244 +1,1061 @@
 /* Straight-line functions with calls and guards (batch gen_dq): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int cpuDblPositionCalc(int a4, int a5);
+int nlRand(void);
+int cpuDblServe(int a4);
 
-int cpuDblPositionCalc(int a4, int a5)
+int cpuDblServe(int a4)
 {
-    int t0;
-    float u3;
-    float u4;
-    float u10;
-    int t13;
-    int t11;
-    int t15;
-    int t18;
-    int t16;
-    float u28;
-    float u37;
-    float u38;
-    float u44;
-    int t47;
-    int t45;
-    int t49;
-    int t52;
-    int t50;
-    float u62;
-    float u70;
-    int t73;
-    int t71;
-    float u75;
-    int t78;
-    int t76;
-    int t81;
-    float u85;
-    int t88;
-    int t86;
-    float u90;
-    int t93;
-    int t91;
-    int t99;
-    float u100;
-    int t103;
-    int t101;
-    float u105;
-    int t108;
-    int t106;
-    int t115;
-    float u116;
-    int t119;
-    int t117;
-    float u121;
-    int t124;
-    int t122;
-    int t22;
-    int t23;
-    int t56;
-    int t57;
+    register int t0;
+    register int t1;
+    register int t2;
+    register int t3;
+    register int t4;
+    register int t5;
+    register int t6;
+    register int t7;
+    register int t8;
+    register int t9;
+    register int t10;
+    register int t11;
+    register int t12;
+    register int t13;
+    register int t14;
+    register int t15;
+    register int t16;
+    register int t17;
+    register int t18;
+    register int t19;
+    register int t20;
+    register int t21;
+    register float u0;
+    register float u1;
+    int stk[9];
 
-    t0 = *(int *)((a4 + 0xB5C));
-    if (((*(int *)((a4 + 0xB60))) & 0x100) == 0) {
-        u3 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x28));
-        u4 = (-u3);
-        if (!(0.0f > u3)) {
-            u4 = u3;
+    *(unsigned int *)(((int)stk + 28)) = a4;
+    *(unsigned int *)(((int)stk + 24)) = 0x8C287ACC;
+    *(unsigned int *)(((int)stk + 20)) = (((*(int *)(((*(int *)(((int)stk + 28))) + 0xB5C))) * 0x160) + 0x8C2FC69C);
+    if (((*(int *)0x8C287B3C) & 0x4000) != 0) {
+        t15 = (int)((int)(((*(int *)((((*(int *)(((int)stk + 24))) + 0x44) + 0x0))) + (*(int *)(((*(int *)(((int)stk + 24))) + 0x48)))) + 0x6) % (int)0x6);
+        t16 = (int)((unsigned int)((int)((unsigned int)t15 + (unsigned int)0x0)) + ((((int)0x0 > (int)t15)) ? 1u : 0u));
+        t15 = ((~(((~((t16 >> 1) + 0x2)) + 0x1) & 0x1)) + 0x1);
+        if ((int)((t16 >> 1) + 0x2) >= 0) {
+            t15 = (((t16 >> 1) + 0x2) & 0x1);
         }
-        if (0.300000012f > u4) {
-            *(float *)((a5 + 0x0)) = ((*(float *)((a4 + 0xAE8))) + (float)((int)((int)(*(int *)((((t0 * 0x160) + 0x8C2FC69C) + 0x158))) / (int)0x18)));
-        } else {
-            u10 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x28));
-            t13 = 0x1;
-            if (u10 > 0.0f) {
-            } else {
-                t11 = 0x0;
-                if (0.0f > u10) {
-                    t11 = 0xFFFFFFFF;
-                }
-                t13 = t11;
-            }
-            t15 = *(int *)((((t0 * 0x160) + 0x8C2FC69C) + 0x158));
-            t18 = 0x1;
-            if ((int)t15 > 0) {
-            } else {
-                t16 = 0x0;
-                if ((int)t15 < 0) {
-                    t16 = 0xFFFFFFFF;
-                }
-                t18 = t16;
-            }
-            if (t13 == t18) {
-                t22 = 0x6;
-                t23 = (*(int *)((((t0 * 0x160) + 0x8C2FC69C) + 0x158)));
-            } else {
-                t22 = 0xA;
-                t23 = (*(int *)((((t0 * 0x160) + 0x8C2FC69C) + 0x158)));
-            }
-            u28 = ((*(float *)((a4 + 0xAE8))) + (float)((int)((int)t23 / (int)t22)));
-            u28 = u28 + 4.0f * (*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x28)));
-            *(float *)((a5 + 0x0)) = u28;
-        }
-        u37 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x30));
-        u38 = (-u37);
-        if (!(0.0f > u37)) {
-            u38 = u37;
-        }
-        if (0.300000012f > u38) {
-            *(float *)((a5 + 0x8)) = ((*(float *)((a4 + 0xAF0))) + (float)((int)((int)(*(int *)((((t0 * 0x160) + 0x8C2FC69C) + 0x15C))) / (int)0x18)));
-        } else {
-            u44 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x30));
-            t47 = 0x1;
-            if (u44 > 0.0f) {
-            } else {
-                t45 = 0x0;
-                if (0.0f > u44) {
-                    t45 = 0xFFFFFFFF;
-                }
-                t47 = t45;
-            }
-            t49 = *(int *)((((t0 * 0x160) + 0x8C2FC69C) + 0x15C));
-            t52 = 0x1;
-            if ((int)t49 > 0) {
-            } else {
-                t50 = 0x0;
-                if ((int)t49 < 0) {
-                    t50 = 0xFFFFFFFF;
-                }
-                t52 = t50;
-            }
-            if (t47 == t52) {
-                t56 = 0x6;
-                t57 = (*(int *)((((t0 * 0x160) + 0x8C2FC69C) + 0x15C)));
-            } else {
-                t56 = 0xA;
-                t57 = (*(int *)((((t0 * 0x160) + 0x8C2FC69C) + 0x15C)));
-            }
-            u62 = ((*(float *)((a4 + 0xAF0))) + (float)((int)((int)t57 / (int)t56)));
-            u62 = u62 + 4.0f * (*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x30)));
-            *(float *)((a5 + 0x8)) = u62;
-        }
-        u70 = *(float *)((a5 + 0x8));
-        t73 = 0x1;
-        if (u70 > 0.0f) {
-        } else {
-            t71 = 0x0;
-            if (0.0f > u70) {
-                t71 = 0xFFFFFFFF;
-            }
-            t73 = t71;
-        }
-        u75 = *(float *)((a4 + 0xB00));
-        t78 = 0x1;
-        if (u75 > 0.0f) {
-        } else {
-            t76 = 0x0;
-            if (0.0f > u75) {
-                t76 = 0xFFFFFFFF;
-            }
-            t78 = t76;
-        }
-        t81 = 0xB00;
-        if (t73 == t78) {
-            *(float *)((a5 + 0x8)) = (-((*(float *)((a4 + 0xB00))) * 10.0f));
-            t81 = 0x8;
-        }
-        return t81;
-    }
-    u85 = *(float *)0x8C291F50;
-    t88 = 0x1;
-    if (u85 > 0.0f) {
+        *(unsigned int *)(((int)stk + 12)) = ((((-t15) + 0x1) << 1) - 1);
     } else {
-        t86 = 0x0;
-        if (0.0f > u85) {
-            t86 = 0xFFFFFFFF;
+        t15 = *(int *)(((0x48 + (*(int *)(((int)stk + 24)))) + 0x0));
+        t16 = *(int *)((((*(int *)(((int)stk + 24))) + 0x44) + 0x0));
+        t17 = ((~(((~((t16 + t15) + 0x2)) + 0x1) & 0x1)) + 0x1);
+        if ((int)((t16 + t15) + 0x2) >= 0) {
+            t17 = (((t16 + t15) + 0x2) & 0x1);
         }
-        t88 = t86;
-    }
-    u90 = *(float *)((a4 + 0xB00));
-    t93 = 0x1;
-    if ((-u90) > 0.0f) {
-    } else {
-        t91 = 0x0;
-        if (0.0f > (-u90)) {
-            t91 = 0xFFFFFFFF;
+        *(unsigned int *)(((int)stk + 12)) = ((-(t17 << 1)) + 0x1);
+        t15 = *(int *)(((*(int *)(((int)stk + 24))) + 0x38));
+        t16 = *(int *)(((*(int *)(((int)stk + 24))) + 0x34));
+        t17 = (int)((unsigned int)((int)((unsigned int)(t16 + t15) + (unsigned int)0x0)) + ((((int)0x0 > (int)(t16 + t15))) ? 1u : 0u));
+        t15 = ((~(((~((t17 >> 1) + 0x2)) + 0x1) & 0x1)) + 0x1);
+        if ((int)((t17 >> 1) + 0x2) >= 0) {
+            t15 = (((t17 >> 1) + 0x2) & 0x1);
         }
-        t93 = t91;
+        *(unsigned int *)(((int)stk + 12)) = ((*(int *)(((int)stk + 12))) * ((-(t15 << 1)) + 0x1));
     }
-    if (t88 == t93) {
-        *(float *)((a5 + 0x0)) = ((*(float *)((a4 + 0xAE8))) + (float)((int)((int)(*(int *)((((t0 * 0x160) + 0x8C2FC69C) + 0x158))) / (int)0x20)));
-        t99 = (int)((int)(*(int *)((((t0 * 0x160) + 0x8C2FC69C) + 0x15C))) / (int)0x20);
-        u100 = *(float *)((a4 + 0xAF0));
-        *(float *)((a5 + 0x8)) = (u100 + (float)t99);
-        t103 = 0x1;
-        if ((u100 + (float)t99) > 0.0f) {
+    *(unsigned short *)(((*(int *)(((int)stk + 20))) + 0x1E)) = 0x0;
+    *(unsigned short *)(((*(int *)(((int)stk + 20))) + 0x20)) = 0x0;
+    t15 = *(int *)((0xB68 + (*(int *)(((int)stk + 28)))));
+    if (t15 != 0) {
+        t16 = t15;
+        if (t15 == 1) {
         } else {
-            t101 = 0x0;
-            if (0.0f > (u100 + (float)t99)) {
-                t101 = 0xFFFFFFFF;
+            if (t15 != 2) {
+                if (t15 == 5) {
+                    t17 = *(int *)(((int)stk + 20));
+                    *(unsigned short *)(((0x20 + t17) + 0x0)) = 0x0;
+                    t18 = t17;
+                    if (!(0.0f > (*(float *)0x8C2FD910))) {
+                        t17 = *(short *)0x8C2FD908;
+                        *(unsigned short *)(((0x20 + (*(int *)(((int)stk + 20)))) + 0x0)) = (0x60 - (((t17 << 2) << 2) << 1));
+                        *(float *)0x8C2FD910 = ((*(float *)0x8C2FD910) - (*(float *)0x8C23D204));
+                        t18 = (0x60 - (((t17 << 2) << 2) << 1));
+                    }
+                    if ((*(int *)0x8C2FD920) != 0) {
+                        t17 = *(int *)(((int)stk + 20));
+                        *(unsigned short *)((t17 + 0x20)) = ((*(short *)((t17 + 0x20))) + 0x10);
+                        *(unsigned int *)0x8C2FD920 = 0x0;
+                        t17 = 0x8C2FD920;
+                    } else {
+                        t19 = t18;
+                        if (!(0.0f > (*(float *)0x8C2FD914))) {
+                            t18 = *(int *)(((int)stk + 20));
+                            *(unsigned short *)((0x20 + t18)) = ((*(short *)((0x20 + t18))) + (0x18 - (((*(short *)0x8C2FD90C) << 2) << 1)));
+                            *(float *)0x8C2FD914 = ((*(float *)0x8C2FD914) - (*(float *)0x8C23D204));
+                            t19 = t18;
+                        }
+                        t17 = t19;
+                    }
+                    u0 = *(float *)0x8C23D204;
+                    u1 = *(float *)0x8C2FD91C;
+                    *(float *)0x8C2FD91C = (u1 - u0);
+                    t18 = t17;
+                    if (0.0f > (u1 - u0)) {
+                        t17 = *(signed char *)0x8C2FD918;
+                        *(unsigned short *)(((*(int *)(((int)stk + 20))) + 0x1E)) = (unsigned char)t17;
+                        t18 = (unsigned char)t17;
+                    }
+                    t17 = t18;
+                } else {
+                    if (t15 == 6) {
+                        t18 = *(int *)(((int)stk + 20));
+                        *(unsigned short *)(((0x20 + t18) + 0x0)) = 0x0;
+                        t19 = t18;
+                        if (!(0.0f > (*(float *)0x8C2FD910))) {
+                            t18 = *(short *)0x8C2FD908;
+                            *(unsigned short *)(((0x20 + (*(int *)(((int)stk + 20)))) + 0x0)) = (0x60 - (((t18 << 2) << 2) << 1));
+                            *(float *)0x8C2FD910 = ((*(float *)0x8C2FD910) - (*(float *)0x8C23D204));
+                            t19 = (0x60 - (((t18 << 2) << 2) << 1));
+                        }
+                        if ((*(int *)0x8C2FD920) != 0) {
+                            t18 = *(int *)(((int)stk + 20));
+                            *(unsigned short *)((t18 + 0x20)) = ((*(short *)((t18 + 0x20))) + 0x10);
+                            *(unsigned int *)0x8C2FD920 = 0x0;
+                            t18 = 0x8C2FD920;
+                        } else {
+                            t20 = t19;
+                            if (!(0.0f > (*(float *)0x8C2FD914))) {
+                                t19 = *(int *)(((int)stk + 20));
+                                *(unsigned short *)((0x20 + t19)) = ((*(short *)((0x20 + t19))) + (0x18 - (((*(short *)0x8C2FD90C) << 2) << 1)));
+                                *(float *)0x8C2FD914 = ((*(float *)0x8C2FD914) - (*(float *)0x8C23D204));
+                                t20 = t19;
+                            }
+                            t18 = t20;
+                        }
+                        u0 = *(float *)0x8C23D204;
+                        u1 = *(float *)0x8C2FD91C;
+                        *(float *)0x8C2FD91C = (u1 - u0);
+                        t19 = t18;
+                        if (0.0f > (u1 - u0)) {
+                            t18 = *(signed char *)0x8C2FD918;
+                            *(unsigned short *)(((*(int *)(((int)stk + 20))) + 0x1E)) = (unsigned char)t18;
+                            t19 = (unsigned char)t18;
+                        }
+                        t18 = t19;
+                    } else {
+                        t19 = t15;
+                        if (t15 == 7) {
+                            t15 = *(int *)(((int)stk + 20));
+                            *(unsigned short *)(((0x20 + t15) + 0x0)) = 0x0;
+                            t20 = t15;
+                            if (!(0.0f > (*(float *)0x8C2FD910))) {
+                                t15 = *(short *)0x8C2FD908;
+                                *(unsigned short *)(((0x20 + (*(int *)(((int)stk + 20)))) + 0x0)) = (0x60 - (((t15 << 2) << 2) << 1));
+                                *(float *)0x8C2FD910 = ((*(float *)0x8C2FD910) - (*(float *)0x8C23D204));
+                                t20 = (0x60 - (((t15 << 2) << 2) << 1));
+                            }
+                            if ((*(int *)0x8C2FD920) != 0) {
+                                t15 = *(int *)(((int)stk + 20));
+                                *(unsigned short *)((t15 + 0x20)) = ((*(short *)((t15 + 0x20))) + 0x10);
+                                *(unsigned int *)0x8C2FD920 = 0x0;
+                                t15 = 0x8C2FD920;
+                            } else {
+                                t21 = t20;
+                                if (!(0.0f > (*(float *)0x8C2FD914))) {
+                                    t20 = *(int *)(((int)stk + 20));
+                                    *(unsigned short *)((0x20 + t20)) = ((*(short *)((0x20 + t20))) + (0x18 - (((*(short *)0x8C2FD90C) << 2) << 1)));
+                                    *(float *)0x8C2FD914 = ((*(float *)0x8C2FD914) - (*(float *)0x8C23D204));
+                                    t21 = t20;
+                                }
+                                t15 = t21;
+                            }
+                            u0 = *(float *)0x8C23D204;
+                            u1 = *(float *)0x8C2FD91C;
+                            *(float *)0x8C2FD91C = (u1 - u0);
+                            t20 = t15;
+                            if (0.0f > (u1 - u0)) {
+                                t15 = *(signed char *)0x8C2FD918;
+                                *(unsigned short *)(((*(int *)(((int)stk + 20))) + 0x1E)) = (unsigned char)t15;
+                                t20 = (unsigned char)t15;
+                            }
+                            t19 = t20;
+                        }
+                        t18 = t19;
+                    }
+                    t17 = t18;
+                }
+                t15 = t17;
+            } else {
+                if (((unsigned char)(*(signed char *)((0x13F + (*(int *)(((int)stk + 20)))))) != 1) && (t0 = *(int *)(((int)stk + 20)), t1 = *(signed char *)((0x13F + t0)), (unsigned char)t1 != 2)) {
+                    t0 = (unsigned char)t1;
+                } else {
+                    t1 = *(int *)(((int)stk + 28));
+                    t17 = *(int *)(((int)stk + 20));
+                    t18 = 0x1;
+                    if ((-(*(float *)((t1 + 0xAE8)))) > 0.0f) {
+                    } else {
+                        t19 = 0x0;
+                        if (0.0f > (-(*(float *)((0xAE8 + (*(int *)(((int)stk + 28)))))))) {
+                            t19 = 0xFFFFFFFF;
+                        }
+                        t18 = t19;
+                    }
+                    u0 = ((*(float *)((t1 + 0xB00))) * (float)t18);
+                    *(unsigned short *)((t17 + 0x20)) = (int)((-(u0 * 32.0f)) + 96.0f);
+                    t0 = 0x20;
+                }
+                u0 = *(float *)0x8C23D204;
+                u1 = *(float *)0x8C2FD91C;
+                *(float *)0x8C2FD91C = (u1 - u0);
+                t1 = t0;
+                if (!(0.0f > (u1 - u0))) {
+                } else {
+                    *(unsigned short *)(((*(int *)(((int)stk + 20))) + 0x1E)) = 0x1;
+                    if ((*(int *)((0x8C287AE0 + ((*(int *)((0xB5C + (*(int *)(((int)stk + 28)))))) << 2)))) != 1) {
+                        if ((*(signed char *)((0x141 + (*(int *)(((int)stk + 20)))))) == 0) {
+                            t0 = nlRand();
+                            t17 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                            if ((int)t0 >= 0) {
+                                t17 = (t0 & 0x1);
+                            }
+                            *(unsigned int *)0x8C2FD908 = ((t17 << 1) - 1);
+                            *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x1E)) + 0x28);
+                            t0 = nlRand();
+                            t17 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                            if ((int)t0 >= 0) {
+                                t17 = (t0 & 0x1);
+                            }
+                            *(unsigned int *)0x8C2FD90C = ((t17 << 1) - 1);
+                            *(float *)0x8C2FD914 = (float)((int)((int)(nlRand()) % (int)0x1E));
+                            *(unsigned int *)(((int)stk + 16)) = (((int)((int)(nlRand()) % (int)0x1E)) + 0x5);
+                            *(unsigned int *)0x8C2FD918 = 0x1;
+                        } else {
+                            if ((unsigned char)(*(signed char *)((0x141 + (*(int *)(((int)stk + 20)))))) == 1) {
+                                t0 = nlRand();
+                                t17 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                if ((int)t0 >= 0) {
+                                    t17 = (t0 & 0x1);
+                                }
+                                *(unsigned int *)0x8C2FD908 = ((t17 << 1) - 1);
+                                *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x14)) + 0x37);
+                                *(unsigned int *)0x8C2FD90C = 0x0;
+                                *(float *)0x8C2FD914 = 0.0f;
+                                *(unsigned int *)(((int)stk + 16)) = ((int)((int)(nlRand()) % (int)0x7));
+                                t0 = nlRand();
+                                t17 = ((~(((~t0) + 0x1) & 0x3)) + 0x1);
+                                if ((int)t0 >= 0) {
+                                    t17 = (t0 & 0x3);
+                                }
+                                if (t17 != 0) {
+                                    *(unsigned int *)0x8C2FD918 = 0x1;
+                                } else {
+                                    *(unsigned int *)0x8C2FD918 = 0x2;
+                                }
+                            } else {
+                                if ((unsigned char)(*(signed char *)((0x141 + (*(int *)(((int)stk + 20)))))) == 2) {
+                                    t0 = nlRand();
+                                    t17 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                    if ((int)t0 >= 0) {
+                                        t17 = (t0 & 0x1);
+                                    }
+                                    *(unsigned int *)0x8C2FD908 = ((t17 << 1) - 1);
+                                    *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x5)) + 0x44);
+                                    *(unsigned int *)0x8C2FD90C = 0x0;
+                                    *(float *)0x8C2FD914 = 0.0f;
+                                    t0 = nlRand();
+                                    t17 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                    if ((int)t0 >= 0) {
+                                        t17 = (t0 & 0x1);
+                                    }
+                                    *(unsigned int *)(((int)stk + 16)) = t17;
+                                    *(unsigned int *)0x8C2FD918 = 0x1;
+                                } else {
+                                    t0 = (int)((int)(nlRand()) % (int)0x3);
+                                    if (t0 != 0) {
+                                        t0 = nlRand();
+                                        t17 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                        if ((int)t0 >= 0) {
+                                            t17 = (t0 & 0x1);
+                                        }
+                                        *(unsigned int *)0x8C2FD908 = ((t17 << 1) - 1);
+                                        *(float *)0x8C2FD910 = 100.0f;
+                                        *(unsigned int *)0x8C2FD90C = 0x0;
+                                        *(float *)0x8C2FD914 = 0.0f;
+                                        *(unsigned int *)(((int)stk + 16)) = 0x0;
+                                        *(unsigned int *)0x8C2FD918 = 0x1;
+                                    } else {
+                                        t0 = nlRand();
+                                        t17 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                        if ((int)t0 >= 0) {
+                                            t17 = (t0 & 0x1);
+                                        }
+                                        if (t17 != 0) {
+                                            *(unsigned int *)(((int)stk + 16)) = 0x0;
+                                            t0 = 0x1;
+                                            if ((*(float *)(((*(int *)(((int)stk + 28))) + 0xB00))) > 0.0f) {
+                                            } else {
+                                                t17 = 0x0;
+                                                if (0.0f > (*(float *)(((*(int *)(((int)stk + 28))) + 0xB00)))) {
+                                                    t17 = 0xFFFFFFFF;
+                                                }
+                                                t0 = t17;
+                                            }
+                                            *(unsigned int *)0x8C2FD908 = (-(t0 * (*(int *)(((int)stk + 12)))));
+                                            *(float *)0x8C2FD910 = 100.0f;
+                                            *(unsigned int *)0x8C2FD90C = 0xFFFFFFFF;
+                                            *(float *)0x8C2FD914 = (1.0f + 1.0f);
+                                            *(unsigned int *)0x8C2FD918 = 0x1;
+                                        } else {
+                                            *(unsigned int *)(((int)stk + 16)) = 0x0;
+                                            *(unsigned int *)0x8C2FD908 = 0x1;
+                                            *(float *)0x8C2FD910 = 100.0f;
+                                            *(unsigned int *)0x8C2FD90C = 0x0;
+                                            *(float *)0x8C2FD914 = 0.0f;
+                                            *(unsigned int *)0x8C2FD918 = 0x2;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        if ((*(int *)0x8C421F60) != 0) {
+                            t0 = nlRand();
+                            t17 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                            if ((int)t0 >= 0) {
+                                t17 = (t0 & 0x1);
+                            }
+                            *(unsigned int *)(((int)stk + 16)) = (t17 + 0x1);
+                            t0 = nlRand();
+                            t17 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                            if ((int)t0 >= 0) {
+                                t17 = (t0 & 0x1);
+                            }
+                            *(unsigned int *)0x8C2FD908 = ((t17 << 1) - 1);
+                            *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x32)) + 0x32);
+                            *(unsigned int *)0x8C2FD90C = 0x0;
+                            *(float *)0x8C2FD914 = 0.0f;
+                            *(unsigned int *)0x8C2FD918 = 0x1;
+                        } else {
+                            if ((*(int *)0x8C15A0CC) != 0) {
+                                *(unsigned int *)0x8C2FD918 = 0x0;
+                                *(unsigned int *)(((int)stk + 16)) = 0xFFFFFF9C;
+                                *(unsigned short *)(((*(int *)(((int)stk + 20))) + 0x1E)) = 0x3;
+                                *(unsigned short *)(((0x20 + (*(int *)(((int)stk + 20)))) + 0x0)) = 0x20;
+                                t0 = (int)((int)(nlRand()) % (int)0x3);
+                                if (t0 != 0) {
+                                    if ((int)(*(int *)(((int)stk + 12))) > 0) {
+                                        *(float *)0x8C2FD910 = 200.0f;
+                                        *(float *)0x8C2FD914 = 48.0f;
+                                        t0 = 0xFFFFFFFF;
+                                    } else {
+                                        *(float *)0x8C2FD910 = 200.0f;
+                                        *(float *)0x8C2FD914 = 43.0f;
+                                        t0 = 0x1;
+                                    }
+                                    *(unsigned int *)0x8C2FD908 = t0;
+                                } else {
+                                    if ((int)(*(int *)(((int)stk + 12))) > 0) {
+                                        *(float *)0x8C2FD910 = 200.0f;
+                                        *(float *)0x8C2FD914 = 37.0f;
+                                        t0 = 0x1;
+                                    } else {
+                                        *(float *)0x8C2FD910 = 200.0f;
+                                        *(float *)0x8C2FD914 = 39.0f;
+                                        t0 = 0xFFFFFFFF;
+                                    }
+                                    *(unsigned int *)0x8C2FD908 = t0;
+                                }
+                                *(unsigned int *)0x8C2FD90C = 0xFFFFFFFF;
+                            } else {
+                                if ((*(int *)0x8C20D14C) != 6) {
+                                    if ((int)(*(int *)0x8C2FCC1C) <= (int)0x2) {
+                                        *(unsigned int *)(((int)stk + 16)) = (((int)((int)(nlRand()) % (int)0xA)) + 0xF);
+                                        t0 = nlRand();
+                                        t17 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                        if ((int)t0 >= 0) {
+                                            t17 = (t0 & 0x1);
+                                        }
+                                        *(unsigned int *)0x8C2FD908 = ((t17 << 1) - 1);
+                                        *(float *)0x8C2FD910 = (float)((int)((int)(nlRand()) % (int)0x14));
+                                        *(unsigned int *)0x8C2FD90C = 0xFFFFFFFF;
+                                        *(float *)0x8C2FD914 = (float)((int)((int)(nlRand()) % (int)0xA));
+                                        *(unsigned int *)0x8C2FD918 = 0x1;
+                                    }
+                                    if ((int)(*(int *)0x8C2FCC1C) <= (int)0x5) {
+                                        *(unsigned int *)(((int)stk + 16)) = (((int)((int)(nlRand()) % (int)0x5)) + 0xA);
+                                        t0 = nlRand();
+                                        t17 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                        if ((int)t0 >= 0) {
+                                            t17 = (t0 & 0x1);
+                                        }
+                                        *(unsigned int *)0x8C2FD908 = ((t17 << 1) - 1);
+                                        *(float *)0x8C2FD910 = (float)((int)((int)(nlRand()) % (int)0x14));
+                                        *(unsigned int *)0x8C2FD90C = 0xFFFFFFFF;
+                                        if ((*(int *)(((int)stk + 12))) != (*(int *)0x8C2FD908)) {
+                                            *(float *)0x8C2FD914 = 3.0f;
+                                        } else {
+                                            *(float *)0x8C2FD914 = (float)((int)((int)(nlRand()) % (int)0xA));
+                                        }
+                                        *(unsigned int *)0x8C2FD918 = 0x1;
+                                    } else {
+                                        if ((int)(*(int *)0x8C2FCC1C) > (int)0x8) {
+                                            if ((int)(*(int *)0x8C2FCC1C) > (int)0xD) {
+                                            } else {
+                                                if ((*(int *)0x8C287D5C) != 0) {
+                                                    *(unsigned int *)(((int)stk + 16)) = ((int)((int)(nlRand()) % (int)(0xD - (*(int *)0x8C2FCC1C))));
+                                                    t0 = nlRand();
+                                                    t17 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                    if ((int)t0 >= 0) {
+                                                        t17 = (t0 & 0x1);
+                                                    }
+                                                    *(unsigned int *)0x8C2FD908 = ((t17 << 1) - 1);
+                                                    *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x5)) + 0x44);
+                                                    *(unsigned int *)0x8C2FD90C = 0x0;
+                                                    *(float *)0x8C2FD914 = 0.0f;
+                                                    *(unsigned int *)0x8C2FD918 = 0x1;
+                                                } else {
+                                                    if (((*(int *)((0xC58 + (*(int *)(((int)stk + 28)))))) != 16) && (t2 = *(int *)(((int)stk + 28)), t3 = *(int *)((0xC58 + t2)), t3 != 17)) {
+                                                        *(unsigned int *)(((int)stk + 16)) = ((int)((int)(nlRand()) % (int)(0xD - (*(int *)0x8C2FCC1C))));
+                                                        t0 = nlRand();
+                                                        t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                        if ((int)t0 >= 0) {
+                                                            t2 = (t0 & 0x1);
+                                                        }
+                                                        *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                        *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x5)) + 0x44);
+                                                        *(unsigned int *)0x8C2FD90C = 0x0;
+                                                        *(float *)0x8C2FD914 = 0.0f;
+                                                        *(unsigned int *)0x8C2FD918 = 0x1;
+                                                    } else {
+                                                        t0 = (int)((int)(nlRand()) % (int)0xA);
+                                                        *(unsigned int *)(((int)stk + 8)) = t0;
+                                                        if ((int)t0 < (int)0x5) {
+                                                            *(unsigned int *)(((int)stk + 16)) = 0x0;
+                                                            t2 = nlRand();
+                                                            t3 = ((~(((~t2) + 0x1) & 0x1)) + 0x1);
+                                                            if ((int)t2 >= 0) {
+                                                                t3 = (t2 & 0x1);
+                                                            }
+                                                            *(unsigned int *)0x8C2FD908 = ((t3 << 1) - 1);
+                                                            *(float *)0x8C2FD910 = 100.0f;
+                                                            *(unsigned int *)0x8C2FD90C = 0x0;
+                                                            *(float *)0x8C2FD914 = 0.0f;
+                                                            *(unsigned int *)0x8C2FD918 = 0x1;
+                                                        } else {
+                                                            if ((int)t0 < (int)0x7) {
+                                                                *(unsigned int *)(((int)stk + 16)) = 0x0;
+                                                                t2 = 0x1;
+                                                                if ((*(float *)(((*(int *)(((int)stk + 28))) + 0xB00))) > 0.0f) {
+                                                                } else {
+                                                                    t3 = 0x0;
+                                                                    if (0.0f > (*(float *)(((*(int *)(((int)stk + 28))) + 0xB00)))) {
+                                                                        t3 = 0xFFFFFFFF;
+                                                                    }
+                                                                    t2 = t3;
+                                                                }
+                                                                *(unsigned int *)0x8C2FD908 = (-(t2 * (*(int *)(((int)stk + 12)))));
+                                                                *(float *)0x8C2FD910 = 100.0f;
+                                                                *(unsigned int *)0x8C2FD90C = 0xFFFFFFFF;
+                                                                *(float *)0x8C2FD914 = 3.0f;
+                                                                *(unsigned int *)0x8C2FD918 = 0x1;
+                                                            } else {
+                                                                if ((int)t0 < (int)0x9) {
+                                                                    *(unsigned int *)(((int)stk + 16)) = 0x0;
+                                                                    *(unsigned int *)0x8C2FD908 = 0x1;
+                                                                    *(float *)0x8C2FD910 = 100.0f;
+                                                                    *(unsigned int *)0x8C2FD90C = 0x0;
+                                                                    *(float *)0x8C2FD914 = 0.0f;
+                                                                    *(unsigned int *)0x8C2FD918 = 0x2;
+                                                                } else {
+                                                                    *(unsigned int *)(((int)stk + 16)) = 0x1;
+                                                                    t0 = nlRand();
+                                                                    t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                                    if ((int)t0 >= 0) {
+                                                                        t2 = (t0 & 0x1);
+                                                                    }
+                                                                    *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                                    *(float *)0x8C2FD910 = 100.0f;
+                                                                    *(unsigned int *)0x8C2FD90C = 0xFFFFFFFF;
+                                                                    *(float *)0x8C2FD914 = 10.0f;
+                                                                    *(unsigned int *)0x8C2FD918 = 0x1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            t0 = (int)((int)(nlRand()) % (int)(0xA - (*(int *)0x8C2FCC1C)));
+                                            *(unsigned int *)(((int)stk + 16)) = (t0 + 0x3);
+                                            if ((int)(t0 + 0x3) <= (int)0x3) {
+                                                t0 = nlRand();
+                                                t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                if ((int)t0 >= 0) {
+                                                    t2 = (t0 & 0x1);
+                                                }
+                                                *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x1E)) + 0xF);
+                                                *(unsigned int *)0x8C2FD90C = 0x0;
+                                                *(float *)0x8C2FD914 = 0.0f;
+                                            } else {
+                                                t0 = nlRand();
+                                                t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                if ((int)t0 >= 0) {
+                                                    t2 = (t0 & 0x1);
+                                                }
+                                                *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0xE)) + 0x36);
+                                                *(unsigned int *)0x8C2FD90C = 0xFFFFFFFF;
+                                                if ((*(int *)(((int)stk + 12))) != (*(int *)0x8C2FD908)) {
+                                                    t0 = (((int)((int)(nlRand()) % (int)0x5)) + 0x5);
+                                                } else {
+                                                    t0 = (((int)((int)(nlRand()) % (int)0x5)) + 0xA);
+                                                }
+                                                *(float *)0x8C2FD914 = (float)t0;
+                                            }
+                                            if ((*(int *)0x8C2FCC1C) != 7) {
+                                            } else {
+                                                if ((*(signed char *)(((*(int *)(((int)stk + 20))) + 0x13F))) != 0) {
+                                                } else {
+                                                    t0 = *(int *)(((int)stk + 16));
+                                                    *(unsigned int *)(((int)stk + 16)) = (t0 + t0);
+                                                    if ((int)(unsigned char)(*(signed char *)(((*(int *)(((int)stk + 20))) + 0x140))) <= (int)0x1) {
+                                                        *(unsigned int *)0x8C2FD908 = (int)((*(float *)(((*(int *)(((int)stk + 28))) + 0xB00))) * (float)(*(int *)(((int)stk + 12))));
+                                                        t0 = (nlRand());
+                                                    } else {
+                                                        *(unsigned int *)0x8C2FD908 = (int)(-((*(float *)(((*(int *)(((int)stk + 28))) + 0xB00))) * (float)(*(int *)(((int)stk + 12)))));
+                                                        t0 = (nlRand());
+                                                    }
+                                                    *(float *)0x8C2FD910 = (float)(((int)((int)t0 % (int)0x14)) + 0x32);
+                                                }
+                                            }
+                                            *(unsigned int *)0x8C2FD918 = 0x1;
+                                        }
+                                    }
+                                } else {
+                                    if ((*(int *)0x8C2FCC20) != 0) {
+                                        t0 = *(int *)0x8C2FCC20;
+                                        if (t0 != 1) {
+                                            if (t0 != 2) {
+                                                if ((*(int *)((0xC58 + (*(int *)(((int)stk + 28)))))) == 16) {
+                                                    *(unsigned int *)(((int)stk + 16)) = 0x0;
+                                                    t0 = nlRand();
+                                                    t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                    if ((int)t0 >= 0) {
+                                                        t2 = (t0 & 0x1);
+                                                    }
+                                                    *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                    *(float *)0x8C2FD910 = 100.0f;
+                                                    *(unsigned int *)0x8C2FD90C = 0x0;
+                                                    *(float *)0x8C2FD914 = 0.0f;
+                                                    *(unsigned int *)0x8C2FD918 = 0x1;
+                                                } else {
+                                                    if ((*(int *)((0xC58 + (*(int *)(((int)stk + 28)))))) != 17) {
+                                                    } else {
+                                                        *(unsigned int *)(((int)stk + 16)) = 0x0;
+                                                        t0 = nlRand();
+                                                        t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                        if ((int)t0 >= 0) {
+                                                            t2 = (t0 & 0x1);
+                                                        }
+                                                        *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                        *(float *)0x8C2FD910 = 100.0f;
+                                                        *(unsigned int *)0x8C2FD90C = 0x0;
+                                                        *(float *)0x8C2FD914 = 0.0f;
+                                                        *(unsigned int *)0x8C2FD918 = 0x1;
+                                                    }
+                                                }
+                                            } else {
+                                                t0 = *(int *)((0xC58 + (*(int *)(((int)stk + 28)))));
+                                                if (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & 0x49B0) != 0) {
+                                                    t0 = nlRand();
+                                                    t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                    if ((int)t0 >= 0) {
+                                                        t2 = (t0 & 0x1);
+                                                    }
+                                                    *(unsigned int *)(((int)stk + 16)) = t2;
+                                                    t0 = nlRand();
+                                                    t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                    if ((int)t0 >= 0) {
+                                                        t2 = (t0 & 0x1);
+                                                    }
+                                                    *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                    *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x1E)) + 0x14);
+                                                    *(unsigned int *)0x8C2FD90C = 0x0;
+                                                    *(float *)0x8C2FD914 = 0.0f;
+                                                    *(unsigned int *)0x8C2FD918 = 0x1;
+                                                } else {
+                                                    t0 = *(int *)((0xC58 + (*(int *)(((int)stk + 28)))));
+                                                    if (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & 0x920E) != 0) {
+                                                        *(unsigned int *)(((int)stk + 16)) = (((int)((int)(nlRand()) % (int)0xA)) + 0xA);
+                                                        t0 = nlRand();
+                                                        t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                        if ((int)t0 >= 0) {
+                                                            t2 = (t0 & 0x1);
+                                                        }
+                                                        *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                        *(float *)0x8C2FD910 = 100.0f;
+                                                        *(unsigned int *)0x8C2FD90C = 0xFFFFFFFF;
+                                                        *(float *)0x8C2FD914 = (float)(((int)((int)(nlRand()) % (int)0x14)) + 0xF);
+                                                        t0 = nlRand();
+                                                        t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                        if ((int)t0 >= 0) {
+                                                            t2 = (t0 & 0x1);
+                                                        }
+                                                        *(unsigned int *)0x8C2FD918 = (t2 + 0x1);
+                                                    } else {
+                                                        t0 = *(int *)(((*(int *)(((int)stk + 28))) + 0xC58));
+                                                        if (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & 0x2441) == 0) {
+                                                        } else {
+                                                            t0 = (int)((int)(nlRand()) % (int)0x5);
+                                                            if (t0 == 0) {
+                                                                *(unsigned int *)(((int)stk + 16)) = 0x0;
+                                                                t0 = nlRand();
+                                                                t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                                if ((int)t0 >= 0) {
+                                                                    t2 = (t0 & 0x1);
+                                                                }
+                                                                *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                                *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x32)) + 0x32);
+                                                                *(unsigned int *)0x8C2FD90C = 0x0;
+                                                            } else {
+                                                                t0 = nlRand();
+                                                                t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                                if ((int)t0 >= 0) {
+                                                                    t2 = (t0 & 0x1);
+                                                                }
+                                                                if (t2 != 0) {
+                                                                    t0 = ((-((int)((int)(nlRand()) % (int)0x3))) - 1);
+                                                                } else {
+                                                                    t0 = (((int)((int)(nlRand()) % (int)0x3)) + 0x3);
+                                                                }
+                                                                *(unsigned int *)(((int)stk + 16)) = t0;
+                                                                t0 = nlRand();
+                                                                t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                                if ((int)t0 >= 0) {
+                                                                    t2 = (t0 & 0x1);
+                                                                }
+                                                                *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                                *(float *)0x8C2FD910 = (float)((int)((int)(nlRand()) % (int)0x64));
+                                                                *(unsigned int *)0x8C2FD90C = 0x0;
+                                                            }
+                                                            *(float *)0x8C2FD914 = 0.0f;
+                                                            *(unsigned int *)0x8C2FD918 = 0x1;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            if ((int)(*(int *)((0xC58 + (*(int *)(((int)stk + 28)))))) > (int)0x7) {
+                                                t0 = *(int *)((0xC58 + (*(int *)(((int)stk + 28)))));
+                                                if (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & 0x49B0) != 0) {
+                                                    t0 = nlRand();
+                                                    t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                    if ((int)t0 >= 0) {
+                                                        t2 = (t0 & 0x1);
+                                                    }
+                                                    *(unsigned int *)(((int)stk + 16)) = (t2 + 0x1);
+                                                    t0 = nlRand();
+                                                    t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                    if ((int)t0 >= 0) {
+                                                        t2 = (t0 & 0x1);
+                                                    }
+                                                    *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                    *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x1E)) + 0x14);
+                                                    *(unsigned int *)0x8C2FD90C = 0x0;
+                                                    *(float *)0x8C2FD914 = 0.0f;
+                                                    *(unsigned int *)0x8C2FD918 = 0x1;
+                                                } else {
+                                                    t0 = *(int *)(((*(int *)(((int)stk + 28))) + 0xC58));
+                                                    if (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & 0x920E) != 0) {
+                                                        *(unsigned int *)(((int)stk + 16)) = (((int)((int)(nlRand()) % (int)0xD)) + 0x5);
+                                                        t0 = nlRand();
+                                                        t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                        if ((int)t0 >= 0) {
+                                                            t2 = (t0 & 0x1);
+                                                        }
+                                                        *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                        *(float *)0x8C2FD910 = 100.0f;
+                                                        *(unsigned int *)0x8C2FD90C = 0xFFFFFFFF;
+                                                        *(float *)0x8C2FD914 = (float)((int)((int)(nlRand()) % (int)0xA));
+                                                        t0 = nlRand();
+                                                        t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                        if ((int)t0 >= 0) {
+                                                            t2 = (t0 & 0x1);
+                                                        }
+                                                        *(unsigned int *)0x8C2FD918 = (t2 + 0x1);
+                                                    } else {
+                                                        t0 = *(int *)(((*(int *)(((int)stk + 28))) + 0xC58));
+                                                        if (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & 0x2441) == 0) {
+                                                        } else {
+                                                            t0 = (int)((int)(nlRand()) % (int)0x5);
+                                                            if (t0 == 0) {
+                                                                *(unsigned int *)(((int)stk + 16)) = 0x1;
+                                                                t0 = nlRand();
+                                                                t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                                if ((int)t0 >= 0) {
+                                                                    t2 = (t0 & 0x1);
+                                                                }
+                                                                *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                                *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x32)) + 0x32);
+                                                                *(unsigned int *)0x8C2FD90C = 0x0;
+                                                            } else {
+                                                                t0 = nlRand();
+                                                                t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                                if ((int)t0 >= 0) {
+                                                                    t2 = (t0 & 0x1);
+                                                                }
+                                                                if (t2 != 0) {
+                                                                    t0 = ((-((int)((int)(nlRand()) % (int)0x3))) - 1);
+                                                                } else {
+                                                                    t0 = (((int)((int)(nlRand()) % (int)0x3)) + 0x3);
+                                                                }
+                                                                *(unsigned int *)(((int)stk + 16)) = t0;
+                                                                t0 = nlRand();
+                                                                t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                                if ((int)t0 >= 0) {
+                                                                    t2 = (t0 & 0x1);
+                                                                }
+                                                                *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                                *(float *)0x8C2FD910 = (float)((int)((int)(nlRand()) % (int)0x28));
+                                                                *(unsigned int *)0x8C2FD90C = 0x0;
+                                                            }
+                                                            *(float *)0x8C2FD914 = 0.0f;
+                                                            *(unsigned int *)0x8C2FD918 = 0x1;
+                                                        }
+                                                    }
+                                                }
+                                            } else {
+                                                t0 = *(int *)(((*(int *)(((int)stk + 28))) + 0xC58));
+                                                if (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & 0x49B0) != 0) {
+                                                    t0 = nlRand();
+                                                    t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                    if ((int)t0 >= 0) {
+                                                        t2 = (t0 & 0x1);
+                                                    }
+                                                    *(unsigned int *)(((int)stk + 16)) = t2;
+                                                    t0 = nlRand();
+                                                    t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                    if ((int)t0 >= 0) {
+                                                        t2 = (t0 & 0x1);
+                                                    }
+                                                    *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                    *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x1E)) + 0x14);
+                                                    *(unsigned int *)0x8C2FD90C = 0x0;
+                                                    *(float *)0x8C2FD914 = 0.0f;
+                                                    *(unsigned int *)0x8C2FD918 = 0x1;
+                                                } else {
+                                                    t0 = *(int *)(((*(int *)(((int)stk + 28))) + 0xC58));
+                                                    if (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & 0x920E) != 0) {
+                                                        *(unsigned int *)(((int)stk + 16)) = (((int)((int)(nlRand()) % (int)0xD)) + 0x5);
+                                                        t0 = nlRand();
+                                                        t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                        if ((int)t0 >= 0) {
+                                                            t2 = (t0 & 0x1);
+                                                        }
+                                                        *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                        *(float *)0x8C2FD910 = 100.0f;
+                                                        *(unsigned int *)0x8C2FD90C = 0xFFFFFFFF;
+                                                        *(float *)0x8C2FD914 = (float)((int)((int)(nlRand()) % (int)0x1E));
+                                                        t0 = nlRand();
+                                                        t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                        if ((int)t0 >= 0) {
+                                                            t2 = (t0 & 0x1);
+                                                        }
+                                                        *(unsigned int *)0x8C2FD918 = (t2 + 0x1);
+                                                    } else {
+                                                        t0 = *(int *)(((*(int *)(((int)stk + 28))) + 0xC58));
+                                                        if (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & 0x2441) == 0) {
+                                                        } else {
+                                                            t0 = (int)((int)(nlRand()) % (int)0x5);
+                                                            if (t0 == 0) {
+                                                                *(unsigned int *)(((int)stk + 16)) = 0x0;
+                                                                t0 = nlRand();
+                                                                t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                                if ((int)t0 >= 0) {
+                                                                    t2 = (t0 & 0x1);
+                                                                }
+                                                                *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                                *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x32)) + 0x32);
+                                                                *(unsigned int *)0x8C2FD90C = 0x0;
+                                                            } else {
+                                                                t0 = nlRand();
+                                                                t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                                if ((int)t0 >= 0) {
+                                                                    t2 = (t0 & 0x1);
+                                                                }
+                                                                if (t2 != 0) {
+                                                                    t0 = ((-((int)((int)(nlRand()) % (int)0x3))) - 1);
+                                                                } else {
+                                                                    t0 = (((int)((int)(nlRand()) % (int)0x3)) + 0x3);
+                                                                }
+                                                                *(unsigned int *)(((int)stk + 16)) = t0;
+                                                                t0 = nlRand();
+                                                                t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                                if ((int)t0 >= 0) {
+                                                                    t2 = (t0 & 0x1);
+                                                                }
+                                                                *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                                *(float *)0x8C2FD910 = (float)((int)((int)(nlRand()) % (int)0x64));
+                                                                *(unsigned int *)0x8C2FD90C = 0x0;
+                                                            }
+                                                            *(float *)0x8C2FD914 = 0.0f;
+                                                            *(unsigned int *)0x8C2FD918 = 0x1;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        t0 = *(int *)(((*(int *)(((int)stk + 28))) + 0xC58));
+                                        if (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & 0x49B0) != 0) {
+                                            t0 = nlRand();
+                                            t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                            if ((int)t0 >= 0) {
+                                                t2 = (t0 & 0x1);
+                                            }
+                                            *(unsigned int *)(((int)stk + 16)) = (t2 + 0x1);
+                                            *(unsigned int *)0x8C2FD908 = 0x0;
+                                            *(float *)0x8C2FD910 = 0.0f;
+                                            *(unsigned int *)0x8C2FD90C = 0x0;
+                                            *(float *)0x8C2FD914 = 0.0f;
+                                            *(unsigned int *)0x8C2FD918 = 0x1;
+                                        } else {
+                                            t0 = *(int *)(((*(int *)(((int)stk + 28))) + 0xC58));
+                                            if (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & 0x920E) != 0) {
+                                                *(unsigned int *)(((int)stk + 16)) = 0x14;
+                                                t0 = nlRand();
+                                                t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                if ((int)t0 >= 0) {
+                                                    t2 = (t0 & 0x1);
+                                                }
+                                                *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                *(float *)0x8C2FD910 = 30.0f;
+                                                *(unsigned int *)0x8C2FD90C = 0xFFFFFFFF;
+                                                *(float *)0x8C2FD914 = (float)(((int)((int)(nlRand()) % (int)0x3)) + 0x5);
+                                                *(unsigned int *)0x8C2FD918 = 0x1;
+                                            } else {
+                                                t0 = *(int *)(((*(int *)(((int)stk + 28))) + 0xC58));
+                                                if (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & 0x2441) == 0) {
+                                                } else {
+                                                    t0 = (int)((int)(nlRand()) % (int)0xA);
+                                                    if (t0 == 0) {
+                                                        *(unsigned int *)(((int)stk + 16)) = 0x1;
+                                                        t0 = nlRand();
+                                                        t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                        if ((int)t0 >= 0) {
+                                                            t2 = (t0 & 0x1);
+                                                        }
+                                                        *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                        t0 = nlRand();
+                                                        t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                        if ((int)t0 >= 0) {
+                                                            t2 = (t0 & 0x1);
+                                                        }
+                                                        *(float *)0x8C2FD910 = (float)t2;
+                                                        *(unsigned int *)0x8C2FD90C = 0x0;
+                                                    } else {
+                                                        t0 = nlRand();
+                                                        t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                        if ((int)t0 >= 0) {
+                                                            t2 = (t0 & 0x1);
+                                                        }
+                                                        if (t2 != 0) {
+                                                            t0 = ((-((int)((int)(nlRand()) % (int)0x5))) - 1);
+                                                        } else {
+                                                            t0 = (((int)((int)(nlRand()) % (int)0xF)) + 0x5);
+                                                        }
+                                                        *(unsigned int *)(((int)stk + 16)) = t0;
+                                                        t0 = nlRand();
+                                                        t2 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
+                                                        if ((int)t0 >= 0) {
+                                                            t2 = (t0 & 0x1);
+                                                        }
+                                                        *(unsigned int *)0x8C2FD908 = ((t2 << 1) - 1);
+                                                        *(float *)0x8C2FD910 = (float)((int)((int)(nlRand()) % (int)0x1E));
+                                                        *(unsigned int *)0x8C2FD90C = 0x0;
+                                                    }
+                                                    *(float *)0x8C2FD914 = 0.0f;
+                                                    *(unsigned int *)0x8C2FD918 = 0x1;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if ((unsigned char)(*(signed char *)((0x13F + (*(int *)(((int)stk + 20)))))) == 1) {
+                        if ((int)(unsigned char)(*(signed char *)(((*(int *)(((int)stk + 20))) + 0x140))) <= (int)0x1) {
+                            *(unsigned int *)0x8C2FD908 = (int)((*(float *)(((*(int *)(((int)stk + 28))) + 0xB00))) * (float)(*(int *)(((int)stk + 12))));
+                            *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x5)) + 0x44);
+                        } else {
+                            *(unsigned int *)0x8C2FD908 = (int)(-((*(float *)(((*(int *)(((int)stk + 28))) + 0xB00))) * (float)(*(int *)(((int)stk + 12)))));
+                            *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x5)) + 0x44);
+                        }
+                        *(unsigned int *)0x8C2FD90C = 0x0;
+                        *(float *)0x8C2FD914 = 0.0f;
+                        *(unsigned int *)0x8C2FD918 = 0x1;
+                    } else {
+                        if ((unsigned char)(*(signed char *)((0x13F + (*(int *)(((int)stk + 20)))))) == 2) {
+                            if ((int)(unsigned char)(*(signed char *)((0x140 + (*(int *)(((int)stk + 20)))))) <= (int)0x1) {
+                                *(unsigned int *)0x8C2FD908 = (int)((*(float *)((0xB00 + (*(int *)(((int)stk + 28)))))) * (float)(*(int *)(((int)stk + 12))));
+                                *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x5)) + 0x44);
+                            } else {
+                                *(unsigned int *)0x8C2FD908 = (int)(-((*(float *)(((*(int *)(((int)stk + 28))) + 0xB00))) * (float)(*(int *)(((int)stk + 12)))));
+                                *(float *)0x8C2FD910 = (float)(((int)((int)(nlRand()) % (int)0x5)) + 0x44);
+                            }
+                            *(unsigned int *)0x8C2FD90C = 0x0;
+                            *(float *)0x8C2FD914 = 0.0f;
+                            *(unsigned int *)0x8C2FD918 = 0x1;
+                        }
+                    }
+                    if ((*(float *)0x8C23D204) > 1.0f) {
+                        t0 = (0x5E - (*(int *)(((int)stk + 16))));
+                    } else {
+                        t0 = (0x5D - (*(int *)(((int)stk + 16))));
+                    }
+                    *(float *)0x8C2FD91C = (float)t0;
+                    if (((*(int *)(((int)stk + 16))) == 0) && (t4 = *(int *)0x8C2FD90C, t4 == -1)) {
+                        *(float *)0x8C2FD914 = 0.0f;
+                    }
+                    if (((int)(*(int *)0x8C2FCC1C) < (int)0x14) && ((t5 = *(int *)0x8C2FCC1C, (int)t5 >= (int)0x4) && (t6 = *(int *)(((int)stk + 16)), t6 != 0))) {
+                        t0 = (int)((int)(nlRand()) % (int)0x3);
+                        if (t0 == 0) {
+                            if ((*(float *)0x8C23D204) > 1.0f) {
+                                t0 = (((int)((int)(nlRand()) % (int)0x3)) + 0x5F);
+                            } else {
+                                t0 = (((int)((int)(nlRand()) % (int)0x3)) + 0x5E);
+                            }
+                            *(float *)0x8C2FD91C = (float)t0;
+                        }
+                    }
+                    if ((*(signed char *)(((*(int *)(((int)stk + 20))) + 0x13F))) != 0) {
+                        t0 = *(int *)0x8C2FD908;
+                        u0 = (float)(((int)((unsigned int)((int)((unsigned int)(0x1 - t0) + (unsigned int)0x0)) + ((((int)0x0 > (int)(0x1 - t0))) ? 1u : 0u))) >> 1);
+                        u0 = u0 + (float)(*(int *)(((int)stk + 12))) * (*(float *)(((*(int *)(((int)stk + 28))) + 0xB00)));
+                        *(unsigned int *)(((int)stk + 8)) = (int)(u0 + 1.0f);
+                        if ((*(int *)0x8C2FD918) == 1) {
+                            if ((*(int *)(((int)stk + 16))) == 0) {
+                                t0 = (((*(int *)((0x8C102460 + ((*(int *)((0xB5C + (*(int *)(((int)stk + 28)))))) * 0x6C)))) << 2) + 0x8C10D3DA);
+                                t2 = (*(int *)(((int)stk + 8)));
+                            } else {
+                                t0 = (((*(int *)((0x8C102460 + ((*(int *)((0xB5C + (*(int *)(((int)stk + 28)))))) * 0x6C)))) << 2) + 0x8C10D3E2);
+                                t2 = (*(int *)(((int)stk + 8)));
+                            }
+                            *(unsigned int *)(((int)stk + 4)) = (unsigned char)(*(signed char *)(((t0 + t2) + 0x0)));
+                        } else {
+                            if ((*(int *)(((int)stk + 16))) == 0) {
+                                t0 = (((*(int *)((0x8C102460 + ((*(int *)((0xB5C + (*(int *)(((int)stk + 28)))))) * 0x6C)))) << 2) + 0x8C10D3EA);
+                                t2 = (*(int *)(((int)stk + 8)));
+                            } else {
+                                t0 = (((*(int *)((0x8C102460 + ((*(int *)((0xB5C + (*(int *)(((int)stk + 28)))))) * 0x6C)))) << 2) + 0x8C10D3F2);
+                                t2 = (*(int *)(((int)stk + 8)));
+                            }
+                            *(unsigned int *)(((int)stk + 4)) = (unsigned char)(*(signed char *)(((t0 + t2) + 0x0)));
+                        }
+                        if ((*(float *)0x8C2FD910) > (float)(*(int *)(((int)stk + 4)))) {
+                            *(float *)0x8C2FD910 = (float)(*(int *)(((int)stk + 4)));
+                        }
+                    } else {
+                        if ((*(int *)0x8C15A0CC) != 0) {
+                            t0 = *(int *)0x8C2FD908;
+                            u0 = (float)(((int)((unsigned int)((int)((unsigned int)(0x1 - t0) + (unsigned int)0x0)) + ((((int)0x0 > (int)(0x1 - t0))) ? 1u : 0u))) >> 1);
+                            u0 = u0 + (float)(*(int *)(((int)stk + 12))) * (*(float *)(((*(int *)(((int)stk + 28))) + 0xB00)));
+                            *(unsigned int *)(((int)stk + 8)) = (int)(u0 + 1.0f);
+                            if ((*(int *)0x8C2FD918) == 1) {
+                                if ((*(int *)(((int)stk + 16))) == 0) {
+                                    t0 = (((*(int *)((0x8C102460 + ((*(int *)((0xB5C + (*(int *)(((int)stk + 28)))))) * 0x6C)))) << 2) + 0x8C10D3DA);
+                                    t2 = (*(int *)(((int)stk + 8)));
+                                } else {
+                                    t0 = (((*(int *)((0x8C102460 + ((*(int *)((0xB5C + (*(int *)(((int)stk + 28)))))) * 0x6C)))) << 2) + 0x8C10D3E2);
+                                    t2 = (*(int *)(((int)stk + 8)));
+                                }
+                                *(unsigned int *)(((int)stk + 4)) = (unsigned char)(*(signed char *)(((t0 + t2) + 0x0)));
+                            } else {
+                                if ((*(int *)(((int)stk + 16))) == 0) {
+                                    t0 = (((*(int *)((0x8C102460 + ((*(int *)((0xB5C + (*(int *)(((int)stk + 28)))))) * 0x6C)))) << 2) + 0x8C10D3EA);
+                                    t2 = (*(int *)(((int)stk + 8)));
+                                } else {
+                                    t0 = (((*(int *)((0x8C102460 + ((*(int *)((0xB5C + (*(int *)(((int)stk + 28)))))) * 0x6C)))) << 2) + 0x8C10D3F2);
+                                    t2 = (*(int *)(((int)stk + 8)));
+                                }
+                                *(unsigned int *)(((int)stk + 4)) = (unsigned char)(*(signed char *)(((t0 + t2) + 0x0)));
+                            }
+                            if ((*(float *)0x8C2FD910) > (float)(*(int *)(((int)stk + 4)))) {
+                                *(float *)0x8C2FD910 = (float)(*(int *)(((int)stk + 4)));
+                            }
+                        } else {
+                            t0 = *(int *)0x8C2FD908;
+                            u0 = (float)(((int)((unsigned int)((int)((unsigned int)(0x1 - t0) + (unsigned int)0x0)) + ((((int)0x0 > (int)(0x1 - t0))) ? 1u : 0u))) >> 1);
+                            u0 = u0 + (float)(*(int *)(((int)stk + 12))) * (*(float *)(((*(int *)(((int)stk + 28))) + 0xB00)));
+                            *(unsigned int *)(((int)stk + 8)) = (int)(u0 + 1.0f);
+                            if ((*(int *)0x8C2FD918) == 1) {
+                                if ((*(int *)(((int)stk + 16))) == 0) {
+                                    t0 = (((*(int *)((0x8C102460 + ((*(int *)((0xC58 + (*(int *)(((int)stk + 28)))))) * 0x6C)))) << 2) + 0x8C10D3FA);
+                                    t2 = (*(int *)(((int)stk + 8)));
+                                } else {
+                                    t0 = (((*(int *)((0x8C102460 + ((*(int *)((0xC58 + (*(int *)(((int)stk + 28)))))) * 0x6C)))) << 2) + 0x8C10D402);
+                                    t2 = (*(int *)(((int)stk + 8)));
+                                }
+                                *(unsigned int *)(((int)stk + 4)) = (unsigned char)(*(signed char *)(((t0 + t2) + 0x0)));
+                            } else {
+                                if ((*(int *)(((int)stk + 16))) == 0) {
+                                    t0 = (((*(int *)((0x8C102460 + ((*(int *)((0xC58 + (*(int *)(((int)stk + 28)))))) * 0x6C)))) << 2) + 0x8C10D40A);
+                                    t2 = (*(int *)(((int)stk + 8)));
+                                } else {
+                                    t0 = (((*(int *)((0x8C102460 + ((*(int *)((0xC58 + (*(int *)(((int)stk + 28)))))) * 0x6C)))) << 2) + 0x8C10D412);
+                                    t2 = (*(int *)(((int)stk + 8)));
+                                }
+                                *(unsigned int *)(((int)stk + 4)) = (unsigned char)(*(signed char *)(((t0 + t2) + 0x0)));
+                            }
+                            if (!((*(float *)0x8C2FD910) > (float)(*(int *)(((int)stk + 4))))) {
+                            } else {
+                                *(float *)0x8C2FD910 = (float)(*(int *)(((int)stk + 4)));
+                            }
+                        }
+                    }
+                    if ((*(int *)(((*(int *)(((int)stk + 24))) + 0x5C))) != 0) {
+                        *(float *)0x8C2FD910 = ((*(float *)0x8C2FD910) * 0.699999988f);
+                        *(float *)0x8C2FD914 = ((*(float *)0x8C2FD914) * 0.899999976f);
+                    }
+                    if (((*(int *)0x8C2FD918) == 2) && (t7 = *(int *)0x8C2FD908, t7 == -1)) {
+                        *(float *)0x8C2FD914 = 10.0f;
+                        *(unsigned int *)0x8C2FD90C = 0xFFFFFFFF;
+                    }
+                    if ((*(int *)0x8C2FD908) == 0) {
+                        *(float *)0x8C2FD910 = 0.0f;
+                    }
+                    if ((*(int *)0x8C2FD90C) == 0) {
+                        *(float *)0x8C2FD914 = 0.0f;
+                    }
+                    *(unsigned int *)0x8C2FD920 = (*(signed char *)(((*(int *)(((int)stk + 20))) + 0x12B)));
+                    t1 = 0x12B;
+                }
+                t15 = t1;
             }
-            t103 = t101;
+            t16 = t15;
         }
-        u105 = *(float *)((a4 + 0xB00));
-        t108 = 0x1;
-        if (u105 > 0.0f) {
+        t0 = t16;
+    } else {
+        if (((*(int *)0x8C287D5C) == 0) && ((t8 = *(int *)0x8C2FCC1C, t8 != 13) && ((t9 = *(int *)(((int)stk + 28)), t10 = *(int *)((0xC58 + t9)), t10 == 16) && (t11 = *(int *)(((int)stk + 24)), t12 = *(int *)(((int)stk + 24)), t13 = *(int *)(((t11 + 0x44) + 0x0)), t14 = *(int *)((0x48 + t12)), (int)(t13 + t14) >= (int)0x2)))) {
+            t1 = *(int *)0x8C15A0CC;
+            t2 = (int)((int)(nlRand()) % (int)(((t1 << 2) + t1) + 0x5));
+            if (t2 == 0) {
+                *(unsigned int *)0x8C15A0CC = 0x1;
+            } else {
+                *(unsigned int *)0x8C15A0CC = 0x0;
+            }
         } else {
-            t106 = 0x0;
-            if (0.0f > u105) {
-                t106 = 0xFFFFFFFF;
-            }
-            t108 = t106;
+            *(unsigned int *)0x8C15A0CC = 0x0;
         }
-        if (t103 == t108) {
-            *(float *)((a5 + 0x8)) = (-((*(float *)((a4 + 0xB00))) * 10.0f));
-            return 0x8;
+        *(unsigned int *)(((*(int *)(((int)stk + 28))) + 0xA24)) = 0x3;
+        if ((*(int *)0x8C15A0CC) != 0) {
+            t1 = (int)((int)(nlRand()) % (int)0x1E);
+            *(float *)0x8C2FD91C = (float)(t1 + 0x1);
+            t2 = (t1 + 0x1);
+        } else {
+            *(float *)0x8C2FD91C = 70.0f;
+            t2 = 0x8C05AE54;
         }
-        return 0xB00;
+        t0 = t2;
     }
-    *(float *)((a5 + 0x0)) = ((*(float *)((a4 + 0xAE8))) + (float)((int)((int)(*(int *)((((t0 * 0x160) + 0x8C2FC69C) + 0x158))) / (int)0x30)));
-    t115 = (int)((int)(*(int *)((((t0 * 0x160) + 0x8C2FC69C) + 0x15C))) / (int)0x30);
-    u116 = *(float *)((a4 + 0xAF0));
-    *(float *)((a5 + 0x8)) = (u116 + (float)t115);
-    t119 = 0x1;
-    if ((u116 + (float)t115) > 0.0f) {
-    } else {
-        t117 = 0x0;
-        if (0.0f > (u116 + (float)t115)) {
-            t117 = 0xFFFFFFFF;
-        }
-        t119 = t117;
-    }
-    u121 = *(float *)((a4 + 0xB00));
-    t124 = 0x1;
-    if (u121 > 0.0f) {
-    } else {
-        t122 = 0x0;
-        if (0.0f > u121) {
-            t122 = 0xFFFFFFFF;
-        }
-        t124 = t122;
-    }
-    if (t119 == t124) {
-        *(float *)((a5 + 0x8)) = (-((*(float *)((a4 + 0xB00))) * 10.0f));
-        return 0x8;
-    }
-    return 0xB00;
+    return t0;
 }

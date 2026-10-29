@@ -16,25 +16,25 @@ int menuTextMsgPut(int a4, int a5, int a6, int a7, float f4);
 
 int selCursorDraw(int a4, int a5, int a6, float f4, float f5)
 {
-    int t4;
-    int t5;
-    int t17;
-    int t18;
-    int t19;
-    int t20;
-    int t21;
-    int t22;
-    int t23;
-    float u165;
-    float u199;
-    float u288;
-    float u481;
-    float u494;
-    float u616;
-    int t7;
-    int t9;
-    int t10;
-    int t13;
+    register int t4;
+    register int t5;
+    register int t17;
+    register int t18;
+    register int t19;
+    register int t20;
+    register int t21;
+    register int t22;
+    register int t23;
+    register float u165;
+    register float u199;
+    register float u288;
+    register float u481;
+    register float u494;
+    register float u616;
+    register int t7;
+    register int t9;
+    register int t10;
+    register int t13;
     int stk[58];
 
     *(unsigned int *)(((int)stk + 64)) = a5;

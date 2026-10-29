@@ -1,133 +1,108 @@
 /* Straight-line functions with calls and guards (batch gen_pm): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int nlsndG2Read(int);
-int nlsndG2Write(int, int);
-int nlsndG2WriteN(int, int, int);
-int nlsndInit(int a4, int a5);
+int ADXAMP_SetSfreq(int, int);
+int ADXERR_CallErrFunc(int, ...);
+int ADXRNA_SetBitPerSmpl(int, int);
+int ADXRNA_SetNumChan(int, int);
+int ADXRNA_SetOutVol(int, int);
+int ADXRNA_SetSfreq(int, int);
+int ADXRNA_SetStmHdInfo(int, int);
+int ADXRNA_SetTotalNumSmpl(void);
+int ADXRNA_SetTransSw(int, int);
+int ADXSJD_EntryTrapFunc(int, int, int);
+int ADXSJD_GetBlkSmpl(int);
+int ADXSJD_GetFormat(int);
+int ADXSJD_GetLpEndOfst(int);
+int ADXSJD_GetLpEndPos(int);
+int ADXSJD_GetNumChan(int);
+int ADXSJD_GetNumLoop(int);
+int ADXSJD_GetOutBps(int);
+int ADXSJD_GetSfreq(int);
+int ADXSJD_GetSpsdInfo(int);
+int ADXSJD_GetStat(int);
+int ADXSJD_GetTotalNumSmpl(int);
+int ADXSJD_SetMaxDecSmpl(int, int);
+int ADXSJD_SetTrapCnt(int, int);
+int ADXSJD_SetTrapDtLen(int, int);
+int ADXSJD_SetTrapNumSmpl(int, int);
+int ADXSTM_EntryEosFunc(int, int, int);
+int ADXSTM_SetEos(int, int);
+int ADXT_Stop(int);
+int adxt_set_outpan(int);
+int adxt_stat_decinfo(int a4);
 
-int nlsndInit(int a4, int a5)
+int adxt_stat_decinfo(int a4)
 {
-    int t0;
-    int t8;
-    int t11;
-    int t13;
-    int t22;
-    int t42;
-    int t43;
-    int t46;
-    int stk[9];
+    register int t0;
+    register int t1;
+    register int t2;
+    register int t3;
+    register int t4;
 
-    int R0;
-    int R1;
-    int R2;
-    int R3;
-    int R4;
-    int R5;
-    int R6;
-    int R7;
-    int R9;
-    int R10;
-    int R11;
-    int R12;
-    int R13;
-    int R14;
-    int T_;
-    R4 = a4;
-    R5 = a5;
-    t0 = nlsndG2Read((0xC4 + R4));
-    *(unsigned int *)0x8C454CF0 = t0;
-    R12 = (R5);
-    R13 = (R4);
-    if (((unsigned int)t0 >= (unsigned int)0x6F4)) goto L_8C0F50A0;
-    R0 = (0xFFFFFFFF);
-    L_8C0F5232:;
-    return R0;
-    L_8C0F50A0:;
-    R4 = (0x8C454CB8);
-    if ((R12 != 0)) goto L_8C0F50B0;
-    R2 = (0x200000);
-    L_8C0F50B8:;
-    *(unsigned int *)((R4 + 0x0)) = R2;
-    t8 = nlsndG2Read(0xA0702C00);
-    nlsndG2Write((0x1 | (t8 & 0xFFFE)), 0xA0702C00);
-    nlsndG2Write(R12, 0xA0702800);
-    t11 = nlsndG2Read(0xA0702C00);
-    nlsndG2Write((0x1 | (t11 & 0xFFFE)), 0xA0702C00);
-    t13 = nlsndG2Read((R13 + 0x54));
-    *(unsigned int *)(((int)stk + 4)) = t13;
-    nlsndG2WriteN(R13, 0xA0800000, ((unsigned int)t13 >> 2));
-    nlsndG2Write(R12, 0xA0800050);
-    R10 = (0xFFFE);
-    R11 = (0x8);
-    R12 = (0xA0800060);
-    R14 = (0xA0702C00);
-    R9 = (0xA0800000);
-    L_8C0F514A:;
-    if ((R11 != 0)) goto L_8C0F5140;
-    t22 = nlsndG2Read(R14);
-    nlsndG2Write((t22 & R10), R14);
-    *(unsigned int *)(((int)stk + 4)) = 0x8C454DD4;
-    R4 = (0x0);
-    R5 = (0x8C454DD4);
-    R6 = (0xFFFFFFFF);
-    R7 = (0x8C454E34);
-    L_8C0F5178:;
-    if (((unsigned int)R5 < (unsigned int)R7)) goto L_8C0F5170;
-    R14 = (0x8C454DD4);
-    R5 = (0x8C454CF4);
-    L_8C0F51C0:;
-    if (((unsigned int)R5 < (unsigned int)R14)) goto L_8C0F51B0;
-    *(unsigned int *)0x8C454CB0 = ((*(int *)((R13 + 0x84))) + R9);
-    R0 = (0xC8);
-    R1 = (((*(int *)((R13 + 0x80))) + 0xA0800010));
-    R2 = (0x8C454CB4);
-    *(unsigned int *)((R2 + 0x0)) = R1;
-    *(unsigned int *)0x8C454CAC = (R9 + (*(int *)((R13 + R0))));
-    *(unsigned int *)0x8C454CA8 = 0xA0800400;
-    *(unsigned int *)0x8C454CBC = R4;
-    *(unsigned int *)0x8C454CA4 = R4;
-    *(unsigned int *)0x8C454CE8 = 0x8C454CC4;
-    *(unsigned int *)0x8C454CC4 = R4;
-    R12 = (0x400000);
-    R13 = (0xA080005C);
-    R14 = (R4);
-    L_8C0F5202:;
-    t42 = (nlsndG2Read(R13)) != 0;
-    if (t42) goto L_8C0F5220;
-    t43 = (int)(R14 + 0x1) < (int)R12;
-    R14 = ((R14 + 0x1));
-    if (t43) goto L_8C0F5202;
-    R0 = (0xFFFFFF00);
-    goto L_8C0F5232;
-    L_8C0F5220:;
-    t46 = nlsndG2Read(0xA070289C);
-    nlsndG2Write((t46 & 0x7F7), 0xA070289C);
-    R0 = (0x0);
-    goto L_8C0F5232;
-    L_8C0F51B0:;
-    *(unsigned char *)((R5 + 0x0)) = R6;
-    *(unsigned char *)((R5 + 0x1)) = R4;
-    *(unsigned int *)(((R5 + 0x4) + 0x4)) = R6;
-    *(unsigned int *)(((R5 + 0x4) + 0x0)) = R6;
-    R5 = ((R5 + 0x1C));
-    goto L_8C0F51C0;
-    L_8C0F5170:;
-    *(unsigned int *)((R5 + 0x0)) = R6;
-    *(unsigned int *)((R5 + 0x4)) = R4;
-    *(unsigned int *)((R5 + 0x8)) = R4;
-    R5 = ((R5 + 0xC));
-    goto L_8C0F5178;
-    L_8C0F5140:;
-    nlsndG2Write(0xFFFFFFFF, R12);
-    R11 = ((R11 - 1));
-    R12 = ((R12 + 0x4));
-    goto L_8C0F514A;
-    L_8C0F50B0:;
-    if ((R12 != 0x200)) goto L_8C0F50C0;
-    R2 = (0x800000);
-    goto L_8C0F50B8;
-    L_8C0F50C0:;
-    R0 = (0xFFFFFFFE);
-    goto L_8C0F5232;
+    t0 = *(int *)((a4 + 0x4));
+    t1 = ADXSJD_GetStat(t0);
+    if (t1 != 2) {
+        return t1;
+    }
+    t1 = ADXSJD_GetNumChan(t0);
+    if ((int)t1 > (int)(*(signed char *)((a4 + 0x3)))) {
+        ADXERR_CallErrFunc(0x8C20AB38, (t1), ((*(signed char *)((a4 + 0x3)))));
+        return ADXT_Stop(a4);
+    }
+    t1 = ADXSJD_GetSfreq(t0);
+    t2 = ADXSJD_GetNumLoop(t0);
+    if ((int)t2 > 0) {
+        t3 = (int)((int)t1 / (int)(*(int *)((a4 + 0x38))));
+        t4 = ((t3 << 1) + t3);
+    } else {
+        t3 = (int)((int)t1 / (int)(*(int *)((a4 + 0x38))));
+        t4 = (((int)((unsigned int)((int)((unsigned int)((t3 << 1) + t3) + (unsigned int)0x0)) + ((((int)0x0 > (int)((t3 << 1) + t3))) ? 1u : 0u))) >> 1);
+    }
+    *(unsigned int *)(((0x48 + a4) + 0x0)) = t4;
+    t1 = ADXSJD_GetBlkSmpl(t0);
+    *(unsigned int *)(((0x48 + a4) + 0x0)) = (((int)((int)((*(int *)((a4 + 0x48))) + (t1 << 1)) / (int)(t1 << 1))) * (t1 << 1));
+    ADXSJD_SetMaxDecSmpl(t0, (*(int *)((a4 + 0x48))));
+    if ((int)t2 > 0) {
+        if ((*(signed char *)((a4 + 0x2))) == 2) {
+            *(unsigned int *)((a4 + 0x50)) = 0x0;
+        } else {
+            t1 = ADXSJD_GetLpEndOfst(t0);
+            *(unsigned int *)((a4 + 0x50)) = (0x800 - ((int)((int)t1 % (int)0x800)));
+            *(unsigned int *)(((0x50 + a4) + 0x0)) = ((int)((int)(*(int *)(((0x50 + a4) + 0x0))) % (int)0x800));
+            ADXSTM_SetEos((*(int *)((a4 + 0x8))), ((int)((int)((0x800 + t1) - 1) / (int)0x800)));
+            ADXSTM_EntryEosFunc((*(int *)((a4 + 0x8))), 0x8C1F1110, a4);
+        }
+        t1 = ADXSJD_GetLpEndPos(t0);
+        ADXSJD_SetTrapNumSmpl(t0, t1);
+        ADXSJD_SetTrapDtLen(t0, 0x0);
+        ADXSJD_SetTrapCnt(t0, 0x0);
+        ADXSJD_EntryTrapFunc(t0, 0x8C1F1044, a4);
+    } else {
+        if ((*(int *)((a4 + 0x8))) != 0) {
+            ADXSTM_SetEos((*(int *)((a4 + 0x8))), 0x7FFFFFFF);
+        }
+    }
+    t1 = ADXSJD_GetSfreq(t0);
+    t2 = ADXSJD_GetNumChan(t0);
+    ADXSJD_GetTotalNumSmpl(t0);
+    t3 = ADXSJD_GetOutBps(t0);
+    ADXRNA_SetBitPerSmpl((*(int *)((a4 + 0xC))), t3);
+    ADXRNA_SetSfreq((*(int *)((a4 + 0xC))), t1);
+    ADXRNA_SetNumChan((*(int *)((a4 + 0xC))), t2);
+    *(volatile int *)((a4 + 0xC));
+    ADXRNA_SetTotalNumSmpl();
+    ADXRNA_SetOutVol((*(int *)((a4 + 0xC))), (*(short *)((a4 + 0x40))));
+    adxt_set_outpan(a4);
+    if ((*(int *)((a4 + 0x74))) != 0) {
+        ADXAMP_SetSfreq((*(int *)((a4 + 0x74))), t1);
+    }
+    t1 = ADXSJD_GetFormat(t0);
+    if (t1 == 2) {
+        t1 = ADXSJD_GetSpsdInfo(t0);
+        ADXRNA_SetStmHdInfo((*(int *)((a4 + 0xC))), t1);
+    }
+    ADXRNA_SetTransSw((*(int *)((a4 + 0xC))), 0x1);
+    *(unsigned char *)((a4 + 0x1)) = 0x2;
+    return 0x2;
 }

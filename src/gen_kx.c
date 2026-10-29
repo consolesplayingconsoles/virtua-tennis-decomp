@@ -387,3 +387,4 @@ int standPanelDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     F15 = (F12);
     goto L_8C0A34FE;
 }
+

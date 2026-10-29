@@ -2,8 +2,8 @@
 
 Functions whose C behaves like the original on every test case (`tools/equiv.py`: same calls, same final memory, same result). Written by `tools/equiv.py`; the cases are the evidence. Cases that start from a RAM dump (`"dump": "build/ram/<name>.bin"`) need your own dump there: all of RAM (16 MB from `0C000000`) at that moment, e.g. read with `tools/4-boosts/live.py`.
 
-### ADXAMP_Create (`8C1EFA92`, 180 bytes, `src/gen_ak.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ak/ADXAMP_Create.json`
+### ADXAMP_Create (`8C1EFA92`, 180 bytes, `src/gen_rt.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_rt/ADXAMP_Create.json`
 - case 1
 - case 0
 - case 2
@@ -141,8 +141,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 2 of 2 instructions
 
-### ADXAMP_Init (`8C1EFA54`, 62 bytes, `src/gen_p.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_p/ADXAMP_Init.json`
+### ADXAMP_Init (`8C1EFA54`, 62 bytes, `src/gen_ru.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ru/ADXAMP_Init.json`
 - case 0
 - case 1
 - case 2
@@ -874,8 +874,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 6 of 7 instructions
 
-### ADXB_ExecOneAiff16 (`8C2077C8`, 286 bytes, `src/gen_ar.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ar/ADXB_ExecOneAiff16.json`
+### ADXB_ExecOneAiff16 (`8C2077C8`, 286 bytes, `src/gen_rj.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_rj/ADXB_ExecOneAiff16.json`
 - case 2
 - case 1
 - case 0
@@ -965,8 +965,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - 0x8001
 - the cases run 14 of 14 instructions
 
-### ADXB_ExecOneAu16 (`8C207E10`, 274 bytes, `src/gen_as.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_as/ADXB_ExecOneAu16.json`
+### ADXB_ExecOneAu16 (`8C207E10`, 274 bytes, `src/gen_rh.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_rh/ADXB_ExecOneAu16.json`
 - case 2
 - case 1
 - case 0
@@ -5323,8 +5323,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 145
 - the cases run 102 of 102 instructions
 
-### ADX_DecodeInfoWav (`8C208434`, 418 bytes, `src/gen_e.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/ADX_DecodeInfoWav.json`
+### ADX_DecodeInfoWav (`8C208434`, 418 bytes, `src/gen_vn.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_vn/ADX_DecodeInfoWav.json`
 - case 0
 - case 2
 - case 3
@@ -5349,8 +5349,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 23
 - the cases run 65 of 207 instructions
 
-### ADX_DecodeMonoFloat (`8C209020`, 258 bytes, `src/gen_at.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_at/ADX_DecodeMonoFloat.json`
+### ADX_DecodeMonoFloat (`8C209020`, 258 bytes, `src/gen_rk.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_rk/ADX_DecodeMonoFloat.json`
 - case 0
 - case 1
 - case 2
@@ -5522,8 +5522,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 189
 - the cases run 87 of 210 instructions
 
-### BupCheckCard (`8C0E0518`, 176 bytes, `src/gen_e.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/BupCheckCard.json`
+### BupCheckCard (`8C0E0518`, 176 bytes, `src/gen_rf.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_rf/BupCheckCard.json`
 - case 0
 - case 1
 - case 2
@@ -6140,8 +6140,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 54
 - the cases run 18 of 18 instructions
 
-### FUN_8c041fd0 (`8C041FD0`, 664 bytes, `src/gen_ok.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ok/FUN_8c041fd0.json`
+### FUN_8c041fd0 (`8C041FD0`, 664 bytes, `src/gen_up.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_up/FUN_8c041fd0.json`
 - case 6
 - case 4
 - case 1
@@ -7652,8 +7652,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 102
 - the cases run 12 of 12 instructions
 
-### SJMEM_PutChunk (`8C1F32C2`, 64 bytes, `src/gen_p.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_p/SJMEM_PutChunk.json`
+### SJMEM_PutChunk (`8C1F32C2`, 64 bytes, `src/gen_rv.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_rv/SJMEM_PutChunk.json`
 - case 1
 - case 0
 - case 2
@@ -8477,8 +8477,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 113
 - the cases run 15 of 15 instructions
 
-### SJUNI_GetNumData (`8C1F3968`, 70 bytes, `src/gen_p.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_p/SJUNI_GetNumData.json`
+### SJUNI_GetNumData (`8C1F3968`, 70 bytes, `src/gen_rw.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_rw/SJUNI_GetNumData.json`
 - case 13
 - case 1
 - case 0
@@ -8949,8 +8949,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 71
 - the cases run 37 of 107 instructions
 
-### VQalloc (`8C1F3D64`, 422 bytes, `src/gen_ee.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ee/VQalloc.json`
+### VQalloc (`8C1F3D64`, 422 bytes, `src/gen_vt.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vt/VQalloc.json`
 - case 1
 - case 24
 - case 103
@@ -9218,8 +9218,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 117
 - the cases run 17 of 17 instructions
 
-### _div64 (`8C1006D0`, 420 bytes, `src/gen_jv.c`)
-- equivalent on 15 development and 15 holdout cases, in `tests/gen_jv/_div64.json`
+### _div64 (`8C1006D0`, 420 bytes, `src/gen_ee.c`)
+- equivalent on 15 development and 15 holdout cases, in `tests/gen_ee/_div64.json`
 - hand: small values, search 0
 - hand: small values, search 2
 - hand: small values, search 4
@@ -9299,8 +9299,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - word 0
 - the cases run 8 of 8 instructions
 
-### _fmtout_intcnv (`8C0FECD8`, 516 bytes, `src/gen_bm.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_bm/_fmtout_intcnv.json`
+### _fmtout_intcnv (`8C0FECD8`, 516 bytes, `src/gen_uw.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_uw/_fmtout_intcnv.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 107 of 254 instructions
@@ -9649,8 +9649,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 92
 - the cases run 26 of 26 instructions
 
-### _pd_peripheral_set_data (`8C1DEB0C`, 356 bytes, `src/gen_in.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_in/_pd_peripheral_set_data.json`
+### _pd_peripheral_set_data (`8C1DEB0C`, 356 bytes, `src/gen_vy.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vy/_pd_peripheral_set_data.json`
 - case 154
 - case 3
 - case 38
@@ -9849,8 +9849,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 43
 - the cases run 13 of 13 instructions
 
-### _power (`8C100998`, 294 bytes, `src/gen_jz.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_jz/_power.json`
+### _power (`8C100998`, 294 bytes, `src/gen_qy.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_qy/_power.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 85 of 147 instructions
@@ -10097,8 +10097,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 7 of 7 instructions
 
-### advDrawFigure (`8C02EFB0`, 486 bytes, `src/gen_cz.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_cz/advDrawFigure.json`
+### advDrawFigure (`8C02EFB0`, 486 bytes, `src/gen_vb.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vb/advDrawFigure.json`
 - case 0
 - case 1
 - case 2
@@ -10335,8 +10335,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 17 of 19 instructions
 
-### adxamp_extract (`8C1EFBBE`, 362 bytes, `src/gen_er.c`)
-- equivalent on 11 development and 10 holdout cases, in `tests/gen_er/adxamp_extract.json`
+### adxamp_extract (`8C1EFBBE`, 362 bytes, `src/gen_qu.c`)
+- equivalent on 11 development and 10 holdout cases, in `tests/gen_qu/adxamp_extract.json`
 - case 10
 - case 4
 - case 43
@@ -11195,8 +11195,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 17 of 17 instructions
 
-### adxt_stat_decinfo (`8C1F11E0`, 522 bytes, `src/gen_hf.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_hf/adxt_stat_decinfo.json`
+### adxt_stat_decinfo (`8C1F11E0`, 522 bytes, `src/gen_pm.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_pm/adxt_stat_decinfo.json`
 - case 90
 - case 57
 - case 0
@@ -12079,8 +12079,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 153
 - the cases run 149 of 152 instructions
 
-### ballBoyIdleExec (`8C0C7848`, 276 bytes, `src/gen_as.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_as/ballBoyIdleExec.json`
+### ballBoyIdleExec (`8C0C7848`, 276 bytes, `src/gen_ua.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ua/ballBoyIdleExec.json`
 - case 6
 - case 6
 - case 55
@@ -12119,8 +12119,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 75
 - the cases run 102 of 121 instructions
 
-### ballBoyInit (`8C0C7268`, 344 bytes, `src/gen_iz.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_iz/ballBoyInit.json`
+### ballBoyInit (`8C0C7268`, 344 bytes, `src/gen_vm.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vm/ballBoyInit.json`
 - case 0
 - case 0
 - case 1
@@ -12399,8 +12399,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 129
 - the cases run 90 of 961 instructions
 
-### ballBoyRunSteer (`8C0C8DA0`, 448 bytes, `src/gen_ov.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ov/ballBoyRunSteer.json`
+### ballBoyRunSteer (`8C0C8DA0`, 448 bytes, `src/gen_fb.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_fb/ballBoyRunSteer.json`
 - case 0
 - case 1
 - case 2
@@ -12505,8 +12505,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 71 of 71 instructions
 
-### ballExec (`8C023204`, 740 bytes, `src/gen_nm.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_nm/ballExec.json`
+### ballExec (`8C023204`, 740 bytes, `src/gen_ng.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ng/ballExec.json`
 - case 0
 - case 1
 - case 13
@@ -12849,14 +12849,14 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 97 of 97 instructions
 
-### bodyGroundFriction (`8C03C1D2`, 404 bytes, `src/gen_ba.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_ba/bodyGroundFriction.json`
+### bodyGroundFriction (`8C03C1D2`, 404 bytes, `src/gen_qo.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_qo/bodyGroundFriction.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 76 of 186 instructions
 
-### bodyInit (`8C03C160`, 114 bytes, `src/gen_fs.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_fs/bodyInit.json`
+### bodyInit (`8C03C160`, 114 bytes, `src/gen_rx.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_rx/bodyInit.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 57 of 57 instructions
@@ -12939,8 +12939,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 124
 - the cases run 662 of 832 instructions
 
-### btnGuideDraw (`8C095AD8`, 758 bytes, `src/gen_be.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_be/btnGuideDraw.json`
+### btnGuideDraw (`8C095AD8`, 758 bytes, `src/gen_qf.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_qf/btnGuideDraw.json`
 - case 2
 - case 2
 - case 12
@@ -13275,8 +13275,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 91
 - the cases run 30 of 30 instructions
 
-### buExecServer (`8C1DFA70`, 304 bytes, `src/gen_bd.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bd/buExecServer.json`
+### buExecServer (`8C1DFA70`, 304 bytes, `src/gen_re.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_re/buExecServer.json`
 - case 0
 - case 1
 - case 0
@@ -14546,8 +14546,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 121
 - the cases run 15 of 15 instructions
 
-### camExec (`8C0166A8`, 1046 bytes, `src/gen_hu.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_hu/camExec.json`
+### camExec (`8C0166A8`, 1046 bytes, `src/gen_qd.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_qd/camExec.json`
 - case 33
 - case 14
 - case 1
@@ -14666,8 +14666,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 159
 - the cases run 29 of 29 instructions
 
-### camInit (`8C0165EC`, 188 bytes, `src/gen_ak.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ak/camInit.json`
+### camInit (`8C0165EC`, 188 bytes, `src/gen_ry.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ry/camInit.json`
 - case 0
 - case 1
 - case 2
@@ -15163,8 +15163,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 31 of 31 instructions
 
-### cameraExec (`8C02A014`, 14586 bytes, `src/gen_ha.c`)
-- equivalent on 78 development and 77 holdout cases, in `tests/gen_ha/cameraExec.json`
+### cameraExec (`8C02A014`, 14586 bytes, `src/gen_tw.c`)
+- equivalent on 78 development and 77 holdout cases, in `tests/gen_tw/cameraExec.json`
 - mode 7, case 175
 - mode 11, case 131
 - mode 8, case 128
@@ -15855,8 +15855,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 129
 - the cases run 621 of 671 instructions
 
-### circuitDrawBar (`8C034DE8`, 426 bytes, `src/gen_az.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_az/circuitDrawBar.json`
+### circuitDrawBar (`8C034DE8`, 426 bytes, `src/gen_vl.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vl/circuitDrawBar.json`
 - case 0
 - case 1
 - case 2
@@ -15975,8 +15975,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 107
 - the cases run 130 of 130 instructions
 
-### circuitDrawGameInfo (`8C0340D8`, 708 bytes, `src/gen_ny.c`)
-- equivalent on 11 development and 11 holdout cases, in `tests/gen_ny/circuitDrawGameInfo.json`
+### circuitDrawGameInfo (`8C0340D8`, 708 bytes, `src/gen_nw.c`)
+- equivalent on 11 development and 11 holdout cases, in `tests/gen_nw/circuitDrawGameInfo.json`
 - case 100
 - case 100
 - case 100
@@ -16001,8 +16001,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 153
 - the cases run 225 of 258 instructions
 
-### circuitDrawMatchIcon (`8C03656C`, 368 bytes, `src/gen_ba.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ba/circuitDrawMatchIcon.json`
+### circuitDrawMatchIcon (`8C03656C`, 368 bytes, `src/gen_vv.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vv/circuitDrawMatchIcon.json`
 - case 26
 - case 0
 - case 61
@@ -16307,8 +16307,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 122
 - the cases run 188 of 197 instructions
 
-### circuitNumDrawSign (`8C033910`, 312 bytes, `src/gen_bd.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bd/circuitNumDrawSign.json`
+### circuitNumDrawSign (`8C033910`, 312 bytes, `src/gen_er.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_er/circuitNumDrawSign.json`
 - case 21
 - case 1
 - case 15
@@ -16493,8 +16493,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 47
 - the cases run 12 of 12 instructions
 
-### circuitRateStep (`8C033654`, 220 bytes, `src/gen_e.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/circuitRateStep.json`
+### circuitRateStep (`8C033654`, 220 bytes, `src/gen_ro.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_ro/circuitRateStep.json`
 - case 0
 - case 1
 - case 2
@@ -16559,8 +16559,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 140
 - the cases run 41 of 41 instructions
 
-### circuitStatsCalc (`8C033242`, 506 bytes, `src/gen_jt.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_jt/circuitStatsCalc.json`
+### circuitStatsCalc (`8C033242`, 506 bytes, `src/gen_mx.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_mx/circuitStatsCalc.json`
 - case 1
 - case 0
 - case 140
@@ -17425,8 +17425,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 140
 - the cases run 83 of 128 instructions
 
-### countryNamePutB (`8C0928D8`, 354 bytes, `src/gen_bb.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bb/countryNamePutB.json`
+### countryNamePutB (`8C0928D8`, 354 bytes, `src/gen_vs.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vs/countryNamePutB.json`
 - case 0
 - case 0
 - case 0
@@ -17465,8 +17465,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 135
 - the cases run 118 of 150 instructions
 
-### countryNamePutC (`8C092C94`, 342 bytes, `src/gen_bc.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bc/countryNamePutC.json`
+### countryNamePutC (`8C092C94`, 342 bytes, `src/gen_vx.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vx/countryNamePutC.json`
 - case 0
 - case 0
 - case 0
@@ -17777,8 +17777,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 263 of 273 instructions
 
-### courtFraDrawAnim (`8C0B6A74`, 470 bytes, `src/gen_ax.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ax/courtFraDrawAnim.json`
+### courtFraDrawAnim (`8C0B6A74`, 470 bytes, `src/gen_vh.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vh/courtFraDrawAnim.json`
 - case 0
 - case 1
 - case 2
@@ -18234,8 +18234,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 49 of 55 instructions
 
-### cpuAimAngleRate (`8C07F238`, 790 bytes, `src/gen_nn.c`)
-- equivalent on 18 development and 17 holdout cases, in `tests/gen_nn/cpuAimAngleRate.json`
+### cpuAimAngleRate (`8C07F238`, 790 bytes, `src/gen_nm.c`)
+- equivalent on 18 development and 17 holdout cases, in `tests/gen_nm/cpuAimAngleRate.json`
 - case 72
 - case 84
 - case 109
@@ -18273,8 +18273,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 157
 - the cases run 213 of 389 instructions
 
-### cpuAimDistRate (`8C07F54E`, 662 bytes, `src/gen_db.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_db/cpuAimDistRate.json`
+### cpuAimDistRate (`8C07F54E`, 662 bytes, `src/gen_ok.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ok/cpuAimDistRate.json`
 - case 99
 - case 36
 - case 60
@@ -18511,8 +18511,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 86
 - the cases run 19 of 19 instructions
 
-### cpuDblAimAddAngles (`8C073B40`, 2346 bytes, `src/gen_kt.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_kt/cpuDblAimAddAngles.json`
+### cpuDblAimAddAngles (`8C073B40`, 2346 bytes, `src/gen_gx.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_gx/cpuDblAimAddAngles.json`
 - case 6
 - case 6
 - case 6
@@ -18551,8 +18551,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 110
 - the cases run 398 of 1059 instructions
 
-### cpuDblAimAddCorners (`8C072522`, 514 bytes, `src/gen_bm.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bm/cpuDblAimAddCorners.json`
+### cpuDblAimAddCorners (`8C072522`, 514 bytes, `src/gen_tu.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_tu/cpuDblAimAddCorners.json`
 - case 16
 - case 16
 - case 0
@@ -18591,8 +18591,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 120
 - the cases run 218 of 238 instructions
 
-### cpuDblAimAddCorners2 (`8C07DA96`, 512 bytes, `src/gen_bm.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bm/cpuDblAimAddCorners2.json`
+### cpuDblAimAddCorners2 (`8C07DA96`, 512 bytes, `src/gen_tv.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_tv/cpuDblAimAddCorners2.json`
 - case 22
 - case 154
 - case 0
@@ -18671,8 +18671,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 151
 - the cases run 259 of 737 instructions
 
-### cpuDblAimAddCourt2 (`8C07D444`, 978 bytes, `src/gen_bt.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bt/cpuDblAimAddCourt2.json`
+### cpuDblAimAddCourt2 (`8C07D444`, 978 bytes, `src/gen_sx.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_sx/cpuDblAimAddCourt2.json`
 - case 0
 - case 0
 - case 0
@@ -18711,8 +18711,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 53
 - the cases run 100 of 443 instructions
 
-### cpuDblAimAddCross (`8C073748`, 1016 bytes, `src/gen_fq.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_fq/cpuDblAimAddCross.json`
+### cpuDblAimAddCross (`8C073748`, 1016 bytes, `src/gen_hu.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_hu/cpuDblAimAddCross.json`
 - case 362
 - case 362
 - case 45
@@ -18751,8 +18751,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 138
 - the cases run 422 of 461 instructions
 
-### cpuDblAimAddDeep (`8C072724`, 1602 bytes, `src/gen_cu.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_cu/cpuDblAimAddDeep.json`
+### cpuDblAimAddDeep (`8C072724`, 1602 bytes, `src/gen_tl.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_tl/cpuDblAimAddDeep.json`
 - case 39
 - case 1
 - case 39
@@ -18791,8 +18791,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 111
 - the cases run 101 of 741 instructions
 
-### cpuDblAimAddDeep2 (`8C07DC96`, 1364 bytes, `src/gen_bo.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bo/cpuDblAimAddDeep2.json`
+### cpuDblAimAddDeep2 (`8C07DC96`, 1364 bytes, `src/gen_py.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_py/cpuDblAimAddDeep2.json`
 - case 120
 - case 86
 - case 120
@@ -18831,8 +18831,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 81
 - the cases run 463 of 631 instructions
 
-### cpuDblAimAddLv13 (`8C07446A`, 1628 bytes, `src/gen_cu.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_cu/cpuDblAimAddLv13.json`
+### cpuDblAimAddLv13 (`8C07446A`, 1628 bytes, `src/gen_kc.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_kc/cpuDblAimAddLv13.json`
 - case 39
 - case 30
 - case 12
@@ -18871,8 +18871,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 108
 - the cases run 323 of 751 instructions
 
-### cpuDblAimAddLv16 (`8C078C3E`, 2216 bytes, `src/gen_cq.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_cq/cpuDblAimAddLv16.json`
+### cpuDblAimAddLv16 (`8C078C3E`, 2216 bytes, `src/gen_kl.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_kl/cpuDblAimAddLv16.json`
 - case 0
 - case 6
 - case 0
@@ -18951,8 +18951,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 70
 - the cases run 71 of 71 instructions
 
-### cpuDblAimAddRandom (`8C072F28`, 606 bytes, `src/gen_bj.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bj/cpuDblAimAddRandom.json`
+### cpuDblAimAddRandom (`8C072F28`, 606 bytes, `src/gen_kt.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_kt/cpuDblAimAddRandom.json`
 - case 43
 - case 19
 - case 46
@@ -18991,8 +18991,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 142
 - the cases run 271 of 281 instructions
 
-### cpuDblAimAddRange (`8C07229A`, 642 bytes, `src/gen_bi.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bi/cpuDblAimAddRange.json`
+### cpuDblAimAddRange (`8C07229A`, 642 bytes, `src/gen_tp.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_tp/cpuDblAimAddRange.json`
 - case 0
 - case 0
 - case 131
@@ -19031,8 +19031,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 173
 - the cases run 284 of 302 instructions
 
-### cpuDblAimAddRange2 (`8C07D816`, 640 bytes, `src/gen_bi.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bi/cpuDblAimAddRange2.json`
+### cpuDblAimAddRange2 (`8C07D816`, 640 bytes, `src/gen_tq.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_tq/cpuDblAimAddRange2.json`
 - case 0
 - case 0
 - case 147
@@ -19071,8 +19071,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 194
 - the cases run 282 of 302 instructions
 
-### cpuDblAimAddShort (`8C073290`, 1194 bytes, `src/gen_ma.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ma/cpuDblAimAddShort.json`
+### cpuDblAimAddShort (`8C073290`, 1194 bytes, `src/gen_lz.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_lz/cpuDblAimAddShort.json`
 - case 27
 - case 13
 - case 153
@@ -19191,8 +19191,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 65
 - the cases run 253 of 748 instructions
 
-### cpuDblAimRateB (`8C076D64`, 1466 bytes, `src/gen_fr.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_fr/cpuDblAimRateB.json`
+### cpuDblAimRateB (`8C076D64`, 1466 bytes, `src/gen_la.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_la/cpuDblAimRateB.json`
 - case 12
 - case 62
 - case 9
@@ -19231,8 +19231,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 179
 - the cases run 573 of 668 instructions
 
-### cpuDblAimRateC (`8C077340`, 1994 bytes, `src/gen_la.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_la/cpuDblAimRateC.json`
+### cpuDblAimRateC (`8C077340`, 1994 bytes, `src/gen_pw.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_pw/cpuDblAimRateC.json`
 - case 31
 - case 0
 - case 303
@@ -19311,8 +19311,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 380
 - the cases run 1193 of 1402 instructions
 
-### cpuDblAimRateE (`8C07A8F8`, 1146 bytes, `src/gen_fq.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_fq/cpuDblAimRateE.json`
+### cpuDblAimRateE (`8C07A8F8`, 1146 bytes, `src/gen_kd.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_kd/cpuDblAimRateE.json`
 - case 22
 - case 138
 - case 142
@@ -19351,8 +19351,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 107
 - the cases run 444 of 516 instructions
 
-### cpuDblChase (`8C05AA74`, 412 bytes, `src/gen_ga.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ga/cpuDblChase.json`
+### cpuDblChase (`8C05AA74`, 412 bytes, `src/gen_vp.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vp/cpuDblChase.json`
 - case 0
 - case 0
 - case 0
@@ -19391,8 +19391,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 63
 - the cases run 148 of 194 instructions
 
-### cpuDblCoverPos (`8C067A86`, 874 bytes, `src/gen_kd.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_kd/cpuDblCoverPos.json`
+### cpuDblCoverPos (`8C067A86`, 874 bytes, `src/gen_ud.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ud/cpuDblCoverPos.json`
 - case 46
 - case 18
 - case 36
@@ -19431,8 +19431,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 90
 - the cases run 247 of 395 instructions
 
-### cpuDblHitCheck (`8C0585AA`, 7730 bytes, `src/gen_if.c`)
-- equivalent on 43 development and 42 holdout cases, in `tests/gen_if/cpuDblHitCheck.json`
+### cpuDblHitCheck (`8C0585AA`, 7730 bytes, `src/gen_kf.c`)
+- equivalent on 43 development and 42 holdout cases, in `tests/gen_kf/cpuDblHitCheck.json`
 - case 1
 - case 2
 - case 5
@@ -19560,8 +19560,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 40
 - the cases run 87 of 186 instructions
 
-### cpuDblInput (`8C0573F0`, 654 bytes, `src/gen_oi.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_oi/cpuDblInput.json`
+### cpuDblInput (`8C0573F0`, 654 bytes, `src/gen_oe.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_oe/cpuDblInput.json`
 - case 1
 - case 0
 - case 2
@@ -19600,8 +19600,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 152
 - the cases run 70 of 282 instructions
 
-### cpuDblIsMyBall (`8C05A3DC`, 140 bytes, `src/gen_in.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_in/cpuDblIsMyBall.json`
+### cpuDblIsMyBall (`8C05A3DC`, 140 bytes, `src/gen_tj.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_tj/cpuDblIsMyBall.json`
 - case 113
 - case 113
 - case 1
@@ -19680,8 +19680,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 56
 - the cases run 282 of 574 instructions
 
-### cpuDblMove (`8C057C04`, 2470 bytes, `src/gen_ks.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ks/cpuDblMove.json`
+### cpuDblMove (`8C057C04`, 2470 bytes, `src/gen_kr.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_kr/cpuDblMove.json`
 - case 1
 - case 0
 - case 0
@@ -19840,8 +19840,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 104
 - the cases run 111 of 178 instructions
 
-### cpuDblPickTactic (`8C05C598`, 1130 bytes, `src/gen_bq.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bq/cpuDblPickTactic.json`
+### cpuDblPickTactic (`8C05C598`, 1130 bytes, `src/gen_ui.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ui/cpuDblPickTactic.json`
 - case 3
 - case 3
 - case 3
@@ -19880,8 +19880,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 56
 - the cases run 316 of 480 instructions
 
-### cpuDblPoachCheck (`8C062EDA`, 1260 bytes, `src/gen_kc.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_kc/cpuDblPoachCheck.json`
+### cpuDblPoachCheck (`8C062EDA`, 1260 bytes, `src/gen_uc.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_uc/cpuDblPoachCheck.json`
 - case 0
 - case 6
 - case 0
@@ -19960,8 +19960,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 334
 - the cases run 164 of 220 instructions
 
-### cpuDblPositionCalc (`8C06AD7C`, 742 bytes, `src/gen_dq.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_dq/cpuDblPositionCalc.json`
+### cpuDblPositionCalc (`8C06AD7C`, 742 bytes, `src/gen_cq.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_cq/cpuDblPositionCalc.json`
 - case 0
 - case 13
 - case 68
@@ -20080,8 +20080,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 42
 - the cases run 83 of 225 instructions
 
-### cpuDblRecoverPosB (`8C06EEC8`, 550 bytes, `src/gen_pa.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_pa/cpuDblRecoverPosB.json`
+### cpuDblRecoverPosB (`8C06EEC8`, 550 bytes, `src/gen_us.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_us/cpuDblRecoverPosB.json`
 - case 17
 - case 39
 - case 0
@@ -20120,8 +20120,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 75
 - the cases run 100 of 253 instructions
 
-### cpuDblRecoverPosC (`8C06F10C`, 438 bytes, `src/gen_ay.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ay/cpuDblRecoverPosC.json`
+### cpuDblRecoverPosC (`8C06F10C`, 438 bytes, `src/gen_vj.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vj/cpuDblRecoverPosC.json`
 - case 85
 - case 0
 - case 1
@@ -20160,8 +20160,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 124
 - the cases run 80 of 198 instructions
 
-### cpuDblServe (`8C05AC24`, 6516 bytes, `src/gen_ch.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ch/cpuDblServe.json`
+### cpuDblServe (`8C05AC24`, 6516 bytes, `src/gen_dq.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_dq/cpuDblServe.json`
 - case 0
 - case 49
 - case 2
@@ -20240,8 +20240,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 147
 - the cases run 73 of 675 instructions
 
-### cpuDblSignalDraw (`8C05D2E0`, 284 bytes, `src/gen_ar.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ar/cpuDblSignalDraw.json`
+### cpuDblSignalDraw (`8C05D2E0`, 284 bytes, `src/gen_rg.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_rg/cpuDblSignalDraw.json`
 - case 0
 - case 0
 - case 0
@@ -20286,8 +20286,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 281 of 570 instructions
 
-### cpuDblSupportT55 (`8C06CB38`, 2960 bytes, `src/gen_km.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_km/cpuDblSupportT55.json`
+### cpuDblSupportT55 (`8C06CB38`, 2960 bytes, `src/gen_ha.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ha/cpuDblSupportT55.json`
 - case 80
 - case 25
 - case 80
@@ -20326,8 +20326,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 78
 - the cases run 462 of 1348 instructions
 
-### cpuDblSupportT57 (`8C06D6C8`, 2962 bytes, `src/gen_kh.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_kh/cpuDblSupportT57.json`
+### cpuDblSupportT57 (`8C06D6C8`, 2962 bytes, `src/gen_kg.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_kg/cpuDblSupportT57.json`
 - case 14
 - case 103
 - case 94
@@ -20406,8 +20406,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 154
 - the cases run 53 of 134 instructions
 
-### cpuDblTacticPos (`8C05CA02`, 582 bytes, `src/gen_bj.c`)
-- equivalent on 7 development and 7 holdout cases, in `tests/gen_bj/cpuDblTacticPos.json`
+### cpuDblTacticPos (`8C05CA02`, 582 bytes, `src/gen_ur.c`)
+- equivalent on 7 development and 7 holdout cases, in `tests/gen_ur/cpuDblTacticPos.json`
 - case 74
 - case 75
 - case 19
@@ -20424,8 +20424,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 145
 - the cases run 257 of 262 instructions
 
-### cpuDblThink (`8C057872`, 546 bytes, `src/gen_fz.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_fz/cpuDblThink.json`
+### cpuDblThink (`8C057872`, 546 bytes, `src/gen_iy.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_iy/cpuDblThink.json`
 - case 57
 - case 141
 - case 0
@@ -20464,8 +20464,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 52
 - the cases run 175 of 228 instructions
 
-### cpuDblThinkAll (`8C057694`, 478 bytes, `src/gen_ka.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ka/cpuDblThinkAll.json`
+### cpuDblThinkAll (`8C057694`, 478 bytes, `src/gen_qj.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_qj/cpuDblThinkAll.json`
 - case 0
 - case 1
 - case 2
@@ -20544,8 +20544,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 254
 - the cases run 32 of 32 instructions
 
-### cpuDebugLine (`8C07F9AC`, 158 bytes, `src/gen_ak.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ak/cpuDebugLine.json`
+### cpuDebugLine (`8C07F9AC`, 158 bytes, `src/gen_km.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_km/cpuDebugLine.json`
 - case 0
 - case 1
 - case 2
@@ -20664,8 +20664,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 67
 - the cases run 14 of 14 instructions
 
-### cpuEdgeX (`8C0800D6`, 224 bytes, `src/gen_au.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_au/cpuEdgeX.json`
+### cpuEdgeX (`8C0800D6`, 224 bytes, `src/gen_rl.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_rl/cpuEdgeX.json`
 - case 32
 - case 1
 - case 0
@@ -20704,8 +20704,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 52
 - the cases run 111 of 112 instructions
 
-### cpuGiveUpCheck (`8C03DAB4`, 156 bytes, `src/gen_ak.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ak/cpuGiveUpCheck.json`
+### cpuGiveUpCheck (`8C03DAB4`, 156 bytes, `src/gen_sb.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_sb/cpuGiveUpCheck.json`
 - case 95
 - case 58
 - case 92
@@ -20942,8 +20942,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 159
 - the cases run 15 of 15 instructions
 
-### cpuMeterInput (`8C03DF56`, 594 bytes, `src/gen_oy.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_oy/cpuMeterInput.json`
+### cpuMeterInput (`8C03DF56`, 594 bytes, `src/gen_ov.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ov/cpuMeterInput.json`
 - case 1
 - case 145
 - case 45
@@ -20982,8 +20982,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 40
 - the cases run 207 of 269 instructions
 
-### cpuOppLineX (`8C08108A`, 738 bytes, `src/gen_bf.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bf/cpuOppLineX.json`
+### cpuOppLineX (`8C08108A`, 738 bytes, `src/gen_sz.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_sz/cpuOppLineX.json`
 - case 24
 - case 16
 - case 0
@@ -21022,8 +21022,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 39
 - the cases run 335 of 345 instructions
 
-### cpuPadHistory (`8C03E1A8`, 1248 bytes, `src/gen_lz.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_lz/cpuPadHistory.json`
+### cpuPadHistory (`8C03E1A8`, 1248 bytes, `src/gen_ly.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ly/cpuPadHistory.json`
 - case 0
 - case 1
 - case 2
@@ -21182,14 +21182,14 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 150
 - the cases run 46 of 46 instructions
 
-### cpuReachPoint (`8C0807B4`, 646 bytes, `src/gen_bi.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_bi/cpuReachPoint.json`
+### cpuReachPoint (`8C0807B4`, 646 bytes, `src/gen_mc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_mc/cpuReachPoint.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 231 of 304 instructions
 
-### cpuReachRange (`8C080C12`, 1014 bytes, `src/gen_bs.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bs/cpuReachRange.json`
+### cpuReachRange (`8C080C12`, 1014 bytes, `src/gen_hj.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_hj/cpuReachRange.json`
 - case 27
 - case 2
 - case 0
@@ -21308,8 +21308,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 156
 - the cases run 19 of 19 instructions
 
-### cpuSglAimAddGrid (`8C04B818`, 772 bytes, `src/gen_be.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_be/cpuSglAimAddGrid.json`
+### cpuSglAimAddGrid (`8C04B818`, 772 bytes, `src/gen_to.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_to/cpuSglAimAddGrid.json`
 - case 50
 - case 32
 - case 127
@@ -21348,8 +21348,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 34
 - the cases run 340 of 348 instructions
 
-### cpuSglAimAddLv12 (`8C054AE0`, 1408 bytes, `src/gen_bo.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bo/cpuSglAimAddLv12.json`
+### cpuSglAimAddLv12 (`8C054AE0`, 1408 bytes, `src/gen_uf.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_uf/cpuSglAimAddLv12.json`
 - case 26
 - case 40
 - case 120
@@ -21388,8 +21388,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 52
 - the cases run 249 of 643 instructions
 
-### cpuSglAimAddLv21 (`8C04FAAE`, 2074 bytes, `src/gen_cp.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_cp/cpuSglAimAddLv21.json`
+### cpuSglAimAddLv21 (`8C04FAAE`, 2074 bytes, `src/gen_ch.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ch/cpuSglAimAddLv21.json`
 - case 19
 - case 98
 - case 55
@@ -21428,8 +21428,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 56
 - the cases run 290 of 960 instructions
 
-### cpuSglAimAddLv23 (`8C04F650`, 704 bytes, `src/gen_bg.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bg/cpuSglAimAddLv23.json`
+### cpuSglAimAddLv23 (`8C04F650`, 704 bytes, `src/gen_tm.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_tm/cpuSglAimAddLv23.json`
 - case 12
 - case 12
 - case 69
@@ -21468,8 +21468,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 128
 - the cases run 213 of 325 instructions
 
-### cpuSglAimAddOpen (`8C04C2E2`, 910 bytes, `src/gen_ku.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ku/cpuSglAimAddOpen.json`
+### cpuSglAimAddOpen (`8C04C2E2`, 910 bytes, `src/gen_co.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_co/cpuSglAimAddOpen.json`
 - case 128
 - case 159
 - case 128
@@ -21548,8 +21548,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 388
 - the cases run 717 of 893 instructions
 
-### cpuSglAimAddReach (`8C04CFD4`, 728 bytes, `src/gen_jj.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_jj/cpuSglAimAddReach.json`
+### cpuSglAimAddReach (`8C04CFD4`, 728 bytes, `src/gen_sm.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_sm/cpuSglAimAddReach.json`
 - case 122
 - case 8
 - case 13
@@ -21628,8 +21628,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 53
 - the cases run 37 of 37 instructions
 
-### cpuSglAimLv09 (`8C04CB80`, 1108 bytes, `src/gen_mf.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_mf/cpuSglAimLv09.json`
+### cpuSglAimLv09 (`8C04CB80`, 1108 bytes, `src/gen_bq.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_bq/cpuSglAimLv09.json`
 - case 42
 - case 1
 - case 0
@@ -21668,8 +21668,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 95
 - the cases run 85 of 485 instructions
 
-### cpuSglAimLv17 (`8C04F2B8`, 920 bytes, `src/gen_fv.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_fv/cpuSglAimLv17.json`
+### cpuSglAimLv17 (`8C04F2B8`, 920 bytes, `src/gen_mt.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_mt/cpuSglAimLv17.json`
 - case 2
 - case 0
 - case 4
@@ -21748,8 +21748,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 98
 - the cases run 79 of 79 instructions
 
-### cpuSglAimPickNet (`8C04EF1C`, 516 bytes, `src/gen_mt.c`)
-- equivalent on 14 development and 13 holdout cases, in `tests/gen_mt/cpuSglAimPickNet.json`
+### cpuSglAimPickNet (`8C04EF1C`, 516 bytes, `src/gen_fq.c`)
+- equivalent on 14 development and 13 holdout cases, in `tests/gen_fq/cpuSglAimPickNet.json`
 - case 4
 - case 64
 - case 17
@@ -21779,8 +21779,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 94
 - the cases run 198 of 227 instructions
 
-### cpuSglAimRateOpp (`8C04E774`, 668 bytes, `src/gen_bh.c`)
-- equivalent on 6 development and 6 holdout cases, in `tests/gen_bh/cpuSglAimRateOpp.json`
+### cpuSglAimRateOpp (`8C04E774`, 668 bytes, `src/gen_oi.c`)
+- equivalent on 6 development and 6 holdout cases, in `tests/gen_oi/cpuSglAimRateOpp.json`
 - case 1
 - case 19
 - case 35
@@ -21795,14 +21795,14 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 151
 - the cases run 122 of 293 instructions
 
-### cpuSglAimRateOpp2 (`8C04EA10`, 1036 bytes, `src/gen_iy.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_iy/cpuSglAimRateOpp2.json`
+### cpuSglAimRateOpp2 (`8C04EA10`, 1036 bytes, `src/gen_mf.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_mf/cpuSglAimRateOpp2.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 129 of 462 instructions
 
-### cpuSglAimRateOpp3 (`8C05585C`, 570 bytes, `src/gen_fz.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_fz/cpuSglAimRateOpp3.json`
+### cpuSglAimRateOpp3 (`8C05585C`, 570 bytes, `src/gen_ds.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ds/cpuSglAimRateOpp3.json`
 - case 0
 - case 1
 - case 2
@@ -21841,8 +21841,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 86
 - the cases run 149 of 264 instructions
 
-### cpuSglAimScore (`8C04E2F4`, 290 bytes, `src/gen_ar.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ar/cpuSglAimScore.json`
+### cpuSglAimScore (`8C04E2F4`, 290 bytes, `src/gen_et.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_et/cpuSglAimScore.json`
 - case 0
 - case 1
 - case 2
@@ -21881,8 +21881,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 258
 - the cases run 87 of 144 instructions
 
-### cpuSglAimScore2 (`8C0560AC`, 290 bytes, `src/gen_ky.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ky/cpuSglAimScore2.json`
+### cpuSglAimScore2 (`8C0560AC`, 290 bytes, `src/gen_uh.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_uh/cpuSglAimScore2.json`
 - case 1
 - case 1
 - case 2
@@ -22158,8 +22158,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 68
 - the cases run 33 of 194 instructions
 
-### cpuSglHitCheck (`8C042C2C`, 7560 bytes, `src/gen_if.c`)
-- equivalent on 43 development and 42 holdout cases, in `tests/gen_if/cpuSglHitCheck.json`
+### cpuSglHitCheck (`8C042C2C`, 7560 bytes, `src/gen_iv.c`)
+- equivalent on 43 development and 42 holdout cases, in `tests/gen_iv/cpuSglHitCheck.json`
 - case 1
 - case 2
 - case 9
@@ -22247,8 +22247,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - directed: flips 8C042DE8 (taken)
 - the cases run 1208 of 3320 instructions
 
-### cpuSglHitReady (`8C044C64`, 344 bytes, `src/gen_kg.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_kg/cpuSglHitReady.json`
+### cpuSglHitReady (`8C044C64`, 344 bytes, `src/gen_sc.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_sc/cpuSglHitReady.json`
 - case 2
 - case 2
 - case 75
@@ -22327,8 +22327,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 58
 - the cases run 88 of 129 instructions
 
-### cpuSglInput (`8C04264A`, 610 bytes, `src/gen_os.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_os/cpuSglInput.json`
+### cpuSglInput (`8C04264A`, 610 bytes, `src/gen_uq.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_uq/cpuSglInput.json`
 - case 0
 - case 1
 - case 0
@@ -22407,8 +22407,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 139
 - the cases run 226 of 422 instructions
 
-### cpuSglMove (`8C03D06C`, 2632 bytes, `src/gen_kr.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_kr/cpuSglMove.json`
+### cpuSglMove (`8C03D06C`, 2632 bytes, `src/gen_kp.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_kp/cpuSglMove.json`
 - case 0
 - case 0
 - case 0
@@ -22447,48 +22447,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 150
 - the cases run 243 of 1186 instructions
 
-### cpuSglPickLv07 (`8C04E07C`, 594 bytes, `src/gen_bk.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bk/cpuSglPickLv07.json`
-- case 5
-- case 13
-- case 0
-- case 1
-- case 2
-- case 3
-- case 4
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 16
-- case 19
-- case 20
-- case 21
-- case 149
-- case 145
-- case 108
-- case 111
-- case 102
-- case 64
-- case 96
-- case 144
-- case 152
-- case 132
-- case 146
-- case 62
-- case 105
-- case 135
-- case 140
-- case 147
-- case 79
-- case 84
-- the cases run 240 of 251 instructions
-
-### cpuSglReceivePos (`8C047898`, 316 bytes, `src/gen_bc.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bc/cpuSglReceivePos.json`
+### cpuSglReceivePos (`8C047898`, 316 bytes, `src/gen_rz.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_rz/cpuSglReceivePos.json`
 - case 0
 - case 17
 - case 27
@@ -22527,8 +22487,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 105
 - the cases run 102 of 139 instructions
 
-### cpuSglServe (`8C0465D0`, 4808 bytes, `src/gen_ci.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ci/cpuSglServe.json`
+### cpuSglServe (`8C0465D0`, 4808 bytes, `src/gen_pz.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_pz/cpuSglServe.json`
 - case 2
 - case 24
 - case 156
@@ -22567,8 +22527,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 102
 - the cases run 144 of 1890 instructions
 
-### cpuSglShot (`8C0449B4`, 346 bytes, `src/gen_bb.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bb/cpuSglShot.json`
+### cpuSglShot (`8C0449B4`, 346 bytes, `src/gen_tx.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_tx/cpuSglShot.json`
 - case 134
 - case 21
 - case 14
@@ -22607,8 +22567,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 106
 - the cases run 142 of 149 instructions
 
-### cpuSglShotDefault (`8C044B3C`, 244 bytes, `src/gen_at.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_at/cpuSglShotDefault.json`
+### cpuSglShotDefault (`8C044B3C`, 244 bytes, `src/gen_tz.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_tz/cpuSglShotDefault.json`
 - case 92
 - case 37
 - case 10
@@ -22673,8 +22633,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 34 of 82 instructions
 
-### cpuSglThink (`8C042920`, 528 bytes, `src/gen_fz.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_fz/cpuSglThink.json`
+### cpuSglThink (`8C042920`, 528 bytes, `src/gen_tr.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_tr/cpuSglThink.json`
 - case 8
 - case 0
 - case 116
@@ -22739,8 +22699,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 35 of 37 instructions
 
-### cpuShotAimCheck (`8C03EDE0`, 502 bytes, `src/gen_bm.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bm/cpuShotAimCheck.json`
+### cpuShotAimCheck (`8C03EDE0`, 502 bytes, `src/gen_om.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_om/cpuShotAimCheck.json`
 - case 3
 - case 0
 - case 0
@@ -22859,8 +22819,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 100
 - the cases run 323 of 368 instructions
 
-### cpuShotRangeFix (`8C080520`, 652 bytes, `src/gen_om.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_om/cpuShotRangeFix.json`
+### cpuShotRangeFix (`8C080520`, 652 bytes, `src/gen_fr.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_fr/cpuShotRangeFix.json`
 - case 29
 - case 2
 - case 84
@@ -23013,8 +22973,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - high bits ignored
 - the cases run 23 of 23 instructions
 
-### crowdAnimModel (`8C08CEB6`, 382 bytes, `src/gen_ba.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ba/crowdAnimModel.json`
+### crowdAnimModel (`8C08CEB6`, 382 bytes, `src/gen_jo.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_jo/crowdAnimModel.json`
 - case 1
 - case 2
 - case 3
@@ -24175,8 +24135,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 26 of 27 instructions
 
-### dbgMenuSetValue (`8C0134B6`, 62 bytes, `src/gen_p.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_p/dbgMenuSetValue.json`
+### dbgMenuSetValue (`8C0134B6`, 62 bytes, `src/gen_if.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_if/dbgMenuSetValue.json`
 - case 0
 - case 1
 - case 2
@@ -24447,8 +24407,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 308 of 313 instructions
 
-### decoHeaderDrawB (`8C0A63AC`, 346 bytes, `src/gen_en.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_en/decoHeaderDrawB.json`
+### decoHeaderDrawB (`8C0A63AC`, 346 bytes, `src/gen_vw.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_vw/decoHeaderDrawB.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 173 of 173 instructions
@@ -24613,8 +24573,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 123
 - the cases run 29 of 29 instructions
 
-### decoSwingDraw (`8C0A5E36`, 532 bytes, `src/gen_pk.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_pk/decoSwingDraw.json`
+### decoSwingDraw (`8C0A5E36`, 532 bytes, `src/gen_tt.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_tt/decoSwingDraw.json`
 - case 139
 - case 17
 - case 42
@@ -25730,8 +25690,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 128
 - the cases run 76 of 76 instructions
 
-### emotEditExec (`8C0BD652`, 940 bytes, `src/gen_fq.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_fq/emotEditExec.json`
+### emotEditExec (`8C0BD652`, 940 bytes, `src/gen_uj.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_uj/emotEditExec.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 105 of 416 instructions
@@ -25991,8 +25951,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 73
 - the cases run 54 of 54 instructions
 
-### emotKeysDefault (`8C0BEA4E`, 10818 bytes, `src/gen_kf.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_kf/emotKeysDefault.json`
+### emotKeysDefault (`8C0BEA4E`, 10818 bytes, `src/gen_jj.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_jj/emotKeysDefault.json`
 - case 0
 - case 1
 - case 2
@@ -26605,8 +26565,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 104
 - the cases run 26 of 26 instructions
 
-### endingDraw (`8C0D4210`, 1960 bytes, `src/gen_kl.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_kl/endingDraw.json`
+### endingDraw (`8C0D4210`, 1960 bytes, `src/gen_ss.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ss/endingDraw.json`
 - case 159
 - case 124
 - case 5
@@ -26831,8 +26791,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 140
 - the cases run 253 of 492 instructions
 
-### endingSceneDraw (`8C0D6034`, 818 bytes, `src/gen_jg.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_jg/endingSceneDraw.json`
+### endingSceneDraw (`8C0D6034`, 818 bytes, `src/gen_mk.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_mk/endingSceneDraw.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 276 of 340 instructions
@@ -26943,8 +26903,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 49 of 49 instructions
 
-### endingSprAnimStep (`8C0D5344`, 664 bytes, `src/gen_od.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_od/endingSprAnimStep.json`
+### endingSprAnimStep (`8C0D5344`, 664 bytes, `src/gen_oc.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_oc/endingSprAnimStep.json`
 - case 20
 - case 80
 - case 46
@@ -27221,8 +27181,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 34 of 34 instructions
 
-### entryAssignSelecters (`8C0AB72A`, 916 bytes, `src/gen_bv.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bv/entryAssignSelecters.json`
+### entryAssignSelecters (`8C0AB72A`, 916 bytes, `src/gen_fv.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_fv/entryAssignSelecters.json`
 - case 119
 - case 0
 - case 1
@@ -27381,8 +27341,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 101
 - the cases run 214 of 232 instructions
 
-### entryCharaSelExec (`8C0AE016`, 8230 bytes, `src/gen_cr.c`)
-- equivalent on 44 development and 44 holdout cases, in `tests/gen_cr/entryCharaSelExec.json`
+### entryCharaSelExec (`8C0AE016`, 8230 bytes, `src/gen_io.c`)
+- equivalent on 44 development and 44 holdout cases, in `tests/gen_io/entryCharaSelExec.json`
 - rescue: empty case
 - directed: flips 8C0AE070 (taken)
 - directed: flips 8C0AE676 (taken)
@@ -27787,11 +27747,21 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 290 of 478 instructions
 
-### entryGridDrawCursors (`8C0ABB9A`, 1548 bytes, `src/gen_lm.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_lm/entryGridDrawCursors.json`
-- rescue: empty case
-- rescue: empty case
-- the cases run 420 of 684 instructions
+### entryGridDrawCursors (`8C0ABB9A`, 1548 bytes, `src/entrygrid_b.c`)
+- equivalent on 6 development and 6 holdout cases, in `tests/entrygrid_b/entryGridDrawCursors.json`
+- hand search 35: a4 2 a5 3
+- hand search 34: a4 1 a5 2
+- hand search 39: a4 1 a5 -1
+- hand search 7: a4 1 a5 4
+- hand search 1: a4 3 a5 3
+- hand search 6: a4 2 a5 -1
+- hand search 5: a4 3 a5 0
+- hand search 2: a4 1 a5 1
+- hand search 4: a4 2 a5 0
+- hand search 0: a4 3 a5 3
+- hand search 3: a4 0 a5 2
+- hand search 8: a4 0 a5 2
+- the cases run 671 of 687 instructions
 
 ### entryGridMove (`8C0AB3A4`, 142 bytes, `src/gen_mw.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_mw/entryGridMove.json`
@@ -28082,8 +28052,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 109
 - the cases run 19 of 19 instructions
 
-### entryPortJoin (`8C0B0BE4`, 446 bytes, `src/gen_ay.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ay/entryPortJoin.json`
+### entryPortJoin (`8C0B0BE4`, 446 bytes, `src/gen_vg.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vg/entryPortJoin.json`
 - case 2
 - case 0
 - case 1
@@ -28162,8 +28132,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 151
 - the cases run 292 of 292 instructions
 
-### entryRecordCharas (`8C0AB104`, 226 bytes, `src/gen_e.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/entryRecordCharas.json`
+### entryRecordCharas (`8C0AB104`, 226 bytes, `src/gen_rr.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_rr/entryRecordCharas.json`
 - case 0
 - case 1
 - case 2
@@ -28386,8 +28356,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 74
 - the cases run 32 of 32 instructions
 
-### evBallMarkSpawn (`8C0DA242`, 154 bytes, `src/gen_u.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_u/evBallMarkSpawn.json`
+### evBallMarkSpawn (`8C0DA242`, 154 bytes, `src/gen_ig.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ig/evBallMarkSpawn.json`
 - case 145
 - case 0
 - case 1
@@ -28426,8 +28396,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 64
 - the cases run 73 of 77 instructions
 
-### evCrowdClapStart (`8C0D93DC`, 68 bytes, `src/gen_p.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_p/evCrowdClapStart.json`
+### evCrowdClapStart (`8C0D93DC`, 68 bytes, `src/gen_cr.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_cr/evCrowdClapStart.json`
 - case 12
 - case 0
 - case 1
@@ -28888,8 +28858,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 35
 - the cases run 24 of 24 instructions
 
-### evSkidMarkSpawn (`8C0DA3F6`, 816 bytes, `src/gen_ng.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ng/evSkidMarkSpawn.json`
+### evSkidMarkSpawn (`8C0DA3F6`, 816 bytes, `src/gen_na.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_na/evSkidMarkSpawn.json`
 - case 0
 - case 1
 - case 40
@@ -29923,8 +29893,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 40
 - the cases run 88 of 95 instructions
 
-### flareSunDraw (`8C08C8BC`, 724 bytes, `src/gen_nu.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_nu/flareSunDraw.json`
+### flareSunDraw (`8C08C8BC`, 724 bytes, `src/gen_ul.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ul/flareSunDraw.json`
 - case 0
 - case 2
 - case 3
@@ -32215,8 +32185,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 101
 - the cases run 2 of 2 instructions
 
-### gdFsLoadDirG (`8C1DDC62`, 268 bytes, `src/gen_e.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/gdFsLoadDirG.json`
+### gdFsLoadDirG (`8C1DDC62`, 268 bytes, `src/gen_rm.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_rm/gdFsLoadDirG.json`
 - case 0
 - case 4
 - case 7
@@ -34603,8 +34573,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 147
 - the cases run 126 of 126 instructions
 
-### hudCallWordsDraw (`8C098AE4`, 442 bytes, `src/gen_ay.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ay/hudCallWordsDraw.json`
+### hudCallWordsDraw (`8C098AE4`, 442 bytes, `src/gen_uz.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_uz/hudCallWordsDraw.json`
 - case 8
 - case 37
 - case 12
@@ -35125,8 +35095,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 114
 - the cases run 75 of 75 instructions
 
-### hudFontNumPut (`8C09A7FA`, 370 bytes, `src/gen_fc.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_fc/hudFontNumPut.json`
+### hudFontNumPut (`8C09A7FA`, 370 bytes, `src/gen_vz.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vz/hudFontNumPut.json`
 - case 21
 - case 42
 - case 0
@@ -35805,8 +35775,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 32 of 32 instructions
 
-### hudPlayerMarkers (`8C0960A4`, 538 bytes, `src/gen_ph.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ph/hudPlayerMarkers.json`
+### hudPlayerMarkers (`8C0960A4`, 538 bytes, `src/gen_uv.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_uv/hudPlayerMarkers.json`
 - case 0
 - case 1
 - case 3
@@ -35957,8 +35927,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 95 of 188 instructions
 
-### hudRankIconPut (`8C09AA36`, 412 bytes, `src/gen_az.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_az/hudRankIconPut.json`
+### hudRankIconPut (`8C09AA36`, 412 bytes, `src/gen_vi.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vi/hudRankIconPut.json`
 - case 29
 - case 37
 - case 153
@@ -36585,8 +36555,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 102
 - the cases run 102 of 102 instructions
 
-### infoPlayerDraw (`8C09F1D2`, 2918 bytes, `src/gen_kp.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_kp/infoPlayerDraw.json`
+### infoPlayerDraw (`8C09F1D2`, 2918 bytes, `src/gen_px.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_px/infoPlayerDraw.json`
 - case 11
 - case 0
 - case 1
@@ -37822,8 +37792,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 103
 - the cases run 3 of 3 instructions
 
-### kdRecvFrame (`8C1E992C`, 442 bytes, `src/gen_eq.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_eq/kdRecvFrame.json`
+### kdRecvFrame (`8C1E992C`, 442 bytes, `src/gen_qm.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_qm/kdRecvFrame.json`
 - case 10
 - case 98
 - case 95
@@ -37862,8 +37832,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 127
 - the cases run 161 of 183 instructions
 
-### kdSendFrame (`8C1E967C`, 486 bytes, `src/gen_ep.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ep/kdSendFrame.json`
+### kdSendFrame (`8C1E967C`, 486 bytes, `src/gen_va.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_va/kdSendFrame.json`
 - case 17
 - case 1
 - case 7
@@ -39030,8 +39000,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 17 of 17 instructions
 
-### kmBeginPass (`8C1E3700`, 372 bytes, `src/gen_hg.c`)
-- equivalent on 7 development and 6 holdout cases, in `tests/gen_hg/kmBeginPass.json`
+### kmBeginPass (`8C1E3700`, 372 bytes, `src/gen_vu.c`)
+- equivalent on 7 development and 6 holdout cases, in `tests/gen_vu/kmBeginPass.json`
 - case 17
 - case 29
 - case 34
@@ -39351,8 +39321,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 7 of 7 instructions
 
-### kmGetSystemMetrics (`8C1E4CA0`, 264 bytes, `src/gen_e.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/kmGetSystemMetrics.json`
+### kmGetSystemMetrics (`8C1E4CA0`, 264 bytes, `src/gen_qx.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_qx/kmGetSystemMetrics.json`
 - case 0
 - case 1
 - case 2
@@ -40008,8 +39978,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 8 of 8 instructions
 
-### kmSetFogTable (`8C1E2820`, 72 bytes, `src/gen_p.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_p/kmSetFogTable.json`
+### kmSetFogTable (`8C1E2820`, 72 bytes, `src/gen_se.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_se/kmSetFogTable.json`
 - case 0
 - case 1
 - case 2
@@ -40416,8 +40386,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 9 of 9 instructions
 
-### kmSetUserClipping (`8C1E3EE0`, 444 bytes, `src/gen_in.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_in/kmSetUserClipping.json`
+### kmSetUserClipping (`8C1E3EE0`, 444 bytes, `src/gen_qi.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_qi/kmSetUserClipping.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 202 of 206 instructions
@@ -40785,8 +40755,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 303 of 571 instructions
 
-### kmiFLWCTRLCheckFinishPacket (`8C1FA900`, 202 bytes, `src/gen_e.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/kmiFLWCTRLCheckFinishPacket.json`
+### kmiFLWCTRLCheckFinishPacket (`8C1FA900`, 202 bytes, `src/gen_ri.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_ri/kmiFLWCTRLCheckFinishPacket.json`
 - case 0
 - case 1
 - case 2
@@ -41597,8 +41567,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - swap
 - the cases run 20 of 20 instructions
 
-### kmiGuaranteeFFModeProcessOver (`8C1FAFE0`, 258 bytes, `src/gen_f.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_f/kmiGuaranteeFFModeProcessOver.json`
+### kmiGuaranteeFFModeProcessOver (`8C1FAFE0`, 258 bytes, `src/gen_qv.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_qv/kmiGuaranteeFFModeProcessOver.json`
 - case 0
 - case 3
 - case 8
@@ -41828,8 +41798,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 146
 - the cases run 72 of 72 instructions
 
-### kmiProcessVertex_16 (`8C1E61D2`, 200 bytes, `src/gen_e.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/kmiProcessVertex_16.json`
+### kmiProcessVertex_16 (`8C1E61D2`, 200 bytes, `src/gen_rp.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_rp/kmiProcessVertex_16.json`
 - case 0
 - case 3
 - case 5
@@ -42218,8 +42188,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 5 of 5 instructions
 
-### kmtex_CheckTextureFormat (`8C1FBEA0`, 754 bytes, `src/gen_hd.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_hd/kmtex_CheckTextureFormat.json`
+### kmtex_CheckTextureFormat (`8C1FBEA0`, 754 bytes, `src/gen_ek.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ek/kmtex_CheckTextureFormat.json`
 - case 1
 - case 74
 - case 109
@@ -43687,8 +43657,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 45 of 45 instructions
 
-### kmyGetFreeSize (`8C1F5500`, 386 bytes, `src/gen_eq.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_eq/kmyGetFreeSize.json`
+### kmyGetFreeSize (`8C1F5500`, 386 bytes, `src/gen_ql.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ql/kmyGetFreeSize.json`
 - case 0
 - case 3
 - case 0
@@ -44109,8 +44079,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 100
 - the cases run 10 of 10 instructions
 
-### kmyInitializeDriver (`8C1F85C4`, 58 bytes, `src/gen_p.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_p/kmyInitializeDriver.json`
+### kmyInitializeDriver (`8C1F85C4`, 58 bytes, `src/gen_sf.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_sf/kmyInitializeDriver.json`
 - case 0
 - case 1
 - case 2
@@ -47454,8 +47424,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 0 of 21 instructions (nothing compared: no case showed a write, a call, a device access or a change of SR, and the C returns nothing)
 
-### lineJudgeCall (`8C0C9E10`, 852 bytes, `src/gen_bw.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bw/lineJudgeCall.json`
+### lineJudgeCall (`8C0C9E10`, 852 bytes, `src/gen_tn.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_tn/lineJudgeCall.json`
 - case 0
 - case 69
 - case 153
@@ -47494,8 +47464,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 153
 - the cases run 163 of 371 instructions
 
-### lineJudgeDraw (`8C0C926C`, 468 bytes, `src/gen_ff.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ff/lineJudgeDraw.json`
+### lineJudgeDraw (`8C0C926C`, 468 bytes, `src/gen_vc.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vc/lineJudgeDraw.json`
 - case 0
 - case 0
 - case 3
@@ -47746,8 +47716,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 86 of 86 instructions
 
-### lineJudgeUpdate (`8C0C968C`, 1668 bytes, `src/gen_lh.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_lh/lineJudgeUpdate.json`
+### lineJudgeUpdate (`8C0C968C`, 1668 bytes, `src/gen_ji.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ji/lineJudgeUpdate.json`
 - case 63
 - case 63
 - case 63
@@ -47786,8 +47756,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 135
 - the cases run 335 of 741 instructions
 
-### lineJudgeWakeAll (`8C0C9D24`, 200 bytes, `src/gen_s.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_s/lineJudgeWakeAll.json`
+### lineJudgeWakeAll (`8C0C9D24`, 200 bytes, `src/gen_rq.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_rq/lineJudgeWakeAll.json`
 - case 4
 - case 0
 - case 1
@@ -48386,8 +48356,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 39
 - the cases run 34 of 47 instructions
 
-### markerDraw (`8C088AB4`, 394 bytes, `src/gen_ba.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ba/markerDraw.json`
+### markerDraw (`8C088AB4`, 394 bytes, `src/gen_uo.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_uo/markerDraw.json`
 - case 14
 - case 38
 - case 6
@@ -48504,8 +48474,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 59
 - the cases run 117 of 123 instructions
 
-### matchExec (`8C019500`, 2936 bytes, `src/gen_kn.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_kn/matchExec.json`
+### matchExec (`8C019500`, 2936 bytes, `src/gen_sa.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_sa/matchExec.json`
 - case 84
 - case 24
 - case 77
@@ -48544,8 +48514,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 54
 - the cases run 248 of 1156 instructions
 
-### matchFrame (`8C018F70`, 492 bytes, `src/gen_ax.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ax/matchFrame.json`
+### matchFrame (`8C018F70`, 492 bytes, `src/gen_ut.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ut/matchFrame.json`
 - case 82
 - case 0
 - case 2
@@ -48876,8 +48846,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 66
 - the cases run 18 of 18 instructions
 
-### matchSetupPlayers (`8C0184D4`, 576 bytes, `src/gen_bk.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bk/matchSetupPlayers.json`
+### matchSetupPlayers (`8C0184D4`, 576 bytes, `src/gen_pa.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_pa/matchSetupPlayers.json`
 - case 4
 - case 2
 - case 0
@@ -49278,8 +49248,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 28 of 28 instructions
 
-### menuItemDraw0 (`8C08ED0E`, 1358 bytes, `src/gen_ls.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_ls/menuItemDraw0.json`
+### menuItemDraw0 (`8C08ED0E`, 1358 bytes, `src/gen_lg.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_lg/menuItemDraw0.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 331 of 566 instructions
@@ -49290,8 +49260,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 296 of 421 instructions
 
-### menuItemDraw2 (`8C08F788`, 982 bytes, `src/gen_mk.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_mk/menuItemDraw2.json`
+### menuItemDraw2 (`8C08F788`, 982 bytes, `src/gen_qe.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_qe/menuItemDraw2.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 284 of 441 instructions
@@ -49628,14 +49598,14 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 141
 - the cases run 70 of 70 instructions
 
-### menuTextMsgPut (`8C093054`, 3848 bytes, `src/gen_ds.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_ds/menuTextMsgPut.json`
+### menuTextMsgPut (`8C093054`, 3848 bytes, `src/gen_ue.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_ue/menuTextMsgPut.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 449 of 1547 instructions
 
-### menuTextMsgPutB (`8C093F64`, 3978 bytes, `src/gen_cj.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_cj/menuTextMsgPutB.json`
+### menuTextMsgPutB (`8C093F64`, 3978 bytes, `src/gen_jw.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_jw/menuTextMsgPutB.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 453 of 1657 instructions
@@ -49766,8 +49736,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 70
 - the cases run 39 of 39 instructions
 
-### miniBowlingDraw (`8C039B54`, 1270 bytes, `src/gen_lw.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_lw/miniBowlingDraw.json`
+### miniBowlingDraw (`8C039B54`, 1270 bytes, `src/gen_ls.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ls/miniBowlingDraw.json`
 - case 5
 - case 2
 - case 0
@@ -49902,8 +49872,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 17 of 17 instructions
 
-### miniEp2TargetSpawn (`8C03A8CC`, 454 bytes, `src/gen_lg.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_lg/miniEp2TargetSpawn.json`
+### miniEp2TargetSpawn (`8C03A8CC`, 454 bytes, `src/gen_lc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_lc/miniEp2TargetSpawn.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 174 of 174 instructions
@@ -50028,8 +49998,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 159
 - the cases run 43 of 281 instructions
 
-### miniLaunchBall (`8C03A6A0`, 556 bytes, `src/gen_iy.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_iy/miniLaunchBall.json`
+### miniLaunchBall (`8C03A6A0`, 556 bytes, `src/gen_ts.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ts/miniLaunchBall.json`
 - case 0
 - case 4
 - case 8
@@ -50068,8 +50038,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 286
 - the cases run 226 of 227 instructions
 
-### miniLobTargetSpawn (`8C039674`, 228 bytes, `src/gen_fi.c`)
-- equivalent on 13 development and 13 holdout cases, in `tests/gen_fi/miniLobTargetSpawn.json`
+### miniLobTargetSpawn (`8C039674`, 228 bytes, `src/gen_od.c`)
+- equivalent on 13 development and 13 holdout cases, in `tests/gen_od/miniLobTargetSpawn.json`
 - case 0
 - case 7
 - case 39
@@ -50390,8 +50360,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 86
 - the cases run 58 of 218 instructions
 
-### miniRoundStart (`8C037302`, 714 bytes, `src/gen_bg.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bg/miniRoundStart.json`
+### miniRoundStart (`8C037302`, 714 bytes, `src/gen_ku.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ku/miniRoundStart.json`
 - case 115
 - case 0
 - case 72
@@ -50562,8 +50532,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 151
 - the cases run 119 of 129 instructions
 
-### miniTargetInit (`8C037E1C`, 344 bytes, `src/gen_hq.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_hq/miniTargetInit.json`
+### miniTargetInit (`8C037E1C`, 344 bytes, `src/gen_qa.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_qa/miniTargetInit.json`
 - case 3
 - case 0
 - case 1
@@ -51535,8 +51505,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 362 of 978 instructions
 
-### motionRoot2 (`8C015436`, 1126 bytes, `src/gen_mc.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_mc/motionRoot2.json`
+### motionRoot2 (`8C015436`, 1126 bytes, `src/gen_qc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_qc/motionRoot2.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 388 of 555 instructions
@@ -51719,8 +51689,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 58 of 58 instructions
 
-### motionRotate (`8C014010`, 1496 bytes, `src/gen_lo.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_lo/motionRotate.json`
+### motionRotate (`8C014010`, 1496 bytes, `src/gen_tk.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_tk/motionRotate.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 363 of 716 instructions
@@ -52759,8 +52729,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 155
 - the cases run 8 of 8 instructions
 
-### mpdrv_make_deviceinfo (`8C1FE4E2`, 324 bytes, `src/gen_cg.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_cg/mpdrv_make_deviceinfo.json`
+### mpdrv_make_deviceinfo (`8C1FE4E2`, 324 bytes, `src/gen_rb.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_rb/mpdrv_make_deviceinfo.json`
 - case 4
 - case 0
 - case 8
@@ -54890,8 +54860,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - set b zero
 - the cases run 15 of 15 instructions
 
-### mwRnaExecServer (`8C1F27E0`, 72 bytes, `src/gen_p.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_p/mwRnaExecServer.json`
+### mwRnaExecServer (`8C1F27E0`, 72 bytes, `src/gen_sg.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_sg/mwRnaExecServer.json`
 - case 0
 - case 0
 - case 1
@@ -56570,8 +56540,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 122
 - the cases run 31 of 31 instructions
 
-### mwlRnaStartTrans (`8C1F2450`, 382 bytes, `src/gen_jo.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_jo/mwlRnaStartTrans.json`
+### mwlRnaStartTrans (`8C1F2450`, 382 bytes, `src/gen_qs.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_qs/mwlRnaStartTrans.json`
 - case 0
 - case 1
 - case 2
@@ -58260,8 +58230,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 9 of 9 instructions
 
-### nlChangeDisplayMode (`8C0EC230`, 404 bytes, `src/gen_az.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_az/nlChangeDisplayMode.json`
+### nlChangeDisplayMode (`8C0EC230`, 404 bytes, `src/gen_vo.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vo/nlChangeDisplayMode.json`
 - case 0
 - case 1
 - case 2
@@ -58460,8 +58430,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 137
 - the cases run 15 of 27 instructions
 
-### nlChgObjectPolyAttrSub (`8C0F7990`, 182 bytes, `src/gen_ak.c`)
-- equivalent on 2 development and 2 holdout cases, in `tests/gen_ak/nlChgObjectPolyAttrSub.json`
+### nlChgObjectPolyAttrSub (`8C0F7990`, 182 bytes, `src/gen_sh.c`)
+- equivalent on 2 development and 2 holdout cases, in `tests/gen_sh/nlChgObjectPolyAttrSub.json`
 - rescue: flips 8C0F79A2
 - rescue: flips 8C0F79A2
 - rescue: flips 8C0F79A2
@@ -60130,8 +60100,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - quarter
 - the cases run 16 of 16 instructions
 
-### nlInvertMatrix (`8C0EF110`, 340 bytes, `src/gen_cg.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_cg/nlInvertMatrix.json`
+### nlInvertMatrix (`8C0EF110`, 340 bytes, `src/gen_qp.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_qp/nlInvertMatrix.json`
 - case 30
 - case 15
 - case 52
@@ -60531,8 +60501,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 114
 - the cases run 26 of 26 instructions
 
-### nlLineDrawThick (`8C0F3840`, 548 bytes, `src/gen_bl.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bl/nlLineDrawThick.json`
+### nlLineDrawThick (`8C0F3840`, 548 bytes, `src/gen_oy.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_oy/nlLineDrawThick.json`
 - case 13
 - case 0
 - case 12
@@ -62317,8 +62287,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - negatives
 - the cases run 26 of 26 instructions
 
-### nlPerspective (`8C0F0B00`, 626 bytes, `src/gen_gx.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_gx/nlPerspective.json`
+### nlPerspective (`8C0F0B00`, 626 bytes, `src/gen_ug.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ug/nlPerspective.json`
 - case 9
 - case 0
 - case 1
@@ -62710,8 +62680,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - big
 - the cases run 13 of 13 instructions
 
-### nlPuts (`8C0EDB30`, 344 bytes, `src/gen_cf.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_cf/nlPuts.json`
+### nlPuts (`8C0EDB30`, 344 bytes, `src/gen_qw.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_qw/nlPuts.json`
 - case 0
 - case 149
 - case 4
@@ -62750,8 +62720,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 142
 - the cases run 78 of 112 instructions
 
-### nlQuickInvertMatrix (`8C0EFDE0`, 60 bytes, `src/gen_p.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_p/nlQuickInvertMatrix.json`
+### nlQuickInvertMatrix (`8C0EFDE0`, 60 bytes, `src/gen_si.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_si/nlQuickInvertMatrix.json`
 - case 15
 - case 15
 - case 15
@@ -62941,8 +62911,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 75
 - the cases run 98 of 98 instructions
 
-### nlRenderTextureEnd (`8C0EE4D0`, 222 bytes, `src/gen_av.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_av/nlRenderTextureEnd.json`
+### nlRenderTextureEnd (`8C0EE4D0`, 222 bytes, `src/gen_qg.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_qg/nlRenderTextureEnd.json`
 - case 0
 - case 4
 - case 18
@@ -64480,8 +64450,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 59 of 71 instructions
 
-### nlSpriteChangePalette (`8C0F4650`, 416 bytes, `src/gen_cf.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_cf/nlSpriteChangePalette.json`
+### nlSpriteChangePalette (`8C0F4650`, 416 bytes, `src/gen_qq.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_qq/nlSpriteChangePalette.json`
 - case 158
 - case 158
 - case 8
@@ -65359,8 +65329,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 4 of 4 instructions
 
-### nlSysRender (`8C0EC8B0`, 356 bytes, `src/gen_oe.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_oe/nlSysRender.json`
+### nlSysRender (`8C0EC8B0`, 356 bytes, `src/gen_un.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_un/nlSysRender.json`
 - case 0
 - case 39
 - case 36
@@ -66218,8 +66188,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 213
 - the cases run 134 of 137 instructions
 
-### nlkmCreateTextureSurface_stride (`8C0EDF40`, 396 bytes, `src/gen_cf.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_cf/nlkmCreateTextureSurface_stride.json`
+### nlkmCreateTextureSurface_stride (`8C0EDF40`, 396 bytes, `src/gen_wa.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_wa/nlkmCreateTextureSurface_stride.json`
 - case 40
 - case 1
 - case 3
@@ -66964,8 +66934,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 96
 - the cases run 83 of 89 instructions
 
-### nlsndInit (`8C0F5070`, 468 bytes, `src/gen_pm.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_pm/nlsndInit.json`
+### nlsndInit (`8C0F5070`, 468 bytes, `src/gen_pk.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_pk/nlsndInit.json`
 - case 61
 - case 0
 - case 3
@@ -67090,8 +67060,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 68 of 68 instructions
 
-### nlsndPackLoad (`8C0F5280`, 142 bytes, `src/gen_ae.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ae/nlsndPackLoad.json`
+### nlsndPackLoad (`8C0F5280`, 142 bytes, `src/gen_uy.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_uy/nlsndPackLoad.json`
 - case 0
 - case 1
 - case 2
@@ -67782,8 +67752,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - 0x10
 - the cases run 7 of 7 instructions
 
-### nlsndStreamGetParam (`8C0F6930`, 444 bytes, `src/gen_af.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_af/nlsndStreamGetParam.json`
+### nlsndStreamGetParam (`8C0F6930`, 444 bytes, `src/gen_vk.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vk/nlsndStreamGetParam.json`
 - case 131
 - case 131
 - case 5
@@ -68544,8 +68514,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 62 of 62 instructions
 
-### nlstripSetVertexContextTex (`8C0F72C0`, 434 bytes, `src/gen_cz.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_cz/nlstripSetVertexContextTex.json`
+### nlstripSetVertexContextTex (`8C0F72C0`, 434 bytes, `src/gen_qh.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_qh/nlstripSetVertexContextTex.json`
 - case 0
 - case 4
 - case 8
@@ -68584,8 +68554,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 109
 - the cases run 27 of 173 instructions
 
-### numPutDigits (`8C0900D2`, 182 bytes, `src/gen_s.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_s/numPutDigits.json`
+### numPutDigits (`8C0900D2`, 182 bytes, `src/gen_vr.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vr/numPutDigits.json`
 - case 1
 - case 0
 - case 2
@@ -69546,8 +69516,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 27 of 27 instructions
 
-### padLcdDraw (`8C02F63A`, 1256 bytes, `src/gen_ly.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ly/padLcdDraw.json`
+### padLcdDraw (`8C02F63A`, 1256 bytes, `src/gen_lo.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_lo/padLcdDraw.json`
 - case 1
 - case 0
 - case 2
@@ -69861,8 +69831,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 35 of 35 instructions
 
-### padPauseOnUnplug (`8C03020E`, 308 bytes, `src/gen_lc.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_lc/padPauseOnUnplug.json`
+### padPauseOnUnplug (`8C03020E`, 308 bytes, `src/gen_ky.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ky/padPauseOnUnplug.json`
 - case 0
 - case 31
 - case 3
@@ -69979,8 +69949,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 67 of 68 instructions
 
-### padVibExec (`8C02F3AE`, 434 bytes, `src/gen_az.c`)
-- equivalent on 18 development and 10 holdout cases, in `tests/gen_az/padVibExec.json`
+### padVibExec (`8C02F3AE`, 434 bytes, `src/gen_qk.c`)
+- equivalent on 18 development and 10 holdout cases, in `tests/gen_qk/padVibExec.json`
 - case 0
 - case 0
 - case 0
@@ -72841,8 +72811,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 106
 - the cases run 19 of 19 instructions
 
-### playerCalcMotionSpeeds (`8C0276B4`, 224 bytes, `src/gen_av.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_av/playerCalcMotionSpeeds.json`
+### playerCalcMotionSpeeds (`8C0276B4`, 224 bytes, `src/gen_rs.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_rs/playerCalcMotionSpeeds.json`
 - case 15
 - case 0
 - case 4
@@ -72881,8 +72851,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 55
 - the cases run 112 of 112 instructions
 
-### playerChooseSwing (`8C028DE0`, 2344 bytes, `src/gen_it.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_it/playerChooseSwing.json`
+### playerChooseSwing (`8C028DE0`, 2344 bytes, `src/gen_bt.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_bt/playerChooseSwing.json`
 - case 155
 - case 122
 - case 4
@@ -72921,8 +72891,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 80
 - the cases run 482 of 1026 instructions
 
-### playerControl (`8C01DE1A`, 21482 bytes, `src/gen_io.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_io/playerControl.json`
+### playerControl (`8C01DE1A`, 21482 bytes, `src/gen_sr.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_sr/playerControl.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 854 of 9035 instructions
@@ -72953,8 +72923,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 10 of 10 instructions
 
-### playerDrawMarker (`8C028244`, 684 bytes, `src/gen_nw.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_nw/playerDrawMarker.json`
+### playerDrawMarker (`8C028244`, 684 bytes, `src/gen_nu.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_nu/playerDrawMarker.json`
 - case 0
 - case 1
 - case 0
@@ -72999,8 +72969,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 219 of 280 instructions
 
-### playerDrawNodeFacing (`8C01BA80`, 496 bytes, `src/gen_ib.c`)
-- equivalent on 12 development and 11 holdout cases, in `tests/gen_ib/playerDrawNodeFacing.json`
+### playerDrawNodeFacing (`8C01BA80`, 496 bytes, `src/gen_dy.c`)
+- equivalent on 12 development and 11 holdout cases, in `tests/gen_dy/playerDrawNodeFacing.json`
 - case 22
 - case 22
 - case 99
@@ -73026,8 +72996,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 137
 - the cases run 143 of 220 instructions
 
-### playerExec (`8C025980`, 762 bytes, `src/gen_ek.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ek/playerExec.json`
+### playerExec (`8C025980`, 762 bytes, `src/gen_np.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_np/playerExec.json`
 - case 10
 - case 50
 - case 20
@@ -73106,8 +73076,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 137
 - the cases run 199 of 244 instructions
 
-### playerInit (`8C025CA4`, 1674 bytes, `src/gen_ji.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_ji/playerInit.json`
+### playerInit (`8C025CA4`, 1674 bytes, `src/gen_ia.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_ia/playerInit.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 541 of 678 instructions
@@ -73138,8 +73108,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 38 of 38 instructions
 
-### playerMoveToTarget (`8C02654A`, 4068 bytes, `src/gen_jw.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_jw/playerMoveToTarget.json`
+### playerMoveToTarget (`8C02654A`, 4068 bytes, `src/gen_kh.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_kh/playerMoveToTarget.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 254 of 1735 instructions
@@ -73184,8 +73154,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 149
 - the cases run 170 of 170 instructions
 
-### playerPut (`8C01BC70`, 7898 bytes, `src/gen_iv.c`)
-- equivalent on 18 development and 8 holdout cases, in `tests/gen_iv/playerPut.json`
+### playerPut (`8C01BC70`, 7898 bytes, `src/gen_sd.c`)
+- equivalent on 18 development and 8 holdout cases, in `tests/gen_sd/playerPut.json`
 - case 0
 - case 131
 - case 22
@@ -73280,8 +73250,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 19 of 19 instructions
 
-### playerSetReceiveFlag (`8C02646E`, 216 bytes, `src/gen_av.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_av/playerSetReceiveFlag.json`
+### playerSetReceiveFlag (`8C02646E`, 216 bytes, `src/gen_ub.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ub/playerSetReceiveFlag.json`
 - case 21
 - case 106
 - case 109
@@ -73360,8 +73330,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 39
 - the cases run 21 of 21 instructions
 
-### playerSolveArmReach (`8C027794`, 1828 bytes, `src/gen_ia.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ia/playerSolveArmReach.json`
+### playerSolveArmReach (`8C027794`, 1828 bytes, `src/gen_sv.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_sv/playerSolveArmReach.json`
 - case 111
 - case 37
 - case 27
@@ -73440,8 +73410,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 113
 - the cases run 35 of 379 instructions
 
-### playerStartSwing (`8C028514`, 2252 bytes, `src/gen_co.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_co/playerStartSwing.json`
+### playerStartSwing (`8C028514`, 2252 bytes, `src/gen_sj.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_sj/playerStartSwing.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 576 of 1007 instructions
@@ -73566,8 +73536,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 72
 - the cases run 111 of 111 instructions
 
-### primLineV (`8C0BB65E`, 178 bytes, `src/gen_ak.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ak/primLineV.json`
+### primLineV (`8C0BB65E`, 178 bytes, `src/gen_sk.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_sk/primLineV.json`
 - case 0
 - case 1
 - case 2
@@ -73612,8 +73582,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 666 of 674 instructions
 
-### primRect (`8C0BB8B4`, 190 bytes, `src/gen_ak.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ak/primRect.json`
+### primRect (`8C0BB8B4`, 190 bytes, `src/gen_sl.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_sl/primRect.json`
 - case 0
 - case 1
 - case 2
@@ -73732,8 +73702,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 116
 - the cases run 104 of 104 instructions
 
-### primRectFrame (`8C0BB97C`, 690 bytes, `src/gen_oc.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_oc/primRectFrame.json`
+### primRectFrame (`8C0BB97C`, 690 bytes, `src/gen_ny.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_ny/primRectFrame.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 339 of 339 instructions
@@ -74125,8 +74095,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 125 of 188 instructions
 
-### rankDrawGlyph (`8C0E0E84`, 622 bytes, `src/gen_na.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_na/rankDrawGlyph.json`
+### rankDrawGlyph (`8C0E0E84`, 622 bytes, `src/gen_mz.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_mz/rankDrawGlyph.json`
 - case 139
 - case 1
 - case 92
@@ -74363,8 +74333,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 14 of 17 instructions
 
-### rankNameEntryExec (`8C0E2298`, 4938 bytes, `src/gen_kj.c`)
-- equivalent on 34 development and 33 holdout cases, in `tests/gen_kj/rankNameEntryExec.json`
+### rankNameEntryExec (`8C0E2298`, 4938 bytes, `src/gen_cu.c`)
+- equivalent on 34 development and 33 holdout cases, in `tests/gen_cu/rankNameEntryExec.json`
 - rescue: empty case
 - directed: flips 8C0E229E (not taken)
 - directed: flips 8C0E351E (taken)
@@ -75884,8 +75854,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 118
 - the cases run 5 of 5 instructions
 
-### resultBoxDraw (`8C0A02EC`, 384 bytes, `src/gen_ba.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_ba/resultBoxDraw.json`
+### resultBoxDraw (`8C0A02EC`, 384 bytes, `src/gen_sy.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_sy/resultBoxDraw.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 192 of 192 instructions
@@ -76244,8 +76214,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 0 of 12 instructions (nothing compared: no case showed a write, a call, a device access or a change of SR, and the C returns nothing)
 
-### scoreAddPoint (`8C019200`, 742 bytes, `src/gen_np.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_np/scoreAddPoint.json`
+### scoreAddPoint (`8C019200`, 742 bytes, `src/gen_nn.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_nn/scoreAddPoint.json`
 - case 51
 - case 5
 - case 54
@@ -76416,8 +76386,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 40 of 40 instructions
 
-### scoreUpdate (`8C09055C`, 1152 bytes, `src/gen_et.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_et/scoreUpdate.json`
+### scoreUpdate (`8C09055C`, 1152 bytes, `src/gen_ma.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ma/scoreUpdate.json`
 - case 37
 - case 49
 - case 145
@@ -76755,8 +76725,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 142
 - the cases run 35 of 95 instructions
 
-### seBallSpeed (`8C0D1F6C`, 312 bytes, `src/gen_bd.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bd/seBallSpeed.json`
+### seBallSpeed (`8C0D1F6C`, 312 bytes, `src/gen_ty.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ty/seBallSpeed.json`
 - case 63
 - case 63
 - case 67
@@ -76795,8 +76765,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 128
 - the cases run 133 of 135 instructions
 
-### seFootLand (`8C0D249C`, 330 bytes, `src/gen_bc.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bc/seFootLand.json`
+### seFootLand (`8C0D249C`, 330 bytes, `src/gen_tf.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_tf/seFootLand.json`
 - case 30
 - case 30
 - case 20
@@ -76835,8 +76805,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 86
 - the cases run 133 of 142 instructions
 
-### seFootSlide (`8C0D18EC`, 564 bytes, `src/gen_bk.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bk/seFootSlide.json`
+### seFootSlide (`8C0D18EC`, 564 bytes, `src/gen_pc.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_pc/seFootSlide.json`
 - case 101
 - case 51
 - case 31
@@ -76915,8 +76885,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 48
 - the cases run 41 of 44 instructions
 
-### seFootstepCheck (`8C0D20A4`, 868 bytes, `src/gen_mz.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_mz/seFootstepCheck.json`
+### seFootstepCheck (`8C0D20A4`, 868 bytes, `src/gen_jt.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_jt/seFootstepCheck.json`
 - case 0
 - case 0
 - case 0
@@ -77101,8 +77071,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 133
 - the cases run 200 of 219 instructions
 
-### seShotHit2 (`8C0D1E6C`, 222 bytes, `src/gen_fi.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_fi/seShotHit2.json`
+### seShotHit2 (`8C0D1E6C`, 222 bytes, `src/gen_ti.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ti/seShotHit2.json`
 - case 23
 - case 36
 - case 18
@@ -77979,8 +77949,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 23 of 23 instructions
 
-### selGridDraw (`8C0A7400`, 552 bytes, `src/gen_pc.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_pc/selGridDraw.json`
+### selGridDraw (`8C0A7400`, 552 bytes, `src/gen_uu.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_uu/selGridDraw.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 176 of 240 instructions
@@ -78091,8 +78061,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 17 of 28 instructions
 
-### selJoinCheck (`8C0A8B7C`, 312 bytes, `src/gen_bd.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bd/selJoinCheck.json`
+### selJoinCheck (`8C0A8B7C`, 312 bytes, `src/gen_ks.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ks/selJoinCheck.json`
 - case 0
 - case 0
 - case 0
@@ -78157,8 +78127,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 32 of 32 instructions
 
-### selModelSpawn (`8C0A94FC`, 546 bytes, `src/gen_hf.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_hf/selModelSpawn.json`
+### selModelSpawn (`8C0A94FC`, 546 bytes, `src/gen_ka.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ka/selModelSpawn.json`
 - case 2
 - case 0
 - case 2
@@ -79177,8 +79147,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - 11 points then a break
 - the cases run 450 of 459 instructions
 
-### shadowVolExtrude (`8C011FF0`, 56 bytes, `src/gen_p.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_p/shadowVolExtrude.json`
+### shadowVolExtrude (`8C011FF0`, 56 bytes, `src/gen_kj.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_kj/shadowVolExtrude.json`
 - case 0
 - case 1
 - case 2
@@ -79481,8 +79451,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 52
 - the cases run 163 of 194 instructions
 
-### shopInit (`8C0E6478`, 424 bytes, `src/gen_az.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_az/shopInit.json`
+### shopInit (`8C0E6478`, 424 bytes, `src/gen_ci.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ci/shopInit.json`
 - case 0
 - case 0
 - case 0
@@ -79673,8 +79643,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 185 of 201 instructions
 
-### shotCheckNet (`8C029D38`, 532 bytes, `src/gen_bl.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bl/shotCheckNet.json`
+### shotCheckNet (`8C029D38`, 532 bytes, `src/gen_ph.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ph/shotCheckNet.json`
 - case 0
 - case 1
 - case 5
@@ -79837,8 +79807,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 94
 - the cases run 19 of 19 instructions
 
-### sndCrowdBallReact (`8C0D2EF8`, 578 bytes, `src/gen_bk.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bk/sndCrowdBallReact.json`
+### sndCrowdBallReact (`8C0D2EF8`, 578 bytes, `src/gen_tc.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_tc/sndCrowdBallReact.json`
 - case 65
 - case 65
 - case 108
@@ -81056,8 +81026,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - mode 1, 1 entry
 - the cases run 528 of 538 instructions
 
-### sprListPutGrad (`8C0DE2D4`, 248 bytes, `src/gen_mx.c`)
-- equivalent on 8 development and 7 holdout cases, in `tests/gen_mx/sprListPutGrad.json`
+### sprListPutGrad (`8C0DE2D4`, 248 bytes, `src/gen_uk.c`)
+- equivalent on 8 development and 7 holdout cases, in `tests/gen_uk/sprListPutGrad.json`
 - case 7
 - case 11
 - case 25
@@ -82718,8 +82688,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 21 of 21 instructions
 
-### sprSheetPut (`8C01780A`, 332 bytes, `src/gen_bc.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bc/sprSheetPut.json`
+### sprSheetPut (`8C01780A`, 332 bytes, `src/gen_ra.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ra/sprSheetPut.json`
 - case 7
 - case 0
 - case 1
@@ -82758,8 +82728,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 60
 - the cases run 158 of 158 instructions
 
-### sprSheetSet (`8C017718`, 242 bytes, `src/gen_e.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/sprSheetSet.json`
+### sprSheetSet (`8C017718`, 242 bytes, `src/gen_rn.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_rn/sprSheetSet.json`
 - case 0
 - case 1
 - case 2
@@ -83126,8 +83096,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 87
 - the cases run 76 of 76 instructions
 
-### sseleGridDraw (`8C0C17B6`, 384 bytes, `src/gen_jz.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_jz/sseleGridDraw.json`
+### sseleGridDraw (`8C0C17B6`, 384 bytes, `src/gen_st.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_st/sseleGridDraw.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 106 of 106 instructions
@@ -83172,8 +83142,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 93
 - the cases run 74 of 84 instructions
 
-### sseleSlotEntry (`8C0C1558`, 268 bytes, `src/gen_fb.c`)
-- equivalent on 18 development and 8 holdout cases, in `tests/gen_fb/sseleSlotEntry.json`
+### sseleSlotEntry (`8C0C1558`, 268 bytes, `src/gen_os.c`)
+- equivalent on 18 development and 8 holdout cases, in `tests/gen_os/sseleSlotEntry.json`
 - case 2
 - case 0
 - case 1
@@ -83426,8 +83396,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 27 of 27 instructions
 
-### staffShadowFlat (`8C0CAED4`, 498 bytes, `src/gen_dy.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_dy/staffShadowFlat.json`
+### staffShadowFlat (`8C0CAED4`, 498 bytes, `src/gen_ux.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ux/staffShadowFlat.json`
 - case 0
 - case 1
 - case 2
@@ -84506,8 +84476,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 10
 - the cases run 353 of 389 instructions
 
-### stageSegaCourtDraw (`8C0B93A6`, 616 bytes, `src/gen_bj.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bj/stageSegaCourtDraw.json`
+### stageSegaCourtDraw (`8C0B93A6`, 616 bytes, `src/gen_hd.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_hd/stageSegaCourtDraw.json`
 - case 2
 - case 0
 - case 7
@@ -85283,8 +85253,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 82
 - the cases run 183 of 183 instructions
 
-### standDraw (`8C0A47DC`, 614 bytes, `src/gen_ka.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_ka/standDraw.json`
+### standDraw (`8C0A47DC`, 614 bytes, `src/gen_db.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_db/standDraw.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 210 of 258 instructions
@@ -85793,8 +85763,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 30 of 34 instructions
 
-### strmCallPlayerOnce (`8C0D7B34`, 238 bytes, `src/gen_e.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/strmCallPlayerOnce.json`
+### strmCallPlayerOnce (`8C0D7B34`, 238 bytes, `src/gen_rd.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_rd/strmCallPlayerOnce.json`
 - case 0
 - case 1
 - case 2
@@ -85819,8 +85789,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 28 of 117 instructions
 
-### strmCallScore (`8C0D791E`, 382 bytes, `src/gen_ba.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ba/strmCallScore.json`
+### strmCallScore (`8C0D791E`, 382 bytes, `src/gen_qt.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_qt/strmCallScore.json`
 - case 120
 - case 13
 - case 12
@@ -86494,8 +86464,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 141
 - the cases run 49 of 49 instructions
 
-### sunPut (`8C0CF8EA`, 632 bytes, `src/gen_bi.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bi/sunPut.json`
+### sunPut (`8C0CF8EA`, 632 bytes, `src/gen_um.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_um/sunPut.json`
 - case 24
 - case 0
 - case 4
@@ -86574,8 +86544,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 103
 - the cases run 90 of 117 instructions
 
-### swingBlurSpawn (`8C08E0C8`, 148 bytes, `src/gen_ak.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_ak/swingBlurSpawn.json`
+### swingBlurSpawn (`8C08E0C8`, 148 bytes, `src/gen_so.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_so/swingBlurSpawn.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 74 of 74 instructions
@@ -86759,8 +86729,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 79
 - the cases run 5 of 5 instructions
 
-### syCacheFinish_P2_ (`8C1E7936`, 66 bytes, `src/gen_p.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_p/syCacheFinish_P2_.json`
+### syCacheFinish_P2_ (`8C1E7936`, 66 bytes, `src/gen_sq.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_sq/syCacheFinish_P2_.json`
 - case 0
 - case 1
 - case 2
@@ -87272,8 +87242,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 13 of 26 instructions
 
-### syChainAddHandler (`8C1E82A4`, 430 bytes, `src/gen_cf.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_cf/syChainAddHandler.json`
+### syChainAddHandler (`8C1E82A4`, 430 bytes, `src/gen_vq.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vq/syChainAddHandler.json`
 - case 0
 - case 0
 - case 41
@@ -88174,8 +88144,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 66
 - the cases run 36 of 209 instructions
 
-### syIntInit (`8C1E8738`, 470 bytes, `src/gen_ax.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ax/syIntInit.json`
+### syIntInit (`8C1E8738`, 470 bytes, `src/gen_vf.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vf/syIntInit.json`
 - case 0
 - case 1
 - case 2
@@ -89042,8 +89012,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 80
 - the cases run 53 of 53 instructions
 
-### sysVideoSelect (`8C01106C`, 1792 bytes, `src/gen_jn.c`)
-- equivalent on 3 development and 3 holdout cases, in `tests/gen_jn/sysVideoSelect.json`
+### sysVideoSelect (`8C01106C`, 1792 bytes, `src/gen_te.c`)
+- equivalent on 3 development and 3 holdout cases, in `tests/gen_te/sysVideoSelect.json`
 - rescue: flips 8C011164
 - rescue: flips 8C011164
 - rescue: flips 8C011170
@@ -91648,8 +91618,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 76
 - the cases run 13 of 13 instructions
 
-### uniformSlotLoad (`8C0C5EAC`, 1202 bytes, `src/gen_bq.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bq/uniformSlotLoad.json`
+### uniformSlotLoad (`8C0C5EAC`, 1202 bytes, `src/gen_lw.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_lw/uniformSlotLoad.json`
 - case 33
 - case 7
 - case 0
@@ -92492,8 +92462,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 16 of 16 instructions
 
-### vecSegCrossXZ (`8C017496`, 258 bytes, `src/gen_fc.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_fc/vecSegCrossXZ.json`
+### vecSegCrossXZ (`8C017496`, 258 bytes, `src/gen_qz.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_qz/vecSegCrossXZ.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 79 of 129 instructions
@@ -95210,8 +95180,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 141
 - the cases run 91 of 124 instructions
 
-### vmsio_block_write (`8C1FEF02`, 478 bytes, `src/gen_eq.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_eq/vmsio_block_write.json`
+### vmsio_block_write (`8C1FEF02`, 478 bytes, `src/gen_vd.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_vd/vmsio_block_write.json`
 - case 9
 - case 9
 - case 25
@@ -95290,8 +95260,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 64
 - the cases run 2 of 2 instructions
 
-### vmsio_get_media_info (`8C1FEBF8`, 474 bytes, `src/gen_fa.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_fa/vmsio_get_media_info.json`
+### vmsio_get_media_info (`8C1FEBF8`, 474 bytes, `src/gen_ve.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ve/vmsio_get_media_info.json`
 - case 141
 - case 0
 - case 1
@@ -95556,8 +95526,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 56
 - the cases run 57 of 57 instructions
 
-### winPartsPut (`8C0DE654`, 426 bytes, `src/gen_ig.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ig/winPartsPut.json`
+### winPartsPut (`8C0DE654`, 426 bytes, `src/gen_qn.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_qn/winPartsPut.json`
 - case 57
 - case 0
 - case 1
@@ -95969,8 +95939,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 7 of 7 instructions
 
-### zoneListSample (`8C03CEF0`, 272 bytes, `src/gen_as.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_as/zoneListSample.json`
+### zoneListSample (`8C03CEF0`, 272 bytes, `src/gen_rc.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_rc/zoneListSample.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 51 of 124 instructions

@@ -208,9 +208,9 @@ int cpuDblAimArc(int a4, int a5)
 
 int windowBgDraw(int a4, int a5, float f4)
 {
-    int t51;
-    float u43;
-    float u45;
+    register int t51;
+    register float u43;
+    register float u45;
     int stk[75];
 
     t51 = 0xFFFFFF48;
@@ -320,15 +320,15 @@ int fadeQuadDrawB(int a4, int a5, int a6, float f4)
 
 int primSprDrawScaleAlpha(int a4, int a5, int a6, float f4, float f5, float f6)
 {
-    float u0;
-    float u1;
-    float u3;
-    float u4;
-    int t6;
-    float u7;
-    float u8;
-    int t13;
-    float u14;
+    register float u0;
+    register float u1;
+    register float u3;
+    register float u4;
+    register int t6;
+    register float u7;
+    register float u8;
+    register int t13;
+    register float u14;
     int stk[75];
 
     u0 = *(float *)((a4 + 0x20));
@@ -361,15 +361,15 @@ int primSprDrawScaleAlpha(int a4, int a5, int a6, float f4, float f5, float f6)
 
 int primSprDraw(int a4, int a5, int a6, int a7)
 {
-    float u0;
-    float u1;
-    float u2;
-    float u3;
-    int t4;
-    float u5;
-    float u6;
-    int t11;
-    float u12;
+    register float u0;
+    register float u1;
+    register float u2;
+    register float u3;
+    register int t4;
+    register float u5;
+    register float u6;
+    register int t11;
+    register float u12;
     int stk[75];
 
     u0 = *(float *)((a4 + 0x20));
@@ -402,15 +402,15 @@ int primSprDraw(int a4, int a5, int a6, int a7)
 
 int primSprDrawScale(int a4, int a5, int a6, float f4, float f5)
 {
-    float u0;
-    float u1;
-    float u3;
-    float u4;
-    int t6;
-    float u7;
-    float u8;
-    int t13;
-    float u14;
+    register float u0;
+    register float u1;
+    register float u3;
+    register float u4;
+    register int t6;
+    register float u7;
+    register float u8;
+    register int t13;
+    register float u14;
     int stk[74];
 
     u0 = *(float *)((a4 + 0x20));

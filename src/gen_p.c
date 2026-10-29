@@ -203,71 +203,7 @@ int nlSysMetricsInit(void)
 }
 
 
-int kmSetFogTable(int a4)
-{
-    float u0;
-    int t1;
-    int t2;
-    float u3;
-    int t4;
-    int t5;
 
-    u0 = *(float *)((a4 + 0x1FC));
-    t1 = ((int)(u0 * 255.0f) & 0xFF);
-    t2 = 0x80;
-    for (;;) {
-        t2 = (t2 - 1);
-        u3 = *(float *)((a4 + (t2 << 2)));
-        t4 = t1;
-        t1 = (int)(u3 * 255.0f);
-        t1 = (t1 & 0xFF);
-        *(unsigned int *)(((t2 << 2) + 0x8C4707EC)) = (unsigned short)((t1 << 8) | t4);
-        if (t2 == 0) {
-            break;
-        }
-    }
-    t5 = *(int *)0x8C4709EC;
-    *(unsigned int *)0x8C4709EC = (t5 | 0x4);
-    return 0x0;
-}
-
-int mwRnaExecServer(void)
-{
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t11;
-    int t8;
-    int t9;
-    int stk[7] = {0};
-
-    ovLockCs_8c200114(((int)stk + 4));
-    t1 = 0x8C46D68C;
-    t2 = 0x8C46D68C;
-    t3 = 0x8C46D68C;
-    t4 = 0x8C46D68C;
-    for (;;) {
-        t5 = *(signed char *)((t4 + 0x0));
-        if ((unsigned char)t5 == 1) {
-            t1 = t3;
-            mwlRnaExecSvrHndl(t1);
-        } else {
-            t8 = t1;
-            t9 = t2;
-        }
-        t4 = (t4 + 0x90);
-        t1 = t8;
-        t2 = t9;
-        t3 = (t3 + 0x90);
-        if ((unsigned int)t4 >= (unsigned int)0x8C46DB0C) {
-            break;
-        }
-    }
-    t11 = ovUnlockCs_8c20012c(((int)stk + 4));
-    return t11;
-}
 
 
 int sprCellInit(int a4, int a5)
@@ -352,55 +288,6 @@ int strmCallName(int a4)
     return 0xC58;
 }
 
-int SJUNI_GetNumData(int a4, int a5)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t10;
-    int t11;
-    int t12;
-    int t13;
-    int t14;
-    int t15;
-    int t16;
-    int t17;
-    int t18;
-
-    if ((int)a5 >= 0) {
-        if ((int)a5 >= (int)0x4) {
-            t0 = *(int *)((a4 + 0x28));
-            if (t0 != 0) {
-                t1 = *(int *)((a4 + 0x28));
-                t2 = *(int *)((a4 + 0x2C));
-                t3 = ((int (*)(int, int))(t1))(t2, 0xFFFFFFFD);
-            }
-            return 0x0;
-        }
-        t10 = (a4 + 0x18);
-        t11 = ((a5 << 2) + (a4 + 0x18));
-        t12 = 0x0;
-        for (;;) {
-            t13 = *(int *)((t11 + 0x0));
-            t11 = t13;
-            if (t11 == 0) {
-                break;
-            }
-            t14 = *(int *)((t11 + 0xC));
-            t10 = t14;
-            t12 = (t12 + t10);
-        }
-        return t12;
-    }
-    t15 = *(int *)((a4 + 0x28));
-    if (t15 != 0) {
-        t16 = *(int *)((a4 + 0x28));
-        t17 = *(int *)((a4 + 0x2C));
-        t18 = ((int (*)(int, int))(t16))(t17, 0xFFFFFFFD);
-    }
-    return 0x0;
-}
 
 int uniformSlotReset(int a4, int a5)
 {
@@ -426,54 +313,6 @@ int uniformSlotReset(int a4, int a5)
     return 0x1C;
 }
 
-int evCrowdClapStart(void)
-{
-    int t0;
-    int t1;
-    int t12;
-    int t2;
-    int t5;
-    int t3;
-    float u4;
-    int t19;
-    int t22;
-    int t20;
-    float u21;
-    int t29;
-
-    t0 = *(int *)0x8C20D14C;
-    if (t0 == 6) {
-        t1 = *(int *)0x8C287D5C;
-        t12 = t1;
-        if (t1 != 3) {
-            t2 = *(int *)0x8C40C284;
-            t5 = t2;
-            if (t2 != 1) {
-                t3 = set_event(0x18, 0x8C0D9308);
-                *(unsigned int *)0x8C40C27C = t3;
-                *(unsigned int *)0x8C40C284 = 0x1;
-                u4 = *(float *)0x8C23D204;
-                *(unsigned int *)((t3 + 0x14)) = (int)(20.0f / u4);
-                t5 = t3;
-            }
-            t12 = t5;
-        }
-        t29 = t12;
-    } else {
-        t19 = *(int *)0x8C40C284;
-        t22 = t19;
-        if (t19 != 1) {
-            t20 = set_event(0x18, 0x8C0D9308);
-            *(unsigned int *)0x8C40C27C = t20;
-            *(unsigned int *)0x8C40C284 = 0x1;
-            u21 = *(float *)0x8C23D204;
-            *(unsigned int *)((t20 + 0x14)) = (int)(20.0f / u21);
-            t22 = t20;
-        }
-        t29 = t22;
-    }
-    return t29;
-}
 
 int ambDimStart(int a4)
 {
@@ -505,23 +344,6 @@ int exprPlayC(int a4, int a5)
 }
 
 
-void syCacheFinish_P2_(void)
-{
-    int t0;
-    int t2;
-    int t3;
-    int stk[4] = {0};
-
-    *(unsigned int *)(((int)stk + 8)) = 0x0;
-    t0 = _builtin_get_imask();
-    *(unsigned short *)(((int)stk + 4)) = t0;
-    _builtin_set_imask(0xF);
-    syCachePurgeAll();
-    t2 = *(int *)(((int)stk + 8));
-    *(unsigned int *)0xFF00001C = t2;
-    t3 = *(short *)(((int)stk + 4));
-    _builtin_set_imask(((unsigned int)(((t3 & 0xF) << 2) << 2) >> 4));
-}
 
 int entrySetSlot(int a4, int a5, int a6, int a7)
 {
@@ -809,29 +631,6 @@ int nlsndStreamStart(int a4)
     return t8;
 }
 
-int SJMEM_PutChunk(int a4, int a5, int a6)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-
-    t0 = SJMEM_Lock();
-    if (a5 != 0) {
-        if (a5 != 1) {
-            *(unsigned int *)((a6 + 0x4)) = 0x0;
-            *(unsigned int *)((a6 + 0x0)) = 0x0;
-            t1 = *(int *)((a4 + 0x1C));
-            if (t1 != 0) {
-                t2 = *(int *)((a4 + 0x1C));
-                t3 = *(int *)((a4 + 0x20));
-                t4 = ((int (*)(int, int))(t2))(t3, 0xFFFFFFFD);
-            }
-        }
-    }
-    return SJMEM_Unlock(a4, t0);
-}
 
 int kmyWritePaletteDMA(void)
 {
@@ -855,30 +654,6 @@ int syG2DmaSuspend(int a4)
     return 0x0;
 }
 
-int dbgMenuSetValue(int a4, int a5, int a6)
-{
-    int t0;
-    int t2;
-    int t1;
-    int t4;
-    int t6;
-    int t5;
-
-    t0 = *(int *)(((((a4 * 0x1F0) + 0x8C285E4C) + ((((a5 << 1) + a5) << 2) << 1)) + 0x4));
-    t2 = a6;
-    if ((int)a6 < (int)t0) {
-        t1 = *(int *)(((((a4 * 0x1F0) + 0x8C285E4C) + ((((a5 << 1) + a5) << 2) << 1)) + 0x4));
-        t2 = t1;
-    }
-    t4 = *(int *)(((((a4 * 0x1F0) + 0x8C285E4C) + ((((a5 << 1) + a5) << 2) << 1)) + 0x8));
-    t6 = t2;
-    if ((int)t2 > (int)t4) {
-        t5 = *(int *)(((((a4 * 0x1F0) + 0x8C285E4C) + ((((a5 << 1) + a5) << 2) << 1)) + 0x8));
-        t6 = t5;
-    }
-    *(unsigned int *)(((((((a5 << 1) + a5) << 2) << 1) + ((a4 * 0x1F0) + 0x8C285E4C)) + 0x0)) = t6;
-    return (((((a5 << 1) + a5) << 2) << 1) + ((a4 * 0x1F0) + 0x8C285E4C));
-}
 
 int emotKeyCopy(int a4, int a5, int a6)
 {
@@ -922,33 +697,6 @@ int sprSet115Load(void)
     return ((int (*)(void))(0x8C0C4BF0))();
 }
 
-int seNetHit(void)
-{
-    int t0;
-    int t1;
-    float u2;
-    float u3;
-    int t5;
-
-    t0 = *(int *)0x8C38BA70;
-    if (t0 != 0) {
-        t1 = *(int *)0x8C38BA74;
-        if (t1 != 0) {
-            u2 = *(float *)0x8C291F60;
-            u3 = (-u2);
-            if (!(0.0f > u2)) {
-                u3 = u2;
-            }
-            t5 = 0x301A9;
-            if (!(0.200000003f > u3)) {
-                t5 = 0x101A9;
-            }
-            return nlsndSeqRequest(t5);
-        }
-        return 0;
-    }
-    return 0;
-}
 
 int _add(int a4, int a5, int a6)
 {
@@ -1014,115 +762,10 @@ int _pd_peripheral_set_null(int a4)
 }
 
 
-int ADXAMP_Init(void)
-{
-    int t0;
-    int t1;
-    int t5;
-    int t2;
-
-    t0 = *(int *)0x8C20C890;
-    if (t0 == 0) {
-        t1 = memset(0x8C46ABA4, 0x0, 0x180);
-        t2 = t1;
-    }
-    t5 = *(int *)0x8C20C890;
-    *(unsigned int *)0x8C20C890 = (t5 + 0x1);
-    return t2;
-}
 
 
-void nlQuickInvertMatrix(void)
-{
-    float u1;
-    float u4;
-    float u7;
-    int t8;
-    float u11;
-    float u12;
-    int t13;
-    float u14;
-    int t15;
-    float u0[16];
-    float u2[4];
-    float u3[4];
-    float u5[4];
-    float u6[4];
-    float u9[4];
-    float u10[4];
-    float u16[16];
-
-    _builtin_st_ext((float (*)[4])u0);
-    u1 = u0[1];
-    u2[0] = u0[12];
-    u2[1] = u0[13];
-    u2[2] = u0[14];
-    u2[3] = 1.0f;
-    u3[0] = u0[0];
-    u3[1] = u0[1];
-    u3[2] = u0[2];
-    u3[3] = 0.0f;
-    u4 = _builtin_fipr(u2, u3);
-    u5[0] = u0[12];
-    u5[1] = u0[13];
-    u5[2] = u0[14];
-    u5[3] = 1.0f;
-    u6[0] = u0[4];
-    u6[1] = u0[5];
-    u6[2] = u0[6];
-    u6[3] = 0.0f;
-    u7 = _builtin_fipr(u5, u6);
-    t8 = (*(int *)&u1);
-    u9[0] = u0[12];
-    u9[1] = u0[13];
-    u9[2] = u0[14];
-    u9[3] = 1.0f;
-    u10[0] = u0[8];
-    u10[1] = u0[9];
-    u10[2] = u0[10];
-    u10[3] = (u0[11] - u0[11]);
-    u11 = _builtin_fipr(u9, u10);
-    u12 = u0[2];
-    t13 = (*(int *)&u12);
-    u14 = u0[6];
-    t15 = (*(int *)&u14);
-    _builtin_st_ext((float (*)[4])u16);
-    u16[0] = u0[0];
-    u16[1] = u0[4];
-    u16[2] = u0[8];
-    u16[3] = (u4 - u4);
-    u16[4] = (*(float *)&t8);
-    u16[5] = u0[5];
-    u16[6] = u0[9];
-    u16[7] = (u7 - u7);
-    u16[8] = (*(float *)&t13);
-    u16[9] = (*(float *)&t15);
-    u16[10] = u0[10];
-    u16[11] = (u11 - u11);
-    u16[12] = (0.0f - u4);
-    u16[13] = (0.0f - u7);
-    u16[14] = ((u0[14] - u0[14]) - u11);
-    u16[15] = 1.0f;
-    _builtin_ld_ext((float (*)[4])u16);
-}
 
 
-int kmyInitializeDriver(void)
-{
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-
-    kmyiInitializeDriverObject(0x8C4743D8, 0x8C4743F0);
-    *(unsigned int *)0x8C45EE20 = 0x8C1F78A6;
-    t1 = *(int *)0x8C4743EC;
-    t2 = ((int (*)(int, int, int))(t1))(0x8C4743D8, 0x8C45EE14, 0x8C45EE2C);
-    *(unsigned int *)0x8C470D00 = 0x8C1F85B2;
-    t3 = *(int *)0x8C4743EC;
-    t4 = ((int (*)(int, int, int))(t3))(0x8C4743D8, 0x8C470CF4, 0x8C470D0C);
-    return 0x0;
-}
 
 int syIntAdrChk_getchar(void)
 {
@@ -1162,26 +805,6 @@ int syIntAdrChk_getchar(void)
     return t16;
 }
 
-int shadowVolExtrude(int a4, int a5)
-{
-    int t0;
-    float u2;
-    int t4;
-    int t5;
-    int t6;
-    int stk[7] = {0};
-
-    *(unsigned int *)(((int)stk + 4)) = a4;
-    *(unsigned int *)(((int)stk + 8)) = a5;
-    t0 = *(int *)(((int)stk + 4));
-    nlSubVector3op((((int)stk + 4) + 0x8), t0, 0x8C2859E8);
-    u2 = *(float *)0x8C2859D8;
-    nlScaleUnitVector((((int)stk + 4) + 0x8), (((int)stk + 4) + 0x8), u2);
-    t4 = *(int *)(((int)stk + 4));
-    t5 = *(int *)(((int)stk + 8));
-    t6 = nlAddVector3op(t5, t4, (((int)stk + 4) + 0x8));
-    return t6;
-}
 
 float nlFloor(float f4)
 {
@@ -1586,3 +1209,33 @@ int _pd_peripheral_error(int a4, int a5, int a6)
     }
     return 0xFF0000FC;
 }
+
+int seNetHit(void)
+{
+    int t0;
+    int t1;
+    float u2;
+    float u3;
+    int t5;
+
+    t0 = *(int *)0x8C38BA70;
+    if (t0 != 0) {
+        t1 = *(int *)0x8C38BA74;
+        if (t1 != 0) {
+            u2 = *(float *)0x8C291F60;
+            u3 = (-u2);
+            if (!(0.0f > u2)) {
+                u3 = u2;
+            }
+            t5 = 0x301A9;
+            if (!(0.200000003f > u3)) {
+                t5 = 0x101A9;
+            }
+            return nlsndSeqRequest(t5);
+        }
+        return 0;
+    }
+    return 0;
+}
+
+

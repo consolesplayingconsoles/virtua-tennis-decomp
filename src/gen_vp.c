@@ -1,0 +1,148 @@
+/* Straight-line functions with calls and guards (batch gen_vp): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+typedef struct { int w[3]; } Stk3;
+int cpuChasePlan(int, int, int, int, int, int, int, int, int, int, int, int);
+int nlSubVector(int, int, Stk3);
+int cpuDblChase(int a4, int a5, int a6, int a7);
+
+int cpuDblChase(int a4, int a5, int a6, int a7)
+{
+    int stk[10];
+
+    register int R2;
+    register int T_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    register int v0_5;
+    register int v0_6;
+    register int v0_7;
+    register int v0_8;
+    register int v0_9;
+    register float w0_0;
+    register float w0_1;
+    register float w0_2;
+    register float w0_3;
+    v0_2 = a4;
+    v0_4 = *(int *)((v0_2 + 0xB5C));
+    *(unsigned short *)((((v0_4 * 0x160) + 0x8C2FC69C) + 0x20)) = 0x0;
+    v0_6 = ((*(int *)((v0_2 + 0xB60))) & 0x1) != 0;
+    v0_7 = (0xB60);
+    v0_3 = (0x1);
+    v0_0 = (0x8C291F24);
+    v0_1 = (v0_2);
+    v0_4 = (((v0_4 * 0x160) + 0x8C2FC69C));
+    v0_2 = (0x0);
+    v0_5 = (0x0);
+    if (v0_6) goto L_8C05AAAA;
+    L_8C05AC00:;
+    return v0_7;
+    L_8C05AAAA:;
+    w0_2 = *(float *)((v0_1 + 0xAF0));
+    w0_3 = *(float *)((v0_0 + 0x14));
+    v0_6 = (0x3);
+    w0_0 = (0.0f);
+    w0_1 = ((w0_3 - w0_2));
+    if ((!((w0_3 - w0_2) > 0.0f))) goto L_8C05AAC0;
+    v0_8 = (0x1);
+    L_8C05AACA:;
+    w0_2 = *(float *)((v0_1 + 0xB00));
+    v0_7 = (0xB00);
+    w0_0 = (0.0f);
+    w0_1 = (w0_2);
+    if ((!(w0_2 > 0.0f))) goto L_8C05AAD8;
+    v0_9 = (0x1);
+    L_8C05AAE2:;
+    if ((v0_8 == v0_9)) goto L_8C05AAFA;
+    v0_8 = *(signed char *)((v0_4 + 0x1C));
+    v0_7 = ((unsigned char)v0_8);
+    if (((unsigned char)v0_8 == 3)) goto L_8C05AAFA;
+    *(float *)((v0_4 + 0x0)) = 0.0f;
+    *(unsigned char *)((v0_4 + 0x1C)) = v0_6;
+    v0_7 = (0x1C);
+    v0_2 = (v0_3);
+    L_8C05AAFA:;
+    if ((!((*(float *)((v0_4 + 0x0))) > 0.0f))) goto L_8C05AB06;
+    goto L_8C05AC00;
+    L_8C05AB06:;
+    w0_0 = *(float *)((v0_0 + 0x6C));
+    w0_1 = (w0_0);
+    if ((0.0f > w0_0)) goto L_8C05AB14;
+    w0_0 = (w0_1);
+    L_8C05AB18:;
+    w0_2 = *(float *)((v0_1 + 0xAF0));
+    w0_1 = (w0_2);
+    if ((0.0f > w0_2)) goto L_8C05AB38;
+    w0_1 = (w0_1);
+    L_8C05AB3C:;
+    if ((!(w0_1 > w0_0))) goto L_8C05AB50;
+    if (((unsigned char)(*(signed char *)((v0_4 + 0x1C))) == 3)) goto L_8C05AB50;
+    *(unsigned char *)((v0_4 + 0x1C)) = v0_6;
+    v0_2 = (v0_3);
+    L_8C05AB50:;
+    if (((*(signed char *)((v0_4 + 0x1C))) == 0)) goto L_8C05AB6E;
+    v0_8 = *(signed char *)((v0_4 + 0x12E));
+    v0_7 = ((unsigned char)v0_8);
+    if (((unsigned char)v0_8 == 2)) goto L_8C05AB6E;
+    if ((v0_2 != 0)) goto L_8C05AB8A;
+    v0_8 = *(int *)((v0_1 + 0xA24));
+    v0_7 = (v0_8);
+    if ((v0_8 == 2)) goto L_8C05AB8A;
+    L_8C05AB6E:;
+    *(unsigned char *)(((0x1C + v0_4) + 0x0)) = (cpuChasePlan(v0_1, v0_5, a6, a7, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24), *(int *)((int)stk + 4 + 28)));
+    v0_5 = *(signed char *)((v0_4 + 0x12E));
+    v0_7 = ((unsigned char)v0_5);
+    v0_2 = (v0_3);
+    if (((unsigned char)v0_5 != 2)) goto L_8C05AB8A;
+    *(unsigned char *)((v0_4 + 0x12E)) = v0_6;
+    v0_7 = (0x12E);
+    L_8C05AB8A:;
+    if ((v0_2 == 0)) goto L_8C05AC00;
+    v0_2 = *(signed char *)((v0_4 + 0x1C));
+    v0_7 = ((unsigned char)v0_2);
+    if (((unsigned char)v0_2 == 1)) goto L_8C05ABA8;
+    if ((v0_7 == 2)) goto L_8C05ABB8;
+    if ((v0_7 == 3)) goto L_8C05ABC8;
+    if (!((v0_7 == 4))) goto L_8C05ABEE;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xA0 + v0_4)); }
+    goto L_8C05ABEE;
+    L_8C05ABEE:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0x94 + v0_4)) = *(struct mv3 *)(((int)stk + 4)); }
+    *(unsigned int *)((v0_1 + 0xA24)) = 0x2;
+    v0_7 = (0xA24);
+    goto L_8C05AC00;
+    L_8C05ABC8:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((v0_0 + 0x64)); }
+    L_8C05ABD4:;
+    v0_7 = ((nlSubVector(((int)stk + 4), (v0_0 + 0x24), *(Stk3 *)(((int)stk + 4)))));
+    goto L_8C05ABEE;
+    L_8C05ABB8:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((v0_0 + 0x58)); }
+    goto L_8C05ABD4;
+    L_8C05ABA8:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xA0 + v0_4)); }
+    goto L_8C05ABEE;
+    L_8C05AB38:;
+    w0_1 = ((-w0_1));
+    goto L_8C05AB3C;
+    L_8C05AB14:;
+    w0_0 = ((-w0_1));
+    goto L_8C05AB18;
+    L_8C05AAD8:;
+    if ((!(w0_0 > w0_1))) goto L_8C05AAE0;
+    v0_9 = (0xFFFFFFFF);
+    goto L_8C05AAE2;
+    L_8C05AAE0:;
+    v0_9 = (0x0);
+    goto L_8C05AAE2;
+    L_8C05AAC0:;
+    if ((!(w0_0 > w0_1))) goto L_8C05AAC8;
+    v0_8 = (0xFFFFFFFF);
+    goto L_8C05AACA;
+    L_8C05AAC8:;
+    v0_8 = (0x0);
+    goto L_8C05AACA;
+}

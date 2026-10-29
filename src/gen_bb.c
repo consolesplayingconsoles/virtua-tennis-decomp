@@ -466,17 +466,17 @@ int endingTrophyPut(void)
 
 int entryCharaCursorInit(int a4)
 {
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t19;
-    int t22;
-    int t26;
-    int t32;
-    int t37;
+    register int t1;
+    register int t2;
+    register int t3;
+    register int t4;
+    register int t5;
+    register int t6;
+    register int t19;
+    register int t22;
+    register int t26;
+    register int t32;
+    register int t37;
     int stk[20];
 
     *(unsigned int *)(((int)stk + 8)) = (*(int *)(((0x8C3437C4 + (a4 << 2)) + 0x0)));
@@ -542,208 +542,10 @@ int entryCharaCursorInit(int a4)
 }
 
 
-int countryNamePutB(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
-{
-    int t27;
-    int t20;
-    int t21;
-    int t24;
-    int stk[25];
-
-    stk[13] = a8;
-    stk[14] = a9;
-    stk[15] = a10;
-    stk[16] = a11;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 16) + 0x24)); }
-    t27 = a4;
-    if ((unsigned int)a4 < (unsigned int)0x12) {
-        switch ((a4 << 1)) {
-            case 0:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 21.0f);
-            }
-                break;
-            case 2:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 23.0f);
-            }
-                break;
-            case 4:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 16.0f);
-            }
-                break;
-            case 6:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 31.0f);
-            }
-                break;
-            case 8:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 0.0f);
-            }
-                break;
-            case 10:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 34.0f);
-            }
-                break;
-            case 12:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 4.0f);
-            }
-                break;
-            case 14:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 8.0f);
-            }
-                break;
-            case 16:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 3.0f);
-            }
-                break;
-            case 18:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 31.0f);
-            }
-                break;
-            case 20:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 30.0f);
-            }
-                break;
-            case 22:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 16.0f);
-            }
-                break;
-            case 24:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 23.0f);
-            }
-                break;
-            case 26:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 28.0f);
-            }
-                break;
-            case 28:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 13.0f);
-            }
-                break;
-            case 30:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 32.0f);
-            }
-                break;
-            case 32:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 12.0f);
-            }
-                break;
-            default:
-            {
-                *(float *)(((((int)stk + 16) + 0x24) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x24) + 0x0))) + 36.0f);
-            }
-                break;
-        }
-        if ((int)a4 < (int)0x8) {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x24)); }
-            t20 = *(int *)((((a4 << 2) + 0x8C10EE84) + 0x0));
-            t24 = (((((t20 << 2) + t20) << 2) << 2) + 0x8C339CD0);
-        } else {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x24)); }
-            t21 = *(int *)((((a4 << 2) + 0x8C10EE84) + 0x0));
-            t24 = (((((t21 << 2) + t21) << 2) << 2) + 0x8C338600);
-        }
-        t27 = (primSprDrawScaleAlpha(t24, 0x100, 0x100, a7, *(Stk3 *)((((int)stk + 16) + 0x24)), 0.8984375f, 0.8984375f, f4));
-    }
-    return t27;
-}
 
 
 
 
-int cpuSglShot(int a4, int a5, int a6, int a7)
-{
-    int t0;
-    float u2;
-    float u3;
-    int t6;
-    int t4;
-    int t56;
-    int t13;
-    int t14;
-    float u15;
-    float u16;
-    float u19;
-    int t22;
-    int t20;
-    int t37;
-    float u33;
-    float u35;
-    int t43;
-
-    t0 = *(int *)((a4 + 0xB5C));
-    cpuSglAim(a4, a5, a6, a7);
-    u2 = *(float *)((a4 + 0xAE8));
-    u3 = *(float *)((a4 + 0xB9C));
-    t6 = 0x1;
-    if ((u3 - u2) > 0.0f) {
-    } else {
-        t4 = 0x0;
-        if (0.0f > (u3 - u2)) {
-            t4 = 0xFFFFFFFF;
-        }
-        t6 = t4;
-    }
-    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x20)) = (int)((-((((*(float *)((a4 + 0xB00))) * (float)t6)) * 32.0f)) + 96.0f);
-    t56 = 0x20;
-    if ((int)(*(int *)0x8C2FCC1C) > (int)0x7) {
-        if ((*(int *)0x8C291F74) == 5) {
-            *(float *)((a4 + 0xA28)) = 0.0f;
-            *(float *)((a4 + 0xA2C)) = 0.0f;
-            t43 = 0xA2C;
-        } else {
-            t13 = *(int *)((a4 + 0xC64));
-            t14 = *(int *)((((((t13 << 1) + t13) << 2) << 1) + 0x8C105FDC));
-            u15 = *(float *)((a4 + 0xA28));
-            u16 = (-(u15 * 41.1500015f));
-            if (!(0.0f > (u15 * 41.1500015f))) {
-                u16 = (u15 * 41.1500015f);
-            }
-            if (((float)t14 * 1.0f) > ((-u16) + 41.1500015f)) {
-                u19 = *(float *)((a4 + 0xA28));
-                t22 = 0x1;
-                if (u19 > 0.0f) {
-                } else {
-                    t20 = 0x0;
-                    if (0.0f > u19) {
-                        t20 = 0xFFFFFFFF;
-                    }
-                    t22 = t20;
-                }
-                *(float *)((a4 + 0xA28)) = (((float)t22 * ((41.1500015f - ((float)t14 * 1.0f)))) / 41.1500015f);
-            }
-            t37 = 0x8C044B34;
-            if (((float)t14 * 1.0f) > ((-(((*(float *)((a4 + 0xA2C))) + 1.0f) * 59.4249992f)) + 118.849998f)) {
-                u33 = (((float)t14 * 1.0f) + -118.849998f);
-                if (!(0.0f > (118.849998f - ((float)t14 * 1.0f)))) {
-                    u33 = (118.849998f - ((float)t14 * 1.0f));
-                }
-                u35 = (-1.0f);
-                u35 = u35 + (1.0f + 1.0f) * (u33 / 118.849998f);
-                *(float *)((a4 + 0xA2C)) = ((*(float *)((a4 + 0xB00))) * u35);
-                t37 = 0xA2C;
-            }
-            t43 = t37;
-        }
-        t56 = t43;
-    }
-    return t56;
-}
 
 int cpuDblNetmanPos(int a4, float f4, float f5, float f6)
 {

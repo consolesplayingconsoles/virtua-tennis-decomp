@@ -1,213 +1,157 @@
 /* Straight-line functions with calls and guards (batch gen_oi): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int cpuBallPredict(int, int, int, int, float, float, float);
-int cpuDblMoodUpdate(int, int, int, int, float, float);
-int cpuDblPartnerSignal(void);
-int cpuDblThinkAll(int, int, float, float);
-int cpuMeterInput(int, int, int, float, float);
-int cpuPadHistory(int, int, int, int, float);
-void cpuDblInput(int a4, int a5, int a6, int a7, float f4, float f5, float f6);
+typedef struct { int w[3]; } Stk3;
+float cpuDistXZ(int, int);
+int cpuLineCrossXZ(int, Stk3, Stk3, Stk3, float, float);
+int cpuSglAimScoreAngle(int, int);
+float cpuSglAimRateOpp(int a4, int a5);
 
-void cpuDblInput(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
+float cpuSglAimRateOpp(int a4, int a5)
 {
-    int t9;
-    float u22;
-    int t44;
-    int t51;
-    float u60;
-    float u68;
-    float u73;
-    int t79;
-    float u82;
-    float u83;
-    float u88;
-    float u89;
-    float u93;
-    int stk[21];
+    int stk[32];
+    register int t0;
+    register int t1;
+    register float u5;
+    register float u7;
+    register float u8;
+    register float u9;
+    register float u17;
+    register float u21;
+    register float u23;
+    register float u24;
+    register float u27;
+    register float u33;
+    register float u39;
+    register int t55;
+    register float u116;
+    register int t57;
+    register int t58;
+    register float u59;
+    register float t70;
+    register float t71;
+    register float t72;
+    register int t73;
+    register float u76;
+    register float u77;
+    register float t78;
+    register float t79;
+    register float t80;
+    register float u82;
+    register float u92;
+    register float t93;
+    register float t94;
+    register float t95;
+    register float u97;
+    register float u52;
+    register float u46;
+    register int t56;
+    register float u101;
+    register float u68;
+    register float u86;
 
-    int R0;
-    int R1;
-    int R2;
-    int R3;
-    int R4;
-    int R5;
-    int R6;
-    int R7;
-    int R8;
-    int R9;
-    int R10;
-    int R11;
-    int R12;
-    int R13;
-    int R14;
-    float F0;
-    float F1;
-    float F2;
-    float F3;
-    float F4;
-    float F5;
-    int T_;
-    R4 = a4;
-    R6 = a6;
-    R7 = a7;
-    F4 = f4;
-    F5 = f5;
-    R10 = (0x8C287D84);
-    R11 = (((int)stk + 4));
-    R12 = (0xFFFFF288);
-    R13 = (0x8C291F24);
-    R14 = (R4);
-    R9 = (0x8C2FC69C);
-    if (((*(int *)0x8C287C60) == 0)) goto L_8C05741A;
-    L_8C05766A:;
-    return;
-    L_8C05741A:;
-    *(unsigned short *)((R14 + 0xD46)) = 0x0;
-    *(unsigned short *)((R14 + 0xD44)) = 0x0;
-    t9 = *(int *)0x8C20D19C;
-    R4 = (t9);
-    R5 = (0x8C15A0C8);
-    if (((*(int *)0x8C15A0C8) == t9)) goto L_8C057504;
-    *(unsigned int *)((R5 + 0x0)) = R4;
-    R0 = ((cpuBallPredict(R4, R5, R6, R7, F4, F5, f6)));
-    R4 = ((0x2868 + R10));
-    R5 = ((0x420 + R9));
-    R6 = ((R11 + 0x30));
-    R7 = (0xFFFFFEA0);
-    R8 = ((R11 + 0xC));
-    L_8C05746A:;
-    if (((unsigned int)R6 >= (unsigned int)R8)) goto L_8C05744A;
-    cpuPadHistory(R4, R5, R6, R7, F4);
-    u22 = *(float *)((R13 + 0x30));
-    F4 = (u22);
-    if ((u22 != 0.0f)) goto L_8C05748E;
-    if ((((*(int *)((R13 + 0x54))) & 4) != 0)) goto L_8C05748E;
-    if ((((*(int *)((R13 + 0x54))) & 2) == 0)) goto L_8C05749E;
-    L_8C05748E:;
-    if ((F4 != (1.0f + 1.0f))) goto L_8C0574A2;
-    if ((((*(int *)((R13 + 0x54))) & 4) == 0)) goto L_8C0574A2;
-    L_8C05749E:;
-    cpuDblMoodUpdate(R4, R5, R6, R7, F4, F5);
-    L_8C0574A2:;
-    cpuDblThinkAll(R4, R5, F4, F5);
-    R0 = ((cpuDblPartnerSignal()));
-    R4 = ((0x2868 + R10));
-    R5 = ((R11 + 0x24));
-    R6 = (R10);
-    L_8C057500:;
-    if (!(((unsigned int)R4 >= (unsigned int)R6))) goto L_8C057504;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xB9C + R4)) = *(struct mv3 *)(R5); }
-    R4 = ((R4 + R12));
-    R5 = ((R5 - 12));
-    goto L_8C057500;
-    L_8C057504:;
-    R4 = (0x160);
-    F3 = (0.0f);
-    if ((0.0f > (*(float *)((R13 + 0x30))))) goto L_8C057514;
-    t44 = *(int *)((R14 + 0xB5C));
-    *(unsigned short *)(((0xD44 + R14) + 0x0)) = (*(short *)((((t44 * R4) + R9) + 0x1E)));
-    *(unsigned short *)((R14 + 0xD46)) = (*(short *)((((t44 * R4) + R9) + 0x20)));
-    *(unsigned short *)((((t44 * R4) + R9) + 0x22)) = (*(short *)((((t44 * R4) + R9) + 0x20)));
-    R4 = (((t44 * R4) + R9));
-    L_8C057664:;
-    R0 = ((cpuMeterInput(R14, R5, R6, F4, F5)));
-    goto L_8C05766A;
-    L_8C057514:;
-    t51 = *(int *)((R14 + 0xB5C));
-    *(unsigned short *)((R14 + 0xD46)) = 0x0;
-    *(unsigned short *)((R14 + 0xD44)) = 0x0;
-    R4 = (((t51 * R4) + R9));
-    if (((*(int *)((0x8C287AE0 + ((*(int *)((R14 + 0xB5C))) << 2)))) != 2)) goto L_8C05757E;
-    R0 = (0x2C);
-    if ((!((*(float *)((R13 + 0x2C))) > F3))) goto L_8C057542;
-    R2 = (0x1);
-    L_8C057550:;
-    u60 = *(float *)((R14 + 0xB00));
-    F2 = (0.0f);
-    F3 = ((-u60));
-    if ((!((-u60) > 0.0f))) goto L_8C057560;
-    R1 = (0x1);
-    L_8C05756A:;
-    if ((R2 != R1)) goto L_8C05757E;
-    if ((((*(int *)((R14 + 0xB60))) & 0x100) == 0)) goto L_8C05757E;
-    *(unsigned short *)((R14 + 0xD44)) = 0x3;
-    L_8C05757E:;
-    u68 = *(float *)((R13 + 0x2C));
-    F3 = (0.0f);
-    F4 = (u68);
-    if ((!(u68 > 0.0f))) goto L_8C05758C;
-    R2 = (0x1);
-    L_8C057596:;
-    u73 = *(float *)((R14 + 0xB00));
-    F3 = (0.0f);
-    F5 = ((-u73));
-    if ((!((-u73) > 0.0f))) goto L_8C0575A6;
-    R3 = (0x1);
-    L_8C0575CA:;
-    if ((R2 != R3)) goto L_8C057638;
-    t79 = *(short *)((R4 + 0x22));
-    R5 = ((0xC0 & t79));
-    if (((0xC0 & t79) == 0)) goto L_8C057638;
-    u82 = *(float *)((R13 + 0x2C));
-    u83 = *(float *)((R13 + 0x24));
-    u88 = ((*(float *)((R13 + 0x18))) - ((u83 / u82) * (*(float *)((R13 + 0x20)))));
-    u88 = u88 + (*(float *)((R14 + 0xAF0))) * (u83 / u82);
-    u89 = *(float *)((R14 + 0xAE8));
-    u93 = ((float)(R5 - 96) / (-((*(float *)((R14 + 0xB00))) * 32.0f)));
-    R5 = ((R5 - 96));
-    F1 = (0.0f);
-    F3 = u93;
-    F4 = ((u88 - u89));
-    F5 = (u88);
-    if ((!((u88 - u89) > 0.0f))) goto L_8C05761E;
-    R3 = (0x1);
-    L_8C057628:;
-    if ((F3 != (float)R3)) goto L_8C057638;
-    *(unsigned short *)((R14 + 0xD46)) = (*(short *)((R4 + 0x22)));
-    L_8C057638:;
-    *(unsigned short *)((R4 + 0x22)) = (*(short *)((R14 + 0xD46)));
-    goto L_8C057664;
-    L_8C05761E:;
-    if ((!(F1 > F4))) goto L_8C057626;
-    R3 = (0xFFFFFFFF);
-    goto L_8C057628;
-    L_8C057626:;
-    R3 = (0x0);
-    goto L_8C057628;
-    L_8C0575A6:;
-    if ((!(F3 > F5))) goto L_8C0575C8;
-    R3 = (0xFFFFFFFF);
-    goto L_8C0575CA;
-    L_8C0575C8:;
-    R3 = (0x0);
-    goto L_8C0575CA;
-    L_8C05758C:;
-    if ((!(F3 > F4))) goto L_8C057594;
-    R2 = (0xFFFFFFFF);
-    goto L_8C057596;
-    L_8C057594:;
-    R2 = (0x0);
-    goto L_8C057596;
-    L_8C057560:;
-    if ((!(F2 > F3))) goto L_8C057568;
-    R1 = (0xFFFFFFFF);
-    goto L_8C05756A;
-    L_8C057568:;
-    R1 = (0x0);
-    goto L_8C05756A;
-    L_8C057542:;
-    if ((!(0.0f > (*(float *)((R13 + R0)))))) goto L_8C05754E;
-    R2 = (0xFFFFFFFF);
-    goto L_8C057550;
-    L_8C05754E:;
-    R2 = (0x0);
-    goto L_8C057550;
-    L_8C05744A:;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((R6 - 12)) = *(struct mv3 *)((0xB9C + R4)); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xB9C + R4)) = *(struct mv3 *)((0x11C + R5)); }
-    R4 = ((R4 + R12));
-    R5 = ((R5 + R7));
-    R6 = ((R6 - 12));
-    goto L_8C05746A;
+    *(unsigned int *)(((int)stk + 40)) = a5;
+    t0 = *(int *)((a4 + 0xB5C));
+    t1 = *(int *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB5C));
+    cpuSglAimScoreAngle(a4, (*(int *)(((int)stk + 40))));
+    u5 = *(float *)((((t1 * 0x160) + 0x8C2FC69C) + 0x28));
+    u7 = (*(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8)));
+    u7 = u7 + 0.800000012f * (u5 * (float)(*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))));
+    u8 = *(float *)0x8C287B40;
+    u9 = (-u7);
+    if (!(0.0f > u7)) {
+        u9 = u7;
+    }
+    u17 = u7;
+    if (u9 > u8) {
+        u17 = ((float)((u7 > 0.0f) - (0.0f > u7)) * u8);
+    }
+    u21 = *(float *)((((t1 * 0x160) + 0x8C2FC69C) + 0x30));
+    u23 = (*(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAF0)));
+    u23 = u23 + 0.800000012f * (u21 * (float)(*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))));
+    u24 = (-u23);
+    if (!(0.0f > u23)) {
+        u24 = u23;
+    }
+    if (u24 > 118.849998f) {
+        u52 = ((*(float *)((a4 + 0xB00))) * 118.849998f);
+    } else {
+        u27 = (-u23);
+        if (!(0.0f > u23)) {
+            u27 = u23;
+        }
+        if (!(23.7700005f > u27)) {
+            u33 = *(float *)((a4 + 0xB00));
+            u39 = u23;
+            if (((u23 > 0.0f) - (0.0f > u23)) != ((u33 > 0.0f) - (0.0f > u33))) {
+                u39 = ((*(float *)((a4 + 0xB00))) * 23.7700005f);
+            }
+            u46 = u39;
+        } else {
+            u46 = ((*(float *)((a4 + 0xB00))) * 23.7700005f);
+        }
+        u52 = u46;
+    }
+    *(float *)(((int)stk + 56)) = u17;
+    *(float *)(((int)stk + 60)) = 0.0f;
+    *(float *)(((int)stk + 64)) = u52;
+    t55 = *(int *)(((int)stk + 40));
+    u116 = 0.800000012f;
+    if ((int)(t55 - 1) < 0) {
+    } else {
+        t57 = (t55 - 1);
+        t58 = 0x8C2FCC6C;
+        u59 = u52;
+        for (;;) {
+            *(float *)(((((int)stk + 40) + 0x1C) + 0x0)) = ((*(float *)((t58 + 0x0))) - (*(float *)((a4 + 0xB9C))));
+            *(float *)(((((int)stk + 40) + 0x1C) + 0x4)) = 0.0f;
+            *(float *)(((((int)stk + 40) + 0x1C) + 0x8)) = ((*(float *)((t58 + 0x8))) - (*(float *)((a4 + 0xBA4))));
+            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x10)); }
+            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0x1C)); }
+            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xB9C + a4)); }
+            cpuLineCrossXZ((((int)stk + 4) + 0x28), *(Stk3 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 16)), *(Stk3 *)(((int)stk + 28)), u59, u17);
+            if ((unsigned char)(*(signed char *)((t58 + 0xC))) == 1) {
+                u59 = (*(float *)((t58 + 0x8)));
+                if (!(0.0f > u59)) {
+                    u68 = u59;
+                } else {
+                    u68 = (-u59);
+                }
+                if (!(u68 > 64.0f)) {
+                    t56 = 0x8C10D41C;
+                    t70 = cpuDistXZ((((int)stk + 40) + 0x10), (((int)stk + 40) + 0x4));
+                    t71 = cpuDistXZ((((int)stk + 40) + 0x4), (0xB9C + a4));
+                    t72 = cpuDistXZ(t58, (0xB9C + a4));
+                    t73 = *(int *)0x8C1891E8;
+                    u76 = ((((t70 / t71) * t72) / 118.849998f) / ((*(float *)(((((t73 << 2) << 1) + t56) + 0x0))) * (*(float *)(((((t73 << 2) << 1) + t56) + 0x4)))));
+                    u59 = (u76 * 20.0f);
+                    u86 = t72;
+                } else {
+                    u77 = *(float *)0x8C04EAF4;
+                    t78 = cpuDistXZ((((int)stk + 40) + 0x10), (((int)stk + 40) + 0x4));
+                    t79 = cpuDistXZ((((int)stk + 40) + 0x4), (0xB9C + a4));
+                    t80 = cpuDistXZ(t58, (0xB9C + a4));
+                    u82 = (((t78 / t79) * t80) / (*(float *)0x8C287B40));
+                    u59 = (u82 * u77);
+                    u86 = t80;
+                }
+                u101 = u86;
+            } else {
+                u92 = *(float *)0x8C04EAF4;
+                t93 = cpuDistXZ((((int)stk + 40) + 0x10), (((int)stk + 40) + 0x4));
+                t94 = cpuDistXZ((((int)stk + 40) + 0x4), (0xB9C + a4));
+                t95 = cpuDistXZ(t58, (0xB9C + a4));
+                u97 = (((t93 / t94) * t95) / (*(float *)0x8C287B40));
+                u59 = (u97 * u92);
+                u101 = t95;
+            }
+            t57 = (t57 - 1);
+            *(float *)((t58 + 0x1C)) = u59;
+            t58 = (t58 + 0x20);
+            if ((int)t57 >= 0) continue;
+            break;
+        }
+        u116 = u101;
+    }
+    return u116;
 }

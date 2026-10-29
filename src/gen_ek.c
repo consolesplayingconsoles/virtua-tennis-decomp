@@ -1,143 +1,198 @@
 /* Straight-line functions with calls and guards (batch gen_ek): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int angleLerp(int, int, float);
-int colliObjEntry(int);
-int effFootDust(int, int, int, int, int, int, int, int, int);
-int kmBlankScreen(int);
-int kmiFLWCTRLGetFBLockStatus(int);
-int kmiSetupRender(int, int);
-int kmyGenerateRegionArray(int, int, int, int, int, int, int, int, int, int, int, int);
-int kmyIsDisplayOddField(void);
-int kmyResetRenderer(void);
-int kmySetDitherMode(int, int);
-int kmySetFlickerFilterMode(int, int);
-int kmySetPixelClippingX(int, int, int);
-int kmySetPixelClippingY(int, int, int);
-int kmySetRegionArrayCallback(int, int);
-int kmySetVirticalFilterMode(int, int);
-int kmyStartRender(int, int);
-int kmyStartRenderTexture(int, int, int);
-int kmyUpdateFogParameter(void);
-int kmyUpdatePalette(void);
-float lerpf(float, float, float);
-int motionAngleBlend(int, int);
-int motionRootAtFrame(int, int, int, int, int);
-int motionRootBone(int, int, int, int, int);
-int motionSetCurrent(int);
-int nlAddVector(int, int);
-int nlCalcPoint(int, int);
-int nlPopMatrix(int);
-int nlPushMatrix(int);
-int nlPushUnitMatrix(void);
-int nlRotateAX(int);
-int nlRotateAY(int);
-int nlRotateAZ(int);
-int nlScaleVector(int, int, float);
-int nlTranslate(float, float, float);
-int perfPrint(void);
-int playerPut(int, int, int, int, int, int, int, int, int, int, int, int);
-int shadowPlayerDraw(int, int, int, int, int, int);
-int motionRoot(int a4);
-int motionRotate(int a4);
-int motionRotate2(int a4);
-int playerExec(int a4, int a5, int a6, int a7);
-int kmiFLWCTRLStartRenderEntry(int a4);
+int kmtex_TextureSize(int);
+int kmtex_CheckTextureFormat(int a4, int a5, int a6, int a7);
 
-
-
-
-int playerExec(int a4, int a5, int a6, int a7)
+int kmtex_CheckTextureFormat(int a4, int a5, int a6, int a7)
 {
-    int t21;
-    int t36;
-    float u99;
-    float u101;
-    int t131;
-    float u14;
-    int t22;
-    int t81;
-    int t96;
-    int stk[155];
+    register int t0;
+    register int t1;
+    register int t2;
+    register int t3;
+    register int t4;
+    register int t5;
+    register int t6;
+    register int t7;
+    register int t8;
+    register int t9;
+    register int t10;
+    register int t11;
+    register int t12;
+    register int t13;
+    register int t14;
+    register int t15;
+    register int t16;
 
-    if (((*(int *)0x8C295DDC) & 32) != 0) {
-        motionRootAtFrame(a4, (int)(*(float *)((a4 + 0xC))), a6, a7, (((int)stk + 8) + 0x28));
-        if ((float)(int)(*(float *)((a4 + 0xC))) > (*(float *)0x8C23D204)) {
-            nlScaleVector((((int)stk + 8) + 0x28), (((int)stk + 8) + 0x28), (*(float *)((a4 + 0x14))));
-        }
-        if (((*(int *)0x8C287C60) == 0) && (u14 = *(float *)((a4 + 0x14)), u14 != 0.0f)) {
-            nlAddVector((0xAE8 + a4), (((int)stk + 8) + 0x28));
-        }
-        *(unsigned short *)((a4 + 0xB06)) = 0x0;
+    if (((0xFF00 & a7) != 0x1000) && ((0xFF00 & a7) != 0x1100)) {
+        *(unsigned int *)((a4 + 0x0)) = 0x2;
     } else {
-        t21 = *(int *)((a4 + 0xB60));
-        if (((0x400 & t21) == 0) && (((0x40 & t21) == 0) || (t22 = *(int *)((a4 + 0xC98)), (int)t22 < (int)0xD))) {
-            nlPushMatrix(0x0);
-            nlTranslate((*(float *)((a4 + 0xAE8))), (*(float *)((a4 + 0xAEC))), (*(float *)((a4 + 0xAF0))));
-            nlRotateAY((*(short *)((a4 + 0xB06))));
-            motionSetCurrent(a4);
-            motionRootBone(0x0, 0x5, 0x0, 0x0, *(int *)((int)stk + 8));
-            nlPopMatrix(0x1);
-            nlPushUnitMatrix();
-            nlRotateAY((*(short *)((a4 + 0xB06))));
-            t36 = *(int *)((a4 + 0x48));
-            { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 8) + 0x1C)) = *(struct mv3 *)((((((t36 << 1) + t36) << 2) << 2) + (a4 + 0x60))); }
-            *(float *)(((int)stk + 40)) = 0.0f;
-            if ((*(int *)((a4 + 0xD4C))) != 0) {
-                *(float *)(((int)stk + 36)) = ((*(float *)(((int)stk + 36))) * (-1.0f));
+        *(unsigned int *)((a4 + 0x0)) = 0x3;
+    }
+    if (((0xFF00 & a7) != 0x500) && ((0xFF00 & a7) != 0x600)) {
+        if (((0xFF00 & a7) != 0x700) && ((0xFF00 & a7) != 0x800)) {
+            *(unsigned int *)((a4 + 0x4)) = 0x1;
+            if ((unsigned char)a7 != 0) {
+                if ((unsigned char)a7 != 1) {
+                    if ((unsigned char)a7 != 2) {
+                        if ((unsigned char)a7 != 3) {
+                            t0 = 0x4;
+                            if ((unsigned char)a7 != 4) {
+                            } else {
+                                *(unsigned int *)((a4 + 0x8)) = 0x20000000;
+                                t0 = 0x0;
+                            }
+                            t1 = t0;
+                        } else {
+                            *(unsigned int *)((a4 + 0x8)) = 0x18000000;
+                            t1 = 0x0;
+                        }
+                        t0 = t1;
+                    } else {
+                        *(unsigned int *)((a4 + 0x8)) = 0x10000000;
+                        t0 = 0x0;
+                    }
+                    t1 = t0;
+                } else {
+                    *(unsigned int *)((a4 + 0x8)) = 0x8000000;
+                    t1 = 0x0;
+                }
+                t0 = t1;
+            } else {
+                *(unsigned int *)((a4 + 0x8)) = 0x0;
+                t0 = 0x0;
             }
-            nlCalcPoint((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x28));
-            nlPopMatrix(0x1);
-            if ((*(int *)0x8C287C60) == 0) {
-                nlAddVector((0xAE8 + a4), (((int)stk + 8) + 0x28));
-            }
+            t1 = t0;
         } else {
-            nlPushUnitMatrix();
-            nlRotateAY((*(short *)((a4 + 0xB06))));
-            motionRootAtFrame(a4, (int)(*(float *)((a4 + 0xC))), 0x0, 0x0, (((int)stk + 8) + 0x28));
-            if ((*(int *)((a4 + 0xD4C))) != 0) {
-                *(float *)(((int)stk + 48)) = ((*(float *)(((int)stk + 48))) * (-1.0f));
+            *(unsigned int *)((a4 + 0x4)) = 0x1;
+            *(unsigned int *)((a4 + 0x8)) = 0x30000000;
+            t1 = 0x0;
+        }
+        t0 = t1;
+    } else {
+        *(unsigned int *)((a4 + 0x4)) = 0x1;
+        *(unsigned int *)((a4 + 0x8)) = 0x28000000;
+        t0 = 0x0;
+    }
+    *(unsigned int *)((a4 + 0xC)) = a5;
+    *(unsigned int *)((a4 + 0x10)) = a6;
+    t1 = t0;
+    t2 = 0x0;
+    if (a5 != 8) {
+        t3 = t0;
+        t4 = 0x8;
+        if (a5 != 16) {
+            t5 = t0;
+            t6 = 0x10;
+            if (a5 != 32) {
+                t7 = t0;
+                t8 = 0x18;
+                if (a5 != 64) {
+                    t9 = t0;
+                    t10 = 0x20;
+                    if (a5 != 0x80) {
+                        t11 = t0;
+                        t12 = 0x28;
+                        if (a5 != 0x100) {
+                            t13 = t0;
+                            t14 = 0x30;
+                            if (a5 != 0x200) {
+                                t15 = t0;
+                                t0 = 0x38;
+                                if (a5 != 0x400) {
+                                    t15 = 0x4;
+                                    t0 = 0x0;
+                                }
+                                t13 = t15;
+                                t14 = t0;
+                            }
+                            t11 = t13;
+                            t12 = t14;
+                        }
+                        t9 = t11;
+                        t10 = t12;
+                    }
+                    t7 = t9;
+                    t8 = t10;
+                }
+                t5 = t7;
+                t6 = t8;
             }
-            nlCalcPoint((((int)stk + 8) + 0x28), (((int)stk + 8) + 0x28));
-            nlPopMatrix(0x1);
-            nlScaleVector((((int)stk + 8) + 0x28), (((int)stk + 8) + 0x28), (*(float *)((a4 + 0x14))));
-            if ((*(int *)0x8C287C60) == 0) {
-                nlAddVector((0xAE8 + a4), (((int)stk + 8) + 0x28));
+            t3 = t5;
+            t4 = t6;
+        }
+        t1 = t3;
+        t2 = t4;
+    }
+    t0 = t1;
+    t3 = t2;
+    if (a6 != 8) {
+        t4 = t1;
+        t5 = (t2 | 0x1);
+        if (a6 != 16) {
+            t6 = t1;
+            t7 = (t2 | 0x2);
+            if (a6 != 32) {
+                t8 = t1;
+                t9 = (t2 | 0x3);
+                if (a6 != 64) {
+                    t10 = t1;
+                    t11 = (t2 | 0x4);
+                    if (a6 != 0x80) {
+                        t12 = t1;
+                        t13 = (t2 | 0x5);
+                        if (a6 != 0x100) {
+                            t14 = t1;
+                            t15 = (t2 | 0x6);
+                            if (a6 != 0x200) {
+                                t16 = t1;
+                                t1 = (t2 | 0x7);
+                                if (a6 != 0x400) {
+                                    t16 = 0x4;
+                                    t1 = t2;
+                                }
+                                t14 = t16;
+                                t15 = t1;
+                            }
+                            t12 = t14;
+                            t13 = t15;
+                        }
+                        t10 = t12;
+                        t11 = t13;
+                    }
+                    t8 = t10;
+                    t9 = t11;
+                }
+                t6 = t8;
+                t7 = t9;
             }
+            t4 = t6;
+            t5 = t7;
         }
-        { struct mv3 { int w[3]; }; *(struct mv3 *)((0xCF4 + a4)) = *(struct mv3 *)((((int)stk + 8) + 0x28)); }
+        t0 = t4;
+        t3 = t5;
     }
-    if ((*(int *)0x8C287D5C) != 3) {
-        if ((((*(int *)((a4 + 0xA78))) & 1) != 0) && (t81 = *(int *)((a4 + 0xD40)), t81 == 0x8C01DE1A)) {
-            *(float *)((a4 + 0xA5C)) = 0.0f;
-            nlAddVector((0xAE8 + a4), (0xA58 + a4));
-        }
-        colliObjEntry((0xA40 + a4));
-        { struct mv3 { int w[3]; }; *(struct mv3 *)((0xA4C + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
+    t1 = t0;
+    if (((0xFF00 & a7) != 0x900) && (((0xFF00 & a7) != 0xB00) && (((0xFF00 & a7) != 0xD00) && (((0xFF00 & a7) != 0x500) && (((0xFF00 & a7) != 0x700) && (a5 != a6)))))) {
+        t1 = 0x4;
     }
-    if ((((*(int *)0x8C295DDC) & 32) == 0) && (t96 = *(int *)0x8C287B3C, (t96 & 64) == 0)) {
-        u99 = *(float *)((a4 + 0xAF0));
-        u101 = (-u99);
-        if (!(0.0f > u99)) {
-            u101 = (*(float *)((a4 + 0xAF0)));
-        }
-        if ((*(float *)0x8C025D24) > u101) {
-            *(float *)((a4 + 0xAF0)) = (-((*(float *)((a4 + 0xB00))) * (*(float *)0x8C025D24)));
-        }
+    *(unsigned int *)((a4 + 0x18)) = 0x0;
+    if (((0xFF00 & a7) == 0xF00) || (((0xFF00 & a7) == 0x200) || (((0xFF00 & a7) == 0x400) || (((0xFF00 & a7) == 0x1100) || (((0xFF00 & a7) == 0x600) || ((0xFF00 & a7) == 0x800)))))) {
+        *(unsigned int *)((a4 + 0x18)) = ((*(int *)((a4 + 0x18))) | 0x80000000);
     }
-    nlPushMatrix(0x0);
-    nlTranslate((*(float *)((a4 + 0xAE8))), (*(float *)((a4 + 0xAEC))), (*(float *)((a4 + 0xAF0))));
-    nlRotateAY((*(short *)((a4 + 0xB06))));
-    *(unsigned int *)(((int)stk + 8)) = (playerPut(a4, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), *(int *)((int)stk + 8 + 24), *(int *)((int)stk + 8 + 28)));
-    nlPopMatrix(0x1);
-    if ((*(int *)(((int)stk + 8))) != 0) {
-        shadowPlayerDraw(a4, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4));
-        effFootDust(a4, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16));
+    if (((0xFF00 & a7) == 0xB00) || ((0xFF00 & a7) == 0x900)) {
+        *(unsigned int *)((a4 + 0x18)) = ((*(int *)((a4 + 0x18))) | 0x4000000);
     }
-    t131 = 0xB5C;
-    if ((*(int *)((a4 + 0xB5C))) == 0) {
-        t131 = (perfPrint());
+    if (((0xFF00 & a7) == 0x300) || (((0xFF00 & a7) == 0x400) || (((0xFF00 & a7) == 0x1000) || ((0xFF00 & a7) == 0x1100)))) {
+        *(unsigned int *)((a4 + 0x18)) = ((*(int *)((a4 + 0x18))) | 0x40000000);
     }
-    return t131;
+    if ((0xFF00 & a7) == 0xB00) {
+        *(unsigned int *)((a4 + 0x18)) = ((*(int *)((a4 + 0x18))) | 0x2000000);
+    }
+    if (((0xFF00 & a7) == 0x500) || (((0xFF00 & a7) == 0x600) || (((0xFF00 & a7) == 0x700) || ((0xFF00 & a7) == 0x800)))) {
+        *(unsigned int *)((a4 + 0x18)) = ((*(int *)((a4 + 0x18))) | 0x8000);
+    }
+    *(unsigned int *)((a4 + 0x18)) = ((*(int *)((a4 + 0x18))) | t3);
+    kmtex_TextureSize(a4);
+    return t1;
 }
-

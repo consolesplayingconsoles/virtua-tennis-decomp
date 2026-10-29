@@ -20,151 +20,365 @@ void SJMEM_Error(void);
 void SJRBF_Error(void);
 void SJUNI_Error(void);
 
-int cpuDblAimRateD(int a4, int a5)
+
+
+float nlTanf(float f4)
+{
+    float t0;
+    int t1;
+    int t2;
+    int stk[3];
+
+    t0 = nlTanfReduce(((int)stk + 4), f4);
+    t1 = *(int *)(((int)stk + 4));
+    t2 = ((~(((~t1) + 0x1) & 0x1)) + 0x1);
+    if ((int)t1 >= 0) {
+        t2 = (t1 & 0x1);
+    }
+    if (t2 == 0) {
+        return t0;
+    }
+    if (t0 != 0.0f) {
+        return ((-1.0f) / t0);
+    }
+    return (*(float *)0x8C0ED670);
+}
+
+int kmyZeroMemory(int a4, int a5)
 {
     int t0;
     int t1;
-    float u5;
-    float u6;
-    float u9;
-    int t12;
+    int t2;
+    int t3;
+    int t4;
+    int t5;
+    int t6;
+    int t7;
+
+    if (((a4 | a5) & 7) == 0) {
+        t0 = a4;
+        t1 = ((unsigned int)((unsigned int)a5 >> 2) >> 1);
+        for (;;) {
+            t1 = (t1 - 0x1);
+            *(float *)((t0 + 0x0)) = 0.0f;
+            *(float *)(((t0 + 0x0) + 4)) = 0.0f;
+            t0 = (t0 + 0x8);
+            if (t1 == 0) {
+                break;
+            }
+        }
+        return (a4 | a5);
+    }
+    if (((a4 | a5) & 3) == 0) {
+        t2 = a4;
+        t3 = ((unsigned int)a5 >> 2);
+        for (;;) {
+            t3 = (t3 - 0x1);
+            *(unsigned int *)((t2 + 0x0)) = 0x0;
+            t2 = (t2 + 0x4);
+            if (t3 == 0) {
+                break;
+            }
+        }
+        return 0x0;
+    }
+    if (((a4 | a5) & 1) == 0) {
+        t4 = a4;
+        t5 = ((unsigned int)a5 >> 1);
+        for (;;) {
+            t5 = (t5 - 0x1);
+            *(unsigned short *)((t4 + 0x0)) = 0x0;
+            t4 = (t4 + 0x2);
+            if (t5 == 0) {
+                break;
+            }
+        }
+        return 0x0;
+    }
+    t6 = a4;
+    t7 = a5;
+    for (;;) {
+        t7 = (t7 - 0x1);
+        *(unsigned char *)((t6 + 0x0)) = 0x0;
+        t6 = (t6 + 0x1);
+        if (t7 == 0) {
+            break;
+        }
+    }
+    return 0x0;
+}
+
+int kmyMemCopy(int a4, int a5, int a6)
+{
+    int t0;
+    int t1;
+    int t2;
+    float u3;
+    float u4;
+    int t5;
+    int t6;
+    int t7;
+    int t8;
+    int t9;
     int t10;
-    float u23;
-    float u24;
-    float u28;
-    int t31;
-    int t29;
-    float u49;
-    float u50;
-    float u53;
-    int t56;
-    int t54;
-    float u67;
-    float u68;
-    float u72;
-    int t75;
-    int t73;
-    float t95;
-    float u96;
-    float t98;
-    float u99;
-    float u102;
-    float u103;
-    float u106;
-    float u107;
-    int t109;
-    float u110;
-    float u111;
-    int t114;
-    int t112;
-    float t117;
-    float t120;
-    float t121;
-    float t122;
-    float t123;
-    float u125;
-    int t128;
-    int t126;
-    float u134;
-    int t146;
-    float u147;
-    float u148;
-    int t151;
-    int t149;
-    float t154;
-    float t159;
-    float t160;
-    float t161;
-    float t162;
-    float u164;
-    int t167;
-    int t165;
-    float u173;
-    float u186;
-    float t187;
-    int t192;
-    float t193;
-    int t195;
-    float t196;
-    float t197;
-    float u198;
-    float t199;
-    float u202;
-    float u203;
-    float u204;
-    float u208;
-    int t211;
-    int t209;
-    float u213;
-    int t216;
-    int t214;
-    float u227;
-    int t230;
-    int t228;
-    float u232;
-    int t235;
-    int t233;
-    int t255;
-    int t253;
-    int t259;
-    int t257;
-    float u266;
-    float t284;
-    float t285;
-    int t297;
-    float u310;
-    float u303;
-    int t313;
-    float u326;
-    float u319;
-    float u336;
-    float u338;
-    float u341;
-    int t344;
-    int t342;
-    int t348;
-    int t346;
-    float u351;
-    float u355;
-    int t358;
-    int t356;
-    int t362;
-    int t360;
-    float u365;
-    float u387;
-    float u388;
-    float u393;
-    int t395;
-    int t399;
-    float u404;
-    float u405;
-    float u408;
-    int t411;
-    int t409;
-    float u422;
-    float u423;
-    float u428;
-    int t431;
-    int t429;
-    float u451;
-    float u452;
-    float u457;
-    int t460;
-    int t465;
-    float u276;
-    float u142;
-    float u143;
-    float u247;
-    int t225;
-    int t241;
-    float u333;
-    int t299;
-    int t300;
-    int t315;
-    int t316;
-    float u372;
-    float u383;
-    float u447;
+    int t11;
+    int t12;
+    int t13;
+    int t14;
+    int t15;
+    int t16;
+
+    if ((((a4 | a5) | a6) & 7) == 0) {
+        t0 = a4;
+        t1 = a5;
+        t2 = ((unsigned int)((unsigned int)a6 >> 2) >> 1);
+        for (;;) {
+            u3 = *(float *)((t1 + 0x0));
+            u4 = *(float *)(((t1 + 0x0) + 4));
+            t1 = (t1 + 0x8);
+            t2 = (t2 - 0x1);
+            *(float *)((t0 + 0x0)) = u3;
+            *(float *)(((t0 + 0x0) + 4)) = u4;
+            t0 = (t0 + 0x8);
+            if (t2 == 0) {
+                break;
+            }
+        }
+        return ((a4 | a5) | a6);
+    }
+    if ((((a4 | a5) | a6) & 3) == 0) {
+        t5 = a4;
+        t6 = a5;
+        t7 = ((unsigned int)a6 >> 2);
+        for (;;) {
+            t8 = *(int *)((t6 + 0x0));
+            t6 = (t6 + 0x4);
+            t7 = (t7 - 0x1);
+            *(unsigned int *)((t5 + 0x0)) = t8;
+            t5 = (t5 + 0x4);
+            if (t7 == 0) {
+                break;
+            }
+        }
+        return t8;
+    }
+    if ((((a4 | a5) | a6) & 1) == 0) {
+        t9 = a4;
+        t10 = a5;
+        t11 = ((unsigned int)a6 >> 1);
+        for (;;) {
+            t12 = *(short *)((t10 + 0x0));
+            t10 = (t10 + 0x2);
+            t11 = (t11 - 0x1);
+            *(unsigned short *)((t9 + 0x0)) = t12;
+            t9 = (t9 + 0x2);
+            if (t11 == 0) {
+                break;
+            }
+        }
+        return t12;
+    }
+    t13 = a4;
+    t14 = a5;
+    t15 = a6;
+    for (;;) {
+        t16 = *(signed char *)((t14 + 0x0));
+        t14 = (t14 + 0x1);
+        t15 = (t15 - 0x1);
+        *(unsigned char *)((t13 + 0x0)) = t16;
+        t13 = (t13 + 0x1);
+        if (t15 == 0) {
+            break;
+        }
+    }
+    return t16;
+}
+
+void vmsfs_memcpyl(int a4, int a5, int a6)
+{
+    int t0;
+    int t1;
+    int t2;
+    int t3;
+
+    t0 = a4;
+    t1 = a5;
+    t2 = ((unsigned int)a6 >> 2);
+    for (;;) {
+        t3 = *(int *)((t1 + 0x0));
+        t1 = (t1 + 0x4);
+        t2 = (t2 - 0x1);
+        *(unsigned int *)((t0 + 0x0)) = t3;
+        t0 = (t0 + 0x4);
+        if (t2 == 0) {
+            break;
+        }
+    }
+}
+
+void SJMEM_Error(void)
+{
+    for (;;) {
+    }
+}
+
+void SJRBF_Error(void)
+{
+    for (;;) {
+    }
+}
+
+void SJUNI_Error(void)
+{
+    for (;;) {
+    }
+}
+
+int cpuDblAimRateD(int a4, int a5)
+{
+    register int t0;
+    register int t1;
+    register float u5;
+    register float u6;
+    register float u9;
+    register int t12;
+    register int t10;
+    register float u23;
+    register float u24;
+    register float u28;
+    register int t31;
+    register int t29;
+    register float u49;
+    register float u50;
+    register float u53;
+    register int t56;
+    register int t54;
+    register float u67;
+    register float u68;
+    register float u72;
+    register int t75;
+    register int t73;
+    register float t95;
+    register float u96;
+    register float t98;
+    register float u99;
+    register float u102;
+    register float u103;
+    register float u106;
+    register float u107;
+    register int t109;
+    register float u110;
+    register float u111;
+    register int t114;
+    register int t112;
+    register float t117;
+    register float t120;
+    register float t121;
+    register float t122;
+    register float t123;
+    register float u125;
+    register int t128;
+    register int t126;
+    register float u134;
+    register int t146;
+    register float u147;
+    register float u148;
+    register int t151;
+    register int t149;
+    register float t154;
+    register float t159;
+    register float t160;
+    register float t161;
+    register float t162;
+    register float u164;
+    register int t167;
+    register int t165;
+    register float u173;
+    register float u186;
+    register float t187;
+    register int t192;
+    register float t193;
+    register int t195;
+    register float t196;
+    register float t197;
+    register float u198;
+    register float t199;
+    register float u202;
+    register float u203;
+    register float u204;
+    register float u208;
+    register int t211;
+    register int t209;
+    register float u213;
+    register int t216;
+    register int t214;
+    register float u227;
+    register int t230;
+    register int t228;
+    register float u232;
+    register int t235;
+    register int t233;
+    register int t255;
+    register int t253;
+    register int t259;
+    register int t257;
+    register float u266;
+    register float t284;
+    register float t285;
+    register int t297;
+    register float u310;
+    register float u303;
+    register int t313;
+    register float u326;
+    register float u319;
+    register float u336;
+    register float u338;
+    register float u341;
+    register int t344;
+    register int t342;
+    register int t348;
+    register int t346;
+    register float u351;
+    register float u355;
+    register int t358;
+    register int t356;
+    register int t362;
+    register int t360;
+    register float u365;
+    register float u387;
+    register float u388;
+    register float u393;
+    register int t395;
+    register int t399;
+    register float u404;
+    register float u405;
+    register float u408;
+    register int t411;
+    register int t409;
+    register float u422;
+    register float u423;
+    register float u428;
+    register int t431;
+    register int t429;
+    register float u451;
+    register float u452;
+    register float u457;
+    register int t460;
+    register int t465;
+    register float u276;
+    register float u142;
+    register float u143;
+    register float u247;
+    register int t225;
+    register int t241;
+    register float u333;
+    register int t299;
+    register int t300;
+    register int t315;
+    register int t316;
+    register float u372;
+    register float u383;
+    register float u447;
     int stk[89];
 
     t0 = *(int *)((a4 + 0xB5C));
@@ -664,245 +878,3 @@ int cpuDblAimRateD(int a4, int a5)
     return 0x1C;
 }
 
-void bodyInit(int a4, int a5, int a6, int a7, int a8, int a9, float f4, float f5)
-{
-    int t0;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int stk[214];
-
-    stk[204] = a8;
-    stk[205] = a9;
-    *(unsigned int *)((((int)stk + 4) + 0x30C)) = a4;
-    *(float *)((((int)stk + 4) + 0x310)) = f4;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(0x8C1016D4); }
-    *(float *)((((int)stk + 4) + 0x314)) = f5;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((0x318 + ((int)stk + 4))) = *(struct mv3 *)(0x8C1016D4); }
-    t0 = 0x0;
-    for (;;) {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((0x18C + ((int)stk + 4)) + t0)) = *(struct mv3 *)((0x330 + ((int)stk + 4))); }
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((((int)stk + 4) + 0xC) + t0)) = *(struct mv3 *)((0x330 + ((int)stk + 4))); }
-        t0 = (t0 + 0xC);
-        if ((unsigned int)t0 >= (unsigned int)0x180) {
-            break;
-        }
-    }
-    t4 = ((int)stk + 4);
-    t5 = (((int)stk + 4) + 804);
-    t6 = (*(int *)(((0x32C + ((int)stk + 4)) + 0x0)));
-    for (;;) { t7 = *(int *)t4; t4 = (t4 + 4); if ((unsigned int)t5 < (unsigned int)t4) break; *(unsigned int *)t6 = t7; t6 = (t6 + 4); }
-}
-
-float nlTanf(float f4)
-{
-    float t0;
-    int t1;
-    int t2;
-    int stk[3];
-
-    t0 = nlTanfReduce(((int)stk + 4), f4);
-    t1 = *(int *)(((int)stk + 4));
-    t2 = ((~(((~t1) + 0x1) & 0x1)) + 0x1);
-    if ((int)t1 >= 0) {
-        t2 = (t1 & 0x1);
-    }
-    if (t2 == 0) {
-        return t0;
-    }
-    if (t0 != 0.0f) {
-        return ((-1.0f) / t0);
-    }
-    return (*(float *)0x8C0ED670);
-}
-
-int kmyZeroMemory(int a4, int a5)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-
-    if (((a4 | a5) & 7) == 0) {
-        t0 = a4;
-        t1 = ((unsigned int)((unsigned int)a5 >> 2) >> 1);
-        for (;;) {
-            t1 = (t1 - 0x1);
-            *(float *)((t0 + 0x0)) = 0.0f;
-            *(float *)(((t0 + 0x0) + 4)) = 0.0f;
-            t0 = (t0 + 0x8);
-            if (t1 == 0) {
-                break;
-            }
-        }
-        return (a4 | a5);
-    }
-    if (((a4 | a5) & 3) == 0) {
-        t2 = a4;
-        t3 = ((unsigned int)a5 >> 2);
-        for (;;) {
-            t3 = (t3 - 0x1);
-            *(unsigned int *)((t2 + 0x0)) = 0x0;
-            t2 = (t2 + 0x4);
-            if (t3 == 0) {
-                break;
-            }
-        }
-        return 0x0;
-    }
-    if (((a4 | a5) & 1) == 0) {
-        t4 = a4;
-        t5 = ((unsigned int)a5 >> 1);
-        for (;;) {
-            t5 = (t5 - 0x1);
-            *(unsigned short *)((t4 + 0x0)) = 0x0;
-            t4 = (t4 + 0x2);
-            if (t5 == 0) {
-                break;
-            }
-        }
-        return 0x0;
-    }
-    t6 = a4;
-    t7 = a5;
-    for (;;) {
-        t7 = (t7 - 0x1);
-        *(unsigned char *)((t6 + 0x0)) = 0x0;
-        t6 = (t6 + 0x1);
-        if (t7 == 0) {
-            break;
-        }
-    }
-    return 0x0;
-}
-
-int kmyMemCopy(int a4, int a5, int a6)
-{
-    int t0;
-    int t1;
-    int t2;
-    float u3;
-    float u4;
-    int t5;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-    int t10;
-    int t11;
-    int t12;
-    int t13;
-    int t14;
-    int t15;
-    int t16;
-
-    if ((((a4 | a5) | a6) & 7) == 0) {
-        t0 = a4;
-        t1 = a5;
-        t2 = ((unsigned int)((unsigned int)a6 >> 2) >> 1);
-        for (;;) {
-            u3 = *(float *)((t1 + 0x0));
-            u4 = *(float *)(((t1 + 0x0) + 4));
-            t1 = (t1 + 0x8);
-            t2 = (t2 - 0x1);
-            *(float *)((t0 + 0x0)) = u3;
-            *(float *)(((t0 + 0x0) + 4)) = u4;
-            t0 = (t0 + 0x8);
-            if (t2 == 0) {
-                break;
-            }
-        }
-        return ((a4 | a5) | a6);
-    }
-    if ((((a4 | a5) | a6) & 3) == 0) {
-        t5 = a4;
-        t6 = a5;
-        t7 = ((unsigned int)a6 >> 2);
-        for (;;) {
-            t8 = *(int *)((t6 + 0x0));
-            t6 = (t6 + 0x4);
-            t7 = (t7 - 0x1);
-            *(unsigned int *)((t5 + 0x0)) = t8;
-            t5 = (t5 + 0x4);
-            if (t7 == 0) {
-                break;
-            }
-        }
-        return t8;
-    }
-    if ((((a4 | a5) | a6) & 1) == 0) {
-        t9 = a4;
-        t10 = a5;
-        t11 = ((unsigned int)a6 >> 1);
-        for (;;) {
-            t12 = *(short *)((t10 + 0x0));
-            t10 = (t10 + 0x2);
-            t11 = (t11 - 0x1);
-            *(unsigned short *)((t9 + 0x0)) = t12;
-            t9 = (t9 + 0x2);
-            if (t11 == 0) {
-                break;
-            }
-        }
-        return t12;
-    }
-    t13 = a4;
-    t14 = a5;
-    t15 = a6;
-    for (;;) {
-        t16 = *(signed char *)((t14 + 0x0));
-        t14 = (t14 + 0x1);
-        t15 = (t15 - 0x1);
-        *(unsigned char *)((t13 + 0x0)) = t16;
-        t13 = (t13 + 0x1);
-        if (t15 == 0) {
-            break;
-        }
-    }
-    return t16;
-}
-
-void vmsfs_memcpyl(int a4, int a5, int a6)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-
-    t0 = a4;
-    t1 = a5;
-    t2 = ((unsigned int)a6 >> 2);
-    for (;;) {
-        t3 = *(int *)((t1 + 0x0));
-        t1 = (t1 + 0x4);
-        t2 = (t2 - 0x1);
-        *(unsigned int *)((t0 + 0x0)) = t3;
-        t0 = (t0 + 0x4);
-        if (t2 == 0) {
-            break;
-        }
-    }
-}
-
-void SJMEM_Error(void)
-{
-    for (;;) {
-    }
-}
-
-void SJRBF_Error(void)
-{
-    for (;;) {
-    }
-}
-
-void SJUNI_Error(void)
-{
-    for (;;) {
-    }
-}

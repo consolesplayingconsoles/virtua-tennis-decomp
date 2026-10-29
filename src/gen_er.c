@@ -1,156 +1,127 @@
 /* Straight-line functions with calls and guards (batch gen_er): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int adxamp_extract(int a4);
+extern float sprSheetPut();
+int sprSheetSet(int);
+float circuitNumDrawSign(int a4, int a5, int a6, float f4, float f5, float f6, float f7);
 
-int adxamp_extract(int a4)
+float circuitNumDrawSign(int a4, int a5, int a6, float f4, float f5, float f6, float f7)
 {
-    int t0;
-    float u1;
-    int t3;
-    int t7;
-    int t8;
-    int t11;
-    int t12;
-    int t14;
-    int t16;
-    int t17;
     int t18;
-    int t26;
-    int t28;
-    int t33;
+    int t23;
+    int t29;
+    int t30;
     int t34;
-    int t39;
-    int t40;
-    int t41;
-    int t42;
-    int t43;
-    int t57;
+    int t38;
+    int t45;
+    int t48;
+    int t55;
+    int t59;
     int t63;
-    int t66;
-    int t15;
-    int stk[17];
+    int stk[19];
 
-    t0 = *(int *)((a4 + 0x20));
-    u1 = *(float *)((a4 + 0x24));
-    for (;;) {
-        if ((int)0x0 < (int)(*(int *)((a4 + 0x1C)))) {
-            t3 = *(int *)((((a4 + 0x4) + 0x0) + 0x0));
-            t7 = (int)((int)((unsigned int)(((int (*)(int, int))((*(int *)(((*(int *)((t3 + 0x0))) + 0x24)))))(t3, 0x1)) >> 1) / (int)(int)((float)t0 * u1));
-            t8 = *(int *)((((a4 + 0xC) + 0x0) + 0x0));
-            t11 = ((int (*)(int, int))((*(int *)(((*(int *)((t8 + 0x0))) + 0x24)))))(t8, 0x0);
-            t12 = ((unsigned int)((unsigned int)t11 >> 2) >> 2);
-            if ((int)t7 < (int)((unsigned int)((unsigned int)t11 >> 2) >> 2)) {
-                t12 = t7;
-            }
-            *(unsigned int *)(((int)stk + 16)) = t12;
-            t14 = t11;
-            t16 = 0x0;
-            t17 = 0x0;
-            t18 = 0x0;
-            for (;;) {
-                if ((int)t17 >= (int)(*(int *)(((int)stk + 16)))) {
-                    t18 = (t18 + 0x1);
-                    if ((int)t18 < (int)(*(int *)((a4 + 0x1C)))) {
-                        t17 = a4;
-                        t16 = t18;
-                        t17 = (t17 + 0x4);
-                        t16 = (t16 << 2);
-                        t17 = (t17 + t16);
-                        t17 = (*(int *)((t17 + 0x0)));
-                        t15 = (*(int *)((t17 + 0x0)));
-                        t14 = (((int (*)(int, int))((*(int *)((t15 + 0x24)))))(t17, 0x1));
-                        t26 = ((unsigned int)t14 >> 1);
-                        t14 = (int)((float)t0 * u1);
-                        t14 = ((int)((int)t26 / (int)t14));
-                        t17 = t14;
-                        t28 = *(int *)((((a4 + 0xC) + t16) + 0x0));
-                        t15 = (*(int *)((t28 + 0x0)));
-                        t14 = (((int (*)(int, int))((*(int *)((t15 + 0x24)))))(t28, 0x0));
-                        if ((int)t17 < (int)((unsigned int)((unsigned int)t14 >> 2) >> 2)) {
-                            *(unsigned int *)(((int)stk + 16)) = t17;
-                            t17 = 0x0;
-                            continue;
-                        }
-                        *(unsigned int *)(((int)stk + 16)) = ((unsigned int)((unsigned int)t14 >> 2) >> 2);
-                        t17 = 0x0;
-                        continue;
-                    }
-                    return t14;
-                }
-                *(unsigned int *)(((int)stk + 8)) = 0x0;
-                t33 = 0x0;
-                for (;;) {
-                    if ((int)t33 >= (int)(int)((float)t0 * u1)) {
-                        break;
-                    }
-                    t15 = a4;
-                    t15 = (t15 + 0x4);
-                    t15 = (t15 + t16);
-                    t34 = *(int *)((t15 + 0x0));
-                    *(unsigned int *)(((int)stk + 12)) = t34;
-                    t15 = (*(int *)((t34 + 0x0)));
-                    t14 = (((int (*)(int, int, int, int))((*(int *)((t15 + 0x18)))))(t34, 0x1, (((int)((float)t0 * u1) - t33) << 1), (((int)stk + 4) + 0x18)));
-                    t15 = (*(int *)(((int)stk + 32)));
-                    t15 = ((unsigned int)t15 >> 1);
-                    *(unsigned int *)(((int)stk + 4)) = t15;
-                    t39 = *(int *)(((int)stk + 28));
-                    if ((int)t15 > 0) {
-                        t40 = 0x0;
-                        t41 = t39;
-                        for (;;) {
-                            t42 = *(short *)((t41 + 0x0));
-                            t43 = t42;
-                            if ((int)t42 < 0) {
-                                t43 = (-t42);
-                            }
-                            t41 = (t41 + 0x2);
-                            if ((int)t43 > (int)(*(int *)(((int)stk + 8)))) {
-                                *(unsigned int *)(((int)stk + 8)) = t43;
-                            }
-                            t15 = (*(int *)(((int)stk + 4)));
-                            t40 = (t40 + 0x1);
-                            if ((int)t40 >= (int)t15) {
-                                break;
-                            }
-                        }
-                    }
-                    t15 = (*(int *)((((a4 + 0x4) + t16) + 0x0)));
-                    *(unsigned int *)(((int)stk + 12)) = t15;
-                    t14 = (((int (*)(int, int, int))((*(int *)(((*(int *)((t15 + 0x0))) + 0x20)))))(t15, 0x0, (((int)stk + 4) + 0x18)));
-                    t15 = (*(int *)(((int)stk + 4)));
-                    t33 = (t33 + t15);
-                }
-                t57 = *(int *)((((a4 + 0xC) + t16) + 0x0));
-                t15 = (*(int *)((t57 + 0x0)));
-                t14 = (((int (*)(int, int, int, int))((*(int *)((t15 + 0x18)))))(t57, 0x0, 0x10, (((int)stk + 4) + 0x10)));
-                t15 = (*(int *)(((int)stk + 24)));
-                if (t15 == 0) {
-                    break;
-                }
-                t15 = (*(int *)(((int)stk + 8)));
-                t63 = *(int *)(((int)stk + 20));
-                *(unsigned int *)((t63 + 0x0)) = t15;
-                t15 = (*(int *)((((a4 + 0x14) + t16) + 0x0)));
-                *(unsigned int *)((t63 + 0x4)) = t15;
-                *(unsigned int *)((t63 + 0x8)) = (*(int *)((a4 + 0x20)));
-                *(unsigned int *)((t63 + 0xC)) = (int)((float)t0 * u1);
-                t66 = *(int *)((((a4 + 0xC) + t16) + 0x0));
-                t15 = (*(int *)((t66 + 0x0)));
-                t14 = (((int (*)(int, int, int))((*(int *)((t15 + 0x20)))))(t66, 0x1, (((int)stk + 4) + 0x10)));
-                t15 = a4;
-                t15 = (t15 + 0x14);
-                t15 = (t15 + t16);
-                t17 = (t17 + 0x1);
-                *(unsigned int *)((t15 + 0x0)) = ((*(int *)((t15 + 0x0))) + (int)((float)t0 * u1));
-                t15 = (*(int *)((a4 + 0x2C)));
-                t15 = (t15 + 0x1);
-                *(unsigned int *)((a4 + 0x2C)) = t15;
-            }
-            break;
-        }
-        return 0x24;
-    }
-    for (;;) {
-    }
+    int R0;
+    int R1;
+    int R2;
+    int R3;
+    int R4;
+    int R5;
+    int R6;
+    int R8;
+    int R9;
+    int R10;
+    int R11;
+    int R12;
+    int R13;
+    int R14;
+    float F0;
+    float F3;
+    float F4;
+    float F5;
+    float F6;
+    float F7;
+    float F13;
+    float F14;
+    float F15;
+    int T_;
+    R4 = a4;
+    R5 = a5;
+    R6 = a6;
+    F4 = f4;
+    F5 = f5;
+    F6 = f6;
+    F7 = f7;
+    *(unsigned int *)(((int)stk + 8)) = R5;
+    *(unsigned int *)(((int)stk + 16)) = R6;
+    *(unsigned int *)(((int)stk + 4)) = R4;
+    R10 = (0x1);
+    R11 = (0x8C2FBE14);
+    R12 = (0x2000);
+    R8 = (0x8C017718);
+    R9 = (0x8C01780A);
+    F13 = (F5);
+    F14 = (F6);
+    F15 = (F4);
+    if ((((*(int *)(((int)stk + 8))) & 0x1) == 0)) goto L_8C033958;
+    sprSheetSet(0x8C1097A8);
+    F15 = ((((float (*)(int, float, float, float, float))(sprSheetPut))(R12, F15, F13, F14, (*(float *)((R11 + 0x0))))));
+    L_8C033958:;
+    R13 = (0xA);
+    R14 = (0x0);
+    R4 = ((*(int *)(((int)stk + 4))));
+    L_8C03395E:;
+    t18 = (int)((int)R4 / (int)R13);
+    R14 = ((R14 + 0x1));
+    R4 = (t18);
+    if (((int)t18 >= (int)R10)) goto L_8C03395E;
+    *(unsigned int *)(((int)stk + 20)) = 0x8C287658;
+    *(unsigned int *)(((int)stk + 12)) = ((*(int *)(((int)stk + 8))) & 0x8);
+    t23 = *(int *)(((int)stk + 8));
+    *(unsigned int *)(((int)stk + 24)) = (t23 & 0x4);
+    R0 = ((t23 & 0x4));
+    L_8C03397E:;
+    R4 = ((*(int *)(((int)stk + 4))));
+    R5 = (R10);
+    if (((int)R10 >= (int)R14)) goto L_8C033996;
+    L_8C033986:;
+    t29 = (int)((int)R4 / (int)R13);
+    t30 = (int)(R5 + 0x1) < (int)R14;
+    R0 = (t29);
+    R4 = (t29);
+    R5 = ((R5 + 0x1));
+    if (t30) goto L_8C033986;
+    L_8C033996:;
+    t34 = (int)((int)R4 % (int)R13);
+    *(unsigned int *)(((int)stk + 28)) = t34;
+    sprSheetSet((*(int *)(((t34 << 2) + (*(int *)(((int)stk + 16)))))));
+    t38 = *(int *)0x8C2FBE18;
+    R4 = (t38);
+    if ((t38 == 0)) goto L_8C0339B6;
+    *(unsigned int *)(((*(int *)(((int)stk + 20))) + 0x0)) = R4;
+    L_8C0339B6:;
+    t45 = (*(int *)(((int)stk + 12))) == 0;
+    F15 = ((((float (*)(int, int, int, float, float, float, float))(sprSheetPut))(R12, R5, R6, F15, F13, F14, (*(float *)((R11 + 0x0))))));
+    if (t45) goto L_8C0339F0;
+    if (((int)R14 <= (int)0x1)) goto L_8C0339F0;
+    t48 = (int)((int)R14 % (int)0x3);
+    R0 = (t48);
+    if ((t48 != 1)) goto L_8C0339F0;
+    sprSheetSet(0x8C1097CC);
+    F15 = ((((float (*)(int, float, float, float, float))(sprSheetPut))(R12, F15, F13, F14, (*(float *)((R11 + 0x0))))));
+    L_8C0339F0:;
+    t55 = (R14 - 0x1) != 0;
+    R14 = ((R14 - 0x1));
+    if (t55) goto L_8C03397E;
+    if (((*(int *)(((int)stk + 24))) != 0)) goto L_8C03397E;
+    t59 = *(int *)(((int)stk + 8));
+    R0 = (t59);
+    if (((t59 & 2) == 0)) goto L_8C033A22;
+    t63 = (int)((int)(*(int *)(((int)stk + 4))) % (int)R13);
+    *(unsigned int *)(((int)stk + 4)) = t63;
+    sprSheetSet((*(int *)(((t63 << 2) + 0x8C159C30))));
+    F15 = ((((float (*)(int, float, float, float, float))(sprSheetPut))(R12, F15, F13, F14, (*(float *)((R11 + 0x0))))));
+    L_8C033A22:;
+    *(float *)((R11 + 0x0)) = 1.0f;
+    *(unsigned int *)0x8C2FBE18 = 0x0;
+    return F15;
 }

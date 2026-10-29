@@ -759,7 +759,6 @@ cpuSglInit
 cpuSglInput
 cpuSglMoodUpdate
 cpuSglMove
-cpuSglPickLv07
 cpuSglReceivePos
 cpuSglServe
 cpuSglShot
@@ -768,7 +767,6 @@ cpuSglSwingInput
 cpuSglThink
 cpuSglThinkAll
 cpuShotAimCheck
-cpuShotAimStick
 cpuShotRange
 cpuShotRangeFix
 cpuShotTargetSet

@@ -524,3 +524,4 @@ void ballBoyRunExec(int a4, int a5, int a6, int a7, float f4, float f5, float f6
     R1 = (R12);
     goto L_8C0C79B2;
 }
+

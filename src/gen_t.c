@@ -575,10 +575,10 @@ int adxsjd_get_wr(int a4, int a5, int a6, int a7)
 
 int miniPopupSpawn(Stk4 s)
 {
-    int t8;
-    int t13;
-    int t1;
-    int t14;
+    register int t8;
+    register int t13;
+    register int t1;
+    register int t14;
     int stk[26];
 
     stk[14] = s.w[0];

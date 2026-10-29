@@ -1,356 +1,256 @@
 /* Straight-line functions with calls and guards (batch gen_ia): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int angDiff(int, int);
-int motionBone(int, int, int, int, int, int);
-int motionRootBone(int, int, int, int, int);
-int motionSetCurrent(int);
-int mtxGetWorldPos(int, int, int, int, int);
-int nlArcTan2(float, float);
-int nlCalcPoint(int, int);
-int nlGetMatrix(int);
-int nlLoadMatrix(int);
-int nlMultiMatrix(int);
-int nlMultiPushedMatrix(void);
-int nlPopMatrix(int);
-int nlPushMatrix(int);
-int nlPushUnitMatrix(void);
-int nlRotateAX(int);
-int nlRotateAY(int);
-int nlRotateAZ(int);
-int nlScale(float, float, float);
-int nlSetTranslate(int);
-int nlTranslate(float, float, float);
-float vecDistXZf(float, float, float, float);
-void playerSolveArmReach(int a4, int a5, int a6, int a7, float f4, float f5);
+typedef struct { int w[3]; } Stk3;
+int colliObjInit(int, int, int, int, int, float);
+int effServeSpeedShow(int);
+int evSkidMarkSpawn(int, int, int);
+int lightOverrideAmbient(int, int);
+int lightOverrideDiffuse(int, int);
+int motionRootFirst(int, int, int, int, int);
+int motionSet(int, int, int, int, int, int, float);
+int playerRecA20Clear(int);
+int seFootstepCheck(int, int, int, int, int, int, int, int, int);
+int serveGetPos(int, int, int, int, int);
+int serveGetReceiver(void);
+int serveGetServer(void);
+Stk3 vecMake(float, float, float);
+void playerInit(int a4, int a5, int a6, int a7);
 
-void playerSolveArmReach(int a4, int a5, int a6, int a7, float f4, float f5)
+void playerInit(int a4, int a5, int a6, int a7)
 {
-    int t0;
-    int t4;
-    float u5;
-    int t7;
-    int t8;
-    int t9;
+    int stk[16];
+    float u4;
     int t10;
-    float u13;
-    float u14;
-    float u15;
-    int t21;
-    int t19;
-    int t32;
-    int t29;
-    int t64;
-    int t66;
-    int t70;
-    int t146;
-    int t151;
-    int t152;
-    int t168;
-    int t165;
-    int t163;
-    int t172;
-    int t173;
-    int t176;
-    int t179;
-    int t177;
-    int t224;
-    float t233;
-    int t236;
-    float u244;
-    float u245;
-    float u248;
-    int t251;
-    int t249;
-    float t262;
-    int t265;
-    int t274;
-    int t278;
-    int t279;
-    float u11;
-    float u12;
-    int t67;
-    int t155;
-    int t161;
-    int stk[194];
+    int t13;
+    int t14;
+    int t15;
+    int t16;
+    int t23;
+    int t25;
+    int t28;
+    int t35;
+    int t55;
+    int t56;
+    int t58;
+    float u74;
+    int t95;
+    int t105;
+    int t108;
+    int t111;
+    int t128;
+    int t129;
+    int t131;
+    int t86;
+    int t88;
+    int t38;
+    int t39;
+    int t40;
+    int t69;
+    int t104;
+    int t132;
 
-    *(unsigned int *)(((int)stk + 20)) = a5;
-    t0 = *(int *)((a4 + 0xB60));
-    if (((0x1 & t0) == 0) && ((0x400 & t0) != 0)) {
-        *(float *)((a4 + 0xC7C)) = 0.0f;
+    if ((*(int *)((a4 + 0xC58))) == -1) {
+        *(unsigned int *)((a4 + 0xC58)) = 0x0;
+    }
+    *(unsigned int *)((a4 + 0xB5C)) = a5;
+    *(int *)((int)stk + 12) = (0xAE8 + a4);
+    serveGetPos(a5, a5, a6, a7, (0xAE8 + a4));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xAF4 + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
+    *(unsigned short *)((a4 + 0xB0A)) = 0x0;
+    *(unsigned short *)((a4 + 0xB0C)) = 0x0;
+    u4 = *(float *)((a4 + 0xAF0));
+    *(float *)((a4 + 0xB00)) = (float)(-((u4 > 0.0f) - (0.0f > u4)));
+    *(unsigned short *)(((0xB04 + a4) + 0x0)) = ((short)((((*(float *)((a4 + 0xAF0))) > 0.0f)) ? 1 : 0) * (short)0xFFFF8000);
+    t10 = *(short *)((a4 + 0xB04));
+    *(unsigned short *)((a4 + 0xB08)) = t10;
+    *(unsigned short *)((a4 + 0xB06)) = t10;
+    *(unsigned short *)((a4 + 0xB0E)) = (*(short *)((a4 + 0xB04)));
+    *(unsigned short *)((a4 + 0xB10)) = 0x0;
+    *(unsigned short *)((a4 + 0xB12)) = (*(short *)((a4 + 0xB06)));
+    *(float *)((a4 + 0xB14)) = 0.0f;
+    *(float *)((a4 + 0xB18)) = 1.0f;
+    t13 = *(short *)((a4 + 0xB06));
+    *(unsigned short *)((a4 + 0xB1E)) = t13;
+    *(unsigned short *)((a4 + 0xB1C)) = t13;
+    *(float *)((a4 + 0xB24)) = 0.0f;
+    *(float *)((a4 + 0xB20)) = 0.0f;
+    *(unsigned short *)((a4 + 0xB2A)) = 0x0;
+    *(unsigned short *)((a4 + 0xB28)) = 0x0;
+    *(float *)((a4 + 0xB30)) = 0.0f;
+    *(float *)((a4 + 0xB2C)) = 0.0f;
+    t14 = 0x0;
+    t15 = 0x0;
+    for (;;) {
+        *(unsigned short *)((((0xB34 + a4) + t14) + 0x0)) = 0x0;
+        t16 = ((0xB3A + a4) + t14);
+        t14 = (t14 + 0x2);
+        *(unsigned short *)((t16 + 0x0)) = 0x0;
+        *(float *)((((0xB4C + a4) + t15) + 0x0)) = 0.0f;
+        *(float *)((((0xB40 + a4) + t15) + 0x0)) = 0.0f;
+        t15 = (t15 + 0x4);
+        if ((unsigned int)t14 >= (unsigned int)0x6) {
+            break;
+        }
+    }
+    *(unsigned int *)((a4 + 0xB68)) = 0x0;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xB6C + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
+    *(int *)((int)stk + 12) = (0xB78 + a4);
+    *(Stk3 *)((0xB78 + a4)) = vecMake(0.100000001f, 0.0f, 0.100000001f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xB84 + a4)) = *(struct mv3 *)(0x8C1016D4); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xB90 + a4)) = *(struct mv3 *)(0x8C1016D4); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xB9C + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xBA8 + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xBB4 + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xBC0 + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
+    *(unsigned int *)((a4 + 0xBCC)) = 0x0;
+    *(unsigned int *)((a4 + 0xBD0)) = 0x0;
+    *(unsigned int *)((a4 + 0xBD4)) = 0x0;
+    *(unsigned int *)((a4 + 0xBD8)) = 0x1;
+    *(float *)((a4 + 0xBDC)) = 1.0f;
+    *(unsigned int *)((a4 + 0xB60)) = 0x0;
+    if ((*(int *)0x8C287ADC) == 4) {
+        *(unsigned int *)((a4 + 0xD50)) = 0x6;
+    }
+    t23 = serveGetServer();
+    if (t23 != a5) {
+        *(unsigned int *)((a4 + 0xB58)) = 0x0;
+        t25 = (*(int *)0x8C2873D0);
+        *(int *)((int)stk + 12) = t25;
+        t28 = (*(int *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x0)));
+        *(int *)((int)stk + 8) = t28;
+        motionSet(a4, (*(int *)((((*(int *)((a4 + 0xB58))) << 2) + 0x8C102C6C))), 0x1, 0x12755C, t28, t25, (*(float *)0x8C23D204));
+        *(float *)((a4 + 0x4C)) = (*(float *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x4)));
+        t35 = serveGetReceiver();
+        if (t35 == a5) {
+            *(unsigned int *)((a4 + 0xB60)) = ((*(int *)((a4 + 0xB60))) | 0x8);
+            *(unsigned int *)0x8C287AF8 = a5;
+            if (((*(int *)0x8C287B00) == 0) && ((t38 = *(int *)0x8C287B04, t38 == 0) && ((t39 = *(int *)0x8C287B10, t39 == 0) && (t40 = *(int *)0x8C287B14, t40 == 0)))) {
+                *(unsigned int *)((a4 + 0xD50)) = 0x7;
+            } else {
+                *(unsigned int *)((a4 + 0xD50)) = (*(int *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x40)));
+            }
+        }
+        t86 = 0xD40;
+        t88 = 0x8C01DE1A;
     } else {
-        if ((*(int *)(((int)stk + 20))) == 0) {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)((0xC80 + a4)) = *(struct mv3 *)(0x8C1016D4); }
-            *(unsigned short *)((a4 + 0xC8C)) = 0x0;
-            t4 = *(int *)((a4 + 0xB60));
-            if ((t4 & 0x400) != 0) {
-                u5 = *(float *)((a4 + 0xBA4));
-                *(float *)(((0x2C0 + ((int)stk + 16)) + 0x8)) = u5;
-                t7 = t4;
-                t8 = 0x400;
-                t9 = (*(int *)((a4 + 0xD30)));
-                t10 = a6;
-                u13 = u5;
-                u14 = f4;
-                u15 = f5;
-                for (;;) {
-                    if ((int)t9 > (int)(*(int *)0x8C295480)) {
-                        break;
-                    }
-                    t10 = t9;
-                    t10 = (t10 << 1);
-                    t8 = t9;
-                    t10 = (t10 + t8);
-                    t10 = (t10 << 2);
-                    u13 = 0.0f;
-                    t10 = (t10 + 0x8C294670);
-                    *(unsigned int *)(((int)stk + 24)) = t10;
-                    u14 = (*(float *)((t10 + 0x8)));
-                    t21 = 0x1;
-                    if (u14 > u13) {
-                    } else {
-                        t19 = 0x0;
-                        if (u13 > u14) {
-                            t19 = 0xFFFFFFFF;
-                        }
-                        t21 = t19;
-                    }
-                    u15 = (*(float *)(((0x2C0 + ((int)stk + 16)) + 0x8)));
-                    u13 = 0.0f;
-                    if (u15 > u13) {
-                        t8 = 0x1;
-                    } else {
-                        if (u13 > u15) {
-                            t8 = 0xFFFFFFFF;
-                        } else {
-                            t8 = 0x0;
-                        }
-                    }
-                    t32 = t8;
-                    if (t21 == t8) {
-                        u12 = 0.0f;
-                        u11 = 0.0f;
-                        if (!(u12 > u14)) {
-                            u13 = u14;
-                        } else {
-                            u13 = u14;
-                            u13 = (-u13);
-                        }
-                        if (!(u11 > u15)) {
-                            u12 = u15;
-                        } else {
-                            u12 = u15;
-                            u12 = (-u12);
-                        }
-                        t29 = t8;
-                        if (!(u12 > u13)) {
-                            t8 = 0x8C0F7DAC;
-                            t7 = 0x8C295594;
-                            { struct mv3 { int w[3]; }; *(struct mv3 *)(t7) = *(struct mv3 *)(t10); }
-                            t9 = 0x12C;
-                            t29 = 0x8C0F7DAC;
-                        }
-                        t32 = t29;
-                    }
-                    t8 = t32;
-                    t9 = (t9 + 0x1);
-                }
-                if (((int)t9 > (int)(*(int *)0x8C295480)) && ((int)t9 < (int)0x12C)) {
-                    { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C295594) = *(struct mv3 *)((0xB9C + a4)); }
-                }
-            } else {
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C295594) = *(struct mv3 *)((0xC44 + a4)); }
-            }
+        *(unsigned int *)((a4 + 0xB60)) = ((*(int *)((a4 + 0xB60))) | 0x40000);
+        *(unsigned int *)((a4 + 0xB58)) = 0x0;
+        t55 = (*(int *)0x8C2873D0);
+        *(int *)((int)stk + 12) = t55;
+        t56 = *(int *)((a4 + 0xC58));
+        *(unsigned int *)(((int)stk + 16)) = ((t56 * 0x6C) + 0x8C102424);
+        t58 = (*(int *)((((t56 * 0x6C) + 0x8C102424) + 0x0)));
+        *(int *)((int)stk + 8) = t58;
+        motionSet(a4, (*(int *)(((((*(int *)(((*(int *)(((int)stk + 16))) + 0x34))) << 2) << 2) + 0x8C105F1C))), 0x1, 0x12755C, t58, t55, (*(float *)0x8C23D204));
+        *(float *)((a4 + 0x4C)) = (*(float *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x4)));
+        effServeSpeedShow(a5);
+        if ((((*(int *)0x8C287B10) + (*(int *)0x8C287B14)) == 0) && (t69 = *(int *)0x8C287B28, t69 == 0)) {
+            *(float *)((a4 + 0xD00)) = 0.0f;
         }
-        { struct mv3 { int w[3]; }; *(struct mv3 *)((0x2C0 + ((int)stk + 16))) = *(struct mv3 *)(0x8C295594); }
-        t64 = a4;
-        t66 = (0x8C + ((int)stk + 16));
-        for (;;) { t67 = *(int *)t64; t64 = (t64 + 4); if ((unsigned int)((a4 + 480)) < (unsigned int)t64) break; *(unsigned int *)t66 = t67; t66 = (t66 + 4); }
-        t70 = *(int *)((a4 + 0xC74));
-        *(float *)(((int)stk + 168)) = (float)(*(int *)((((((*(int *)((a4 + 0xC6C))) * 0x6C) + (0x8C104194 + ((*(int *)((a4 + 0xC5C))) * 0xD8))) + ((((t70 << 2) << 1) + t70) << 2)) + 0x8)));
-        *(float *)(((int)stk + 160)) = 0.0f;
-        *(unsigned int *)(((int)stk + 224)) = 0x0;
-        nlPushMatrix(0x0);
-        if ((*(int *)(((int)stk + 20))) != 0) {
-            nlLoadMatrix(0x8C2955AC);
-        } else {
-            nlTranslate((*(float *)((a4 + 0xAE8))), (*(float *)((a4 + 0xAEC))), (*(float *)((a4 + 0xAF0))));
-            nlRotateAY((*(short *)((a4 + 0xB06))));
-            if ((*(int *)((a4 + 0xD4C))) != 0) {
-                nlScale((-1.0f), 1.0f, 1.0f);
-            }
-            motionSetCurrent((0x8C + ((int)stk + 16)));
-            motionRootBone(0x0, 0x5, 0x0, 0x0, *(int *)((int)stk + 16));
-            nlRotateAY(0x4000);
-            nlRotateAZ(0xFFFFC000);
-            motionBone(0x2, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), *(int *)((int)stk + 16 + 4));
-            nlRotateAY(0x8000);
-            motionBone(0x9, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), *(int *)((int)stk + 16 + 4));
-            motionBone(0x4, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), *(int *)((int)stk + 16 + 4));
-            motionBone(0x11, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), *(int *)((int)stk + 16 + 4));
-            *(int *)((int)stk + 12) = 0x8C2955A0;
-            mtxGetWorldPos(0x0, 0x0, 0x0, 0x0, 0x8C2955A0);
-            motionBone(0x12, 0x0, 0x0, 0x0, *(int *)((int)stk + 12), *(int *)((int)stk + 12 + 4));
-            motionBone(0xE, 0x0, 0x0, 0x0, *(int *)((int)stk + 12), *(int *)((int)stk + 12 + 4));
-            *(int *)((int)stk + 8) = (0x284 + ((int)stk + 16));
-            mtxGetWorldPos(0x0, 0x0, 0x0, 0x0, (0x284 + ((int)stk + 16)));
-            nlPushMatrix(0x0);
-            nlLoadMatrix(0x8C287978);
-            nlMultiPushedMatrix();
-            nlSetTranslate(0x8C1016D4);
-            nlGetMatrix(0x8C2955EC);
-            nlPopMatrix(0x1);
-            nlLoadMatrix(0x8C287938);
-            nlTranslate((*(float *)(((0x284 + ((int)stk + 16)) + 0x0))), (*(float *)(((0x284 + ((int)stk + 16)) + 0x4))), (*(float *)(((0x284 + ((int)stk + 16)) + 0x8))));
-            nlGetMatrix(0x8C2955AC);
+        if ((*(float *)((a4 + 0xD00))) != 0.0f) {
+            u74 = *(float *)((a4 + 0xAE8));
+            *(float *)((a4 + 0xAE8)) = ((float)((u74 > 0.0f) - (0.0f > u74)) * (*(float *)((a4 + 0xD00))));
         }
-        { struct mv16 { int w[16]; }; *(struct mv16 *)((((int)stk + 16) + 0x4C)) = *(struct mv16 *)(0x8C2955EC); }
-        { struct mv3 { int w[3]; }; *(struct mv3 *)((0x26C + ((int)stk + 16))) = *(struct mv3 *)(0x8C2955A0); }
-        nlTranslate((*(float *)((a4 + 0xC80))), (*(float *)((a4 + 0xC84))), (*(float *)((a4 + 0xC88))));
-        nlMultiMatrix((((int)stk + 16) + 0x4C));
-        motionBone(0xA, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), *(int *)((int)stk + 16 + 4));
-        nlGetMatrix((((int)stk + 16) + 0x4C));
-        *(int *)((int)stk + 12) = (0x284 + ((int)stk + 16));
-        mtxGetWorldPos(0x0, 0x0, 0x0, 0x0, (0x284 + ((int)stk + 16)));
-        nlPushMatrix(0x0);
-        nlLoadMatrix(0x8C287978);
-        nlMultiPushedMatrix();
-        nlSetTranslate(0x8C1016D4);
-        nlGetMatrix((((int)stk + 12) + 0x10));
-        nlPopMatrix(0x1);
-        nlLoadMatrix(0x8C287938);
-        nlTranslate((*(float *)(((0x284 + ((int)stk + 16)) + 0x0))), (*(float *)(((0x284 + ((int)stk + 16)) + 0x4))), (*(float *)(((0x284 + ((int)stk + 16)) + 0x8))));
-        nlRotateAZ((*(short *)((a4 + 0xC8C))));
-        nlMultiMatrix((((int)stk + 12) + 0x10));
-        *(int *)((int)stk + 8) = (0x2AC + ((int)stk + 12));
-        mtxGetWorldPos(0x0, 0x0, 0x0, 0x0, (0x2AC + ((int)stk + 12)));
-        nlTranslate(4.0f, 0.0f, 0.0f);
-        *(int *)((int)stk + 4) = (0x2BC + ((int)stk + 8));
-        mtxGetWorldPos(0x0, 0x0, 0x0, 0x0, (0x2BC + ((int)stk + 8)));
-        nlPopMatrix(0x1);
-        t146 = (nlArcTan2(((*(float *)(((int)stk + 712))) - (*(float *)(((0x2AC + ((int)stk + 12)) + 0x4)))), ((*(float *)(((int)stk + 708))) - (*(float *)(((0x2AC + ((int)stk + 12)) + 0x0))))));
-        *(int *)((int)stk + 12) = t146;
-        t151 = nlArcTan2(((*(float *)(((0x2C0 + ((int)stk + 16)) + 0x4))) - (*(float *)(((0x2AC + ((int)stk + 12)) + 0x4)))), ((*(float *)(((0x2C0 + ((int)stk + 16)) + 0x0))) - (*(float *)(((0x2AC + ((int)stk + 12)) + 0x0)))));
-        t152 = angDiff(t151, t146);
-        *(unsigned int *)(((int)stk + 16)) = (short)t152;
-        if ((int)(short)t152 >= 0) {
-            t155 = (*(int *)(((int)stk + 16)));
-        } else {
-            t155 = (-(*(int *)(((int)stk + 16))));
+        *(unsigned int *)((a4 + 0xD40)) = 0x8C02414C;
+        t86 = 0xD50;
+        t88 = 0x5;
+    }
+    *(unsigned int *)((a4 + t86)) = t88;
+    t95 = 0x0;
+    for (;;) {
+        { struct mv3 { int w[3]; }; *(struct mv3 *)((((0xBE0 + a4) + t95) + 0x30)) = *(struct mv3 *)(0x8C1016D4); }
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((0xBE0 + a4) + t95)) = *(struct mv3 *)(0x8C1016D4); }
+        t95 = (t95 + 0xC);
+        if ((unsigned int)t95 >= (unsigned int)0x30) {
+            break;
         }
-        if ((int)t155 < (int)0x4000) {
-            if ((int)(*(int *)(((int)stk + 16))) >= 0) {
-                t161 = (*(int *)(((int)stk + 16)));
-            } else {
-                t161 = (-(*(int *)(((int)stk + 16))));
-            }
-            t168 = t152;
-            if ((int)t161 > (int)0x800) {
-                t165 = 0x1;
-                if ((int)(short)t152 > 0) {
-                } else {
-                    t163 = 0x0;
-                    if ((int)(short)t152 < 0) {
-                        t163 = 0xFFFFFFFF;
-                    }
-                    t165 = t163;
-                }
-                t168 = (((t165 << 8) << 2) << 1);
-            }
-            *(unsigned short *)((a4 + 0xC8C)) = ((*(short *)((a4 + 0xC8C))) + t168);
-            t172 = *(short *)((a4 + 0xC8C));
-            t173 = (-t172);
-            if ((int)t172 >= 0) {
-                t173 = t172;
-            }
-            if ((int)t173 > (int)0x2000) {
-                t176 = *(short *)((a4 + 0xC8C));
-                t179 = 0x1;
-                if ((int)t176 > 0) {
-                } else {
-                    t177 = 0x0;
-                    if ((int)t176 < 0) {
-                        t177 = 0xFFFFFFFF;
-                    }
-                    t179 = t177;
-                }
-                *(unsigned short *)((a4 + 0xC8C)) = ((((t179 << 8) << 2) << 2) << 1);
-            }
+    }
+    *(unsigned int *)((a4 + 0xC40)) = 0x0;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xC44 + a4)) = *(struct mv3 *)(0x8C1016D4); }
+    *(unsigned short *)((a4 + 0xD44)) = 0x0;
+    *(unsigned short *)((a4 + 0xD46)) = 0x0;
+    *(unsigned short *)((a4 + 0xD48)) = 0x0;
+    *(unsigned short *)((a4 + 0xD4A)) = 0x0;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((0xAD0 + a4) + 0xC)) = *(struct mv3 *)((0xAE8 + a4)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xAD0 + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((0xAB8 + a4) + 0xC)) = *(struct mv3 *)((0xAE8 + a4)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xAB8 + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
+    *(unsigned int *)((a4 + 0xC50)) = 0x63;
+    *(unsigned int *)((a4 + 0xC54)) = 0x63;
+    *(unsigned int *)((a4 + 0xC5C)) = 0x0;
+    *(unsigned int *)((a4 + 0xC60)) = 0x0;
+    *(unsigned int *)((a4 + 0xC64)) = 0x0;
+    *(unsigned int *)((a4 + 0xC68)) = 0x0;
+    *(float *)((a4 + 0xC70)) = 1.0f;
+    *(unsigned int *)((a4 + 0xC74)) = 0x1;
+    *(unsigned int *)((a4 + 0xC6C)) = 0x0;
+    *(unsigned int *)((a4 + 0xC78)) = 0x0;
+    *(float *)((a4 + 0xC7C)) = 0.0f;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xC80 + a4)) = *(struct mv3 *)(0x8C1016D4); }
+    *(unsigned short *)((a4 + 0xC8C)) = 0x0;
+    *(float *)((a4 + 0xC90)) = 0.0f;
+    *(float *)((a4 + 0xC94)) = 1.0f;
+    *(unsigned int *)((a4 + 0xC9C)) = 0x0;
+    *(unsigned int *)((a4 + 0xCA0)) = 0x0;
+    *(unsigned int *)((a4 + 0xCB0)) = 0x0;
+    *(float *)((a4 + 0xCB4)) = 0.0f;
+    *(unsigned int *)((a4 + 0xCBC)) = 0x0;
+    *(unsigned int *)((a4 + 0xCC0)) = 0x0;
+    *(unsigned int *)((a4 + 0xCC4)) = 0x1;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xCD4 + a4)) = *(struct mv3 *)(0x8C1016D4); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xCC8 + a4)) = *(struct mv3 *)(0x8C1016D4); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xCE0 + a4)) = *(struct mv3 *)(0x8C1016D4); }
+    *(unsigned int *)((a4 + 0xCEC)) = 0x0;
+    *(unsigned int *)((a4 + 0xCF0)) = 0x0;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xCF4 + a4)) = *(struct mv3 *)(0x8C1016D4); }
+    *(unsigned int *)((a4 + 0xC98)) = 0x0;
+    *(unsigned int *)((a4 + 0xC9C)) = 0x0;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xD04 + a4)) = *(struct mv3 *)(0x8C1016D4); }
+    *(unsigned int *)((a4 + 0xD10)) = 0x0;
+    *(unsigned int *)((a4 + 0xD14)) = 0x0;
+    *(float *)(((0xD34 + a4) + 0x4)) = 1.0f;
+    *(float *)(((0xD34 + a4) + 0x0)) = 1.0f;
+    *(unsigned short *)((a4 + 0xD3E)) = 0x3E7;
+    *(unsigned short *)((a4 + 0xD3C)) = 0x3E7;
+    *(unsigned int *)((a4 + 0xD30)) = 0x63;
+    *(unsigned int *)((a4 + 0xD4C)) = (*(int *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x3C)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xD60 + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xD54 + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
+    *(unsigned int *)((a4 + 0xD6C)) = 0xFFFFFFFF;
+    *(unsigned int *)((a4 + 0xD70)) = 0x0;
+    *(unsigned int *)((a4 + 0xD74)) = 0x0;
+    playerRecA20Clear((0xA20 + a4));
+    *(int *)((int)stk + 12) = (0xA40 + a4);
+    colliObjInit((0xAE8 + a4), 0x0, 0x0, 0x0, (0xA40 + a4), 5.0f);
+    *(unsigned int *)((a4 + 0xA70)) = (*(int *)((a4 + 0xB5C)));
+    if (((*(int *)0x8C421F60) != 0) && (t104 = *(int *)0x8C295DDC, (t104 & 32) != 0)) {
+        *(unsigned short *)((a4 + 0xB06)) = 0x0;
+        t105 = 0x6148;
+        if (a5 == 0) {
+            t105 = 0x2C4C;
         }
-        nlPushMatrix(0x0);
-        nlLoadMatrix((((int)stk + 16) + 0x4C));
-        *(int *)((int)stk + 12) = (0x284 + ((int)stk + 16));
-        mtxGetWorldPos(0x0, 0x0, 0x0, 0x0, (0x284 + ((int)stk + 16)));
-        nlPushMatrix(0x0);
-        nlLoadMatrix(0x8C287978);
-        nlMultiPushedMatrix();
-        nlSetTranslate(0x8C1016D4);
-        nlGetMatrix((((int)stk + 12) + 0x50));
-        nlPopMatrix(0x1);
-        nlLoadMatrix(0x8C287938);
-        nlTranslate((*(float *)(((0x284 + ((int)stk + 16)) + 0x0))), (*(float *)(((0x284 + ((int)stk + 16)) + 0x4))), (*(float *)(((0x284 + ((int)stk + 16)) + 0x8))));
-        nlRotateAZ((*(short *)((a4 + 0xC8C))));
-        nlMultiMatrix((((int)stk + 12) + 0x50));
-        nlTranslate(4.0f, 0.0f, 0.0f);
-        *(int *)((int)stk + 8) = (0x2B8 + ((int)stk + 12));
-        mtxGetWorldPos(0x0, 0x0, 0x0, 0x0, (0x2B8 + ((int)stk + 12)));
-        nlPopMatrix(0x1);
-        *(float *)(((int)stk + 648)) = ((*(float *)(((0x2C0 + ((int)stk + 16)) + 0x0))) - (*(float *)(((int)stk + 708))));
-        *(float *)(((int)stk + 652)) = ((*(float *)(((0x2C0 + ((int)stk + 16)) + 0x4))) - (*(float *)(((int)stk + 712))));
-        *(float *)((a4 + 0xC80)) = ((*(float *)((a4 + 0xC80))) + (*(float *)(((0x278 + ((int)stk + 16)) + 0x0))));
-        *(float *)((a4 + 0xC84)) = ((*(float *)((a4 + 0xC84))) + (*(float *)(((0x27C + ((int)stk + 16)) + 0x0))));
-        { struct mv3 { int w[3]; }; *(struct mv3 *)((0x278 + ((int)stk + 16))) = *(struct mv3 *)((0xC80 + a4)); }
-        nlPushUnitMatrix();
-        t224 = nlArcTan2(((*(float *)(((0x2AC + ((int)stk + 12)) + 0x0))) - (*(float *)(((0x26C + ((int)stk + 16)) + 0x0)))), ((*(float *)(((0x2AC + ((int)stk + 12)) + 0x8))) - (*(float *)(((0x26C + ((int)stk + 16)) + 0x8)))));
-        nlRotateAY((-t224));
-        nlCalcPoint((0x278 + ((int)stk + 16)), (0x278 + ((int)stk + 16)));
-        nlPopMatrix(0x1);
-        nlPushUnitMatrix();
-        t233 = vecDistXZf((*(float *)(((0x2AC + ((int)stk + 12)) + 0x0))), (*(float *)(((0x2AC + ((int)stk + 12)) + 0x8))), (*(float *)(((0x26C + ((int)stk + 16)) + 0x0))), (*(float *)(((0x26C + ((int)stk + 16)) + 0x8))));
-        t236 = nlArcTan2(((*(float *)(((0x2AC + ((int)stk + 12)) + 0x4))) - (*(float *)(((0x26C + ((int)stk + 16)) + 0x4)))), t233);
-        nlRotateAX(t236);
-        nlCalcPoint((0x278 + ((int)stk + 16)), (0x278 + ((int)stk + 16)));
-        nlPopMatrix(0x1);
-        if ((*(float *)(((int)stk + 656))) > 3.0f) {
-            *(float *)(((int)stk + 656)) = 3.0f;
-        }
-        if ((-1.0f) > (*(float *)(((int)stk + 656)))) {
-            *(float *)(((int)stk + 656)) = (-1.0f);
-        }
-        u244 = *(float *)(((int)stk + 652));
-        u245 = (-u244);
-        if (!(0.0f > u244)) {
-            u245 = u244;
-        }
-        if (u245 > 4.0f) {
-            u248 = *(float *)(((int)stk + 652));
-            t251 = 0x1;
-            if (u248 > 0.0f) {
-            } else {
-                t249 = 0x0;
-                if (0.0f > u248) {
-                    t249 = 0xFFFFFFFF;
-                }
-                t251 = t249;
-            }
-            *(float *)(((int)stk + 652)) = (float)(t251 << 2);
-        }
-        nlPushUnitMatrix();
-        t262 = vecDistXZf((*(float *)(((0x2AC + ((int)stk + 12)) + 0x0))), (*(float *)(((0x2AC + ((int)stk + 12)) + 0x8))), (*(float *)(((0x26C + ((int)stk + 16)) + 0x0))), (*(float *)(((0x26C + ((int)stk + 16)) + 0x8))));
-        t265 = nlArcTan2(((*(float *)(((0x2AC + ((int)stk + 12)) + 0x4))) - (*(float *)(((0x26C + ((int)stk + 16)) + 0x4)))), t262);
-        nlRotateAX((-t265));
-        nlCalcPoint((0x278 + ((int)stk + 16)), (0x278 + ((int)stk + 16)));
-        nlPopMatrix(0x1);
-        nlPushUnitMatrix();
-        t274 = nlArcTan2(((*(float *)(((0x2AC + ((int)stk + 12)) + 0x0))) - (*(float *)(((0x26C + ((int)stk + 16)) + 0x0)))), ((*(float *)(((0x2AC + ((int)stk + 12)) + 0x8))) - (*(float *)(((0x26C + ((int)stk + 16)) + 0x8)))));
-        nlRotateAY(t274);
-        nlCalcPoint((0x278 + ((int)stk + 16)), (0x278 + ((int)stk + 16)));
-        nlPopMatrix(0x1);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)((0xC80 + a4)) = *(struct mv3 *)((0x278 + ((int)stk + 16))); }
-        t278 = *(int *)(((int)stk + 20));
-        *(unsigned int *)(((int)stk + 20)) = (t278 + 0x1);
-        if ((int)(t278 + 0x1) < (int)0x4) {
-            t279 = ((int (*)(int, int))(playerSolveArmReach))(a4, (t278 + 0x1));
+        t108 = (*(int *)0x8C2873E0);
+        *(int *)((int)stk + 12) = t108;
+        t111 = (*(int *)(((0x8C102424 + ((*(int *)((a4 + 0xC58))) * 0x6C)) + 0x0)));
+        *(int *)((int)stk + 8) = t111;
+        motionSet(a4, t105, 0x0, 0x7D204, t111, t108, (*(float *)0x8C23D204));
+        *(int *)((int)stk + 4) = (0xAE8 + a4);
+        motionRootFirst(a4, 0x0, 0x0, 0x0, (0xAE8 + a4));
+        *(unsigned int *)((a4 + 0xD40)) = 0x8C025500;
+    }
+    lightOverrideAmbient((*(int *)((a4 + 0xB5C))), 0x0);
+    lightOverrideDiffuse((*(int *)((a4 + 0xB5C))), 0x0);
+    seFootstepCheck(a4, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), *(int *)((int)stk + 16 + 4), *(int *)((int)stk + 16 + 8), *(int *)((int)stk + 16 + 12), *(int *)((int)stk + 16 + 16));
+    evSkidMarkSpawn(a4, 0x0, 0x0);
+    t128 = 0x8C28B364;
+    for (;;) {
+        t129 = a4;
+        t131 = (t128 + (a5 * 0xD78));
+        for (;;) { t132 = *(int *)t129; t129 = (t129 + 4); if ((unsigned int)((a4 + 3448)) < (unsigned int)t129) break; *(unsigned int *)t131 = t132; t131 = (t131 + 4); }
+        t128 = (t128 + 0x35E0);
+        if ((unsigned int)t128 >= (unsigned int)0x8C291F24) {
+            break;
         }
     }
 }

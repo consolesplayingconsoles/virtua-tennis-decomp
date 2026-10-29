@@ -1299,70 +1299,6 @@ int rankInsert1(void)
     return t25;
 }
 
-float cpuEdgeX(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
-{
-    float u0;
-    float u1;
-    int t4;
-    int t2;
-    float u7;
-    float u9;
-    float u11;
-    float u12;
-    float u35;
-    float u15;
-    float u27;
-    int t20;
-    int t18;
-    int stk[13];
-
-    stk[1] = a8;
-    stk[2] = a9;
-    stk[3] = a10;
-    stk[4] = a11;
-    u0 = *(float *)((((int)stk + 4) + 0x8));
-    u1 = *(float *)((((int)stk + 4) + 0x0));
-    t4 = 0x1;
-    if (u0 > 0.0f) {
-    } else {
-        t2 = 0x0;
-        if (0.0f > u0) {
-            t2 = 0xFFFFFFFF;
-        }
-        t4 = t2;
-    }
-    u7 = ((float)((a4 << 1) - 1) * (*(float *)0x8C287B40));
-    u9 = (u1 - ((((u1 - (u7 * 0.5f)) / (u0 - ((float)(-t4) * 118.849998f)))) * u0));
-    u9 = u9 + f4 * ((u1 - (u7 * 0.5f)) / (u0 - ((float)(-t4) * 118.849998f)));
-    u11 = ((((float)((a4 << 1) - 1) * 25.0f) - ((((u1 + -0.0f) / (u0 - ((float)(-t4) * 118.849998f)))) * u0)) + u1);
-    u11 = u11 + f4 * ((u1 + -0.0f) / (u0 - ((float)(-t4) * 118.849998f)));
-    u12 = u11;
-    if (((float)((a4 << 1) - 1) * u9) > ((float)((a4 << 1) - 1) * u11)) {
-        u12 = u9;
-    }
-    u35 = u12;
-    if (((*(int *)0x8C291F78) & 4) == 0) {
-        u15 = (-u12);
-        if (!(0.0f > u12)) {
-            u15 = u12;
-        }
-        u27 = u12;
-        if (u15 > ((*(float *)0x8C287B40) * 0.699999988f)) {
-            t20 = 0x1;
-            if (u12 > 0.0f) {
-            } else {
-                t18 = 0x0;
-                if (0.0f > u12) {
-                    t18 = 0xFFFFFFFF;
-                }
-                t20 = t18;
-            }
-            u27 = ((((float)t20 * (*(float *)0x8C287B40))) * 0.699999988f);
-        }
-        u35 = u27;
-    }
-    return u35;
-}
 
 int scorePressure(void)
 {
@@ -1480,3 +1416,5 @@ int endingScreenObjPut(void)
     *(float *)0x8C287A10 = (320.0f / (nlTanf((((*(float *)0x8C287A04) * 1.04457951f) / 90.0f))));
     return (nlMatrixMode(0x1));
 }
+
+

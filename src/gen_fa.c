@@ -19,36 +19,36 @@ int vmsio_get_media_info(int a4, int a5);
 
 int cpuDblPosition(int a4)
 {
-    int t0;
-    float u9;
-    float u15;
-    float u31;
-    float u32;
-    float u48;
-    float u49;
-    float u60;
-    float u69;
+    register int t0;
+    register float u9;
+    register float u15;
+    register float u31;
+    register float u32;
+    register float u48;
+    register float u49;
+    register float u60;
+    register float u69;
     int stk[8];
 
-    int R0;
-    int R1;
-    int R2;
-    int R3;
-    int R4;
-    int R5;
-    int R9;
-    int R10;
-    int R11;
-    int R12;
-    int R13;
-    int R14;
-    float F1;
-    float F2;
-    float F3;
-    float F4;
-    float F5;
-    float F6;
-    int T_;
+    register int R0;
+    register int R1;
+    register int R2;
+    register int R3;
+    register int R4;
+    register int R5;
+    register int R9;
+    register int R10;
+    register int R11;
+    register int R12;
+    register int R13;
+    register int R14;
+    register float F1;
+    register float F2;
+    register float F3;
+    register float F4;
+    register float F5;
+    register float F6;
+    register int T_;
     R4 = a4;
     L_8C06AB78:;
     t0 = *(int *)((R4 + 0xB5C));
@@ -263,98 +263,6 @@ int cpuDblPosition(int a4)
     goto L_8C06ABEE;
 }
 
-int vmsio_get_media_info(int a4, int a5)
-{
-    int t0;
-    int t2;
-    int t11;
-    int t13;
-    int t15;
-    int t16;
-    int t19;
-    int t20;
-    int t53;
-    int t54;
-    int t67;
-    int t63;
-    int stk[13];
-
-    t0 = *(int *)(((a4 << 2) + 0x8C20B048));
-    *(unsigned int *)(((int)stk + 4)) = (kdGetDevice(t0));
-    t2 = kdGetDeviceInfo(t0);
-    if ((*(signed char *)(((*(int *)(((int)stk + 4))) + 0x0))) == 0) {
-        vmsfb_sleep();
-        t67 = 0xFFFFFF01;
-    } else {
-        if (((*(int *)((t2 + 0x0))) & 2) == 0) {
-            vmsfb_sleep();
-            t63 = 0xFFFFFF01;
-        } else {
-            kdRecognizeChanged(t0);
-            for (;;) {
-                for (;;) {
-                    kdGetDevice(t0);
-                    t11 = kdSetGetMediaInfo(t0, 0x2, 0x0);
-                    if ((int)t11 < 0) {
-                        vmsfb_sleep();
-                        continue;
-                    }
-                    break;
-                }
-                for (;;) {
-                    t13 = kdGetStatus(t0, t11);
-                    if (t13 == 0) {
-                        vmsfb_sleep();
-                        continue;
-                    }
-                    break;
-                }
-                t15 = kdGetDevice(t0);
-                t16 = kdIsChanged(t0);
-                if (t16 != 0) {
-                    break;
-                }
-                t19 = *(signed char *)((t15 + 0x4));
-                t20 = *(int *)((t15 + 0x8));
-                if ((unsigned char)t19 != 8) {
-                    if ((unsigned char)t19 != 0xFC) {
-                        return 0xFFFFFF01;
-                    }
-                    continue;
-                }
-                *(unsigned int *)((a5 + 0x0)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((t20 + 0x8), 0x0));
-                *(unsigned int *)((a5 + 0x4)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((t20 + 0x8), 0x2));
-                *(unsigned int *)((a5 + 0x8)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((t20 + 0x8), 0x4));
-                *(unsigned int *)((a5 + 0xC)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((t20 + 0x8), 0x6));
-                *(unsigned int *)((a5 + 0x10)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((t20 + 0x8), 0x8));
-                *(unsigned int *)((a5 + 0x14)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((t20 + 0x8), 0xA));
-                *(unsigned int *)((a5 + 0x18)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((t20 + 0x8), 0xC));
-                *(unsigned int *)((a5 + 0x1C)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((t20 + 0x8), 0x10));
-                *(unsigned int *)((a5 + 0x20)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((t20 + 0x8), 0x12));
-                *(unsigned int *)((a5 + 0x34)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((t20 + 0x8), 0x14));
-                *(unsigned int *)((a5 + 0x38)) = 0x80;
-                *(unsigned int *)((a5 + 0x24)) = (unsigned char)(*(signed char *)(((t20 + 0x8) + 0xE)));
-                *(unsigned int *)((a5 + 0x28)) = (unsigned char)(*(signed char *)(((t20 + 0x8) + 0xF)));
-                *(unsigned int *)((a5 + 0x2C)) = 0x1FF;
-                t53 = kdGetDeviceInfo(t0);
-                t54 = kdDevGetStorageInfo((((int)stk + 4) + 0x4), t53);
-                if ((int)t54 >= 0) {
-                    *(unsigned int *)((a5 + 0x3C)) = (unsigned short)(*(short *)(((int)stk + 14)));
-                    *(unsigned int *)(((0x40 + a5) + 0x0)) = (unsigned short)(*(short *)(((int)stk + 12)));
-                    *(unsigned int *)(((0x44 + a5) + 0x0)) = ((int)((int)0x200 / (int)(unsigned short)(*(short *)(((int)stk + 14)))));
-                    *(unsigned int *)(((0x48 + a5) + 0x0)) = ((int)((int)0x200 / (int)(unsigned short)(*(short *)(((int)stk + 12)))));
-                    return 0x0;
-                }
-                vmsfb_sleep();
-                return 0xFFFFFF01;
-            }
-            vmsfb_sleep();
-            t63 = 0xFFFFFF30;
-        }
-        t67 = t63;
-    }
-    return t67;
-}
 
 int menuItemTextPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4)
 {

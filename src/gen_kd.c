@@ -1,288 +1,225 @@
 /* Straight-line functions with calls and guards (batch gen_kd): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-float cpuDblCoverPos(int a4);
+typedef struct { int w[3]; } Stk3;
+float cpuLineXAtZ(Stk3, Stk3, float);
+float cpuDblAimRateE(int a4, int a5);
 
-float cpuDblCoverPos(int a4)
+float cpuDblAimRateE(int a4, int a5)
 {
+    int stk[28];
     int t0;
-    int t1;
-    int t2;
-    float u5;
-    float u6;
-    float u7;
-    float u8;
+    float t7;
+    float u9;
     float u10;
-    float u12;
-    float u24;
-    float u25;
+    float t13;
+    int t16;
+    float u17;
+    float u18;
+    float u22;
     float u27;
-    float u72;
-    float u30;
+    int t32;
     int t33;
-    int t31;
-    float u36;
-    int t41;
-    float u38;
-    int t39;
-    float u46;
-    float u48;
-    float u51;
-    float u52;
-    float u54;
-    float u57;
-    int t75;
-    int t78;
-    int t76;
-    float u81;
-    int t86;
-    float u83;
-    int t84;
-    float u92;
-    int t93;
-    int t96;
-    int t94;
-    float u99;
-    int t104;
-    float u101;
-    int t102;
-    float u112;
-    float u125;
-    float u127;
-    float u172;
-    float u130;
-    int t133;
-    int t131;
-    int t141;
-    int t139;
-    float u146;
-    float u148;
-    float u151;
-    float u152;
-    float u154;
-    float u157;
-    float u180;
-    float u190;
-    float u185;
-    float u193;
-    float u194;
-    int t197;
-    int t195;
-    float u200;
-    float u203;
-    int t209;
-    int t207;
-    float u213;
-    float u215;
-    int t22;
-    float u63;
+    float u39;
+    float u44;
+    int t71;
+    int t69;
+    float u84;
+    float u85;
+    int t92;
+    float u88;
+    float u89;
+    int t98;
+    float u102;
+    float u103;
+    float u110;
+    float u117;
     float u122;
-    float u163;
+    float u127;
+    float u130;
+    float u134;
+    float t150;
+    float u151;
+    float u153;
+    float u155;
+    float u157;
+    float u159;
+    int t164;
+    float u161;
+    float u182;
+    float u184;
+    float u185;
+    int t192;
+    float u187;
+    float u189;
+    int t76;
+    int t55;
+    int t35;
+    int t51;
+    float u145;
+    float u138;
+    int t176;
+    int t170;
 
     t0 = *(int *)((a4 + 0xB5C));
-    t1 = *(int *)((a4 + 0xB5C));
-    t2 = *(int *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB5C));
-    u5 = *(float *)((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102450));
-    u6 = ((float)(*(signed char *)0x8C2FD924) * 0.00999999978f);
-    u6 = u6 + 0.0500000007f * (((u5 / 1.04999995f) + (-1.0f)) / 0.0500000007f);
-    u7 = *(float *)((a4 + 0xAF0));
-    u8 = *(float *)0x8C291F84;
-    u10 = (-u7);
-    if (!(0.0f > u7)) {
-        u10 = (*(float *)((a4 + 0xAF0)));
-    }
-    u12 = (-u8);
-    if (!(0.0f > u8)) {
-        u12 = u8;
-    }
-    if (u12 > u10) {
-        t22 = (*(signed char *)(((0x8C15A0D0 + ((*(int *)((a4 + 0xC58))) << 1)) + 0x0)));
+    *(unsigned int *)(((int)stk + 52)) = (0x8C287D84 + ((((*(int *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xB5C))) + 0x2) & 0x3) * 0xD78));
+    *(float *)(((((int)stk + 52) + 0x4) + 0x0)) = ((*(float *)((a5 + 0x0))) - (*(float *)((a4 + 0xB9C))));
+    *(float *)(((((int)stk + 52) + 0x4) + 0x4)) = 0.0f;
+    *(float *)(((((int)stk + 52) + 0x4) + 0x8)) = ((*(float *)((a5 + 0x8))) - (*(float *)((a4 + 0xBA4))));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x4)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((0xB9C + a4)); }
+    t7 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 28)), *(Stk3 *)(((int)stk + 40)), (*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0))));
+    u9 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAE8));
+    u10 = *(float *)(((*(int *)(((int)stk + 52))) + 0xAE8));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 52) + 0x4)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xB9C + a4)); }
+    t13 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 16)), (*(float *)(((*(int *)(((int)stk + 52))) + 0xAF0))));
+    if ((unsigned char)(*(signed char *)((a5 + 0xC))) != 1) {
+        t16 = *(signed char *)(((((t0 << 1) + (t0 << 2)) + 0x8C15A0F4) + 0x5));
+        t76 = (0x0 + ((t16 << 2) + t16));
     } else {
-        t22 = (*(signed char *)(((0x8C15A0D0 + ((*(int *)((a4 + 0xC58))) << 1)) + 0x1)));
-    }
-    u24 = u6;
-    u24 = u24 + 0.0199999996f * (float)t22;
-    u25 = *(float *)(((0x8C2FC69C + (t2 * 0x160)) + 0x28));
-    u27 = (-u25);
-    if (!(0.0f > u25)) {
-        u27 = (*(float *)(((0x8C2FC69C + (t2 * 0x160)) + 0x28)));
-    }
-    u72 = u24;
-    if (u27 > 0.25f) {
-        u30 = *(float *)(((0x8C2FC69C + (t2 * 0x160)) + 0x28));
-        t33 = 0x1;
-        if (u30 > 0.0f) {
-        } else {
-            t31 = 0x0;
-            if (0.0f > u30) {
-                t31 = 0xFFFFFFFF;
-            }
-            t33 = t31;
+        u17 = *(float *)((a5 + 0x8));
+        u18 = (-u17);
+        if (!(0.0f > u17)) {
+            u18 = u17;
         }
-        u36 = *(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAE8));
-        t41 = 0x1;
-        if ((u36 - (*(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB9C)))) > 0.0f) {
+        if (u18 > 64.0f) {
+            u22 = *(float *)((a4 + 0xAE8));
+            u27 = *(float *)((a5 + 0x0));
+            if (((u22 > 0.0f) - (0.0f > u22)) == ((u27 > 0.0f) - (0.0f > u27))) {
+                t32 = *(signed char *)(((((t0 << 1) + (t0 << 2)) + 0x8C15A0F4) + 0x0));
+                t35 = (0x0 + ((t32 << 2) + t32));
+            } else {
+                t33 = *(signed char *)(((((t0 << 1) + (t0 << 2)) + 0x8C15A0F4) + 0x1));
+                t35 = (0x0 + ((t33 << 2) + t33));
+            }
+            t55 = t35;
         } else {
-            u38 = *(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAE8));
-            t39 = 0x0;
-            if (0.0f > (u38 - (*(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB9C))))) {
-                t39 = 0xFFFFFFFF;
+            u39 = *(float *)((a4 + 0xAE8));
+            u44 = *(float *)((a5 + 0x0));
+            if (((u39 > 0.0f) - (0.0f > u39)) == ((u44 > 0.0f) - (0.0f > u44))) {
+                t51 = (*(signed char *)(((((t0 << 1) + (t0 << 2)) + 0x8C15A0F4) + 0x4)));
+            } else {
+                t51 = (*(signed char *)(((((t0 << 1) + (t0 << 2)) + 0x8C15A0F4) + 0x3)));
             }
-            t41 = t39;
+            t55 = (0x0 + ((t51 << 2) + t51));
         }
-        if (t33 == t41) {
-            u46 = *(float *)(((0x8C2FC69C + (t2 * 0x160)) + 0x28));
-            u48 = (-u46);
-            if (!(0.0f > u46)) {
-                u48 = (*(float *)(((0x8C2FC69C + (t2 * 0x160)) + 0x28)));
-            }
-            u51 = u24;
-            u51 = u51 + 0.00999999978f * (u48 * (float)(*(signed char *)0x8C2FD92A));
-            u63 = u51;
-        } else {
-            u52 = *(float *)(((0x8C2FC69C + (t2 * 0x160)) + 0x28));
-            u54 = (-u52);
-            if (!(0.0f > u52)) {
-                u54 = (*(float *)(((0x8C2FC69C + (t2 * 0x160)) + 0x28)));
-            }
-            u57 = (u54 * (float)(*(signed char *)0x8C2FD92B));
-            u63 = (u24 - (u57 * 0.00999999978f));
+        t71 = t55;
+        if ((((u9 - t7) > 0.0f) - (0.0f > (u9 - t7))) != (((u10 - t13) > 0.0f) - (0.0f > (u10 - t13)))) {
+            t69 = *(signed char *)(((((t0 << 1) + (t0 << 2)) + 0x8C15A0F4) + 0x2));
+            t71 = (t55 + ((t69 << 2) + t69));
         }
-        u72 = u63;
+        t76 = t71;
     }
-    t75 = *(int *)(((0x8C2FC69C + (t2 * 0x160)) + 0x158));
-    t78 = 0x1;
-    if ((int)t75 > 0) {
+    u84 = *(float *)((a5 + 0x0));
+    u85 = (-u84);
+    if (!(0.0f > u84)) {
+        u85 = u84;
+    }
+    t92 = t76;
+    if (u85 > 41.1499977f) {
+        u88 = *(float *)((a5 + 0x0));
+        u89 = (-u88);
+        if (!(0.0f > u88)) {
+            u89 = u88;
+        }
+        t92 = (int)((float)t76 - (u89 + -41.1499977f));
+    }
+    t98 = *(int *)((a4 + 0xB5C));
+    u102 = (*(float *)0x8C28886C);
+    u102 = u102 + 0.800000012f * ((*(float *)0x8C2FC6C4) * (float)(*(short *)(((0x8C2FC69C + (t98 * 0x160)) + 0x118))));
+    u103 = (-u102);
+    if (!(0.0f > u102)) {
+        u103 = u102;
+    }
+    u110 = u102;
+    if (u103 > 39.8499985f) {
+        u110 = ((float)((u102 > 0.0f) - (0.0f > u102)) * 39.8499985f);
+    }
+    u117 = (*(float *)0x8C288874);
+    u117 = u117 + 0.800000012f * ((*(float *)0x8C2FC6CC) * (float)(*(short *)(((0x8C2FC69C + (t98 * 0x160)) + 0x118))));
+    u122 = *(float *)0x8C288884;
+    if (((u117 > 0.0f) - (0.0f > u117)) != ((u122 > 0.0f) - (0.0f > u122))) {
+        u127 = (-u117);
+        if (!(0.0f > u117)) {
+            u127 = u117;
+        }
+        if (35.6550026f > u127) {
+            u138 = (-((*(float *)0x8C288884) * 35.6550026f));
+        } else {
+            u130 = (-u117);
+            if (!(0.0f > u117)) {
+                u130 = u117;
+            }
+            u134 = u117;
+            if (u130 > 130.735001f) {
+                u134 = (-((*(float *)0x8C288884) * 130.735001f));
+            }
+            u138 = u134;
+        }
+        u145 = u138;
     } else {
-        t76 = 0x0;
-        if ((int)t75 < 0) {
-            t76 = 0xFFFFFFFF;
-        }
-        t78 = t76;
+        u145 = (-((*(float *)0x8C288884) * 35.6550026f));
     }
-    u81 = *(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAE8));
-    t86 = 0x1;
-    if ((u81 - (*(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB9C)))) > 0.0f) {
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x4)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((0xB9C + a4)); }
+    t150 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 28)), *(Stk3 *)(((int)stk + 40)), u145);
+    u151 = (u110 - t150);
+    if (!(0.0f > (t150 - u110))) {
+        u151 = (t150 - u110);
+    }
+    if (5.0f > u151) {
+        u153 = (u110 - t150);
+        if (!(0.0f > (t150 - u110))) {
+            u153 = (t150 - u110);
+        }
+        t176 = (int)((float)t92 - u153);
     } else {
-        u83 = *(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAE8));
-        t84 = 0x0;
-        if (0.0f > (u83 - (*(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB9C))))) {
-            t84 = 0xFFFFFFFF;
+        u155 = (u110 - t150);
+        if (!(0.0f > (t150 - u110))) {
+            u155 = (t150 - u110);
         }
-        t86 = t84;
-    }
-    if (t78 == t86) {
-        u92 = u72;
-        u92 = u92 + 0.00999999978f * (float)(*(signed char *)0x8C2FD92C);
-        u122 = u92;
-    } else {
-        t93 = *(int *)(((0x8C2FC69C + (t2 * 0x160)) + 0x158));
-        t96 = 0x1;
-        if ((int)t93 > 0) {
+        if (15.0f > u155) {
+            u157 = (u110 - t150);
+            if (!(0.0f > (t150 - u110))) {
+                u157 = (t150 - u110);
+            }
+            t170 = (int)((float)t92 + (((-u157) + 30.0f) * 0.5f));
         } else {
-            t94 = 0x0;
-            if ((int)t93 < 0) {
-                t94 = 0xFFFFFFFF;
+            u159 = (u110 - t150);
+            if (!(0.0f > (t150 - u110))) {
+                u159 = (t150 - u110);
             }
-            t96 = t94;
-        }
-        u99 = *(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAE8));
-        t104 = 0x1;
-        if ((u99 - (*(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB9C)))) > 0.0f) {
-        } else {
-            u101 = *(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAE8));
-            t102 = 0x0;
-            if (0.0f > (u101 - (*(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB9C))))) {
-                t102 = 0xFFFFFFFF;
+            t164 = t92;
+            if (30.0f > u159) {
+                u161 = (u110 - t150);
+                if (!(0.0f > (t150 - u110))) {
+                    u161 = (t150 - u110);
+                }
+                t164 = (int)((float)t92 - (u161 * 0.200000003f));
             }
-            t104 = t102;
+            t170 = t164;
         }
-        u112 = u72;
-        if (t96 == (-t104)) {
-            u112 = (u72 - ((float)(*(signed char *)0x8C2FD92D) * 0.00999999978f));
+        t176 = t170;
+    }
+    u182 = (-u145);
+    if (!(0.0f > u145)) {
+        u182 = u145;
+    }
+    u184 = *(float *)((a5 + 0x8));
+    u185 = (-u184);
+    if (!(0.0f > u184)) {
+        u185 = u184;
+    }
+    t192 = t176;
+    if (u182 > u185) {
+        u187 = *(float *)((a5 + 0x8));
+        u189 = ((-u145) + u187);
+        if (!(0.0f > (u145 - u187))) {
+            u189 = (u145 - u187);
         }
-        u122 = u112;
+        t192 = (int)((float)t176 - (u189 * 0.100000001f));
     }
-    u125 = *(float *)((((t1 * 0x160) + 0x8C2FC69C) + 0x28));
-    u127 = (-u125);
-    if (!(0.0f > u125)) {
-        u127 = (*(float *)((((t1 * 0x160) + 0x8C2FC69C) + 0x28)));
-    }
-    u172 = u122;
-    if (u127 > 0.25f) {
-        u130 = *(float *)((((t1 * 0x160) + 0x8C2FC69C) + 0x28));
-        t133 = 0x1;
-        if (u130 > 0.0f) {
-        } else {
-            t131 = 0x0;
-            if (0.0f > u130) {
-                t131 = 0xFFFFFFFF;
-            }
-            t133 = t131;
-        }
-        t141 = 0x1;
-        if (((*(float *)((a4 + 0xAE8))) - (*(float *)((a4 + 0xB9C)))) > 0.0f) {
-        } else {
-            t139 = 0x0;
-            if (0.0f > ((*(float *)((a4 + 0xAE8))) - (*(float *)((a4 + 0xB9C))))) {
-                t139 = 0xFFFFFFFF;
-            }
-            t141 = t139;
-        }
-        if (t133 == (-t141)) {
-            u146 = *(float *)((((t1 * 0x160) + 0x8C2FC69C) + 0x28));
-            u148 = (-u146);
-            if (!(0.0f > u146)) {
-                u148 = (*(float *)((((t1 * 0x160) + 0x8C2FC69C) + 0x28)));
-            }
-            u151 = u122;
-            u151 = u151 + 0.00999999978f * (u148 * (float)(*(signed char *)0x8C2FD926));
-            u163 = u151;
-        } else {
-            u152 = *(float *)((((t1 * 0x160) + 0x8C2FC69C) + 0x28));
-            u154 = (-u152);
-            if (!(0.0f > u152)) {
-                u154 = (*(float *)((((t1 * 0x160) + 0x8C2FC69C) + 0x28)));
-            }
-            u157 = (u154 * (float)(*(signed char *)0x8C2FD927));
-            u163 = (u122 - (u157 * 0.00999999978f));
-        }
-        u172 = u163;
-    }
-    u180 = u172;
-    if (((*(int *)((a4 + 0xB60))) & 0x100) != 0) {
-        u180 = (u172 - ((float)(*(signed char *)0x8C2FD928) * 0.00999999978f));
-    }
-    u190 = u180;
-    if ((0x100 & (*(int *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB60)))) != 0) {
-        u185 = u180;
-        u185 = u185 + 0.00999999978f * (float)(*(signed char *)0x8C2FD92E);
-        u190 = u185;
-    }
-    u193 = *(float *)((a4 + 0xAE8));
-    u194 = *(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAE8));
-    t197 = 0x1;
-    if ((u193 - u194) > 0.0f) {
-    } else {
-        t195 = 0x0;
-        if (0.0f > (u193 - u194)) {
-            t195 = 0xFFFFFFFF;
-        }
-        t197 = t195;
-    }
-    u200 = *(float *)0x8C287B40;
-    u203 = u190;
-    u203 = u203 + (float)(*(signed char *)0x8C2FD929) * (((float)t197 * (*(float *)((a4 + 0xB9C)))) / u200);
-    t209 = 0x1;
-    if (((*(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAE8))) - (*(float *)((a4 + 0xAE8)))) > 0.0f) {
-    } else {
-        t207 = 0x0;
-        if (0.0f > ((*(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAE8))) - (*(float *)((a4 + 0xAE8))))) {
-            t207 = 0xFFFFFFFF;
-        }
-        t209 = t207;
-    }
-    u213 = *(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB9C));
-    u215 = (((float)t209 * u213) / u200);
-    return (u203 - (u215 * (float)(*(signed char *)0x8C2FD92F)));
+    *(float *)((a5 + 0x1C)) = (float)t192;
+    return (t150 - u110);
 }

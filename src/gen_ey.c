@@ -7,16 +7,16 @@ int hudCallDigitPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, flo
 
 int hudCallDigitPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4, float f5)
 {
-    int t1;
-    int t46;
-    int t41;
-    int t36;
-    int t31;
-    int t26;
-    int t21;
-    int t16;
-    int t11;
-    int t6;
+    register int t1;
+    register int t46;
+    register int t41;
+    register int t36;
+    register int t31;
+    register int t26;
+    register int t21;
+    register int t16;
+    register int t11;
+    register int t6;
     int stk[21];
 
     stk[10] = a8;

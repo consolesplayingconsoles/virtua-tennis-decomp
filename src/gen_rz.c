@@ -1,0 +1,96 @@
+/* Straight-line functions with calls and guards (batch gen_rz): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+int cpuSglReceivePos(int a4);
+
+int cpuSglReceivePos(int a4)
+{
+    int stk[3];
+
+    register int R1;
+    register int R2;
+    register int R3;
+    register int R8;
+    register int R9;
+    register float F2;
+    register float F4;
+    register float F5;
+    register int T_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    register int v0_5;
+    register float w0_0;
+    register float w0_1;
+    register float w0_2;
+    v0_0 = a4;
+    v0_3 = (0x8C287ACC);
+    v0_1 = ((((*(int *)((v0_0 + 0xB5C))) * 0x160) + 0x8C2FC69C));
+    if ((((*(int *)0x8C287B3C) & 0x4000) == 0)) goto L_8C0478F4;
+    *(unsigned int *)(((int)stk + 4)) = (v0_3 + 0x44);
+    v0_2 = (int)((int)(((*(int *)(((v0_3 + 0x44) + 0x0))) + (*(int *)(((v0_3 + 0x44) + 0x4)))) + 0x6) % (int)0x6);
+    v0_3 = (int)((unsigned int)((int)((unsigned int)v0_2 + (unsigned int)0x0)) + ((((int)0x0 > (int)v0_2)) ? 1u : 0u));
+    v0_2 = (((v0_3 >> 1) + 0x2));
+    if (((int)((v0_3 >> 1) + 0x2) < 0)) goto L_8C0478E0;
+    v0_2 = ((v0_2 & 0x1));
+    L_8C0478EA:;
+    v0_3 = (((((-v0_2) + 0x1) << 1) - 1));
+    L_8C047974:;
+    if (((*(int *)0x8C287D5C) != 0)) goto L_8C0479CC;
+    v0_4 = *(int *)0x8C2FCC1C;
+    v0_2 = (v0_4);
+    if ((v0_4 == 12)) goto L_8C0479CC;
+    v0_4 = *(int *)((v0_0 + 0xC58));
+    v0_2 = (v0_4);
+    if ((v0_4 != 16)) goto L_8C0479CC;
+    v0_2 = (0xA24);
+    if (((*(int *)((v0_0 + 0xA24))) == 0)) goto L_8C0479CC;
+    if (((int)v0_3 <= 0)) goto L_8C04799E;
+    w0_0 = (0.949999988f);
+    L_8C0479A2:;
+    w0_1 = *(float *)((v0_0 + 0xAE8));
+    w0_2 = *(float *)((v0_0 + 0xB00));
+    *(unsigned int *)((v0_0 + 0xA24)) = 0x0;
+    *(unsigned char *)((v0_1 + 0xB1)) = 0x0;
+    *(unsigned char *)((v0_1 + 0xB0)) = 0x0;
+    *(float *)((v0_0 + 0xA34)) = (w0_1 * w0_0);
+    *(float *)((v0_0 + 0xA3C)) = (-(w0_2 * 95.0800018f));
+    v0_2 = (0xA3C);
+    L_8C0479CC:;
+    return v0_2;
+    L_8C04799E:;
+    w0_0 = (0.99000001f);
+    goto L_8C0479A2;
+    L_8C0478E0:;
+    v0_2 = (((~(((~v0_2) + 0x1) & 0x1)) + 0x1));
+    goto L_8C0478EA;
+    L_8C0478F4:;
+    v0_4 = *(int *)(((v0_3 + 0x44) + 0x0));
+    v0_5 = *(int *)(((v0_3 + 0x44) + 0x4));
+    v0_2 = (((v0_4 + v0_5) + 0x2));
+    if (((int)((v0_4 + v0_5) + 0x2) < 0)) goto L_8C047908;
+    v0_2 = ((v0_2 & 0x1));
+    L_8C047912:;
+    *(unsigned int *)(((int)stk + 4)) = (v0_3 + 0x34);
+    v0_4 = *(int *)(((v0_3 + 0x34) + 0x0));
+    v0_3 = *(int *)(((v0_3 + 0x34) + 0x4));
+    v0_4 = (int)((unsigned int)((int)((unsigned int)(v0_4 + v0_3) + (unsigned int)0x0)) + ((((int)0x0 > (int)(v0_4 + v0_3))) ? 1u : 0u));
+    v0_3 = ((-(v0_2 << 1)) + 0x1);
+    v0_2 = (((v0_4 >> 1) + 0x2));
+    v0_3 = v0_3;
+    if (((int)((v0_4 >> 1) + 0x2) < 0)) goto L_8C047960;
+    v0_2 = ((v0_2 & 0x1));
+    L_8C04796A:;
+    v0_3 = (v0_3 * ((-(v0_2 << 1)) + 0x1));
+    v0_2 = (((-(v0_2 << 1)) + 0x1));
+    v0_3 = v0_3;
+    goto L_8C047974;
+    L_8C047960:;
+    v0_2 = (((~(((~v0_2) + 0x1) & 0x1)) + 0x1));
+    goto L_8C04796A;
+    L_8C047908:;
+    v0_2 = (((~(((~v0_2) + 0x1) & 0x1)) + 0x1));
+    goto L_8C047912;
+}

@@ -105,58 +105,7 @@ int charaTexCount(int a4);
 
 
 
-int primRect(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
-{
-    int t5;
-    int t11;
-    int stk[42];
 
-    stk[30] = a8;
-    stk[31] = a9;
-    stk[32] = a10;
-    stk[33] = a11;
-    *(unsigned int *)(((int)stk + 20)) = a4;
-    *(unsigned int *)(((int)stk + 24)) = a5;
-    vecMake(a4, a5, a6, a7, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x64) + 0x0))), (*(float *)(((((int)stk + 20) + 0x64) + 0x4))), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    primVertexSet(a6, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x8));
-    t5 = *(int *)(((int)stk + 20));
-    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x64) + 0x0))) - (float)t5), (*(float *)(((((int)stk + 20) + 0x64) + 0x4))), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    primVertexSet(a6, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x8)));
-    t11 = *(int *)(((int)stk + 24));
-    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x64) + 0x0))), ((*(float *)(((((int)stk + 20) + 0x64) + 0x4))) + (float)t11), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    primVertexSet(a6, 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x8)));
-    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x64) + 0x0))) - (float)t5), ((*(float *)(((((int)stk + 20) + 0x64) + 0x4))) + (float)t11), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    primVertexSet(a6, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x8)));
-    return (nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x8)));
-}
-
-int camInit(int a4, int a5, int a6, int a7)
-{
-    vecMake(a4, a5, a6, a7, 0x8C2875F0, 0.0f, 0.0f, 0.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C2875C0) = *(struct mv3 *)(0x8C2875F0); }
-    vecMake(0x0, 0x0, 0x0, 0x0, 0x8C2875FC, 0.0f, 0.0f, (*(float *)0x8C016754));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C2875CC) = *(struct mv3 *)(0x8C2875FC); }
-    *(unsigned int *)0x8C287634 = 0x0;
-    *(unsigned int *)0x8C287638 = 0x0;
-    *(unsigned int *)0x8C28763C = 0x0;
-    *(unsigned int *)0x8C287630 = 0x0;
-    *(unsigned short *)0x8C28764C = 0x0;
-    *(unsigned short *)0x8C28764A = 0x0;
-    *(unsigned short *)0x8C287648 = 0x0;
-    *(float *)0x8C287628 = (*(float *)0x8C016758);
-    *(float *)0x8C287620 = 0.0f;
-    *(float *)0x8C28761C = 0.0f;
-    *(float *)0x8C287618 = 1.0f;
-    *(float *)0x8C287614 = 1.0f;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C2875D8) = *(struct mv3 *)(0x8C2875C0); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C2875E4) = *(struct mv3 *)(0x8C2875CC); }
-    *(unsigned short *)0x8C287646 = 0x0;
-    *(unsigned short *)0x8C287644 = 0x0;
-    *(float *)0x8C287624 = 0.0f;
-    *(unsigned int *)0x8C287640 = 0x0;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C287608) = *(struct mv3 *)(0x8C1016D4); }
-    return padLcdModeClear();
-}
 
 int vmsfs_fsetparam(int a4, int a5, int a6)
 {
@@ -291,144 +240,8 @@ int nlRotateAxeSC(int a4, float f4, float f5)
     return (nlMultiMatrix(((int)stk + 4)));
 }
 
-int nlChgObjectPolyAttrSub(int a4, int a5, int a6)
-{
-    int t3;
-    int t13;
-    int t17;
-    int t18;
-    int stk[2];
 
-    int R0;
-    int R1;
-    int R3;
-    int R4;
-    int R5;
-    int R6;
-    int R7;
-    int R13;
-    int T_;
-    R4 = a4;
-    R5 = a5;
-    R6 = a6;
-    L_8C0F7990:;
-    R13 = ((~R5));
-    R4 = ((*(int *)((R4 + 0xC))));
-    goto L_8C0F7996;
-    L_8C0F7996:;
-    t3 = *(short *)((R4 + 0x0));
-    R4 = ((R4 + 0x2));
-    R7 = (t3);
-    if (((int)t3 < 0)) goto L_8C0F7A40;
-    goto L_8C0F799C;
-    L_8C0F799C:;
-    R0 = ((unsigned char)R7);
-    if (((unsigned int)(unsigned char)R7 >= (unsigned int)0x1E)) goto L_8C0F7A30;
-    goto L_8C0F79A4;
-    L_8C0F79A4:;
-    switch (((R0 << 1))) { case 0: goto L_8C0F79EE; case 2: goto L_8C0F7A30; case 4: goto L_8C0F7A00; case 6: goto L_8C0F7A00; case 8: goto L_8C0F7A00; case 10: goto L_8C0F7A00; case 12: goto L_8C0F7A00; case 14: goto L_8C0F7A00; case 16: goto L_8C0F79EC; case 18: goto L_8C0F79EC; case 20: goto L_8C0F79EC; case 22: goto L_8C0F79EC; case 24: goto L_8C0F7A20; case 26: goto L_8C0F7A20; case 28: goto L_8C0F7A20; case 30: goto L_8C0F7A20; case 32: goto L_8C0F7A20; case 34: goto L_8C0F7A20; case 36: goto L_8C0F7A20; case 38: goto L_8C0F7A20; case 40: goto L_8C0F7A20; case 42: goto L_8C0F7A20; case 44: goto L_8C0F7A30; case 46: goto L_8C0F7A30; case 48: goto L_8C0F7A20; case 50: goto L_8C0F7A20; case 52: goto L_8C0F7A20; case 54: goto L_8C0F7A20; case 56: goto L_8C0F7A20; case 58: goto L_8C0F7A20; }
-    L_8C0F7A30:;
-    return 0xFFFFFFFF;
-    L_8C0F7A20:;
-    R4 = (((R4 + 0x2) + (unsigned short)(*(short *)((R4 + 0x0)))));
-    goto L_8C0F7996;
-    L_8C0F7A00:;
-    t13 = *(int *)(((R4 + 0x2) + 0x0));
-    t17 = (R4 + 0x2);
-    R3 = ((t13 & R5));
-    R4 = (((R4 + 0x2) + (unsigned short)(*(short *)((R4 + 0x0)))));
-    R7 = t17;
-    if (((t13 & R5) == R5)) goto L_8C0F7996;
-    goto L_8C0F7A10;
-    L_8C0F7A10:;
-    t18 = *(int *)((R7 + 0x0));
-    *(unsigned int *)((R7 + 0x0)) = ((t18 & R13) | R6);
-    R3 = (((t18 & R13) | R6));
-    goto L_8C0F7996;
-    L_8C0F79EE:;
-    goto L_8C0F7996;
-    L_8C0F79EC:;
-    R4 = ((R4 + 0x2));
-    goto L_8C0F79EE;
-    L_8C0F7A40:;
-    return 0x0;
-}
 
-int ADXAMP_Create(int a4, int a5, int a6)
-{
-    int t0;
-    int t9;
-    int t10;
-    float u19;
-    int t21;
-
-    t0 = 0x0;
-    for (;;) {
-        if ((*(signed char *)(((((((t0 << 1) + t0) << 2) << 2) + 0x8C46ABA4) + 0x0))) != 0) {
-            t0 = (t0 + 0x1);
-            if ((int)t0 >= (int)0x8) {
-                break;
-            }
-            continue;
-        }
-        break;
-    }
-    if (t0 == 8) {
-        t21 = 0x0;
-    } else {
-        ADXCRS_Lock(0x8, a5);
-        *(unsigned char *)(((((((t0 << 1) + t0) << 2) << 2) + 0x8C46ABA4) + 0x2)) = a4;
-        if ((int)a4 > 0) {
-            t9 = 0x0;
-            t10 = 0x0;
-            for (;;) {
-                t10 = (t10 + 0x1);
-                *(unsigned int *)(((((((((t0 << 1) + t0) << 2) << 2) + 0x8C46ABA4) + 0x4) + t9) + 0x0)) = (*(int *)((t9 + a5)));
-                *(unsigned int *)(((((((((t0 << 1) + t0) << 2) << 2) + 0x8C46ABA4) + 0xC) + t9) + 0x0)) = (*(int *)((t9 + a6)));
-                *(unsigned int *)(((((((((t0 << 1) + t0) << 2) << 2) + 0x8C46ABA4) + 0x14) + t9) + 0x0)) = 0x0;
-                t9 = (t9 + 0x4);
-                if ((int)t10 >= (int)a4) {
-                    break;
-                }
-            }
-        }
-        *(unsigned char *)(((((((t0 << 1) + t0) << 2) << 2) + 0x8C46ABA4) + 0x1)) = 0x0;
-        *(unsigned int *)(((((((t0 << 1) + t0) << 2) << 2) + 0x8C46ABA4) + 0x2C)) = 0x0;
-        *(unsigned int *)(((((((t0 << 1) + t0) << 2) << 2) + 0x8C46ABA4) + 0x1C)) = a4;
-        *(unsigned int *)(((((((t0 << 1) + t0) << 2) << 2) + 0x8C46ABA4) + 0x20)) = 0xAC44;
-        u19 = *(float *)0x8C1EFB94;
-        *(float *)(((((((t0 << 1) + t0) << 2) << 2) + 0x8C46ABA4) + 0x24)) = u19;
-        *(float *)(((((((t0 << 1) + t0) << 2) << 2) + 0x8C46ABA4) + 0x28)) = u19;
-        *(unsigned char *)(((((((t0 << 1) + t0) << 2) << 2) + 0x8C46ABA4) + 0x0)) = 0x1;
-        ADXCRS_Unlock();
-        t21 = (((((t0 << 1) + t0) << 2) << 2) + 0x8C46ABA4);
-    }
-    return t21;
-}
-
-int primLineV(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13)
-{
-    int t5;
-    int stk[42];
-
-    stk[28] = a8;
-    stk[29] = a9;
-    stk[30] = a10;
-    stk[31] = a11;
-    stk[32] = a12;
-    stk[33] = a13;
-    *(unsigned int *)(((int)stk + 20)) = a4;
-    vecMake(a4, a5, a6, a7, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x5C) + 0x0))), (*(float *)(((((int)stk + 20) + 0x5C) + 0x4))), (*(float *)(((((int)stk + 20) + 0x5C) + 0x8))));
-    primVertexSet(a5, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x4));
-    t5 = *(int *)(((int)stk + 20));
-    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x5C) + 0x0))) - (float)t5), (*(float *)(((((int)stk + 20) + 0x5C) + 0x4))), (*(float *)(((((int)stk + 20) + 0x5C) + 0x8))));
-    primVertexSet(a5, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x4)));
-    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x68) + 0x0))), (*(float *)(((((int)stk + 20) + 0x68) + 0x4))), (*(float *)(((((int)stk + 20) + 0x68) + 0x8))));
-    primVertexSet(a5, 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x4)));
-    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x68) + 0x0))) - (float)t5), (*(float *)(((((int)stk + 20) + 0x68) + 0x4))), (*(float *)(((((int)stk + 20) + 0x68) + 0x8))));
-    primVertexSet(a5, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x4)));
-    return (nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x4)));
-}
 
 int entryAllReady(void)
 {
@@ -908,24 +721,6 @@ float nlTanh(int a4)
 }
 
 
-int cpuDebugLine(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
-{
-    int stk[29];
-
-    stk[17] = a8;
-    stk[18] = a9;
-    stk[19] = a10;
-    stk[20] = a11;
-    *(unsigned int *)(((int)stk + 20)) = a4;
-    nlLineSetThickness(f4);
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x10), ((*(float *)(((((int)stk + 20) + 0x30) + 0x0))) - f4), 1.0f, ((*(float *)(((((int)stk + 20) + 0x30) + 0x8))) - f4));
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 16) + 0x8), ((*(float *)(((((int)stk + 20) + 0x30) + 0x0))) + f4), 1.0f, ((*(float *)(((((int)stk + 20) + 0x30) + 0x8))) + f4));
-    nlSingleLine((((int)stk + 12) + 0x18), (((int)stk + 12) + 0xC), (*(int *)(((int)stk + 20))));
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 12) + 0x18), ((*(float *)(((((int)stk + 20) + 0x30) + 0x0))) - f4), 1.0f, ((*(float *)(((((int)stk + 20) + 0x30) + 0x8))) + f4));
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 8) + 0x10), ((*(float *)(((((int)stk + 20) + 0x30) + 0x0))) + f4), 1.0f, ((*(float *)(((((int)stk + 20) + 0x30) + 0x8))) - f4));
-    nlSingleLine((((int)stk + 4) + 0x20), (((int)stk + 4) + 0x14), (*(int *)(((int)stk + 20))));
-    return (nlLineSetThickness(1.0f));
-}
 
 int nlsndBlockMove(int a4, int a5, int a6)
 {
@@ -965,58 +760,6 @@ int nlsndBlockMove(int a4, int a5, int a6)
     return 0xFFFFFF00;
 }
 
-int cpuGiveUpCheck(int a4, float f4)
-{
-    int t0;
-    int t41;
-    int t31;
-    float u6;
-    float u8;
-    float u10;
-    float u12;
-    int t23;
-    int t14;
-
-    t0 = *(int *)((a4 + 0xB5C));
-    t41 = 0x8C38B934;
-    if ((*(int *)0x8C38B934) != 0) {
-        t31 = 0xB6;
-        if ((*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB6))) == 0) {
-            u6 = *(float *)((a4 + 0xAF0));
-            u8 = (-u6);
-            if (!(0.0f > u6)) {
-                u8 = (*(float *)((a4 + 0xAF0)));
-            }
-            u10 = *(float *)0x8C291F90;
-            u12 = (-u10);
-            if (!(0.0f > u10)) {
-                u12 = (*(float *)0x8C291F90);
-            }
-            t23 = 0xC50;
-            if (!(u8 > u12) && (t14 = *(int *)((a4 + 0xC50)), (int)t14 <= 0)) {
-            } else {
-                if (((*(int *)((a4 + 0xB60))) & 0x100) != 0) {
-                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x3;
-                }
-                *(unsigned int *)((a4 + 0xA24)) = 0x4;
-                *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xAE)) = 0x0;
-                *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xAF)) = 0x0;
-                *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB0)) = 0x0;
-                *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB1)) = 0x0;
-                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x0)) = 0.0f;
-                *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB6)) = 0x1;
-                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = ((*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC))) + 50.0f);
-                if ((*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC))) > 100.0f) {
-                    *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = 100.0f;
-                }
-                t23 = 0xC;
-            }
-            t31 = t23;
-        }
-        t41 = t31;
-    }
-    return t41;
-}
 
 
 
@@ -1044,24 +787,6 @@ int uniformTexLoad(int a4, int a5, int a6)
 }
 
 
-int swingBlurSpawn(int a4, int a5, int a6, int a7)
-{
-    int stk[41];
-
-    *(unsigned int *)(((int)stk + 72)) = a4;
-    *(unsigned int *)(((int)stk + 76)) = (*(int *)((((*(int *)((((a4 * 0xD78) + 0x8C287D84) + 0xC58))) << 2) + 0x8C10DFD4)));
-    vecMake(((a4 * 0xD78) + 0x8C287D84), a5, a6, a7, (((int)stk + 72) + 0x48), 0.0f, 0.0f, 1.0f);
-    nlGetMatrix((((int)stk + 68) + 0xC));
-    nlPushMatrix(0x0);
-    nlLoadMatrix(0x8C287978);
-    nlMultiMatrix((((int)stk + 68) + 0xC));
-    nlGetMatrix((((int)stk + 68) + 0xC));
-    nlPopMatrix(0x1);
-    nlPushMatrix(0x0);
-    { struct mv16 { int w[16]; }; *(struct mv16 *)(((int)stk + 4)) = *(struct mv16 *)((((int)stk + 68) + 0xC)); }
-    hudImpactSpawn((*(int *)(((int)stk + 76))), *(Stk16 *)((((int)stk + 68) + 0xC)), (*(float *)((((*(int *)(((int)stk + 72))) << 2) + 0x8C334384))));
-    return (nlPopMatrix(0x1));
-}
 
 int charaTexCount(int a4)
 {

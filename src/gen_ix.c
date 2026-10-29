@@ -321,3 +321,4 @@ int kmProcessVertexRenderState(int a4)
     R13 = (((R13 & R10) | (t181 & 0xE0000000)));
     goto L_8C1E4232;
 }
+

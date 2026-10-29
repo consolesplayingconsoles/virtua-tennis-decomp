@@ -1,87 +1,63 @@
 /* Straight-line functions with calls and guards (batch gen_mx): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int nlDispStripTexOfsTrnsl(int, int, int);
-void sprListPutGrad(int a4, int a5, int a6, int a7, int a8, float f4, float f5);
+int circuitStatsCalc(void);
 
-void sprListPutGrad(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
+int circuitStatsCalc(void)
 {
-    float u19;
-    float u22;
-    int stk[48];
+    register int t0;
+    register float u0;
+    register float u1;
 
-    int R0;
-    int R2;
-    int R3;
-    int R4;
-    int R5;
-    int R6;
-    int R7;
-    int R8;
-    int R9;
-    int R10;
-    int R11;
-    int R12;
-    int R13;
-    int R14;
-    float F0;
-    float F2;
-    float F3;
-    float F4;
-    float F5;
-    float F15;
-    int T_;
-    stk[39] = a8;
-    R4 = a4;
-    R5 = a5;
-    R6 = a6;
-    R7 = a7;
-    F5 = f5;
-    *(unsigned int *)(((int)stk + 4)) = R5;
-    R10 = (R7);
-    R12 = (0x0);
-    R14 = (R4);
-    R9 = (R6);
-    F15 = (F5);
-    if ((R5 == 0)) goto L_8C0DE3B6;
-    R8 = (R12);
-    L_8C0DE3B0:;
-    if (!(((int)R8 < (int)(*(int *)(((int)stk + 4)))))) goto L_8C0DE3B6;
-    R4 = (R12);
-    goto L_8C0DE398;
-    L_8C0DE3B6:;
-    return;
-    L_8C0DE398:;
-    R13 = ((((int)stk + 4) + 0x4));
-    if (((int)R4 < (int)0x4)) goto L_8C0DE308;
-    R0 = ((nlDispStripTexOfsTrnsl(0x4, R13, (*(int *)((R14 + 0x0))))));
-    R14 = ((R14 + 0x6C));
-    R8 = ((R8 + 0x1));
-    goto L_8C0DE3B0;
-    L_8C0DE308:;
-    u19 = (*(float *)(((0x98 + ((int)stk + 4)) + 0x0)));
-    u19 = u19 + F15 * (*(float *)((((R14 + 0xC) + ((((R4 << 1) + R4) << 2) << 1)) + 0x0)));
-    *(float *)((((R4 * 0x1C) + R13) + 0x0)) = u19;
-    u22 = (*(float *)(((0x98 + ((int)stk + 4)) + 0x4)));
-    u22 = u22 + F15 * (*(float *)((((R14 + 0xC) + ((((R4 << 1) + R4) << 2) << 1)) + 0x4)));
-    *(float *)((((R4 * 0x1C) + R13) + 0x4)) = u22;
-    *(float *)((((R4 * 0x1C) + R13) + 0x8)) = (*(float *)(((0x98 + ((int)stk + 4)) + 0x8)));
-    *(float *)((((R4 * 0x1C) + R13) + 0xC)) = ((*(float *)((((R14 + 0xC) + ((((R4 << 1) + R4) << 2) << 1)) + 0xC))) / (*(float *)((R14 + 0x4))));
-    *(float *)((((R4 * 0x1C) + R13) + 0x10)) = ((-((*(float *)(((((((R4 << 1) + R4) << 2) << 1) + (R14 + 0xC)) + 0x10))) / (*(float *)((R14 + 0x8))))) + 1.0f);
-    *(unsigned int *)((((R4 * 0x1C) + R13) + 0x18)) = 0x0;
-    R5 = (((R4 * 0x1C) + R13));
-    if ((R4 == 0)) goto L_8C0DE384;
-    if (!((R4 != 2))) goto L_8C0DE384;
-    if ((R10 == 0)) goto L_8C0DE394;
-    *(unsigned int *)((R5 + 0x14)) = R10;
-    goto L_8C0DE396;
-    L_8C0DE384:;
-    if ((R9 == 0)) goto L_8C0DE394;
-    *(unsigned int *)((R5 + 0x14)) = R9;
-    L_8C0DE396:;
-    R4 = ((R4 + 0x1));
-    goto L_8C0DE398;
-    L_8C0DE394:;
-    *(unsigned int *)((R5 + 0x14)) = R12;
-    goto L_8C0DE396;
+    t0 = *(int *)0x8C2FBCB0;
+    if (t0 != 0) {
+        *(float *)0x8C2FBCDC = ((float)(*(int *)0x8C2FBCB4) / (float)t0);
+    } else {
+        *(float *)0x8C2FBCDC = 0.0f;
+    }
+    t0 = *(int *)0x8C2FBCA8;
+    if (t0 != 0) {
+        *(float *)0x8C2FBCE0 = ((float)(*(int *)0x8C2FBCBC) / (float)t0);
+        *(float *)0x8C2FBCE8 = ((float)(*(int *)0x8C2FBCC4) / (float)(*(int *)0x8C2FBCA8));
+        *(float *)0x8C2FBCF0 = ((float)(*(int *)0x8C2FBCCC) / (float)(*(int *)0x8C2FBCA8));
+        *(float *)0x8C2FBCF8 = ((float)(*(int *)0x8C2FBCD4) / (float)(*(int *)0x8C2FBCA8));
+    } else {
+        *(float *)0x8C2FBCE0 = 0.0f;
+        *(float *)0x8C2FBCE8 = 0.0f;
+        *(float *)0x8C2FBCF0 = 0.0f;
+        *(float *)0x8C2FBCF8 = 0.0f;
+    }
+    t0 = *(int *)0x8C2FBCAC;
+    if (t0 != 0) {
+        *(float *)0x8C2FBCE4 = ((float)(*(int *)0x8C2FBCC0) / (float)t0);
+        *(float *)0x8C2FBCEC = ((float)(*(int *)0x8C2FBCC8) / (float)(*(int *)0x8C2FBCAC));
+        *(float *)0x8C2FBCF4 = ((float)(*(int *)0x8C2FBCD0) / (float)(*(int *)0x8C2FBCAC));
+        *(float *)0x8C2FBCFC = ((float)(*(int *)0x8C2FBCD8) / (float)(*(int *)0x8C2FBCAC));
+    } else {
+        *(float *)0x8C2FBCE4 = 0.0f;
+        *(float *)0x8C2FBCEC = 0.0f;
+        *(float *)0x8C2FBCF4 = 0.0f;
+        *(float *)0x8C2FBCFC = 0.0f;
+    }
+    t0 = *(int *)0x8C1891E8;
+    u0 = (*(float *)0x8C2FBCDC);
+    u0 = u0 + 0.100000001f * (float)(*(int *)0x8C2FBCB8);
+    u1 = ((float)(*(int *)0x8C2FBD00) * u0);
+    *(unsigned int *)0x8C2FBD04 = (int)(u1 * (float)(*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0x8C1094A0) + 0x0))));
+    t0 = *(int *)0x8C1891E8;
+    u0 = ((float)(*(int *)0x8C2FBD00) * (*(float *)0x8C2FBCE4));
+    *(unsigned int *)0x8C2FBD08 = (int)(u0 * (float)(*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0x8C1094A0) + 0x4))));
+    t0 = *(int *)0x8C1891E8;
+    u0 = ((float)(*(int *)0x8C2FBD00) * (*(float *)0x8C2FBCEC));
+    *(unsigned int *)0x8C2FBD0C = (int)(u0 * (float)(*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0x8C1094A0) + 0x8))));
+    t0 = *(int *)0x8C1891E8;
+    u0 = (*(float *)0x8C2FBCF4);
+    u0 = u0 + 0.0700000003f * (float)(*(int *)0x8C2FBCCC);
+    u1 = ((float)(*(int *)0x8C2FBD00) * u0);
+    *(unsigned int *)0x8C2FBD10 = (int)(u1 * (float)(*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0x8C1094A0) + 0xC))));
+    t0 = *(int *)0x8C1891E8;
+    u0 = ((float)(*(int *)0x8C2FBD00) * (*(float *)0x8C2FBCFC));
+    *(unsigned int *)0x8C2FBD14 = (int)(u0 * (float)(*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0x8C1094A0) + 0x10))));
+    *(unsigned int *)0x8C2FBD18 = (((((*(int *)0x8C2FBD04) + (*(int *)0x8C2FBD08)) + (*(int *)0x8C2FBD0C)) + (*(int *)0x8C2FBD10)) + (*(int *)0x8C2FBD14));
+    return 0x70;
 }

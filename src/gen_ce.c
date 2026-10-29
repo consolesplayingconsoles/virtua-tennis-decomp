@@ -59,22 +59,22 @@ int nlRenderTextureSet_Sub(int a4, int a5, int a6, int a7, int a8);
 
 int kmiCallbackEndOf(int a4, int a5, int a6)
 {
-    int t6;
-    int t25;
-    int t38;
+    register int t6;
+    register int t25;
+    register int t38;
     int stk[5];
 
-    int R0;
-    int R1;
-    int R2;
-    int R3;
-    int R4;
-    int R5;
-    int R6;
-    int R12;
-    int R13;
-    int R14;
-    int T_;
+    register int R0;
+    register int R1;
+    register int R2;
+    register int R3;
+    register int R4;
+    register int R5;
+    register int R6;
+    register int R12;
+    register int R13;
+    register int R14;
+    register int T_;
     R4 = a4;
     R5 = a5;
     R6 = a6;
