@@ -194,39 +194,6 @@ int shadowBallScale(float f4)
 
 
 
-int rankEntryMain(float f4)
-{
-    int t1;
-    int t9;
-    int t12;
-    int t21;
-    int t14;
-    int t16;
-    int t15;
-    int t3;
-
-    t1 = *(int *)((((*(int *)0x8C20D150) << 2) + 0x8C126BCC));
-    if (((*(int *)0x8C1D793C) == 1) && (t3 = *(int *)0x8C1D7940, t3 == 0)) {
-        fadeCaptureBegin(f4);
-        *(unsigned int *)0x8C1D7940 = 0x1;
-    }
-    t9 = ((int (*)(void))(t1))();
-    nlExecuteEvent();
-    nlExecuteEvent2();
-    t12 = *(int *)0x8C1D793C;
-    t21 = t12;
-    if (t12 == 1) {
-        t14 = *(int *)0x8C1D7940;
-        t16 = t14;
-        if (t14 == 1) {
-            t15 = fadeCaptureEnd(0x0);
-            *(unsigned int *)0x8C1D7940 = 0x2;
-            t16 = t15;
-        }
-        t21 = t16;
-    }
-    return t21;
-}
 
 int resSpTexLoad(int a4)
 {
@@ -423,26 +390,6 @@ float cpuLineCrossXZ(int a4, int a5, int a6, int a7, int a8, int a9, int a10, in
     return u8;
 }
 
-void effHitFlashSpawn(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
-{
-    int t2;
-    int t1;
-    int stk[15];
-
-    stk[3] = a8;
-    stk[4] = a9;
-    stk[5] = a10;
-    stk[6] = a11;
-    *(float *)(((int)stk + 4)) = f4;
-    if (((*(int *)0x8C287C60) == 0) && (t1 = *(int *)0x8C421F60, t1 == 0)) {
-        t2 = set_event(0x2C, 0x8C082DCA);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)((t2 + 0x14)) = *(struct mv3 *)((((int)stk + 4) + 0x8)); }
-        *(float *)((t2 + 0x20)) = 1.0f;
-        *(unsigned int *)((t2 + 0x24)) = 0x0;
-        *(float *)((t2 + 0x28)) = ((*(float *)(((int)stk + 4))) / 1.5f);
-        *(unsigned int *)0x8C18160C = ((*(int *)0x8C18160C) + 0x1);
-    }
-}
 
 float courtDistScale(Stk4 s)
 {

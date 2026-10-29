@@ -59,160 +59,6 @@ int netJudgePose(int a4);
 int entryCharaSelDraw(void);
 void ADXF_Ocbi(int a4, int a5);
 
-float cpuSglPickLv07(int a4, int a5, float f4, float f5)
-{
-    int t0;
-    float u1;
-    float u2;
-    float u5;
-    float u7;
-    float t9;
-    float u10;
-    float t12;
-    float u13;
-    int t15;
-    int t16;
-    int t17;
-    float u18;
-    int t19;
-    int t24;
-    int t25;
-    int t26;
-    float u27;
-    int t31;
-    int t50;
-    float u58;
-    float u59;
-    float u64;
-    float u67;
-    float u72;
-    float u108;
-    float u92;
-    int t23;
-    int t36;
-    int t37;
-    float u39;
-    int t77;
-    int stk[14];
-
-    t0 = *(int *)((a4 + 0xB5C));
-    u1 = *(float *)0x8C291F7C;
-    u2 = (-u1);
-    if (!(0.0f > u1)) {
-        u2 = u1;
-    }
-    if (!(43.7324982f > u2)) {
-        *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
-        *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1D)) = 0x0;
-        *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-    } else {
-        u5 = *(float *)0x8C291F84;
-        u7 = (-u5);
-        if (!(0.0f > u5)) {
-            u7 = (*(float *)0x8C291F84);
-        }
-        if (!(125.31749f > u7)) {
-            *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
-            *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1D)) = 0x0;
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-        } else {
-            t9 = cpuSglAimScore(a4, a5);
-            u10 = t9;
-            if (18.0f > t9) {
-                u10 = 18.0f;
-            }
-            *(unsigned int *)(((int)stk + 8)) = 0x0;
-            t12 = nlRandom();
-            u13 = (u10 / (1.0f + 1.0f));
-            u13 = u13 + (u10 / (1.0f + 1.0f)) * t12;
-            t15 = 0x8C2FCC6C;
-            t16 = 0x0;
-            t17 = a5;
-            u18 = t12;
-            for (;;) {
-                t19 = (t17 == 0);
-                t17 = (t17 - 1);
-                if (t19) {
-                    break;
-                }
-                u18 = (*(float *)((t15 + (0x1C))));
-                t15 = (t15 + 0x20);
-                if (!(u18 > u13)) {
-                    t16 = (t16 + 0x1);
-                }
-            }
-            *(unsigned int *)(((int)stk + 4)) = 0x8C2FCC6C;
-            if ((int)a5 > 0) {
-                t24 = t15;
-                t25 = 0x8C2FCC6C;
-                t26 = 0x0;
-                u27 = (u10 / (1.0f + 1.0f));
-                for (;;) {
-                    if (!((*(float *)(((*(int *)(((int)stk + 4))) + 0x1C))) > u13)) {
-                        t23 = 0x8C0F7BAC;
-                        t31 = (int)((int)(nlRand()) % (int)t16);
-                        if (t31 == 0) {
-                            *(unsigned int *)(((int)stk + 8)) = t26;
-                        }
-                    } else {
-                        t36 = t24;
-                        t37 = t25;
-                        u39 = u27;
-                    }
-                    u27 = u39;
-                    t23 = (*(int *)(((int)stk + 4)));
-                    t24 = t36;
-                    t25 = t37;
-                    t26 = (t26 + 0x1);
-                    t23 = (t23 + 0x20);
-                    *(unsigned int *)(((int)stk + 4)) = t23;
-                    if ((int)t26 >= (int)a5) {
-                        break;
-                    }
-                }
-            }
-            t50 = *(int *)(((int)stk + 8));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((((((t50 << 2) << 2) << 1) + 0x8C2FCC6C) + 0x0)));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = (*(float *)((((((t50 << 2) << 2) << 1) + 0x8C2FCC6C) + 0x8)));
-            *(unsigned char *)(((0x13C + ((t0 * 0x160) + 0x8C2FC69C)) + 0x0)) = (*(signed char *)((((((t50 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC)));
-            if ((unsigned char)(*(signed char *)((((((t50 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC))) == 3) {
-                *(unsigned char *)((((((t50 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC)) = 0x1;
-                *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12A)) = 0x1;
-            }
-            *(unsigned char *)(((0x1D + ((t0 * 0x160) + 0x8C2FC69C)) + 0x0)) = (*(signed char *)((((((t50 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC)));
-            u58 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138));
-            u59 = (-u58);
-            if (!(0.0f > u58)) {
-                u59 = u58;
-            }
-            u64 = (-1.0f);
-            u64 = u64 + (1.0f + 1.0f) * (u59 / 118.849998f);
-            cpuShotTargetSet(a4, (((*(float *)((a4 + 0xB00))) * (*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)))) / (*(float *)0x8C287B40)), u64);
-            u67 = 0.0f;
-            if ((*(int *)0x8C291F74) == 5) {
-                u67 = 1.0f;
-            }
-            u72 = u67;
-            u72 = u72 + 0.5f * (((float)(*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))) + (*(float *)0x8C291F54)) * ((-((*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC))) / 100.0f)) + 1.0f));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = ((*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC))) - 0.0f);
-            if (-200.0f > (*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)))) {
-                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = -200.0f;
-            }
-            if ((u72 > (*(float *)0x8C291F54)) && (t77 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB6)), t77 == 0)) {
-                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = (u72 - (*(float *)0x8C291F54));
-            } else {
-                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = (unsigned char)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1D)));
-            }
-            *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x129)) = 0x0;
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x8)) = 0.0f;
-            *(unsigned int *)((a4 + 0xA24)) = 0x1;
-            u92 = 0.5f;
-        }
-        u108 = u92;
-    }
-    return u108;
-}
 
 void sndCrowdBallReact(int a4, int a5, int a6, int a7, float f4, float f5)
 {
@@ -1161,4 +1007,158 @@ void ADXF_Ocbi(int a4, int a5)
     }
 }
 
+float cpuSglPickLv07(int a4, int a5, float f4, float f5)
+{
+    int t0;
+    float u1;
+    float u2;
+    float u5;
+    float u7;
+    float t9;
+    float u10;
+    float t12;
+    float u13;
+    int t15;
+    int t16;
+    int t17;
+    float u18;
+    int t19;
+    int t24;
+    int t25;
+    int t26;
+    float u27;
+    int t31;
+    int t50;
+    float u58;
+    float u59;
+    float u64;
+    float u67;
+    float u72;
+    float u108;
+    float u92;
+    int t23;
+    int t36;
+    int t37;
+    float u39;
+    int t77;
+    int stk[14];
+
+    t0 = *(int *)((a4 + 0xB5C));
+    u1 = *(float *)0x8C291F7C;
+    u2 = (-u1);
+    if (!(0.0f > u1)) {
+        u2 = u1;
+    }
+    if (!(43.7324982f > u2)) {
+        *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
+        *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1D)) = 0x0;
+        *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
+    } else {
+        u5 = *(float *)0x8C291F84;
+        u7 = (-u5);
+        if (!(0.0f > u5)) {
+            u7 = (*(float *)0x8C291F84);
+        }
+        if (!(125.31749f > u7)) {
+            *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
+            *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1D)) = 0x0;
+            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
+        } else {
+            t9 = cpuSglAimScore(a4, a5);
+            u10 = t9;
+            if (18.0f > t9) {
+                u10 = 18.0f;
+            }
+            *(unsigned int *)(((int)stk + 8)) = 0x0;
+            t12 = nlRandom();
+            u13 = (u10 / (1.0f + 1.0f));
+            u13 = u13 + (u10 / (1.0f + 1.0f)) * t12;
+            t15 = 0x8C2FCC6C;
+            t16 = 0x0;
+            t17 = a5;
+            u18 = t12;
+            for (;;) {
+                t19 = (t17 == 0);
+                t17 = (t17 - 1);
+                if (t19) {
+                    break;
+                }
+                u18 = (*(float *)((t15 + (0x1C))));
+                t15 = (t15 + 0x20);
+                if (!(u18 > u13)) {
+                    t16 = (t16 + 0x1);
+                }
+            }
+            *(unsigned int *)(((int)stk + 4)) = 0x8C2FCC6C;
+            if ((int)a5 > 0) {
+                t24 = t15;
+                t25 = 0x8C2FCC6C;
+                t26 = 0x0;
+                u27 = (u10 / (1.0f + 1.0f));
+                for (;;) {
+                    if (!((*(float *)(((*(int *)(((int)stk + 4))) + 0x1C))) > u13)) {
+                        t23 = 0x8C0F7BAC;
+                        t31 = (int)((int)(nlRand()) % (int)t16);
+                        if (t31 == 0) {
+                            *(unsigned int *)(((int)stk + 8)) = t26;
+                        }
+                    } else {
+                        t36 = t24;
+                        t37 = t25;
+                        u39 = u27;
+                    }
+                    u27 = u39;
+                    t23 = (*(int *)(((int)stk + 4)));
+                    t24 = t36;
+                    t25 = t37;
+                    t26 = (t26 + 0x1);
+                    t23 = (t23 + 0x20);
+                    *(unsigned int *)(((int)stk + 4)) = t23;
+                    if ((int)t26 >= (int)a5) {
+                        break;
+                    }
+                }
+            }
+            t50 = *(int *)(((int)stk + 8));
+            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((((((t50 << 2) << 2) << 1) + 0x8C2FCC6C) + 0x0)));
+            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = (*(float *)((((((t50 << 2) << 2) << 1) + 0x8C2FCC6C) + 0x8)));
+            *(unsigned char *)(((0x13C + ((t0 * 0x160) + 0x8C2FC69C)) + 0x0)) = (*(signed char *)((((((t50 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC)));
+            if ((unsigned char)(*(signed char *)((((((t50 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC))) == 3) {
+                *(unsigned char *)((((((t50 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC)) = 0x1;
+                *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12A)) = 0x1;
+            }
+            *(unsigned char *)(((0x1D + ((t0 * 0x160) + 0x8C2FC69C)) + 0x0)) = (*(signed char *)((((((t50 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC)));
+            u58 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138));
+            u59 = (-u58);
+            if (!(0.0f > u58)) {
+                u59 = u58;
+            }
+            u64 = (-1.0f);
+            u64 = u64 + (1.0f + 1.0f) * (u59 / 118.849998f);
+            cpuShotTargetSet(a4, (((*(float *)((a4 + 0xB00))) * (*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)))) / (*(float *)0x8C287B40)), u64);
+            u67 = 0.0f;
+            if ((*(int *)0x8C291F74) == 5) {
+                u67 = 1.0f;
+            }
+            u72 = u67;
+            u72 = u72 + 0.5f * (((float)(*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))) + (*(float *)0x8C291F54)) * ((-((*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC))) / 100.0f)) + 1.0f));
+            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = ((*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC))) - 0.0f);
+            if (-200.0f > (*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)))) {
+                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = -200.0f;
+            }
+            if ((u72 > (*(float *)0x8C291F54)) && (t77 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB6)), t77 == 0)) {
+                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = (u72 - (*(float *)0x8C291F54));
+            } else {
+                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
+                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = (unsigned char)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1D)));
+            }
+            *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x129)) = 0x0;
+            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x8)) = 0.0f;
+            *(unsigned int *)((a4 + 0xA24)) = 0x1;
+            u92 = 0.5f;
+        }
+        u108 = u92;
+    }
+    return u108;
+}
 

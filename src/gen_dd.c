@@ -39,7 +39,6 @@ int nlTransposeMatrix(void);
 int nlSetWindowSize(float f4, float f5, float f6, float f7);
 int kmiSetupRender(int a4, int a5);
 int kmCreateTextureSurface(int a4, int a5, int a6, int a7);
-float FUN_8c1efdf0(int a4, int a5, int a6, int a7);
 float ADX_GetCoefficient(int a4, int a5, int a6, int a7);
 int kmyInitializeBGPlane(int a4);
 int kdSetDeviceRequestEx(int a4, int a5);
@@ -171,26 +170,6 @@ int kmCreateTextureSurface(int a4, int a5, int a6, int a7)
         t22 = t18;
     }
     return t22;
-}
-
-float FUN_8c1efdf0(int a4, int a5, int a6, int a7)
-{
-    float t1;
-    float u2;
-    float u3;
-    float u4;
-    float u5;
-    float u6;
-
-    t1 = cos((((float)a4 * (*(float *)0x8C1EFF74)) / (float)a5));
-    u2 = *(float *)0x8C1EFF7C;
-    u3 = (((_builtin_sqrtf((1.0f + 1.0f)) - t1) - _builtin_sqrtf((((_builtin_sqrtf((1.0f + 1.0f)) - t1) + (_builtin_sqrtf((1.0f + 1.0f)) + (-1.0f))) * ((_builtin_sqrtf((1.0f + 1.0f)) - t1) - (_builtin_sqrtf((1.0f + 1.0f)) + (-1.0f)))))) / (_builtin_sqrtf((1.0f + 1.0f)) + (-1.0f)));
-    u4 = (((_builtin_sqrtf((1.0f + 1.0f)) - t1) - _builtin_sqrtf((((_builtin_sqrtf((1.0f + 1.0f)) - t1) + (_builtin_sqrtf((1.0f + 1.0f)) + (-1.0f))) * ((_builtin_sqrtf((1.0f + 1.0f)) - t1) - (_builtin_sqrtf((1.0f + 1.0f)) + (-1.0f)))))) / (_builtin_sqrtf((1.0f + 1.0f)) + (-1.0f)));
-    u5 = (((_builtin_sqrtf((1.0f + 1.0f)) - t1) - _builtin_sqrtf((((_builtin_sqrtf((1.0f + 1.0f)) - t1) + (_builtin_sqrtf((1.0f + 1.0f)) + (-1.0f))) * ((_builtin_sqrtf((1.0f + 1.0f)) - t1) - (_builtin_sqrtf((1.0f + 1.0f)) + (-1.0f)))))) / (_builtin_sqrtf((1.0f + 1.0f)) + (-1.0f)));
-    *(unsigned short *)((a6 + 0x0)) = (int)(u3 * u2);
-    u6 = *(float *)0x8C1EFF80;
-    *(unsigned short *)((a7 + 0x0)) = (int)(-(((u4 * u5)) * u6));
-    return u6;
 }
 
 float ADX_GetCoefficient(int a4, int a5, int a6, int a7)

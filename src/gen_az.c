@@ -749,47 +749,6 @@ int cpuSglChase(int a4, int a5, int a6, int a7)
     goto L_8C046470;
 }
 
-int endingFlyObjPut(int a4, int a5, int a6, int a7)
-{
-    float u3;
-    float u4;
-    int stk[11];
-
-    if ((int)(*(int *)0x8C402CA0) <= (int)0x78) {
-        *(float *)((a4 + 0x38)) = 0.0f;
-        *(float *)(((int)stk + 12)) = 0.0f;
-        *(float *)((a4 + 0x34)) = ((*(float *)((a4 + 0x34))) * 0.99000001f);
-        u3 = *(float *)((a4 + 0x34));
-        *(float *)(((int)stk + 8)) = (u3 - (((float)(*(int *)0x8C402CA0) / 120.0f) * u3));
-        u4 = *(float *)((a4 + 0x3C));
-        *(float *)((a4 + 0x3C)) = (u4 * 0.99000001f);
-        *(float *)(((int)stk + 16)) = ((u4 * 0.99000001f) - (((float)(*(int *)0x8C402CA0) / 120.0f) * ((u4 * 0.99000001f))));
-    } else {
-        vecMake(0x8C402CA0, a5, a6, a7, ((int)stk + 8), 0.0f, 0.0f, 0.0f);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x34)) = *(struct mv3 *)(((int)stk + 8)); }
-    }
-    nlScaleVector(((int)stk + 8), ((int)stk + 8), (*(float *)0x8C23D204));
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 8) + 0xC), (*(float *)((a4 + 0x2C))), 0.0f, (-(*(float *)((a4 + 0x24)))));
-    *(unsigned short *)((a4 + 0x86)) = ((*(short *)((a4 + 0x86))) + (int)(((nlLength((a4 + 0xC), a4)) / 3.14159274f) * 65536.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(a4) = *(struct mv3 *)((a4 + 0xC)); }
-    nlAddVector((a4 + 0xC), (((int)stk + 4) + 0x4));
-    nlPushMatrix(0x0);
-    nlTranslate((*(float *)((a4 + 0xC))), (*(float *)((a4 + 0x10))), (*(float *)((a4 + 0x14))));
-    nlRotate((((int)stk + 4) + 0x10), ((unsigned short)(*(short *)((a4 + 0x86))) + 0x8000));
-    nlRotateAX(0xFFFFE200);
-    nlRotateAY(0x2800);
-    nlObjPut(0xCB40000);
-    nlPopMatrix(0x1);
-    nlPushMatrix(0x0);
-    nlTranslate((*(float *)((a4 + 0xC))), ((*(float *)((a4 + 0x10))) + (-1.0f)), (*(float *)((a4 + 0x14))));
-    nlRotate((((int)stk + 4) + 0x10), ((-(unsigned short)(*(short *)((a4 + 0x86)))) - 32768));
-    nlRotateAX(0x1E00);
-    nlRotateAY(0x2800);
-    nlObjPutSetLightDirectionF((*(float *)0x8C38B834), (-(*(float *)0x8C38B838)), (*(float *)0x8C38B83C));
-    nlObjPut(0xCB46AD8);
-    nlObjPutSetLightDirectionV(0x8C38B834);
-    return (nlPopMatrix(0x1));
-}
 
 int hudRankIconPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
 {

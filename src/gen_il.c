@@ -16,65 +16,6 @@ Stk3 vecMake(float, float, float);
 int shopDrawMenu(void);
 void hudProfileDraw(int a4, Stk3 s);
 
-int shopDrawMenu(void)
-{
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t9;
-    float u13;
-    int t15;
-    int t19;
-    int stk[196];
-
-    { struct mv5 { int w[5]; }; *(struct mv5 *)((0x278 + ((int)stk + 84))) = *(struct mv5 *)(0x8C12706C); }
-    { struct mv16 { int w[16]; }; *(struct mv16 *)((0x238 + ((int)stk + 84))) = *(struct mv16 *)(0x8C127080); }
-    { struct mv16 { int w[16]; }; *(struct mv16 *)((0x1F8 + ((int)stk + 84))) = *(struct mv16 *)(0x8C1270C0); }
-    { struct mv12 { int w[12]; }; *(struct mv12 *)((0x1C8 + ((int)stk + 84))) = *(struct mv12 *)(0x8C127100); }
-    { struct mv8 { int w[8]; }; *(struct mv8 *)((((int)stk + 84) + 0x68)) = *(struct mv8 *)(0x8C127130); }
-    { struct mv8 { int w[8]; }; *(struct mv8 *)((((int)stk + 84) + 0x48)) = *(struct mv8 *)(0x8C127150); }
-    { struct mv2 { int w[2]; }; *(struct mv2 *)((((int)stk + 84) + 0x40)) = *(struct mv2 *)(0x8C127170); }
-    { struct mv6 { int w[6]; }; *(struct mv6 *)((((int)stk + 84) + 0x28)) = *(struct mv6 *)(0x8C127178); }
-    { struct mv6 { int w[6]; }; *(struct mv6 *)((((int)stk + 84) + 0x10)) = *(struct mv6 *)(0x8C127190); }
-    nlDispStripTrnsl(0x4, (0x238 + ((int)stk + 84)));
-    nlDispStripTrnsl(0x4, (0x1F8 + ((int)stk + 84)));
-    *(Stk3 *)(((int)stk + 72)) = vecMake(296.0f, 0.0f, 70.0f);
-    t2 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1D9CE4, 0x1, 0x0, 0.699999988f, 1.0f, 1.0f);
-    *(Stk3 *)(((int)stk + 72)) = vecMake(30.0f, 30.0f, 65.0f);
-    t3 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1D9D50, 0x1, 0x0, 1.0f, 1.0f, 1.0f);
-    *(unsigned int *)(((int)stk + 84)) = (0x88 + ((int)stk + 84));
-    t4 = (0x128 + ((int)stk + 84));
-    t5 = (((int)stk + 84) + 0x68);
-    for (;;) {
-        *(int *)((int)stk + 80) = 0x0;
-        sprRecInit(t4, 0x107, t5, (((int)stk + 84) + 0x40), 0x0);
-        t5 = (t5 + 0x10);
-        t4 = (t4 + 0x50);
-        if ((unsigned int)t5 >= (unsigned int)(*(int *)(((int)stk + 84)))) {
-            break;
-        }
-    }
-    sprRecPutRotated((0x128 + ((int)stk + 84)), 0x2, (((int)stk + 84) + 0x28), 0xFFFFFD00);
-    *(int *)((int)stk + 80) = (((int)stk + 84) + 0x4);
-    *(Stk3 *)((((int)stk + 84) + 0x4)) = vecMake(240.0f, 40.0f, 65.0f);
-    t9 = *(int *)0x8C4220A4;
-    *(unsigned int *)(((0x278 + ((int)stk + 84)) + (t9 << 2))) = ((*(int *)(((0x278 + ((int)stk + 84)) + (t9 << 2)))) + 0xD8);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 68)) = *(struct mv3 *)((((int)stk + 84) + 0x4)); }
-    u13 = *(float *)(((*(int *)(((0x278 + ((int)stk + 84)) + ((*(int *)0x8C4220A4) << 2)))) + 0x54));
-    *(int *)((int)stk + 64) = (((int)stk + 84) + 0x4);
-    sprPutCentered(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 64), u13, 0.0f);
-    t15 = *(int *)0x8C4220A4;
-    *(unsigned int *)(((0x278 + ((int)stk + 84)) + (t15 << 2))) = ((*(int *)(((0x278 + ((int)stk + 84)) + (t15 << 2)))) - 0xD8);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 84) + 0x4)); }
-    t19 = ((int (*)(int, int, int, Stk3, float, float, float))(sprListPut))((*(int *)(((0x278 + ((int)stk + 84)) + ((*(int *)0x8C4220A4) << 2)))), 0x3, 0x0, *(Stk3 *)(((int)stk + 52)), 1.0f, 1.0f, 1.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)(((0x1C8 + ((int)stk + 84)) + 0xC)); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((0x1C8 + ((int)stk + 84))); }
-    primLineH(0x2, 0xFFFFFFFF, *(Stk3 *)(((int)stk + 28)), *(Stk3 *)(((int)stk + 40)));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(((0x1C8 + ((int)stk + 84)) + 0x24)); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(((0x1C8 + ((int)stk + 84)) + 0x18)); }
-    return (primLineV(0x2, 0xFFFFFFFF, *(Stk3 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 16))));
-}
 
 void hudProfileDraw(int a4, Stk3 s)
 {

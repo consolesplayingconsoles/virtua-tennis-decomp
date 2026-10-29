@@ -331,7 +331,8 @@ F 8c03efd6 1490 cpuShotAimStick
 F 8c03f630 9768 cpuChasePlan
 F 8c041c58 22 cpuAimPointSet
 F 8c041c6e 22 cpuShotTargetSet
-F 8c041e50 1048 cpuSglInit
+F 8c041e50 384 cpuSglInit
+F 8c041fd0 664 FUN_8c041fd0
 F 8c042268 994 cpuSglMoodUpdate
 F 8c04264a 610 cpuSglInput
 F 8c0428ac 74 cpuSglThinkAll
@@ -366,7 +367,8 @@ F 8c0502d4 18398 cpuSglAimTable
 F 8c054ae0 1408 cpuSglAimAddLv12
 F 8c05585c 570 cpuSglAimRateOpp3
 F 8c0560ac 290 cpuSglAimScore2
-F 8c05689c 1548 cpuDblInit
+F 8c05689c 526 cpuDblInit
+F 8c056aaa 1022 FUN_8c056aaa
 F 8c056ea8 1320 cpuDblMoodUpdate
 F 8c0573f0 654 cpuDblInput
 F 8c057694 478 cpuDblThinkAll
@@ -1505,7 +1507,6 @@ F 8c0eaf10 4 nlCreateVertexBuffer_clx16
 F 8c0eb0f0 32 nlInitLibraryDC
 F 8c0eb110 144 nlSetFogColor
 F 8c0eb1a0 96 nlSetFogVertexColor
-F 8c0eb200 110 FUN_8c0eb200
 F 8c0eb200 26 setBorderColor
 F 8c0eb220 24 nlVtxBufScanInit
 F 8c0eb460 122 nl_system_config_init
@@ -2596,9 +2597,7 @@ F 8c1efd90 8 ADXCRS_Init
 F 8c1efd98 40 ADXCRS_Lock
 F 8c1efdc0 38 ADXCRS_Unlock
 F 8c1efdf0 132 ADX_GetCoefficient
-F 8c1efdf0 132 FUN_8c1efdf0
 F 8c1efe74 254 ADX_DecodeInfo
-F 8c1efe74 44 FUN_8c1efe74
 F 8c1eff94 102 ADX_DecodeInfoExADPCM2
 F 8c1efffa 338 ADX_DecodeInfoExLoop
 F 8c1f0150 26 ADXERR_Init
@@ -3309,4 +3308,4 @@ F 8c208f58 86 syIntAdrChk_finish
 F 8c208fae 54 send_message_in_current_mode
 F 8c208fe4 60 syIntAdrChk_printh
 F 8c209020 258 ADX_DecodeMonoFloat
-F 8c209138 476 ADX_DecodeSteFloat
+F 8c209138 496 ADX_DecodeSteFloat

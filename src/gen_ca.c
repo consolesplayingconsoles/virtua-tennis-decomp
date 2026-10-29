@@ -25,7 +25,7 @@ int mpdrv_set_getcond_ns(int, int);
 int mpdrv_set_getminfo_ns(int, int, int);
 int mpdrv_set_setcond_ns(int, int, int, int);
 int mpdrv_set_transagain_ns(int);
-int mpdrv_setcmd(int, int, int, int, int);
+int mpdrv_setcmd(int, int, int, int, int, int);
 int ovInit(int, int);
 int pdVibMxIsReady(int);
 int pdVibStart(int, int, int);
@@ -274,14 +274,6 @@ int search_free_dir(int a4)
     return t1;
 }
 
-int mpdrv_set_getlerr_ns(int a4, int a5, int a6, int a7, int a8)
-{
-    int stk[7];
-
-    *(unsigned int *)((((int)stk + 12) + 0x0)) = a5;
-    *(unsigned int *)((((int)stk + 12) + 0x4)) = ((((a6 << 16) << 8) | (a7 << 16)) | a8);
-    return (mpdrv_setcmd(a4, 0xD, ((int)stk + 12), 0x2, 0x0));
-}
 
 int mpdrv_set_dreq(int a4)
 {
@@ -806,3 +798,13 @@ int vmsfs_c_setcallbackparam(int a4)
     }
     return 0x7C;
 }
+
+int mpdrv_set_getlerr_ns(int a4, int a5, int a6, int a7, int a8)
+{
+    int stk[7];
+
+    *(unsigned int *)((((int)stk + 12) + 0x0)) = a5;
+    *(unsigned int *)((((int)stk + 12) + 0x4)) = ((((a6 << 16) << 8) | (a7 << 16)) | a8);
+    return (mpdrv_setcmd(a4, 0xD, ((int)stk + 12), 0x2, 0x0, 0x0));
+}
+

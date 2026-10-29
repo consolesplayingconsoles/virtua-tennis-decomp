@@ -15,11 +15,11 @@ int pdTmrAlarm(int, int);
 int resCautionTexFree(int);
 float vecDist(Stk3, Stk3);
 Stk3 vecMake(float, float, float);
-float swingTrackTip(int a4);
+int swingTrackTip(int a4);
 int msgWinStep(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7);
 int cpuInFan(int a4, int a5, int a6, int a7, int a8, int a9, int a10);
 
-float swingTrackTip(int a4)
+int swingTrackTip(int a4)
 {
     float t7;
     int stk[33];
@@ -37,7 +37,6 @@ float swingTrackTip(int a4)
     t7 = vecDist(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 16)));
     *(float *)((((a4 << 2) + 0x8C334384) + 0x0)) = t7;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((0x8C334324 + ((((a4 << 1) + a4) << 2) << 1)) + 0xC)) = *(struct mv3 *)((0x8C334324 + ((((a4 << 1) + a4) << 2) << 1))); }
-    return t7;
 }
 
 int msgWinStep(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7)

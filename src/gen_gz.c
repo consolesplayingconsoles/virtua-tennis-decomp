@@ -2,265 +2,153 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int countryNamePut(int, float);
-int getID_Color(int, float);
-int iconSlotPutC(int, float);
-int menuItemTextPut(int, Stk3, float);
-int nlDispStripTrnsl(int, int);
-int primVertexSet(int, int, int, int, int);
-int selSlot0FlagClear(void);
-Stk3 vecMake(float, float, float);
-int infoPlayerDraw(int a4, int a5, int a6, int a7, int a8, float f4);
+int sprPutAtAlpha(int, Stk3, float);
+int phrasePut(int a4, Stk3 s, float f4);
 
-int infoPlayerDraw(int a4, int a5, int a6, int a7, int a8, float f4)
+int phrasePut(int a4, Stk3 s, float f4)
 {
-    int t1;
-    int t7;
-    float u65;
-    float u196;
-    float u272;
-    float u295;
-    float u438;
-    int t12;
-    float u279;
-    float u280;
-    float u281;
-    int stk[60];
+    int t27;
+    int t20;
+    int stk[22];
 
-    stk[51] = a8;
-    *(unsigned int *)(((int)stk + 40)) = a4;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 36) + 0x2C)) = *(struct mv3 *)((0xA8 + ((int)stk + 36))); }
-    t1 = getID_Color((*(int *)(((int)stk + 40))), f4);
-    if ((*(int *)(((int)stk + 40))) == 4) {
-        *(unsigned int *)(((int)stk + 40)) = (*(int *)((0x8C343264 + ((selSlot0FlagClear()) * 0x38))));
-        t12 = (selSlot0FlagClear());
+    stk[11] = s.w[0];
+    stk[12] = s.w[1];
+    stk[13] = s.w[2];
+    t27 = a4;
+    if ((unsigned int)a4 >= (unsigned int)0x12) {
     } else {
-        t7 = *(int *)((((*(int *)(((int)stk + 40))) << 2) + 0x8C3437C4));
-        *(unsigned int *)(((int)stk + 40)) = (*(int *)(((t7 * 0x38) + 0x8C343264)));
-        t12 = t7;
+        switch ((a4 << 1)) {
+            case 0:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -28.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C338D80;
+            }
+                break;
+            case 2:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -27.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C338F10;
+            }
+                break;
+            case 4:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -31.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C339050;
+            }
+                break;
+            case 6:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -22.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C338E70;
+            }
+                break;
+            case 8:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -52.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C3390A0;
+            }
+                break;
+            case 10:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -26.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C338FB0;
+            }
+                break;
+            case 12:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -43.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C339780;
+            }
+                break;
+            case 14:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -37.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C339820;
+            }
+                break;
+            case 16:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -34.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C339140;
+            }
+                break;
+            case 18:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -31.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C3391E0;
+            }
+                break;
+            case 20:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -28.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C339280;
+            }
+                break;
+            case 22:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -42.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C339320;
+            }
+                break;
+            case 24:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -27.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C3393C0;
+            }
+                break;
+            case 26:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -27.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C339460;
+            }
+                break;
+            case 28:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -21.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C339550;
+            }
+                break;
+            case 30:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -25.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C339690;
+            }
+                break;
+            case 32:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -37.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                sprPutAtAlpha(0x8C3397D0, *(Stk3 *)(((int)stk + 4)), f4);
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + 37.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C339870;
+            }
+                break;
+            default:
+            {
+                *(float *)(((((int)stk + 16) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x1C) + 0x0))) + -19.0f);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
+                t20 = 0x8C3394B0;
+            }
+                break;
+        }
+        t27 = (sprPutAtAlpha(t20, *(Stk3 *)(((int)stk + 4)), f4));
     }
-    if (t12 != 0) {
-        *(Stk3 *)((0xA8 + ((int)stk + 36))) = vecMake(((*(float *)(((((int)stk + 36) + 0x2C) + 0x0))) + 160.0f), (*(float *)(((((int)stk + 36) + 0x2C) + 0x4))), (*(float *)(((((int)stk + 36) + 0x2C) + 0x8))));
-        *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + 1.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        iconSlotPutC((*(int *)(((int)stk + 40))), f4);
-        *(unsigned int *)(((int)stk + 56)) = (((int)stk + 36) + 0x38);
-        *(unsigned int *)(((int)stk + 36)) = (((int)stk + 36) + 0x38);
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 94.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 48)) = ((((int)stk + 36) + 0x38) + 0x10);
-        *(unsigned int *)(((int)stk + 36)) = ((((int)stk + 36) + 0x38) + 0x10);
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (-1.0f)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 44)) = ((((int)stk + 36) + 0x38) + 0x20);
-        *(unsigned int *)(((int)stk + 36)) = ((((int)stk + 36) + 0x38) + 0x20);
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 94.0f), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 52)) = ((((int)stk + 36) + 0x38) + 0x30);
-        *(unsigned int *)(((int)stk + 36)) = ((((int)stk + 36) + 0x38) + 0x30);
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (-1.0f)), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(volatile int *)(((int)stk + 36));
-        nlDispStripTrnsl(0x4, (((int)stk + 36) + 0x38));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 56)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 94.0f), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 48)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (-1.0f)), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 44)));
-        u65 = *(float *)(((0xA8 + ((int)stk + 36)) + 0x8));
-        *(float *)(((int)stk + 64)) = 4.0f;
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 94.0f), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + 4.0f) + 120.0f), u65);
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 52)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (-1.0f)), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (*(float *)(((int)stk + 64)))) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(volatile int *)(((int)stk + 36));
-        nlDispStripTrnsl(0x4, (((int)stk + 36) + 0x38));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 56)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 94.0f), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 48)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 92.0f), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 44)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 94.0f), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 52)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 92.0f), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(volatile int *)(((int)stk + 36));
-        nlDispStripTrnsl(0x4, (((int)stk + 36) + 0x38));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 56)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 1.0f), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 48)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (-1.0f)), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 44)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 1.0f), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 52)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (-1.0f)), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(volatile int *)(((int)stk + 36));
-        nlDispStripTrnsl(0x4, (((int)stk + 36) + 0x38));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((((int)stk + 36) + 0x2C) + 0x0))) + 7.0f), ((*(float *)(((((int)stk + 36) + 0x2C) + 0x4))) + 54.0f), 0.100000001f);
-        countryNamePut((*(int *)(((int)stk + 40))), f4);
-        u279 = 34.0f;
-        u280 = ((*(float *)(((((int)stk + 36) + 0x2C) + 0x4))) + 119.0f);
-        u281 = (*(float *)(((((int)stk + 36) + 0x2C) + 0x8)));
-    } else {
-        *(Stk3 *)((0xA8 + ((int)stk + 36))) = vecMake(((*(float *)(((((int)stk + 36) + 0x2C) + 0x0))) + -93.0f), (*(float *)(((((int)stk + 36) + 0x2C) + 0x4))), (*(float *)(((((int)stk + 36) + 0x2C) + 0x8))));
-        *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + 1.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        iconSlotPutC((*(int *)(((int)stk + 40))), f4);
-        *(unsigned int *)(((int)stk + 56)) = (((int)stk + 36) + 0x38);
-        *(unsigned int *)(((int)stk + 36)) = (((int)stk + 36) + 0x38);
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 95.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 48)) = ((((int)stk + 36) + 0x38) + 0x10);
-        *(unsigned int *)(((int)stk + 36)) = ((((int)stk + 36) + 0x38) + 0x10);
-        *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 44)) = ((((int)stk + 36) + 0x38) + 0x20);
-        *(unsigned int *)(((int)stk + 36)) = ((((int)stk + 36) + 0x38) + 0x20);
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 95.0f), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 52)) = ((((int)stk + 36) + 0x38) + 0x30);
-        *(unsigned int *)(((int)stk + 36)) = ((((int)stk + 36) + 0x38) + 0x30);
-        *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(volatile int *)(((int)stk + 36));
-        nlDispStripTrnsl(0x4, (((int)stk + 36) + 0x38));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 56)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 95.0f), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 48)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 44)));
-        u196 = *(float *)(((0xA8 + ((int)stk + 36)) + 0x8));
-        *(float *)(((int)stk + 60)) = 4.0f;
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 95.0f), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + 4.0f) + 120.0f), u196);
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 52)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (*(float *)(((int)stk + 60)))) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(volatile int *)(((int)stk + 36));
-        nlDispStripTrnsl(0x4, (((int)stk + 36) + 0x38));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 56)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 95.0f), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 48)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 93.0f), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 44)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 95.0f), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 52)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 93.0f), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(volatile int *)(((int)stk + 36));
-        nlDispStripTrnsl(0x4, (((int)stk + 36) + 0x38));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 56)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (1.0f + 1.0f)), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 48)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 44)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (1.0f + 1.0f)), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 52)));
-        *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-        primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-        *(volatile int *)(((int)stk + 36));
-        nlDispStripTrnsl(0x4, (((int)stk + 36) + 0x38));
-        u272 = *(float *)(((((int)stk + 36) + 0x2C) + 0x0));
-        *(Stk3 *)(((int)stk + 24)) = vecMake((u272 + 5.0f), (u272 + 54.0f), 0.100000001f);
-        countryNamePut((*(int *)(((int)stk + 40))), f4);
-        u279 = 22.0f;
-        u280 = ((*(float *)(((((int)stk + 36) + 0x2C) + 0x4))) + 119.0f);
-        u281 = (*(float *)(((((int)stk + 36) + 0x2C) + 0x8)));
-    }
-    *(Stk3 *)((((int)stk + 24) + 0x2C)) = vecMake(((*(float *)(((((int)stk + 36) + 0x2C) + 0x0))) + u279), u280, u281);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x30)); }
-    menuItemTextPut((*(int *)(((int)stk + 40))), *(Stk3 *)(((int)stk + 8)), f4);
-    *(Stk3 *)((0xA8 + ((int)stk + 36))) = vecMake((*(float *)(((((int)stk + 36) + 0x2C) + 0x0))), (*(float *)(((((int)stk + 36) + 0x2C) + 0x4))), (*(float *)(((((int)stk + 36) + 0x2C) + 0x8))));
-    *(unsigned int *)(((int)stk + 48)) = (((int)stk + 36) + 0x38);
-    *(unsigned int *)(((int)stk + 36)) = (((int)stk + 36) + 0x38);
-    *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + 160.0f), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 44.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    u295 = *(float *)0x8C09FD54;
-    *(unsigned int *)(((int)stk + 44)) = ((((int)stk + 36) + 0x38) + 0x10);
-    *(unsigned int *)(((int)stk + 36)) = ((((int)stk + 36) + 0x38) + 0x10);
-    *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + u295), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + (*(float *)0x8C09FD58)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(unsigned int *)(((int)stk + 52)) = ((((int)stk + 36) + 0x38) + 0x20);
-    *(unsigned int *)(((int)stk + 36)) = ((((int)stk + 36) + 0x38) + 0x20);
-    *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (*(float *)0x8C09FD5C)), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(unsigned int *)(((int)stk + 40)) = ((((int)stk + 36) + 0x38) + 0x30);
-    *(unsigned int *)(((int)stk + 36)) = ((((int)stk + 36) + 0x38) + 0x30);
-    *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + u295), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(volatile int *)(((int)stk + 36));
-    nlDispStripTrnsl(0x4, (((int)stk + 36) + 0x38));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 48)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (1.0f + 1.0f)), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + (*(float *)0x8C09FD58)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 44)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + (*(float *)0x8C09FD58)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 52)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (1.0f + 1.0f)), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 40)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(volatile int *)(((int)stk + 36));
-    nlDispStripTrnsl(0x4, (((int)stk + 36) + 0x38));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 48)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (*(float *)0x8C09FD64)), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (*(float *)0x8C09FD60)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 44)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (*(float *)0x8C09FD60)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 52)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (*(float *)0x8C09FD64)), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + (*(float *)0x8C09FD60)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 40)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + (*(float *)0x8C09FD60)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(volatile int *)(((int)stk + 36));
-    nlDispStripTrnsl(0x4, (((int)stk + 36) + 0x38));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 48)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + u295), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (*(float *)0x8C09FD68)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 44)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), ((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (*(float *)0x8C09FD68)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 52)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + u295), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + (*(float *)0x8C09FD68)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 40)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + (*(float *)0x8C09FD68)), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(volatile int *)(((int)stk + 36));
-    nlDispStripTrnsl(0x4, (((int)stk + 36) + 0x38));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 48)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (*(float *)0x8C09FD5C)), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 44)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 52)));
-    u438 = *(float *)0x8C09FD6C;
-    *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))) + (*(float *)0x8C09FD5C)), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + u438) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(unsigned int *)(((int)stk + 36)) = (*(int *)(((int)stk + 40)));
-    *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xA8 + ((int)stk + 36)) + 0x0))), (((*(float *)(((0xA8 + ((int)stk + 36)) + 0x4))) + u438) + 120.0f), (*(float *)(((0xA8 + ((int)stk + 36)) + 0x8))));
-    primVertexSet(t1, 0x0, 0x0, 0x0, ((*(int *)(((int)stk + 36)))));
-    *(volatile int *)(((int)stk + 36));
-    return (nlDispStripTrnsl(0x4, (((int)stk + 36) + 0x38)));
+    return t27;
 }

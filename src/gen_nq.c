@@ -1,0 +1,97 @@
+/* Straight-line functions with calls and guards (batch gen_nq): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+int bcd2bin(int);
+int bcdtime2fad(int);
+int crcchk(int, int, int, int);
+int gdDecSubcode(int a4, int a5);
+
+int gdDecSubcode(int a4, int a5)
+{
+    int t20;
+    int t30;
+    int t42;
+    int t48;
+    int stk[17];
+
+    int R0;
+    int R1;
+    int R2;
+    int R3;
+    int R4;
+    int R5;
+    int R6;
+    int R7;
+    int R8;
+    int R9;
+    int R10;
+    int R11;
+    int R12;
+    int R13;
+    int R14;
+    float F0;
+    float F15;
+    int T_;
+    R4 = a4;
+    R5 = a5;
+    R11 = (R5);
+    if (((*(signed char *)((R4 + 0x0))) == 0)) goto L_8C1E6636;
+    R0 = (0xFFFFFFFF);
+    L_8C1E6722:;
+    return R0;
+    L_8C1E6636:;
+    if ((((*(signed char *)((R4 + 0x3))) + ((*(signed char *)((R4 + 0x2))) << 8)) == 100)) goto L_8C1E6648;
+    R0 = (0xFFFFFFFE);
+    goto L_8C1E6722;
+    L_8C1E6648:;
+    R10 = (0x6);
+    R12 = ((R4 + 0x4));
+    R14 = ((((int)stk + 8) + 0x4));
+    R5 = (0x0);
+    R6 = (0x40);
+    R7 = (0x0);
+    R8 = (0x7);
+    R9 = (0xF);
+    L_8C1E66BA:;
+    if (((int)R5 < (int)0xC)) goto L_8C1E665E;
+    t20 = (crcchk((R14 + 0xC), (((unsigned char)(*(signed char *)(((R14 + 0xC) + 0xA))) << 8) | (unsigned char)(*(signed char *)(((R14 + 0xC) + 0xB)))), R6, R7)) == 0;
+    if (t20) goto L_8C1E66DE;
+    R0 = (0xFFFFFFFD);
+    goto L_8C1E6722;
+    L_8C1E66DE:;
+    *(unsigned int *)((R11 + 0x0)) = (bcd2bin((*(signed char *)((R14 + 0xD)))));
+    *(unsigned int *)((R11 + 0x4)) = (bcd2bin((*(signed char *)((R14 + 0xF)))));
+    *(unsigned int *)((R11 + 0x8)) = (bcd2bin((*(signed char *)((R14 + 0x10)))));
+    *(unsigned int *)((R11 + 0xC)) = (bcd2bin((*(signed char *)((R14 + 0x11)))));
+    *(unsigned int *)(((int)stk + 8)) = (R14 + 0xC);
+    t30 = *(signed char *)(((R14 + 0xC) + 0x0));
+    *(int *)((int)stk + 4) = ((t30 << 16) << 8);
+    *(unsigned int *)((R11 + 0x10)) = ((bcdtime2fad(((*(int *)(((int)stk + 8))) + 0x7))) | ((t30 << 16) << 8));
+    *(unsigned int *)((R11 + 0x14)) = (bcd2bin((*(signed char *)((R14 + 0xE)))));
+    R0 = (0x0);
+    goto L_8C1E6722;
+    L_8C1E665E:;
+    *(unsigned char *)(((R14 + R5) + 0x0)) = R7;
+    *(unsigned char *)((((R14 + 0xC) + R5) + 0x0)) = R7;
+    R4 = (R8);
+    L_8C1E666E:;
+    R13 = (((R14 + 0xC) + R5));
+    if ((R4 != 7)) goto L_8C1E6694;
+    *(unsigned char *)((R13 + 0x0)) = ((*(signed char *)((R13 + 0x0))) | (((*(signed char *)((R12 + 0x0))) & R6) << 1));
+    R12 = ((R12 + 0x1));
+    L_8C1E66A6:;
+    t42 = (int)(R4 - 1) >= 0;
+    R4 = ((R4 - 1));
+    if (t42) goto L_8C1E666E;
+    if ((((*(signed char *)((R14 + 0xC))) & R9) == 1)) goto L_8C1E66B8;
+    R0 = (0xFFFFFFFB);
+    goto L_8C1E6722;
+    L_8C1E66B8:;
+    R5 = ((R5 + 0x1));
+    goto L_8C1E66BA;
+    L_8C1E6694:;
+    t48 = *(signed char *)((R12 + 0x0));
+    *(unsigned char *)((R13 + 0x0)) = ((*(signed char *)((R13 + 0x0))) | (((int)(-(R10 - R4)) >= 0) ? ((t48 & R6) << ((-(R10 - R4)) & 31)) : ((-(int)(-(R10 - R4)) & 31) ? ((int)(t48 & R6) >> (-(int)(-(R10 - R4)) & 31)) : ((int)(t48 & R6) >> 31))));
+    R12 = ((R12 + 0x1));
+    goto L_8C1E66A6;
+}

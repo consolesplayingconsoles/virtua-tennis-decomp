@@ -214,45 +214,6 @@ int hudBannerInit(void)
 }
 
 
-int entryGridMove(int a4, int a5)
-{
-    int t5;
-    int t9;
-    int stk[18];
-
-    { struct mv16 { int w[16]; }; *(struct mv16 *)(((int)stk + 4)) = *(struct mv16 *)(0x8C110D9C); }
-    if ((int)(*(int *)0x8C343ADC) >= (int)0x4) {
-        if ((int)(*(int *)0x8C343AE8) >= (int)0x4) {
-            if ((a4 == 1) && (a5 == 2)) {
-                return 0x2;
-            }
-            if ((a4 == 2) && (a5 == 3)) {
-                return 0x1;
-            }
-            return (*(int *)(((a5 << 2) + (((a4 << 2) << 2) + ((int)stk + 4)))));
-        }
-        if (((int)(*(int *)0x8C343AE0) >= (int)0x4) && (t5 = *(int *)0x8C343AE4, (int)t5 >= (int)0x4)) {
-            if ((a4 == 0) && (a5 == 0)) {
-                return 0x3;
-            }
-            if ((a4 == 3) && (a5 == 1)) {
-                return 0x0;
-            }
-            return (*(int *)(((a5 << 2) + (((a4 << 2) << 2) + ((int)stk + 4)))));
-        }
-        return (*(int *)(((a5 << 2) + (((a4 << 2) << 2) + ((int)stk + 4)))));
-    }
-    if (((int)(*(int *)0x8C343AE0) >= (int)0x4) && (t9 = *(int *)0x8C343AE4, (int)t9 >= (int)0x4)) {
-        if ((a4 == 0) && (a5 == 0)) {
-            return 0x3;
-        }
-        if ((a4 == 3) && (a5 == 1)) {
-            return 0x0;
-        }
-        return (*(int *)(((a5 << 2) + (((a4 << 2) << 2) + ((int)stk + 4)))));
-    }
-    return (*(int *)(((a5 << 2) + (((a4 << 2) << 2) + ((int)stk + 4)))));
-}
 
 float nlSprPutPosSet(int a4, int a5, int a6, float f4, float f5, float f6, float f7, float f8, float f9, float f10)
 {

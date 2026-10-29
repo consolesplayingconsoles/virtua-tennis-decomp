@@ -1,90 +1,153 @@
 /* Straight-line functions with calls and guards (batch gen_dc): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-typedef struct { int w[3]; } Stk3;
-typedef struct { int w[4]; } Stk4;
-int hudFontNumPut(int, Stk3, float);
-int memset(int, int, int);
-int rankDrawCharaIcon(int, int, Stk3);
-int rankDrawString(int, int, Stk3);
-int rankDrawTbl1(Stk4 s);
+int menuSprInit(int a4, int a5, int a6);
 
-int rankDrawTbl1(Stk4 s)
+int menuSprInit(int a4, int a5, int a6)
 {
-    int t2;
-    int t25;
-    int t26;
-    int t27;
-    int t30;
-    int stk[50];
+    int t0;
+    int t1;
+    float u16;
+    float u17;
+    float u21;
+    float u22;
+    float u43;
+    float u44;
+    float u62;
+    float u63;
+    int stk[3];
 
-    stk[38] = s.w[0];
-    stk[39] = s.w[1];
-    stk[40] = s.w[2];
-    stk[41] = s.w[3];
-    { struct mv4 { int w[4]; }; *(struct mv4 *)((((int)stk + 40) + 0x30)) = *(struct mv4 *)(0x8C126CC8); }
-    *(float *)(((int)stk + 44)) = (*(float *)(((((int)stk + 40) + 0x70) + 0x0)));
-    *(unsigned int *)(((int)stk + 40)) = (((int)stk + 40) + 0x24);
-    *(unsigned int *)(((int)stk + 60)) = ((((int)stk + 40) + 0x24) + 0x2);
-    *(unsigned int *)(((int)stk + 56)) = ((((int)stk + 40) + 0x24) + 0x3);
-    *(unsigned int *)(((int)stk + 52)) = ((((int)stk + 40) + 0x24) + 0x4);
-    *(unsigned int *)(((int)stk + 48)) = ((((int)stk + 40) + 0x24) + 0x5);
-    *(float *)(((int)stk + 64)) = ((*(float *)(((int)stk + 44))) + 84.0f);
-    t2 = 0x0;
-    for (;;) {
-        memset((((int)stk + 40) + 0x24), 0x0, 0x9);
-        if (t2 != 9) {
-            *(unsigned char *)(((*(int *)(((int)stk + 40))) + 0x0)) = (t2 + 0x31);
-        } else {
-            *(unsigned char *)(((*(int *)(((int)stk + 40))) + 0x0)) = 0x6A;
-        }
-        if (t2 == 0) {
-            *(unsigned char *)((((((int)stk + 40) + 0x24) + 0x1) + 0x0)) = 0x73;
-        } else {
-            if (t2 == 1) {
-                *(unsigned char *)((((((int)stk + 40) + 0x24) + 0x1) + 0x0)) = 0x6E;
-            } else {
-                if (t2 == 2) {
-                    *(unsigned char *)((((((int)stk + 40) + 0x24) + 0x1) + 0x0)) = 0x72;
-                } else {
-                    *(unsigned char *)((((((int)stk + 40) + 0x24) + 0x1) + 0x0)) = 0x74;
-                }
-            }
-        }
-        *(unsigned char *)(((*(int *)(((int)stk + 60))) + 0x0)) = 0x5F;
-        *(unsigned char *)(((*(int *)(((int)stk + 56))) + 0x0)) = 0x20;
-        *(unsigned char *)(((*(int *)(((int)stk + 52))) + 0x0)) = 0x6B;
-        *(unsigned int *)(((int)stk + 72)) = ((t2 << 2) << 1);
-        t25 = (*(int *)(((int)stk + 48)));
-        t26 = ((((t2 << 2) << 1) + 0x8C421E78) + 0x4);
-        for (;;) {
-            t27 = *(signed char *)((t26 + 0x0));
-            t26 = (t26 + 0x1);
-            *(unsigned char *)((t25 + 0x0)) = t27;
-            t25 = (t25 + 0x1);
-            if ((unsigned int)t25 >= (unsigned int)((((int)stk + 40) + 0x24) + 0x8)) {
-                break;
-            }
-        }
-        *(unsigned char *)((((((int)stk + 40) + 0x24) + 0x8) + 0x0)) = 0x0;
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x70)); }
-        rankDrawString((((int)stk + 40) + 0x24), (((int)stk + 28) + 0x3C), *(Stk3 *)((((int)stk + 40) + 0x70)));
-        *(float *)(((((int)stk + 40) + 0x70) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x70) + 0x0))) + 462.0f);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0x70)); }
-        t30 = *(int *)(((int)stk + 72));
-        *(unsigned int *)(((int)stk + 68)) = (t30 + 0x8C421E78);
-        hudFontNumPut((*(int *)(((t30 + 0x8C421E78) + 0x0))), *(Stk3 *)((((int)stk + 40) + 0x70)), 1.0f);
-        *(float *)(((((int)stk + 40) + 0x70) + 0x0)) = (*(float *)(((int)stk + 64)));
-        *(float *)(((((int)stk + 40) + 0x70) + 0x4)) = ((*(float *)(((((int)stk + 40) + 0x70) + 0x4))) + (1.0f + 1.0f));
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0x70)); }
-        rankDrawCharaIcon((unsigned char)(*(signed char *)(((*(int *)(((int)stk + 68))) + 0x7))), 0xFFFFFFFF, *(Stk3 *)((((int)stk + 40) + 0x70)));
-        t2 = (t2 + 0x1);
-        *(float *)(((((int)stk + 40) + 0x70) + 0x4)) = ((*(float *)(((((int)stk + 40) + 0x70) + 0x4))) - (1.0f + 1.0f));
-        *(float *)(((((int)stk + 40) + 0x70) + 0x0)) = (*(float *)(((int)stk + 44)));
-        *(float *)(((((int)stk + 40) + 0x70) + 0x4)) = ((*(float *)(((((int)stk + 40) + 0x70) + 0x4))) + 27.0f);
-        if ((int)t2 >= (int)0xA) {
-            break;
-        }
-    }
-    return 0x4;
+    int R0;
+    int R1;
+    int R2;
+    int R3;
+    int R4;
+    int R5;
+    int R6;
+    int R7;
+    int R13;
+    int R14;
+    float F2;
+    float F3;
+    float F4;
+    float F5;
+    int T_;
+    R4 = a4;
+    R5 = a5;
+    R6 = a6;
+    t0 = R14;
+    *(int *)((int)stk + 8) = t0;
+    t1 = R13;
+    *(int *)((int)stk + 4) = t1;
+    *(unsigned int *)((R4 + 0x0)) = (*(int *)(((((R6 << 2) << 2) + 0x8C1B2004) + 0x0)));
+    *(unsigned int *)((R4 + 0x28)) = 0x0;
+    *(unsigned int *)(((int)stk + 8)) = t0;
+    *(unsigned int *)(((int)stk + 4)) = t1;
+    R0 = (R6);
+    R14 = (0x8C1B2004);
+    R2 = (((((R5 << 1) + R5) << 2) << 1));
+    R7 = (((R6 << 2) << 2));
+    F4 = (0.0f);
+    F5 = (50.0f);
+    if ((R6 == 0)) goto L_8C0C6E8A;
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    if ((R0 == 1)) goto L_8C0C6ED4;
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    if ((R0 == 2)) goto L_8C0C6F26;
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    if ((R0 == 3)) goto L_8C0C6F7A;
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    L_8C0C6FD0:;
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    F4 = (1.0f);
+    if ((R6 != 1)) goto L_8C0C6FF0;
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    if ((R5 != 4)) goto L_8C0C6FF0;
+    u16 = *(float *)((R4 + 0x18));
+    u17 = *(float *)((R4 + 0x20));
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    F2 = (((u17 - u16) * 7.0f));
+    L_8C0C6FFC:;
+    *(float *)((R4 + 0x10)) = F2;
+    *(float *)((R4 + 0x14)) = (((*(float *)((R4 + 0x24))) - (*(float *)((R4 + 0x1C)))) * F4);
+    *(float *)((R4 + 0x2C)) = F4;
+    *(unsigned int *)((R4 + 0x30)) = 0xFFFFFFFF;
+    return 0x2C;
+    L_8C0C6FF0:;
+    u21 = *(float *)((R4 + 0x18));
+    u22 = *(float *)((R4 + 0x20));
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    F2 = (((u22 - u21) * F4));
+    goto L_8C0C6FFC;
+    L_8C0C6F7A:;
+    *(float *)((R4 + 0x4)) = (*(float *)(((0x8C1B217C + R2) + 0x10)));
+    *(float *)((R4 + 0x8)) = (*(float *)(((0x8C1B217C + R2) + 0x14)));
+    *(float *)((R4 + 0xC)) = F5;
+    *(float *)((R4 + 0x18)) = ((*(float *)(((0x8C1B217C + R2) + 0x0))) / (*(float *)(((R7 + R14) + 0x4))));
+    *(float *)((R4 + 0x1C)) = ((*(float *)(((0x8C1B217C + R2) + 0x4))) / (*(float *)(((R7 + R14) + 0x8))));
+    *(float *)((R4 + 0x20)) = ((*(float *)(((0x8C1B217C + R2) + 0x8))) / (*(float *)(((R7 + R14) + 0x4))));
+    *(float *)((R4 + 0x24)) = ((*(float *)(((0x8C1B217C + R2) + 0xC))) / (*(float *)(((R7 + R14) + 0x8))));
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    L_8C0C6FCC:;
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    R3 = (0x5);
+    L_8C0C6FCE:;
+    *(unsigned int *)((R4 + 0x34)) = R3;
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    goto L_8C0C6FD0;
+    L_8C0C6F26:;
+    *(float *)((R4 + 0x4)) = (*(float *)(((0x8C1B2164 + R2) + 0x10)));
+    *(float *)((R4 + 0x8)) = (*(float *)(((0x8C1B2164 + R2) + 0x14)));
+    *(float *)((R4 + 0xC)) = F5;
+    *(float *)((R4 + 0x18)) = ((*(float *)(((0x8C1B2164 + R2) + 0x0))) / (*(float *)(((R7 + R14) + 0x4))));
+    *(float *)((R4 + 0x1C)) = ((*(float *)(((0x8C1B2164 + R2) + 0x4))) / (*(float *)(((R7 + R14) + 0x8))));
+    *(float *)((R4 + 0x20)) = ((*(float *)(((0x8C1B2164 + R2) + 0x8))) / (*(float *)(((R7 + R14) + 0x4))));
+    u43 = *(float *)(((R7 + R14) + 0x8));
+    u44 = *(float *)(((0x8C1B2164 + R2) + 0xC));
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    F2 = (u44);
+    F3 = (u43);
+    L_8C0C6F72:;
+    *(float *)((R4 + 0x24)) = (F2 / F3);
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    goto L_8C0C6FCC;
+    L_8C0C6ED4:;
+    *(float *)((R4 + 0x4)) = F4;
+    *(float *)((R4 + 0x8)) = F4;
+    *(float *)((R4 + 0xC)) = 0.00999999978f;
+    *(float *)((R4 + 0x18)) = ((*(float *)(((0x8C1B20D4 + R2) + 0x0))) / (*(float *)(((R7 + R14) + 0x4))));
+    *(float *)((R4 + 0x1C)) = ((*(float *)(((0x8C1B20D4 + R2) + 0x4))) / (*(float *)(((R7 + R14) + 0x8))));
+    *(float *)((R4 + 0x20)) = ((*(float *)(((0x8C1B20D4 + R2) + 0x8))) / (*(float *)(((R7 + R14) + 0x4))));
+    *(float *)((R4 + 0x24)) = ((*(float *)(((0x8C1B20D4 + R2) + 0xC))) / (*(float *)(((R7 + R14) + 0x8))));
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    R3 = (0xA);
+    goto L_8C0C6FCE;
+    L_8C0C6E8A:;
+    *(float *)((R4 + 0x4)) = F4;
+    *(float *)((R4 + 0x8)) = F4;
+    *(float *)((R4 + 0xC)) = 55.0f;
+    *(float *)((R4 + 0x18)) = ((*(float *)(((0x8C1B2044 + R2) + 0x0))) / (*(float *)(((R7 + R14) + 0x4))));
+    *(float *)((R4 + 0x1C)) = ((*(float *)(((0x8C1B2044 + R2) + 0x4))) / (*(float *)(((R7 + R14) + 0x8))));
+    *(float *)((R4 + 0x20)) = ((*(float *)(((0x8C1B2044 + R2) + 0x8))) / (*(float *)(((R7 + R14) + 0x4))));
+    u62 = *(float *)(((R7 + R14) + 0x8));
+    u63 = *(float *)(((0x8C1B2044 + R2) + 0xC));
+    *(unsigned int *)(((int)stk + 8)) = *(int *)((int)stk + 8);
+    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
+    F2 = (u63);
+    F3 = (u62);
+    goto L_8C0C6F72;
 }

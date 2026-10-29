@@ -227,6 +227,7 @@ BupCheckCard
 BupCheckFile
 BupDrawWarning
 BupExecRequest
+BupFailDialog
 BupGetInfo
 BupGetRequest
 BupInit
@@ -242,6 +243,8 @@ FBfree
 FBmovedata
 FUN_8c029f50
 FUN_8c029fe0
+FUN_8c041fd0
+FUN_8c056aaa
 FUN_8c08535e
 FUN_8c0b7070
 FUN_8c0b7fbe
@@ -266,11 +269,8 @@ FUN_8c1e3080
 FUN_8c1e3180
 FUN_8c1e4a80
 FUN_8c1e6420
-FUN_8c1e65e2
 FUN_8c1e6b1c
 FUN_8c1ef4a0
-FUN_8c1efdf0
-FUN_8c1efe74
 FUN_8c1f1906
 FUN_8c1ff1bc
 FUN_8c1ff1ee
@@ -343,6 +343,7 @@ _allzero
 _app_coss
 _app_sins
 _destructFiber
+_div64
 _duchek
 _fmtout_endstr
 _fmtout_intcnv
@@ -594,6 +595,7 @@ circuitRateSetA
 circuitRateSetB
 circuitRateStep
 circuitStageStart
+circuitStatsCalc
 circuitStatsReset
 circuitStatsStart
 circuitTaskAdd
@@ -608,6 +610,7 @@ cmp_fname
 colliObjClear
 colliObjEntry
 colliObjInit
+colliObjResolve
 commonEtcTexLoad
 commonEtcTexSetGarbaged
 commonLoadStart
@@ -653,6 +656,7 @@ courtWinDrawSign
 cpuAimAngleRate
 cpuAimDistRate
 cpuAimPointSet
+cpuBallPredict
 cpuChasePlan
 cpuDblAim
 cpuDblAimAddAngles
@@ -679,6 +683,7 @@ cpuDblAimRateE
 cpuDblChase
 cpuDblCoverPos
 cpuDblHitCheck
+cpuDblInit
 cpuDblInput
 cpuDblIsMyBall
 cpuDblMoodUpdate
@@ -697,6 +702,7 @@ cpuDblRecoverPosC
 cpuDblServe
 cpuDblShot
 cpuDblSignalDraw
+cpuDblSignalPut
 cpuDblSupportT55
 cpuDblSupportT57
 cpuDblSwingInput
@@ -718,6 +724,7 @@ cpuLineCrossXZ
 cpuLineXAtZ
 cpuMeterInput
 cpuOppLineX
+cpuPadHistory
 cpuPointBehind
 cpuPointOverInput
 cpuQuadPut
@@ -853,6 +860,7 @@ effServeSpeedCalc
 effServeSpeedShow
 emotDebugPrint
 emotEditExec
+emotFaceMorph
 emotFaceReset
 emotFaceVtxGet
 emotGraphDraw
@@ -1330,6 +1338,7 @@ kmiFLWCTRLLockNBuf
 kmiFLWCTRLLockVBuf
 kmiFLWCTRLOBJOverflowCallback
 kmiFLWCTRLRotateReadyQueue
+kmiFLWCTRLStartDMAEntry
 kmiFLWCTRLStartDisplayEntry
 kmiFLWCTRLStartPass
 kmiFLWCTRLStartRenderEntry
@@ -1400,6 +1409,7 @@ kmyFreeArea
 kmyFreeSmallVQArea
 kmyGarbageCollection
 kmyGeneratePassInfo
+kmyGenerateRegionArray
 kmyGetBGPlaneBase
 kmyGetDMAHANDLE
 kmyGetDMAValue
@@ -1426,6 +1436,7 @@ kmyInitializeCallback
 kmyInitializeDriver
 kmyInitializeFog
 kmyInitializeFogTable
+kmyInitializeHardware
 kmyInitializeInterrupt
 kmyInitializeJAMMA15KHz
 kmyInitializeJAMMA31KHz
@@ -1553,6 +1564,7 @@ logoSmallInit
 logoSmallPut
 logoWaveDraw
 logoWaveInit
+main
 mainCheckDrive
 mainCheckReset
 mainDebugPause
@@ -1833,6 +1845,7 @@ mwlRnaIsCopyEnd
 mwlRnaSetInitMember
 mwlRnaSetSvrInt
 mwlRnaStartCopy
+mwlRnaStartTrans
 mwlRnaWaitTransEnd
 mwlSbAlloc
 mwlSbAllocWork
@@ -2394,6 +2407,8 @@ playerRecA20Clear
 playerSetReceiveFlag
 playerSetup
 playerSolveArmReach
+playerStartReactions
+playerStartSwing
 prefetch
 primFrameCorners
 primLineH
@@ -2920,6 +2935,7 @@ syTmrInit
 sysInit
 sysInitGraphics
 sysSetVideoMode
+sysVideoSelect
 sys_init
 texPicInit
 texPicPut
@@ -3037,6 +3053,7 @@ vmsfb_end
 vmsfb_exec
 vmsfb_init
 vmsfb_sleep
+vmsfs_c_dispatch
 vmsfs_c_execcallback
 vmsfs_c_exit
 vmsfs_c_fiber0

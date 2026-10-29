@@ -1,0 +1,94 @@
+/* Straight-line functions with calls and guards (batch gen_oe): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+int kmRender(int);
+int kmRenderRect(int);
+int kmSetRegionClipping(int, int, int, int);
+int nl_action_PixelClipping(void);
+int nlSysRender(int a4);
+
+int nlSysRender(int a4)
+{
+    int stk[9];
+
+    int R0;
+    int R1;
+    int R2;
+    int R3;
+    int R4;
+    int R5;
+    int R6;
+    int R7;
+    int R8;
+    int R9;
+    int R10;
+    int R11;
+    int R12;
+    int R13;
+    int R14;
+    int T_;
+    R4 = a4;
+    *(unsigned int *)(((int)stk + 4)) = R4;
+    R10 = (0x8C1DCA18);
+    R13 = (0x0);
+    R9 = (0x8C1DC8C0);
+    if (((*(int *)0x8C1DCA18) != 0)) goto L_8C0EC8DA;
+    if (((*(int *)0x8C1DC8C4) != 0)) goto L_8C0EC8DA;
+    if (((*(int *)(((int)stk + 4))) != 1)) goto L_8C0EC9F0;
+    R4 = (0x0);
+    L_8C0EC9F2:;
+    kmRender(R4);
+    *(unsigned int *)((R9 + 0x0)) = 0xFFFFFFFF;
+    L_8C0EC9FC:;
+    *(unsigned int *)0x8C424464 = R13;
+    return R13;
+    L_8C0EC9F0:;
+    R4 = (0x1);
+    goto L_8C0EC9F2;
+    L_8C0EC8DA:;
+    R11 = ((*(short *)0x8C458DDA));
+    R12 = ((*(short *)0x8C458DD8));
+    R4 = ((*(int *)0x8C1DC9F8));
+    R5 = ((*(int *)0x8C1DCA00));
+    R6 = ((*(int *)0x8C1DC9FC));
+    R7 = ((*(int *)0x8C1DCA04));
+    if (((*(short *)0x8C458DDE) == 0)) goto L_8C0EC920;
+    R14 = ((((int)(R12 + 0xF) >> 4) - 1));
+    if (((int)(R11 << 1) > (int)0x1E0)) goto L_8C0EC92A;
+    R12 = (((int)(R11 + 0xF) >> 4));
+    L_8C0EC932:;
+    R12 = ((R12 - 1));
+    if (((*(int *)((R10 + 0x0))) == 0)) goto L_8C0EC990;
+    *(unsigned int *)0x8C1DC8C4 = 0x1;
+    L_8C0EC994:;
+    *(unsigned int *)0x8C1DCA08 = R4;
+    *(unsigned int *)0x8C1DCA0C = R6;
+    *(unsigned int *)0x8C1DCA10 = R5;
+    *(unsigned int *)0x8C1DCA14 = R7;
+    if (((int)R6 <= (int)R14)) goto L_8C0EC9AA;
+    R6 = (R14);
+    L_8C0EC9AA:;
+    if (((int)R7 < (int)R12)) goto L_8C0EC9B0;
+    R7 = (R12);
+    L_8C0EC9B0:;
+    kmSetRegionClipping(R4, R5, R6, R7);
+    nl_action_PixelClipping();
+    if (((*(int *)(((int)stk + 4))) != 1)) goto L_8C0EC9D0;
+    R4 = (0x0);
+    L_8C0EC9D2:;
+    *(unsigned int *)((R9 + 0x0)) = (kmRenderRect(R4));
+    *(unsigned int *)((R10 + 0x0)) = R13;
+    goto L_8C0EC9FC;
+    L_8C0EC9D0:;
+    R4 = (0x1);
+    goto L_8C0EC9D2;
+    L_8C0EC990:;
+    *(unsigned int *)0x8C1DC8C4 = R13;
+    goto L_8C0EC994;
+    L_8C0EC92A:;
+    R12 = (((int)(R11 + 0x1F) >> 5));
+    goto L_8C0EC932;
+    L_8C0EC920:;
+    R14 = ((((int)(R12 + 0x1F) >> 5) - 1));
+    goto L_8C0EC92A;
+}

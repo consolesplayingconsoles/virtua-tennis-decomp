@@ -862,58 +862,6 @@ int gdFsReqRdPio(int a4, int a5, int a6)
     return t56;
 }
 
-int miniPointPopSpawn(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
-{
-    int t1;
-    int t27;
-    int t6;
-    int t18;
-    int t23;
-    int t24;
-    int t25;
-    int stk[28];
-
-    stk[16] = a8;
-    stk[17] = a9;
-    stk[18] = a10;
-    stk[19] = a11;
-    *(unsigned int *)(((int)stk + 40)) = a4;
-    t1 = *(int *)(((*(int *)0x8C2FBEF0) + 0x20));
-    t27 = t1;
-    if ((t1 == 1) || (t1 == 2)) {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x20)); }
-        camWorldToView((((int)stk + 20) + 0x18));
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
-        camProject((((int)stk + 4) + 0x20), (((int)stk + 4) + 0x1C), *(Stk3 *)((((int)stk + 16) + 0x1C)));
-        *(float *)(((int)stk + 36)) = ((*(float *)(((int)stk + 36))) + 320.0f);
-        *(float *)(((int)stk + 32)) = (240.0f - (*(float *)(((int)stk + 32))));
-        t6 = set_event(0x2C, 0x8C03B892);
-        *(float *)((t6 + 0x14)) = (*(float *)(((int)stk + 36)));
-        if ((*(int *)(((*(int *)0x8C2FBEF0) + 0x0))) == 3) {
-            *(float *)(((int)stk + 32)) = ((*(float *)(((int)stk + 32))) + 48.0f);
-        }
-        *(float *)((t6 + 0x18)) = (*(float *)(((int)stk + 32)));
-        *(float *)((t6 + 0x1C)) = 0.5f;
-        *(unsigned int *)((t6 + 0x24)) = 0x46;
-        *(unsigned int *)0x8C2FC0C8 = ((*(int *)0x8C2FC0C8) + 0x1);
-        t18 = *(int *)(((*(int *)0x8C2FBEF0) + 0x0));
-        if (t18 != 3) {
-            if (t18 == 1) {
-                *(unsigned int *)0x8C2FC0C8 = 0x1;
-            }
-        } else {
-            *(unsigned int *)0x8C2FC0C8 = 0x1;
-        }
-        t23 = *(int *)0x8C2FC0C8;
-        *(unsigned int *)((t6 + 0x28)) = t23;
-        t24 = *(int *)(((int)stk + 40));
-        *(unsigned int *)((t6 + 0x20)) = (t24 * t23);
-        t25 = *(int *)0x8C2FBEF0;
-        *(unsigned int *)((t25 + 0x38)) = ((*(int *)((t25 + 0x38))) + (t24 * t23));
-        t27 = t18;
-    }
-    return t27;
-}
 
 int kmySetHSyncInterruptLine(int a4)
 {

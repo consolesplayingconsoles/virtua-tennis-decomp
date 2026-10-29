@@ -1,165 +1,119 @@
 /* Straight-line functions with calls and guards (batch gen_n): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int staffMorphReset(void);
-int ballBoyRecall(int a4);
-int menuSprInit(int a4, int a5, int a6);
+int nlObjPutTrnsl(int, float);
+int nlScale(float, float, float);
+void swingBlurPut(int a4, float f4, float f5, float f6);
 
-
-int menuSprInit(int a4, int a5, int a6)
+void swingBlurPut(int a4, float f4, float f5, float f6)
 {
-    int t0;
-    float u1;
-    float u2;
-    float u3;
-    float u4;
-    float u5;
-    float u6;
-    float u7;
-    float u8;
-    float u9;
-    float u10;
-    float u18;
-    float u19;
-    float u20;
-    float u21;
-    float u22;
-    float u23;
-    float u24;
-    float u25;
-    float u26;
-    float u27;
-    float u35;
-    float u36;
-    float u37;
-    float u38;
-    float u39;
-    float u40;
-    float u41;
-    float u42;
-    float u51;
-    float u52;
-    float u53;
-    float u54;
-    float u55;
-    float u56;
-    float u57;
-    float u58;
-    float u67;
-    float u68;
-    float u69;
-    float u70;
-    float u75;
-    float u76;
-    float u81;
-    float u82;
-    float u78;
-    float u72;
+    int t11;
+    int t14;
+    int t19;
+    int t25;
+    int t32;
+    int t39;
+    int stk[10];
 
-    t0 = *(int *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x0));
-    *(unsigned int *)((a4 + 0x0)) = t0;
-    *(unsigned int *)((a4 + 0x28)) = 0x0;
-    if (a6 != 0) {
-        if (a6 != 1) {
-            if (a6 != 2) {
-                if (a6 != 3) {
-                } else {
-                    u1 = *(float *)(((0x8C1B217C + ((((a5 << 1) + a5) << 2) << 1)) + 0x10));
-                    *(float *)((a4 + 0x4)) = u1;
-                    u2 = *(float *)(((0x8C1B217C + ((((a5 << 1) + a5) << 2) << 1)) + 0x14));
-                    *(float *)((a4 + 0x8)) = u2;
-                    *(float *)((a4 + 0xC)) = 50.0f;
-                    u3 = *(float *)(((0x8C1B217C + ((((a5 << 1) + a5) << 2) << 1)) + 0x0));
-                    u4 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x4));
-                    *(float *)((a4 + 0x18)) = (u3 / u4);
-                    u5 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x8));
-                    u6 = *(float *)(((0x8C1B217C + ((((a5 << 1) + a5) << 2) << 1)) + 0x4));
-                    *(float *)((a4 + 0x1C)) = (u6 / u5);
-                    u7 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x4));
-                    u8 = *(float *)(((0x8C1B217C + ((((a5 << 1) + a5) << 2) << 1)) + 0x8));
-                    *(float *)((a4 + 0x20)) = (u8 / u7);
-                    u9 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x8));
-                    u10 = *(float *)(((0x8C1B217C + ((((a5 << 1) + a5) << 2) << 1)) + 0xC));
-                    *(float *)((a4 + 0x24)) = (u10 / u9);
-                    *(unsigned int *)((a4 + 0x34)) = 0x5;
-                }
-            } else {
-                u18 = *(float *)(((0x8C1B2164 + ((((a5 << 1) + a5) << 2) << 1)) + 0x10));
-                *(float *)((a4 + 0x4)) = u18;
-                u19 = *(float *)(((0x8C1B2164 + ((((a5 << 1) + a5) << 2) << 1)) + 0x14));
-                *(float *)((a4 + 0x8)) = u19;
-                *(float *)((a4 + 0xC)) = 50.0f;
-                u20 = *(float *)(((0x8C1B2164 + ((((a5 << 1) + a5) << 2) << 1)) + 0x0));
-                u21 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x4));
-                *(float *)((a4 + 0x18)) = (u20 / u21);
-                u22 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x8));
-                u23 = *(float *)(((0x8C1B2164 + ((((a5 << 1) + a5) << 2) << 1)) + 0x4));
-                *(float *)((a4 + 0x1C)) = (u23 / u22);
-                u24 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x4));
-                u25 = *(float *)(((0x8C1B2164 + ((((a5 << 1) + a5) << 2) << 1)) + 0x8));
-                *(float *)((a4 + 0x20)) = (u25 / u24);
-                u26 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x8));
-                u27 = *(float *)(((0x8C1B2164 + ((((a5 << 1) + a5) << 2) << 1)) + 0xC));
-                *(float *)((a4 + 0x24)) = (u27 / u26);
-                *(unsigned int *)((a4 + 0x34)) = 0x5;
-            }
-        } else {
-            *(float *)((a4 + 0x4)) = 0.0f;
-            *(float *)((a4 + 0x8)) = 0.0f;
-            *(float *)((a4 + 0xC)) = 0.00999999978f;
-            u35 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x4));
-            u36 = *(float *)(((0x8C1B20D4 + ((((a5 << 1) + a5) << 2) << 1)) + 0x0));
-            *(float *)((a4 + 0x18)) = (u36 / u35);
-            u37 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x8));
-            u38 = *(float *)(((0x8C1B20D4 + ((((a5 << 1) + a5) << 2) << 1)) + 0x4));
-            *(float *)((a4 + 0x1C)) = (u38 / u37);
-            u39 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x4));
-            u40 = *(float *)(((0x8C1B20D4 + ((((a5 << 1) + a5) << 2) << 1)) + 0x8));
-            *(float *)((a4 + 0x20)) = (u40 / u39);
-            u41 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x8));
-            u42 = *(float *)(((0x8C1B20D4 + ((((a5 << 1) + a5) << 2) << 1)) + 0xC));
-            *(float *)((a4 + 0x24)) = (u42 / u41);
-            *(unsigned int *)((a4 + 0x34)) = 0xA;
-        }
-    } else {
-        *(float *)((a4 + 0x4)) = 0.0f;
-        *(float *)((a4 + 0x8)) = 0.0f;
-        *(float *)((a4 + 0xC)) = 55.0f;
-        u51 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x4));
-        u52 = *(float *)(((0x8C1B2044 + ((((a5 << 1) + a5) << 2) << 1)) + 0x0));
-        *(float *)((a4 + 0x18)) = (u52 / u51);
-        u53 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x8));
-        u54 = *(float *)(((0x8C1B2044 + ((((a5 << 1) + a5) << 2) << 1)) + 0x4));
-        *(float *)((a4 + 0x1C)) = (u54 / u53);
-        u55 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x4));
-        u56 = *(float *)(((0x8C1B2044 + ((((a5 << 1) + a5) << 2) << 1)) + 0x8));
-        *(float *)((a4 + 0x20)) = (u56 / u55);
-        u57 = *(float *)(((((a6 << 2) << 2) + 0x8C1B2004) + 0x8));
-        u58 = *(float *)(((0x8C1B2044 + ((((a5 << 1) + a5) << 2) << 1)) + 0xC));
-        *(float *)((a4 + 0x24)) = (u58 / u57);
-        *(unsigned int *)((a4 + 0x34)) = 0x5;
-    }
-    if (a6 == 1) {
-        if (a5 == 4) {
-            u67 = *(float *)((a4 + 0x18));
-            u68 = *(float *)((a4 + 0x20));
-            u72 = ((u68 - u67) * 7.0f);
-        } else {
-            u69 = *(float *)((a4 + 0x18));
-            u70 = *(float *)((a4 + 0x20));
-            u72 = ((u70 - u69) * 1.0f);
-        }
-        u78 = u72;
-    } else {
-        u75 = *(float *)((a4 + 0x18));
-        u76 = *(float *)((a4 + 0x20));
-        u78 = ((u76 - u75) * 1.0f);
-    }
-    *(float *)((a4 + 0x10)) = u78;
-    u81 = *(float *)((a4 + 0x1C));
-    u82 = *(float *)((a4 + 0x24));
-    *(float *)((a4 + 0x14)) = ((u82 - u81) * 1.0f);
-    *(float *)((a4 + 0x2C)) = 1.0f;
-    *(unsigned int *)((a4 + 0x30)) = 0xFFFFFFFF;
-    return 0x2C;
+    int R0;
+    int R3;
+    int R4;
+    int R11;
+    int R12;
+    int R13;
+    int R14;
+    float F2;
+    float F3;
+    float F4;
+    float F5;
+    float F6;
+    float F12;
+    float F13;
+    float F14;
+    float F15;
+    int T_;
+    R4 = a4;
+    F4 = f4;
+    F5 = f5;
+    F6 = f6;
+    *(float *)(((int)stk + 12)) = F13;
+    *(float *)(((int)stk + 8)) = F12;
+    *(float *)(((int)stk + 8)) = F13;
+    *(float *)(((int)stk + 4)) = F12;
+    F13 = (F5);
+    F14 = (1.0f);
+    F15 = (F4);
+    if ((1.0f > F4)) goto L_8C08E344;
+    *(float *)(((int)stk + 8)) = *(float *)((int)stk + 8);
+    *(float *)(((int)stk + 4)) = *(float *)((int)stk + 4);
+    R11 = (0x8C0F2610);
+    R12 = (0x8C0F0390);
+    R13 = (0x8C18275C);
+    R14 = (((((R4 << 1) + R4) << 2) << 1));
+    F12 = ((1.0f + 1.0f));
+    if ((!((1.0f + 1.0f) > F15))) goto L_8C08E2B6;
+    nlScale(F14, F14, (F15 / F12));
+    t11 = *(int *)(((R14 + R13) + 0x4));
+    *(float *)(((int)stk + 8)) = *(float *)((int)stk + 8);
+    *(float *)(((int)stk + 4)) = *(float *)((int)stk + 4);
+    R4 = (t11);
+    F4 = (F13);
+    L_8C08E320:;
+    t14 = nlObjPutTrnsl(R4, F4);
+    *(float *)(((int)stk + 8)) = *(float *)((int)stk + 8);
+    *(float *)(((int)stk + 4)) = *(float *)((int)stk + 4);
+    R0 = (t14);
+    L_8C08E344:;
+    return;
+    L_8C08E2B6:;
+    *(float *)(((int)stk + 8)) = *(float *)((int)stk + 8);
+    *(float *)(((int)stk + 4)) = *(float *)((int)stk + 4);
+    F12 = (5.0f);
+    if ((!(5.0f > F15))) goto L_8C08E2DA;
+    nlScale(F14, F14, (F15 / F12));
+    t19 = *(int *)(((R14 + R13) + 0x8));
+    *(float *)(((int)stk + 8)) = *(float *)((int)stk + 8);
+    *(float *)(((int)stk + 4)) = *(float *)((int)stk + 4);
+    R4 = (t19);
+    F4 = ((F13 * 0.5f));
+    goto L_8C08E320;
+    L_8C08E2DA:;
+    *(float *)(((int)stk + 8)) = *(float *)((int)stk + 8);
+    *(float *)(((int)stk + 4)) = *(float *)((int)stk + 4);
+    F12 = (10.0f);
+    if ((!(10.0f > F15))) goto L_8C08E2FE;
+    nlScale(F14, F14, (F15 / F12));
+    t25 = *(int *)(((R14 + R13) + 0xC));
+    *(float *)(((int)stk + 8)) = *(float *)((int)stk + 8);
+    *(float *)(((int)stk + 4)) = *(float *)((int)stk + 4);
+    R4 = (t25);
+    F4 = ((F13 * 0.400000006f));
+    goto L_8C08E320;
+    L_8C08E2FE:;
+    *(float *)(((int)stk + 8)) = *(float *)((int)stk + 8);
+    *(float *)(((int)stk + 4)) = *(float *)((int)stk + 4);
+    F12 = ((F13 * 0.349999994f));
+    F2 = (16.0f);
+    if ((!(16.0f > F15))) goto L_8C08E328;
+    nlScale(F14, F14, (F15 / F2));
+    t32 = *(int *)(((R14 + R13) + 0x10));
+    *(float *)(((int)stk + 8)) = *(float *)((int)stk + 8);
+    *(float *)(((int)stk + 4)) = *(float *)((int)stk + 4);
+    R4 = (t32);
+    F4 = (F12);
+    goto L_8C08E320;
+    L_8C08E328:;
+    *(float *)(((int)stk + 8)) = *(float *)((int)stk + 8);
+    *(float *)(((int)stk + 4)) = *(float *)((int)stk + 4);
+    F13 = (23.0f);
+    if ((!(23.0f > F15))) goto L_8C08E33A;
+    nlScale(F14, F14, (F15 / F13));
+    *(float *)(((int)stk + 8)) = *(float *)((int)stk + 8);
+    *(float *)(((int)stk + 4)) = *(float *)((int)stk + 4);
+    L_8C08E33A:;
+    t39 = nlObjPutTrnsl((*(int *)(((R14 + R13) + 0x14))), F12);
+    *(float *)(((int)stk + 8)) = *(float *)((int)stk + 8);
+    *(float *)(((int)stk + 4)) = *(float *)((int)stk + 4);
+    R0 = (t39);
+    goto L_8C08E344;
 }

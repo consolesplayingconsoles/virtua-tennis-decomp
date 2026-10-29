@@ -2,479 +2,1947 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-float cpuDblPathCross(int, int, int, Stk3, Stk3, float, float);
-float cpuDistXZ(int, int);
-int nlRand(void);
-float nlScalor(int);
-void cpuDblPoachCheck(int a4, float f4, float f5, float f6);
+typedef struct { int w[4]; } Stk4;
+int FUN_8c029f50(Stk4, Stk3);
+float FUN_8c029fe0(float, float);
+int FUN_8c08535e(int, int);
+int angDiff(int, int);
+int camExec(int, int, int, int, int, int, int, int, int, int, int, int);
+extern int camMoveBegin();
+int camMoveBeginAtGoal(int, int, int, int, float, float);
+extern int camSetEye();
+int camSetOrbit(int, int, float);
+extern int camSetTarget();
+int cameraFovFit(Stk3, Stk3, float, float);
+float cameraFovForSize(int, int, int, int, float);
+int circuitDrawPrompt(void);
+int circuitStatsStart(void);
+extern int courtColliInit();
+float courtLimitZ(void);
+int entryCountJoined(void);
+int evCrowdClapStart(void);
+int evPackFade(int, int, int);
+int evPlayerCallStart(int);
+int lightAimFromMatrix(int, int, int, int);
+int lightCamCalc(int, int, int, int, int, int);
+int lightStagePreset(void);
+int nlAddVector(int, int);
+extern int nlArcTan2();
+int nlCalcPoint(int, int);
+int nlGetAverageVector(int, int, int, float, float);
+float nlInnerProduct(int, int);
+int nlPopMatrix(int);
+int nlPushUnitMatrix(void);
+float nlRandom(void);
+int nlRotateAY(int);
+int nlScaleVector(int, int, float);
+int nlSubVector(int, int);
+int nlSubVector3op(int, int, int);
+int padLcdModeClear(void);
+int padLcdSetMode(int, int, int, int, int, int);
+int playerHumanPressed(int);
+int primRectInc(int, int, int, int, int, int, int, int);
+int serveGetPos(int, int, int, int, int);
+int serveGetServer(void);
+int strmBgmPlayStage(void);
+int strmCrowdFadeOut(void);
+Stk3 vecMake(float, float, float);
+float cameraExec(int a4);
 
-void cpuDblPoachCheck(int a4, float f4, float f5, float f6)
+float cameraExec(int a4)
 {
-    int t0;
-    int t1;
-    int t66;
-    int t67;
-    float u72;
-    float u73;
-    float u58;
-    float u59;
-    float t18;
-    float t19;
-    float t21;
-    float u24;
-    float u25;
-    float u26;
-    float u28;
-    float u117;
-    float u118;
-    float t78;
-    float t79;
-    float t81;
-    float u84;
-    float u85;
-    float u86;
-    float u88;
-    float u167;
-    float u168;
-    int t171;
-    int t169;
-    float u173;
+    int t11;
+    int t18;
+    int t37;
+    int t45;
+    int t59;
+    int t75;
+    int t87;
+    int t97;
+    int t99;
+    int t103;
+    int t127;
+    int t131;
+    int t145;
+    int t146;
+    float t147;
+    float t148;
+    int t155;
+    int t156;
+    float t157;
+    float t158;
+    int t172;
     int t176;
-    int t174;
-    float u181;
+    int t177;
+    int t178;
     float u182;
-    int t185;
     int t183;
-    float u187;
-    int t190;
-    int t188;
-    int t320;
-    int t321;
-    float u325;
-    float u326;
-    float t252;
-    float t253;
-    int t375;
-    int t376;
-    float u380;
-    float u381;
-    float t332;
-    float t333;
+    int t189;
+    int t193;
+    int t194;
+    float u198;
+    int t199;
+    float t204;
+    int t207;
+    int t210;
+    float t212;
+    int t213;
+    float t223;
+    int t224;
+    int t236;
+    int t237;
+    float t238;
+    float t239;
+    float u247;
+    int t248;
+    int t252;
+    int t254;
+    int t255;
+    int t262;
+    int t268;
+    int t274;
+    int t275;
+    float u279;
+    int t280;
+    float t291;
+    int t323;
     int t334;
-    int t335;
-    int t337;
-    int t338;
-    int t340;
-    int t341;
-    float t382;
-    float u388;
-    float u389;
-    int t392;
-    int t390;
-    float u394;
-    int t397;
-    int t395;
-    float u402;
-    int t405;
-    int t403;
-    float u420;
-    float u422;
-    float u424;
-    float u426;
-    float u430;
-    float u432;
-    float u434;
-    float u436;
-    float u456;
-    float u458;
-    float u460;
-    float u462;
-    int t124;
-    int t125;
-    float u130;
-    float u131;
-    int t52;
-    int t53;
-    int t20;
-    float u45;
-    float u46;
-    float u37;
-    float u38;
-    int t76;
-    int t77;
-    int t111;
-    int t112;
-    int t80;
-    float u105;
-    float u106;
-    float u97;
-    float u98;
-    int t214;
-    int t307;
-    int t308;
-    float u312;
-    float u313;
-    int t266;
-    int t267;
-    float u271;
-    float u272;
-    float u275;
-    int t328;
-    int t361;
-    int t362;
-    float u366;
-    float u367;
-    int t384;
-    int t385;
-    int stk[17];
+    int t346;
+    int t348;
+    int t350;
+    float u355;
+    int t359;
+    int t381;
+    int t393;
+    int t413;
+    int t415;
+    int t416;
+    int t422;
+    int t430;
+    int t447;
+    int t470;
+    int t471;
+    float t472;
+    float t473;
+    float u481;
+    int t482;
+    int t485;
+    int t487;
+    int t488;
+    float u492;
+    int t493;
+    int t498;
+    int t504;
+    int t505;
+    float u509;
+    int t510;
+    float t525;
+    int t528;
+    int t531;
+    float t533;
+    int t534;
+    float t542;
+    int t543;
+    int t564;
+    int t565;
+    float t566;
+    float t567;
+    float u575;
+    int t576;
+    int t579;
+    int t581;
+    int t582;
+    float u586;
+    int t587;
+    int t592;
+    int t601;
+    int t602;
+    float t603;
+    int t606;
+    int t607;
+    float u611;
+    int t612;
+    int t630;
+    int t633;
+    int t637;
+    int t639;
+    int t642;
+    int t645;
+    int t647;
+    int t657;
+    int t682;
+    int t683;
+    float u684;
+    float u685;
+    float u686;
+    int t687;
+    int t688;
+    float u689;
+    float u690;
+    float u691;
+    int t698;
+    int t706;
+    int t710;
+    int t711;
+    int t717;
+    int t718;
+    int t731;
+    int t795;
+    int t797;
+    int t822;
+    int t846;
+    int t850;
+    int t851;
+    int t855;
+    int t858;
+    int t896;
+    int t903;
+    int t919;
+    int t922;
+    int t928;
+    int t933;
+    float t944;
+    int t946;
+    int t949;
+    int t951;
+    int t952;
+    int t962;
+    int t968;
+    int t969;
+    float t970;
+    float t971;
+    float u979;
+    int t980;
+    int t983;
+    int t985;
+    int t986;
+    float u990;
+    int t991;
+    int t996;
+    int t1000;
+    int t1001;
+    float u1005;
+    int t1006;
+    int t1015;
+    int t1016;
+    int t1027;
+    int t1028;
+    float u1029;
+    float u1030;
+    float u1031;
+    int t1032;
+    int t1033;
+    float u1034;
+    float u1035;
+    float u1036;
+    int t1044;
+    int t1046;
+    int t1047;
+    int t1065;
+    int t1066;
+    int t1077;
+    int t1078;
+    float u1079;
+    float u1080;
+    float u1081;
+    int t1082;
+    int t1083;
+    float u1084;
+    float u1085;
+    float u1086;
+    int t1094;
+    int t1096;
+    float t1105;
+    int t1107;
+    int t1110;
+    int t1112;
+    int t1113;
+    int t1117;
+    int t1123;
+    int t1124;
+    float t1125;
+    float t1126;
+    float u1134;
+    int t1135;
+    int t1138;
+    int t1140;
+    int t1141;
+    float u1145;
+    int t1146;
+    int t1151;
+    int t1154;
+    int t1155;
+    float u1159;
+    int t1160;
+    int t1183;
+    int t1186;
+    int t1190;
+    int t1193;
+    int t1199;
+    int t1201;
+    int t1202;
+    int t1223;
+    int t1242;
+    int t1245;
+    int t1249;
+    int t1268;
+    int t1276;
+    int t1278;
+    int t1285;
+    int t1310;
+    int t1313;
+    int t1317;
+    int t1336;
+    int t1344;
+    int t1346;
+    int t1350;
+    float u1384;
+    int t1392;
+    float u1396;
+    float u1398;
+    float u1399;
+    int t1402;
+    int t1408;
+    int t1414;
+    int t1442;
+    int t1445;
+    int t1447;
+    int t1448;
+    int t1453;
+    float u1454;
+    float u1455;
+    float u1456;
+    int t1461;
+    int t1462;
+    int t1469;
+    int t1479;
+    int t1485;
+    float u1486;
+    float u1487;
+    float u1488;
+    int t1493;
+    int t1495;
+    int stk[52];
 
-    t0 = *(int *)((a4 + 0xB5C));
-    t1 = *(int *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB5C));
-    if (((*(int *)0x8C291F78) & 0x4) != 0) {
-    } else {
-        if ((unsigned char)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12E))) == 1) {
-            t66 = 0x160;
-            t67 = 0x8C2FC69C;
-            u72 = f4;
-            u73 = f5;
-            if (((*(int *)((a4 + 0xB60))) & 0x4) == 0) {
-            } else {
-                u58 = f4;
-                u59 = f5;
-                if (((*(int *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB60))) & 0x4) == 0) {
-                    t52 = 0x160;
-                    t53 = 0x8C2FC69C;
-                } else {
-                    t18 = cpuDistXZ((0xAE8 + a4), (0xBA8 + a4));
-                    t19 = cpuDistXZ((0xAE8 + (((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84)), (0xBA8 + (((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84)));
-                    if ((t18 > t19) && (t20 = *(short *)((((t1 * 0x160) + 0x8C2FC69C) + 0x118)), (int)t20 < (int)0xF)) {
-                        t21 = cpuDistXZ((0xAE8 + (((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84)), (0xBA8 + (((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84)));
-                        if (!(10.0f > t21)) {
-                            u24 = *(float *)((a4 + 0xAF0));
-                            u25 = *(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0));
-                            u26 = (-u24);
-                            if (!(0.0f > u24)) {
-                                u26 = u24;
-                            }
-                            u28 = (-u25);
-                            if (!(0.0f > u25)) {
-                                u28 = u25;
-                            }
-                            if (u28 > u26) {
-                                *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x0;
-                                *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x2;
-                            }
-                            u37 = u24;
-                            u38 = u25;
-                        } else {
-                            *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x0;
-                            *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x2;
-                        }
-                        u45 = u37;
-                        u46 = u38;
-                    }
-                    u58 = u45;
-                    u59 = u46;
-                }
-                t66 = t52;
-                t67 = t53;
-                u72 = u58;
-                u73 = u59;
-            }
-            t124 = t66;
-            t125 = t67;
-            u130 = u72;
-            u131 = u73;
-        } else {
-            u117 = f4;
-            u118 = f5;
-            if (((unsigned char)(*(signed char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E))) == 1) && ((t76 = *(int *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB60)), (t76 & 0x4) != 0) && (t77 = *(int *)((a4 + 0xB60)), (t77 & 0x4) != 0))) {
-                t78 = cpuDistXZ((0xAE8 + (((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84)), (0xBA8 + (((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84)));
-                t79 = cpuDistXZ((0xAE8 + a4), (0xBA8 + a4));
-                if ((t78 > t79) && (t80 = *(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118)), (int)t80 < (int)0xF)) {
-                    t81 = cpuDistXZ((0xAE8 + a4), (0xBA8 + a4));
-                    if (!(10.0f > t81)) {
-                        u84 = *(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0));
-                        u85 = *(float *)((a4 + 0xAF0));
-                        u86 = (-u84);
-                        if (!(0.0f > u84)) {
-                            u86 = u84;
-                        }
-                        u88 = (-u85);
-                        if (!(0.0f > u85)) {
-                            u88 = u85;
-                        }
-                        if (u88 > u86) {
-                            *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x0;
-                            *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x2;
-                        }
-                        u97 = u85;
-                        u98 = u84;
-                    } else {
-                        *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x0;
-                        *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x2;
-                    }
-                    u105 = u97;
-                    u106 = u98;
-                }
-                u117 = u105;
-                u118 = u106;
-            } else {
-                t111 = 0x160;
-                t112 = 0x8C2FC69C;
-            }
-            t124 = t111;
-            t125 = t112;
-            u130 = u117;
-            u131 = u118;
-        }
-        if ((int)(*(int *)0x8C2FCC1C) >= (int)0x14) {
-            if ((*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12B))) == (*(signed char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12B)))) {
-            } else {
-                if (((*(int *)((a4 + 0xB60))) & 0x100) != 0) {
-                    u167 = *(float *)((a4 + 0xAF0));
-                    u168 = *(float *)0x8C291F44;
-                    t171 = 0x1;
-                    if ((u168 - u167) > 0.0f) {
-                    } else {
-                        t169 = 0x0;
-                        if (0.0f > (u168 - u167)) {
-                            t169 = 0xFFFFFFFF;
-                        }
-                        t171 = t169;
-                    }
-                    u173 = *(float *)0x8C291F38;
-                    t176 = 0x1;
-                    if ((u167 - u173) > 0.0f) {
-                    } else {
-                        t174 = 0x0;
-                        if (0.0f > (u167 - u173)) {
-                            t174 = 0xFFFFFFFF;
-                        }
-                        t176 = t174;
-                    }
-                    if (t171 == t176) {
-                        *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x1;
-                    }
-                } else {
-                    u181 = *(float *)((a4 + 0xAF0));
-                    u182 = *(float *)0x8C291F44;
-                    t185 = 0x1;
-                    if ((u182 - (u181 * 0.75f)) > 0.0f) {
-                    } else {
-                        t183 = 0x0;
-                        if (0.0f > (u182 - (u181 * 0.75f))) {
-                            t183 = 0xFFFFFFFF;
-                        }
-                        t185 = t183;
-                    }
-                    u187 = *(float *)0x8C291F38;
-                    t190 = 0x1;
-                    if (((u181 * 0.75f) - u187) > 0.0f) {
-                    } else {
-                        t188 = 0x0;
-                        if (0.0f > ((u181 * 0.75f) - u187)) {
-                            t188 = 0xFFFFFFFF;
-                        }
-                        t190 = t188;
-                    }
-                    if (t185 == t190) {
-                        *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x1;
-                    }
-                }
-            }
-        } else {
-            t320 = t124;
-            t321 = t125;
-            u325 = u130;
-            u326 = u131;
-            if (((*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12E))) == 0) && (t214 = *(signed char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)), t214 == 0)) {
-                if ((int)(*(int *)0x8C2FCC1C) <= (int)0x4) {
-                    if ((*(float *)0x8C291F54) > 25.0f) {
-                        t252 = nlScalor((((t0 * 0x160) + 0x8C2FC69C) + 0x28));
-                        if (0.200000003f > t252) {
-                            t253 = nlScalor((((t1 * 0x160) + 0x8C2FC69C) + 0x28));
-                            if (!(0.200000003f > t253)) {
-                            } else {
-                                *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x1;
-                                *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x1;
-                            }
-                        }
-                    } else {
-                        t266 = t124;
-                        t267 = t125;
-                        u271 = u130;
-                        u272 = u131;
-                    }
-                    t307 = t266;
-                    t308 = t267;
-                    u312 = u271;
-                    u313 = u272;
-                } else {
-                    if (((int)(*(int *)0x8C2FCC1C) <= (int)0x7) && (u275 = *(float *)0x8C291F54, u275 > 15.0f)) {
-                        if ((int)(*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))) > (int)(*(short *)((((t1 * 0x160) + 0x8C2FC69C) + 0x118)))) {
-                            *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x1;
-                        } else {
-                            if ((int)(*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))) < (int)(*(short *)((((t1 * 0x160) + 0x8C2FC69C) + 0x118)))) {
-                                *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x1;
-                            } else {
-                                *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x1;
-                                *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x1;
-                            }
-                        }
-                    }
-                    t307 = t124;
-                    t308 = t125;
-                    u312 = u130;
-                    u313 = u131;
-                }
-                t320 = t307;
-                t321 = t308;
-                u325 = u312;
-                u326 = u313;
-            }
-            t375 = t320;
-            t376 = t321;
-            u380 = u325;
-            u381 = u326;
-            if (((*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12E))) != 0) && (t328 = *(signed char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)), t328 != 0)) {
-                if ((int)(*(int *)0x8C2FCC1C) < (int)0x4) {
-                    t332 = nlScalor((((t0 * 0x160) + 0x8C2FC69C) + 0x28));
-                    if (t332 > 0.449999988f) {
-                        t333 = nlScalor((((t1 * 0x160) + 0x8C2FC69C) + 0x28));
-                        if (t333 > 0.449999988f) {
-                            t334 = nlRand();
-                            t335 = ((~(((~t334) + 0x1) & 0x1)) + 0x1);
-                            if ((int)t334 >= 0) {
-                                t335 = (t334 & 0x1);
-                            }
-                            if (t335 != 0) {
-                                *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x0;
-                                *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x0;
-                            } else {
-                                t337 = nlRand();
-                                t338 = ((~(((~t337) + 0x1) & 0x1)) + 0x1);
-                                if ((int)t337 >= 0) {
-                                    t338 = (t337 & 0x1);
-                                }
-                                if (t338 != 0) {
-                                    *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x0;
-                                } else {
-                                    t340 = nlRand();
-                                    t341 = ((~(((~t340) + 0x1) & 0x1)) + 0x1);
-                                    if ((int)t340 >= 0) {
-                                        t341 = (t340 & 0x1);
-                                    }
-                                    if (t341 != 0) {
-                                        *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x0;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    t361 = t320;
-                    t362 = t321;
-                    u366 = u325;
-                    u367 = u326;
-                }
-                t375 = t361;
-                t376 = t362;
-                u380 = u366;
-                u381 = u367;
-            }
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(0x8C291F48); }
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(0x8C291F3C); }
-            t382 = cpuDblPathCross((0xB8 + ((t1 * 0x160) + 0x8C2FC69C)), t375, t376, *(Stk3 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 16)), u380, u381);
-            if (((int)(*(int *)0x8C2FCC1C) >= (int)0x5) && (t384 = *(signed char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12B)), t385 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12B)), t385 != t384)) {
-                u388 = *(float *)((a4 + 0xAF0));
-                u389 = *(float *)0x8C291F44;
-                t392 = 0x1;
-                if ((u389 - u388) > 0.0f) {
-                } else {
-                    t390 = 0x0;
-                    if (0.0f > (u389 - u388)) {
-                        t390 = 0xFFFFFFFF;
-                    }
-                    t392 = t390;
-                }
-                u394 = *(float *)0x8C291F38;
-                t397 = 0x1;
-                if ((u388 - u394) > 0.0f) {
-                } else {
-                    t395 = 0x0;
-                    if (0.0f > (u388 - u394)) {
-                        t395 = 0xFFFFFFFF;
-                    }
-                    t397 = t395;
-                }
-                if (t392 == t397) {
-                    *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x1;
-                    *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x0;
-                }
-            } else {
-                u402 = *(float *)0x8C291F38;
-                t405 = 0x1;
-                if (u402 > 0.0f) {
-                } else {
-                    t403 = 0x0;
-                    if (0.0f > u402) {
-                        t403 = 0xFFFFFFFF;
-                    }
-                    t405 = t403;
-                }
-                if ((float)t405 == (-(*(float *)((a4 + 0xB00))))) {
-                    if (((*(signed char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E))) == 0) && (t382 == 0.0f)) {
-                        if (((*(int *)((a4 + 0xB60))) & 0x100) != 0) {
-                            u420 = *(float *)0x8C291F38;
-                            u422 = (-u420);
-                            if (!(0.0f > u420)) {
-                                u422 = (*(float *)0x8C291F38);
-                            }
-                            u424 = *(float *)((a4 + 0xAF0));
-                            u426 = (-u424);
-                            if (!(0.0f > u424)) {
-                                u426 = (*(float *)((a4 + 0xAF0)));
-                            }
-                            if (!((u422 + 10.0f) > u426)) {
-                                if (((*(int *)((a4 + 0xB60))) & 0x100) == 0) {
-                                    u430 = *(float *)0x8C291F38;
-                                    u432 = (-u430);
-                                    if (!(0.0f > u430)) {
-                                        u432 = (*(float *)0x8C291F38);
-                                    }
-                                    u434 = *(float *)((a4 + 0xAF0));
-                                    u436 = (-u434);
-                                    if (!(0.0f > u434)) {
-                                        u436 = (*(float *)((a4 + 0xAF0)));
-                                    }
-                                    if (u432 > u436) {
-                                        *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x1;
-                                    }
-                                }
-                            } else {
-                                *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x1;
-                            }
-                        } else {
-                            if (((*(int *)((a4 + 0xB60))) & 0x100) == 0) {
-                                u456 = *(float *)0x8C291F38;
-                                u458 = (-u456);
-                                if (!(0.0f > u456)) {
-                                    u458 = (*(float *)0x8C291F38);
-                                }
-                                u460 = *(float *)((a4 + 0xAF0));
-                                u462 = (-u460);
-                                if (!(0.0f > u460)) {
-                                    u462 = (*(float *)((a4 + 0xAF0)));
-                                }
-                                if (u458 > u462) {
-                                    *(unsigned char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E)) = 0x1;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    int R0;
+    int R1;
+    int R2;
+    int R3;
+    int R4;
+    int R5;
+    int R6;
+    int R7;
+    int R8;
+    int R9;
+    int R10;
+    int R11;
+    int R12;
+    int R13;
+    int R14;
+    float F0;
+    float F1;
+    float F2;
+    float F3;
+    float F4;
+    float F5;
+    float F6;
+    float F12;
+    int T_;
+    R4 = a4;
+    *(unsigned int *)(((0x9C + ((int)stk + 32)) + 0x0)) = R4;
+    *(unsigned int *)(((int)stk + 184)) = 0x8C287ACC;
+    *(unsigned int *)(((int)stk + 180)) = 0x8C291F24;
+    *(unsigned int *)(((int)stk + 68)) = (((*(int *)0x8C1891E8) * 0xD0) + 0x8C157594);
+    *(unsigned int *)(((int)stk + 44)) = 0x0;
+    R0 = (0x8C287C60);
+    if (((*(int *)0x8C287C60) == 0)) goto L_8C02A054;
+    L_8C02D900:;
+    return F0;
+    L_8C02A054:;
+    *(unsigned int *)0x8C34B148 = (*(int *)(((int)stk + 188)));
+    if (((*(int *)0x8C421F60) == 0)) goto L_8C02A074;
+    if (((*(int *)(((int)stk + 188))) == 9)) goto L_8C02A074;
+    *(unsigned int *)(((int)stk + 188)) = (*(int *)0x8C295DF0);
+    L_8C02A074:;
+    t11 = (entryCountJoined()) != 1;
+    if (t11) goto L_8C02A154;
+    if (((*(int *)0x8C287B44) != 0)) goto L_8C02A154;
+    if ((((*(int *)(((*(int *)((((*(int *)0x8C421F70) << 2) + 0x8C29B898))) + 0x10))) & 0x200) == 0)) goto L_8C02A154;
+    t18 = *(int *)0x8C295DAC;
+    *(unsigned int *)0x8C295DAC = (0x1 - t18);
+    if (((0x1 - t18) != 1)) goto L_8C02A14A;
+    R2 = (0x0);
+    L_8C02A0BE:;
+    *(unsigned int *)(((int)stk + 92)) = R2;
+    if (!(((int)R2 < (int)0x4))) goto L_8C02A0C8;
+    if (((*(int *)((((*(int *)(((int)stk + 92))) << 2) + 0x8C287AE0))) == 0)) goto L_8C02A0C8;
+    R2 = (((*(int *)(((int)stk + 92))) + 0x1));
+    goto L_8C02A0BE;
+    L_8C02A0C8:;
+    F3 = (0.0f);
+    if ((!((*(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288874))) > 0.0f))) goto L_8C02A0DE;
+    R3 = (0x1);
+    L_8C02A142:;
+    *(unsigned int *)0x8C402C0C = R3;
+    lightStagePreset();
+    L_8C02A14A:;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x800);
+    L_8C02A154:;
+    if (((*(int *)(((int)stk + 188))) != 0)) goto L_8C02A16A;
+    if (((*(int *)0x8C295DAC) == 0)) goto L_8C02A16A;
+    *(unsigned int *)(((int)stk + 188)) = 0x1;
+    L_8C02A16A:;
+    if (((*(int *)(((int)stk + 188))) != 2)) goto L_8C02A180;
+    if (((*(int *)0x8C295DB0) == 0)) goto L_8C02A180;
+    *(unsigned int *)(((int)stk + 188)) = 0x3;
+    L_8C02A180:;
+    t37 = *(int *)(((int)stk + 184));
+    *(unsigned int *)((t37 + 0x80)) = ((*(int *)((t37 + 0x80))) - 1);
+    if (((*(int *)(((int)stk + 188))) == 0)) goto L_8C02A19C;
+    if (!(((*(int *)(((int)stk + 188))) != 1))) goto L_8C02A19C;
+    *(unsigned int *)0x8C29466C = 0x0;
+    *(unsigned int *)0x8C294668 = 0x0;
+    *(unsigned int *)(((int)stk + 44)) = 0x1;
+    R2 = (0x8C29466C);
+    R3 = (0x1);
+    goto L_8C02A1E0;
+    L_8C02A19C:;
+    *(unsigned int *)0x8C29466C = 0x4;
+    *(unsigned int *)0x8C294668 = 0x16;
+    R2 = (0x4);
+    R3 = (0x8C29466C);
+    L_8C02A1E0:;
+    t45 = *(int *)(((int)stk + 188));
+    R0 = (t45);
+    if (!(((unsigned int)t45 < (unsigned int)0xC))) goto L_8C02D8B6;
+    switch (((R0 << 1))) { case 0: goto L_8C02A224; case 2: goto L_8C02A482; case 4: goto L_8C02A6F8; case 6: goto L_8C02A91C; case 8: goto L_8C02AB32; case 10: goto L_8C02ADE2; case 12: goto L_8C02B38A; case 14: goto L_8C02B9A0; case 16: goto L_8C02C2F0; case 18: goto L_8C02C4EC; case 20: goto L_8C02CDA6; case 22: goto L_8C02D010; }
+    goto L_8C02D010;
+    L_8C02D8B6:;
+    *(unsigned int *)0x8C157590 = (*(int *)(((*(int *)(((int)stk + 184))) + 0xA0)));
+    camExec(R4, R5, R6, R7, *(int *)((int)stk + 32), *(int *)((int)stk + 32 + 4), *(int *)((int)stk + 32 + 8), *(int *)((int)stk + 32 + 12), *(int *)((int)stk + 32 + 16), *(int *)((int)stk + 32 + 20), *(int *)((int)stk + 32 + 24), *(int *)((int)stk + 32 + 28));
+    if (((*(int *)(((int)stk + 44))) == 0)) goto L_8C02D8D2;
+    lightAimFromMatrix(R4, R5, R6, R7);
+    L_8C02D8D2:;
+    R0 = (0x7C);
+    R2 = (0xFFFFFFFF);
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x7C))) <= (int)0xFFFFFFFF)) goto L_8C02D900;
+    t59 = *(int *)(((int)stk + 184));
+    *(unsigned int *)((t59 + 0x78)) = (*(int *)((t59 + 0x7C)));
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x7C)) = R2;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x800);
+    R0 = (0x7C);
+    goto L_8C02D900;
+    L_8C02D010:;
+    if ((((*(int *)((0x54 + (*(int *)(((int)stk + 180)))))) & 2) == 0)) goto L_8C02D026;
+    *(unsigned int *)(((int)stk + 84)) = (serveGetServer());
+    L_8C02D086:;
+    if (!(((*(int *)((0x7C + (*(int *)(((int)stk + 184)))))) == -1))) goto L_8C02D26C;
+    if ((((*(int *)0x8C287B3C) & 0x800) != 0)) goto L_8C02D0A4;
+    goto L_8C02D26C;
+    L_8C02D26C:;
+    *(unsigned int *)0x8C287B44 = 0x1;
+    L_8C02D272:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)) = *(struct mv3 *)((((*(int *)0x8C295DC4) * 0xD78) + 0x8C288878)); }
+    t75 = *(int *)((0xA0 + (*(int *)(((int)stk + 184)))));
+    R0 = (t75);
+    R1 = (0xA0);
+    if ((t75 == 0)) goto L_8C02D2F0;
+    if ((R0 == 1)) goto L_8C02D32E;
+    if ((R0 == 2)) goto L_8C02D384;
+    if ((R0 != 3)) goto L_8C02D2AA;
+    R0 = (0x8C287B3C);
+    if ((((*(int *)0x8C287B3C) & 0x800) == 0)) goto L_8C02D438;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 32) + 0x64)) = *(struct mv3 *)(((*(int *)(((int)stk + 68))) + 0x9C)); }
+    *(int *)((int)stk + 28) = 0x0;
+    t87 = (*(int *)(((int)stk + 180)));
+    *(int *)((int)stk + 24) = t87;
+    lightCamCalc(0x8C287D84, (((int)stk + 24) + 0x6C), (0x84 + ((int)stk + 24)), 0x8C287A04, t87, 0x0);
+    L_8C02D452:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)) = *(struct mv3 *)((((int)stk + 32) + 0x64)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)) = *(struct mv3 *)((((int)stk + 32) + 0x7C)); }
+    *(float *)0x8C287A04 = 16.0f;
+    *(unsigned int *)0x8C29466C = 0x4;
+    *(unsigned int *)0x8C294668 = 0x16;
+    *(unsigned int *)0x8C38B768 = 0x0;
+    R1 = (0x8C29466C);
+    L_8C02D796:;
+    F3 = (20.0f);
+    if ((!((*(float *)0x8C287A04) > 20.0f))) goto L_8C02D7A6;
+    *(float *)0x8C287A04 = F3;
+    R1 = (0x8C287A04);
+    L_8C02D7A6:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((0x94 + (*(int *)(((int)stk + 184))))); }
+    t97 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 20)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0x88 + (*(int *)(((int)stk + 184))))); }
+    t99 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 8)));
+    if ((((*(int *)0x8C287B3C) & 0x800) != 0)) goto L_8C02D81C;
+    F5 = (0.200000003f);
+    L_8C02D81E:;
+    t103 = ((int (*)(int, int, int, int, float, float))(camMoveBegin))(R4, R5, R6, R7, 1.0f, F5);
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFF7FF);
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) >= 0)) goto L_8C02D844;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x80)) = 0x0;
+    L_8C02D844:;
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) >= (int)0x3C)) goto L_8C02D8B6;
+    if ((((*(int *)(((*(int *)(((int)stk + 184))) + 0x2C))) & 0x1) != ((*(int *)0x8C295DC4) & 0x1))) goto L_8C02D8B6;
+    if (((int)(*(int *)((((*(int *)(((int)stk + 84))) * 0xD78) + 0x8C2889D4))) >= (int)0x28)) goto L_8C02D8B6;
+    if (((*(int *)0x8C40C28C) == 1)) goto L_8C02D88C;
+    evPackFade(0x1, 0x3C, 0x0);
+    L_8C02D88C:;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x7C)) = 0xFFFFFFFF;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x800);
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x400);
+    *(float *)0x8C287C3C = 1.0f;
+    *(float *)0x8C287C40 = 0.0399999991f;
+    goto L_8C02D8B6;
+    L_8C02D81C:;
+    F5 = (1.0f);
+    goto L_8C02D81E;
+    L_8C02D438:;
+    *(int *)((int)stk + 28) = 0x1;
+    t127 = (*(int *)(((int)stk + 180)));
+    *(int *)((int)stk + 24) = t127;
+    lightCamCalc(0x8C287D84, (((int)stk + 24) + 0x6C), (0x84 + ((int)stk + 24)), 0x8C287A04, t127, 0x1);
+    goto L_8C02D452;
+    L_8C02D2AA:;
+    if ((R0 != 4)) goto L_8C02D2B2;
+    *(unsigned int *)(((int)stk + 92)) = ((*(int *)0x8C295DC4) & 0x1);
+    t131 = *(int *)(((int)stk + 92));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)) = *(struct mv3 *)(((((*(int *)(((int)stk + 68))) + 0x1C) + ((((t131 << 2) << 1) + t131) << 2)) + 0xC)); }
+    *(float *)(((*(int *)(((int)stk + 184))) + 0x98)) = 10.0f;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 32) + 0x70)) = *(struct mv3 *)((((0x1 - ((*(int *)0x8C295DC4) & 0x1)) * 0xD78) + 0x8C288878)); }
+    *(float *)(((int)stk + 148)) = 10.0f;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x70)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    cameraFovFit(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)(((int)stk + 20)), 10.0f, 10.0f);
+    *(float *)(((*(int *)(((int)stk + 184))) + 0x98)) = 10.0f;
+    if (!((((*(int *)0x8C287B3C) & 0x800) != 0))) goto L_8C02D784;
+    if (((*(float *)0x8C287A04) > 20.0f)) goto L_8C02D56E;
+    goto L_8C02D784;
+    L_8C02D784:;
+    *(unsigned int *)0x8C38B768 = 0x0;
+    *(unsigned int *)0x8C294668 = 0x16;
+    R1 = (0x8C29466C);
+    R2 = (0x4);
+    L_8C02D794:;
+    *(unsigned int *)((R1 + 0x0)) = R2;
+    goto L_8C02D796;
+    L_8C02D56E:;
+    t145 = *(int *)(((int)stk + 184));
+    t146 = *(int *)(((int)stk + 68));
+    t147 = nlRandom();
+    t148 = nlRandom();
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0x88 + t145)) = *(struct mv3 *)((((((int)(t148 * 3.0f) << 1) + (int)(t148 * 3.0f)) << 2) + ((((((int)(t147 * (1.0f + 1.0f)) << 2) << 1) + (int)(t147 * (1.0f + 1.0f))) << 2) + (t146 + 0x1C)))); }
+    L_8C02D5B6:;
+    *(unsigned int *)(((0xA0 + (*(int *)(((int)stk + 184)))) + 0x0)) = (int)((nlRandom()) * 4.0f);
+    if (((*(int *)(((*(int *)(((int)stk + 184))) + 0xA0))) == (*(int *)0x8C157590))) goto L_8C02D5B6;
+    *(unsigned int *)(((int)stk + 76)) = 0x0;
+    L_8C02D5E2:;
+    t155 = *(int *)(((int)stk + 184));
+    t156 = *(int *)(((int)stk + 68));
+    t157 = nlRandom();
+    t158 = nlRandom();
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0x88 + t155)) = *(struct mv3 *)((((((int)(t158 * 3.0f) << 1) + (int)(t158 * 3.0f)) << 2) + ((((((int)(t157 * (1.0f + 1.0f)) << 2) << 1) + (int)(t157 * (1.0f + 1.0f))) << 2) + (t156 + 0x1C)))); }
+    R0 = (0x90);
+    R1 = (((*(int *)(((int)stk + 84))) * 0xD78));
+    R2 = ((*(int *)(((int)stk + 184))));
+    R3 = (0xD78);
+    R9 = ((0x88 + t155));
+    t172 = ((int (*)(int, int, int, int, float, float))(nlArcTan2))(R4, R5, R6, R7, ((*(float *)((((*(int *)(((int)stk + 84))) * R3) + 0x8C288878))) - (*(float *)(((*(int *)(((int)stk + 184))) + 0x88)))), ((*(float *)((R1 + 0x8C288880))) - (*(float *)((R2 + R0)))));
+    t176 = (int)(short)(angDiff((*(short *)((((*(int *)(((int)stk + 84))) * 0xD78) + 0x8C288888))), t172)) < 0;
+    if (t176) goto L_8C02D6F0;
+    t177 = *(int *)(((int)stk + 84));
+    t178 = *(int *)(((int)stk + 184));
+    u182 = *(float *)(((t177 * 0xD78) + 0x8C288878));
+    t183 = ((int (*)(int, int, int, int, float, float))(nlArcTan2))(R4, R5, R6, R7, (u182 - (*(float *)((t178 + 0x88)))), ((*(float *)(((t177 * 0xD78) + 0x8C288880))) - (*(float *)((t178 + 0x90)))));
+    R1 = ((short)(angDiff((*(short *)((((*(int *)(((int)stk + 84))) * 0xD78) + 0x8C288888))), t183)));
+    L_8C02D730:;
+    if (((int)R1 >= (int)0x3000)) goto L_8C02D746;
+    t189 = *(int *)(((int)stk + 76));
+    *(unsigned int *)(((int)stk + 76)) = (t189 + 0x1);
+    if (((int)(t189 + 0x1) >= (int)0xA)) goto L_8C02D746;
+    goto L_8C02D5E2;
+    L_8C02D746:;
+    *(float *)(((0xA4 + (*(int *)(((int)stk + 184)))) + 0x0)) = ((nlRandom()) * 3.0f);
+    goto L_8C02D272;
+    L_8C02D6F0:;
+    t193 = *(int *)(((int)stk + 84));
+    t194 = *(int *)(((int)stk + 184));
+    u198 = *(float *)(((t193 * 0xD78) + 0x8C288878));
+    t199 = ((int (*)(int, int, int, int, float, float))(nlArcTan2))(R4, R5, R6, R7, (u198 - (*(float *)((t194 + 0x88)))), ((*(float *)(((t193 * 0xD78) + 0x8C288880))) - (*(float *)((t194 + 0x90)))));
+    R1 = ((-(short)(angDiff((*(short *)((((*(int *)(((int)stk + 84))) * 0xD78) + 0x8C288888))), t199))));
+    goto L_8C02D730;
+    L_8C02D2B2:;
+    goto L_8C02D796;
+    L_8C02D384:;
+    t204 = cameraFovForSize(R4, R5, R6, R7, 2.5f);
+    *(float *)0x8C287A04 = t204;
+    *(float *)0x8C287A04 = (t204 + ((float)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) / 120.0f));
+    t207 = *(int *)0x8C287B3C;
+    R1 = (t207);
+    if (((t207 & 0x800) != 0)) goto L_8C02D3BA;
+    t210 = ((int (*)(int, int, int, int, float, float))(camMoveBegin))(R4, R5, R6, R7, 1.0f, 0.5f);
+    L_8C02D3BA:;
+    *(unsigned int *)0x8C38B768 = 0x1;
+    goto L_8C02D796;
+    L_8C02D32E:;
+    *(float *)(((*(int *)(((int)stk + 184))) + 0x98)) = 10.0f;
+    t212 = cameraFovForSize(R4, R5, R6, R7, 10.0f);
+    *(float *)0x8C287A04 = t212;
+    t213 = *(int *)(((int)stk + 184));
+    *(float *)0x8C287A04 = (t212 + ((*(float *)((t213 + 0xA4))) + ((float)(*(int *)((t213 + 0x80))) / 60.0f)));
+    if (((*(int *)0x8C1891E8) != 4)) goto L_8C02D37E;
+    if ((!((*(float *)0x8C287A04) > 15.0f))) goto L_8C02D37E;
+    *(float *)0x8C287A04 = 15.0f;
+    L_8C02D37E:;
+    R1 = (0x8C38B768);
+    R2 = (0x1);
+    goto L_8C02D794;
+    L_8C02D2F0:;
+    *(float *)(((*(int *)(((int)stk + 184))) + 0x98)) = 14.0f;
+    t223 = cameraFovForSize(R4, R5, R6, R7, 5.0f);
+    *(float *)0x8C287A04 = t223;
+    t224 = *(int *)(((int)stk + 184));
+    *(float *)0x8C287A04 = (t223 + ((*(float *)((t224 + 0xA4))) + ((float)(*(int *)((t224 + 0x80))) / 120.0f)));
+    *(unsigned int *)0x8C38B768 = 0x1;
+    R1 = (0x8C38B768);
+    goto L_8C02D796;
+    L_8C02D0A4:;
+    *(unsigned int *)(((0xA0 + (*(int *)(((int)stk + 184)))) + 0x0)) = (int)((nlRandom()) * 5.0f);
+    if (((*(int *)(((*(int *)(((int)stk + 184))) + 0xA0))) == (*(int *)0x8C157590))) goto L_8C02D0A4;
+    *(unsigned int *)(((int)stk + 76)) = 0x0;
+    L_8C02D0D0:;
+    t236 = *(int *)(((int)stk + 184));
+    t237 = *(int *)(((int)stk + 68));
+    t238 = nlRandom();
+    t239 = nlRandom();
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0x88 + t236)) = *(struct mv3 *)((((((int)(t239 * 3.0f) << 1) + (int)(t239 * 3.0f)) << 2) + ((((((int)(t238 * (1.0f + 1.0f)) << 2) << 1) + (int)(t238 * (1.0f + 1.0f))) << 2) + (t237 + 0x1C)))); }
+    u247 = *(float *)((((*(int *)(((int)stk + 84))) * 0xD78) + 0x8C288878));
+    t248 = ((int (*)(float, float))(nlArcTan2))((u247 - (*(float *)(((*(int *)(((int)stk + 184))) + 0x88)))), ((*(float *)((((*(int *)(((int)stk + 84))) * 0xD78) + 0x8C288880))) - (*(float *)(((*(int *)(((int)stk + 184))) + 0x90)))));
+    t252 = (int)(short)(angDiff((*(short *)((((*(int *)(((int)stk + 84))) * 0xD78) + 0x8C288888))), t248)) < 0;
+    R9 = ((0x88 + t236));
+    if (t252) goto L_8C02D1F0;
+    t254 = *(int *)(((int)stk + 84));
+    t255 = *(int *)(((int)stk + 184));
+    F4 = (((*(float *)(((t254 * 0xD78) + 0x8C288878))) - (*(float *)((t255 + 0x88)))));
+    F5 = (((*(float *)(((t254 * 0xD78) + 0x8C288880))) - (*(float *)((t255 + 0x90)))));
+    t262 = ((int (*)(int, int, int, int, float, float))(nlArcTan2))(R4, R5, R6, R7, F4, F5);
+    R1 = ((short)(angDiff((*(short *)((((*(int *)(((int)stk + 84))) * 0xD78) + 0x8C288888))), t262)));
+    L_8C02D230:;
+    if (((int)R1 >= (int)0x3000)) goto L_8C02D246;
+    t268 = *(int *)(((int)stk + 76));
+    *(unsigned int *)(((int)stk + 76)) = (t268 + 0x1);
+    if (((int)(t268 + 0x1) >= (int)0xA)) goto L_8C02D246;
+    goto L_8C02D0D0;
+    L_8C02D246:;
+    *(float *)(((0xA4 + (*(int *)(((int)stk + 184)))) + 0x0)) = ((nlRandom()) * 3.0f);
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x80)) = 0x78;
+    *(unsigned int *)0x8C295DC4 = (*(int *)(((int)stk + 84)));
+    goto L_8C02D26C;
+    L_8C02D1F0:;
+    t274 = *(int *)(((int)stk + 84));
+    t275 = *(int *)(((int)stk + 184));
+    u279 = *(float *)(((t274 * 0xD78) + 0x8C288878));
+    t280 = ((int (*)(int, int, int, int, float, float))(nlArcTan2))(R4, R5, R6, R7, (u279 - (*(float *)((t275 + 0x88)))), ((*(float *)(((t274 * 0xD78) + 0x8C288880))) - (*(float *)((t275 + 0x90)))));
+    R1 = ((-(short)(angDiff((*(short *)((((*(int *)(((int)stk + 84))) * 0xD78) + 0x8C288888))), t280))));
+    goto L_8C02D230;
+    L_8C02D026:;
+    *(unsigned int *)(((int)stk + 84)) = 0x0;
+    *(float *)(((int)stk + 52)) = (-1.0f);
+    *(unsigned int *)(((int)stk + 92)) = 0x0;
+    L_8C02D07A:;
+    if (((int)(*(int *)(((int)stk + 92))) < (int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x10))))) goto L_8C02D03C;
+    goto L_8C02D086;
+    L_8C02D03C:;
+    nlSubVector3op((((int)stk + 32) + 0x7C), (((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C28886C), 0x8C291F30);
+    t291 = nlInnerProduct(0x8C291F48, (((int)stk + 32) + 0x7C));
+    *(float *)(((int)stk + 56)) = t291;
+    if ((!(t291 > (*(float *)(((int)stk + 52)))))) goto L_8C02D074;
+    *(float *)(((int)stk + 52)) = (*(float *)(((int)stk + 56)));
+    *(unsigned int *)(((int)stk + 84)) = (*(int *)(((int)stk + 92)));
+    L_8C02D074:;
+    *(unsigned int *)(((int)stk + 92)) = ((*(int *)(((int)stk + 92))) + 0x1);
+    goto L_8C02D07A;
+    L_8C02CDA6:;
+    if (((*(int *)((0x7C + (*(int *)(((int)stk + 184)))))) != -1)) goto L_8C02CDF6;
+    if ((((*(int *)0x8C287B3C) & 0x800) == 0)) goto L_8C02CDF6;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFF7FF);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)) = *(struct mv3 *)(((*(int *)(((int)stk + 68))) + 0x1C)); }
+    *(unsigned int *)(((0xA0 + (*(int *)(((int)stk + 184)))) + 0x0)) = 0x0;
+    *(float *)(((*(int *)(((int)stk + 184))) + 0xA4)) = 5.0f;
+    padLcdSetMode(0x9, R5, R6, R7, *(int *)((int)stk + 32), *(int *)((int)stk + 32 + 4));
+    L_8C02CDF6:;
+    if (((*(int *)0x8C287D5C) != 2)) goto L_8C02CE12;
+    if (((*(int *)(((*(int *)(((int)stk + 184))) + 0x60))) != 0x3DE)) goto L_8C02CE12;
+    circuitStatsStart();
+    L_8C02CE12:;
+    if (((*(int *)0x8C287D5C) != 2)) goto L_8C02CE32;
+    if (((*(int *)(((*(int *)(((int)stk + 184))) + 0x60))) != 0x32A)) goto L_8C02CE32;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x80000);
+    L_8C02CE32:;
+    if (((*(int *)(((*(int *)(((int)stk + 184))) + 0x10))) != 2)) goto L_8C02CEA4;
+    t323 = *(int *)(((int)stk + 184));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((t323 + 0x94)) = *(struct mv3 *)((((*(int *)((t323 + 0x28))) * 0xD78) + 0x8C288878)); }
+    L_8C02CEEA:;
+    if (((*(int *)((((*(int *)(((*(int *)(((int)stk + 184))) + 0x28))) * 0xD78) + 0x8C288A20))) == 0)) goto L_8C02CF08;
+    if (!(((*(int *)(((*(int *)(((int)stk + 184))) + 0x10))) != 4))) goto L_8C02CF08;
+    *(float *)(((*(int *)(((int)stk + 184))) + 0x98)) = 10.0f;
+    u355 = (*(float *)0x8C287A04);
+    u355 = u355 + 0.0500000007f * ((cameraFovForSize(R4, R5, R6, R7, 10.0f)) - (*(float *)0x8C287A04));
+    *(float *)0x8C287A04 = u355;
+    F5 = (0.0500000007f);
+    goto L_8C02CF8A;
+    L_8C02CF08:;
+    *(float *)(((*(int *)(((int)stk + 184))) + 0x98)) = 7.0f;
+    *(float *)0x8C287A04 = (cameraFovForSize(R4, R5, R6, R7, 7.0f));
+    t334 = *(int *)(((int)stk + 184));
+    *(float *)((t334 + 0xA4)) = ((*(float *)((t334 + 0xA4))) - ((float)(*(int *)0x8C301BF0) * 0.00555555569f));
+    F3 = (0.0f);
+    if ((!(0.0f > (*(float *)(((*(int *)(((int)stk + 184))) + 0xA4)))))) goto L_8C02CF4E;
+    *(float *)(((*(int *)(((int)stk + 184))) + 0xA4)) = F3;
+    L_8C02CF4E:;
+    *(float *)0x8C287A04 = ((*(float *)0x8C287A04) + (*(float *)(((*(int *)(((int)stk + 184))) + 0xA4))));
+    F5 = (1.0f);
+    L_8C02CF8A:;
+    t346 = ((int (*)(int, int, int, int, float, float))(camMoveBegin))(R4, R5, R6, R7, 1.0f, F5);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    t348 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 20)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0x88 + (*(int *)(((int)stk + 184))))); }
+    t350 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 8)));
+    L_8C02CFC2:;
+    *(unsigned int *)0x8C38B768 = 0x1;
+    goto L_8C02D8B6;
+    L_8C02CEA4:;
+    t359 = *(int *)(((*(int *)(((int)stk + 184))) + 0x28));
+    R0 = ((t359 + 0x2));
+    R6 = (((*(int *)(((int)stk + 184))) + 0x94));
+    F4 = (0.5f);
+    F5 = (0.5f);
+    if (((int)(t359 + 0x2) < 0)) goto L_8C02CEC2;
+    R0 = ((R0 & 0x3));
+    L_8C02CECC:;
+    nlGetAverageVector((((*(int *)(((*(int *)(((int)stk + 184))) + 0x28))) * 0xD78) + 0x8C288878), ((R0 * 0xD78) + 0x8C288878), R6, F4, F5);
+    goto L_8C02CEEA;
+    L_8C02CEC2:;
+    R0 = (((~(((~R0) + 0x1) & 0x3)) + 0x1));
+    goto L_8C02CECC;
+    L_8C02C4EC:;
+    if (!(((*(int *)((0x7C + (*(int *)(((int)stk + 184)))))) == -1))) goto L_8C02C750;
+    if ((((*(int *)0x8C287B3C) & 0x800) != 0)) goto L_8C02C50A;
+    goto L_8C02C750;
+    L_8C02C750:;
+    if ((((*(int *)0x8C287B3C) & 0x1000) == 0)) goto L_8C02C7A0;
+    R1 = ((*(int *)(((*(int *)(((int)stk + 184))) + 0x28))));
+    L_8C02C7A6:;
+    *(unsigned int *)(((int)stk + 80)) = R1;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)) = *(struct mv3 *)((((*(int *)(((int)stk + 80))) * 0xD78) + 0x8C288878)); }
+    t381 = *(int *)((0xA0 + (*(int *)(((int)stk + 184)))));
+    R0 = (t381);
+    R1 = (0xA0);
+    if ((t381 == 0)) goto L_8C02C7E2;
+    if ((R0 == 1)) goto L_8C02C818;
+    if ((R0 == 2)) goto L_8C02C856;
+    if ((R0 != 3)) goto L_8C02C7DE;
+    if ((((*(int *)0x8C287B3C) & 0x1000) == 0)) goto L_8C02C8EE;
+    R0 = ((*(int *)(((*(int *)(((int)stk + 184))) + 0x28))));
+    L_8C02C8F4:;
+    *(unsigned int *)(((int)stk + 92)) = (R0 & 0x1);
+    t393 = *(int *)(((int)stk + 92));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)) = *(struct mv3 *)(((((*(int *)(((int)stk + 68))) + 0x1C) + ((((t393 << 2) << 1) + t393) << 2)) + 0xC)); }
+    *(float *)(((*(int *)(((int)stk + 184))) + 0x98)) = 10.0f;
+    if ((((*(int *)0x8C287B3C) & 0x1000) == 0)) goto L_8C02C94E;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 32) + 0x70)) = *(struct mv3 *)((((*(int *)(((*(int *)(((int)stk + 184))) + 0x24))) * 0xD78) + 0x8C288878)); }
+    L_8C02C968:;
+    *(float *)(((int)stk + 148)) = 10.0f;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x70)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    cameraFovFit(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)(((int)stk + 20)), 10.0f, 10.0f);
+    *(float *)(((*(int *)(((int)stk + 184))) + 0x98)) = 10.0f;
+    if (!((((*(int *)0x8C287B3C) & 0x800) != 0))) goto L_8C02CBD8;
+    if (((*(float *)0x8C287A04) > 20.0f)) goto L_8C02C9C4;
+    goto L_8C02CBD8;
+    L_8C02CBD8:;
+    *(unsigned int *)0x8C38B768 = 0x0;
+    *(unsigned int *)0x8C294668 = 0x16;
+    *(unsigned int *)0x8C29466C = 0x4;
+    R1 = (0x8C29466C);
+    L_8C02CBEA:;
+    F3 = (20.0f);
+    if ((!((*(float *)0x8C287A04) > 20.0f))) goto L_8C02CBFA;
+    *(float *)0x8C287A04 = F3;
+    R1 = (0x8C287A04);
+    L_8C02CBFA:;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFF7FF);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((0x94 + (*(int *)(((int)stk + 184))))); }
+    t413 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 20)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0x88 + (*(int *)(((int)stk + 184))))); }
+    t415 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 8)));
+    t416 = ((int (*)(float, float))(camMoveBegin))(1.0f, 1.0f);
+    if (((*(int *)0x8C287D5C) == 3)) goto L_8C02CC68;
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) <= (int)0x3)) goto L_8C02CC68;
+    t422 = *(int *)(((int)stk + 184));
+    *(unsigned int *)((t422 + 0x80)) = ((*(int *)((t422 + 0x80))) - ((*(int *)0x8C301BF0) - 1));
+    L_8C02CC68:;
+    if (((*(int *)0x8C287D5C) != 3)) goto L_8C02CCB8;
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) <= (int)0x2)) goto L_8C02CCA2;
+    t430 = circuitDrawPrompt();
+    *(unsigned int *)(((int)stk + 92)) = t430;
+    if ((t430 == 0)) goto L_8C02CCA2;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x80)) = 0x2;
+    *(unsigned int *)0x8C2FBC98 = ((*(int *)0x8C2FBC98) | 0x4);
+    L_8C02CCA2:;
+    if (((*(int *)((0x80 + (*(int *)(((int)stk + 184)))))) != 2)) goto L_8C02CCB8;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x80000);
+    L_8C02CCB8:;
+    if (((*(int *)0x8C287D5C) != 3)) goto L_8C02CCC4;
+    goto L_8C02D8B6;
+    L_8C02CCC4:;
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) <= 0)) goto L_8C02CCEC;
+    if (((*(float *)0x8C287C3C) == 0.0f)) goto L_8C02CCDE;
+    goto L_8C02D8B6;
+    L_8C02CCDE:;
+    t447 = (playerHumanPressed((*(int *)(((int)stk + 80))))) != 0;
+    if (t447) goto L_8C02CCEC;
+    goto L_8C02D8B6;
+    L_8C02CCEC:;
+    T_ = ((((*(int *)0x8C40C28C) == 1)));
+    if ((T_)) goto L_8C02CD58;
+    evPackFade(0x1, 0x3C, 0x0);
+    L_8C02CD58:;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x78)) = 0x0;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x7C)) = 0xFFFFFFFF;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x800);
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x80)) = 0x0;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x400);
+    *(float *)0x8C287C3C = 1.0f;
+    *(float *)0x8C287C40 = 0.0399999991f;
+    *(unsigned int *)(((0x60 + (*(int *)(((int)stk + 184)))) + 0x0)) = 0x1;
+    goto L_8C02D8B6;
+    L_8C02C9C4:;
+    if ((((*(int *)0x8C287B3C) & 0x1000) == 0)) goto L_8C02CA00;
+    R0 = ((*(int *)(((*(int *)(((int)stk + 184))) + 0x28))));
+    L_8C02CA06:;
+    *(unsigned int *)(((int)stk + 92)) = (R0 & 0x1);
+    if ((((*(int *)((((R0 & 0x1) * 0xD78) + 0x8C2888E4))) & 0x8000) == 0)) goto L_8C02CA2E;
+    R3 = (((*(short *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288888))) - 32768));
+    L_8C02CA3A:;
+    *(unsigned short *)(((int)stk + 74)) = R3;
+    *(unsigned int *)(((int)stk + 76)) = 0x0;
+    L_8C02CA42:;
+    t470 = *(int *)(((int)stk + 184));
+    t471 = *(int *)(((int)stk + 68));
+    t472 = nlRandom();
+    t473 = nlRandom();
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0x88 + t470)) = *(struct mv3 *)((((((int)(t473 * 3.0f) << 1) + (int)(t473 * 3.0f)) << 2) + ((((((int)(t472 * (1.0f + 1.0f)) << 2) << 1) + (int)(t472 * (1.0f + 1.0f))) << 2) + (t471 + 0x1C)))); }
+    u481 = *(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288878));
+    t482 = ((int (*)(float, float))(nlArcTan2))((u481 - (*(float *)(((*(int *)(((int)stk + 184))) + 0x88)))), ((*(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288880))) - (*(float *)(((*(int *)(((int)stk + 184))) + 0x90)))));
+    t485 = (int)(short)(angDiff((*(short *)(((int)stk + 74))), t482)) < 0;
+    R9 = ((0x88 + t470));
+    if (t485) goto L_8C02CB34;
+    t487 = *(int *)(((int)stk + 92));
+    t488 = *(int *)(((int)stk + 184));
+    u492 = *(float *)(((t487 * 0xD78) + 0x8C288878));
+    t493 = ((int (*)(int, int, int, int, float, float))(nlArcTan2))(R4, R5, R6, R7, (u492 - (*(float *)((t488 + 0x88)))), ((*(float *)(((t487 * 0xD78) + 0x8C288880))) - (*(float *)((t488 + 0x90)))));
+    R1 = ((short)(angDiff((*(short *)(((int)stk + 74))), t493)));
+    L_8C02CB6C:;
+    if (((int)R1 >= (int)0x3000)) goto L_8C02CB82;
+    t498 = *(int *)(((int)stk + 76));
+    *(unsigned int *)(((int)stk + 76)) = (t498 + 0x1);
+    if (((int)(t498 + 0x1) >= (int)0xA)) goto L_8C02CB82;
+    goto L_8C02CA42;
+    L_8C02CB82:;
+    *(unsigned int *)(((0xA0 + (*(int *)(((int)stk + 184)))) + 0x0)) = (int)((nlRandom()) * 3.0f);
+    *(float *)(((0xA4 + (*(int *)(((int)stk + 184)))) + 0x0)) = ((nlRandom()) * 3.0f);
+    goto L_8C02C750;
+    L_8C02CB34:;
+    t504 = *(int *)(((int)stk + 92));
+    t505 = *(int *)(((int)stk + 184));
+    u509 = *(float *)(((t504 * 0xD78) + 0x8C288878));
+    t510 = ((int (*)(int, int, int, int, float, float))(nlArcTan2))(R4, R5, R6, R7, (u509 - (*(float *)((t505 + 0x88)))), ((*(float *)(((t504 * 0xD78) + 0x8C288880))) - (*(float *)((t505 + 0x90)))));
+    R1 = ((-(short)(angDiff((*(short *)(((int)stk + 74))), t510))));
+    goto L_8C02CB6C;
+    L_8C02CA2E:;
+    R3 = ((*(short *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288888))));
+    goto L_8C02CA3A;
+    L_8C02CA00:;
+    R0 = ((*(int *)(((*(int *)(((int)stk + 184))) + 0x24))));
+    goto L_8C02CA06;
+    L_8C02C94E:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 32) + 0x70)) = *(struct mv3 *)((((*(int *)(((*(int *)(((int)stk + 184))) + 0x28))) * 0xD78) + 0x8C288878)); }
+    goto L_8C02C968;
+    L_8C02C8EE:;
+    R0 = ((*(int *)(((*(int *)(((int)stk + 184))) + 0x24))));
+    goto L_8C02C8F4;
+    L_8C02C7DE:;
+    goto L_8C02CBEA;
+    L_8C02C856:;
+    t525 = cameraFovForSize(R4, R5, R6, R7, 2.5f);
+    *(float *)0x8C287A04 = t525;
+    *(float *)0x8C287A04 = (t525 + ((float)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) / 120.0f));
+    t528 = *(int *)0x8C287B3C;
+    R1 = (t528);
+    if (((t528 & 0x800) != 0)) goto L_8C02C88E;
+    t531 = ((int (*)(int, int, int, int, float, float))(camMoveBegin))(R4, R5, R6, R7, 1.0f, 0.5f);
+    L_8C02C88E:;
+    *(unsigned int *)0x8C38B768 = 0x1;
+    goto L_8C02CBEA;
+    L_8C02C818:;
+    *(float *)(((*(int *)(((int)stk + 184))) + 0x98)) = 10.0f;
+    t533 = cameraFovForSize(R4, R5, R6, R7, 10.0f);
+    *(float *)0x8C287A04 = t533;
+    t534 = *(int *)(((int)stk + 184));
+    R2 = (0x8C287A04);
+    F1 = (((*(float *)((t534 + 0xA4))) + ((float)(*(int *)((t534 + 0x80))) / 60.0f)));
+    F3 = (t533);
+    L_8C02C84A:;
+    *(float *)((R2 + 0x0)) = (F3 + F1);
+    *(unsigned int *)0x8C38B768 = 0x1;
+    R1 = (0x8C38B768);
+    goto L_8C02CBEA;
+    L_8C02C7E2:;
+    *(float *)(((*(int *)(((int)stk + 184))) + 0x98)) = 14.0f;
+    t542 = cameraFovForSize(R4, R5, R6, R7, 5.0f);
+    *(float *)0x8C287A04 = t542;
+    t543 = *(int *)(((int)stk + 184));
+    R2 = (0x8C287A04);
+    F1 = (((*(float *)((t543 + 0xA4))) + ((float)(*(int *)((t543 + 0x80))) / 120.0f)));
+    F3 = (t542);
+    goto L_8C02C84A;
+    L_8C02C7A0:;
+    R1 = ((*(int *)(((*(int *)(((int)stk + 184))) + 0x24))));
+    goto L_8C02C7A6;
+    L_8C02C50A:;
+    if ((((*(int *)0x8C287B3C) & 0x1000) == 0)) goto L_8C02C51C;
+    R0 = ((*(int *)(((*(int *)(((int)stk + 184))) + 0x28))));
+    L_8C02C522:;
+    *(unsigned int *)(((int)stk + 92)) = (R0 & 0x1);
+    if ((((*(int *)((((R0 & 0x1) * 0xD78) + 0x8C2888E4))) & 0x8000) == 0)) goto L_8C02C590;
+    R3 = (((*(short *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288888))) - 32768));
+    L_8C02C59C:;
+    *(unsigned short *)(((int)stk + 74)) = R3;
+    *(unsigned int *)(((int)stk + 76)) = 0x0;
+    L_8C02C5A4:;
+    t564 = *(int *)(((int)stk + 184));
+    t565 = *(int *)(((int)stk + 68));
+    t566 = nlRandom();
+    t567 = nlRandom();
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0x88 + t564)) = *(struct mv3 *)((((((int)(t567 * 3.0f) << 1) + (int)(t567 * 3.0f)) << 2) + ((((((int)(t566 * (1.0f + 1.0f)) << 2) << 1) + (int)(t566 * (1.0f + 1.0f))) << 2) + (t565 + 0x1C)))); }
+    u575 = *(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288878));
+    t576 = ((int (*)(float, float))(nlArcTan2))((u575 - (*(float *)(((*(int *)(((int)stk + 184))) + 0x88)))), ((*(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288880))) - (*(float *)(((*(int *)(((int)stk + 184))) + 0x90)))));
+    t579 = (int)(short)(angDiff((*(short *)(((int)stk + 74))), t576)) < 0;
+    R9 = ((0x88 + t564));
+    if (t579) goto L_8C02C68C;
+    t581 = *(int *)(((int)stk + 92));
+    t582 = *(int *)(((int)stk + 184));
+    u586 = *(float *)(((t581 * 0xD78) + 0x8C288878));
+    t587 = ((int (*)(int, int, int, int, float, float))(nlArcTan2))(R4, R5, R6, R7, (u586 - (*(float *)((t582 + 0x88)))), ((*(float *)(((t581 * 0xD78) + 0x8C288880))) - (*(float *)((t582 + 0x90)))));
+    R1 = ((short)(angDiff((*(short *)(((int)stk + 74))), t587)));
+    L_8C02C6C4:;
+    if (((int)R1 >= (int)0x3000)) goto L_8C02C6DA;
+    t592 = *(int *)(((int)stk + 76));
+    *(unsigned int *)(((int)stk + 76)) = (t592 + 0x1);
+    if (((int)(t592 + 0x1) >= (int)0xA)) goto L_8C02C6DA;
+    goto L_8C02C5A4;
+    L_8C02C6DA:;
+    *(unsigned int *)(((0xA0 + (*(int *)(((int)stk + 184)))) + 0x0)) = (int)((nlRandom()) * 4.0f);
+    *(float *)(((0xA4 + (*(int *)(((int)stk + 184)))) + 0x0)) = ((nlRandom()) * 3.0f);
+    if (((*(int *)0x8C287D5C) == 3)) goto L_8C02C718;
+    padLcdSetMode(0x12, R5, R6, R7, *(int *)((int)stk + 32), *(int *)((int)stk + 32 + 4));
+    goto L_8C02C750;
+    L_8C02C718:;
+    t601 = *(int *)(((int)stk + 184));
+    t602 = *(int *)(((int)stk + 68));
+    t603 = nlRandom();
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0x88 + t601)) = *(struct mv3 *)(((((((int)(t603 * (1.0f + 1.0f)) << 1) + (int)(t603 * (1.0f + 1.0f))) << 2) + (t602 + 0x1C)) + 0xC)); }
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0xA0)) = 0x1;
+    R9 = ((0x88 + t601));
+    goto L_8C02C750;
+    L_8C02C68C:;
+    t606 = *(int *)(((int)stk + 92));
+    t607 = *(int *)(((int)stk + 184));
+    u611 = *(float *)(((t606 * 0xD78) + 0x8C288878));
+    t612 = ((int (*)(int, int, int, int, float, float))(nlArcTan2))(R4, R5, R6, R7, (u611 - (*(float *)((t607 + 0x88)))), ((*(float *)(((t606 * 0xD78) + 0x8C288880))) - (*(float *)((t607 + 0x90)))));
+    R1 = ((-(short)(angDiff((*(short *)(((int)stk + 74))), t612))));
+    goto L_8C02C6C4;
+    L_8C02C590:;
+    R3 = ((*(short *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288888))));
+    goto L_8C02C59C;
+    L_8C02C51C:;
+    R0 = ((*(int *)(((*(int *)(((int)stk + 184))) + 0x24))));
+    goto L_8C02C522;
+    L_8C02C2F0:;
+    if (((*(int *)((0x7C + (*(int *)(((int)stk + 184)))))) != -1)) goto L_8C02C328;
+    if ((((*(int *)0x8C287B3C) & 0x800) == 0)) goto L_8C02C328;
+    lightStagePreset();
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFF7FF);
+    evCrowdClapStart();
+    t630 = ((int (*)(void))(courtColliInit))();
+    padLcdModeClear();
+    L_8C02C328:;
+    camMoveBeginAtGoal(R4, R5, R6, R7, 1.0f, 1.0f);
+    t633 = *(int *)(((int)stk + 184));
+    *(unsigned int *)((t633 + 0x80)) = ((*(int *)((t633 + 0x80))) - ((*(int *)0x8C301BF0) - 1));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)) = *(struct mv3 *)(0x8C2895E4); }
+    t637 = *(int *)(((int)stk + 184));
+    *(float *)((0x8C + t637)) = ((*(float *)((0x8C + t637))) + 20.0f);
+    t639 = *(int *)(((int)stk + 184));
+    *(float *)((t639 + 0x90)) = ((*(float *)((t639 + 0x90))) + 50.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)) = *(struct mv3 *)(0x8C2895E4); }
+    t642 = *(int *)(((int)stk + 184));
+    *(float *)((0x98 + t642)) = ((*(float *)((0x98 + t642))) + 15.0f);
+    *(float *)0x8C287A04 = 20.0f;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)); }
+    t645 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 20)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0x94 + (*(int *)(((int)stk + 184))))); }
+    t647 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 8)));
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) <= 0)) goto L_8C02C406;
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) >= (int)0xD2)) goto L_8C02C4E2;
+    if (((*(float *)0x8C287C3C) != 0.0f)) goto L_8C02C4E2;
+    t657 = (playerHumanPressed(0xFFFFFFFF)) == 0;
+    if (t657) goto L_8C02C4E2;
+    L_8C02C406:;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x78)) = 0x0;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x7C)) = 0xFFFFFFFF;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x800);
+    R3 = ((*(int *)(((int)stk + 184))));
+    *(unsigned int *)((R3 + 0x80)) = 0x0;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x400);
+    *(float *)0x8C287C3C = 1.0f;
+    *(float *)0x8C287C40 = 0.0399999991f;
+    if (((*(int *)0x8C40C28C) == 1)) goto L_8C02C4B8;
+    evPackFade(0x1, 0x3C, 0x0);
+    L_8C02C4B8:;
+    if (((*(int *)0x8C421F60) != 0)) goto L_8C02C4C6;
+    strmBgmPlayStage();
+    L_8C02C4C6:;
+    R2 = (0x0);
+    L_8C02C4D8:;
+    *(unsigned int *)(((int)stk + 92)) = R2;
+    if (!(((int)R2 < (int)0x4))) goto L_8C02C4E2;
+    *(unsigned int *)((((*(int *)(((int)stk + 92))) << 2) + 0x8C38BA84)) = 0x0;
+    R2 = (((*(int *)(((int)stk + 92))) + 0x1));
+    goto L_8C02C4D8;
+    L_8C02C4E2:;
+    *(unsigned int *)0x8C38B768 = 0x0;
+    goto L_8C02D8B6;
+    L_8C02B9A0:;
+    if (((*(int *)((0x7C + (*(int *)(((int)stk + 184)))))) != -1)) goto L_8C02BA7E;
+    if ((((*(int *)0x8C287B3C) & 0x800) == 0)) goto L_8C02BA7E;
+    lightStagePreset();
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFF7FF);
+    t682 = *(int *)(((int)stk + 68));
+    t683 = *(int *)(((int)stk + 184));
+    u684 = *(float *)((t682 + 0x8));
+    u685 = *(float *)((t682 + 0x4));
+    u686 = *(float *)((t682 + 0x0));
+    *(int *)((int)stk + 28) = (0x88 + t683);
+    *(Stk3 *)((0x88 + t683)) = vecMake(u686, u685, u684);
+    t687 = *(int *)(((int)stk + 68));
+    t688 = *(int *)(((int)stk + 184));
+    u689 = *(float *)((t687 + 0x14));
+    u690 = *(float *)((t687 + 0x10));
+    u691 = *(float *)((t687 + 0xC));
+    *(int *)((int)stk + 24) = (0x94 + t688);
+    *(Stk3 *)((0x94 + t688)) = vecMake(u691, u690, u689);
+    evCrowdClapStart();
+    if (((*(int *)0x8C421F60) != 0)) goto L_8C02BA1C;
+    if (((*(int *)0x8C287D5C) == 3)) goto L_8C02BA1C;
+    FUN_8c08535e(R4, R5);
+    L_8C02BA1C:;
+    t698 = ((int (*)(int, int, int, int))(courtColliInit))(R4, R5, R6, R7);
+    if (((*(int *)0x8C287D5C) != 3)) goto L_8C02BA30;
+    strmBgmPlayStage();
+    L_8C02BA30:;
+    if (((*(int *)0x8C287D5C) != 3)) goto L_8C02BA78;
+    padLcdModeClear();
+    L_8C02BA7E:;
+    camMoveBeginAtGoal(R4, R5, R6, R7, 1.0f, 1.0f);
+    t706 = *(int *)(((int)stk + 184));
+    *(unsigned int *)((t706 + 0x80)) = ((*(int *)((t706 + 0x80))) - ((*(int *)0x8C301BF0) - 1));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 32) + 0x40)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)); }
+    t710 = *(int *)(((int)stk + 184));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 32) + 0x4C)) = *(struct mv3 *)((t710 + 0x94)); }
+    t711 = *(int *)0x8C1891E8;
+    R0 = (t711);
+    R1 = (0x12);
+    R2 = ((t710 + 0x94));
+    R3 = (0x8C0F7DAC);
+    if (!(((unsigned int)t711 < (unsigned int)0x12))) goto L_8C02C168;
+    switch (((R0 << 1))) { case 0: goto L_8C02BB18; case 2: goto L_8C02BB88; case 4: goto L_8C02BBB0; case 6: goto L_8C02BC34; case 8: goto L_8C02BC8E; case 10: goto L_8C02BD0E; case 12: goto L_8C02BDB0; case 14: goto L_8C02BE0E; case 16: goto L_8C02BE3A; case 18: goto L_8C02BE66; case 20: goto L_8C02BE92; case 22: goto L_8C02BF10; case 24: goto L_8C02BF3C; case 26: goto L_8C02BF9A; case 28: goto L_8C02BFC6; case 30: goto L_8C02C07C; case 32: goto L_8C02C0A8; case 34: goto L_8C02C0F8; }
+    goto L_8C02C0F8;
+    L_8C02C168:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x40)); }
+    t717 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 20)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x58)); }
+    t718 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 8)));
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) <= 0)) goto L_8C02C1CA;
+    if (!(((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) < (int)0xD2))) goto L_8C02C2BA;
+    if (((*(float *)0x8C287C3C) == 0.0f)) goto L_8C02C1C0;
+    goto L_8C02C2BA;
+    L_8C02C2BA:;
+    R3 = (0x16);
+    if (((int)(*(int *)0x8C1891E8) >= (int)0xA)) goto L_8C02C2CC;
+    *(unsigned int *)0x8C287D60 = 0x1;
+    L_8C02C2CC:;
+    *(unsigned int *)0x8C294668 = R3;
+    *(unsigned int *)0x8C29466C = 0x4;
+    goto L_8C02C4E2;
+    L_8C02C1C0:;
+    t731 = (playerHumanPressed(0xFFFFFFFF)) == 0;
+    if (t731) goto L_8C02C2BA;
+    L_8C02C1CA:;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x78)) = 0x0;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x7C)) = 0xFFFFFFFF;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x800);
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x80)) = 0x0;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x400);
+    *(float *)0x8C287C3C = 1.0f;
+    *(float *)0x8C287C40 = 0.0399999991f;
+    if (((*(int *)0x8C40C28C) == 1)) goto L_8C02C21C;
+    evPackFade(0x1, 0x3C, 0x0);
+    L_8C02C21C:;
+    if (((*(int *)0x8C421F60) != 0)) goto L_8C02C29C;
+    T_ = ((((*(int *)0x8C287D5C) == 3)));
+    if ((T_)) goto L_8C02C29C;
+    strmBgmPlayStage();
+    L_8C02C29C:;
+    *(unsigned int *)(((int)stk + 92)) = 0x0;
+    L_8C02C2B2:;
+    if (((int)(*(int *)(((int)stk + 92))) < (int)0x4)) goto L_8C02C2A2;
+    goto L_8C02C2BA;
+    L_8C02C2A2:;
+    *(unsigned int *)((((*(int *)(((int)stk + 92))) << 2) + 0x8C38BA84)) = 0x0;
+    *(unsigned int *)(((int)stk + 92)) = ((*(int *)(((int)stk + 92))) + 0x1);
+    goto L_8C02C2B2;
+    L_8C02C0F8:;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(-53.0f, 32.0f, 166.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)); }
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
+    FUN_8c029f50(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
+    *(Stk3 *)(((int)stk + 20)) = vecMake(-30.0f, 33.0f, 69.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    L_8C02C152:;
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x64);
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x64);
+    FUN_8c029f50(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
+    *(float *)0x8C287A04 = (*(float *)((0x18 + (*(int *)(((int)stk + 68))))));
+    R1 = (0x18);
+    goto L_8C02C168;
+    L_8C02C0A8:;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(-71.0f, 92.0f, 231.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    goto L_8C02C152;
+    L_8C02C07C:;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(-91.0f, 54.0f, 217.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    goto L_8C02C152;
+    L_8C02BFC6:;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(219.0f, 43.0f, 154.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)); }
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
+    FUN_8c029f50(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
+    *(Stk3 *)(((int)stk + 20)) = vecMake(151.0f, 48.0f, 81.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    goto L_8C02C152;
+    L_8C02BF9A:;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(-27.0f, 20.0f, 98.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    goto L_8C02C152;
+    L_8C02BF3C:;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(-63.0f, 39.0f, 167.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)); }
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
+    FUN_8c029f50(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
+    *(Stk3 *)(((int)stk + 20)) = vecMake(-30.0f, 41.0f, 72.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    goto L_8C02C152;
+    L_8C02BF10:;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(116.0f, 48.0f, 149.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    goto L_8C02C152;
+    L_8C02BE92:;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(56.0f, 26.0f, 140.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    goto L_8C02C152;
+    L_8C02BE66:;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(-181.0f, 94.0f, -207.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    goto L_8C02C152;
+    L_8C02BE3A:;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(-181.0f, 130.0f, -294.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    goto L_8C02C152;
+    L_8C02BE0E:;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(36.0f, 23.0f, 83.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    goto L_8C02C152;
+    L_8C02BDB0:;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(16.0f, 36.0f, 289.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)); }
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
+    FUN_8c029f50(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
+    *(Stk3 *)(((int)stk + 20)) = vecMake(19.0f, 44.0f, 189.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    goto L_8C02C152;
+    L_8C02BD0E:;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(-102.0f, 37.0f, -67.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x64);
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x64);
+    FUN_8c029f50(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
+    *(float *)0x8C287A04 = (FUN_8c029fe0((*(float *)(((*(int *)(((int)stk + 68))) + 0x18))), 30.0f));
+    R1 = (0x8C287A04);
+    goto L_8C02C168;
+    L_8C02BC8E:;
+    *(float *)(((int)stk + 100)) = ((*(float *)(((int)stk + 100))) - ((float)(((-(*(int *)(((*(int *)(((int)stk + 184))) + 0x80)))) + 0xF0) * 0x64) / 240.0f));
+    nlSubVector((((int)stk + 32) + 0x40), (((int)stk + 32) + 0x4C));
+    nlPushUnitMatrix();
+    nlRotateAY((int)((float)((*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) - 120) * 34.1333351f));
+    nlCalcPoint((((int)stk + 32) + 0x40), (((int)stk + 32) + 0x40));
+    nlPopMatrix(0x1);
+    nlAddVector((((int)stk + 32) + 0x40), (((int)stk + 32) + 0x4C));
+    F3 = ((*(float *)(((*(int *)(((int)stk + 68))) + 0x18))));
+    L_8C02BD08:;
+    *(float *)0x8C287A04 = F3;
+    goto L_8C02C168;
+    L_8C02BC34:;
+    t795 = *(int *)(((int)stk + 68));
+    t797 = *(int *)(((*(int *)(((int)stk + 184))) + 0x80));
+    *(float *)0x8C287A04 = ((*(float *)((t795 + 0x18))) - ((float)(((((-t797) + 0xF0) << 2) + ((-t797) + 0xF0)) << 1) / 240.0f));
+    R1 = (t795);
+    R3 = (0x8C287A04);
+    if (((*(int *)(((*(int *)(((int)stk + 184))) + 0x10))) != 4)) goto L_8C02BC74;
+    *(float *)((R3 + 0x0)) = ((*(float *)((R3 + 0x0))) - 10.0f);
+    L_8C02BC74:;
+    if (((*(int *)0x8C287D5C) == 3)) goto L_8C02BC80;
+    goto L_8C02C168;
+    L_8C02BC80:;
+    *(float *)0x8C287A04 = ((*(float *)0x8C287A04) - 5.0f);
+    R1 = (0x8C287A04);
+    goto L_8C02C168;
+    L_8C02BBB0:;
+    nlSubVector((((int)stk + 32) + 0x4C), (((int)stk + 32) + 0x40));
+    nlPushUnitMatrix();
+    nlRotateAY((int)((float)((*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) - 120) * 17.0666676f));
+    nlCalcPoint((((int)stk + 32) + 0x4C), (((int)stk + 32) + 0x4C));
+    nlPopMatrix(0x1);
+    nlAddVector((((int)stk + 32) + 0x4C), (((int)stk + 32) + 0x40));
+    F3 = ((*(float *)(((*(int *)(((int)stk + 68))) + 0x18))));
+    goto L_8C02BD08;
+    L_8C02BB88:;
+    t822 = *(int *)(((*(int *)(((int)stk + 184))) + 0x80));
+    *(float *)0x8C287A04 = ((*(float *)(((*(int *)(((int)stk + 68))) + 0x18))) - ((float)(((t822 << 2) + t822) << 1) / 240.0f));
+    R1 = (t822);
+    goto L_8C02C168;
+    L_8C02BB18:;
+    nlSubVector((((int)stk + 32) + 0x4C), (((int)stk + 32) + 0x40));
+    nlPushUnitMatrix();
+    nlRotateAY((int)((float)((*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) - 120) * 17.0666676f));
+    nlCalcPoint((((int)stk + 32) + 0x4C), (((int)stk + 32) + 0x4C));
+    nlPopMatrix(0x1);
+    nlAddVector((((int)stk + 32) + 0x4C), (((int)stk + 32) + 0x40));
+    *(float *)0x8C287A04 = (*(float *)(((*(int *)(((int)stk + 68))) + 0x18)));
+    R2 = (0x8C287A04);
+    if (((*(int *)(((*(int *)(((int)stk + 184))) + 0x10))) == 4)) goto L_8C02BB7C;
+    goto L_8C02C168;
+    L_8C02BB7C:;
+    *(float *)((R2 + 0x0)) = ((*(float *)((R2 + 0x0))) - 5.0f);
+    goto L_8C02C168;
+    L_8C02BA78:;
+    padLcdSetMode(0x2, R5, R6, R7, *(int *)((int)stk + 32), *(int *)((int)stk + 32 + 4));
+    goto L_8C02BA7E;
+    L_8C02B38A:;
+    if (((int)(*(int *)((0x80 + (*(int *)(((int)stk + 184)))))) >= (int)0x50)) goto L_8C02B39E;
+    *(unsigned int *)0x8C29466C = 0x4;
+    *(unsigned int *)0x8C294668 = 0x16;
+    if (!(((*(int *)0x8C287D5C) == 2))) goto L_8C02B83A;
+    if ((((unsigned char)(*(signed char *)0x8C2FBC82) & 1) == 0)) goto L_8C02B6C6;
+    if (((*(int *)0x8C2FBE2C) != 0)) goto L_8C02B6C6;
+    goto L_8C02B820;
+    L_8C02B83A:;
+    t846 = *(int *)(((int)stk + 68));
+    *(Stk3 *)(((int)stk + 20)) = vecMake((*(float *)((t846 + 0x80))), (*(float *)((t846 + 0x84))), (*(float *)((t846 + 0x88))));
+    t850 = ((int (*)(void))(camSetTarget))();
+    t851 = *(int *)(((int)stk + 68));
+    *(Stk3 *)(((int)stk + 20)) = vecMake((*(float *)((t851 + 0x8C))), (*(float *)((t851 + 0x90))), (*(float *)((t851 + 0x94))));
+    t855 = ((int (*)(void))(camSetEye))();
+    *(float *)0x8C287A04 = (*(float *)(((*(int *)(((int)stk + 68))) + 0x98)));
+    t858 = ((int (*)(float, float))(camMoveBegin))(1.0f, 1.0f);
+    if (((*(int *)((0x80 + (*(int *)(((int)stk + 184)))))) != 79)) goto L_8C02B8AA;
+    *(float *)0x8C28A5F8 = 0.0f;
+    *(float *)0x8C289880 = 0.0f;
+    *(float *)0x8C288B08 = 0.0f;
+    *(float *)0x8C287D90 = 0.0f;
+    L_8C02B8AA:;
+    T_ = ((((*(int *)0x8C287D5C) == 2)));
+    if ((!T_)) goto L_8C02B93C;
+    if (((*(int *)((0x80 + (*(int *)(((int)stk + 184)))))) != 1)) goto L_8C02B93C;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x80000);
+    if ((((unsigned char)(*(signed char *)0x8C2FBC82) & 1) == 0)) goto L_8C02B93C;
+    padLcdSetMode(0xC, R5, R6, R7, *(int *)((int)stk + 32), *(int *)((int)stk + 32 + 4));
+    L_8C02B93C:;
+    if (((*(int *)0x8C287D5C) != 0)) goto L_8C02B948;
+    R3 = (0xFFFFFFD3);
+    L_8C02B94A:;
+    *(unsigned int *)(((int)stk + 48)) = R3;
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) > (int)R3)) goto L_8C02B968;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x60)) = 0x1;
+    padLcdModeClear();
+    L_8C02B968:;
+    *(unsigned int *)0x8C287D60 = 0x1;
+    *(unsigned int *)0x8C38B768 = 0x0;
+    goto L_8C02D8B6;
+    L_8C02B948:;
+    R3 = (0x0);
+    goto L_8C02B94A;
+    L_8C02B820:;
+    if (((*(int *)0x8C287D5C) != 2)) goto L_8C02B83A;
+    if (((*(int *)((0x80 + (*(int *)(((int)stk + 184)))))) != 79)) goto L_8C02B83A;
+    circuitStatsStart();
+    goto L_8C02B83A;
+    L_8C02B6C6:;
+    *(unsigned int *)(((int)stk + 40)) = 0x0;
+    *(unsigned int *)(((int)stk + 92)) = 0x0;
+    L_8C02B71E:;
+    if (((int)(*(int *)(((int)stk + 92))) < (int)(*(int *)0x8C2FBC54))) goto L_8C02B6D0;
+    if (((*(int *)(((int)stk + 40))) != 21)) goto L_8C02B7AC;
+    t896 = *(int *)0x8C2FBE1C;
+    R1 = (0x8C2FBE1C);
+    if (((*(int *)(((((((t896 << 2) + t896) << 2) << 1) + (*(int *)0x8C2FBC50)) + 0x0))) != 0)) goto L_8C02B7AC;
+    if (((int)(*(int *)((R1 + 0x0))) >= (int)0x20)) goto L_8C02B78C;
+    t903 = *(int *)((R1 + 0x0));
+    if ((((((int)t903 >= 0) ? (0x1 << (t903 & 31)) : ((-(int)t903 & 31) ? ((int)0x1 >> (-(int)t903 & 31)) : ((int)0x1 >> 31))) & (*(int *)0x8C2FBC64)) != 0)) goto L_8C02B7AC;
+    L_8C02B79C:;
+    *(unsigned char *)0x8C2FBC82 = ((*(signed char *)0x8C2FBC82) | 0x1);
+    *(unsigned int *)0x8C2FBE2C = 0x1;
+    L_8C02B7AC:;
+    if (((*(int *)0x8C2FBE2C) == 0)) goto L_8C02B820;
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) >= (int)0x1E)) goto L_8C02B820;
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) >= 0)) goto L_8C02B7DA;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x80)) = 0x0;
+    L_8C02B7DA:;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(640.0f, 0.0f, 0.00999999978f);
+    primRectInc(0x280, 0x1E0, ((((int)(((float)((-(*(int *)(((*(int *)(((int)stk + 184))) + 0x80)))) + 0x1E) / 30.0f) * 255.0f) << 16) << 8) | 0xFFFFFF), 0x0, *(int *)((int)stk + 20), *(int *)((int)stk + 20 + 4), *(int *)((int)stk + 20 + 8), *(int *)((int)stk + 20 + 12));
+    goto L_8C02B820;
+    L_8C02B78C:;
+    t919 = *(int *)((R1 + 0x0));
+    if ((((((int)(t919 - 32) >= 0) ? (0x1 << ((t919 - 32) & 31)) : ((-(int)(t919 - 32) & 31) ? ((int)0x1 >> (-(int)(t919 - 32) & 31)) : ((int)0x1 >> 31))) & (*(int *)0x8C2FBC68)) != 0)) goto L_8C02B7AC;
+    goto L_8C02B79C;
+    L_8C02B6D0:;
+    t922 = *(int *)(((int)stk + 92));
+    if (((*(int *)(((((((t922 << 2) + t922) << 2) << 1) + (*(int *)0x8C2FBC50)) + 0x0))) != 0)) goto L_8C02B718;
+    if (((int)(*(int *)(((int)stk + 92))) >= (int)0x20)) goto L_8C02B702;
+    t928 = *(int *)(((int)stk + 92));
+    if ((((((int)t928 >= 0) ? (0x1 << (t928 & 31)) : ((-(int)t928 & 31) ? ((int)0x1 >> (-(int)t928 & 31)) : ((int)0x1 >> 31))) & (*(int *)0x8C2FBC64)) == 0)) goto L_8C02B718;
+    L_8C02B712:;
+    *(unsigned int *)(((int)stk + 40)) = ((*(int *)(((int)stk + 40))) + 0x1);
+    L_8C02B718:;
+    *(unsigned int *)(((int)stk + 92)) = ((*(int *)(((int)stk + 92))) + 0x1);
+    goto L_8C02B71E;
+    L_8C02B702:;
+    t933 = *(int *)(((int)stk + 92));
+    if ((((((int)(t933 - 32) >= 0) ? (0x1 << ((t933 - 32) & 31)) : ((-(int)(t933 - 32) & 31) ? ((int)0x1 >> (-(int)(t933 - 32) & 31)) : ((int)0x1 >> 31))) & (*(int *)0x8C2FBC68)) == 0)) goto L_8C02B718;
+    goto L_8C02B712;
+    L_8C02B39E:;
+    if (!(((*(int *)((0x7C + (*(int *)(((int)stk + 184)))))) == -1))) goto L_8C02B55E;
+    if ((((*(int *)0x8C287B3C) & 0x800) != 0)) goto L_8C02B3BC;
+    goto L_8C02B55E;
+    L_8C02B55E:;
+    *(unsigned int *)(((int)stk + 80)) = (*(int *)(((*(int *)(((int)stk + 184))) + 0x24)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)) = *(struct mv3 *)((((*(int *)(((int)stk + 80))) * 0xD78) + 0x8C288878)); }
+    *(float *)(((*(int *)(((int)stk + 184))) + 0x98)) = 10.0f;
+    t944 = cameraFovForSize(R4, R5, R6, R7, 10.0f);
+    *(float *)0x8C287A04 = t944;
+    t946 = *(int *)(((*(int *)(((int)stk + 184))) + 0x80));
+    *(float *)0x8C287A04 = (t944 + ((float)(((t946 - 80) << 1) + (t946 - 80)) / 60.0f));
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFF7FF);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((0x94 + (*(int *)(((int)stk + 184))))); }
+    t949 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 20)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0x88 + (*(int *)(((int)stk + 184))))); }
+    t951 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 8)));
+    t952 = ((int (*)(float, float))(camMoveBegin))(1.0f, 1.0f);
+    if (((*(int *)((0x80 + (*(int *)(((int)stk + 184)))))) == 80)) goto L_8C02B60A;
+    goto L_8C02B968;
+    L_8C02B60A:;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x400);
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFDFFFFF);
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFBFFFF);
+    *(float *)0x8C287C3C = 1.0f;
+    *(float *)0x8C287C40 = 0.0199999996f;
+    goto L_8C02B968;
+    L_8C02B3BC:;
+    t962 = *(int *)(((*(int *)(((int)stk + 184))) + 0x24));
+    *(unsigned int *)(((int)stk + 92)) = (t962 & 0x1);
+    if ((((*(int *)((0x8C2888E4 + ((t962 & 0x1) * 0xD78)))) & 0x8000) == 0)) goto L_8C02B3E8;
+    R1 = (((*(short *)((0x8C288888 + ((*(int *)(((int)stk + 92))) * 0xD78)))) - 32768));
+    L_8C02B3F4:;
+    *(unsigned short *)(((int)stk + 74)) = R1;
+    *(unsigned int *)(((int)stk + 76)) = 0x0;
+    L_8C02B3FC:;
+    t968 = *(int *)(((int)stk + 184));
+    t969 = *(int *)(((int)stk + 68));
+    t970 = nlRandom();
+    t971 = nlRandom();
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0x88 + t968)) = *(struct mv3 *)((((((int)(t971 * 3.0f) << 1) + (int)(t971 * 3.0f)) << 2) + ((((((int)(t970 * (1.0f + 1.0f)) << 2) << 1) + (int)(t970 * (1.0f + 1.0f))) << 2) + (t969 + 0x1C)))); }
+    u979 = *(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288878));
+    t980 = ((int (*)(float, float))(nlArcTan2))((u979 - (*(float *)(((*(int *)(((int)stk + 184))) + 0x88)))), ((*(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288880))) - (*(float *)(((*(int *)(((int)stk + 184))) + 0x90)))));
+    t983 = (int)(short)(angDiff((*(short *)(((int)stk + 74))), t980)) < 0;
+    R9 = ((0x88 + t968));
+    if (t983) goto L_8C02B500;
+    t985 = *(int *)(((int)stk + 92));
+    t986 = *(int *)(((int)stk + 184));
+    u990 = *(float *)(((t985 * 0xD78) + 0x8C288878));
+    t991 = ((int (*)(int, int, int, int, float, float))(nlArcTan2))(R4, R5, R6, R7, (u990 - (*(float *)((t986 + 0x88)))), ((*(float *)(((t985 * 0xD78) + 0x8C288880))) - (*(float *)((t986 + 0x90)))));
+    R1 = ((short)(angDiff((*(short *)(((int)stk + 74))), t991)));
+    L_8C02B538:;
+    if (((int)R1 >= (int)0x3000)) goto L_8C02B54E;
+    t996 = *(int *)(((int)stk + 76));
+    *(unsigned int *)(((int)stk + 76)) = (t996 + 0x1);
+    if (((int)(t996 + 0x1) >= (int)0xA)) goto L_8C02B54E;
+    goto L_8C02B3FC;
+    L_8C02B54E:;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFF7FFF);
+    padLcdSetMode(0x13, R5, R6, R7, *(int *)((int)stk + 32), *(int *)((int)stk + 32 + 4));
+    goto L_8C02B55E;
+    L_8C02B500:;
+    t1000 = *(int *)(((int)stk + 92));
+    t1001 = *(int *)(((int)stk + 184));
+    u1005 = *(float *)(((t1000 * 0xD78) + 0x8C288878));
+    t1006 = ((int (*)(int, int, int, int, float, float))(nlArcTan2))(R4, R5, R6, R7, (u1005 - (*(float *)((t1001 + 0x88)))), ((*(float *)(((t1000 * 0xD78) + 0x8C288880))) - (*(float *)((t1001 + 0x90)))));
+    R1 = ((-(short)(angDiff((*(short *)(((int)stk + 74))), t1006))));
+    goto L_8C02B538;
+    L_8C02B3E8:;
+    R1 = ((*(short *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288888))));
+    goto L_8C02B3F4;
+    L_8C02ADE2:;
+    t1015 = *(int *)(((*(int *)(((0x98 + ((int)stk + 32)) + 0x0))) + 0x38));
+    t1016 = *(int *)(((*(int *)(((int)stk + 184))) + 0x34));
+    R0 = ((t1016 + t1015));
+    if (((int)(t1016 + t1015) < 0)) goto L_8C02AE1C;
+    R0 = ((R0 & 0x3));
+    L_8C02AE26:;
+    if ((R0 != 0)) goto L_8C02AEEE;
+    if (((*(int *)((0x7C + (*(int *)(((int)stk + 184)))))) != -1)) goto L_8C02AE8E;
+    if ((((*(int *)0x8C287B3C) & 0x800) == 0)) goto L_8C02AE8E;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFF7FF);
+    t1027 = *(int *)(((int)stk + 68));
+    t1028 = *(int *)(((int)stk + 184));
+    u1029 = *(float *)((t1027 + 0x6C));
+    u1030 = *(float *)((t1027 + 0x68));
+    u1031 = *(float *)((t1027 + 0x64));
+    *(int *)((int)stk + 28) = (0x88 + t1028);
+    *(Stk3 *)((0x88 + t1028)) = vecMake(u1031, u1030, u1029);
+    t1032 = *(int *)(((int)stk + 68));
+    t1033 = *(int *)(((int)stk + 184));
+    u1034 = *(float *)((t1032 + 0x78));
+    u1035 = *(float *)((t1032 + 0x74));
+    u1036 = *(float *)((t1032 + 0x70));
+    *(int *)((int)stk + 24) = (0x94 + t1033);
+    *(Stk3 *)((0x94 + t1033)) = vecMake(u1036, u1035, u1034);
+    padLcdSetMode(0x8, 0x0, 0x0, 0x0, *(int *)((int)stk + 32), *(int *)((int)stk + 32 + 4));
+    L_8C02AE8E:;
+    camMoveBeginAtGoal(R4, R5, R6, R7, 1.0f, 1.0f);
+    *(float *)0x8C287A04 = ((*(float *)(((*(int *)(((int)stk + 68))) + 0x7C))) + ((float)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) / 120.0f));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)); }
+    t1044 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 20)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0x94 + (*(int *)(((int)stk + 184))))); }
+    t1046 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 8)));
+    *(unsigned int *)0x8C294668 = 0x16;
+    L_8C02B010:;
+    *(unsigned int *)0x8C29466C = 0x4;
+    L_8C02B2A2:;
+    t1047 = *(int *)(((int)stk + 184));
+    *(unsigned int *)((t1047 + 0x80)) = ((*(int *)((t1047 + 0x80))) - ((*(int *)0x8C301BF0) - 1));
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) <= 0)) goto L_8C02B2C6;
+    goto L_8C02CFC2;
+    L_8C02B2C6:;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x78)) = 0x0;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x7C)) = 0xFFFFFFFF;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x800);
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x80)) = 0x0;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x400);
+    *(float *)0x8C287C3C = 1.0f;
+    *(float *)0x8C287C40 = 0.0399999991f;
+    R0 = (0x1);
+    R1 = ((*(int *)(((int)stk + 184))));
+    *(unsigned int *)(((0x60 + R1) + 0x0)) = R0;
+    padLcdModeClear();
+    strmCrowdFadeOut();
+    goto L_8C02CFC2;
+    L_8C02AEEE:;
+    t1065 = *(int *)(((*(int *)(((0x98 + ((int)stk + 32)) + 0x0))) + 0x38));
+    t1066 = *(int *)(((*(int *)(((int)stk + 184))) + 0x34));
+    R0 = ((t1066 + t1065));
+    if (((int)(t1066 + t1065) < 0)) goto L_8C02AF40;
+    R0 = ((R0 & 0x3));
+    L_8C02AF4A:;
+    if ((R0 != 2)) goto L_8C02B018;
+    if (((*(int *)((0x7C + (*(int *)(((int)stk + 184)))))) != -1)) goto L_8C02AFB2;
+    if ((((*(int *)0x8C287B3C) & 0x800) == 0)) goto L_8C02AFB2;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFF7FF);
+    t1077 = *(int *)(((int)stk + 184));
+    t1078 = *(int *)(((int)stk + 68));
+    u1079 = *(float *)((t1078 + 0xBC));
+    u1080 = *(float *)((t1078 + 0xB8));
+    u1081 = *(float *)((t1078 + 0xB4));
+    *(int *)((int)stk + 28) = (0x88 + t1077);
+    *(Stk3 *)((0x88 + t1077)) = vecMake(u1081, u1080, u1079);
+    t1082 = *(int *)(((int)stk + 68));
+    t1083 = *(int *)(((int)stk + 184));
+    u1084 = *(float *)((t1082 + 0xC8));
+    u1085 = *(float *)((t1082 + 0xC4));
+    u1086 = *(float *)((t1082 + 0xC0));
+    *(int *)((int)stk + 24) = (0x94 + t1083);
+    *(Stk3 *)((0x94 + t1083)) = vecMake(u1086, u1085, u1084);
+    padLcdSetMode(0x8, 0x0, 0x0, 0x0, *(int *)((int)stk + 32), *(int *)((int)stk + 32 + 4));
+    L_8C02AFB2:;
+    camMoveBeginAtGoal(R4, R5, R6, R7, 1.0f, 1.0f);
+    *(float *)0x8C287A04 = ((*(float *)(((*(int *)(((int)stk + 68))) + 0xCC))) + ((float)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) / 120.0f));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)); }
+    t1094 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 20)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0x94 + (*(int *)(((int)stk + 184))))); }
+    t1096 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 8)));
+    *(unsigned int *)0x8C294668 = 0x16;
+    goto L_8C02B010;
+    L_8C02B018:;
+    if (!(((*(int *)((0x7C + (*(int *)(((int)stk + 184)))))) == -1))) goto L_8C02B208;
+    if ((((*(int *)0x8C287B3C) & 0x800) != 0)) goto L_8C02B036;
+    goto L_8C02B208;
+    L_8C02B208:;
+    *(unsigned int *)(((int)stk + 80)) = (*(int *)(((*(int *)(((int)stk + 184))) + 0x24)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)) = *(struct mv3 *)((((*(int *)(((int)stk + 80))) * 0xD78) + 0x8C288878)); }
+    *(float *)(((*(int *)(((int)stk + 184))) + 0x98)) = 10.0f;
+    t1105 = cameraFovForSize(R4, R5, R6, R7, 10.0f);
+    *(float *)0x8C287A04 = t1105;
+    t1107 = *(int *)(((*(int *)(((int)stk + 184))) + 0x80));
+    *(float *)0x8C287A04 = (t1105 + ((float)((t1107 << 1) + t1107) / 120.0f));
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFF7FF);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((0x94 + (*(int *)(((int)stk + 184))))); }
+    t1110 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 20)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0x88 + (*(int *)(((int)stk + 184))))); }
+    t1112 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 8)));
+    t1113 = ((int (*)(float, float))(camMoveBegin))(1.0f, 1.0f);
+    goto L_8C02B2A2;
+    L_8C02B036:;
+    t1117 = *(int *)(((*(int *)(((int)stk + 184))) + 0x24));
+    *(unsigned int *)(((int)stk + 92)) = (t1117 & 0x1);
+    if ((((*(int *)((0x8C2888E4 + ((t1117 & 0x1) * 0xD78)))) & 0x8000) == 0)) goto L_8C02B0B8;
+    R1 = (((*(short *)((0x8C288888 + ((*(int *)(((int)stk + 92))) * 0xD78)))) - 32768));
+    L_8C02B0C4:;
+    *(unsigned short *)(((int)stk + 74)) = R1;
+    *(unsigned int *)(((int)stk + 76)) = 0x0;
+    L_8C02B0CC:;
+    t1123 = *(int *)(((int)stk + 184));
+    t1124 = *(int *)(((int)stk + 68));
+    t1125 = nlRandom();
+    t1126 = nlRandom();
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0x88 + t1123)) = *(struct mv3 *)((((((int)(t1126 * 3.0f) << 1) + (int)(t1126 * 3.0f)) << 2) + ((((((int)(t1125 * (1.0f + 1.0f)) << 2) << 1) + (int)(t1125 * (1.0f + 1.0f))) << 2) + (t1124 + 0x1C)))); }
+    u1134 = *(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288878));
+    t1135 = ((int (*)(float, float))(nlArcTan2))((u1134 - (*(float *)(((*(int *)(((int)stk + 184))) + 0x88)))), ((*(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288880))) - (*(float *)(((*(int *)(((int)stk + 184))) + 0x90)))));
+    t1138 = (int)(short)(angDiff((*(short *)(((int)stk + 74))), t1135)) < 0;
+    R9 = ((0x88 + t1123));
+    if (t1138) goto L_8C02B1B4;
+    t1140 = *(int *)(((int)stk + 92));
+    t1141 = *(int *)(((int)stk + 184));
+    u1145 = *(float *)(((t1140 * 0xD78) + 0x8C288878));
+    t1146 = ((int (*)(int, int, int, int, float, float))(nlArcTan2))(R4, R5, R6, R7, (u1145 - (*(float *)((t1141 + 0x88)))), ((*(float *)(((t1140 * 0xD78) + 0x8C288880))) - (*(float *)((t1141 + 0x90)))));
+    R1 = ((short)(angDiff((*(short *)(((int)stk + 74))), t1146)));
+    L_8C02B1EC:;
+    if (((int)R1 >= (int)0x3000)) goto L_8C02B202;
+    t1151 = *(int *)(((int)stk + 76));
+    *(unsigned int *)(((int)stk + 76)) = (t1151 + 0x1);
+    if (((int)(t1151 + 0x1) >= (int)0xA)) goto L_8C02B202;
+    goto L_8C02B0CC;
+    L_8C02B202:;
+    padLcdSetMode(0x8, R5, R6, R7, *(int *)((int)stk + 32), *(int *)((int)stk + 32 + 4));
+    goto L_8C02B208;
+    L_8C02B1B4:;
+    t1154 = *(int *)(((int)stk + 92));
+    t1155 = *(int *)(((int)stk + 184));
+    u1159 = *(float *)(((t1154 * 0xD78) + 0x8C288878));
+    t1160 = ((int (*)(int, int, int, int, float, float))(nlArcTan2))(R4, R5, R6, R7, (u1159 - (*(float *)((t1155 + 0x88)))), ((*(float *)(((t1154 * 0xD78) + 0x8C288880))) - (*(float *)((t1155 + 0x90)))));
+    R1 = ((-(short)(angDiff((*(short *)(((int)stk + 74))), t1160))));
+    goto L_8C02B1EC;
+    L_8C02B0B8:;
+    R1 = ((*(short *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288888))));
+    goto L_8C02B0C4;
+    L_8C02AF40:;
+    R0 = (((~(((~R0) + 0x1) & 0x3)) + 0x1));
+    goto L_8C02AF4A;
+    L_8C02AE1C:;
+    R0 = (((~(((~R0) + 0x1) & 0x3)) + 0x1));
+    goto L_8C02AE26;
+    L_8C02AB32:;
+    if (((*(int *)((0x7C + (*(int *)(((int)stk + 184)))))) != -1)) goto L_8C02AC20;
+    if ((((*(int *)0x8C287B3C) & 0x800) == 0)) goto L_8C02AC20;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFF7FF);
+    if (((*(float *)0x8C288884) != (-1.0f))) goto L_8C02ABB4;
+    R0 = ((*(int *)(((*(int *)(((int)stk + 184))) + 0x28))));
+    L_8C02ABBA:;
+    *(unsigned int *)(((int)stk + 92)) = (R0 & 0x1);
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0xAC))) <= 0)) goto L_8C02ABD4;
+    *(unsigned int *)(((int)stk + 88)) = 0x1;
+    L_8C02ABD8:;
+    t1183 = *(int *)(((int)stk + 92));
+    t1186 = *(int *)(((int)stk + 88));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)) = *(struct mv3 *)(((((*(int *)(((int)stk + 68))) + 0x1C) + ((((t1183 << 2) << 1) + t1183) << 2)) + (((t1186 << 1) + t1186) << 2))); }
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0xA0)) = 0x0;
+    *(float *)(((*(int *)(((int)stk + 184))) + 0xA4)) = 10.0f;
+    padLcdModeClear();
+    L_8C02AC20:;
+    t1190 = *(int *)(((int)stk + 184));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((t1190 + 0x94)) = *(struct mv3 *)((((*(int *)((t1190 + 0x24))) * 0xD78) + 0x8C288878)); }
+    *(float *)(((*(int *)(((int)stk + 184))) + 0x98)) = 14.0f;
+    t1193 = *(int *)(((int)stk + 184));
+    *(float *)((t1193 + 0xA4)) = ((*(float *)((t1193 + 0xA4))) * 0.980000019f);
+    *(float *)0x8C287A04 = ((cameraFovForSize(R4, R5, R6, R7, 5.0f)) + (*(float *)(((*(int *)(((int)stk + 184))) + 0xA4))));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
+    t1199 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 20)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0x88 + (*(int *)(((int)stk + 184))))); }
+    t1201 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 8)));
+    t1202 = ((int (*)(float, float))(camMoveBegin))(1.0f, 1.0f);
+    *(unsigned int *)0x8C38B768 = 0x1;
+    if ((((*(int *)0x8C287B3C) & 32) == 0)) goto L_8C02AD60;
+    if (((int)(*(int *)(((0x80 + (*(int *)(((int)stk + 184)))) + 0x0))) > (int)0x8C)) goto L_8C02AD72;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x78)) = 0x6;
+    *(unsigned int *)0x8C38B768 = 0x0;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x400);
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFDFFFFF);
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFBFFFF);
+    *(float *)0x8C287C3C = 1.0f;
+    *(float *)0x8C287C40 = 0.0199999996f;
+    L_8C02AD72:;
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0x80))) <= 0)) goto L_8C02AD84;
+    goto L_8C02D8B6;
+    L_8C02AD84:;
+    if ((((*(int *)0x8C287B3C) & 32) == 0)) goto L_8C02AD92;
+    goto L_8C02D8B6;
+    L_8C02AD92:;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x78)) = 0x0;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x7C)) = 0xFFFFFFFF;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x800);
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0x80)) = 0x0;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x400);
+    *(float *)0x8C287C3C = 1.0f;
+    *(float *)0x8C287C40 = 0.0399999991f;
+    *(unsigned int *)(((0x60 + (*(int *)(((int)stk + 184)))) + 0x0)) = 0x1;
+    goto L_8C02D8B6;
+    L_8C02AD60:;
+    t1223 = *(int *)(((int)stk + 184));
+    *(unsigned int *)((t1223 + 0x80)) = ((*(int *)((t1223 + 0x80))) - ((*(int *)0x8C301BF0) - 1));
+    goto L_8C02AD72;
+    L_8C02ABD4:;
+    *(unsigned int *)(((int)stk + 88)) = 0x2;
+    goto L_8C02ABD8;
+    L_8C02ABB4:;
+    R0 = ((*(int *)(((*(int *)(((int)stk + 184))) + 0x24))));
+    goto L_8C02ABBA;
+    L_8C02A91C:;
+    if (((*(int *)((0x7C + (*(int *)(((int)stk + 184)))))) != -1)) goto L_8C02A9F2;
+    if ((((*(int *)0x8C287B3C) & 0x800) == 0)) goto L_8C02A9F2;
+    if (((*(float *)0x8C288884) != (-1.0f))) goto L_8C02A948;
+    R0 = ((*(int *)(((*(int *)(((int)stk + 184))) + 0x28))));
+    L_8C02A94E:;
+    *(unsigned int *)(((int)stk + 92)) = (R0 & 0x1);
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0xAC))) <= 0)) goto L_8C02A9A8;
+    *(unsigned int *)(((int)stk + 88)) = 0x1;
+    L_8C02A9AC:;
+    t1242 = *(int *)(((int)stk + 92));
+    t1245 = *(int *)(((int)stk + 88));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)) = *(struct mv3 *)(((((*(int *)(((int)stk + 68))) + 0x1C) + ((((t1242 << 2) << 1) + t1242) << 2)) + (((t1245 << 1) + t1245) << 2))); }
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0xA0)) = 0x0;
+    *(float *)(((*(int *)(((int)stk + 184))) + 0xA4)) = 0.0f;
+    padLcdModeClear();
+    L_8C02A9F2:;
+    t1249 = *(int *)(((int)stk + 184));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((t1249 + 0x94)) = *(struct mv3 *)((((*(int *)((t1249 + 0x24))) * 0xD78) + 0x8C288878)); }
+    *(float *)0x8C287A04 = (cameraFovForSize(R4, R5, R6, R7, 5.0f));
+    if (((*(int *)(((*(int *)(((int)stk + 184))) + 0xA0))) != 0)) goto L_8C02AA86;
+    F3 = (0.0f);
+    if ((!((*(float *)(((*(int *)(((int)stk + 180))) + 0x3C))) > 0.0f))) goto L_8C02AA38;
+    R1 = (0x1);
+    L_8C02AA6E:;
+    if (((float)R1 != (*(float *)((((*(int *)(((*(int *)(((int)stk + 184))) + 0x24))) * 0xD78) + 0x8C288884))))) goto L_8C02AAC2;
+    L_8C02AA86:;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0xA0)) = 0x1;
+    *(float *)0x8C287A04 = ((*(float *)0x8C287A04) + (*(float *)(((*(int *)(((int)stk + 184))) + 0xA4))));
+    t1268 = *(int *)(((int)stk + 184));
+    *(float *)((t1268 + 0xA4)) = ((*(float *)((t1268 + 0xA4))) + 0.200000003f);
+    R1 = (0x3E4CCCCD);
+    F2 = (10.0f);
+    if ((!((*(float *)0x8C287A04) > 10.0f))) goto L_8C02AAC2;
+    *(float *)0x8C287A04 = F2;
+    R1 = (0x8C287A04);
+    L_8C02AAC2:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((0x94 + (*(int *)(((int)stk + 184))))); }
+    t1276 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 20)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0x88 + (*(int *)(((int)stk + 184))))); }
+    t1278 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 8)));
+    if (((*(int *)((0x7C + (*(int *)(((int)stk + 184)))))) != -1)) goto L_8C02AB0E;
+    if ((((*(int *)0x8C287B3C) & 0x800) == 0)) goto L_8C02AB0E;
+    F5 = (1.0f);
+    L_8C02AB12:;
+    t1285 = ((int (*)(int, int, int, int, float, float))(camMoveBegin))(R4, R5, R6, R7, 1.0f, F5);
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFF7FF);
+    *(unsigned int *)0x8C287D60 = 0x1;
+    R1 = (0x1);
+    L_8C02AB2A:;
+    *(unsigned int *)0x8C38B768 = R1;
+    goto L_8C02D8B6;
+    L_8C02AB0E:;
+    F5 = (0.100000001f);
+    goto L_8C02AB12;
+    L_8C02AA38:;
+    if ((!(F3 > (*(float *)((0x3C + (*(int *)(((int)stk + 180))))))))) goto L_8C02AA6C;
+    R1 = (0xFFFFFFFF);
+    goto L_8C02AA6E;
+    L_8C02AA6C:;
+    R1 = (0x0);
+    goto L_8C02AA6E;
+    L_8C02A9A8:;
+    *(unsigned int *)(((int)stk + 88)) = 0x2;
+    goto L_8C02A9AC;
+    L_8C02A948:;
+    R0 = ((*(int *)(((*(int *)(((int)stk + 184))) + 0x24))));
+    goto L_8C02A94E;
+    L_8C02A6F8:;
+    if (((*(int *)((0x7C + (*(int *)(((int)stk + 184)))))) != -1)) goto L_8C02A7EE;
+    if ((((*(int *)0x8C287B3C) & 0x800) == 0)) goto L_8C02A7EE;
+    if (((*(float *)0x8C288884) != (-1.0f))) goto L_8C02A724;
+    R0 = ((*(int *)(((*(int *)(((int)stk + 184))) + 0x28))));
+    L_8C02A72A:;
+    *(unsigned int *)(((int)stk + 92)) = (R0 & 0x1);
+    if (((int)(*(int *)(((*(int *)(((int)stk + 184))) + 0xAC))) <= 0)) goto L_8C02A7A4;
+    *(unsigned int *)(((int)stk + 88)) = 0x1;
+    L_8C02A7A8:;
+    t1310 = *(int *)(((int)stk + 92));
+    t1313 = *(int *)(((int)stk + 88));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)) = *(struct mv3 *)(((((*(int *)(((int)stk + 68))) + 0x1C) + ((((t1310 << 2) << 1) + t1310) << 2)) + (((t1313 << 1) + t1313) << 2))); }
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0xA0)) = 0x0;
+    *(float *)(((*(int *)(((int)stk + 184))) + 0xA4)) = 0.0f;
+    padLcdModeClear();
+    L_8C02A7EE:;
+    t1317 = *(int *)(((int)stk + 184));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((t1317 + 0x94)) = *(struct mv3 *)((((*(int *)((t1317 + 0x24))) * 0xD78) + 0x8C288878)); }
+    *(float *)0x8C287A04 = (cameraFovForSize(R4, R5, R6, R7, 15.0f));
+    if (((*(int *)(((*(int *)(((int)stk + 184))) + 0xA0))) != 0)) goto L_8C02A882;
+    F3 = (0.0f);
+    if ((!((*(float *)(((*(int *)(((int)stk + 180))) + 0x3C))) > 0.0f))) goto L_8C02A834;
+    R1 = (0x1);
+    L_8C02A86A:;
+    if (((float)R1 != (*(float *)((((*(int *)(((*(int *)(((int)stk + 184))) + 0x24))) * 0xD78) + 0x8C288884))))) goto L_8C02A8BE;
+    L_8C02A882:;
+    *(unsigned int *)(((*(int *)(((int)stk + 184))) + 0xA0)) = 0x1;
+    *(float *)0x8C287A04 = ((*(float *)0x8C287A04) + (*(float *)(((*(int *)(((int)stk + 184))) + 0xA4))));
+    t1336 = *(int *)(((int)stk + 184));
+    *(float *)((t1336 + 0xA4)) = ((*(float *)((t1336 + 0xA4))) + 0.400000006f);
+    R1 = (0x3ECCCCCD);
+    F2 = (15.0f);
+    if ((!((*(float *)0x8C287A04) > 15.0f))) goto L_8C02A8BE;
+    *(float *)0x8C287A04 = F2;
+    R1 = (0x8C287A04);
+    L_8C02A8BE:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((0x94 + (*(int *)(((int)stk + 184))))); }
+    t1344 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 20)));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0x88 + (*(int *)(((int)stk + 184))))); }
+    t1346 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 8)));
+    if ((((*(int *)0x8C287B3C) & 0x800) == 0)) goto L_8C02A8FE;
+    F5 = (1.0f);
+    L_8C02A902:;
+    t1350 = ((int (*)(int, int, int, int, float, float))(camMoveBegin))(R4, R5, R6, R7, 1.0f, F5);
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFF7FF);
+    *(unsigned int *)0x8C287D60 = 0x1;
+    R1 = (0x1);
+    goto L_8C02AB2A;
+    L_8C02A8FE:;
+    F5 = (0.100000001f);
+    goto L_8C02A902;
+    L_8C02A834:;
+    if ((!(F3 > (*(float *)((0x3C + (*(int *)(((int)stk + 180))))))))) goto L_8C02A868;
+    R1 = (0xFFFFFFFF);
+    goto L_8C02A86A;
+    L_8C02A868:;
+    R1 = (0x0);
+    goto L_8C02A86A;
+    L_8C02A7A4:;
+    *(unsigned int *)(((int)stk + 88)) = 0x2;
+    goto L_8C02A7A8;
+    L_8C02A724:;
+    R0 = ((*(int *)(((*(int *)(((int)stk + 184))) + 0x24))));
+    goto L_8C02A72A;
+    L_8C02A482:;
+    *(unsigned int *)(((int)stk + 92)) = 0x0;
+    L_8C02A4A2:;
+    if (!(((int)(*(int *)(((int)stk + 92))) < (int)0x4))) goto L_8C02A4AA;
+    if (((*(int *)(((((*(int *)(((int)stk + 92))) << 2) + ((*(int *)(((int)stk + 184))) + 0x14)) + 0x0))) == 0)) goto L_8C02A4AA;
+    *(unsigned int *)(((int)stk + 92)) = ((*(int *)(((int)stk + 92))) + 0x1);
+    goto L_8C02A4A2;
+    L_8C02A4AA:;
+    if ((((*(int *)0x8C287B3C) & 0x800) == 0)) goto L_8C02A56C;
+    if ((((*(int *)0x8C291F78) & 2) == 0)) goto L_8C02A4C2;
+    R0 = (0x8C02A530);
+    F3 = (16.0f);
+    L_8C02A4C6:;
+    *(float *)0x8C295DD4 = F3;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C295DC8) = *(struct mv3 *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C28886C)); }
+    R3 = (0xD78);
+    F3 = (0.0f);
+    if ((!((*(float *)((0x8C288874 + ((*(int *)(((int)stk + 92))) * 0xD78)))) > 0.0f))) goto L_8C02A4F4;
+    R0 = (0x1);
+    L_8C02A55E:;
+    *(unsigned int *)0x8C402C0C = R0;
+    lightStagePreset();
+    evPlayerCallStart(0x1E);
+    L_8C02A56C:;
+    if ((((*(int *)0x8C291F78) & 2) == 0)) goto L_8C02A57A;
+    F3 = (16.0f);
+    L_8C02A57E:;
+    *(float *)(((int)stk + 64)) = F3;
+    u1384 = (*(float *)0x8C295DD4);
+    u1384 = u1384 + 0.00999999978f * (F3 - (*(float *)0x8C295DD4));
+    *(float *)0x8C295DD4 = u1384;
+    if ((0.0f > (*(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288874))))) goto L_8C02A5B8;
+    F3 = ((*(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288874))));
+    L_8C02A5C6:;
+    t1392 = !((courtLimitZ()) > (F3 + 60.0f));
+    if (t1392) goto L_8C02A5E0;
+    *(float *)(((int)stk + 60)) = 60.0f;
+    L_8C02A64C:;
+    u1396 = *(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C28886C));
+    *(float *)0x8C295DC8 = ((*(float *)0x8C295DC8) + (((u1396 - (*(float *)0x8C295DC8)) * 10.0f) / 100.0f));
+    u1398 = *(float *)0x8C295DD0;
+    u1399 = *(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288874));
+    *(float *)0x8C295DD0 = (u1398 + (((u1399 - u1398) * 10.0f) / 100.0f));
+    *(Stk3 *)(((int)stk + 20)) = vecMake((*(float *)0x8C295DC8), 14.0f, (*(float *)0x8C295DD0));
+    t1402 = ((int (*)(void))(camSetEye))();
+    camSetOrbit((int)((-52.0f - (*(float *)0x8C295DD4)) * 32.0f), ((*(short *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288888))) + 0x8000), (*(float *)(((int)stk + 60))));
+    *(float *)0x8C287A04 = 28.0f;
+    t1408 = ((int (*)(float, float))(camMoveBegin))(1.0f, 1.0f);
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFF7FF);
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFEFFFF);
+    *(unsigned int *)0x8C38B768 = 0x0;
+    goto L_8C02D8B6;
+    L_8C02A5E0:;
+    t1414 = 0.0f > (*(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288874)));
+    F0 = ((courtLimitZ()));
+    if (t1414) goto L_8C02A638;
+    F3 = ((*(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288874))));
+    L_8C02A646:;
+    *(float *)(((int)stk + 60)) = (F0 - F3);
+    goto L_8C02A64C;
+    L_8C02A638:;
+    F3 = ((-(*(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288874)))));
+    goto L_8C02A646;
+    L_8C02A5B8:;
+    F3 = ((-(*(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288874)))));
+    goto L_8C02A5C6;
+    L_8C02A57A:;
+    F3 = (40.0f);
+    goto L_8C02A57E;
+    L_8C02A4F4:;
+    if ((!(F3 > (*(float *)((((*(int *)(((int)stk + 92))) * R3) + 0x8C288874)))))) goto L_8C02A55C;
+    R0 = (0xFFFFFFFF);
+    goto L_8C02A55E;
+    L_8C02A55C:;
+    R0 = (0x0);
+    goto L_8C02A55E;
+    L_8C02A4C2:;
+    R0 = (0x8C02A548);
+    F3 = (40.0f);
+    goto L_8C02A4C6;
+    L_8C02A224:;
+    if (!(((*(int *)((0x7C + (*(int *)(((int)stk + 184)))))) == -1))) goto L_8C02A410;
+    if ((((*(int *)0x8C287B3C) & 0x800) != 0)) goto L_8C02A242;
+    goto L_8C02A410;
+    L_8C02A410:;
+    *(int *)((int)stk + 28) = 0x1;
+    t1442 = (*(int *)(((int)stk + 180)));
+    *(int *)((int)stk + 24) = t1442;
+    lightCamCalc(0x8C287D84, (((int)stk + 24) + 0x6C), (0x84 + ((int)stk + 24)), 0x8C287A04, t1442, 0x1);
+    nlScaleVector((0x84 + ((int)stk + 24)), (0x84 + ((int)stk + 24)), 0.5f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 12)) = *(struct mv3 *)((((int)stk + 24) + 0x6C)); }
+    t1445 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 12)));
+    *(unsigned int *)0x8C38B768 = 0x0;
+    R1 = (0x0);
+    L_8C02A456:;
+    *(float *)0x8C287A04 = 16.0f;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x7C)); }
+    t1447 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 20)));
+    t1448 = ((int (*)(float, float))(camMoveBegin))(1.0f, 1.0f);
+    goto L_8C02D8B6;
+    L_8C02A242:;
+    lightStagePreset();
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFF7FF);
+    t1453 = *(int *)(((int)stk + 68));
+    u1454 = *(float *)((t1453 + 0xA4));
+    u1455 = *(float *)((t1453 + 0xA0));
+    u1456 = *(float *)((t1453 + 0x9C));
+    *(int *)((int)stk + 28) = (((int)stk + 32) + 0x64);
+    *(Stk3 *)((((int)stk + 32) + 0x64)) = vecMake(u1456, u1455, u1454);
+    if (((*(int *)0x8C287D5C) != 0)) goto L_8C02A292;
+    t1461 = *(int *)(((*(int *)(((0x98 + ((int)stk + 32)) + 0x0))) + 0x38));
+    t1462 = *(int *)(((*(int *)(((int)stk + 184))) + 0x34));
+    if ((((((int)((unsigned int)((int)((unsigned int)(t1462 + t1461) + (unsigned int)0x0)) + ((((int)0x0 > (int)(t1462 + t1461))) ? 1u : 0u))) >> 1) & 1) != 0)) goto L_8C02A2B0;
+    L_8C02A292:;
+    if (((*(int *)0x8C287D5C) != 2)) goto L_8C02A2F0;
+    t1469 = *(int *)0x8C2FBE20;
+    if ((((*(int *)((0x8C108E9C + ((((t1469 << 2) << 2) + t1469) << 2)))) & 8) == 0)) goto L_8C02A2F0;
+    L_8C02A2B0:;
+    *(float *)(((int)stk + 140)) = ((*(float *)(((int)stk + 140))) * (-1.0f));
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x10000);
+    L_8C02A2FA:;
+    R1 = (0x8C287D5C);
+    if (((*(int *)0x8C287D5C) == 0)) goto L_8C02A368;
+    if (((*(int *)((R1 + 0x0))) == 3)) goto L_8C02A368;
+    t1479 = serveGetServer();
+    *(int *)((int)stk + 28) = ((int)stk + 32);
+    serveGetPos(t1479, 0x0, 0x0, 0x0, ((int)stk + 32));
+    R1 = (0x8C287B3C);
+    if ((((((0.0f > (*(float *)(((int)stk + 40))))) ? 1 : 0) ^ ((*(int *)0x8C287B3C) & 0x10000)) == 0)) goto L_8C02A368;
+    t1485 = *(int *)(((int)stk + 68));
+    u1486 = *(float *)((t1485 + 0xB0));
+    u1487 = *(float *)((t1485 + 0xAC));
+    u1488 = *(float *)((t1485 + 0xA8));
+    *(int *)((int)stk + 28) = (((int)stk + 32) + 0x64);
+    *(Stk3 *)((((int)stk + 32) + 0x64)) = vecMake(u1488, u1487, u1486);
+    R1 = (0x8C287B3C);
+    if ((((*(int *)0x8C287B3C) & 0x10000) == 0)) goto L_8C02A368;
+    *(float *)(((int)stk + 140)) = ((*(float *)(((int)stk + 140))) * (-1.0f));
+    L_8C02A368:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x64)); }
+    t1493 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 20)));
+    *(int *)((int)stk + 16) = 0x0;
+    t1495 = (*(int *)(((int)stk + 180)));
+    *(int *)((int)stk + 12) = t1495;
+    lightCamCalc(0x8C287D84, (((int)stk + 12) + 0x78), (0x90 + ((int)stk + 12)), 0x8C287A04, t1495, 0x0);
+    F3 = (0.0f);
+    if ((!((*(float *)(((int)stk + 140))) > 0.0f))) goto L_8C02A3A6;
+    R2 = (0x1);
+    L_8C02A3B4:;
+    *(unsigned int *)0x8C402C0C = R2;
+    lightStagePreset();
+    evPlayerCallStart(0x1E);
+    *(unsigned int *)0x8C38B768 = 0x1;
+    goto L_8C02A456;
+    L_8C02A3A6:;
+    if ((!(F3 > (*(float *)(((int)stk + 140)))))) goto L_8C02A3B2;
+    R2 = (0xFFFFFFFF);
+    goto L_8C02A3B4;
+    L_8C02A3B2:;
+    R2 = (0x0);
+    goto L_8C02A3B4;
+    L_8C02A2F0:;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFEFFFF);
+    goto L_8C02A2FA;
+    L_8C02A0DE:;
+    if ((!(F3 > (*(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288874)))))) goto L_8C02A140;
+    R3 = (0xFFFFFFFF);
+    goto L_8C02A142;
+    L_8C02A140:;
+    R3 = (0x0);
+    goto L_8C02A142;
 }

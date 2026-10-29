@@ -136,7 +136,6 @@ int eepromLoadMsg(void);
 int rankCursorChar(int a4, int a5);
 float nlRotateAX(int a4);
 void nlTransposeMatrix(void);
-int FUN_8c1efe74(int a4, int a5);
 int kmySetBGPlane(int a4);
 int ADXB_EvokeExpandMono(int a4, int a5);
 int dbgMenuDrawTitles(void);
@@ -758,17 +757,6 @@ void nlTransposeMatrix(void)
     u13[14] = (*(float *)&t12);
     u13[15] = u0[15];
     _builtin_ld_ext((float (*)[4])u13);
-}
-
-int FUN_8c1efe74(int a4, int a5)
-{
-    int t0;
-
-    if ((int)a5 < (int)0x10) {
-        return 0xFFFFFFFF;
-    }
-    t0 = *(short *)((a4 + 0x0));
-    return ((int (*)(int, int))(0x8C1EFEA0))((unsigned char)((int)(unsigned short)t0 >> 8), 0xFF00);
 }
 
 int kmySetBGPlane(int a4)

@@ -125,7 +125,6 @@ void umpCallAdvantage(void);
 void umpCallSecondServe(void);
 void umpCallFirstServe(void);
 int texPicInit(int a4, int a5, int a6, int a7);
-int FUN_8c0eb200(int a4, int a5, int a6, int a7);
 int strmBgmSetVol(int a4);
 float cpuSegCrossXZ(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14, int a15, int a16, int a17, int a18, int a19, float f4, float f5, float f6, float f7, float f8);
 int fogSetPreset(int a4, int a5);
@@ -1318,11 +1317,6 @@ int sunMatrixSet(int a4, int a5)
     nlTranslate((-(*(float *)(((t2 + a4) + 0x8)))), (-(*(float *)(((t2 + a4) + 0xC)))), (*(float *)(((t2 + a4) + 0x10))));
     nlGetMatrix(0x8C2878F8);
     return nlPopMatrix(0x1);
-}
-
-int FUN_8c0eb200(int a4, int a5, int a6, int a7)
-{
-    return (kmSetBorderColor((a4 | 0xFF000000), a5, a6, a7, (a4 | 0xFF000000)));
 }
 
 

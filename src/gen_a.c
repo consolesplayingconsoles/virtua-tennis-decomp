@@ -2068,13 +2068,6 @@ int nlFogTableSet(void)
     return kmSetFogTable();
 }
 
-int nlMultiPushedMatrix(void)
-{
-    int t0;
-
-    t0 = *(int *)0x8C450864;
-    return nlMultiMatrix8((t0 + 0xFFFFFFC0));
-}
 
 int nlMakeModelProjectMatrix(void)
 {

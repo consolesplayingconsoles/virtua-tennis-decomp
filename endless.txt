@@ -1,0 +1,3 @@
+# Functions declared endless by design: drawn cases that run to the step limit are taken as endless cases (both sides run to the limit,
+# the calls and device accesses made so far are compared). One name per line; say why. Read by tools/5-generated/gen_equiv/gen_drv.py.
+main    # the game loop. In the simulator its registers repeat exactly every 107 steps; only a frame counter (8C20D198) and a pointer derived from it change

@@ -1,0 +1,350 @@
+/* Straight-line functions with calls and guards (batch gen_ll): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+typedef struct { int w[1]; } Stk1;
+typedef struct { int w[3]; } Stk3;
+int btnGuideDrawB(int, Stk3, float);
+int countryNamePutC(int, Stk3, Stk1, float);
+int getID_Color(int, float);
+int iconSlotPut(int, Stk3, float, float);
+int menuTextIconPut(int, Stk3, Stk1, float);
+int menuTextMsgPut(int, int, int, int, Stk3, float);
+int primRectFrame(int, int, int, int, Stk3);
+Stk3 vecMake(float, float, float);
+int resultTeamsDraw(int a4, int a5, int a6, int a7, float f4);
+
+int resultTeamsDraw(int a4, int a5, int a6, int a7, float f4)
+{
+    float u7;
+    float u8;
+    float u9;
+    int t14;
+    float u15;
+    float u16;
+    float u17;
+    float u20;
+    float u21;
+    float u22;
+    int t26;
+    float u44;
+    int t45;
+    float u49;
+    float u50;
+    float u51;
+    int t52;
+    int t54;
+    float u56;
+    float u57;
+    float u58;
+    int t59;
+    int t61;
+    float u63;
+    float u64;
+    float u65;
+    int t66;
+    int t69;
+    float u72;
+    float u73;
+    float u74;
+    int t75;
+    int t78;
+    float u81;
+    float u82;
+    float u83;
+    int t84;
+    float u100;
+    float u101;
+    float u102;
+    int t103;
+    float u108;
+    float u109;
+    float u110;
+    int t111;
+    float u114;
+    float u115;
+    float u116;
+    int t117;
+    float u121;
+    float u122;
+    float u123;
+    int t124;
+    float u128;
+    float u129;
+    float u130;
+    int t131;
+    int t133;
+    int t142;
+    int t144;
+    float u146;
+    float u147;
+    float u148;
+    int t149;
+    int t152;
+    float u155;
+    float u156;
+    float u157;
+    float u158;
+    int t159;
+    int t162;
+    float u165;
+    float u166;
+    float u167;
+    float u168;
+    float u169;
+    int t170;
+    int stk[65];
+
+    int R0;
+    int R1;
+    int R2;
+    int R3;
+    int R4;
+    int R5;
+    int R6;
+    int R7;
+    int R8;
+    int R9;
+    int R10;
+    int R11;
+    int R12;
+    int R13;
+    int R14;
+    float F2;
+    float F3;
+    float F4;
+    float F5;
+    float F6;
+    float F12;
+    float F13;
+    float F14;
+    float F15;
+    int T_;
+    R4 = a4;
+    R5 = a5;
+    R6 = a6;
+    R7 = a7;
+    F4 = f4;
+    *(unsigned int *)(((int)stk + 136)) = 0x82;
+    *(int *)((int)stk + 120) = (((int)stk + 124) + 0x28);
+    *(Stk3 *)((((int)stk + 124) + 0x28)) = vecMake(53.0f, 165.0f, 0.100000001f);
+    *(int *)((int)stk + 116) = ((((int)stk + 124) + 0x28) + 0x24);
+    *(Stk3 *)(((((int)stk + 124) + 0x28) + 0x24)) = vecMake(527.0f, 165.0f, 0.100000001f);
+    *(unsigned int *)(((int)stk + 124)) = ((((int)stk + 124) + 0x28) + 0x18);
+    *(int *)((int)stk + 112) = ((((int)stk + 124) + 0x28) + 0x18);
+    *(Stk3 *)(((((int)stk + 124) + 0x28) + 0x18)) = vecMake(118.0f, 165.0f, 0.100000001f);
+    *(int *)((int)stk + 108) = ((((int)stk + 124) + 0x28) + 0xC);
+    *(Stk3 *)(((((int)stk + 124) + 0x28) + 0xC)) = vecMake(462.0f, 165.0f, 0.100000001f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 96)) = *(struct mv3 *)((((int)stk + 124) + 0x28)); }
+    *(unsigned int *)(((int)stk + 140)) = 0x8C287D84;
+    iconSlotPut((*(int *)0x8C2889DC), *(Stk3 *)(((int)stk + 96)), 0.65234375f, F4);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 84)) = *(struct mv3 *)((*(int *)(((int)stk + 124)))); }
+    *(unsigned int *)(((int)stk + 144)) = 0x8C289874;
+    iconSlotPut((*(int *)0x8C28A4CC), *(Stk3 *)(((int)stk + 84)), 0.65234375f, F4);
+    *(unsigned int *)(((int)stk + 132)) = 0x8C3417C8;
+    *(unsigned int *)(((int)stk + 128)) = (getID_Color((*(int *)0x8C3417C8), F4));
+    u7 = *(float *)(((((int)stk + 124) + 0x28) + 0x8));
+    u8 = *(float *)(((((int)stk + 124) + 0x28) + 0x4));
+    u9 = *(float *)(((((int)stk + 124) + 0x28) + 0x0));
+    *(int *)((int)stk + 80) = (((int)stk + 84) + 0x44);
+    *(Stk3 *)((((int)stk + 84) + 0x44)) = vecMake((u9 + 62.0f), (u8 + -2.0f), u7);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 68)) = *(struct mv3 *)((((int)stk + 84) + 0x44)); }
+    primRectFrame(0x40, 0x50, 0x1, (*(int *)(((int)stk + 128))), *(Stk3 *)(((int)stk + 68)));
+    *(unsigned int *)(((int)stk + 128)) = 0x8C3417D0;
+    *(unsigned int *)(((((int)stk + 68) + 0x50) + 0x0)) = (getID_Color((*(int *)0x8C3417D0), F4));
+    t14 = *(int *)(((int)stk + 124));
+    u15 = *(float *)((t14 + 0x8));
+    u16 = *(float *)((t14 + 0x0));
+    u17 = *(float *)((t14 + 0x4));
+    *(int *)((int)stk + 64) = (((int)stk + 84) + 0x44);
+    *(Stk3 *)((((int)stk + 84) + 0x44)) = vecMake((u16 + 62.0f), (u17 + -2.0f), u15);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 84) + 0x44)); }
+    primRectFrame(0x40, 0x50, 0x1, (*(int *)(((int)stk + 148))), *(Stk3 *)(((int)stk + 52)));
+    u20 = *(float *)(((((int)stk + 124) + 0x28) + 0x0));
+    u21 = *(float *)(((((int)stk + 124) + 0x28) + 0x8));
+    u22 = *(float *)(((((int)stk + 124) + 0x28) + 0x4));
+    *(int *)((int)stk + 48) = (((int)stk + 84) + 0x44);
+    *(Stk3 *)((((int)stk + 84) + 0x44)) = vecMake((u20 + 29.0f), (u22 + -23.0f), u21);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)((((int)stk + 84) + 0x44)); }
+    btnGuideDrawB((*(int *)(((*(int *)(((int)stk + 132))) + 0x0))), *(Stk3 *)(((int)stk + 36)), F4);
+    t26 = *(int *)(((int)stk + 124));
+    R10 = (0x8C0B00DE);
+    R11 = (((((int)stk + 124) + 0x28) + 0xC));
+    R12 = ((((int)stk + 124) + 0x28));
+    R13 = (0x8C015EEA);
+    R14 = ((((int)stk + 84) + 0x44));
+    R3 = (t26);
+    R8 = (((((int)stk + 124) + 0x28) + 0x24));
+    R9 = (0x8C0BB97C);
+    F12 = (62.0f);
+    F13 = (-2.0f);
+    F14 = (0.100000001f);
+    F15 = (F4);
+    F2 = (29.0f);
+    F5 = (((*(float *)((t26 + 0x4))) + -23.0f));
+    F6 = ((*(float *)((t26 + 0x8))));
+    u44 = *(float *)((R3 + 0x0));
+    t45 = R14;
+    *(int *)((int)stk + 32) = t45;
+    *(Stk3 *)(t45) = vecMake((u44 + F2), F5, F6);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(R14); }
+    btnGuideDrawB((*(int *)(((*(int *)(((int)stk + 128))) + 0x0))), *(Stk3 *)(((int)stk + 20)), F15);
+    u49 = *(float *)((R12 + 0x0));
+    u50 = *(float *)((R12 + 0x8));
+    u51 = *(float *)((R12 + 0x4));
+    t52 = R14;
+    *(int *)((int)stk + 16) = t52;
+    *(Stk3 *)(t52) = vecMake((u49 + 180.0f), (u51 + 1.0f), u50);
+    t54 = *(int *)(((*(int *)(((int)stk + 140))) + 0xC58));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(R14); }
+    countryNamePutC(t54, *(Stk3 *)(((int)stk + 4)), *(Stk1 *)((int)stk + 4 + 12), F15);
+    u56 = *(float *)((R12 + 0x0));
+    u57 = *(float *)((R12 + 0x8));
+    u58 = *(float *)((R12 + 0x4));
+    t59 = R14;
+    *(int *)((int)stk + 120) = t59;
+    *(Stk3 *)(t59) = vecMake((u56 + 180.0f), (u58 + 25.0f), u57);
+    t61 = *(int *)(((*(int *)(((int)stk + 144))) + 0xC58));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 108)) = *(struct mv3 *)(R14); }
+    countryNamePutC(t61, *(Stk3 *)(((int)stk + 108)), *(Stk1 *)((int)stk + 108 + 12), F15);
+    u63 = *(float *)((R12 + 0x0));
+    u64 = *(float *)((R12 + 0x8));
+    u65 = *(float *)((R12 + 0x4));
+    t66 = R14;
+    *(int *)((int)stk + 104) = t66;
+    *(Stk3 *)(t66) = vecMake((u63 + 257.0f), (u65 + F13), (u64 + F14));
+    t69 = getID_Color((*(int *)(((*(int *)(((int)stk + 132))) + 0x0))), F15);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 92)) = *(struct mv3 *)(R14); }
+    primRectFrame((*(int *)(((int)stk + 136))), 0x16, 0x1, t69, *(Stk3 *)(((int)stk + 92)));
+    u72 = *(float *)((R12 + 0x0));
+    u73 = *(float *)((R12 + 0x8));
+    u74 = *(float *)((R12 + 0x4));
+    t75 = R14;
+    *(int *)((int)stk + 88) = t75;
+    *(Stk3 *)(t75) = vecMake((u72 + 257.0f), (u74 + 22.0f), (u73 + F14));
+    t78 = getID_Color((*(int *)(((*(int *)(((int)stk + 128))) + 0x0))), F15);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)(R14); }
+    primRectFrame((*(int *)(((int)stk + 136))), 0x16, 0x1, t78, *(Stk3 *)(((int)stk + 76)));
+    u81 = *(float *)((R14 + 0x0));
+    u82 = *(float *)((R14 + 0x8));
+    u83 = *(float *)((R14 + 0x4));
+    t84 = R14;
+    *(int *)((int)stk + 72) = t84;
+    *(Stk3 *)(t84) = vecMake((u81 + -80.0f), (u83 + 60.0f), u82);
+    R12 = (0x8C287ACC);
+    if (((int)(*(int *)0x8C287B00) > (int)0x1)) goto L_8C0A2230;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)(R14); }
+    R4 = (0x8C1106F8);
+    F4 = (F15);
+    L_8C0A2240:;
+    menuTextMsgPut(R4, R5, R6, R7, *(Stk3 *)(((int)stk + 112)), F4);
+    *(float *)((R14 + 0x0)) = ((*(float *)((R14 + 0x0))) + -43.0f);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)(R14); }
+    menuTextIconPut((*(int *)((R12 + 0x34))), *(Stk3 *)(((int)stk + 112)), *(Stk1 *)((int)stk + 112 + 12), F15);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 100)) = *(struct mv3 *)(R11); }
+    *(unsigned int *)(((int)stk + 128)) = 0x8C288AFC;
+    iconSlotPut((*(int *)0x8C289754), *(Stk3 *)(((int)stk + 100)), 0.65234375f, F15);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)(R8); }
+    *(unsigned int *)(((int)stk + 144)) = 0x8C28A5EC;
+    iconSlotPut((*(int *)0x8C28B244), *(Stk3 *)(((int)stk + 88)), 0.65234375f, F15);
+    *(unsigned int *)(((int)stk + 132)) = 0x8C3417CC;
+    *(unsigned int *)(((int)stk + 124)) = (getID_Color((*(int *)0x8C3417CC), F15));
+    u100 = *(float *)((R11 + 0x8));
+    u101 = *(float *)((R11 + 0x0));
+    u102 = *(float *)((R11 + 0x4));
+    t103 = R14;
+    *(int *)((int)stk + 84) = t103;
+    *(Stk3 *)(t103) = vecMake((u101 + F12), (u102 + F13), u100);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 72)) = *(struct mv3 *)(R14); }
+    primRectFrame(0x40, 0x50, 0x1, (*(int *)(((int)stk + 124))), *(Stk3 *)(((int)stk + 72)));
+    *(unsigned int *)(((int)stk + 124)) = 0x8C3417D4;
+    *(unsigned int *)(((((int)stk + 72) + 0x44) + 0x0)) = (getID_Color((*(int *)0x8C3417D4), F15));
+    u108 = *(float *)((R8 + 0x8));
+    u109 = *(float *)((R8 + 0x0));
+    u110 = *(float *)((R8 + 0x4));
+    t111 = R14;
+    *(int *)((int)stk + 68) = t111;
+    *(Stk3 *)(t111) = vecMake((u109 + F12), (u110 + F13), u108);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)(R14); }
+    primRectFrame(0x40, 0x50, 0x1, (*(int *)(((int)stk + 140))), *(Stk3 *)(((int)stk + 56)));
+    u114 = *(float *)((R11 + 0x0));
+    u115 = *(float *)((R11 + 0x8));
+    u116 = *(float *)((R11 + 0x4));
+    t117 = R14;
+    *(int *)((int)stk + 52) = t117;
+    *(Stk3 *)(t117) = vecMake((u114 + 29.0f), (u116 + -23.0f), u115);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)(R14); }
+    btnGuideDrawB((*(int *)(((*(int *)(((int)stk + 132))) + 0x0))), *(Stk3 *)(((int)stk + 40)), F15);
+    u121 = *(float *)((R8 + 0x0));
+    u122 = *(float *)((R8 + 0x8));
+    u123 = *(float *)((R8 + 0x4));
+    t124 = R14;
+    *(int *)((int)stk + 36) = t124;
+    *(Stk3 *)(t124) = vecMake((u121 + 29.0f), (u123 + -23.0f), u122);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)(R14); }
+    btnGuideDrawB((*(int *)(((*(int *)(((int)stk + 124))) + 0x0))), *(Stk3 *)(((int)stk + 24)), F15);
+    u128 = *(float *)((R11 + 0x0));
+    u129 = *(float *)((R11 + 0x8));
+    u130 = *(float *)((R11 + 0x4));
+    t131 = R14;
+    *(int *)((int)stk + 20) = t131;
+    *(Stk3 *)(t131) = vecMake((u128 + -79.0f), (u130 + 1.0f), u129);
+    t133 = *(int *)(((*(int *)(((int)stk + 128))) + 0xC58));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(R14); }
+    countryNamePutC(t133, *(Stk3 *)(((int)stk + 8)), *(Stk1 *)((int)stk + 8 + 12), F15);
+    F12 = (-79.0f);
+    F4 = ((*(float *)((R11 + 0x0))));
+    F5 = (((*(float *)((R11 + 0x4))) + 25.0f));
+    F6 = (((*(float *)((R11 + 0x8))) + F14));
+    t142 = R14;
+    *(int *)((int)stk + 4) = t142;
+    *(Stk3 *)(t142) = vecMake((F4 + F12), F5, F6);
+    t144 = *(int *)(((*(int *)(((int)stk + 144))) + 0xC58));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)(R14); }
+    countryNamePutC(t144, *(Stk3 *)(((int)stk + 112)), *(Stk1 *)((int)stk + 112 + 12), F15);
+    u146 = *(float *)((R11 + 0x0));
+    u147 = *(float *)((R11 + 0x8));
+    u148 = *(float *)((R11 + 0x4));
+    t149 = R14;
+    *(int *)((int)stk + 108) = t149;
+    *(Stk3 *)(t149) = vecMake((u146 + F13), (u148 + F13), (u147 + F14));
+    t152 = getID_Color((*(int *)(((*(int *)(((int)stk + 132))) + 0x0))), F15);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 96)) = *(struct mv3 *)(R14); }
+    primRectFrame((*(int *)(((int)stk + 136))), 0x16, 0x1, t152, *(Stk3 *)(((int)stk + 96)));
+    u155 = *(float *)((R11 + 0x0));
+    u156 = *(float *)((R11 + 0x8));
+    u157 = *(float *)0x8C0A256C;
+    u158 = *(float *)((R11 + 0x4));
+    t159 = R14;
+    *(int *)((int)stk + 92) = t159;
+    *(Stk3 *)(t159) = vecMake((u155 + F13), (u158 + u157), (u156 + F14));
+    t162 = getID_Color((*(int *)(((*(int *)(((int)stk + 124))) + 0x0))), F15);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 80)) = *(struct mv3 *)(R14); }
+    primRectFrame((*(int *)(((int)stk + 136))), 0x16, 0x1, t162, *(Stk3 *)(((int)stk + 80)));
+    u165 = *(float *)((R14 + 0x0));
+    u166 = *(float *)((R14 + 0x8));
+    u167 = *(float *)0x8C0A2570;
+    u168 = *(float *)((R14 + 0x4));
+    u169 = *(float *)0x8C0A2574;
+    t170 = R14;
+    *(int *)((int)stk + 76) = t170;
+    *(Stk3 *)(t170) = vecMake((u165 + u169), (u168 + u167), u166);
+    if (((int)(*(int *)((R12 + 0x38))) > (int)0x1)) goto L_8C0A24C2;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)(R14); }
+    R4 = (0x8C1106F8);
+    F4 = (F15);
+    L_8C0A24D2:;
+    menuTextMsgPut(R4, R5, R6, R7, *(Stk3 *)(((int)stk + 112)), F4);
+    *(float *)((R14 + 0x0)) = ((*(float *)((R14 + 0x0))) + (*(float *)0x8C0A2584));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 100)) = *(struct mv3 *)(R14); }
+    return (menuTextIconPut((*(int *)((R12 + 0x38))), *(Stk3 *)(((int)stk + 100)), *(Stk1 *)((int)stk + 100 + 12), F15));
+    L_8C0A24C2:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)(R14); }
+    R4 = (0x8C110700);
+    F4 = (F15);
+    goto L_8C0A24D2;
+    L_8C0A2230:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)(R14); }
+    R4 = (0x8C110700);
+    F4 = (F15);
+    goto L_8C0A2240;
+}

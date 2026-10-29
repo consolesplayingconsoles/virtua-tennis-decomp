@@ -272,35 +272,6 @@ void vmsfs_fread1(int a4, int a5)
 }
 
 
-void swingBlurPut(int a4, float f4, float f5)
-{
-    if (!(1.0f > f4)) {
-        if ((1.0f + 1.0f) > f4) {
-            nlScale(1.0f, 1.0f, (f4 / (1.0f + 1.0f)));
-            nlObjPutTrnsl((*(int *)(((((((a4 << 1) + a4) << 2) << 1) + 0x8C18275C) + 0x4))), f5);
-        } else {
-            if (5.0f > f4) {
-                nlScale(1.0f, 1.0f, (f4 / 5.0f));
-                nlObjPutTrnsl((*(int *)(((((((a4 << 1) + a4) << 2) << 1) + 0x8C18275C) + 0x8))), (f5 * 0.5f));
-            } else {
-                if (10.0f > f4) {
-                    nlScale(1.0f, 1.0f, (f4 / 10.0f));
-                    nlObjPutTrnsl((*(int *)(((((((a4 << 1) + a4) << 2) << 1) + 0x8C18275C) + 0xC))), (f5 * 0.400000006f));
-                } else {
-                    if (16.0f > f4) {
-                        nlScale(1.0f, 1.0f, (f4 / 16.0f));
-                        nlObjPutTrnsl((*(int *)(((((((a4 << 1) + a4) << 2) << 1) + 0x8C18275C) + 0x10))), (f5 * 0.349999994f));
-                    } else {
-                        if (23.0f > f4) {
-                            nlScale(1.0f, 1.0f, (f4 / 23.0f));
-                        }
-                        nlObjPutTrnsl((*(int *)(((((((a4 << 1) + a4) << 2) << 1) + 0x8C18275C) + 0x14))), (f5 * 0.349999994f));
-                    }
-                }
-            }
-        }
-    }
-}
 
 int courtAngleInSector(int a4, int a5)
 {
@@ -864,54 +835,6 @@ int ADXB_DecodeHeaderAu(int a4, int a5, int a6)
     return t14;
 }
 
-int rectFrameDraw(int a4, float f4)
-{
-    float u0;
-    int stk[43];
-
-    u0 = *(float *)(((0xA8 + ((int)stk + 4)) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0xC)) = a4;
-    *(float *)((((int)stk + 4) + 0x8)) = u0;
-    *(unsigned int *)(((((int)stk + 4) + 0x10) + 0xC)) = a4;
-    *(float *)(((((int)stk + 4) + 0x10) + 0x8)) = u0;
-    *(unsigned int *)((((((int)stk + 4) + 0x10) + 0x10) + 0xC)) = a4;
-    *(float *)((((((int)stk + 4) + 0x10) + 0x10) + 0x8)) = u0;
-    *(unsigned int *)(((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0xC)) = a4;
-    *(float *)(((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x8)) = u0;
-    *(unsigned int *)((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0xC)) = a4;
-    *(float *)((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x8)) = u0;
-    *(unsigned int *)(((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0xC)) = a4;
-    *(float *)(((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x8)) = u0;
-    *(unsigned int *)((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0xC)) = a4;
-    *(float *)((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x8)) = u0;
-    *(unsigned int *)(((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0xC)) = a4;
-    *(float *)(((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x8)) = u0;
-    *(unsigned int *)((((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0xC)) = a4;
-    *(float *)((((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x8)) = u0;
-    *(unsigned int *)(((((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0xC)) = a4;
-    *(float *)(((((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x8)) = u0;
-    *(float *)((((int)stk + 4) + 0x0)) = (*(float *)(((0xA8 + ((int)stk + 4)) + 0x0)));
-    *(float *)((((int)stk + 4) + 0x4)) = (*(float *)(((0xA8 + ((int)stk + 4)) + 0x4)));
-    *(float *)(((((int)stk + 4) + 0x10) + 0x0)) = ((*(float *)(((0xA8 + ((int)stk + 4)) + 0x0))) - (f4 * 1.33000004f));
-    *(float *)(((((int)stk + 4) + 0x10) + 0x4)) = ((*(float *)(((0xA8 + ((int)stk + 4)) + 0x4))) - f4);
-    *(float *)((((((int)stk + 4) + 0x10) + 0x10) + 0x0)) = (*(float *)(((0xB4 + ((int)stk + 4)) + 0x0)));
-    *(float *)((((((int)stk + 4) + 0x10) + 0x10) + 0x4)) = (*(float *)(((0xA8 + ((int)stk + 4)) + 0x4)));
-    *(float *)(((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x0)) = ((*(float *)(((0xB4 + ((int)stk + 4)) + 0x0))) + (f4 * 1.33000004f));
-    *(float *)(((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x4)) = ((*(float *)(((0xA8 + ((int)stk + 4)) + 0x4))) - f4);
-    *(float *)((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x0)) = (*(float *)(((0xB4 + ((int)stk + 4)) + 0x0)));
-    *(float *)((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x4)) = (*(float *)(((0xB4 + ((int)stk + 4)) + 0x4)));
-    *(float *)(((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x0)) = ((*(float *)(((0xB4 + ((int)stk + 4)) + 0x0))) + (f4 * 1.33000004f));
-    *(float *)(((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x4)) = ((*(float *)(((0xB4 + ((int)stk + 4)) + 0x4))) + f4);
-    *(float *)((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x0)) = (*(float *)(((0xA8 + ((int)stk + 4)) + 0x0)));
-    *(float *)((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x4)) = (*(float *)(((0xB4 + ((int)stk + 4)) + 0x4)));
-    *(float *)(((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x0)) = ((*(float *)(((0xA8 + ((int)stk + 4)) + 0x0))) - (f4 * 1.33000004f));
-    *(float *)(((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x4)) = ((*(float *)(((0xB4 + ((int)stk + 4)) + 0x4))) + f4);
-    *(float *)((((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x0)) = (*(float *)(((0xA8 + ((int)stk + 4)) + 0x0)));
-    *(float *)((((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x4)) = (*(float *)(((0xA8 + ((int)stk + 4)) + 0x4)));
-    *(float *)(((((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x0)) = ((*(float *)(((0xA8 + ((int)stk + 4)) + 0x0))) - (f4 * 1.33000004f));
-    *(float *)(((((((((((((int)stk + 4) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x10) + 0x4)) = ((*(float *)(((0xA8 + ((int)stk + 4)) + 0x4))) - f4);
-    return (nlDispStripTrnsl(0xA, ((int)stk + 4)));
-}
 
 int endingCamera2Set(void)
 {
@@ -1091,41 +1014,6 @@ int fmMngReadSctAllData(int a4)
     return t41;
 }
 
-int circuitDrawPrompt(void)
-{
-    int t6;
-    int t9;
-    int t10;
-    int t14;
-    float u24;
-    int t12;
-    int stk[13];
-
-    t6 = 0x0;
-    if (((*(int *)(((*(int *)((0x8C29B898 + ((*(int *)0x8C421F70) << 2)))) + 0x10))) & 8) != 0) {
-        sndSeDecide();
-        t6 = 0x1;
-    }
-    t9 = *(int *)0x8C287D5C;
-    t10 = 0x15F;
-    if (t9 == 2) {
-        t10 = 0x191;
-    }
-    t14 = t10;
-    if ((t9 == 3) && (t12 = *(int *)0x8C2FBFDC, t12 == 1)) {
-        t14 = (t10 + 0x46);
-    }
-    sprSheetSet(0x8C10ABC0);
-    sprSheetPut(0x0, 250.0f, (float)(t14 + 0x3), 9.99999975e-05f, 1.0f);
-    *(float *)(((int)stk + 20)) = (float)t14;
-    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 224.0f, (float)t14, 0.000300000014f);
-    cursorBoxPut(0x0);
-    vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 224.0f, (*(float *)(((int)stk + 20))), 0.000199999995f);
-    u24 = 0.5f;
-    u24 = u24 + 0.5f * (nlSin(((*(int *)0x8C20D19C) * 0x888)));
-    cursorBoxPut(0x1);
-    return t6;
-}
 
 int endingScreenObjPutTrnsl(float f4)
 {
@@ -1279,47 +1167,6 @@ int ADXB_DecodeHeaderSpsd(int a4, int a5, int a6)
     return t13;
 }
 
-int ballInit(int a4, int a5, int a6, int a7)
-{
-    int t3;
-    int t6;
-    int t7;
-    int t9;
-    int t12;
-    int t10;
-
-    vecMake(a4, a5, a6, a7, a4, 0.0f, (*(float *)0x8C0264B4), 0.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0xC)) = *(struct mv3 *)(a4); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x18)) = *(struct mv3 *)(a4); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x34)) = *(struct mv3 *)(0x8C1016D4); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x24)) = *(struct mv3 *)(0x8C1016D4); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x40)) = *(struct mv3 *)(0x8C1016D4); }
-    *(float *)((a4 + 0x30)) = 0.0f;
-    *(unsigned int *)((a4 + 0x4C)) = 0x0;
-    *(unsigned int *)((a4 + 0x50)) = 0x0;
-    *(unsigned int *)((a4 + 0x54)) = 0x2;
-    *(unsigned int *)((a4 + 0x54)) = ((*(int *)((a4 + 0x54))) | 0x8);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x58)) = *(struct mv3 *)(0x8C1016D4); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x64)) = *(struct mv3 *)(0x8C1016D4); }
-    t3 = *(int *)((a4 + 0x50));
-    *(float *)((a4 + 0x70)) = ((*(float *)((((((t3 << 1) + t3) << 2) << 1) + 0x8C105FD8))) * (*(float *)0x8C0264C4));
-    *(unsigned short *)((a4 + 0x84)) = 0x0;
-    *(unsigned short *)((a4 + 0x86)) = 0x0;
-    t6 = 0x8C291FB0;
-    for (;;) {
-        t7 = a4;
-        t9 = t6;
-        for (;;) { t10 = *(int *)t7; t7 = (t7 + 4); if ((unsigned int)((a4 + 140)) < (unsigned int)t7) break; *(unsigned int *)t9 = t10; t9 = (t9 + 4); }
-        t6 = (t6 + 0x8C);
-        if ((unsigned int)t6 >= (unsigned int)0x8C2920C8) {
-            break;
-        }
-    }
-    *(unsigned int *)0x8C295480 = 0x0;
-    t12 = ballColliInit();
-    *(unsigned int *)0x8C1D126C = 0x0;
-    return t12;
-}
 
 int miniDrawModels(void)
 {

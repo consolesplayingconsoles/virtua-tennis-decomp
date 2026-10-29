@@ -167,127 +167,6 @@ int cpuSglAimRateOpp3(int a4, int a5)
     return 0x1C;
 }
 
-int cpuDblThink(int a4, int a5, int a6, int a7)
-{
-    int t0;
-    int t1;
-    int t2;
-    float u12;
-    float u13;
-    float u21;
-    float u22;
-    int t39;
-    float u47;
-    int t50;
-    int t48;
-    int t54;
-    int t56;
-    int t60;
-    int t69;
-    int t82;
-    int t16;
-    int t20;
-    int stk[6];
-
-    t0 = *(int *)((a4 + 0xB5C));
-    t1 = *(int *)0x8C20D19C;
-    t2 = ((~(((~t1) + 0x1) & 0x1)) + 0x1);
-    if ((int)t1 >= 0) {
-        t2 = (t1 & 0x1);
-    }
-    if (t2 != 0) {
-        *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = ((*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC))) + (*(float *)0x8C23D204));
-    }
-    if ((*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC))) > 100.0f) {
-        *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = 100.0f;
-    }
-    u12 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x0));
-    u13 = *(float *)0x8C23D204;
-    *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x0)) = (u12 - u13);
-    if (0.0f > (u12 - u13)) {
-        *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x0)) = 0.0f;
-    }
-    if (((*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB2))) == 0) && (t16 = *(int *)((a4 + 0xB60)), (t16 & 0x100) != 0)) {
-        *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB2)) = 0x1;
-    }
-    if (((*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB2))) != 0) && (t20 = *(int *)((a4 + 0xB60)), (t20 & 0x100) == 0)) {
-        *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB2)) = 0x0;
-        u21 = *(float *)((a4 + 0xCF4));
-        u22 = (-u21);
-        if (!(0.0f > u21)) {
-            u22 = u21;
-        }
-        if (u22 > 0.75f) {
-            *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB7)) = 0x1;
-        }
-        if ((*(int *)((a4 + 0xA24))) != 2) {
-            *(unsigned int *)((a4 + 0xA24)) = 0x4;
-        }
-    }
-    if (((*(int *)0x8C291F78) & 2) != 0) {
-        *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x20)) = 0x0;
-        *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
-        if (((*(int *)((a4 + 0xB60))) & 0x40000) != 0) {
-            cpuDblServe(a4);
-        } else {
-            t39 = serveGetReceiver();
-            if ((*(int *)(((0xB5C + a4) + 0x0))) != t39) {
-                cpuDblNetmanPos(a4);
-            } else {
-                cpuDblReceivePos(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24), *(int *)((int)stk + 4 + 28));
-            }
-        }
-    } else {
-        u47 = *(float *)0x8C291F50;
-        t50 = 0x1;
-        if (u47 > 0.0f) {
-        } else {
-            t48 = 0x0;
-            if (0.0f > u47) {
-                t48 = 0xFFFFFFFF;
-            }
-            t50 = t48;
-        }
-        if ((float)t50 == (-(*(float *)((a4 + 0xB00))))) {
-            t54 = cpuDblHitCheck(a4, 0x4, a6, a7, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24), *(int *)((int)stk + 4 + 28));
-            if (t54 != 0) {
-                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x20)) = 0x0;
-                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
-                cpuDblShot(a4);
-            } else {
-                t56 = cpuDblIsMyBall(a4);
-                if (t56 != 0) {
-                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x20)) = 0x0;
-                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
-                    cpuDblChase(a4);
-                } else {
-                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x20)) = 0x0;
-                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
-                    t60 = ((int (*)(int))((*(int *)((((*(int *)0x8C2FCC1C) << 2) + 0x8C10D798)))))(a4);
-                }
-            }
-        } else {
-            if ((0x4 & (*(int *)0x8C291F78)) != 0) {
-                if (!((1.0f + 1.0f) > (*(float *)0x8C291F54))) {
-                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x20)) = 0x0;
-                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
-                    t69 = ((int (*)(int, int, float))((*(int *)((((*(int *)0x8C2FCC1C) << 2) + 0x8C10D71C)))))(a4, 0x4, u47);
-                }
-            } else {
-                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x20)) = 0x0;
-                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
-                t82 = ((int (*)(int, int, float))((*(int *)((((*(int *)0x8C2FCC1C) << 2) + 0x8C10D71C)))))(a4, 0x4, u47);
-            }
-        }
-    }
-    cpuDblMove(a4);
-    cpuDblSwingInput(a4);
-    cpuStickNudge(a4);
-    cpuGiveUpCheck(a4);
-    cpuPointOverInput(a4);
-    *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x128)) = 0x1;
-    return 0x128;
-}
 
 int cpuSglThink(int a4, int a5, int a6, int a7, float f4, float f5)
 {
@@ -586,3 +465,126 @@ int vmsfs_save_file(int a4, int a5, int a6, int a7, int a8, int a9)
     }
     return t43;
 }
+
+int cpuDblThink(int a4, int a5, int a6, int a7)
+{
+    int t0;
+    int t1;
+    int t2;
+    float u12;
+    float u13;
+    float u21;
+    float u22;
+    int t39;
+    float u47;
+    int t50;
+    int t48;
+    int t54;
+    int t56;
+    int t60;
+    int t69;
+    int t82;
+    int t16;
+    int t20;
+    int stk[6];
+
+    t0 = *(int *)((a4 + 0xB5C));
+    t1 = *(int *)0x8C20D19C;
+    t2 = ((~(((~t1) + 0x1) & 0x1)) + 0x1);
+    if ((int)t1 >= 0) {
+        t2 = (t1 & 0x1);
+    }
+    if (t2 != 0) {
+        *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = ((*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC))) + (*(float *)0x8C23D204));
+    }
+    if ((*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC))) > 100.0f) {
+        *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = 100.0f;
+    }
+    u12 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x0));
+    u13 = *(float *)0x8C23D204;
+    *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x0)) = (u12 - u13);
+    if (0.0f > (u12 - u13)) {
+        *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x0)) = 0.0f;
+    }
+    if (((*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB2))) == 0) && (t16 = *(int *)((a4 + 0xB60)), (t16 & 0x100) != 0)) {
+        *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB2)) = 0x1;
+    }
+    if (((*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB2))) != 0) && (t20 = *(int *)((a4 + 0xB60)), (t20 & 0x100) == 0)) {
+        *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB2)) = 0x0;
+        u21 = *(float *)((a4 + 0xCF4));
+        u22 = (-u21);
+        if (!(0.0f > u21)) {
+            u22 = u21;
+        }
+        if (u22 > 0.75f) {
+            *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB7)) = 0x1;
+        }
+        if ((*(int *)((a4 + 0xA24))) != 2) {
+            *(unsigned int *)((a4 + 0xA24)) = 0x4;
+        }
+    }
+    if (((*(int *)0x8C291F78) & 2) != 0) {
+        *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x20)) = 0x0;
+        *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
+        if (((*(int *)((a4 + 0xB60))) & 0x40000) != 0) {
+            cpuDblServe(a4);
+        } else {
+            t39 = serveGetReceiver();
+            if ((*(int *)(((0xB5C + a4) + 0x0))) != t39) {
+                cpuDblNetmanPos(a4);
+            } else {
+                cpuDblReceivePos(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24), *(int *)((int)stk + 4 + 28));
+            }
+        }
+    } else {
+        u47 = *(float *)0x8C291F50;
+        t50 = 0x1;
+        if (u47 > 0.0f) {
+        } else {
+            t48 = 0x0;
+            if (0.0f > u47) {
+                t48 = 0xFFFFFFFF;
+            }
+            t50 = t48;
+        }
+        if ((float)t50 == (-(*(float *)((a4 + 0xB00))))) {
+            t54 = cpuDblHitCheck(a4, 0x4, a6, a7, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24), *(int *)((int)stk + 4 + 28));
+            if (t54 != 0) {
+                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x20)) = 0x0;
+                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
+                cpuDblShot(a4);
+            } else {
+                t56 = cpuDblIsMyBall(a4);
+                if (t56 != 0) {
+                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x20)) = 0x0;
+                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
+                    cpuDblChase(a4);
+                } else {
+                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x20)) = 0x0;
+                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
+                    t60 = ((int (*)(int))((*(int *)((((*(int *)0x8C2FCC1C) << 2) + 0x8C10D798)))))(a4);
+                }
+            }
+        } else {
+            if ((0x4 & (*(int *)0x8C291F78)) != 0) {
+                if (!((1.0f + 1.0f) > (*(float *)0x8C291F54))) {
+                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x20)) = 0x0;
+                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
+                    t69 = ((int (*)(int, int, float))((*(int *)((((*(int *)0x8C2FCC1C) << 2) + 0x8C10D71C)))))(a4, 0x4, u47);
+                }
+            } else {
+                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x20)) = 0x0;
+                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
+                t82 = ((int (*)(int, int, float))((*(int *)((((*(int *)0x8C2FCC1C) << 2) + 0x8C10D71C)))))(a4, 0x4, u47);
+            }
+        }
+    }
+    cpuDblMove(a4);
+    cpuDblSwingInput(a4);
+    cpuStickNudge(a4);
+    cpuGiveUpCheck(a4);
+    cpuPointOverInput(a4);
+    *(unsigned char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x128)) = 0x1;
+    return 0x128;
+}
+

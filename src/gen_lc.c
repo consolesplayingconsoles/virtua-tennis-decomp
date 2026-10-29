@@ -1,0 +1,97 @@
+/* Straight-line functions with calls and guards (batch gen_lc): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+typedef struct { int w[3]; } Stk3;
+int BupCheckFile(void);
+int msgWinPut(int, int, int, int, int, int, int);
+int nlsndSystemControl(int, int, int);
+int resCautionTexFree(int);
+int strmControl(int, int);
+Stk3 vecMake(float, float, float);
+int padPauseOnUnplug(int a4);
+
+int padPauseOnUnplug(int a4)
+{
+    int t12;
+    int t13;
+    int t32;
+    int stk[17];
+
+    int R0;
+    int R1;
+    int R2;
+    int R3;
+    int R4;
+    int R5;
+    int R6;
+    int R8;
+    int R9;
+    int R10;
+    int R11;
+    int R12;
+    int R13;
+    int R14;
+    float F4;
+    float F5;
+    float F6;
+    float F13;
+    float F14;
+    float F15;
+    int T_;
+    R4 = a4;
+    *(unsigned int *)(((int)stk + 20)) = R4;
+    R11 = (0x0);
+    R12 = (0x1);
+    R13 = (0x0);
+    R14 = (0x0);
+    R9 = ((BupCheckFile()));
+    L_8C03030E:;
+    R4 = (0x4);
+    if (!(((int)R13 < (int)0x4))) goto L_8C030314;
+    t12 = *(int *)(((int)stk + 20));
+    t13 = *(int *)((((R13 << 2) + t12) + 0x0));
+    R10 = (((R13 << 2) + t12));
+    R4 = (t13);
+    if ((t13 == -1)) goto L_8C030256;
+    if (((*(int *)(((*(int *)(((R4 << 2) + 0x8C29B898))) + 0x0))) == 0)) goto L_8C030262;
+    goto L_8C030256;
+    L_8C030314:;
+    if ((R11 != 0)) goto L_8C030326;
+    if (((*(int *)0x8C1DC5B0) == 0)) goto L_8C030326;
+    resCautionTexFree(0x8);
+    L_8C030326:;
+    return R11;
+    L_8C030256:;
+    if (((int)R9 >= 0)) goto L_8C03030C;
+    if (((*(int *)0x8C40C698) == 0)) goto L_8C03030C;
+    L_8C030262:;
+    *(Stk3 *)(((int)stk + 8)) = vecMake(320.0f, 370.0f, 0.00100000005f);
+    msgWinPut(0x8, 0x1, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8));
+    *(unsigned int *)0x8C287C60 = 0x1;
+    *(unsigned int *)0x8C285A00 = R13;
+    if (((int)R9 >= 0)) goto L_8C0302C8;
+    R11 = (0x2);
+    L_8C0302E0:;
+    *(unsigned int *)0x8C40C280 = R14;
+    *(unsigned int *)0x8C40C284 = R14;
+    R13 = (R12);
+    L_8C0302FA:;
+    R4 = (0x8);
+    if (((int)R13 < (int)0x8)) goto L_8C0302EC;
+    strmControl(0x3, 0x4);
+    goto L_8C030314;
+    L_8C0302EC:;
+    nlsndSystemControl(R13, 0x1300A0, 0x0);
+    R13 = ((R13 + 0x1));
+    goto L_8C0302FA;
+    L_8C0302C8:;
+    t32 = *(int *)((R10 + 0x0));
+    R4 = (t32);
+    if ((t32 == -1)) goto L_8C0302E0;
+    if (((*(int *)(((*(int *)(((R4 << 2) + 0x8C29B898))) + 0x0))) != 0)) goto L_8C0302E0;
+    R11 = (R12);
+    goto L_8C0302E0;
+    L_8C03030C:;
+    R13 = ((R13 + 0x1));
+    goto L_8C03030E;
+}

@@ -1,6 +1,6 @@
 # Virtua Tennis decomp
 
-![decomp progress](badges/progress.svg?p=99.5&b=97.8&a=71&s=0)
+![decomp progress](badges/progress.svg?p=100.0&b=100.0&a=70&s=0)
 
 **Explore this decomp project with [Shuriken Explorer](https://consolesplayingconsoles.github.io/dc-shuriken-explorer/) and see the game's models, skeletons, animations, textures, images, sounds, text and side-by-side C and assembly code directly in your browser.**
 
@@ -21,18 +21,18 @@ everything game-derived on your machine, and `.gitignore` keeps it out of git.
 
 <!-- progress -->
 ```
-TOTAL TEST COVERAGE           70.6%  the instructions the cases ran, of all instructions, over the 3299 functions that can be C; the 3109 functions that reached the check are measured, the others count 0
-FUNCTIONS LEFT  (99.5% complete) 18  of the 3299 functions that can be C (12 with no C form are counted apart)
-BYTES LEFT   (97.8% complete) 17086  of 794498 bytes of code that can be C
+TOTAL TEST COVERAGE           70.3%  the instructions the cases ran, of all instructions, over the 3298 functions that can be C; the 3147 functions that reached the check are measured, the others count 0
+FUNCTIONS LEFT  (100.0% complete) 0  of the 3298 functions that can be C (12 with no C form are counted apart)
+BYTES LEFT      (100.0% complete) 0  of 794232 bytes of code that can be C
 FUNCTIONS                            
-  unnamed                        35  functions still called FUN_... (35 of 3311)
+  unnamed                        34  functions still called FUN_... (34 of 3310)
   Not written C                   0  0 bytes
   Written C with errors           0  0 bytes
   Not drawn                       0  0 bytes
-  Drawn with errors              14  13768 bytes
-  Checked with errors             4  3318 bytes
+  Drawn with errors               0  0 bytes
+  Checked with errors             0  0 bytes
   No C form                    0.4%  an instruction or a register convention with no C form (tools/5-generated/classify.py names it)
-  documented                  93.6%  3099 named functions in docs/*.md
+  documented                  94.2%  3117 named functions in docs/*.md
 GAME ASSETS (EXTRA)                  
   models named                23.3%  874 of 3745 models: a name, or a named table or collection
   characters named           100.0%  18 of 18 characters (note rules)
@@ -135,7 +135,7 @@ Other releases are different builds: `setup.sh` refuses them rather than produce
 |---|---|
 | [tests/<file>/<function>.json](tests/) | The test cases of each function |
 | [tests/equivalent.txt](tests/equivalent.txt) | The functions found Equivalent |
-| [badges/](badges) | The progress badge, written by [tools/progress.py](tools/progress.py): `progress.svg`. Once [status.txt](status.txt) ticks BUILDS FROM C it also lists the statuses there (BUILDS FROM C, BOOTS TO MENU, PLAYABLE, STABLE), ticked or crossed; each needs the ones above it |
+| [badges/](badges) | The progress badge, written by [tools/progress.py](tools/progress.py): `progress.svg`. It also lists the statuses in [status.txt](status.txt) (BUILDS FROM C, BOOTS TO MENU, PLAYABLE, STABLE), ticked or crossed; each needs the ones above it |
 
 **Scripts and tools**
 

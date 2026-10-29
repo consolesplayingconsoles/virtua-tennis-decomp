@@ -45,20 +45,6 @@ void ambLevelGet(void)
     t2 = *(int *)0x8C301BE8;
 }
 
-void fogApply(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    float u4;
-
-    t0 = *(int *)((a4 + 0x4));
-    t1 = *(int *)((a4 + 0x0));
-    t2 = *(int *)((a4 + 0x8));
-    nlFogTableColor(((((unsigned char)t1 << 16) | ((unsigned char)t0 << 8)) | (unsigned char)t2));
-    u4 = *(float *)((a4 + 0xC));
-    nlFogDensityF(u4);
-}
 
 void sprPutAlpha(int a4, float f4)
 {

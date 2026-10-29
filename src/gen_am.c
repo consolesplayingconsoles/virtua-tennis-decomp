@@ -735,19 +735,6 @@ int endingWinnerRootSync(int a4, int a5, int a6, int a7)
     return t4;
 }
 
-int cpuDebugLine2(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
-{
-    int stk[15];
-
-    stk[3] = a8;
-    stk[4] = a9;
-    stk[5] = a10;
-    stk[6] = a11;
-    *(unsigned int *)(((int)stk + 4)) = a4;
-    nlLineSetThickness(f4);
-    nlSingleLine((((int)stk + 4) + 0x8), (((int)stk + 4) + 0x14), (*(int *)(((int)stk + 4))));
-    return (nlLineSetThickness(1.0f));
-}
 
 int mwRnaGetOutVol(int a4)
 {

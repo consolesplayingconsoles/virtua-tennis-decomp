@@ -3566,32 +3566,6 @@ void modelSetVertsInt(int a4, int a5)
     } while (t17 != 0);
 }
 
-int modelGetSize(int a4, int a5, int a6, int a7)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-
-    t0 = (a4 + 0x18);
-    t1 = 0x18;
-    t2 = a6;
-    t3 = a7;
-    for (;;) {
-        t4 = *(int *)((t0 + 0x0));
-        if (t4 == 0) break;
-        t2 = t0;
-        t5 = *(int *)((t2 + 0x4C));
-        t3 = t5;
-        t0 = (t0 + 0x50);
-        t1 = (t1 + 0x50);
-        t0 = (t0 + t3);
-        t1 = (t1 + t3);
-    }
-    return (t1 + 0x8);
-}
 
 int shadowMulShear(void)
 {
@@ -3632,20 +3606,6 @@ int crowdFrameTcw(void)
     return t2;
 }
 
-void sceneVecStub(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int stk[30];
-
-    t0 = *(int *)0x8C10DFB0;
-    *(unsigned int *)(((((int)stk + 4) + 0x64) + 0x8)) = t0;
-    t1 = *(int *)0x8C10DFAC;
-    *(unsigned int *)(((((int)stk + 4) + 0x64) + 0x4)) = t1;
-    t2 = *(int *)0x8C10DFA8;
-    *(unsigned int *)(((((int)stk + 4) + 0x64) + 0x0)) = t2;
-}
 
 int sceneObjPutInit(void)
 {
@@ -3908,23 +3868,6 @@ int hudDigitSmallInit(void)
 }
 
 
-int hudScoreIconPutFull(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int stk[5];
-
-    t0 = *(int *)(((((int)stk + 16) + 0x4) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-    t1 = *(int *)(((((int)stk + 16) + 0x4) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-    t2 = *(int *)(((((int)stk + 16) + 0x4) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = hudScoreIconPut(1.0f);
-    return t3;
-}
 
 
 
@@ -4157,24 +4100,6 @@ int selSideCheck(void)
     return 0x1;
 }
 
-int selFirstJoinedPort(void)
-{
-    int t0;
-    int t1;
-    int t2;
-
-    t0 = 0x0;
-    for (;;) {
-        t1 = *(short *)0x8C343262;
-        t2 = *(short *)((((t0 << 1) + 0x8C185298) + 0x0));
-        if (((unsigned short)t1 & (unsigned short)t2) != 0) break;
-        t0 = (t0 + 0x1);
-        if ((int)t0 >= (int)0x4) {
-            return (unsigned short)t1;
-        }
-    }
-    return t0;
-}
 
 void selJoinBlocked(void)
 {
@@ -9052,79 +8977,6 @@ void evFlashStart(float f4)
     }
 }
 
-int evNoticeStart(int a4, int a5, int a6, float f4)
-{
-    int t16;
-    int t13;
-    int t0;
-    int t9;
-    int t1;
-    float u3;
-    int t4;
-    int t5;
-    int t6;
-    int t18;
-    int t27;
-    int t19;
-    float u21;
-    int t22;
-    int t23;
-    int t24;
-    int t31;
-
-    if (a4 == 0) {
-        t16 = 0x0;
-        if ((int)a5 >= (int)0x15) {
-            t13 = 0x0;
-            if ((int)a5 < (int)0x20) {
-                t0 = *(int *)0x8C40C308;
-                t9 = 0x0;
-                if (((((int)(a5 - 1) >= 0) ? (0x1 << ((a5 - 1) & 31)) : ((-(int)(a5 - 1) & 31) ? ((int)0x1 >> (-(int)(a5 - 1) & 31)) : ((int)0x1 >> 31))) & t0) == 0) {
-                    t1 = set_event(0x28, 0x8C0DA8AA);
-                    hudPanelDraw(0x2, 0x0, 0.0f);
-                    *(unsigned int *)((t1 + 0x14)) = a4;
-                    *(float *)((t1 + 0x18)) = f4;
-                    *(unsigned int *)((t1 + 0x1C)) = a5;
-                    u3 = *(float *)0x8C23D204;
-                    *(unsigned int *)((t1 + 0x24)) = (int)((float)a6 / u3);
-                    *(unsigned int *)((t1 + 0x20)) = (int)((float)a6 / u3);
-                    t4 = *(int *)((t1 + 0x14));
-                    if (t4 == 0) {
-                        t5 = *(int *)((t1 + 0x1C));
-                        t6 = *(int *)0x8C40C308;
-                        *(unsigned int *)0x8C40C308 = ((((int)(t5 - 1) >= 0) ? (0x1 << ((t5 - 1) & 31)) : ((-(int)(t5 - 1) & 31) ? ((int)0x1 >> (-(int)(t5 - 1) & 31)) : ((int)0x1 >> 31))) | t6);
-                    }
-                    t9 = 0x1;
-                }
-                t13 = t9;
-            }
-            t16 = t13;
-        }
-        t31 = t16;
-    } else {
-        t18 = *(int *)0x8C40C308;
-        t27 = 0x0;
-        if (((((int)(a5 - 1) >= 0) ? (0x1 << ((a5 - 1) & 31)) : ((-(int)(a5 - 1) & 31) ? ((int)0x1 >> (-(int)(a5 - 1) & 31)) : ((int)0x1 >> 31))) & t18) == 0) {
-            t19 = set_event(0x28, 0x8C0DA8AA);
-            hudPanelDraw(0x2, 0x0, 0.0f);
-            *(unsigned int *)((t19 + 0x14)) = a4;
-            *(float *)((t19 + 0x18)) = f4;
-            *(unsigned int *)((t19 + 0x1C)) = a5;
-            u21 = *(float *)0x8C23D204;
-            *(unsigned int *)((t19 + 0x24)) = (int)((float)a6 / u21);
-            *(unsigned int *)((t19 + 0x20)) = (int)((float)a6 / u21);
-            t22 = *(int *)((t19 + 0x14));
-            if (t22 == 0) {
-                t23 = *(int *)((t19 + 0x1C));
-                t24 = *(int *)0x8C40C308;
-                *(unsigned int *)0x8C40C308 = ((((int)(t23 - 1) >= 0) ? (0x1 << ((t23 - 1) & 31)) : ((-(int)(t23 - 1) & 31) ? ((int)0x1 >> (-(int)(t23 - 1) & 31)) : ((int)0x1 >> 31))) | t24);
-            }
-            t27 = 0x1;
-        }
-        t31 = t27;
-    }
-    return t31;
-}
 
 
 int eepromVmuLoad(int a4)
@@ -9416,36 +9268,6 @@ void rankNameMatch(int a4, int a5, int a6, int a7)
     }
 }
 
-void rankNameCopy(int a4, int a5)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-
-    t0 = a4;
-    t1 = a5;
-    t2 = 0x3;
-    for (;;) {
-        t3 = (t2 == 0);
-        t2 = (t2 - 1);
-        if (!t3) {
-            t4 = *(signed char *)((t1 + 0x0));
-            if (t4 == 0) break;
-            t5 = *(signed char *)((t1 + 0x0));
-            t1 = (t1 + 0x1);
-            *(unsigned char *)((t0 + 0x0)) = t5;
-            t0 = (t0 + 0x1);
-            continue;
-        }
-        break;
-    }
-    if ((int)t2 >= 0) {
-        *(unsigned char *)((t0 + 0x0)) = 0x0;
-    }
-}
 
 
 
@@ -9967,110 +9789,8 @@ int nlCommonTextureDummyFree(int a4)
     return 0;
 }
 
-int nlSysInitStripContextVtx(int a4)
-{
-    *(unsigned int *)((a4 + 0x0)) = 0x3F3FFFF;
-    *(unsigned int *)((a4 + 0x4)) = 0x0;
-    *(unsigned int *)((a4 + 0x8)) = 0x0;
-    *(unsigned int *)((a4 + 0xC)) = 0x1;
-    *(unsigned int *)((a4 + 0x40)) = 0x0;
-    *(unsigned int *)((a4 + 0x10)) = 0x0;
-    *(unsigned int *)((a4 + 0x14)) = 0x4;
-    *(unsigned int *)((a4 + 0x18)) = 0x0;
-    *(unsigned int *)((a4 + 0x20)) = 0x1;
-    *(unsigned int *)((a4 + 0x24)) = 0x0;
-    *(unsigned int *)((a4 + 0x28)) = 0x0;
-    *(unsigned int *)((a4 + 0x2C)) = 0x8;
-    *(unsigned int *)((a4 + 0x30)) = 0x6;
-    *(unsigned int *)((a4 + 0x34)) = 0x0;
-    *(unsigned int *)((a4 + 0x38)) = 0x0;
-    *(unsigned int *)((a4 + 0x3C)) = 0x2;
-    *(unsigned int *)((a4 + 0x40)) = 0x0;
-    *(unsigned int *)((a4 + 0x44)) = 0x0;
-    *(unsigned int *)((a4 + 0x48)) = 0x0;
-    *(unsigned int *)((a4 + 0x4C)) = 0x0;
-    *(unsigned int *)((a4 + 0x50)) = 0x0;
-    *(unsigned int *)((a4 + 0x54)) = 0x0;
-    *(unsigned int *)((a4 + 0x58)) = 0x0;
-    *(unsigned int *)((a4 + 0x5C)) = 0x4;
-    *(unsigned int *)((a4 + 0x60)) = 0x3;
-    *(unsigned int *)((a4 + 0x6C)) = 0x0;
-    *(unsigned int *)((a4 + 0x64)) = 0x0;
-    *(unsigned int *)((a4 + 0x68)) = 0x0;
-    *(float *)((a4 + 0x70)) = 1.0f;
-    *(float *)((a4 + 0x74)) = 1.0f;
-    *(float *)((a4 + 0x78)) = 1.0f;
-    *(float *)((a4 + 0x7C)) = 1.0f;
-    *(float *)((a4 + 0x80)) = 1.0f;
-    *(float *)((a4 + 0x84)) = 1.0f;
-    *(float *)((a4 + 0x88)) = 1.0f;
-    *(float *)((a4 + 0x8C)) = 1.0f;
-    kmProcessVertexRenderState();
-    return kmSetVertexRenderState(0x8C454FC0, a4);
-}
 
-int nlSysInitStripContextBG(int a4)
-{
-    *(unsigned int *)((a4 + 0x0)) = 0x3F3FFFF;
-    *(unsigned int *)((a4 + 0x4)) = 0x0;
-    *(unsigned int *)((a4 + 0x8)) = 0x0;
-    *(unsigned int *)((a4 + 0xC)) = 0x0;
-    *(unsigned int *)((a4 + 0x40)) = 0x0;
-    *(unsigned int *)((a4 + 0x10)) = 0x0;
-    *(unsigned int *)((a4 + 0x14)) = 0x4;
-    *(unsigned int *)((a4 + 0x18)) = 0x0;
-    *(unsigned int *)((a4 + 0x20)) = 0x1;
-    *(unsigned int *)((a4 + 0x24)) = 0x0;
-    *(unsigned int *)((a4 + 0x28)) = 0x0;
-    *(unsigned int *)((a4 + 0x2C)) = 0xA;
-    *(unsigned int *)((a4 + 0x30)) = 0xB;
-    *(unsigned int *)((a4 + 0x34)) = 0x0;
-    *(unsigned int *)((a4 + 0x38)) = 0x0;
-    *(unsigned int *)((a4 + 0x3C)) = 0x2;
-    *(unsigned int *)((a4 + 0x40)) = 0x0;
-    *(unsigned int *)((a4 + 0x44)) = 0x0;
-    *(unsigned int *)((a4 + 0x48)) = 0x1;
-    *(unsigned int *)((a4 + 0x4C)) = 0x0;
-    *(unsigned int *)((a4 + 0x50)) = 0x0;
-    *(unsigned int *)((a4 + 0x54)) = 0x0;
-    *(unsigned int *)((a4 + 0x58)) = 0x0;
-    *(unsigned int *)((a4 + 0x5C)) = 0x4;
-    *(unsigned int *)((a4 + 0x60)) = 0x1;
-    *(unsigned int *)((a4 + 0x6C)) = 0x0;
-    *(unsigned int *)((a4 + 0x64)) = 0x0;
-    *(unsigned int *)((a4 + 0x68)) = 0x0;
-    *(float *)((a4 + 0x70)) = 1.0f;
-    *(float *)((a4 + 0x74)) = 1.0f;
-    *(float *)((a4 + 0x78)) = 1.0f;
-    *(float *)((a4 + 0x7C)) = 1.0f;
-    *(float *)((a4 + 0x80)) = 1.0f;
-    *(float *)((a4 + 0x84)) = 1.0f;
-    *(float *)((a4 + 0x88)) = 1.0f;
-    *(float *)((a4 + 0x8C)) = 1.0f;
-    kmProcessVertexRenderState();
-    return kmSetBackGroundRenderState(a4);
-}
 
-void nlVtxBufScanInit(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-
-    t0 = *(int *)0x8C42445C;
-    t1 = 0x5;
-    t2 = 0x8C424498;
-    t3 = t0;
-    do {
-        t4 = *(int *)((t3 + 0x0));
-        t3 = (t3 + 0x4);
-        t1 = (t1 - 1);
-        *(unsigned int *)((t2 + 0x0)) = t4;
-        t2 = (t2 + 0x4);
-    } while (t1 != 0);
-}
 
 float nlCeil(float f4)
 {
@@ -10422,70 +10142,6 @@ int nlDispStripTexOfsTrnsl(int a4, int a5, int a6)
     return t0;
 }
 
-int nlstripSetVertexContext(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-    int t10;
-    int t11;
-    int t13;
-    int t14;
-    int t15;
-    int t16;
-    int t17;
-    int t18;
-    int t19;
-    int t20;
-    int t21;
-    int t22;
-    int t23;
-    int t24;
-
-    t0 = *(int *)0x8C458C10;
-    *(unsigned int *)((t0 + 0x0)) = 0x600608;
-    t1 = *(int *)((a4 + 0x0));
-    t2 = *(int *)0x8C458C10;
-    *(unsigned int *)((t2 + 0x8)) = t1;
-    t3 = *(int *)(((a4 + 0x4) + 0x0));
-    t4 = *(int *)0x8C458C10;
-    *(unsigned int *)((t4 + 0xC)) = t3;
-    t5 = *(int *)((((a4 + 0x4) + 0x4) + 0x0));
-    t6 = *(int *)0x8C458C10;
-    *(unsigned int *)((t6 + 0x20)) = t5;
-    t7 = *(int *)(((((a4 + 0x4) + 0x4) + 0x4) + 0x0));
-    t8 = *(int *)0x8C458C10;
-    *(unsigned int *)((t8 + 0x44)) = t7;
-    t9 = *(int *)((((((a4 + 0x4) + 0x4) + 0x4) + 0x4) + 0x0));
-    t10 = *(int *)0x8C458C10;
-    *(unsigned int *)((t10 + 0x40)) = t9;
-    t11 = *(int *)0x8C458C10;
-    kmProcessVertexRenderState();
-    t13 = *(int *)0x8C458C10;
-    t14 = *(int *)((t13 + 0x90));
-    *(unsigned int *)((t13 + 0x90)) = (t14 & 0xFFFCFF3F);
-    t15 = *(int *)0x8C458C10;
-    t16 = *(int *)0x8C458E04;
-    t17 = *(int *)((t15 + 0x90));
-    *(unsigned int *)((t15 + 0x90)) = (t17 | t16);
-    t18 = *(int *)0x8C458C10;
-    t19 = *(int *)((t18 + 0x98));
-    *(unsigned int *)((t18 + 0x98)) = (t19 & 0x31FF0FF);
-    t20 = *(int *)0x8C458C10;
-    t21 = *(int *)0x8C458E08;
-    t22 = *(int *)0x8C424418;
-    t23 = *(int *)(((t20 + 0x98) + 0x0));
-    *(unsigned int *)(((t20 + 0x98) + 0x0)) = (t23 | ((((t22 ^ 0xFC) << 16) << 8) | t21));
-    t24 = *(int *)0x8C458C10;
-    return kmSetVertexRenderState(0x8C454FC0, t24);
-}
 
 void _INITSCT(void)
 {
@@ -13665,30 +13321,6 @@ int mwlSbAllocWork(int a4)
     return t5;
 }
 
-int mwlSbAlloc(void)
-{
-    int t5;
-    int t0;
-    int t1;
-    int t2;
-
-    t5 = 0x0;
-    if ((unsigned int)0x8C473858 < (unsigned int)0x8C473B98) {
-        t0 = 0x8C473858;
-        t1 = 0x8C473858;
-        for (;;) {
-            t2 = *(signed char *)((t0 + 0x4));
-            if (t2 == 0) break;
-            t0 = (t0 + 0x68);
-            t1 = (t1 + 0x68);
-            if ((unsigned int)t0 >= (unsigned int)0x8C473B98) {
-                return 0x0;
-            }
-        }
-        t5 = t1;
-    }
-    return t5;
-}
 
 int mwSbSetSfreq(int a4, int a5)
 {

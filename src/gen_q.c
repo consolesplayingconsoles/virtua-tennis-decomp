@@ -23,41 +23,6 @@ float nlRoundOff(float f4);
 int nlsndCheckPackReloadError(int a4, int a5);
 int kmtex_TextureSize_VQ(int a4);
 
-int nlWaitVSync(void)
-{
-    int t3;
-    int t4;
-    int t9;
-    int t10;
-    int t16;
-    int t17;
-    int t19;
-    int t18;
-
-    kmEndPass();
-    nl_action_PixelClipping();
-    kmRender(0x0);
-    t3 = *(int *)0x8C1DC8A0;
-    if (t3 != 0) {
-        t4 = ((int (*)(void))(t3))();
-    }
-    kmEndScene(0x8C42420C);
-    t9 = *(int *)0x8C1DC8A4;
-    if (t9 != 0) {
-        t10 = ((int (*)(void))(t9))();
-    }
-    kmBeginScene(0x8C42420C);
-    kmBeginPass(0x8C454FC0);
-    t16 = *(int *)0x8C454FC0;
-    *(unsigned int *)0x8C42445C = t16;
-    t17 = *(int *)0x8C1DC8A8;
-    t19 = 0x8C1DC8A8;
-    if (t17 != 0) {
-        t18 = ((int (*)(void))(t17))();
-        t19 = t18;
-    }
-    return t19;
-}
 
 int kmSetBackGroundPlane(int a4, int a5)
 {

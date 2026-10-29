@@ -1,2 +1,3 @@
 # The executable's layout for the tools (tools/layout.py): <name> <start hex> [<end hex>]
+game    0C010080 0C20CCD4    # the game's own code: what the build from C replaces (main at 8c010080 to the end of the last object; the 128-byte entry stub before it stays)
 code    0C010000 0C20CCD4    # first object (8c010000) to the end of the last function (8c20ccd4): the cases may not write there

@@ -5,13 +5,13 @@ extern int nlsndG2Read(int addr);
 extern int vmsfs_c_getstate(int a);
 extern int vmsfs_xcreate(int a, int b, int c, int d);
 extern int ADXRNA_DiscardData(int a);
-extern void FUN_8c1e16cc(void);
+extern void ADXT_ExecServer(void);
 extern void *memset(void *d, int c, int n);
 extern void vmsio_exit(void);
 extern void ADXB_Destroy(int a);
 extern void ADXCRS_Lock(void);
 extern void ADXCRS_Unlock(void);
-extern int mwRnaErrCallFunc(int a, ...);
+extern int mwRnaErrCallFunc(int a, int b, int c, int d, int e);
 extern void kmyMemCopy(int a, int b, int c);
 extern void kmiWriteRegister(int reg, int val);
 
@@ -71,7 +71,7 @@ int ADXT_DiscardSmpl(char *adxt)
     if (adxt[114] == 0)
         return 0;
     r = ADXRNA_DiscardData(*(int *)(adxt + 12));
-    FUN_8c1e16cc();
+    ADXT_ExecServer();
     return r;
 }
 
@@ -120,7 +120,7 @@ void ADXSJD_Destroy(int *p)
 int mwRnaGetAutoSw(unsigned char *p)
 {
     if (p == 0) {
-        mwRnaErrCallFunc(0, g_8c20ac30);
+        mwRnaErrCallFunc(0, 0, 0, 0, (int)g_8c20ac30);
         return -1;
     }
     return (p[1] & 4) >> 2;

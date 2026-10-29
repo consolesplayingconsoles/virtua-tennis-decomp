@@ -1,180 +1,188 @@
 /* Straight-line functions with calls and guards (batch gen_hv): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int cpuBallPredict(int, int);
-int cpuDblMoodUpdate(float);
-int cpuDblPartnerSignal(void);
-int cpuDblThinkAll(void);
-int cpuMeterInput(int);
-int cpuPadHistory(int, int, int, int, int, int);
-void cpuDblInput(int a4, int a5, int a6);
+int arcadePickRival(int, int);
+int ballBoyInit(void);
+int ballInit(int);
+int camInit(void);
+int camMoveBegin(float, float);
+int colliObjClear(void);
+int cpuInit(void);
+int matchSetupPlayers(void);
+int miniOnEvent(int, int, int, int, float);
+int miniRoundStart(int, int, int, int);
+int miniSetupObjects(int, int, int, int, int, int, int, int, int, int, int, int);
+float nlRandom(void);
+int playerCalcMotionSpeeds(void);
+int playerSetup(int, int, int, int);
+int scoreReset(void);
+int serveGetReceiver(void);
+int matchStart(void);
 
-void cpuDblInput(int a4, int a5, int a6)
+int matchStart(void)
 {
-    int t2;
-    int t7;
-    int t8;
-    int t9;
-    float u11;
-    int t28;
-    int t29;
-    int t39;
-    int t43;
-    int t53;
-    int t51;
-    float u56;
-    int t59;
-    int t57;
-    float u71;
-    int t74;
+    int t24;
+    int t32;
+    int t37;
+    int t60;
+    int t67;
     int t72;
-    float u76;
-    int t79;
-    int t77;
-    float u82;
-    float u83;
-    float u87;
-    float u88;
-    float u89;
-    int t92;
-    int t90;
-    int t4;
-    int t5;
-    int t12;
-    int t13;
-    int t15;
-    int t25;
-    int t61;
-    int t81;
-    int stk[21];
+    int t86;
+    int stk[14];
 
-    if ((*(int *)0x8C287C60) != 0) {
-    } else {
-        *(unsigned short *)((a4 + 0xD46)) = 0x0;
-        *(unsigned short *)((a4 + 0xD44)) = 0x0;
-        t2 = *(int *)0x8C20D19C;
-        if ((*(int *)0x8C15A0C8) != t2) {
-            *(unsigned int *)0x8C15A0C8 = t2;
-            cpuBallPredict(t2, 0x8C15A0C8);
-            t7 = 0x8C28A5EC;
-            t8 = 0x8C2FCABC;
-            t9 = (((int)stk + 4) + 0x30);
-            for (;;) {
-                if ((unsigned int)t9 < (unsigned int)(((int)stk + 4) + 0xC)) {
-                    break;
-                }
-                t5 = 0xB9C;
-                t9 = (t9 - 12);
-                t4 = t9;
-                t5 = (t5 + t7);
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(t4) = *(struct mv3 *)(t5); }
-                t5 = 0x11C;
-                t4 = 0xB9C;
-                t5 = (t5 + t8);
-                t4 = (t4 + t7);
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(t4) = *(struct mv3 *)(t5); }
-                t7 = (t7 - 3448);
-                t8 = (t8 - 352);
-            }
-            cpuPadHistory(t7, t8, t9, 0xFFFFFEA0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4));
-            u11 = *(float *)0x8C291F54;
-            if ((u11 == 0.0f) && ((t12 = *(int *)0x8C291F78, (t12 & 4) == 0) && (t13 = *(int *)0x8C291F78, (t13 & 2) == 0))) {
-                cpuDblMoodUpdate(u11);
-            } else {
-                if ((u11 == (1.0f + 1.0f)) && (t15 = *(int *)0x8C291F78, (t15 & 4) != 0)) {
-                    cpuDblMoodUpdate(u11);
-                }
-            }
-            cpuDblThinkAll();
-            cpuDblPartnerSignal();
-            t28 = 0x8C28A5EC;
-            t29 = (((int)stk + 4) + 0x24);
-            for (;;) {
-                if ((unsigned int)t28 < (unsigned int)0x8C287D84) {
-                    break;
-                }
-                t25 = 0xB9C;
-                t25 = (t25 + t28);
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(t25) = *(struct mv3 *)((t29)); }
-                t28 = (t28 - 3448);
-                t29 = (t29 - 12);
-            }
-        }
-        if (!(0.0f > (*(float *)0x8C291F54))) {
-            t39 = *(int *)((a4 + 0xB5C));
-            *(unsigned short *)(((0xD44 + a4) + 0x0)) = (*(short *)((((t39 * 0x160) + 0x8C2FC69C) + 0x1E)));
-            *(unsigned short *)((a4 + 0xD46)) = (*(short *)((((t39 * 0x160) + 0x8C2FC69C) + 0x20)));
-            *(unsigned short *)((((t39 * 0x160) + 0x8C2FC69C) + 0x22)) = (*(short *)((((t39 * 0x160) + 0x8C2FC69C) + 0x20)));
-        } else {
-            t43 = *(int *)((a4 + 0xB5C));
-            *(unsigned short *)((a4 + 0xD46)) = 0x0;
-            *(unsigned short *)((a4 + 0xD44)) = 0x0;
-            if ((*(int *)((0x8C287AE0 + ((*(int *)((a4 + 0xB5C))) << 2)))) == 2) {
-                t53 = 0x1;
-                if ((*(float *)0x8C291F50) > 0.0f) {
-                } else {
-                    t51 = 0x0;
-                    if (0.0f > (*(float *)0x8C291F50)) {
-                        t51 = 0xFFFFFFFF;
-                    }
-                    t53 = t51;
-                }
-                u56 = *(float *)((a4 + 0xB00));
-                t59 = 0x1;
-                if ((-u56) > 0.0f) {
-                } else {
-                    t57 = 0x0;
-                    if (0.0f > (-u56)) {
-                        t57 = 0xFFFFFFFF;
-                    }
-                    t59 = t57;
-                }
-                if ((t53 == t59) && (t61 = *(int *)((a4 + 0xB60)), (t61 & 0x100) != 0)) {
-                    *(unsigned short *)((a4 + 0xD44)) = 0x3;
-                }
-            }
-            u71 = *(float *)0x8C291F50;
-            t74 = 0x1;
-            if (u71 > 0.0f) {
-            } else {
-                t72 = 0x0;
-                if (0.0f > u71) {
-                    t72 = 0xFFFFFFFF;
-                }
-                t74 = t72;
-            }
-            u76 = *(float *)((a4 + 0xB00));
-            t79 = 0x1;
-            if ((-u76) > 0.0f) {
-            } else {
-                t77 = 0x0;
-                if (0.0f > (-u76)) {
-                    t77 = 0xFFFFFFFF;
-                }
-                t79 = t77;
-            }
-            if ((t74 == t79) && (t81 = *(short *)((((t43 * 0x160) + 0x8C2FC69C) + 0x22)), (0xC0 & t81) != 0)) {
-                u82 = *(float *)0x8C291F50;
-                u83 = *(float *)0x8C291F48;
-                u87 = *(float *)((a4 + 0xB00));
-                u88 = ((*(float *)0x8C291F3C) - ((u83 / u82) * (*(float *)0x8C291F44)));
-                u88 = u88 + (*(float *)((a4 + 0xAF0))) * (u83 / u82);
-                u89 = *(float *)((a4 + 0xAE8));
-                t92 = 0x1;
-                if ((u88 - u89) > 0.0f) {
-                } else {
-                    t90 = 0x0;
-                    if (0.0f > (u88 - u89)) {
-                        t90 = 0xFFFFFFFF;
-                    }
-                    t92 = t90;
-                }
-                if (((float)((0xC0 & t81) - 96) / (-(u87 * 32.0f))) == (float)t92) {
-                    *(unsigned short *)((a4 + 0xD46)) = (*(short *)((((t43 * 0x160) + 0x8C2FC69C) + 0x22)));
-                }
-            }
-            *(unsigned short *)((((t43 * 0x160) + 0x8C2FC69C) + 0x22)) = (*(short *)((a4 + 0xD46)));
-        }
-        cpuMeterInput(a4);
-    }
+    int R0;
+    int R1;
+    int R2;
+    int R3;
+    int R4;
+    int R5;
+    int R6;
+    int R7;
+    int R8;
+    int R9;
+    int R10;
+    int R11;
+    int R12;
+    int R13;
+    int R14;
+    float F0;
+    float F3;
+    float F4;
+    float F5;
+    float F14;
+    float F15;
+    int T_;
+    *(unsigned int *)(((int)stk + 8)) = 0x0;
+    *(unsigned int *)0x8C1389F8 = 0x0;
+    matchSetupPlayers();
+    camInit();
+    camMoveBegin(1.0f, 1.0f);
+    *(unsigned int *)0x8C287B44 = 0x7;
+    *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x800);
+    *(unsigned int *)0x8C287B48 = 0xFFFFFFFF;
+    *(unsigned int *)0x8C287B4C = 0xF0;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C287B54) = *(struct mv3 *)(0x8C1016D4); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C287B60) = *(struct mv3 *)(0x8C1016D4); }
+    *(unsigned int *)0x8C287B6C = 0x0;
+    *(float *)0x8C287B70 = 16.0f;
+    *(unsigned int *)0x8C287B50 = 0x78;
+    *(unsigned int *)0x8C287B74 = 0x0;
+    *(unsigned int *)0x8C287B78 = 0x1;
+    *(float *)0x8C287B7C = 0.0f;
+    *(unsigned int *)0x8C287B80 = 0x0;
+    *(unsigned int *)0x8C287AF8 = (serveGetReceiver());
+    *(unsigned int *)0x8C287AFC = 0xFFFFFFFF;
+    *(unsigned int *)0x8C287AF0 = 0x0;
+    *(unsigned int *)0x8C287AF4 = 0x0;
+    playerCalcMotionSpeeds();
+    R10 = (0xFFFFFFFF);
+    R11 = (0x8C287D84);
+    R12 = (0x8C287ACC);
+    R13 = (0xD78);
+    R14 = (0x0);
+    R4 = (0x8C287C34);
+    R5 = (0x8C287C3C);
+    R6 = (0x8C287C34);
+    R8 = (0x8C287ACC);
+    R9 = (0x8C287D5C);
+    F15 = (0.0f);
+    L_8C018826:;
+    if (((unsigned int)R4 < (unsigned int)R5)) goto L_8C018820;
+    *(unsigned int *)0x8C287C1C = R10;
+    *(unsigned int *)0x8C287C20 = R14;
+    *(unsigned int *)0x8C287C24 = R14;
+    if (((*(int *)((R9 + 0x0))) != 3)) goto L_8C018842;
+    miniSetupObjects(R4, R5, R6, R7, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24), *(int *)((int)stk + 4 + 28));
+    L_8C018842:;
+    *(unsigned int *)(((int)stk + 12)) = R11;
+    L_8C018974:;
+    if (((int)R14 >= (int)(*(int *)((R8 + 0x10))))) goto L_8C01897E;
+    *(unsigned int *)(((0xB64 + ((R14 * R13) + R11)) + 0x0)) = (*(int *)((((R14 * 0x38) + 0x8C343264) + 0x4)));
+    t24 = *(int *)(((R12 + 0x14) + (R14 << 2)));
+    R0 = (t24);
+    R4 = (0x38);
+    R7 = (((R14 * 0x38) + 0x8C343264));
+    if ((t24 == 0)) goto L_8C018888;
+    if ((R0 == 2)) goto L_8C018888;
+    if (!((R0 == 1))) goto L_8C018972;
+    t32 = *(int *)0x8C421F60;
+    R4 = (t32);
+    if ((t32 != 0)) goto L_8C01889C;
+    if (((*(int *)0x8C287D5C) != 1)) goto L_8C0188AC;
+    goto L_8C01889C;
+    L_8C018972:;
+    R14 = ((R14 + 0x1));
+    goto L_8C018974;
+    L_8C01889C:;
+    t37 = *(int *)((R7 + 0x0));
+    *(unsigned int *)((((R14 * R13) + R11) + 0xC58)) = t37;
+    R6 = (t37);
+    L_8C01895E:;
+    *(unsigned int *)(((int)stk + 4)) = ((R14 * R13) + R11);
+    playerSetup((*(int *)(((int)stk + 4))), R14, R6, (*(int *)((((R14 * R13) + R11) + 0xB64))));
+    goto L_8C018972;
+    L_8C0188AC:;
+    if (((*(int *)((R9 + 0x0))) == 2)) goto L_8C0188C0;
+    if (((*(int *)((R9 + 0x0))) == 3)) goto L_8C0188C0;
+    R5 = (0x8C287C54);
+    if (!(((*(int *)0x8C287C54) == 0))) goto L_8C0188C0;
+    if ((R4 == 0)) goto L_8C018920;
+    goto L_8C0188D0;
+    L_8C0188C0:;
+    R6 = ((*(int *)((((R14 * R13) + R11) + 0xC58))));
+    goto L_8C01895E;
+    L_8C0188D0:;
+    R6 = ((int)((nlRandom()) * 8.0f));
+    if ((R14 != 1)) goto L_8C01895E;
+    if ((R6 == (*(int *)(((*(int *)(((int)stk + 12))) + 0xC58))))) goto L_8C0188D0;
+    goto L_8C01895E;
+    L_8C018920:;
+    if (((*(int *)((R8 + 0x10))) != 2)) goto L_8C018936;
+    t60 = *(int *)0x8C343248;
+    R4 = (0x8C343248);
+    R5 = (t60);
+    if ((t60 == -1)) goto L_8C018946;
+    *(unsigned int *)((R4 + 0x0)) = R10;
+    R6 = (R5);
+    goto L_8C01895E;
+    L_8C018946:;
+    R6 = ((arcadePickRival(R4, R5)));
+    goto L_8C01895E;
+    L_8C018936:;
+    t67 = *(int *)(((int)stk + 8));
+    *(unsigned int *)(((int)stk + 4)) = ((t67 << 2) + 0x8C34324C);
+    R2 = (((t67 << 2) + 0x8C34324C));
+    R4 = (0x8C34324C);
+    if (((*(int *)((((t67 << 2) + 0x8C34324C) + 0x0))) != -1)) goto L_8C018950;
+    goto L_8C018946;
+    L_8C018950:;
+    *(unsigned int *)(((int)stk + 4)) = R2;
+    t72 = *(int *)((R2 + 0x0));
+    *(unsigned int *)((R2 + 0x0)) = R10;
+    *(unsigned int *)(((int)stk + 8)) = ((*(int *)(((int)stk + 8))) + 0x1);
+    R6 = (t72);
+    goto L_8C01895E;
+    L_8C018888:;
+    R6 = ((*(int *)((R7 + 0x0))));
+    goto L_8C01895E;
+    L_8C01897E:;
+    scoreReset();
+    colliObjClear();
+    *(float *)0x8C287C3C = F15;
+    *(float *)0x8C287C40 = 0.0399999991f;
+    *(float *)0x8C287C44 = 0.5f;
+    ballInit(0x8C291F24);
+    if (((*(int *)((R9 + 0x0))) != 3)) goto L_8C0189C0;
+    miniRoundStart(R4, R5, R6, R7);
+    if (((*(int *)((R9 + 0x0))) != 3)) goto L_8C0189C0;
+    t86 = (miniOnEvent(0x2, 0x0, R6, R7, F4)) == 0;
+    if (t86) goto L_8C0189C6;
+    L_8C0189C0:;
+    cpuInit();
+    L_8C0189C6:;
+    return ballBoyInit();
+    L_8C018820:;
+    *(unsigned int *)((R4 + 0x0)) = 0x1;
+    R4 = ((R4 + 0x4));
+    goto L_8C018826;
 }

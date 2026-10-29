@@ -81,24 +81,6 @@ void kmiWriteRegister(int a4, int a5)
     *(unsigned int *)(((a4 + 0xA05F8000) + 0x0)) = a5;
 }
 
-int FUN_8c1e65e2(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-
-    t0 = *(signed char *)((a4 + 0x0));
-    t1 = bcd2bin(t0);
-    t2 = *(signed char *)(((a4 + 0x1) + 0x0));
-    t3 = bcd2bin(t2);
-    t4 = *(signed char *)((((a4 + 0x1) + 0x1) + 0x0));
-    t5 = bcd2bin(t4);
-    return ((((t1 * 0x3C) + t3) * 0x4B) + t5);
-}
-
 void ADXF_Init(void)
 {
     memset(0x8C46BF64, 0x0, 0x300);

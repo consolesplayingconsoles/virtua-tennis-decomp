@@ -1,0 +1,92 @@
+/* Straight-line functions with calls and guards (batch gen_lu): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+typedef struct { int w[3]; } Stk3;
+int nlAddVector3op(int, int, int);
+int nlObjPut(int);
+int nlPopMatrix(int);
+int nlPushMatrix(int);
+int nlRotateAY(int);
+int nlScaleVector(int, int, float);
+int nlSubVector3op(int, int, int);
+int nlTranslate(float, float, float);
+Stk3 vecMake(float, float, float);
+int titleObjSpinPut(int a4);
+
+int titleObjSpinPut(int a4)
+{
+    int t16;
+    int t17;
+    float u21;
+    float u22;
+    int t43;
+    int stk[23];
+
+    int R0;
+    int R1;
+    int R2;
+    int R3;
+    int R4;
+    int R5;
+    int R6;
+    int R8;
+    int R9;
+    int R10;
+    int R11;
+    int R12;
+    int R13;
+    int R14;
+    float F3;
+    float F4;
+    float F5;
+    float F6;
+    float F13;
+    float F14;
+    float F15;
+    int T_;
+    R4 = a4;
+    nlPushMatrix(0x0);
+    nlTranslate(0.0f, 0.0f, 0.0f);
+    R10 = (0x8C1DC6CC);
+    R11 = (0x8C0EFCD0);
+    R12 = (R4);
+    R13 = (0x8C1DC6CC);
+    R14 = (0x8C1DC6CC);
+    R8 = (0x0);
+    R9 = (0x8C0F0480);
+    F13 = (196608.0f);
+    F15 = (0.0f);
+    L_8C0E9B2C:;
+    R4 = ((((((R8 << 2) << 1) + R8) << 2) + 0x8C1DC6CC));
+    if (((int)(*(int *)(((((((R8 << 2) << 1) + R8) << 2) + 0x8C1DC6CC) + 0x0))) > (int)R12)) goto L_8C0E9BD8;
+    if (((int)(*(int *)((R4 + 0x4))) <= (int)R12)) goto L_8C0E9BD8;
+    t16 = *(int *)((R14 + 0x4));
+    t17 = *(int *)((R14 + 0x0));
+    nlSubVector3op((((int)stk + 8) + 0x4), (R14 + 0x14), (R14 + 0x8));
+    nlScaleVector((((int)stk + 8) + 0x4), (((int)stk + 8) + 0x4), ((float)(R12 - t17) / (float)(t16 - t17)));
+    nlAddVector3op((((int)stk + 8) + 0x10), (R14 + 0x8), (((int)stk + 8) + 0x4));
+    *(unsigned int *)(((int)stk + 8)) = ((int)(((float)(R12 - t17) / (float)(t16 - t17)) * F13) & 0xFFFF);
+    u21 = *(float *)(((int)stk + 12));
+    u22 = *(float *)(((int)stk + 16));
+    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x1C);
+    *(Stk3 *)((((int)stk + 8) + 0x1C)) = vecMake(u22, (-u21), F15);
+    nlPushMatrix(0x0);
+    nlTranslate((*(float *)(((int)stk + 24))), (*(float *)(((int)stk + 28))), (*(float *)(((int)stk + 32))));
+    nlRotateAY((-(*(int *)(((int)stk + 8)))));
+    nlObjPut((*(int *)((R14 + 0x20))));
+    nlPopMatrix(0x1);
+    L_8C0E9BD8:;
+    if (((int)(*(int *)((R10 + 0x4))) > (int)R12)) goto L_8C0E9BFC;
+    nlPushMatrix(0x0);
+    nlTranslate((*(float *)((R13 + 0x14))), (*(float *)((R13 + 0x18))), (*(float *)((R13 + 0x1C))));
+    nlObjPut((*(int *)((R13 + 0x20))));
+    nlPopMatrix(0x1);
+    L_8C0E9BFC:;
+    t43 = (int)(R8 + 0x1) < (int)0xC;
+    R10 = ((R10 + 0x24));
+    R13 = ((R13 + 0x24));
+    R14 = ((R14 + 0x24));
+    R8 = ((R8 + 0x1));
+    if (t43) goto L_8C0E9B2C;
+    return (nlPopMatrix(0x1));
+}

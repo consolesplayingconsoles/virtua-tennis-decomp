@@ -1,5 +1,4 @@
 # functions whose bytes are verbatim in the SDK's compiled library code (tools/1-2-baseline/sdk_identical.py): name size file offset
-FUN_8c0eb200 110 smpwin1_sample4_src.elf 9396
 setBorderColor 26 libnaomik2.lib 39367
 nlTanf 108 libnaomi.lib 45748
 nlMultiMatrix 60 libnaomi.lib 94012
