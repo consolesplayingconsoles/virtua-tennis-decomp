@@ -22447,6 +22447,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 150
 - the cases run 243 of 1186 instructions
 
+### cpuSglPickLv07 (`8C04E07C`, 594 bytes, `src/gen_bk.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_bk/cpuSglPickLv07.json`
+- case 5
+- case 13
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 16
+- case 19
+- case 20
+- case 21
+- case 149
+- case 145
+- case 108
+- case 111
+- case 102
+- case 64
+- case 96
+- case 144
+- case 152
+- case 132
+- case 146
+- case 62
+- case 105
+- case 135
+- case 140
+- case 147
+- case 79
+- case 84
+- the cases run 240 of 251 instructions
+
 ### cpuSglReceivePos (`8C047898`, 316 bytes, `src/gen_rz.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_rz/cpuSglReceivePos.json`
 - case 0
