@@ -2,8 +2,6 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 extern char gMapleDriver[];
 extern char gMapleTransferLockAddress[];
-extern char g_0c2b3150[];
-extern char g_0c2b3410[];
 
 extern float _builtin_sqrtf(float);
 extern int _builtin_tas(char *);
@@ -94,7 +92,7 @@ int nlSetWindowSize(float f4, float f5, float f6, float f7)
     } else {
         *(float *)0x8C1DC9F4 = (u12 * u13);
     }
-    nlMakeProjConvMat((int)g_0c2b3410);
+    nlMakeProjConvMat(0x8C450A90);
     return nlSetPixelClipping(f4, f5, f6, f7);
 }
 
@@ -352,8 +350,8 @@ int nlInvLightVector(void)
 {
     nlTransposeMatrix();
     nlCalcVector(0x8C1DCA40, 0x8C458DA8);
-    nlCalcVector(0x8C1DCA50, (int)g_0c2b3150);
-    nlScaleUnitVector((int)g_0c2b3150, (int)g_0c2b3150, (*(float *)0x8C0F2BD0));
+    nlCalcVector(0x8C1DCA50, 0x8C458D98);
+    nlScaleUnitVector(0x8C458D98, 0x8C458D98, (*(float *)0x8C0F2BD0));
     return nlTransposeMatrix();
 }
 

@@ -12,23 +12,6 @@ extern char gNlObjectFadeColor[];
 extern char gNlObjectFadeColorCopy[];
 extern char gNlObjectMatrix[];
 extern char gPalExtensionRatioCallback[];
-extern char g_0c0d6264[];
-extern char g_0c14a7b8[];
-extern char g_0c14a7bc[];
-extern char g_0c2aedbc[];
-extern char g_0c2aeea8[];
-extern char g_0c2b3390[];
-extern char g_0c2b3410[];
-extern char g_0c2b34e8[];
-extern char g_0c2b3528[];
-extern char g_0c2b7be8[];
-extern char g_0c2b8cbc[];
-extern char g_0c2ea984[];
-extern char g_0c2f4f1c[];
-extern char g_0c2fa53c[];
-extern char g_0c2fa5b4[];
-extern char g_8c20c728[];
-extern char g_8c4762d4[];
 extern char padPeri[];
 
 int ADXB_GetBlkSmpl(int);
@@ -1959,7 +1942,7 @@ int nlLoadDummyTexture(void)
 
     t0 = *(short *)0x8C1278D6;
     t1 = *(int *)0x8C1278D8;
-    t2 = *(short *)(int)g_0c0d6264;
+    t2 = *(short *)0x8C1278D4;
     kmCreateTextureSurface((int)gNlDummyTextureSurface, t2, t0, t1);
     t4 = *(int *)0x8C1278DC;
     kmLoadTexture((int)gNlDummyTextureSurface, t4);
@@ -2012,7 +1995,7 @@ int nlSysMetricsScaleTime(int a4)
 {
     float u0;
 
-    u0 = *(float *)(int)g_0c2aedbc;
+    u0 = *(float *)0x8C424490;
     return (int)((float)a4 * u0);
 }
 
@@ -2021,7 +2004,7 @@ int nlSysMetricsCpuPowerStart(void)
     int t0;
 
     t0 = nlSysMetricsReadTimer();
-    *(unsigned int *)(int)g_0c2aeea8 = t0;
+    *(unsigned int *)0x8C44F69C = t0;
     return t0;
 }
 
@@ -2032,7 +2015,7 @@ int nlSysMetricsCpuPowerGet(void)
     int t2;
 
     t0 = nlSysMetricsReadTimer();
-    t1 = *(int *)(int)g_0c2aeea8;
+    t1 = *(int *)0x8C44F69C;
     t2 = nlSysMetricsDiffTime(t1, t0);
     return nlSysMetricsScaleTime(t2);
 }
@@ -2054,7 +2037,7 @@ void nlSysBeginPass(void)
 
     kmBeginPass(0x8C454FC0);
     t1 = *(int *)0x8C454FC0;
-    *(unsigned int *)(int)g_0c2b8cbc = t1;
+    *(unsigned int *)0x8C42445C = t1;
 }
 
 void nlSysEndPass(void)
@@ -2085,12 +2068,12 @@ void nlRandomSeed(int a4)
 
 void nlPrintSetZ(float f4)
 {
-    *(float *)(int)g_0c14a7bc = (1.0f / f4);
+    *(float *)0x8C1DC8D0 = (1.0f / f4);
 }
 
 void nlPrintMonitorMode(int a4)
 {
-    *(unsigned int *)(int)g_0c14a7b8 = a4;
+    *(unsigned int *)0x8C1DC8CC = a4;
 }
 
 int nlFogTableSet(void)
@@ -2106,7 +2089,7 @@ int nlMakeModelProjectMatrix(void)
     t0 = *(int *)0x8C450888;
     nlPushMatrix(t0);
     nlMultiPushedMatrix();
-    nlGetMatrix8((int)g_0c2b3390);
+    nlGetMatrix8(0x8C450A50);
     return nlPopMatrix(0x1);
 }
 
@@ -2145,17 +2128,17 @@ void nl_cancel_PixelClipping(void)
 
 void nlLineSetDiv(float f4)
 {
-    *(float *)(int)g_0c2b7be8 = f4;
+    *(float *)0x8C458E48 = f4;
 }
 
 int nl_set_cnv_proj_pers(void)
 {
-    nlGetMatrix8((int)g_0c2b3528);
-    nlLoadRechangeMatrix((int)g_0c2b3410);
-    nlMultiMatrix8((int)g_0c2b3528);
+    nlGetMatrix8(0x8C450BB8);
+    nlLoadRechangeMatrix(0x8C450A90);
+    nlMultiMatrix8(0x8C450BB8);
     nlGetMatrix8((int)gNlObjectMatrix);
-    nlGetMatrix8((int)g_0c2b34e8);
-    return nlLoadMatrix8((int)g_0c2b3528);
+    nlGetMatrix8(0x8C450B78);
+    return nlLoadMatrix8(0x8C450BB8);
 }
 
 int nlObjPutMvInit(void)
@@ -2444,7 +2427,7 @@ int buGetFileInfo(int a4, int a5, int a6)
 
 void buSetPrintFunc(int a4)
 {
-    *(unsigned int *)(int)g_8c20c728 = a4;
+    *(unsigned int *)0x8C20C728 = a4;
 }
 
 int buSetRetryCount(void)
@@ -2916,12 +2899,12 @@ int ADXRNA_DiscardData(void)
 int ADXSJD_Init(void)
 {
     ADXB_Init();
-    return memset((int)g_0c2f4f1c, 0x0, 0x4C0);
+    return memset(0x8C46AE24, 0x0, 0x4C0);
 }
 
 int ADXSJD_Finish(void)
 {
-    return memset((int)g_0c2f4f1c, 0x0, 0x4C0);
+    return memset(0x8C46AE24, 0x0, 0x4C0);
 }
 
 int ADXSJD_GetStat(int streamDecoderAddress)
@@ -3173,12 +3156,12 @@ void kmBlankScreen(int a4)
     if ((a4 == 1)) {
         t0 = *(int *)(int)gFrameBufferReadControl;
         kmiWriteRegister(0x44, (t0 & 0xFFFFFFFE));
-        t2 = *(int *)(int)g_0c2ea984;
+        t2 = *(int *)0x8C45EE88;
         t7 = (t2 | 0x8);
         } else {
         t3 = *(int *)(int)gFrameBufferReadControl;
         kmiWriteRegister(0x44, (t3 & 0xFFFFFFFE));
-        t5 = *(int *)(int)g_0c2ea984;
+        t5 = *(int *)0x8C45EE88;
         t7 = t5;
         }
     kmiWriteRegister(0xE8, t7);
@@ -3313,7 +3296,7 @@ int vmsfb_init(void)
 
     buFbrInit();
     t1 = buFbrCreateServer(0x8);
-    *(unsigned int *)(int)g_0c2fa53c = t1;
+    *(unsigned int *)0x8C473180 = t1;
     return t1;
 }
 
@@ -3321,7 +3304,7 @@ int vmsfb_create(int a4, int a5, int a6)
 {
     int t0;
 
-    t0 = *(int *)(int)g_0c2fa53c;
+    t0 = *(int *)0x8C473180;
     return buFbrCreateFiber(t0, a4, a5, a6);
 }
 
@@ -3329,7 +3312,7 @@ int vmsfb_exec(void)
 {
     int t0;
 
-    t0 = *(int *)(int)g_0c2fa53c;
+    t0 = *(int *)0x8C473180;
     return buFbrExecFiberServer(t0);
 }
 
@@ -3356,7 +3339,7 @@ int thunk_fmMngCopyBytes(void)
 int ADXB_Init(void)
 {
     ADXPD_Init();
-    return memset((int)g_0c2fa5b4, 0x0, 0x560);
+    return memset(0x8C4731F8, 0x0, 0x560);
 }
 
 void ADXB_EntryGetWrFunc(int a4, int a5, int a6)
@@ -3629,7 +3612,7 @@ void ADXB_CheckWav(int a4)
 
 int ADXPD_Init(void)
 {
-    return memset((int)g_8c4762d4, 0x0, 0x1A0);
+    return memset(0x8C4762D4, 0x0, 0x1A0);
 }
 
 void ADXPD_SetMode(int a4, int a5)

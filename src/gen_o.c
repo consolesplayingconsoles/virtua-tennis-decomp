@@ -9,9 +9,6 @@ extern char gNlObjectModifierModeBits[];
 extern char gNlSoundStreams[];
 extern char gVmsIoInterface[];
 extern char gVmsVolumeStates[];
-extern char g_0c2b3150[];
-extern char g_0c2b7948[];
-extern char g_0c2b8cbc[];
 extern char padPeri[];
 extern char strMwRnaNullHandleError[];
 
@@ -730,17 +727,17 @@ int nlObjPutMvSub(int a4, int a5)
     t1 = *(int *)((a4 + 0x18));
     if ((int)t0 >= 0) {
         if (t1 != 0) {
-            t2 = *(int *)(int)g_0c2b8cbc;
+            t2 = *(int *)0x8C42445C;
             t3 = *(int *)((t2 + 0x4));
             *(unsigned int *)0xFF000038 = ((unsigned int)((unsigned int)t3 >> 16) >> 8);
             *(unsigned int *)0xFF00003C = ((unsigned int)((unsigned int)t3 >> 16) >> 8);
-            t4 = *(int *)(int)g_0c2b7948;
-            *(unsigned int *)(int)g_0c2b3150 = (((t1 | t4) & 0x30000) | 0x818C0000);
+            t4 = *(int *)0x8C458E04;
+            *(unsigned int *)0x8C458D98 = (((t1 | t4) & 0x30000) | 0x818C0000);
             *(unsigned int *)0x8C458D9C = 0x0;
             t5 = *(int *)(int)gNlObjectModifierModeBits;
             *(unsigned int *)0x8C458DA0 = t5;
             t6 = *(int *)0x8C450C00;
-            nlObjPutMVAsm(a4, (int)g_0c2b3150, a5, t6);
+            nlObjPutMVAsm(a4, 0x8C458D98, a5, t6);
         }
     }
     return nlPopMatrix(0x1);

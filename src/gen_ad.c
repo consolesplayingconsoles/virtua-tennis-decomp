@@ -9,13 +9,6 @@ extern char gNlTextureLoadAttempts[];
 extern char gNlTextureSurfaces[];
 extern char gVmsIoInterface[];
 extern char gVmsVolumeStates[];
-extern char g_0c2aec84[];
-extern char g_0c2aec88[];
-extern char g_0c2b76bc[];
-extern char g_0c2b76c0[];
-extern char g_0c2ee978[];
-extern char g_0c2ef3d0[];
-extern char g_0c2fd294[];
 
 int ADXF_ExecServer(void);
 int ADXF_GetNumReadSct(int);
@@ -98,8 +91,8 @@ int vmsfs_init(int a4, int a5, int a6)
     int t19;
     int t4;
 
-    *(unsigned int *)(int)gVmsIoInterface = (int)g_0c2ee978;
-    t0 = (int)g_0c2ef3d0;
+    *(unsigned int *)(int)gVmsIoInterface = 0x8C464580;
+    t0 = 0x8C464FD8;
     for (;;) {
         *(unsigned int *)((t0 + 0x0)) = 0x0;
         t0 = (t0 + 0x4);
@@ -107,7 +100,7 @@ int vmsfs_init(int a4, int a5, int a6)
             break;
         }
     }
-    memset((int)g_0c2ee978, 0x0, 0x14);
+    memset(0x8C464580, 0x0, 0x14);
     memset((int)gVmsVolumeStates, 0x0, 0xA40);
     vmsfs_setdevicetype(0x0);
     *(unsigned int *)0x8C4694A0 = 0x0;
@@ -363,7 +356,7 @@ int buFbrExecFiberServer(int a4, int a5, int a6, int a7, float f4, float f5, flo
     int t7;
     int t3;
 
-    *(unsigned int *)(int)g_0c2fd294 = (*(int *)(int)gBuFiberScheduler);
+    *(unsigned int *)0x8C4762CC = (*(int *)(int)gBuFiberScheduler);
     t1 = _builtin_get_fpscr();
     _builtin_set_fpscr(0x40000);
     *(unsigned int *)(int)gBuFiberScheduler = a4;
@@ -400,7 +393,7 @@ int buFbrExecFiberServer(int a4, int a5, int a6, int a7, float f4, float f5, flo
         t5 = (t5 + t3);
     }
     *(unsigned int *)((a4 + 0x204)) = ((*(int *)((a4 + 0x204))) + 0x1);
-    *(unsigned int *)(int)gBuFiberScheduler = (*(int *)(int)g_0c2fd294);
+    *(unsigned int *)(int)gBuFiberScheduler = (*(int *)0x8C4762CC);
     _builtin_set_fpscr(t1);
     return 0x204;
 }
@@ -637,8 +630,8 @@ int nlInitSprite(int a4, int a5, int a6)
 
     *(unsigned int *)0x8C454C7C = 0xFFFFFFFF;
     nlSpriteSetImaginaryScreenSize((*(float *)0x8C0F3CC0), (*(float *)0x8C0F3CBC));
-    *(unsigned int *)(int)g_0c2b76bc = a6;
-    *(unsigned int *)(int)g_0c2b76c0 = a5;
+    *(unsigned int *)0x8C454C84 = a6;
+    *(unsigned int *)0x8C454C88 = a5;
     *(unsigned int *)0x8C454C80 = a4;
     *(unsigned int *)(int)gNlSpriteIndexBitmap = ((((a6 << 1) + a4) + 0x3) & 0xFFFFFFFC);
     *(unsigned int *)0x8C454C90 = ((((((int)((int)(a5 + 0x1F) / (int)0x20)) << 2) + ((((a6 << 1) + a4) + 0x3) & 0xFFFFFFFC)) + 0x3) & 0xFFFFFFFC);
@@ -656,7 +649,7 @@ int nlInitSprite(int a4, int a5, int a6)
     }
     t10 = 0x0;
     for (;;) {
-        t12 = (int)((int)((*(int *)(int)g_0c2b76c0) + 0x1F) / (int)0x20);
+        t12 = (int)((int)((*(int *)0x8C454C88) + 0x1F) / (int)0x20);
         if ((int)t10 >= (int)t12) {
             break;
         }
@@ -801,8 +794,8 @@ int nlInitCommonTexture(int workspaceAddress, int textureCount, int commonTextur
     int bitmapWordIndex;
 
     nlInitTextureSurface(workspaceAddress, (textureCount + 0x1));
-    *(unsigned int *)(int)g_0c2aec84 = ((((textureCount + 0x1) * 0x3C) + workspaceAddress) + 0x8);
-    *(unsigned int *)(int)g_0c2aec88 = ((((commonTextureCount + 0x1) << 2) << 1) + ((((textureCount + 0x1) * 0x3C) + workspaceAddress) + 0x8));
+    *(unsigned int *)0x8C4241C0 = ((((textureCount + 0x1) * 0x3C) + workspaceAddress) + 0x8);
+    *(unsigned int *)0x8C4241C4 = ((((commonTextureCount + 0x1) << 2) << 1) + ((((textureCount + 0x1) * 0x3C) + workspaceAddress) + 0x8));
     roundedBitmapBits = ((commonTextureCount + 0x1) + 0x1F);
     if ((int)((commonTextureCount + 0x1) + 0x1F) < 0) {
         roundedBitmapBits = (((commonTextureCount + 0x1) + 0x1F) + 0x1F);
@@ -817,8 +810,8 @@ int nlInitCommonTexture(int workspaceAddress, int textureCount, int commonTextur
             break;
         }
         entryIndex = (entryIndex + 0x1);
-        *(unsigned int *)((((*(int *)(int)g_0c2aec84) + entryOffset) + 0x0)) = 0x0;
-        bitmapWordsOrEntryAddress = (*(int *)(int)g_0c2aec84);
+        *(unsigned int *)((((*(int *)0x8C4241C0) + entryOffset) + 0x0)) = 0x0;
+        bitmapWordsOrEntryAddress = (*(int *)0x8C4241C0);
         bitmapWordsOrEntryAddress = (bitmapWordsOrEntryAddress + entryOffset);
         entryOffset = (entryOffset + 0x8);
         *(unsigned int *)((bitmapWordsOrEntryAddress + 0x4)) = 0xFFFFFFFF;
@@ -830,7 +823,7 @@ int nlInitCommonTexture(int workspaceAddress, int textureCount, int commonTextur
         if ((int)bitmapWordIndex >= (int)(*(int *)0x8C1DC880)) {
             break;
         }
-        bitmapOrConfigurationAddress = (*(int *)(int)g_0c2aec88);
+        bitmapOrConfigurationAddress = (*(int *)0x8C4241C4);
         bitmapWordIndex = (bitmapWordIndex + 0x1);
         *(unsigned int *)((bitmapByteOffset + bitmapOrConfigurationAddress)) = 0x0;
         bitmapByteOffset = (bitmapByteOffset + 0x4);

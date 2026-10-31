@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ug): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char g_0c2b7bdc[];
 
 int nlArcTan(float);
 float nlCos(int);
@@ -120,7 +119,7 @@ int nlPerspective(int a4, float f4, float f5, float f6)
     u48 = (f5 * f6);
     *(float *)(((int)stk + 84)) = ((u48 * (1.0f + 1.0f)) / (f5 - f6));
     *(float *)(((int)stk + 88)) = 0.0f;
-    *(float *)(int)g_0c2b7bdc = f5;
+    *(float *)0x8C458E3C = f5;
     *(float *)0x8C458E40 = f6;
     *(float *)0x8C458E44 = (1.0f / f5);
     *(float *)0x8C458DBC = f5;

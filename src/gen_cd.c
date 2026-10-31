@@ -8,16 +8,6 @@ extern char gPdPeripheralSlotWords[];
 extern char gPdPeripheralSlots[];
 extern char gVmsIoInterface[];
 extern char gVmsVolumeStates[];
-extern char g_0c2b8d9c[];
-extern char g_0c2b8da4[];
-extern char g_0c2b92e8[];
-extern char g_0c2b92ec[];
-extern char g_0c2b92ed[];
-extern char g_0c2b92ee[];
-extern char g_0c2b9306[];
-extern char g_0c2ee992[];
-extern char g_0c2ee998[];
-extern char g_0c2ef3d0[];
 
 int DECtoBCD(int);
 extern int _builtin_get_imask(void);
@@ -164,10 +154,10 @@ int pdInitPeripheral(int a4, int a5, int a6)
 {
     int t4;
 
-    *(unsigned int *)(int)g_0c2b92e8 = a4;
+    *(unsigned int *)0x8C45A6AC = a4;
     *(unsigned int *)(int)gPdPeripheralActive = 0x0;
-    *(unsigned int *)(int)g_0c2b8d9c = 0x1;
-    *(unsigned int *)(int)g_0c2b8da4 = 0x0;
+    *(unsigned int *)0x8C45A160 = 0x1;
+    *(unsigned int *)0x8C45A168 = 0x0;
     memset((int)gPdPeripheralSlots, 0x0, 0x4E0);
     if ((a6 != 0) && (a5 != 0)) {
         *(unsigned int *)(int)gPdPeripheralActive = 0x1;
@@ -178,16 +168,16 @@ int pdInitPeripheral(int a4, int a5, int a6)
         *(unsigned int *)((((t4 * 0x34) + (int)gPdPeripheralSlots) + 0x30)) = (kdGetDeviceInfo(t4));
         _pd_peripheral_set_null(((t4 * 0x34) + (int)gPdPeripheralSlots));
         *(unsigned int *)(((int)gPdPeripheralSlotWords + (t4 << 2))) = 0x0;
-        *(unsigned char *)((t4 + (int)g_0c2b92ee)) = 0x0;
-        *(unsigned char *)((t4 + (int)g_0c2b9306)) = 0x0;
+        *(unsigned char *)((t4 + 0x8C45A6B2)) = 0x0;
+        *(unsigned char *)((t4 + 0x8C45A6CA)) = 0x0;
         t4 = (t4 + 0x1);
         if ((int)t4 >= (int)0x18) {
             break;
         }
     }
-    *(unsigned char *)(int)g_0c2b92ec = 0xC0;
-    *(unsigned char *)(int)g_0c2b92ed = 0xA0;
-    return (int)g_0c2b92ed;
+    *(unsigned char *)0x8C45A6B0 = 0xC0;
+    *(unsigned char *)0x8C45A6B1 = 0xA0;
+    return 0x8C45A6B1;
 }
 
 int vmsfs_fgetsize(int a4, int a5)
@@ -200,7 +190,7 @@ int vmsfs_fgetsize(int a4, int a5)
     int stk[15];
 
     *(unsigned int *)(((int)stk + 4)) = a5;
-    if ((*(signed char *)(((a4 * 0x148) + (int)g_0c2ee992))) != 0) {
+    if ((*(signed char *)(((a4 * 0x148) + 0x8C46459A))) != 0) {
         t1 = vmsio_isready(a4);
         if (t1 == 0) {
             vmsfs_unmount(a4);
@@ -208,7 +198,7 @@ int vmsfs_fgetsize(int a4, int a5)
         }
         t3 = vmsio_ismount(a4);
         if (t3 != 0) {
-            if ((*(signed char *)(((a4 * 0x148) + (int)g_0c2ee998))) == 0) {
+            if ((*(signed char *)(((a4 * 0x148) + 0x8C4645A0))) == 0) {
                 return 0xFFFFFF01;
             }
             t5 = buIsFormat(a4);
@@ -817,7 +807,7 @@ int vmsfs_isformat(int a4, int a5, int a6, int a7)
                     t7 = (t7 + 0x1);
                     t6 = (t6 + 0x1);
                     if ((int)t7 >= (int)0x10) {
-                        if ((*(int *)(((a4 << 2) + (int)g_0c2ef3d0))) != 0) {
+                        if ((*(int *)(((a4 << 2) + 0x8C464FD8))) != 0) {
                             return 0xFFFFFF03;
                         }
                         return 0x0;

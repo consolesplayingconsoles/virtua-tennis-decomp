@@ -2,7 +2,6 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 extern char gAdxErrorMessageBuffer[];
 extern char gVmsVolumeStates[];
-extern char g_0c2f4c9c[];
 extern char strMwRnaNullHandleError[];
 
 typedef struct { int w[3]; } Stk3;
@@ -640,7 +639,7 @@ int ADXAMP_ExecServer(void)
     int t1;
     int t3;
 
-    t0 = (int)g_0c2f4c9c;
+    t0 = 0x8C46ABA4;
     for (;;) {
         t1 = *(signed char *)((t0 + 0x0));
         t3 = t1;

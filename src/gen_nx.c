@@ -4,8 +4,6 @@ extern char gNlCommonTextureOffset[];
 extern char gNlPaletteCount[];
 extern char gNlTextureSurfaces[];
 extern char gPaletteDirty[];
-extern char g_0c2aec84[];
-extern char g_0c2b3568[];
 
 int nlCommonTextureGetNextTextureIndex(void);
 int nlCreateTextureParam(int);
@@ -89,8 +87,8 @@ int nlObjPutLoadTextureOnce_Sub(int a4, int a5, int a6, int a7, int a8)
     L_8C0F1C30:;
     t19 = *(int *)(int)gNlCommonTextureOffset;
     *(unsigned int *)(((int)stk + 8)) = (((R13 + t19) << 2) << 1);
-    R11 = ((int)g_0c2aec84);
-    if (((*(int *)((((((R13 + t19) << 2) << 1) + (*(int *)(int)g_0c2aec84)) + 0x0))) != 0)) goto L_8C0F1C5E;
+    R11 = (0x8C4241C0);
+    if (((*(int *)((((((R13 + t19) << 2) << 1) + (*(int *)0x8C4241C0)) + 0x0))) != 0)) goto L_8C0F1C5E;
     t24 = *(int *)(((int)stk + 8));
     t25 = *(int *)((R11 + 0x0));
     *(int *)((int)stk + 4) = (0x4 + (t24 + t25));
@@ -148,7 +146,7 @@ int nlObjPutLoadTextureOnce_Sub(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((R8 + 0x0)) = R12;
     goto L_8C0F1E5C;
     L_8C0F1D04:;
-    t71 = *(int *)(int)g_0c2b3568;
+    t71 = *(int *)0x8C450BF8;
     R4 = ((R4 & ((unsigned int)(*(int *)((R14 + 0xC))) >> 27)));
     R5 = (t71);
     if ((t71 != 0)) goto L_8C0F1D18;

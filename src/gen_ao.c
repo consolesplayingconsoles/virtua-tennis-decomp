@@ -8,8 +8,6 @@ extern char gNlTextureSurfaceCount[];
 extern char gNlTextureSurfaces[];
 extern char gVmsIoInterface[];
 extern char gVmsVolumeStates[];
-extern char g_0c2aec88[];
-extern char g_0c2b7bdc[];
 extern char motionCur[];
 extern char strMwRnaNullHandleError[];
 
@@ -620,7 +618,7 @@ int nlCommonTextureGetNextTextureIndex(void)
         if ((int)t1 >= (int)(*(int *)0x8C1DC880)) {
             return 0xFFFFFFFF;
         }
-        t8 = *(int *)((t2 + (*(int *)(int)g_0c2aec88)));
+        t8 = *(int *)((t2 + (*(int *)0x8C4241C4)));
         if (t8 != -1) {
             break;
         }
@@ -638,7 +636,7 @@ int nlCommonTextureGetNextTextureIndex(void)
         t9 = (t9 << 1);
         t10 = (t10 + 0x1);
     }
-    t11 = *(int *)(int)g_0c2aec88;
+    t11 = *(int *)0x8C4241C4;
     *(unsigned int *)((t3 + t11)) = ((*(int *)((t3 + t11))) | t9);
     return (t0 + t10);
 }
@@ -1773,7 +1771,7 @@ int nlLineClipNear(int a4, int a5)
     int t6;
     int t22;
 
-    u1 = *(float *)(int)g_0c2b7bdc;
+    u1 = *(float *)0x8C458E3C;
     if (u1 > (*(float *)((a4 + 0x8)))) {
         t6 = 0x0;
         if (u1 > (*(float *)((a5 + 0x8)))) {

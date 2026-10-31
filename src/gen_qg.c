@@ -2,8 +2,6 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 extern char gNlRenderTextureTableState[];
 extern char gNlTextureSurfaces[];
-extern char g_0c2b31d8[];
-extern char g_0c2b8cbc[];
 
 int kmBeginPass(int);
 int kmBeginScene(int);
@@ -34,7 +32,7 @@ void nlRenderTextureEnd(void)
                 kmEndScene(0x8C42420C);
                 kmBeginScene(0x8C42420C);
                 kmBeginPass(0x8C454FC0);
-                *(unsigned int *)(int)g_0c2b8cbc = (*(int *)0x8C454FC0);
+                *(unsigned int *)0x8C42445C = (*(int *)0x8C454FC0);
             } else {
                 nl_action_PixelClipping();
                 kmRenderTexture(((*(int *)(int)gNlTextureSurfaces) + (t2 * 0x3C)), 0x0);
@@ -42,7 +40,7 @@ void nlRenderTextureEnd(void)
         }
         *(unsigned int *)0x8C44FBF4 = 0xFFFFFFFF;
         nlSetWindowSize((*(float *)0x8C44FBF8), (*(float *)0x8C44FBFC), (*(float *)0x8C44FC00), (*(float *)0x8C44FC04));
-        t0 = *(signed char *)(int)g_0c2b31d8;
+        t0 = *(signed char *)0x8C450858;
         nlMatrixMode(0x3);
         nl_set_cnv_proj_pers();
         nlMatrixMode(t0);

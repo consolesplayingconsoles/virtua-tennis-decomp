@@ -1,10 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_vy): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char g_0c2b92e8[];
-extern char g_0c2b92ec[];
-extern char g_0c2b92ed[];
-extern char g_0c2b92ee[];
-extern char g_0c2b9306[];
 
 int _pd_peripheral_set_data(int a4, int a5, int a6);
 
@@ -20,32 +15,32 @@ int _pd_peripheral_set_data(int a4, int a5, int a6)
     t0 = *(int *)((a5 + 0x8));
     t1 = *(signed char *)(((t0 + 0x8) + 0x1));
     t2 = *(signed char *)(((t0 + 0x8) + 0x0));
-    if ((unsigned int)(*(signed char *)((((t0 + 0x8) + 0x3) + 0x0))) >= (unsigned int)(*(signed char *)(int)g_0c2b92ec)) {
-        *(unsigned char *)((((int)g_0c2b92ee + a6) + 0x0)) = 0x1;
+    if ((unsigned int)(*(signed char *)((((t0 + 0x8) + 0x3) + 0x0))) >= (unsigned int)(*(signed char *)0x8C45A6B0)) {
+        *(unsigned char *)(((0x8C45A6B2 + a6) + 0x0)) = 0x1;
         t3 = ((((unsigned char)t2 | ((unsigned char)t1 << 8)) | 0xFFFF0000) & 0xFFFDFFFF);
     } else {
-        if ((unsigned int)(*(signed char *)((((t0 + 0x8) + 0x3) + 0x0))) <= (unsigned int)(*(signed char *)(int)g_0c2b92ed)) {
-            *(unsigned char *)((((int)g_0c2b92ee + a6) + 0x0)) = 0x0;
+        if ((unsigned int)(*(signed char *)((((t0 + 0x8) + 0x3) + 0x0))) <= (unsigned int)(*(signed char *)0x8C45A6B1)) {
+            *(unsigned char *)(((0x8C45A6B2 + a6) + 0x0)) = 0x0;
             t4 = ((((unsigned char)t2 | ((unsigned char)t1 << 8)) | 0xFFFF0000) | 0x20000);
         } else {
             t5 = (((unsigned char)t2 | ((unsigned char)t1 << 8)) | 0xFFFF0000);
-            if ((*(signed char *)((((int)g_0c2b92ee + a6) + 0x0))) != 0) {
+            if ((*(signed char *)(((0x8C45A6B2 + a6) + 0x0))) != 0) {
                 t5 = ((((unsigned char)t2 | ((unsigned char)t1 << 8)) | 0xFFFF0000) & 0xFFFDFFFF);
             }
             t4 = t5;
         }
         t3 = t4;
     }
-    if ((unsigned int)(*(signed char *)((((t0 + 0x8) + 0x2) + 0x0))) >= (unsigned int)(*(signed char *)(int)g_0c2b92ec)) {
-        *(unsigned char *)((((int)g_0c2b9306 + a6) + 0x0)) = 0x1;
+    if ((unsigned int)(*(signed char *)((((t0 + 0x8) + 0x2) + 0x0))) >= (unsigned int)(*(signed char *)0x8C45A6B0)) {
+        *(unsigned char *)(((0x8C45A6CA + a6) + 0x0)) = 0x1;
         t1 = (t3 & 0xFFFEFFFF);
     } else {
-        if ((unsigned int)(*(signed char *)((((t0 + 0x8) + 0x2) + 0x0))) <= (unsigned int)(*(signed char *)(int)g_0c2b92ed)) {
-            *(unsigned char *)((((int)g_0c2b9306 + a6) + 0x0)) = 0x0;
+        if ((unsigned int)(*(signed char *)((((t0 + 0x8) + 0x2) + 0x0))) <= (unsigned int)(*(signed char *)0x8C45A6B1)) {
+            *(unsigned char *)(((0x8C45A6CA + a6) + 0x0)) = 0x0;
             t2 = (t3 | 0x10000);
         } else {
             t4 = t3;
-            if ((*(signed char *)((((int)g_0c2b9306 + a6) + 0x0))) != 0) {
+            if ((*(signed char *)(((0x8C45A6CA + a6) + 0x0))) != 0) {
                 t4 = (t3 & 0xFFFEFFFF);
             }
             t2 = t4;
@@ -53,7 +48,7 @@ int _pd_peripheral_set_data(int a4, int a5, int a6)
         t1 = t2;
     }
     t2 = t1;
-    if ((*(int *)(int)g_0c2b92e8) == 0) {
+    if ((*(int *)0x8C45A6AC) == 0) {
         t2 = (t1 ^ 0xFFFFFFFF);
     }
     *(unsigned int *)((a4 + 0x8)) = t2;

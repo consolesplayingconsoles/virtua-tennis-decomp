@@ -5,9 +5,6 @@ extern char gAdxStreamFileHandles[];
 extern char gBuFiberScheduler[];
 extern char gNlCommonTextureOffset[];
 extern char gVmsFileCommandStates[];
-extern char g_0c2af128[];
-extern char g_0c2fd294[];
-extern char g_0c2fd298[];
 
 int kmiReadRegister(int);
 int kmiWriteRegister(int, int);
@@ -71,7 +68,7 @@ void nlPrintSetGarbagedTexture(void)
 
 void nlPrintColor(int a4)
 {
-    *(unsigned int *)(int)g_0c2af128 = a4;
+    *(unsigned int *)0x8C44F9BC = a4;
 }
 
 int abs(int a4)
@@ -173,6 +170,6 @@ void buFbrInit(int a4, int a5, int a6, int a7)
 {
     memset((int)buFbrServers, 0x0, 0x1AF8, a7);
     *(unsigned int *)(int)gBuFiberScheduler = 0x0;
-    *(unsigned int *)(int)g_0c2fd294 = 0x0;
-    *(unsigned int *)(int)g_0c2fd298 = 0x0;
+    *(unsigned int *)0x8C4762CC = 0x0;
+    *(unsigned int *)0x8C4762D0 = 0x0;
 }

@@ -5,7 +5,6 @@ extern char gRenderPacketQueues[];
 extern char gVertexBufferLockState[];
 extern char gVmsIoInterface[];
 extern char gVmsVolumeStates[];
-extern char g_0c2f9338[];
 extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
@@ -147,7 +146,7 @@ int syG2SysInit(void)
     *(unsigned int *)(((0x24 + (t36 + 0x6C)) + 0x0)) = (syChainAddHandler(0xAA0, 0x8C1FCC60, 0x10, (t36 + 0x6C)));
     t38 = *(int *)0x8C20CA24;
     *(unsigned int *)(((0x24 + ((t38 + 0x4) + 0x9C)) + 0x0)) = (syChainAddHandler(0xAC0, 0x8C1FCC60, 0x10, ((t38 + 0x4) + 0x9C)));
-    *(unsigned int *)(int)g_0c2f9338 = 0x0;
+    *(unsigned int *)0x8C471F7C = 0x0;
     _builtin_set_imask(((unsigned int)(((t0 & 0xF) << 2) << 2) >> 4));
     return 0x0;
 }

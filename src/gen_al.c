@@ -4,7 +4,6 @@ extern char Player[];
 extern char fileLoadSlots[];
 extern char gGdFsGlobalState[];
 extern char gNlCommonTextureOffset[];
-extern char g_0c2aec84[];
 extern char muneTexNames[];
 
 typedef struct { int w[3]; } Stk3;
@@ -854,7 +853,7 @@ int nlSpriteSetGarbagedTextureOnce_Sub(int a4, int a5, int a6)
         t1 = (*(int *)(((int)stk + 16)));
     }
     t3 = *(int *)(int)gNlCommonTextureOffset;
-    t4 = *(int *)(int)g_0c2aec84;
+    t4 = *(int *)0x8C4241C0;
     t19 = 0xFFFFFFFF;
     if ((*(int *)((((((t1 + t3) << 2) << 1) + t4) + 0x0))) == 0) {
     } else {

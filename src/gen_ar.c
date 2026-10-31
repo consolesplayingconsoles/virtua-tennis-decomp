@@ -7,9 +7,6 @@ extern char gNlSoundStreams[];
 extern char gNlTextureSurfaces[];
 extern char gVmsIoInterface[];
 extern char gVmsVolumeStates[];
-extern char g_0c2aec84[];
-extern char g_0c2b3568[];
-extern char g_0c2ee998[];
 
 typedef struct { int w[3]; } Stk3;
 int ADXPD_GetStat(int);
@@ -903,9 +900,9 @@ int nlSpriteFreeTextureOnce_Sub(int a4, int a5, int a6, int a7)
     L_8C0F4002:;
     t5 = *(int *)(int)gNlCommonTextureOffset;
     *(unsigned int *)(((int)stk + 4)) = (R6 + t5);
-    R13 = ((int)g_0c2aec84);
+    R13 = (0x8C4241C0);
     R14 = ((((R6 + t5) << 2) << 1));
-    if (((unsigned int)(*(int *)((((*(int *)(int)g_0c2aec84) + (((R6 + t5) << 2) << 1)) + 0x0))) <= (unsigned int)0x0)) goto L_8C0F40EA;
+    if (((unsigned int)(*(int *)((((*(int *)0x8C4241C0) + (((R6 + t5) << 2) << 1)) + 0x0))) <= (unsigned int)0x0)) goto L_8C0F40EA;
     goto L_8C0F401E;
     L_8C0F401E:;
     t11 = *(int *)((R13 + 0x0));
@@ -947,7 +944,7 @@ int nlSpriteFreeTextureOnce_Sub(int a4, int a5, int a6, int a7)
     t42 = *(int *)0x8C454C90;
     R4 = ((unsigned short)(*(short *)((((((R12 << 2) << 2) << 1) + t42) + 0x16))));
     R5 = ((0x7 & ((unsigned int)(*(int *)((((((R12 << 2) << 2) << 1) + t42) + 0xC))) >> 27)));
-    if (((*(int *)(int)g_0c2b3568) == 0)) goto L_8C0F40EA;
+    if (((*(int *)0x8C450BF8) == 0)) goto L_8C0F40EA;
     goto L_8C0F40D0;
     L_8C0F40D0:;
     if ((R5 == 5)) goto L_8C0F40DC;
@@ -1244,7 +1241,7 @@ int vmsfs_fwrite1(int a4, int a5)
         t73 = 0xFFFFFF01;
         if (t5 != 0) {
             t62 = 0xFFFFFF01;
-            if ((*(signed char *)((((*(int *)((a4 + 0x28))) * 0x148) + (int)g_0c2ee998))) == 0) {
+            if ((*(signed char *)((((*(int *)((a4 + 0x28))) * 0x148) + 0x8C4645A0))) == 0) {
             } else {
                 t9 = buIsFormat((*(int *)((a4 + 0x28))));
                 t52 = 0xFFFFFF03;

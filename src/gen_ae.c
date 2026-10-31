@@ -8,9 +8,6 @@ extern char gNlG2DmaHandles[];
 extern char gNlSoundPackUsedBytes[];
 extern char gNlTextureSurfaceCount[];
 extern char gNlTextureSurfaces[];
-extern char g_0c2aec84[];
-extern char g_0c2aec88[];
-extern char g_0c2aeebc[];
 
 typedef struct { int w[4]; } Stk4;
 int ADXF_GetStat(int);
@@ -696,8 +693,8 @@ int nlFreeCommonTextureAll(void)
                 break;
             }
             t4 = (t4 + 0x1);
-            *(unsigned int *)((((*(int *)(int)g_0c2aec84) + t3) + 0x0)) = 0x0;
-            t2 = (*(int *)(int)g_0c2aec84);
+            *(unsigned int *)((((*(int *)0x8C4241C0) + t3) + 0x0)) = 0x0;
+            t2 = (*(int *)0x8C4241C0);
             t2 = (t2 + t3);
             t3 = (t3 + 0x8);
             *(unsigned int *)((t2 + 0x4)) = 0xFFFFFFFF;
@@ -709,7 +706,7 @@ int nlFreeCommonTextureAll(void)
             if ((int)t11 >= (int)(*(int *)0x8C1DC880)) {
                 break;
             }
-            t9 = (*(int *)(int)g_0c2aec88);
+            t9 = (*(int *)0x8C4241C4);
             t11 = (t11 + 0x1);
             *(unsigned int *)((t10 + t9)) = 0x0;
             t10 = (t10 + 0x4);
@@ -947,8 +944,8 @@ int nlPrintf(Stk4 s)
     if ((0x3 & ((((int)stk + 4) + 0x4) + 0x4)) != 0) {
         t0 = ((((int)stk + 4) + 0x4) + 0x8);
     }
-    vsprintf((int)g_0c2aeebc, s.w[0], t0);
-    nlPuts((int)g_0c2aeebc);
+    vsprintf(0x8C44F750, s.w[0], t0);
+    nlPuts(0x8C44F750);
     return 0x0;
 }
 

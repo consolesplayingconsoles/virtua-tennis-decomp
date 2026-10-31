@@ -4,7 +4,6 @@ extern char gRenderPacketVBlankWaitPending[];
 extern char gStripBufferEnabled[];
 extern char gStripBufferSizeBytes[];
 extern char gVmsVolumeStates[];
-extern char g_0c2b31dc[];
 extern char stageNo[];
 
 extern int _builtin_get_imask(void);
@@ -1167,7 +1166,7 @@ int nlPushMatrix(int a4)
     float u38[16];
 
     t0 = *(int *)0x8C450864;
-    t1 = *(int *)(int)g_0c2b31dc;
+    t1 = *(int *)0x8C45085C;
     _builtin_st_ext((float (*)[4])u2);
     *(float *)((((t0 + 0x40) - 0x8) + 0x0)) = u2[15];
     *(float *)(((((t0 + 0x40) - 0x8) + 0x0) + 4)) = u2[14];
@@ -1187,7 +1186,7 @@ int nlPushMatrix(int a4)
     *(float *)((((((((((((t0 + 0x40) - 0x8) - 0x8) - 0x8) - 0x8) - 0x8) - 0x8) - 0x8) - 0x8) + 0x0) + 4)) = u2[0];
     *(unsigned int *)0x8C450864 = (t0 + 0x40);
     
-    *(unsigned short *)(int)g_0c2b31dc = ((short)t1 + 0x1);
+    *(unsigned short *)0x8C45085C = ((short)t1 + 0x1);
     if (a4 == 0) {
         _builtin_st_ext((float (*)[4])u4);
         u4[0] = u2[0];

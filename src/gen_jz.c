@@ -1,8 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_jz): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char g_0c2b2fc8[];
-extern char g_0c2b7948[];
-extern char g_0c2b8cbc[];
 extern char padPeri[];
 extern char replayInput[];
 
@@ -658,22 +655,22 @@ int nlstripSetVertexContext(int a4, int a5, int a6, int a7)
     int t18;
     int t20;
 
-    *(unsigned int *)(((*(int *)(int)g_0c2b2fc8) + 0x0)) = 0x600608;
-    *(unsigned int *)(((*(int *)(int)g_0c2b2fc8) + 0x8)) = (*(int *)((a4 + 0x0)));
-    *(unsigned int *)(((*(int *)(int)g_0c2b2fc8) + 0xC)) = (*(int *)(((a4 + 0x4) + 0x0)));
-    *(unsigned int *)(((*(int *)(int)g_0c2b2fc8) + 0x20)) = (*(int *)((((a4 + 0x4) + 0x4) + 0x0)));
-    *(unsigned int *)(((*(int *)(int)g_0c2b2fc8) + 0x44)) = (*(int *)(((((a4 + 0x4) + 0x4) + 0x4) + 0x0)));
-    *(unsigned int *)(((*(int *)(int)g_0c2b2fc8) + 0x40)) = (*(int *)((((((a4 + 0x4) + 0x4) + 0x4) + 0x4) + 0x0)));
-    kmProcessVertexRenderState((*(int *)(int)g_0c2b2fc8), a5, a6, a7);
-    t13 = *(int *)(int)g_0c2b2fc8;
+    *(unsigned int *)(((*(int *)0x8C458C10) + 0x0)) = 0x600608;
+    *(unsigned int *)(((*(int *)0x8C458C10) + 0x8)) = (*(int *)((a4 + 0x0)));
+    *(unsigned int *)(((*(int *)0x8C458C10) + 0xC)) = (*(int *)(((a4 + 0x4) + 0x0)));
+    *(unsigned int *)(((*(int *)0x8C458C10) + 0x20)) = (*(int *)((((a4 + 0x4) + 0x4) + 0x0)));
+    *(unsigned int *)(((*(int *)0x8C458C10) + 0x44)) = (*(int *)(((((a4 + 0x4) + 0x4) + 0x4) + 0x0)));
+    *(unsigned int *)(((*(int *)0x8C458C10) + 0x40)) = (*(int *)((((((a4 + 0x4) + 0x4) + 0x4) + 0x4) + 0x0)));
+    kmProcessVertexRenderState((*(int *)0x8C458C10), a5, a6, a7);
+    t13 = *(int *)0x8C458C10;
     *(unsigned int *)((t13 + 0x90)) = ((*(int *)((t13 + 0x90))) & 0xFFFCFF3F);
-    t15 = *(int *)(int)g_0c2b2fc8;
-    *(unsigned int *)((t15 + 0x90)) = ((*(int *)((t15 + 0x90))) | (*(int *)(int)g_0c2b7948));
-    t18 = *(int *)(int)g_0c2b2fc8;
+    t15 = *(int *)0x8C458C10;
+    *(unsigned int *)((t15 + 0x90)) = ((*(int *)((t15 + 0x90))) | (*(int *)0x8C458E04));
+    t18 = *(int *)0x8C458C10;
     *(unsigned int *)((t18 + 0x98)) = ((*(int *)((t18 + 0x98))) & 0x31FF0FF);
-    t20 = *(int *)(int)g_0c2b2fc8;
+    t20 = *(int *)0x8C458C10;
     *(unsigned int *)(((t20 + 0x98) + 0x0)) = ((*(int *)(((t20 + 0x98) + 0x0))) | (((((*(int *)0x8C424418) ^ 0xFC) << 16) << 8) | (*(int *)0x8C458E08)));
-    return kmSetVertexRenderState(0x8C454FC0, (*(int *)(int)g_0c2b2fc8));
+    return kmSetVertexRenderState(0x8C454FC0, (*(int *)0x8C458C10));
 }
 
 int nlWaitVSync(void)
@@ -699,7 +696,7 @@ int nlWaitVSync(void)
     }
     kmBeginScene(0x8C42420C);
     kmBeginPass(0x8C454FC0);
-    *(unsigned int *)(int)g_0c2b8cbc = (*(int *)0x8C454FC0);
+    *(unsigned int *)0x8C42445C = (*(int *)0x8C454FC0);
     t17 = *(int *)0x8C1DC8A8;
     t19 = 0x8C1DC8A8;
     if (t17 != 0) {

@@ -3,7 +3,6 @@
 extern char gMapleDriver[];
 extern char gNlRenderTextureTableState[];
 extern char gVmsVolumeStates[];
-extern char g_0c2b31d8[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[12]; } Stk12;
@@ -152,7 +151,7 @@ int nlRenderTextureBegin(int a4)
         *(float *)0x8C44FC04 = (*(float *)0x8C450B1C);
         nlSetWindowSize(0.0f, 0.0f, (float)(*(short *)(((t1 + ((a4 << 2) << 2)) + 0xC))), (float)(*(short *)(((t1 + ((a4 << 2) << 2)) + 0xE))));
         nl_cancel_PixelClipping();
-        t23 = *(signed char *)(int)g_0c2b31d8;
+        t23 = *(signed char *)0x8C450858;
         nlMatrixMode(0x3);
         nl_set_cnv_proj_pers();
         return nlMatrixMode(t23);

@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_bj): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char g_0c2b3190[];
 
 typedef struct { int w[3]; } Stk3;
 extern int _builtin_get_imask(void);
@@ -95,7 +94,7 @@ int nlSetPixelClipping(float f4, float f5, float f6, float f7)
     int t69;
     int t70;
 
-    t0 = *(short *)(int)g_0c2b3190;
+    t0 = *(short *)0x8C458DD8;
     t3 = 0x0;
     if ((int)(int)f4 < 0) {
     } else {

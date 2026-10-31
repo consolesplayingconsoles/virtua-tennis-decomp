@@ -1,11 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_as): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 extern char gVmsVolumeStates[];
-extern char g_0c2b7624[];
-extern char g_0c2b7628[];
-extern char g_0c2b8cbc[];
-extern char g_0c2ee992[];
-extern char g_0c2ee998[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -758,7 +753,7 @@ int vmsfs_fopen(int a4, int a5, int a6)
     R11 = (R5);
     R12 = (0x0);
     R13 = (R4);
-    if (((*(signed char *)(((R4 * 0x148) + (int)g_0c2ee992))) == 0)) goto L_8C1EC0F8;
+    if (((*(signed char *)(((R4 * 0x148) + 0x8C46459A))) == 0)) goto L_8C1EC0F8;
     goto L_8C1EC0CE;
     L_8C1EC0CE:;
     t6 = (vmsio_isready(R13)) != 0;
@@ -777,7 +772,7 @@ int vmsfs_fopen(int a4, int a5, int a6)
     if (t10) goto L_8C1EC0F8;
     goto L_8C1EC0EA;
     L_8C1EC0EA:;
-    if (((*(signed char *)(((R13 * 0x148) + (int)g_0c2ee998))) != 0)) goto L_8C1EC0FE;
+    if (((*(signed char *)(((R13 * 0x148) + 0x8C4645A0))) != 0)) goto L_8C1EC0FE;
     goto L_8C1EC0F8;
     L_8C1EC0FE:;
     t14 = (int)(buIsFormat(R13)) >= 0;
@@ -1102,21 +1097,21 @@ int nlSingleLineSub(int a4, int a5, int a6, int a7)
             return 0x0;
         }
         u17 = *(float *)(((int)stk + 40));
-        u20 = (*(float *)(int)g_0c2b7624);
+        u20 = (*(float *)0x8C454C48);
         u20 = u20 + (1.0f / u17) * (*(float *)(((int)stk + 32)));
         *(float *)(((int)stk + 32)) = u20;
-        u23 = (*(float *)(int)g_0c2b7628);
+        u23 = (*(float *)0x8C454C4C);
         u23 = u23 + (1.0f / u17) * (*(float *)(((int)stk + 36)));
         *(float *)(((int)stk + 36)) = u23;
         u24 = *(float *)(((int)stk + 24));
-        u27 = (*(float *)(int)g_0c2b7624);
+        u27 = (*(float *)0x8C454C48);
         u27 = u27 + (1.0f / u24) * (*(float *)(((int)stk + 16)));
         *(float *)(((int)stk + 16)) = u27;
-        u30 = (*(float *)(int)g_0c2b7628);
+        u30 = (*(float *)0x8C454C4C);
         u30 = u30 + (1.0f / u24) * (*(float *)(((int)stk + 20)));
         *(float *)(((int)stk + 20)) = u30;
         t32 = nlLineDrawThick((*(int *)(((int)stk + 12))), (((int)stk + 4) + 0x1C), (((int)stk + 4) + 0xC), (((int)stk + 4) + 0x2C));
-        t33 = *(int *)(int)g_0c2b8cbc;
+        t33 = *(int *)0x8C42445C;
         t34 = t33;
         if ((a7 & 0x1) != 0) {
             t34 = (t33 + 0x8);
@@ -1407,7 +1402,7 @@ int vmsfs_xwrite1(int a4, int a5)
         t54 = 0xFFFFFF01;
         if (t5 != 0) {
             t45 = 0xFFFFFF01;
-            if ((*(signed char *)((((*(int *)((a4 + 0x28))) * 0x148) + (int)g_0c2ee998))) == 0) {
+            if ((*(signed char *)((((*(int *)((a4 + 0x28))) * 0x148) + 0x8C4645A0))) == 0) {
             } else {
                 t9 = buIsFormat((*(int *)((a4 + 0x28))));
                 t37 = 0xFFFFFF03;

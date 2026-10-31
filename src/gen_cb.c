@@ -7,8 +7,6 @@ extern char gMapleDriver[];
 extern char gMapleTransferLockAddress[];
 extern char gVmsIoInterface[];
 extern char gVmsVolumeStates[];
-extern char g_0c2f489c[];
-extern char g_8c20c728[];
 extern char syRtcLastCount[];
 
 typedef struct { int w[4]; } Stk4;
@@ -602,10 +600,10 @@ int vmsfs_dpf(Stk4 s)
     if ((0x3 & ((((int)stk + 4) + 0x8) + 0x4)) != 0) {
         t0 = ((((int)stk + 4) + 0x8) + 0x8);
     }
-    t3 = *(int *)(int)g_8c20c728;
-    t5 = (vsprintf((int)g_0c2f489c, s.w[0], t0));
+    t3 = *(int *)0x8C20C728;
+    t5 = (vsprintf(0x8C46A4A4, s.w[0], t0));
     if (t3 != 0) {
-        t5 = (((int (*)(int))(t3))((int)g_0c2f489c));
+        t5 = (((int (*)(int))(t3))(0x8C46A4A4));
     }
     return t5;
 }

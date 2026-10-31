@@ -2,8 +2,6 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 extern char gNlPaletteAllocationBitmap[];
 extern char gNlPaletteTable[];
-extern char g_0c2ee992[];
-extern char g_0c2ee998[];
 
 int buIsFormat(int);
 int search_exec_file(int, int);
@@ -31,7 +29,7 @@ int vmsfs_xfind(int a4, int a5, int a6)
     int stk[15];
 
     t39 = 0xFFFFFF01;
-    if ((*(signed char *)(((a4 * 0x148) + (int)g_0c2ee992))) != 0) {
+    if ((*(signed char *)(((a4 * 0x148) + 0x8C46459A))) != 0) {
         t1 = vmsio_isready(a4);
         if (t1 == 0) {
             vmsfs_unmount(a4);
@@ -41,7 +39,7 @@ int vmsfs_xfind(int a4, int a5, int a6)
             t27 = 0xFFFFFF01;
             if (t3 != 0) {
                 t21 = 0xFFFFFF01;
-                if ((*(signed char *)(((a4 * 0x148) + (int)g_0c2ee998))) == 0) {
+                if ((*(signed char *)(((a4 * 0x148) + 0x8C4645A0))) == 0) {
                 } else {
                     t5 = buIsFormat(a4);
                     t16 = 0xFFFFFF03;

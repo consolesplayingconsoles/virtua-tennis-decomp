@@ -7,18 +7,6 @@ extern char gNlSoundStreams[];
 extern char gNlSpriteIndexBitmap[];
 extern char gVmsFileCommandStates[];
 extern char gVmsVolumeStates[];
-extern char g_0c14a7b8[];
-extern char g_0c2af0c0[];
-extern char g_0c2af0c4[];
-extern char g_0c2af0d0[];
-extern char g_0c2b3190[];
-extern char g_0c2b7624[];
-extern char g_0c2b7628[];
-extern char g_0c2b762c[];
-extern char g_0c2b7630[];
-extern char g_0c2b76c0[];
-extern char g_0c2fd440[];
-extern char g_0c2fd444[];
 extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
@@ -272,12 +260,12 @@ int nlLineCalcFogA(int a4)
 
     u0 = *(float *)((a4 + 0x4));
     u2 = *(float *)((a4 + 0x8));
-    u3 = *(float *)(int)g_0c2b7628;
-    u4 = *(float *)(int)g_0c2b762c;
+    u3 = *(float *)0x8C454C4C;
+    u4 = *(float *)0x8C454C50;
     u5 = *(float *)((a4 + 0x0));
-    u6 = *(float *)(int)g_0c2b7630;
+    u6 = *(float *)0x8C454C54;
     t9 = 0x2;
-    if (u5 > ((*(float *)(int)g_0c2b7624) * u2)) {
+    if (u5 > ((*(float *)0x8C454C48) * u2)) {
     } else {
         t7 = 0x0;
         if ((u4 * u2) > u5) {
@@ -309,7 +297,7 @@ int syIntAdrChk_putchar(int a4, int a5)
     int t21;
     int t22;
 
-    t0 = *(int *)(int)g_0c2fd444;
+    t0 = *(int *)0x8C47647C;
     if (t0 != 0) {
         t8 = t0;
         if (t0 == 1) {
@@ -332,17 +320,17 @@ int syIntAdrChk_putchar(int a4, int a5)
         t22 = t8;
     } else {
         for (;;) {
-            if (((unsigned short)(*(short *)(((*(int *)(int)g_0c2fd440) + 0x10))) & 0x20) == 32) {
+            if (((unsigned short)(*(short *)(((*(int *)0x8C476478) + 0x10))) & 0x20) == 32) {
                 break;
             }
         }
-        *(unsigned char *)((((*(int *)(int)g_0c2fd440) + 0xC) + 0x0)) = a4;
-        t16 = *(int *)(int)g_0c2fd440;
+        *(unsigned char *)((((*(int *)0x8C476478) + 0xC) + 0x0)) = a4;
+        t16 = *(int *)0x8C476478;
         *(unsigned short *)(((t16 + 0x10) + 0x0)) = ((*(short *)(((t16 + 0x10) + 0x0))) & 0xFFDF);
-        t18 = *(int *)(int)g_0c2fd440;
+        t18 = *(int *)0x8C476478;
         *(unsigned short *)(((t18 + 0x10) + 0x0)) = ((*(short *)(((t18 + 0x10) + 0x0))) & 0xFFBF);
         for (;;) {
-            t21 = *(short *)(((*(int *)(int)g_0c2fd440) + 0x10));
+            t21 = *(short *)(((*(int *)0x8C476478) + 0x10));
             if (((unsigned short)t21 & 0x40) == 64) {
                 break;
             }
@@ -830,7 +818,7 @@ int nlSpriteGetNextSpriteIndex(void)
 
     t0 = 0x0;
     for (;;) {
-        if ((int)t0 >= (int)((int)((int)((*(int *)(int)g_0c2b76c0) + 0x1F) / (int)0x20))) {
+        if ((int)t0 >= (int)((int)((int)((*(int *)0x8C454C88) + 0x1F) / (int)0x20))) {
             return 0xFFFFFFFF;
         }
         t6 = *(int *)(((t0 << 2) + (*(int *)(int)gNlSpriteIndexBitmap)));
@@ -1164,16 +1152,16 @@ int nlLocate(int a4, int a5)
     float u5;
 
     t0 = *(int *)(int)gNlFontWidth;
-    if ((*(int *)(int)g_0c14a7b8) == 0) {
+    if ((*(int *)0x8C1DC8CC) == 0) {
         u2 = *(float *)0x8C1DCA2C;
-        *(unsigned int *)(int)g_0c2af0c0 = (int)((float)(t0 * a4) + u2);
-        *(unsigned int *)(int)g_0c2af0d0 = (int)((float)(t0 * a4) + u2);
-        *(unsigned int *)(int)g_0c2af0c4 = (int)((float)((*(int *)(int)gNlFontHeight) * a5) + (*(float *)0x8C1DCA30));
+        *(unsigned int *)0x8C44F954 = (int)((float)(t0 * a4) + u2);
+        *(unsigned int *)0x8C44F964 = (int)((float)(t0 * a4) + u2);
+        *(unsigned int *)0x8C44F958 = (int)((float)((*(int *)(int)gNlFontHeight) * a5) + (*(float *)0x8C1DCA30));
     } else {
         u5 = *(float *)0x8C1DCA30;
-        *(unsigned int *)(int)g_0c2af0c0 = (int)((float)(t0 * a4) + u5);
-        *(unsigned int *)(int)g_0c2af0d0 = (int)((float)(t0 * a4) + u5);
-        *(unsigned int *)(int)g_0c2af0c4 = (int)(((float)(((*(int *)(int)gNlFontHeight) * a5) + (*(short *)(int)g_0c2b3190)) - (*(float *)0x8C1DCA2C)) - (*(float *)0x8C1DCA24));
+        *(unsigned int *)0x8C44F954 = (int)((float)(t0 * a4) + u5);
+        *(unsigned int *)0x8C44F964 = (int)((float)(t0 * a4) + u5);
+        *(unsigned int *)0x8C44F958 = (int)(((float)(((*(int *)(int)gNlFontHeight) * a5) + (*(short *)0x8C458DD8)) - (*(float *)0x8C1DCA2C)) - (*(float *)0x8C1DCA24));
     }
     return (int)gNlFontHeight;
 }

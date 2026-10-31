@@ -164,3 +164,8 @@ runner and reports the same results as before. `src/gen_av.c` was left as it
 was: with the names in place `kmyGetFrameBufferHandle` differs on case 7, so
 that file keeps raw addresses until the cause is understood. More than 11,000
 raw-address accesses remain, mostly to addresses that have no name yet.
+
+Correction: the substitution above also replaced addresses whose only symbol is
+a placeholder (`g_0c...`), which adds no information. Those 61 files were put
+back to the raw literal, so the C references no placeholder global names.
+Substitution only counts when the name came from evidence.

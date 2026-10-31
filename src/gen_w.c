@@ -3,7 +3,6 @@
 extern char fileLoadState[];
 extern char gMapleDriver[];
 extern char gMapleTransferLockAddress[];
-extern char g_0c2b3150[];
 extern char motionCur[];
 extern char strMwRnaNullHandleError[];
 
@@ -464,16 +463,16 @@ int nlInvLightVectorUseViewMatrix(void)
 {
     nlMatrixMode(0x2);
     nlTransposeMatrix();
-    nlCalcVector(0x8C1DCA60, (int)g_0c2b3150);
+    nlCalcVector(0x8C1DCA60, 0x8C458D98);
     nlTransposeMatrix();
     nlMatrixMode(0x1);
     nlTransposeMatrix();
     nlCalcVector(0x8C1DCA40, 0x8C458DA8);
-    *(float *)(int)g_0c2b3150 = ((*(float *)(int)g_0c2b3150) + (*(float *)0x8C1DCA40));
+    *(float *)0x8C458D98 = ((*(float *)0x8C458D98) + (*(float *)0x8C1DCA40));
     *(float *)0x8C458D9C = ((*(float *)0x8C458D9C) + (*(float *)0x8C1DCA44));
     *(float *)0x8C458DA0 = ((*(float *)0x8C458DA0) + (*(float *)0x8C1DCA48));
-    nlCalcVector((int)g_0c2b3150, (int)g_0c2b3150);
-    nlScaleUnitVector((int)g_0c2b3150, (int)g_0c2b3150, 436.5f);
+    nlCalcVector(0x8C458D98, 0x8C458D98);
+    nlScaleUnitVector(0x8C458D98, 0x8C458D98, 436.5f);
     return (nlTransposeMatrix());
 }
 

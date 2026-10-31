@@ -3,7 +3,6 @@
 extern char gNlCommonTextureOffset[];
 extern char gNlPaletteCount[];
 extern char gNlPaletteTable[];
-extern char g_0c2b3568[];
 
 int nlFreePalette(int, int, int, int);
 int nlSearchPalette(int, int);
@@ -35,14 +34,14 @@ int nlSpriteChangePalette(int a4, int a5, int a6, int a7)
         }
         t3 = t4;
     } else {
-        if (((*(int *)(int)g_0c2b3568) != 0) && (((0x7 & ((unsigned int)t2 >> 27)) == 5) || ((0x7 & ((unsigned int)t2 >> 27)) == 6))) {
+        if (((*(int *)0x8C450BF8) != 0) && (((0x7 & ((unsigned int)t2 >> 27)) == 5) || ((0x7 & ((unsigned int)t2 >> 27)) == 6))) {
             t2 = *(short *)((((((t0 << 2) << 2) << 1) + t1) + 0x16));
             nlFreePalette((unsigned short)t2, a5, a6, a7);
             *(unsigned short *)((((((t0 << 2) << 2) << 1) + t1) + 0x16)) = 0xFFFF;
             if ((int)a5 < (int)(*(short *)(int)gNlPaletteCount)) {
                 *(unsigned short *)((((((t0 << 2) << 2) << 1) + t1) + 0x16)) = a5;
                 t4 = *(int *)(int)gNlPaletteTable;
-                t5 = *(int *)(int)g_0c2b3568;
+                t5 = *(int *)0x8C450BF8;
                 if ((*(short *)(((t4 + ((a5 << 2) << 1)) + 0x4))) != 0) {
                     *(unsigned short *)(((t4 + ((a5 << 2) << 1)) + 0x4)) = ((*(short *)(((t4 + ((a5 << 2) << 1)) + 0x4))) + 0x1);
                     t6 = (*(short *)(((t4 + ((a5 << 2) << 1)) + 0x0)));

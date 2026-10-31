@@ -3,8 +3,6 @@
 extern char Player[];
 extern char gNlCommonTextureOffset[];
 extern char gNlTextureSurfaces[];
-extern char g_0c2aec84[];
-extern char g_0c2b3568[];
 extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
@@ -499,7 +497,7 @@ int nlObjPutFreeTextureOnce_Sub(int a4, int a5, int a6)
     *(unsigned int *)(((int)stk + 16)) = (((((*(int *)(((int)stk + 8))) == 0)) ? 1 : 0) ^ 0x1);
     R10 = ((R4 + 0x18));
     R13 = ((int)gNlTextureSurfaces);
-    R14 = ((int)g_0c2aec84);
+    R14 = (0x8C4241C0);
     R8 = (0xFFFFFFFF);
     goto L_8C0F2074;
     L_8C0F2074:;
@@ -558,7 +556,7 @@ int nlObjPutFreeTextureOnce_Sub(int a4, int a5, int a6)
     goto L_8C0F2110;
     L_8C0F2110:;
     R4 = ((0x7 & ((unsigned int)(*(int *)((R12 + 0xC))) >> 27)));
-    if (((*(int *)(int)g_0c2b3568) == 0)) goto L_8C0F2134;
+    if (((*(int *)0x8C450BF8) == 0)) goto L_8C0F2134;
     goto L_8C0F2122;
     L_8C0F2122:;
     if ((R4 == 5)) goto L_8C0F212E;

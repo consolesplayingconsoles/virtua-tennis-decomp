@@ -2,9 +2,6 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 extern char gNlObjectFadeColor[];
 extern char gNlSpriteInverseScreenSize[];
-extern char g_0c2b76bc[];
-extern char g_0c2b7948[];
-extern char g_0c2b8cbc[];
 
 extern void _builtin_prefetch(void *);
 float lerpf(float, float, float);
@@ -68,7 +65,7 @@ int nlSprPut(int a4, int a5)
     int stk[28];
 
     t207 = 0xFFFFFFFF;
-    if ((int)(*(int *)((a4 + 0x0))) >= (int)(*(int *)(int)g_0c2b76bc)) {
+    if ((int)(*(int *)((a4 + 0x0))) >= (int)(*(int *)0x8C454C84)) {
     } else {
         t13 = *(short *)((((*(int *)((a4 + 0x0))) << 1) + (*(int *)0x8C454C80)));
         if (t13 == -1) {
@@ -209,13 +206,13 @@ int nlSprPut(int a4, int a5)
                 t157 = t155;
             }
             *(unsigned int *)(((int)stk + 20)) = (t157 << 2);
-            t160 = *(int *)(((t157 << 2) + (*(int *)(int)g_0c2b8cbc)));
+            t160 = *(int *)(((t157 << 2) + (*(int *)0x8C42445C)));
             *(unsigned int *)0xFF000038 = ((unsigned int)((unsigned int)t160 >> 16) >> 8);
             *(unsigned int *)0xFF00003C = ((unsigned int)((unsigned int)t160 >> 16) >> 8);
             if (((*(int *)((a4 + 0x34))) & 0x20000) != 0) {
-                t166 = (((*(int *)((((((t13 << 2) << 2) << 1) + t21) + 0x0))) | (*(int *)(int)g_0c2b7948)) | 0x4);
+                t166 = (((*(int *)((((((t13 << 2) << 2) << 1) + t21) + 0x0))) | (*(int *)0x8C458E04)) | 0x4);
             } else {
-                t166 = ((*(int *)((((((t13 << 2) << 2) << 1) + t21) + 0x0))) | (*(int *)(int)g_0c2b7948));
+                t166 = ((*(int *)((((((t13 << 2) << 2) << 1) + t21) + 0x0))) | (*(int *)0x8C458E04));
             }
             *(unsigned int *)((((0x3FFFFFF & t160) | 0xE0000000) + 0x0)) = t166;
             *(unsigned int *)((((0x3FFFFFF & t160) | 0xE0000000) + 0x4)) = (*(int *)((((((t13 << 2) << 2) << 1) + t21) + 0x4)));
@@ -243,7 +240,7 @@ int nlSprPut(int a4, int a5)
             _builtin_prefetch((void *)(((0x3FFFFFF & t160) | 0xE0000000) + 0x20));
             _builtin_prefetch((void *)((((0x3FFFFFF & t160) | 0xE0000000) + 0x20) + 0x20));
             t188 = *(int *)(((int)stk + 20));
-            t189 = *(int *)(int)g_0c2b8cbc;
+            t189 = *(int *)0x8C42445C;
             *(unsigned int *)(((t188 + t189) + 0x0)) = (((*(int *)(((t188 + t189) + 0x0))) & 0xFC000000) | ((((((0x3FFFFFF & t160) | 0xE0000000) + 0x20) + 0x20) + 0x20) & 0x3FFFFFF));
         }
         t207 = 0x0;

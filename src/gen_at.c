@@ -4,9 +4,6 @@ extern char Player[];
 extern char gMapleDriver[];
 extern char gRenderPacketVBlankWaitPending[];
 extern char gVertexBufferLockState[];
-extern char g_0c2b2fc8[];
-extern char g_0c2b3190[];
-extern char g_0c2b8cbc[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[10]; } Stk10;
@@ -936,10 +933,10 @@ int nlCreateVertexBuffer(int a4, int a5, int a6, int a7)
     }
     nlSysInitStripContextBG(0x8C454FE0);
     nlSysInitStripContextVtx(0x8C458610);
-    *(unsigned int *)(int)g_0c2b2fc8 = 0x8C458610;
+    *(unsigned int *)0x8C458C10 = 0x8C458610;
     *(unsigned int *)0x8C458C14 = 0x0;
     t7 = *(short *)0x8C458DDA;
-    t8 = *(short *)(int)g_0c2b3190;
+    t8 = *(short *)0x8C458DD8;
     if (0x0 != 0) {
         t13 = (short)t7;
         if ((*(short *)0x8C458DDE) == 1) {
@@ -960,7 +957,7 @@ int nlCreateVertexBuffer(int a4, int a5, int a6, int a7)
     if ((*(int *)0x8C424460) == 0) {
         kmBeginScene(0x8C42420C);
         kmBeginPass(0x8C454FC0);
-        *(unsigned int *)(int)g_0c2b8cbc = (*(int *)0x8C454FC0);
+        *(unsigned int *)0x8C42445C = (*(int *)0x8C454FC0);
     }
     return t3;
 }

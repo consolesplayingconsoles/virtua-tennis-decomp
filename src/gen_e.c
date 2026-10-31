@@ -26,31 +26,6 @@ extern char gSjRbfHandles[];
 extern char gSjRbfInitCount[];
 extern char gStripBufferEnabled[];
 extern char gVertexBufferLockState[];
-extern char g_0c14ab18[];
-extern char g_0c2b31d8[];
-extern char g_0c2b31dc[];
-extern char g_0c2b320c[];
-extern char g_0c2b32cc[];
-extern char g_0c2ea934[];
-extern char g_0c2ea938[];
-extern char g_0c2ea944[];
-extern char g_0c2ea94c[];
-extern char g_0c2ebf84[];
-extern char g_0c2ec254[];
-extern char g_0c2ec28c[];
-extern char g_0c2ec4d8[];
-extern char g_0c2f4f1c[];
-extern char g_0c2f605c[];
-extern char g_0c2f7524[];
-extern char g_0c2f85a4[];
-extern char g_0c2f9338[];
-extern char g_0c2fa5b4[];
-extern char g_0c2faf54[];
-extern char g_0c2fb754[];
-extern char g_0c2fd440[];
-extern char g_0c2fd444[];
-extern char g_8c00007e[];
-extern char g_8c4762d4[];
 extern char motFileAddr[];
 extern char motFileQueue[];
 extern char motLoadAddr[];
@@ -9231,16 +9206,16 @@ int nlInitMatrix(int a4, int a5)
     int t4;
     int t5;
 
-    nlInitMatrixStack(0x8C450874, (int)g_0c2b320c, 0x3);
-    nlInitMatrixStack(0x8C450880, (int)g_0c2b32cc, 0x3);
+    nlInitMatrixStack(0x8C450874, 0x8C45088C, 0x3);
+    nlInitMatrixStack(0x8C450880, 0x8C45094C, 0x3);
     t2 = nlInitMatrixStack(0x8C450868, a4, (a5 + 0x1));
-    *(unsigned char *)(int)g_0c2b31d8 = 0x1;
+    *(unsigned char *)0x8C450858 = 0x1;
     t3 = *(int *)0x8C450870;
     *(unsigned int *)0x8C450864 = t3;
     t4 = *(int *)0x8C45086C;
     *(unsigned int *)0x8C450860 = t4;
     t5 = *(int *)0x8C450868;
-    *(unsigned int *)(int)g_0c2b31dc = t5;
+    *(unsigned int *)0x8C45085C = t5;
     return t2;
 }
 
@@ -9498,7 +9473,7 @@ int nlDispStripTexOfs(int a4, int a5, int a6)
 {
     int t0;
 
-    t0 = nlstripSetVertexContextTex((int)g_0c14ab18, a6);
+    t0 = nlstripSetVertexContextTex(0x8C1DCB5C, a6);
     if (t0 == 0) {
         return nldispstripTexSub(a4, a5);
     }
@@ -9690,7 +9665,7 @@ void syCfgSetSoundMode(int a4)
     if (t0 != 0) {
         if (a4 != 0) {
             if (a4 == 1) {
-                *(unsigned char *)(int)g_8c00007e = a4;
+                *(unsigned char *)0x8C00007E = a4;
                 t1 = *(int *)0x8C20C240;
                 t2 = syBtCfgSet(0x2);
                 if (t2 == -1) {
@@ -9700,7 +9675,7 @@ void syCfgSetSoundMode(int a4)
             }
             return;
         }
-        *(unsigned char *)(int)g_8c00007e = a4;
+        *(unsigned char *)0x8C00007E = a4;
         t3 = *(int *)0x8C20C240;
         t4 = syBtCfgSet(0x2);
         if (t4 == -1) {
@@ -9722,7 +9697,7 @@ void syCfgGetSoundMode(int a4)
         if (t0 != 0) {
             t1 = syBtCfgSet(0x0);
             if (t1 != -1) {
-                t2 = *(signed char *)(int)g_8c00007e;
+                t2 = *(signed char *)0x8C00007E;
                 if ((signed char)t2 == 0) {
                     *(unsigned int *)((a4 + 0x0)) = 0x0;
                     return;
@@ -10441,7 +10416,7 @@ int kdVbOverHandler(void)
 
     t0 = *(int *)0x8C461E74;
     *(unsigned int *)0x8C461E74 = (t0 + 0x1);
-    t1 = *(int *)(int)g_0c2ec4d8;
+    t1 = *(int *)0x8C4620E0;
     t2 = *(short *)((((t1 << 1) + 0x8C461E90) + 0x0));
     *(unsigned short *)((((t1 << 1) + 0x8C461E90) + 0x0)) = (t2 + 0x1);
     *(unsigned int *)0xA05F6900 = 0x2000;
@@ -10511,7 +10486,7 @@ int init_sub(void)
 
     t0 = *(int *)0x8C20A808;
     t1 = syChainAddHandler(0x900, 0x8C1E931C, t0, 0x0);
-    *(unsigned int *)(int)g_0c2ebf84 = t1;
+    *(unsigned int *)0x8C461B8C = t1;
     t2 = *(int *)0x8C20A80C;
     t3 = syChainAddHandler(0xA00, 0x8C1E9328, t2, 0x0);
     *(unsigned int *)0x8C461B90 = t3;
@@ -10521,8 +10496,8 @@ int init_sub(void)
     t6 = *(int *)0x8C20A814;
     t7 = syChainAddHandler(0xA20, 0x8C1E940A, t6, 0x0);
     *(unsigned int *)0x8C461B98 = t7;
-    *(unsigned int *)(int)g_0c2ec28c = 0x0;
-    *(unsigned int *)(int)g_0c2ec4d8 = 0x0;
+    *(unsigned int *)0x8C461E94 = 0x0;
+    *(unsigned int *)0x8C4620E0 = 0x0;
     *(unsigned int *)0x8C4620E4 = 0x0;
     *(unsigned int *)0x8C4620E8 = 0x0;
     *(unsigned int *)(int)gKdGunCount = 0x0;
@@ -10531,7 +10506,7 @@ int init_sub(void)
     *(unsigned int *)0x8C462108 = 0x0;
     *(unsigned int *)(int)gKdGunBusy = 0x0;
     *(unsigned int *)0x8C462110 = 0x0;
-    memset((int)g_0c2ec254, 0x0, 0x38);
+    memset(0x8C461E5C, 0x0, 0x38);
     memset((int)gMapleDeviceTable, 0x0, 0x240);
     memset(0x8C461E9C, 0x0, 0x240);
     t11 = memset((int)gMapleHandlers, 0x0, 0x80);
@@ -10601,7 +10576,7 @@ int ADXSJD_Create(int a4, int a5, int a6)
     t0 = *(int *)((a6 + 0x0));
     t1 = 0x0;
     for (;;) {
-        t2 = *(signed char *)((((t1 * 0x98) + (int)g_0c2f4f1c) + 0x0));
+        t2 = *(signed char *)((((t1 * 0x98) + 0x8C46AE24) + 0x0));
         if (t2 != 0) {
             t1 = (t1 + 0x1);
             if ((int)t1 >= (int)0x8) break;
@@ -10615,31 +10590,31 @@ int ADXSJD_Create(int a4, int a5, int a6)
         t6 = SJRBF_GetBufSize(t0);
         t7 = SJRBF_GetXtrSize(t0);
         t8 = ADXB_Create(a5, t5, ((unsigned int)t6 >> 1), (((unsigned int)t6 >> 1) + ((unsigned int)t7 >> 1)));
-        *(unsigned int *)((((t1 * 0x98) + (int)g_0c2f4f1c) + 0x4)) = t8;
-        ADXB_EntryGetWrFunc(t8, 0x8C1F05A4, ((t1 * 0x98) + (int)g_0c2f4f1c));
-        t10 = *(int *)((((t1 * 0x98) + (int)g_0c2f4f1c) + 0x4));
+        *(unsigned int *)((((t1 * 0x98) + 0x8C46AE24) + 0x4)) = t8;
+        ADXB_EntryGetWrFunc(t8, 0x8C1F05A4, ((t1 * 0x98) + 0x8C46AE24));
+        t10 = *(int *)((((t1 * 0x98) + 0x8C46AE24) + 0x4));
         t21 = 0x0;
         if (t10 != 0) {
-            *(unsigned int *)((((t1 * 0x98) + (int)g_0c2f4f1c) + 0x8)) = a4;
-            *(unsigned char *)((((t1 * 0x98) + (int)g_0c2f4f1c) + 0x2)) = a5;
+            *(unsigned int *)((((t1 * 0x98) + 0x8C46AE24) + 0x8)) = a4;
+            *(unsigned char *)((((t1 * 0x98) + 0x8C46AE24) + 0x2)) = a5;
             if ((int)a5 > 0) {
                 t11 = 0x0;
                 t12 = 0x0;
                 do {
                     t13 = *(int *)((a6 + t11));
                     t12 = (t12 + 0x1);
-                    *(unsigned int *)((((((t1 * 0x98) + (int)g_0c2f4f1c) + 0xC) + t11) + 0x0)) = t13;
+                    *(unsigned int *)((((((t1 * 0x98) + 0x8C46AE24) + 0xC) + t11) + 0x0)) = t13;
                     t11 = (t11 + 0x4);
                 } while ((int)t12 < (int)a5);
             }
-            *(unsigned char *)((((t1 * 0x98) + (int)g_0c2f4f1c) + 0x1)) = 0x0;
-            adxsjd_clear(((t1 * 0x98) + (int)g_0c2f4f1c));
-            *(unsigned int *)((((t1 * 0x98) + (int)g_0c2f4f1c) + 0x48)) = 0x0;
-            *(unsigned int *)((((t1 * 0x98) + (int)g_0c2f4f1c) + 0x4C)) = 0x0;
-            *(unsigned int *)((((t1 * 0x98) + (int)g_0c2f4f1c) + 0x50)) = 0x0;
-            *(unsigned int *)((((t1 * 0x98) + (int)g_0c2f4f1c) + 0x54)) = 0x0;
-            *(unsigned char *)((((t1 * 0x98) + (int)g_0c2f4f1c) + 0x0)) = 0x1;
-            t21 = ((t1 * 0x98) + (int)g_0c2f4f1c);
+            *(unsigned char *)((((t1 * 0x98) + 0x8C46AE24) + 0x1)) = 0x0;
+            adxsjd_clear(((t1 * 0x98) + 0x8C46AE24));
+            *(unsigned int *)((((t1 * 0x98) + 0x8C46AE24) + 0x48)) = 0x0;
+            *(unsigned int *)((((t1 * 0x98) + 0x8C46AE24) + 0x4C)) = 0x0;
+            *(unsigned int *)((((t1 * 0x98) + 0x8C46AE24) + 0x50)) = 0x0;
+            *(unsigned int *)((((t1 * 0x98) + 0x8C46AE24) + 0x54)) = 0x0;
+            *(unsigned char *)((((t1 * 0x98) + 0x8C46AE24) + 0x0)) = 0x1;
+            t21 = ((t1 * 0x98) + 0x8C46AE24);
         }
         t23 = t21;
     }
@@ -10653,7 +10628,7 @@ int ADXSJD_ExecServer(void)
     int t3;
     int t2;
 
-    t0 = (int)g_0c2f4f1c;
+    t0 = 0x8C46AE24;
     do {
         t1 = *(signed char *)((t0 + 0x0));
         t3 = t1;
@@ -10710,9 +10685,9 @@ int mwlRnaAlloc(void)
     int t2;
 
     t5 = 0x0;
-    if ((unsigned int)(int)g_0c2f605c < (unsigned int)0x8C46DB0C) {
-        t0 = (int)g_0c2f605c;
-        t1 = (int)g_0c2f605c;
+    if ((unsigned int)0x8C46D68C < (unsigned int)0x8C46DB0C) {
+        t0 = 0x8C46D68C;
+        t1 = 0x8C46D68C;
         for (;;) {
             t2 = *(signed char *)((t0 + 0x0));
             if (t2 == 0) break;
@@ -10736,7 +10711,7 @@ int SJMEM_Init(void)
     if ((int)t0 <= 0) {
         t1 = *(int *)0x8C20C8F0;
         *(unsigned int *)0x8C20C8F0 = (t1 + 0x1);
-        return memset((int)g_0c2f7524, 0x0, 0x480);
+        return memset(0x8C46EB54, 0x0, 0x480);
     }
     return 0;
 }
@@ -10756,7 +10731,7 @@ int SJMEM_Create(int a4, int a5)
 
     t0 = 0x0;
     for (;;) {
-        t1 = *(int *)(((((((t0 << 2) << 1) + t0) << 2) + (int)g_0c2f7524) + 0x4));
+        t1 = *(int *)(((((((t0 << 2) << 1) + t0) << 2) + 0x8C46EB54) + 0x4));
         if (t1 != 0) {
             t0 = (t0 + 0x1);
             if ((int)t0 >= (int)0x20) break;
@@ -10767,15 +10742,15 @@ int SJMEM_Create(int a4, int a5)
     if (t0 == 32) {
         return 0x0;
     }
-    *(unsigned int *)(((((((t0 << 2) << 1) + t0) << 2) + (int)g_0c2f7524) + 0x4)) = 0x1;
-    *(unsigned int *)(((((((t0 << 2) << 1) + t0) << 2) + (int)g_0c2f7524) + 0x0)) = 0x8C20C8C0;
-    *(unsigned int *)(((((((t0 << 2) << 1) + t0) << 2) + (int)g_0c2f7524) + 0x14)) = a4;
-    *(unsigned int *)(((((((t0 << 2) << 1) + t0) << 2) + (int)g_0c2f7524) + 0x18)) = a5;
-    *(unsigned int *)(((((((t0 << 2) << 1) + t0) << 2) + (int)g_0c2f7524) + 0x8)) = 0x8C20AD60;
-    *(unsigned int *)(((((((t0 << 2) << 1) + t0) << 2) + (int)g_0c2f7524) + 0x1C)) = 0x8C1F3142;
-    *(unsigned int *)(((((((t0 << 2) << 1) + t0) << 2) + (int)g_0c2f7524) + 0x20)) = (((((t0 << 2) << 1) + t0) << 2) + (int)g_0c2f7524);
-    SJMEM_Reset((((((t0 << 2) << 1) + t0) << 2) + (int)g_0c2f7524));
-    return (((((t0 << 2) << 1) + t0) << 2) + (int)g_0c2f7524);
+    *(unsigned int *)(((((((t0 << 2) << 1) + t0) << 2) + 0x8C46EB54) + 0x4)) = 0x1;
+    *(unsigned int *)(((((((t0 << 2) << 1) + t0) << 2) + 0x8C46EB54) + 0x0)) = 0x8C20C8C0;
+    *(unsigned int *)(((((((t0 << 2) << 1) + t0) << 2) + 0x8C46EB54) + 0x14)) = a4;
+    *(unsigned int *)(((((((t0 << 2) << 1) + t0) << 2) + 0x8C46EB54) + 0x18)) = a5;
+    *(unsigned int *)(((((((t0 << 2) << 1) + t0) << 2) + 0x8C46EB54) + 0x8)) = 0x8C20AD60;
+    *(unsigned int *)(((((((t0 << 2) << 1) + t0) << 2) + 0x8C46EB54) + 0x1C)) = 0x8C1F3142;
+    *(unsigned int *)(((((((t0 << 2) << 1) + t0) << 2) + 0x8C46EB54) + 0x20)) = (((((t0 << 2) << 1) + t0) << 2) + 0x8C46EB54);
+    SJMEM_Reset((((((t0 << 2) << 1) + t0) << 2) + 0x8C46EB54));
+    return (((((t0 << 2) << 1) + t0) << 2) + 0x8C46EB54);
 }
 
 void SJRBF_Finish(void)
@@ -10825,7 +10800,7 @@ int SJUNI_Init(void)
     if ((int)t0 <= 0) {
         t1 = *(int *)0x8C20C95C;
         *(unsigned int *)0x8C20C95C = (t1 + 0x1);
-        return memset((int)g_0c2f85a4, 0x0, 0xC00);
+        return memset(0x8C46FBD4, 0x0, 0xC00);
     }
     return 0;
 }
@@ -10845,7 +10820,7 @@ int SJUNI_Create(int a4, int a5, int a6)
 
     t0 = 0x0;
     for (;;) {
-        t1 = *(signed char *)(((((((t0 << 1) + t0) << 2) << 2) + (int)g_0c2f85a4) + 0x4));
+        t1 = *(signed char *)(((((((t0 << 1) + t0) << 2) << 2) + 0x8C46FBD4) + 0x4));
         if (t1 != 0) {
             t0 = (t0 + 0x1);
             if ((int)t0 >= (int)0x40) break;
@@ -10856,17 +10831,17 @@ int SJUNI_Create(int a4, int a5, int a6)
     if (t0 == 64) {
         return 0x0;
     }
-    *(unsigned char *)((((int)g_0c2f85a4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x4)) = 0x1;
-    *(unsigned char *)((((int)g_0c2f85a4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x5)) = a4;
-    *(unsigned int *)((((int)g_0c2f85a4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x0)) = 0x8C20C92C;
-    *(unsigned char *)((((int)g_0c2f85a4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x5)) = a4;
-    *(unsigned int *)((((int)g_0c2f85a4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x8)) = 0x8C20ADAC;
-    *(unsigned int *)((((int)g_0c2f85a4 + ((((t0 << 1) + t0) << 2) << 2)) + 0xC)) = a5;
-    *(unsigned int *)((((int)g_0c2f85a4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x10)) = ((unsigned int)((unsigned int)a6 >> 2) >> 2);
-    *(unsigned int *)((((int)g_0c2f85a4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x28)) = 0x8C1F383A;
-    *(unsigned int *)((((int)g_0c2f85a4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x2C)) = ((int)g_0c2f85a4 + ((((t0 << 1) + t0) << 2) << 2));
-    SJUNI_Reset(((int)g_0c2f85a4 + ((((t0 << 1) + t0) << 2) << 2)));
-    return ((int)g_0c2f85a4 + ((((t0 << 1) + t0) << 2) << 2));
+    *(unsigned char *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x4)) = 0x1;
+    *(unsigned char *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x5)) = a4;
+    *(unsigned int *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x0)) = 0x8C20C92C;
+    *(unsigned char *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x5)) = a4;
+    *(unsigned int *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x8)) = 0x8C20ADAC;
+    *(unsigned int *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0xC)) = a5;
+    *(unsigned int *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x10)) = ((unsigned int)((unsigned int)a6 >> 2) >> 2);
+    *(unsigned int *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x28)) = 0x8C1F383A;
+    *(unsigned int *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x2C)) = (0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2));
+    SJUNI_Reset((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)));
+    return (0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2));
 }
 
 int VQAllocEntry(void)
@@ -11206,13 +11181,13 @@ void kmySetPassDepth(int a4, int a5, int a6, int a7)
     }
     t11 = *(int *)(((a4 + 0x18) + 0xC));
     *(unsigned int *)(((a4 + 0x18) + 0x24)) = (t11 - 256);
-    t12 = *(int *)(int)g_0c2ea934;
+    t12 = *(int *)0x8C45EE38;
     *(unsigned int *)((t1 + 0x14)) = t12;
-    t13 = *(int *)(int)g_0c2ea938;
+    t13 = *(int *)0x8C45EE3C;
     *(unsigned int *)((t1 + 0x18)) = t13;
-    t14 = *(int *)(int)g_0c2ea944;
+    t14 = *(int *)0x8C45EE48;
     *(unsigned int *)((t1 + 0x10)) = t14;
-    t15 = *(int *)(int)g_0c2ea94c;
+    t15 = *(int *)0x8C45EE50;
     *(unsigned int *)((t1 + 0x4)) = t15;
 }
 
@@ -12012,7 +11987,7 @@ void syG2DmaResumeAll(void)
         syG2DmaResume(((t1 + 0x4) + t0));
         t0 = (t0 + 0x34);
     } while ((unsigned int)t0 < (unsigned int)0xD0);
-    *(unsigned int *)(int)g_0c2f9338 = 0x0;
+    *(unsigned int *)0x8C471F7C = 0x0;
 }
 
 void syG2DmaSuspendAll(void)
@@ -12026,7 +12001,7 @@ void syG2DmaSuspendAll(void)
         syG2DmaSuspend(((t1 + 0x4) + t0));
         t0 = (t0 + 0x34);
     } while ((unsigned int)t0 < (unsigned int)0xD0);
-    *(unsigned int *)(int)g_0c2f9338 = 0x1;
+    *(unsigned int *)0x8C471F7C = 0x1;
 }
 
 void mpdrv_make_rootdevicedata(int a4, int a5, int a6, int a7)
@@ -12137,7 +12112,7 @@ int ADXB_Create(int a4, int a5, int a6, int a7)
 
     t0 = 0x0;
     for (;;) {
-        t1 = *(short *)((((t0 * 0xAC) + (int)g_0c2fa5b4) + 0x0));
+        t1 = *(short *)((((t0 * 0xAC) + 0x8C4731F8) + 0x0));
         if (t1 != 0) {
             t0 = (t0 + 0x1);
             if ((int)t0 >= (int)0x8) break;
@@ -12147,23 +12122,23 @@ int ADXB_Create(int a4, int a5, int a6, int a7)
     }
     t8 = 0x0;
     if (t0 != 8) {
-        memset(((t0 * 0xAC) + (int)g_0c2fa5b4), 0x0, 0xAC);
-        *(unsigned short *)((((t0 * 0xAC) + (int)g_0c2fa5b4) + 0x0)) = 0x1;
+        memset(((t0 * 0xAC) + 0x8C4731F8), 0x0, 0xAC);
+        *(unsigned short *)((((t0 * 0xAC) + 0x8C4731F8) + 0x0)) = 0x1;
         t5 = ADXPD_Create();
-        *(unsigned int *)((((t0 * 0xAC) + (int)g_0c2fa5b4) + 0x8)) = t5;
+        *(unsigned int *)((((t0 * 0xAC) + 0x8C4731F8) + 0x8)) = t5;
         if (t5 == 0) {
-            ADXB_Destroy(((t0 * 0xAC) + (int)g_0c2fa5b4));
+            ADXB_Destroy(((t0 * 0xAC) + 0x8C4731F8));
             t7 = 0x0;
         } else {
-            *(unsigned int *)((((t0 * 0xAC) + (int)g_0c2fa5b4) + 0x38)) = a4;
-            *(unsigned int *)((((t0 * 0xAC) + (int)g_0c2fa5b4) + 0x3C)) = a5;
-            *(unsigned int *)((((t0 * 0xAC) + (int)g_0c2fa5b4) + 0x40)) = a6;
-            *(unsigned int *)((((t0 * 0xAC) + (int)g_0c2fa5b4) + 0x44)) = a7;
-            *(unsigned int *)((((t0 * 0xAC) + (int)g_0c2fa5b4) + 0x88)) = 0x8C1FF920;
-            *(unsigned int *)((((t0 * 0xAC) + (int)g_0c2fa5b4) + 0x8C)) = ((t0 * 0xAC) + (int)g_0c2fa5b4);
-            *(unsigned int *)((((t0 * 0xAC) + (int)g_0c2fa5b4) + 0x90)) = 0x8C1FF93E;
-            *(unsigned int *)((((t0 * 0xAC) + (int)g_0c2fa5b4) + 0x94)) = ((t0 * 0xAC) + (int)g_0c2fa5b4);
-            t7 = ((t0 * 0xAC) + (int)g_0c2fa5b4);
+            *(unsigned int *)((((t0 * 0xAC) + 0x8C4731F8) + 0x38)) = a4;
+            *(unsigned int *)((((t0 * 0xAC) + 0x8C4731F8) + 0x3C)) = a5;
+            *(unsigned int *)((((t0 * 0xAC) + 0x8C4731F8) + 0x40)) = a6;
+            *(unsigned int *)((((t0 * 0xAC) + 0x8C4731F8) + 0x44)) = a7;
+            *(unsigned int *)((((t0 * 0xAC) + 0x8C4731F8) + 0x88)) = 0x8C1FF920;
+            *(unsigned int *)((((t0 * 0xAC) + 0x8C4731F8) + 0x8C)) = ((t0 * 0xAC) + 0x8C4731F8);
+            *(unsigned int *)((((t0 * 0xAC) + 0x8C4731F8) + 0x90)) = 0x8C1FF93E;
+            *(unsigned int *)((((t0 * 0xAC) + 0x8C4731F8) + 0x94)) = ((t0 * 0xAC) + 0x8C4731F8);
+            t7 = ((t0 * 0xAC) + 0x8C4731F8);
         }
         t8 = t7;
     }
@@ -12220,10 +12195,10 @@ int mwlSbAllocWork(int a4)
         return 0x0;
     }
     t5 = 0x0;
-    if ((unsigned int)(int)g_0c2fb754 < (unsigned int)0x8C4743D8) {
-        t0 = (int)g_0c2fb754;
-        t1 = (int)g_0c2fb754;
-        t2 = (int)g_0c2faf54;
+    if ((unsigned int)0x8C474398 < (unsigned int)0x8C4743D8) {
+        t0 = 0x8C474398;
+        t1 = 0x8C474398;
+        t2 = 0x8C473B98;
         for (;;) {
             t3 = *(int *)((t0 + 0x0));
             if (t3 == 0) break;
@@ -12806,7 +12781,7 @@ int ADXPD_Create(void)
 
     t0 = 0x0;
     for (;;) {
-        t1 = *(int *)((((t0 * 0x34) + (int)g_8c4762d4) + 0x0));
+        t1 = *(int *)((((t0 * 0x34) + 0x8C4762D4) + 0x0));
         if (t1 != 0) {
             t0 = (t0 + 0x1);
             if ((int)t0 >= (int)0x8) break;
@@ -12816,14 +12791,14 @@ int ADXPD_Create(void)
     }
     t7 = 0x0;
     if (t0 != 8) {
-        memset(((t0 * 0x34) + (int)g_8c4762d4), 0x0, 0x34);
-        *(unsigned int *)((((t0 * 0x34) + (int)g_8c4762d4) + 0x0)) = 0x1;
-        *(unsigned int *)((((t0 * 0x34) + (int)g_8c4762d4) + 0x4)) = t0;
-        *(unsigned int *)((((t0 * 0x34) + (int)g_8c4762d4) + 0x8)) = 0x0;
-        *(unsigned int *)((((t0 * 0x34) + (int)g_8c4762d4) + 0xC)) = 0x0;
-        ADX_GetCoefficient(0x1F4, 0xAC44, (((t0 * 0x34) + (int)g_8c4762d4) + 0x30), ((((t0 * 0x34) + (int)g_8c4762d4) + 0x30) + 0x2));
-        memset((((t0 * 0x34) + (int)g_8c4762d4) + 0x28), 0x0, 0x8);
-        t7 = ((t0 * 0x34) + (int)g_8c4762d4);
+        memset(((t0 * 0x34) + 0x8C4762D4), 0x0, 0x34);
+        *(unsigned int *)((((t0 * 0x34) + 0x8C4762D4) + 0x0)) = 0x1;
+        *(unsigned int *)((((t0 * 0x34) + 0x8C4762D4) + 0x4)) = t0;
+        *(unsigned int *)((((t0 * 0x34) + 0x8C4762D4) + 0x8)) = 0x0;
+        *(unsigned int *)((((t0 * 0x34) + 0x8C4762D4) + 0xC)) = 0x0;
+        ADX_GetCoefficient(0x1F4, 0xAC44, (((t0 * 0x34) + 0x8C4762D4) + 0x30), ((((t0 * 0x34) + 0x8C4762D4) + 0x30) + 0x2));
+        memset((((t0 * 0x34) + 0x8C4762D4) + 0x28), 0x0, 0x8);
+        t7 = ((t0 * 0x34) + 0x8C4762D4);
     }
     return t7;
 }
@@ -12843,25 +12818,25 @@ int syIntAdrChk_finish(void)
     int t9;
     int t10;
 
-    t0 = *(int *)(int)g_0c2fd444;
+    t0 = *(int *)0x8C47647C;
     if (t0 == 0) {
-        t1 = *(int *)(int)g_0c2fd440;
+        t1 = *(int *)0x8C476478;
         *(unsigned short *)(((t1 + 0x8) + 0x0)) = 0x0;
-        t2 = *(int *)(int)g_0c2fd440;
+        t2 = *(int *)0x8C476478;
         *(unsigned short *)(((t2 + 0x18) + 0x0)) = 0x6;
-        t3 = *(int *)(int)g_0c2fd440;
+        t3 = *(int *)0x8C476478;
         *(unsigned short *)((t3 + 0x0)) = 0x0;
-        t4 = *(int *)(int)g_0c2fd440;
+        t4 = *(int *)0x8C476478;
         *(unsigned char *)(((t4 + 0x4) + 0x0)) = 0xFF;
-        t5 = *(int *)(int)g_0c2fd440;
+        t5 = *(int *)0x8C476478;
         *(unsigned short *)(((t5 + 0x8) + 0x0)) = 0x0;
-        t6 = *(int *)(int)g_0c2fd440;
+        t6 = *(int *)0x8C476478;
         *(unsigned short *)(((t6 + 0x10) + 0x0)) = 0x0;
-        t7 = *(int *)(int)g_0c2fd440;
+        t7 = *(int *)0x8C476478;
         *(unsigned short *)(((t7 + 0x18) + 0x0)) = 0x0;
-        t8 = *(int *)(int)g_0c2fd440;
+        t8 = *(int *)0x8C476478;
         *(unsigned short *)(((t8 + 0x20) + 0x0)) = 0x0;
-        t9 = *(int *)(int)g_0c2fd440;
+        t9 = *(int *)0x8C476478;
         *(unsigned short *)(((t9 + 0x24) + 0x0)) = 0x0;
     }
     t10 = *(signed char *)0xFFC00004;

@@ -1,10 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_ab): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 extern char gVmsVolumeStates[];
-extern char g_0c2b7624[];
-extern char g_0c2b7628[];
-extern char g_0c2b762c[];
-extern char g_0c2b7630[];
 extern char strMwRnaNullHandleError[];
 
 int ADXB_DecodeHeader(int, int, int);
@@ -288,16 +284,16 @@ int nlLineCalcColor(int a4, int a5, int a6, int a7, float f4, float f5, float f6
             t0 = a4;
         }
         if ((t3 & 0x1) != 0) {
-            nlLineCalcFogB(a4, a5, t0, (*(float *)(int)g_0c2b762c));
+            nlLineCalcFogB(a4, a5, t0, (*(float *)0x8C454C50));
         } else {
             if ((t3 & 0x2) != 0) {
-                nlLineCalcFogB(a4, a5, t0, (*(float *)(int)g_0c2b7624));
+                nlLineCalcFogB(a4, a5, t0, (*(float *)0x8C454C48));
             } else {
                 if ((t3 & 0x4) != 0) {
-                    nlLineCalcFogC(a4, a5, t0, (*(float *)(int)g_0c2b7630));
+                    nlLineCalcFogC(a4, a5, t0, (*(float *)0x8C454C54));
                 } else {
                     if ((t3 & 0x8) != 0) {
-                        nlLineCalcFogC(a4, a5, t0, (*(float *)(int)g_0c2b7628));
+                        nlLineCalcFogC(a4, a5, t0, (*(float *)0x8C454C4C));
                     }
                 }
             }

@@ -7,11 +7,6 @@ extern char gMapleTransferLockAddress[];
 extern char gVmsFileCommandStates[];
 extern char gVmsIoInterface[];
 extern char gVmsVolumeStates[];
-extern char g_0c2b8da4[];
-extern char g_0c2b9378[];
-extern char g_0c2b937c[];
-extern char g_0c2ec558[];
-extern char g_0c2ec978[];
 extern char syRtcFlags[];
 extern char syRtcLastCount[];
 
@@ -528,7 +523,7 @@ int pdGunLeave(void)
     kdSetDriverMode(0x8, 0x0);
     kdSetDriverMode(0x9, 0x0);
     t3 = kdSetHandler((*(int *)0x8C209674), 0x0);
-    *(unsigned int *)(int)g_0c2b8da4 = 0x0;
+    *(unsigned int *)0x8C45A168 = 0x0;
     return t3;
 }
 
@@ -549,7 +544,7 @@ int buGetLastError(int a4)
     if (t0 != 0) {
         return 0xFFFFFFFF;
     }
-    return (*(int *)(((int)g_0c2ec558 + (a4 << 2))));
+    return (*(int *)((0x8C462160 + (a4 << 2))));
 }
 
 int pdVibMxStart(int a4, int a5)
@@ -603,7 +598,7 @@ int pdGunEnter(int a4)
     if (a4 != 0) {
         kdSetDriverMode(0x8, a4);
         t1 = kdSetDriverMode(0x9, 0xFFFFFFFF);
-        *(unsigned int *)(int)g_0c2b8da4 = a4;
+        *(unsigned int *)0x8C45A168 = a4;
         t2 = t1;
     }
     return t2;
@@ -698,9 +693,9 @@ int syRtcDbgWriteLog(int a4, int a5, int a6)
     int t2;
 
     t0 = *(int *)(int)syRtcFlags;
-    if (((t0 & 8) != 0) && (t1 = *(int *)(int)g_0c2b937c, t2 = *(int *)(int)g_0c2b9378, (unsigned int)t2 < (unsigned int)t1)) {
+    if (((t0 & 8) != 0) && (t1 = *(int *)0x8C45A6F8, t2 = *(int *)0x8C45A6F4, (unsigned int)t2 < (unsigned int)t1)) {
         *(unsigned int *)((t2 + 0x0)) = a4;
-        *(unsigned int *)(int)g_0c2b9378 = ((*(int *)(int)g_0c2b9378) + 0x4);
+        *(unsigned int *)0x8C45A6F4 = ((*(int *)0x8C45A6F4) + 0x4);
     }
     return t0;
 }
@@ -776,7 +771,7 @@ int vmsfs_c_setcompletecallback(int a4)
     for (;;) {
         *(unsigned int *)((t0 + 0x74)) = a4;
         t0 = (t0 + 0x80);
-        if ((unsigned int)t0 >= (unsigned int)(int)g_0c2ec978) {
+        if ((unsigned int)t0 >= (unsigned int)0x8C462580) {
             break;
         }
     }
@@ -791,7 +786,7 @@ int vmsfs_c_setprogresscallback(int a4)
     for (;;) {
         *(unsigned int *)((t0 + 0x78)) = a4;
         t0 = (t0 + 0x80);
-        if ((unsigned int)t0 >= (unsigned int)(int)g_0c2ec978) {
+        if ((unsigned int)t0 >= (unsigned int)0x8C462580) {
             break;
         }
     }
@@ -806,7 +801,7 @@ int vmsfs_c_setcallbackparam(int a4)
     for (;;) {
         *(unsigned int *)((t0 + 0x7C)) = a4;
         t0 = (t0 + 0x80);
-        if ((unsigned int)t0 >= (unsigned int)(int)g_0c2ec978) {
+        if ((unsigned int)t0 >= (unsigned int)0x8C462580) {
             break;
         }
     }

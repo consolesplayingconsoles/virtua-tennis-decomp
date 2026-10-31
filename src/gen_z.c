@@ -4,7 +4,6 @@ extern char Player[];
 extern char fileLoadState[];
 extern char gNlSoundStreams[];
 extern char gRenderCallbacks[];
-extern char g_0c2aec88[];
 extern char motionCur[];
 extern char motionSkelOfs[];
 
@@ -1294,7 +1293,7 @@ int nlCommonTextureClearTextureIndex(int a4, int a5)
     int t2;
 
     if ((int)a4 >= 0) {
-        t0 = *(int *)(int)g_0c2aec88;
+        t0 = *(int *)0x8C4241C4;
         *(unsigned int *)(((((int)a4 >> 5) << 2) + t0)) = ((*(int *)(((((int)a4 >> 5) << 2) + t0))) & (~(((int)(0x1F & a4) >= 0) ? (0x1 << ((0x1F & a4) & 31)) : ((-(int)(0x1F & a4) & 31) ? ((int)0x1 >> (-(int)(0x1F & a4) & 31)) : ((int)0x1 >> 31)))));
         t2 = t0;
     }

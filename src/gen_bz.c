@@ -8,11 +8,6 @@ extern char gPdPeripheralSlotWords[];
 extern char gPdPeripheralSlots[];
 extern char gVmsFileCommandStates[];
 extern char gVmsVolumeStates[];
-extern char g_0c2b92ec[];
-extern char g_0c2b92ed[];
-extern char g_0c2b9378[];
-extern char g_0c2b937c[];
-extern char g_0c2ec254[];
 extern char syRtcFlags[];
 extern char syRtcLastCount[];
 
@@ -430,8 +425,8 @@ int syRtcDbgSetLogAddr(int a4, int a5)
 
     t0 = *(int *)(int)syRtcFlags;
     if ((t0 & 8) != 0) {
-        *(unsigned int *)(int)g_0c2b9378 = a4;
-        *(unsigned int *)(int)g_0c2b937c = a5;
+        *(unsigned int *)0x8C45A6F4 = a4;
+        *(unsigned int *)0x8C45A6F8 = a5;
     }
     return t0;
 }
@@ -568,8 +563,8 @@ int pdGetPeripheralError(int a4)
 
 void pdSetThreshold(int a4, int a5)
 {
-    *(unsigned char *)(int)g_0c2b92ec = a4;
-    *(unsigned char *)(int)g_0c2b92ed = a5;
+    *(unsigned char *)0x8C45A6B0 = a4;
+    *(unsigned char *)0x8C45A6B1 = a5;
 }
 
 int mpdrv_get_swapmode(void)
@@ -703,7 +698,7 @@ int kdIsChanged(int a4)
 
 int kdGetSystemInfo(void)
 {
-    return (int)g_0c2ec254;
+    return 0x8C461E5C;
 }
 
 int kdRecognizeChanged(int a4)

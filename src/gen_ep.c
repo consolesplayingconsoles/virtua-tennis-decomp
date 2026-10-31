@@ -9,8 +9,6 @@ extern char gNlPaletteTable[];
 extern char gNlTextureSurfaces[];
 extern char gRenderPacketVBlankWaitPending[];
 extern char gVertexBufferLockState[];
-extern char g_0c2aec84[];
-extern char g_0c2b3568[];
 
 typedef struct { int w[3]; } Stk3;
 extern int _builtin_get_imask(void);
@@ -275,8 +273,8 @@ int nlSpriteLoadTextureOnce_Sub(int a4, int a5, int a6, int a7)
     t6 = *(int *)(int)gNlCommonTextureOffset;
     R10 = ((R6 + t6));
     R13 = ((((R6 + t6) << 2) << 1));
-    R14 = ((int)g_0c2aec84);
-    if (((*(int *)((((*(int *)(int)g_0c2aec84) + (((R6 + t6) << 2) << 1)) + 0x0))) != 0)) goto L_8C0F3B96;
+    R14 = (0x8C4241C0);
+    if (((*(int *)((((*(int *)0x8C4241C0) + (((R6 + t6) << 2) << 1)) + 0x0))) != 0)) goto L_8C0F3B96;
     goto L_8C0F3B84;
     L_8C0F3B84:;
     *(unsigned int *)(((0x4 + ((*(int *)((R14 + 0x0))) + R13)) + 0x0)) = (nlCommonTextureGetNextTextureIndex());
@@ -342,8 +340,8 @@ int nlSpriteLoadTextureOnce_Sub(int a4, int a5, int a6, int a7)
     *(unsigned int *)((R13 + 0xC)) = (((*(int *)((R13 + 0xC))) & 0xF81FFFFF) | (R12 << 21));
     goto L_8C0F3D9C;
     L_8C0F3C5E:;
-    R5 = ((int)g_0c2b3568);
-    if (((*(int *)(int)g_0c2b3568) != 0)) goto L_8C0F3C6A;
+    R5 = (0x8C450BF8);
+    if (((*(int *)0x8C450BF8) != 0)) goto L_8C0F3C6A;
     goto L_8C0F3C66;
     L_8C0F3C66:;
     goto L_8C0F3D9C;

@@ -4,8 +4,6 @@ extern char gNlCommonTextureOffset[];
 extern char gNlRenderTextureTableState[];
 extern char gNlTextureSurfaces[];
 extern char gRenderTextureReady[];
-extern char g_0c2aec84[];
-extern char g_0c2b3190[];
 
 int kmCreateTextureSurface(int, int, int, int);
 int kmSetStrideWidth(int);
@@ -71,8 +69,8 @@ int nlRenderTextureSet_Sub(int a4, int a5, int a6, int a7, int a8)
     R14 = ((R14 & 0xFFFFFFE0));
     L_8C0EE1D4:;
     t13 = *(int *)(int)gNlCommonTextureOffset;
-    t14 = *(int *)(int)g_0c2aec84;
-    R11 = ((int)g_0c2aec84);
+    t14 = *(int *)0x8C4241C0;
+    R11 = (0x8C4241C0);
     R12 = ((((R5 + t13) << 2) << 1));
     R4 = (t14);
     if (((*(int *)((((((R5 + t13) << 2) << 1) + t14) + 0x0))) != 0)) goto L_8C0EE21A;
@@ -98,7 +96,7 @@ int nlRenderTextureSet_Sub(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)(((t36 + t35) + 0x4)) = R12;
     *(unsigned short *)(((t36 + t35) + 0x8)) = R14;
     *(unsigned short *)(((t36 + t35) + 0xA)) = R13;
-    t38 = *(short *)(int)g_0c2b3190;
+    t38 = *(short *)0x8C458DD8;
     R0 = ((*(short *)0x8C458DDA));
     R4 = ((t36 + t35));
     R5 = (t38);

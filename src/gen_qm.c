@@ -2,9 +2,6 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 extern char gKdGunCount[];
 extern char gMapleDriver[];
-extern char g_0c2ec254[];
-extern char g_0c2ec28c[];
-extern char g_0c2ec4d8[];
 
 extern int _builtin_get_imask(void);
 extern void _builtin_set_imask(int);
@@ -54,7 +51,7 @@ int kdRecvFrame(void)
     *(unsigned int *)(((int)stk + 16)) = (_builtin_get_imask());
     _builtin_set_imask(0xF);
     t1 = mpdrv_frame_recv_pre();
-    R10 = ((int)g_0c2ec254);
+    R10 = (0x8C461E5C);
     R13 = (t1);
     R8 = (0x1);
     R9 = ((int)gMapleDriver);
@@ -65,14 +62,14 @@ int kdRecvFrame(void)
     return R13;
     L_8C1E996C:;
     if (((int)R13 >= 0)) goto L_8C1E9974;
-    t10 = *(int *)(int)g_0c2ec28c;
+    t10 = *(int *)0x8C461E94;
     R14 = (t10);
     if ((t10 == 0)) goto L_8C1E9ABE;
     t14 = ((int (*)(int, int, int, int))(R14))(0x2, 0xFFFFFFF8, (*(int *)((R10 + 0x8))), R13);
     goto L_8C1E9ABE;
     L_8C1E9974:;
     mpdrv_frame_recv_main(R4);
-    t16 = *(int *)(int)g_0c2ec4d8;
+    t16 = *(int *)0x8C4620E0;
     *(int *)((int)stk + 8) = ((R10 + 0x30) + (t16 << 1));
     *(unsigned short *)((((R10 + 0x30) + (t16 << 1)) + 0x0)) = (((*(int *)0xA05F810C) & 0x3FF) + ((unsigned short)(*(short *)((((R10 + 0x34) + (t16 << 1)) + 0x0))) * (unsigned short)((*(int *)0xA05F80DC) & 0x3FF)));
     copy_device();
@@ -102,7 +99,7 @@ int kdRecvFrame(void)
     L_8C1E9A90:;
     if (((int)R11 < (int)0x30)) goto L_8C1E9A5C;
     *(unsigned int *)(((*(int *)((R9 + 0x0))) + 0x10E8)) = R12;
-    *(unsigned int *)(int)g_0c2ec4d8 = ((*(int *)(int)g_0c2ec4d8) ^ R8);
+    *(unsigned int *)0x8C4620E0 = ((*(int *)0x8C4620E0) ^ R8);
     *(unsigned int *)((R10 + 0x4)) = ((*(int *)((R10 + 0x4))) + 0x1);
     goto L_8C1E9ABE;
     L_8C1E9A5C:;

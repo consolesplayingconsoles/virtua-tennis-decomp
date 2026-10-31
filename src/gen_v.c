@@ -5,15 +5,6 @@ extern char gNlFontHeight[];
 extern char gNlFontTextureAddress[];
 extern char gNlFontWidth[];
 extern char gNlPrintFlags[];
-extern char g_0c2af0c0[];
-extern char g_0c2af0c4[];
-extern char g_0c2af0d0[];
-extern char g_0c2af104[];
-extern char g_0c2af108[];
-extern char g_0c2af10c[];
-extern char g_0c2af110[];
-extern char g_0c2af114[];
-extern char g_0c2af158[];
 extern char motFileQueue[];
 extern char motFileTbl[];
 extern char motLoadAddr[];
@@ -754,24 +745,24 @@ int nlInitPrint(void)
     float u5;
     int stk[3];
 
-    *(unsigned int *)(int)g_0c2af0c0 = 0x0;
-    *(unsigned int *)(int)g_0c2af0c4 = 0x0;
-    *(unsigned int *)(int)g_0c2af0d0 = 0x0;
-    *(unsigned int *)(int)g_0c2af108 = 0xFFFFFFFF;
-    *(unsigned short *)(int)g_0c2af104 = 0x8;
+    *(unsigned int *)0x8C44F954 = 0x0;
+    *(unsigned int *)0x8C44F958 = 0x0;
+    *(unsigned int *)0x8C44F964 = 0x0;
+    *(unsigned int *)0x8C44F99C = 0xFFFFFFFF;
+    *(unsigned short *)0x8C44F998 = 0x8;
     *(unsigned int *)(int)gNlFontWidth = 0x8;
     *(unsigned int *)(int)gNlFontHeight = 0x8;
     *(unsigned int *)(int)gNlPrintFlags = 0x0;
-    *(float *)(int)g_0c2af10c = 0.0f;
-    *(float *)(int)g_0c2af110 = 1.0f;
-    *(float *)(int)g_0c2af114 = (*(float *)0x8C0ED8F4);
+    *(float *)0x8C44F9A0 = 0.0f;
+    *(float *)0x8C44F9A4 = 1.0f;
+    *(float *)0x8C44F9A8 = (*(float *)0x8C0ED8F4);
     t1 = 0x0;
     for (;;) {
         t3 = (t1 << 1);
         u5 = (float)t1;
         t1 = (t1 + 0x1);
-        *(float *)(((int)stk + 4)) = (u5 * (*(float *)(int)g_0c2af114));
-        *(unsigned short *)(((t3 + (int)g_0c2af158) + 0x0)) = (*(short *)((((int)stk + 4) + 0x2)));
+        *(float *)(((int)stk + 4)) = (u5 * (*(float *)0x8C44F9A8));
+        *(unsigned short *)(((t3 + 0x8C44F9E4) + 0x0)) = (*(short *)((((int)stk + 4) + 0x2)));
         if ((int)t1 >= (int)0x101) {
             break;
         }

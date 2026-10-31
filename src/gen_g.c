@@ -4,9 +4,6 @@ extern char gMapleDriver[];
 extern char gNlCommonTextureOffset[];
 extern char gNlRenderTextureTableState[];
 extern char gNlTextureSurfaces[];
-extern char g_0c2aec84[];
-extern char g_0c2ea97c[];
-extern char g_0c2ea980[];
 extern char stageNo[];
 
 int ADXT_Pause(int, int);
@@ -405,11 +402,11 @@ void nlRenderTextureFree(int a4)
             *(unsigned int *)(((t1 + ((a4 << 2) << 2)) + 0x0)) = 0xFFFFFFFF;
             *(unsigned int *)(((t1 + ((a4 << 2) << 2)) + 0x4)) = 0xFFFFFFFF;
             t3 = *(int *)(int)gNlCommonTextureOffset;
-            t4 = *(int *)(int)g_0c2aec84;
+            t4 = *(int *)0x8C4241C0;
             t5 = *(int *)((((((t2 + t3) << 2) << 1) + t4) + 0x0));
             if (t5 != 0) {
                 *(unsigned int *)(((t4 + (((t2 + t3) << 2) << 1)) + 0x0)) = 0x0;
-                t6 = *(int *)(int)g_0c2aec84;
+                t6 = *(int *)0x8C4241C0;
                 t7 = *(int *)(((t6 + (((t2 + t3) << 2) << 1)) + 0x4));
                 *(unsigned int *)(((t6 + (((t2 + t3) << 2) << 1)) + 0x4)) = 0xFFFFFFFF;
                 nlCommonTextureClearTextureIndex(t7);
@@ -469,10 +466,10 @@ void kmyiInitializeNativeBuffer(int a4, int a5, int a6, int a7)
     int t6;
 
     t0 = *(int *)((a4 + 0x88));
-    t1 = *(int *)(int)g_0c2ea97c;
+    t1 = *(int *)0x8C45EE80;
     *(unsigned int *)((t0 + 0x28)) = t1;
     t2 = *(int *)((a4 + 0x88));
-    t3 = *(int *)(int)g_0c2ea980;
+    t3 = *(int *)0x8C45EE84;
     *(unsigned int *)((t2 + 0x24)) = t3;
     *(unsigned int *)((a4 + 0x1C)) = a6;
     *(unsigned int *)((a4 + 0x18)) = a5;

@@ -1,7 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_jq): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 extern char gVmsFileCommandStates[];
-extern char g_0c2ec558[];
 
 int vmsfb_sleep(void);
 int vmsfs_fclose(int, int);
@@ -63,10 +62,10 @@ void vmsfs_c_dispatch(int a4, int a5, int a6, int a7, int a8)
     R11 = (R4);
     R13 = (0x0);
     R14 = ((((((R4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates));
-    R2 = ((int)g_0c2ec558);
+    R2 = (0x8C462160);
     R3 = ((int)gVmsFileCommandStates);
     R8 = (0x8C1EB71E);
-    R9 = (((R4 << 2) + (int)g_0c2ec558));
+    R9 = (((R4 << 2) + 0x8C462160));
     L_8C1EAD24:;
     t8 = *(int *)((R14 + 0x8));
     R0 = (t8);

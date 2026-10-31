@@ -2,13 +2,6 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 extern char fileLoadSlots[];
 extern char fileLoadState[];
-extern char g_0c2b7624[];
-extern char g_0c2b7628[];
-extern char g_0c2b762c[];
-extern char g_0c2b7630[];
-extern char g_0c2b8cbc[];
-extern char g_0c2ee992[];
-extern char g_0c2ee998[];
 extern char uniformTexNames[];
 
 typedef struct { int w[3]; } Stk3;
@@ -129,7 +122,7 @@ int vmsfs_fsetparam(int a4, int a5, int a6)
     if (a4 == 0) {
         return 0xFFFFFF00;
     }
-    if ((*(signed char *)((((*(int *)((a4 + 0x28))) * 0x148) + (int)g_0c2ee992))) != 0) {
+    if ((*(signed char *)((((*(int *)((a4 + 0x28))) * 0x148) + 0x8C46459A))) != 0) {
         t3 = vmsio_isready((*(int *)((a4 + 0x28))));
         if (t3 == 0) {
             vmsfs_unmount((*(int *)((a4 + 0x28))));
@@ -137,7 +130,7 @@ int vmsfs_fsetparam(int a4, int a5, int a6)
         }
         t7 = vmsio_ismount((*(int *)((a4 + 0x28))));
         if (t7 != 0) {
-            if ((*(signed char *)((((*(int *)((a4 + 0x28))) * 0x148) + (int)g_0c2ee998))) == 0) {
+            if ((*(signed char *)((((*(int *)((a4 + 0x28))) * 0x148) + 0x8C4645A0))) == 0) {
                 return 0xFFFFFF01;
             }
             t11 = buIsFormat((*(int *)((a4 + 0x28))));
@@ -677,13 +670,13 @@ int nlLineSendHeader(int a4)
     int t11;
 
     u0 = *(float *)0x8C0F3254;
-    *(float *)(int)g_0c2b7624 = ((*(float *)0x8C1DCA24) * u0);
-    *(float *)(int)g_0c2b7628 = ((*(float *)0x8C1DCA28) * u0);
-    *(float *)(int)g_0c2b762c = ((-1.0f) - (*(float *)(int)g_0c2b7624));
-    *(float *)(int)g_0c2b7630 = ((-1.0f) - (*(float *)(int)g_0c2b7628));
-    *(float *)0x8C1DCAB8 = (*(float *)(int)g_0c2b7624);
-    *(float *)0x8C1DCACC = (-(*(float *)(int)g_0c2b7628));
-    t7 = *(int *)(int)g_0c2b8cbc;
+    *(float *)0x8C454C48 = ((*(float *)0x8C1DCA24) * u0);
+    *(float *)0x8C454C4C = ((*(float *)0x8C1DCA28) * u0);
+    *(float *)0x8C454C50 = ((-1.0f) - (*(float *)0x8C454C48));
+    *(float *)0x8C454C54 = ((-1.0f) - (*(float *)0x8C454C4C));
+    *(float *)0x8C1DCAB8 = (*(float *)0x8C454C48);
+    *(float *)0x8C1DCACC = (-(*(float *)0x8C454C4C));
+    t7 = *(int *)0x8C42445C;
     if ((a4 & 0x1) != 0) {
         t10 = (*(int *)((t7 + 0x8)));
         t11 = 0x8C1DCC40;

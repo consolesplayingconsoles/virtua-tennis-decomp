@@ -1,7 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_au): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 extern char gVmsVolumeStates[];
-extern char g_0c2ee998[];
 extern char stageNo[];
 
 typedef struct { int w[3]; } Stk3;
@@ -221,7 +220,7 @@ void vmsfs_fread1(int a4, int a5)
     if (t9) goto L_8C1ECA1C;
     goto L_8C1ECA0C;
     L_8C1ECA0C:;
-    if (((*(signed char *)((((*(int *)((R14 + 0x28))) * 0x148) + (int)g_0c2ee998))) != 0)) goto L_8C1ECA4C;
+    if (((*(signed char *)((((*(int *)((R14 + 0x28))) * 0x148) + 0x8C4645A0))) != 0)) goto L_8C1ECA4C;
     goto L_8C1ECA1C;
     L_8C1ECA4C:;
     t15 = (int)(buIsFormat((*(int *)((R14 + 0x28))))) >= 0;

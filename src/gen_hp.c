@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_hp): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char g_0c2b3190[];
 
 int kmSetBackGroundPlane(int, int);
 int nlSetBackColorZ(int a4, int a5, int a6, float f4);
@@ -21,7 +20,7 @@ int nlSetBackColorZ(int a4, int a5, int a6, float f4)
     *(unsigned int *)(((((int)stk + 4) + 0xC) + 0x10)) = a4;
     *(unsigned int *)(((((int)stk + 4) + 0xC) + 0x18)) = a4;
     *(unsigned int *)((((((int)stk + 4) + 0xC) + 0x20) + 0x0)) = 0xE0000000;
-    t0 = *(short *)(int)g_0c2b3190;
+    t0 = *(short *)0x8C458DD8;
     t2 = (short)t0;
     if ((*(short *)0x8C458DDE) != 0) {
         t2 = ((short)t0 << 1);

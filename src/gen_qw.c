@@ -4,10 +4,6 @@ extern char gNlFontHeight[];
 extern char gNlFontWidth[];
 extern char gNlPrintFlags[];
 extern char gNlPrintTileClipFlags[];
-extern char g_0c2af0c0[];
-extern char g_0c2af0c4[];
-extern char g_0c2af0d0[];
-extern char g_0c2b8cbc[];
 
 extern void _builtin_prefetch(void *);
 int nlCharacter(int, int, int, int);
@@ -54,10 +50,10 @@ int nlPuts(int a4)
     R5 = (0x0);
     L_8C0EDB52:;
     *(unsigned int *)(((int)stk + 4)) = (R5 << 2);
-    t6 = *(int *)(((R5 << 2) + (*(int *)(int)g_0c2b8cbc)));
+    t6 = *(int *)(((R5 << 2) + (*(int *)0x8C42445C)));
     t7 = *(int *)(int)gNlPrintFlags;
-    t8 = *(int *)(int)g_0c2af0c0;
-    t9 = *(int *)(int)g_0c2af0c4;
+    t8 = *(int *)0x8C44F954;
+    t9 = *(int *)0x8C44F958;
     *(unsigned int *)0xFF000038 = ((unsigned int)((unsigned int)t6 >> 16) >> 8);
     *(unsigned int *)0xFF00003C = ((unsigned int)((unsigned int)t6 >> 16) >> 8);
     *(unsigned int *)((((0x3FFFFFF & t6) | 0xE0000000) + 0x0)) = (*(int *)((R4 + 0x0)));
@@ -72,10 +68,10 @@ int nlPuts(int a4)
     R14 = (t8);
     L_8C0EDC54:;
     if (((*(signed char *)((R12 + 0x0))) != 0)) goto L_8C0EDBA0;
-    *(unsigned int *)(int)g_0c2af0c0 = R14;
-    *(unsigned int *)(int)g_0c2af0c4 = R11;
+    *(unsigned int *)0x8C44F954 = R14;
+    *(unsigned int *)0x8C44F958 = R11;
     t21 = *(int *)(((int)stk + 4));
-    t22 = *(int *)(int)g_0c2b8cbc;
+    t22 = *(int *)0x8C42445C;
     t23 = *(int *)(((t21 + t22) + 0x0));
     *(unsigned int *)(((t21 + t22) + 0x0)) = ((t23 & 0xFC000000) | (R13 & 0x3FFFFFF));
     return ((t23 & 0xFC000000) | (R13 & 0x3FFFFFF));
@@ -84,7 +80,7 @@ int nlPuts(int a4)
     t26 = *(signed char *)((R12 + 0x0));
     R0 = (t26);
     R4 = (0x0);
-    R5 = ((*(int *)(int)g_0c2af0d0));
+    R5 = ((*(int *)0x8C44F964));
     if ((t26 != 10)) goto L_8C0EDC30;
     T_ = (((R10 == 0)));
     R14 = (R4);

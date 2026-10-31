@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_un): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char g_0c2b3190[];
 
 int kmRender(int);
 int kmRenderRect(int);
@@ -48,7 +47,7 @@ int nlSysRender(int a4)
     goto L_8C0EC9F2;
     L_8C0EC8DA:;
     R11 = ((*(short *)0x8C458DDA));
-    R12 = ((*(short *)(int)g_0c2b3190));
+    R12 = ((*(short *)0x8C458DD8));
     R4 = ((*(int *)0x8C1DC9F8));
     R5 = ((*(int *)0x8C1DCA00));
     R6 = ((*(int *)0x8C1DC9FC));

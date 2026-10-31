@@ -7,10 +7,6 @@ extern char gNlFontHeight[];
 extern char gNlFontWidth[];
 extern char gVmsIoInterface[];
 extern char gVmsVolumeStates[];
-extern char g_0c14a7b8[];
-extern char g_0c14a7bc[];
-extern char g_0c2af158[];
-extern char g_0c2b3190[];
 
 typedef struct { int w[3]; } Stk3;
 int kmSetHSyncCallback(int, int);
@@ -864,11 +860,11 @@ int nlCharacter(int a4, int a5, int a6, int a7)
     int t8;
 
     t0 = *(int *)(int)gNlFontWidth;
-    u1 = *(float *)(int)g_0c14a7bc;
+    u1 = *(float *)0x8C1DC8D0;
     t2 = *(int *)(int)gNlFontHeight;
-    if ((*(int *)(int)g_0c14a7b8) == 0) {
-        t4 = *(short *)(((((signed char)a6 << 1) + (int)g_0c2af158) + 0x2));
-        t5 = *(short *)(((((signed char)a6 << 1) + (int)g_0c2af158) + 0x0));
+    if ((*(int *)0x8C1DC8CC) == 0) {
+        t4 = *(short *)(((((signed char)a6 << 1) + 0x8C44F9E4) + 0x2));
+        t5 = *(short *)(((((signed char)a6 << 1) + 0x8C44F9E4) + 0x0));
         *(unsigned int *)((a7 + 0x0)) = 0xF0000000;
         *(float *)(((a7 + 0x4) + 0x0)) = (float)a4;
         *(float *)(((a7 + 0x8) + 0x0)) = (float)a5;
@@ -887,9 +883,9 @@ int nlCharacter(int a4, int a5, int a6, int a7)
         *(unsigned int *)(((a7 + 0x20) + 0x18)) = (t5 | 0x3F800000);
         *(unsigned int *)(((a7 + 0x20) + 0x1C)) = (t4 | 0x3F800000);
     } else {
-        t6 = *(short *)(int)g_0c2b3190;
-        t7 = *(short *)(((((signed char)a6 << 1) + (int)g_0c2af158) + 0x0));
-        t8 = *(short *)(((((signed char)a6 << 1) + (int)g_0c2af158) + 0x2));
+        t6 = *(short *)0x8C458DD8;
+        t7 = *(short *)(((((signed char)a6 << 1) + 0x8C44F9E4) + 0x0));
+        t8 = *(short *)(((((signed char)a6 << 1) + 0x8C44F9E4) + 0x2));
         *(unsigned int *)((a7 + 0x0)) = 0xF0000000;
         *(float *)(((a7 + 0x4) + 0x0)) = (float)(((-a5) - t2) + t6);
         *(float *)(((a7 + 0x8) + 0x0)) = (float)a4;

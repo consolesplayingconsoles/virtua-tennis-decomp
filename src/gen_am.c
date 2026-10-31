@@ -2,8 +2,6 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 extern char Player[];
 extern char gNlSoundStreams[];
-extern char g_0c2b31d8[];
-extern char g_0c2b31dc[];
 extern char strMwRnaNullHandleError[];
 
 typedef struct { int w[3]; } Stk3;
@@ -496,11 +494,11 @@ int nlMatrixMode(int a4)
     int t2;
 
     nlGetMatrix(0x0);
-    t1 = *(signed char *)(int)g_0c2b31d8;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((((t1 << 1) + t1) << 2) + (int)g_0c2b31dc)) = *(struct mv3 *)((int)g_0c2b31dc); }
-    *(unsigned char *)(int)g_0c2b31d8 = a4;
-    t2 = *(signed char *)(int)g_0c2b31d8;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((int)g_0c2b31dc) = *(struct mv3 *)(((((t2 << 1) + t2) << 2) + (int)g_0c2b31dc)); }
+    t1 = *(signed char *)0x8C450858;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((((t1 << 1) + t1) << 2) + 0x8C45085C)) = *(struct mv3 *)(0x8C45085C); }
+    *(unsigned char *)0x8C450858 = a4;
+    t2 = *(signed char *)0x8C450858;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C45085C) = *(struct mv3 *)(((((t2 << 1) + t2) << 2) + 0x8C45085C)); }
     return nlLoadMatrix((*(int *)0x8C450864));
 }
 

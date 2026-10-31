@@ -4,9 +4,6 @@ extern char gKdGunBusy[];
 extern char gKdGunCount[];
 extern char gKdGunLast[];
 extern char gLightGunPosition[];
-extern char g_0c2ec254[];
-extern char g_0c2ec28c[];
-extern char g_0c2ec4d8[];
 
 int copy_device(void);
 int kdRecvFrame(void);
@@ -40,26 +37,26 @@ int kdSendFrame(int a4, int a5)
         if (((*(int *)0xA05F6908) & 0xF00) != 0) {
             if (((*(int *)0xA05F6908) & 0x800) != 0) {
                 *(unsigned int *)0x8C461E78 = ((*(int *)0x8C461E78) + 0x1);
-                if ((*(int *)(int)g_0c2ec28c) != 0) {
-                    t2 = ((int (*)(int, int, int, int))((*(int *)(int)g_0c2ec28c)))(0x1, 0xFFFFFFFE, (*(int *)0x8C461E64), (*(int *)0xA05F6908));
+                if ((*(int *)0x8C461E94) != 0) {
+                    t2 = ((int (*)(int, int, int, int))((*(int *)0x8C461E94)))(0x1, 0xFFFFFFFE, (*(int *)0x8C461E64), (*(int *)0xA05F6908));
                 }
             }
             if (((*(int *)0xA05F6908) & 0x400) != 0) {
                 *(unsigned int *)0x8C461E7C = ((*(int *)0x8C461E7C) + 0x1);
-                if ((*(int *)(int)g_0c2ec28c) != 0) {
-                    t2 = ((int (*)(int, int, int, int))((*(int *)(int)g_0c2ec28c)))(0x1, 0xFFFFFFFD, (*(int *)0x8C461E64), (*(int *)0xA05F6908));
+                if ((*(int *)0x8C461E94) != 0) {
+                    t2 = ((int (*)(int, int, int, int))((*(int *)0x8C461E94)))(0x1, 0xFFFFFFFD, (*(int *)0x8C461E64), (*(int *)0xA05F6908));
                 }
             }
             if (((*(int *)0xA05F6908) & 0x200) != 0) {
                 *(unsigned int *)0x8C461E80 = ((*(int *)0x8C461E80) + 0x1);
-                if ((*(int *)(int)g_0c2ec28c) != 0) {
-                    t2 = ((int (*)(int, int, int, int))((*(int *)(int)g_0c2ec28c)))(0x1, 0xFFFFFFFC, (*(int *)0x8C461E64), (*(int *)0xA05F6908));
+                if ((*(int *)0x8C461E94) != 0) {
+                    t2 = ((int (*)(int, int, int, int))((*(int *)0x8C461E94)))(0x1, 0xFFFFFFFC, (*(int *)0x8C461E64), (*(int *)0xA05F6908));
                 }
             }
             if (((*(int *)0xA05F6908) & 0x100) != 0) {
                 *(unsigned int *)0x8C461E84 = ((*(int *)0x8C461E84) + 0x1);
-                if ((*(int *)(int)g_0c2ec28c) != 0) {
-                    t2 = ((int (*)(int, int, int, int))((*(int *)(int)g_0c2ec28c)))(0x1, 0xFFFFFFFB, (*(int *)0x8C461E64), (*(int *)0xA05F6908));
+                if ((*(int *)0x8C461E94) != 0) {
+                    t2 = ((int (*)(int, int, int, int))((*(int *)0x8C461E94)))(0x1, 0xFFFFFFFB, (*(int *)0x8C461E64), (*(int *)0xA05F6908));
                 }
             }
             *(unsigned int *)0xA05F6908 = 0xF00;
@@ -68,8 +65,8 @@ int kdSendFrame(int a4, int a5)
             if ((int)t2 >= 0) {
                 copy_device();
             } else {
-                if ((*(int *)(int)g_0c2ec28c) != 0) {
-                    t3 = ((int (*)(int, int, int, int))((*(int *)(int)g_0c2ec28c)))(0x1, 0xFFFFFFFA, (*(int *)0x8C461E64), t2);
+                if ((*(int *)0x8C461E94) != 0) {
+                    t3 = ((int (*)(int, int, int, int))((*(int *)0x8C461E94)))(0x1, 0xFFFFFFFA, (*(int *)0x8C461E64), t2);
                 }
             }
             t3 = t2;
@@ -77,15 +74,15 @@ int kdSendFrame(int a4, int a5)
             t2 = ((int (*)(int, int, int))(mpdrv_frame_send))(0x8C4620E8, t1, (int)gKdGunCount);
             if ((int)t2 >= 0) {
                 *(unsigned int *)(int)gKdGunBusy = 0x0;
-                *(unsigned short *)(((((*(int *)(int)g_0c2ec4d8) << 1) + 0x8C461E90) + 0x0)) = 0x0;
-                *(unsigned short *)(((((*(int *)(int)g_0c2ec4d8) << 1) + 0x8C461E88) + 0x0)) = ((*(int *)0xA05F810C) & 0x3FF);
+                *(unsigned short *)(((((*(int *)0x8C4620E0) << 1) + 0x8C461E90) + 0x0)) = 0x0;
+                *(unsigned short *)(((((*(int *)0x8C4620E0) << 1) + 0x8C461E88) + 0x0)) = ((*(int *)0xA05F810C) & 0x3FF);
                 copy_device();
-                *(unsigned int *)(int)g_0c2ec254 = ((*(int *)(int)g_0c2ec254) + 0x1);
+                *(unsigned int *)0x8C461E5C = ((*(int *)0x8C461E5C) + 0x1);
             } else {
                 kdRecvFrame();
                 *(unsigned int *)0x8C461E6C = ((*(int *)0x8C461E6C) + 0x1);
-                if ((*(int *)(int)g_0c2ec28c) != 0) {
-                    t1 = ((int (*)(int, int, int, int))((*(int *)(int)g_0c2ec28c)))(0x1, 0xFFFFFFF9, (*(int *)0x8C461E64), t2);
+                if ((*(int *)0x8C461E94) != 0) {
+                    t1 = ((int (*)(int, int, int, int))((*(int *)0x8C461E94)))(0x1, 0xFFFFFFF9, (*(int *)0x8C461E64), t2);
                 }
             }
             t3 = t2;

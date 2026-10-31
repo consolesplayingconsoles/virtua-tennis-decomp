@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_rt): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char g_0c2f4c9c[];
 
 int ADXCRS_Lock(int, int);
 int ADXCRS_Unlock(void);
@@ -29,7 +28,7 @@ int ADXAMP_Create(int a4, int a5, int a6)
     *(unsigned int *)(((int)stk + 4)) = v0_1;
     *(unsigned int *)(((int)stk + 8)) = v0_2;
     v0_3 = (v0_0);
-    v0_5 = ((int)g_0c2f4c9c);
+    v0_5 = (0x8C46ABA4);
     v0_4 = (0x0);
     v0_2 = (0x0);
     v0_0 = (0x8);

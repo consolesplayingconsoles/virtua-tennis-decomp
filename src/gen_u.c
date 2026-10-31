@@ -1,7 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_u): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 extern char buFbrServers[];
-extern char g_0c2fd298[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[12]; } Stk12;
@@ -438,7 +437,7 @@ int buFbrCreateServer(int a4)
         memset((0x104 + t2), 0x0, 0x100);
         setjmp((0x104 + t2));
         *(unsigned int *)((t2 + 0x0)) = 0x1;
-        *(unsigned int *)(int)g_0c2fd298 = ((*(int *)(int)g_0c2fd298) + 0x1);
+        *(unsigned int *)0x8C4762D0 = ((*(int *)0x8C4762D0) + 0x1);
         t10 = t2;
     }
     _builtin_set_imask(((unsigned int)(((t0 & 0xF) << 2) << 2) >> 4));

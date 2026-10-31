@@ -4,8 +4,6 @@ extern char gBuBlockTableA[];
 extern char gBuBlockTableB[];
 extern char gDisplayFilterUsesSharedFrameBuffer[];
 extern char gMapleDriver[];
-extern char g_0c2ee992[];
-extern char g_0c2ee998[];
 
 typedef struct { int w[3]; } Stk3;
 int ADXB_GetDecDtLen(int);
@@ -449,7 +447,7 @@ void vmsfs_fcreate(int a4, int a5, int a6, int a7)
     R11 = (0x0);
     R12 = (R5);
     R14 = (R4);
-    if (((*(signed char *)(((R4 * 0x148) + (int)g_0c2ee992))) == 0)) goto L_8C1EC372;
+    if (((*(signed char *)(((R4 * 0x148) + 0x8C46459A))) == 0)) goto L_8C1EC372;
     goto L_8C1EC348;
     L_8C1EC348:;
     t6 = (vmsio_isready(R14)) != 0;
@@ -468,7 +466,7 @@ void vmsfs_fcreate(int a4, int a5, int a6, int a7)
     if (t10) goto L_8C1EC372;
     goto L_8C1EC364;
     L_8C1EC364:;
-    if (((*(signed char *)(((R14 * 0x148) + (int)g_0c2ee998))) != 0)) goto L_8C1EC3B4;
+    if (((*(signed char *)(((R14 * 0x148) + 0x8C4645A0))) != 0)) goto L_8C1EC3B4;
     goto L_8C1EC372;
     L_8C1EC3B4:;
     t14 = (int)(buIsFormat(R14)) >= 0;
