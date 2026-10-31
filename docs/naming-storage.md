@@ -138,3 +138,17 @@ halves at +0x10a8/+0x10ac. The frame send/receive routines test +0xfc0. The
 fields are `initialized`, `halfBufferedWorkArea` and `frameSlotArea`; the
 send/receive roles of the two tables are not established. +0xfd0/+0xfd4 remain
 unaccessed.
+
+## DMA request builders
+
+`kmiSetFogDMA` and `kmySetTADMA` fill the same record as `kmySetTextureDMA`:
++4 operation flags (1 fog, 9 TA, 8 texture), +8 transfer kind (7 fog, caller
+value for TA, 0 texture), +12 byte count, +16 source, +20 destination (fog
+registers `0x5F8200 + (offset & 480)`, TA FIFO `0x10000000`, texture
+`dest | 0x11000000`), +28 a control halfword (`0x4000` fog, `flags | 0x8000`
+TA, `0x8000` texture; renamed `transferControlWord`), +30 zero. +40 is the
+status written by `kmyRequestDMA`, +44 the user value, +48 a word that the
+fog builder clears and the TA builder takes from its argument (`extraWord`,
+purpose not established). Parameters and the record type are named
+accordingly in `src/vtsdk_d.c`. `ADXT_SetOutPan` still differs in the checker,
+as before this change (one of the three known missing passes).

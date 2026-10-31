@@ -174,26 +174,42 @@ int mpdrv_set_getminfo_ns(int a, int b, int c)
     return mpdrv_setcmd(a, 10, buf, 2, 0, 0);
 }
 
-void kmiSetFogDMA(int *p, int a, int b, int c)
+struct DmaRequestRecord {
+    int requestId;
+    int operationFlags;
+    int transferKind;
+    int byteCount;
+    int sourceAddress;
+    int destinationAddress;
+    int callbackAddress;
+    short transferControlWord;
+    short transferReservedWord;
+    int pad32[2];
+    int statusWord;
+    int userValue;
+    int extraWord;
+};
+
+void kmiSetFogDMA(struct DmaRequestRecord *request, int fogRegisterOffset, int sourceAddress, int byteCount)
 {
-    p[12] = 0;
-    p[4] = b;
-    p[5] = (a & 480) + 0x5F8200;
-    p[3] = c;
-    p[2] = 7;
-    p[1] = 1;
-    *(short *)((char *)p + 28) = 16384;
-    *(short *)((char *)p + 30) = 0;
+    request->extraWord = 0;
+    request->sourceAddress = sourceAddress;
+    request->destinationAddress = (fogRegisterOffset & 480) + 0x5F8200;
+    request->byteCount = byteCount;
+    request->transferKind = 7;
+    request->operationFlags = 1;
+    request->transferControlWord = 16384;
+    request->transferReservedWord = 0;
 }
 
-void kmySetTADMA(int *p, int a, int b, int c, int d, short e)
+void kmySetTADMA(struct DmaRequestRecord *request, int extraWord, int sourceAddress, int byteCount, int transferKind, short controlFlags)
 {
-    p[12] = a;
-    p[4] = b;
-    p[5] = 0x10000000;
-    p[3] = c;
-    p[2] = d;
-    p[1] = 9;
-    *(short *)((char *)p + 28) = e | 0x8000;
-    *(short *)((char *)p + 30) = 0;
+    request->extraWord = extraWord;
+    request->sourceAddress = sourceAddress;
+    request->destinationAddress = 0x10000000;
+    request->byteCount = byteCount;
+    request->transferKind = transferKind;
+    request->operationFlags = 9;
+    request->transferControlWord = controlFlags | 0x8000;
+    request->transferReservedWord = 0;
 }
