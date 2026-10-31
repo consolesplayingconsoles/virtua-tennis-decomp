@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_gf): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
-extern char fileLoadState[];
 
 typedef struct { int w[7]; } Stk7;
 int ambEventStart(int, int, int, int, int, int);
@@ -80,7 +78,7 @@ int matchSceneSetup(int a4, int a5)
     sprSet173FreeAll();
     *(unsigned int *)0x8C181750 = 0x1;
     *(unsigned int *)0x8C181760 = 0x0;
-    *(unsigned int *)(int)fileLoadState = 0x0;
+    *(unsigned int *)0x8C34A1EC = 0x0;
     *(unsigned int *)0x8C301B90 = (entryIsVersus());
     if ((*(int *)0x8C287D5C) == 1) {
         *(unsigned int *)0x8C301B90 = 0x1;
@@ -112,7 +110,7 @@ int matchSceneSetup(int a4, int a5)
         if (((*(int *)((((t37 << 2) + t36) + 0x0)))) != 0) {
             t34 = 0xC58;
             t38 = (t37 * 0xD78);
-            t38 = (t38 + (int)Player);
+            t38 = (t38 + 0x8C287D84);
             t38 = (*(int *)((t38 + t34)));
         }
         t37 = (t37 + 0x1);

@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_mu): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 int exprPlay(int, int, int);
 float nlRandom(void);
@@ -68,7 +67,7 @@ float playerStartReactions(int a4, int a5, int a6, int a7, float f4)
     R11 = (0x8C102E74);
     R12 = (0x2);
     R13 = (0x1);
-    R14 = (((t4 * 0xD78) + (int)Player));
+    R14 = (((t4 * 0xD78) + 0x8C287D84));
     R9 = (0x8C0ED2B0);
     F13 = (64.0f);
     F14 = (118.849998f);

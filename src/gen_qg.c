@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_qg): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gNlRenderTextureTableState[];
-extern char gNlTextureSurfaces[];
 
 int kmBeginPass(int);
 int kmBeginScene(int);
@@ -21,21 +19,21 @@ void nlRenderTextureEnd(void)
     register int t2;
 
     t0 = *(int *)0x8C44FBF4;
-    t1 = *(int *)(int)gNlRenderTextureTableState;
+    t1 = *(int *)0x8C44FBEC;
     if ((int)t0 >= 0) {
         t2 = *(int *)(((t1 + ((t0 << 2) << 2)) + 0x4));
-        if ((*(int *)((((*(int *)(int)gNlTextureSurfaces) + (t2 * 0x3C)) + 0x28))) == 0) {
+        if ((*(int *)((((*(int *)0x8C458608) + (t2 * 0x3C)) + 0x28))) == 0) {
             if ((*(int *)0x8C424460) == 0) {
                 kmEndPass(0x8C454FC0);
                 nl_action_PixelClipping();
-                kmRenderTexture(((*(int *)(int)gNlTextureSurfaces) + (t2 * 0x3C)), 0x0);
+                kmRenderTexture(((*(int *)0x8C458608) + (t2 * 0x3C)), 0x0);
                 kmEndScene(0x8C42420C);
                 kmBeginScene(0x8C42420C);
                 kmBeginPass(0x8C454FC0);
                 *(unsigned int *)0x8C42445C = (*(int *)0x8C454FC0);
             } else {
                 nl_action_PixelClipping();
-                kmRenderTexture(((*(int *)(int)gNlTextureSurfaces) + (t2 * 0x3C)), 0x0);
+                kmRenderTexture(((*(int *)0x8C458608) + (t2 * 0x3C)), 0x0);
             }
         }
         *(unsigned int *)0x8C44FBF4 = 0xFFFFFFFF;

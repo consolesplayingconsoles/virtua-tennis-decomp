@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ml): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 int cpuDblMoodUpdate(void);
 int cpuDblPickTactic(void);
@@ -77,7 +76,7 @@ int cpuDblPointInit(void)
     L_8C056C66:;
     *(unsigned int *)(((int)stk + 12)) = R8;
     *(unsigned char *)(((int)stk + 4)) = (-(*(int *)(((int)stk + 8))));
-    difficultyOrPlayerAddress = ((int)Player);
+    difficultyOrPlayerAddress = (0x8C287D84);
     R14 = (0x8C2FC69C);
     L_8C056E76:;
     if (((int)(*(int *)(((int)stk + 12))) < 0)) goto L_8C056E80;

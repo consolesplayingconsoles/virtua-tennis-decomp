@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ky): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 int BupCheckFile(void);
@@ -52,7 +51,7 @@ int padPauseOnUnplug(int a4)
     v0_7 = (((v0_4 << 2) + v0_3));
     v0_3 = (v0_6);
     if ((v0_6 == -1)) goto L_8C030256;
-    if (((*(int *)(((*(int *)(((v0_3 << 2) + (int)padPeri))) + 0x0))) == 0)) goto L_8C030262;
+    if (((*(int *)(((*(int *)(((v0_3 << 2) + 0x8C29B898))) + 0x0))) == 0)) goto L_8C030262;
     goto L_8C030256;
     L_8C030314:;
     if ((v0_0 != 0)) goto L_8C030326;
@@ -87,7 +86,7 @@ int padPauseOnUnplug(int a4)
     v0_4 = *(int *)((v0_7 + 0x0));
     v0_3 = (v0_4);
     if ((v0_4 == -1)) goto L_8C0302E0;
-    if (((*(int *)(((*(int *)(((v0_3 << 2) + (int)padPeri))) + 0x0))) != 0)) goto L_8C0302E0;
+    if (((*(int *)(((*(int *)(((v0_3 << 2) + 0x8C29B898))) + 0x0))) != 0)) goto L_8C0302E0;
     v0_0 = (v0_1);
     goto L_8C0302E0;
     L_8C03030C:;

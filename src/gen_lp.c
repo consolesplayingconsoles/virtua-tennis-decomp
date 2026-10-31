@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_lp): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
 
 typedef struct { int w[3]; } Stk3;
 int ballInit(int);
@@ -80,7 +79,7 @@ void miniOnEvent(int a4, int a5, int a6, int a7, float f4)
                                     *(Stk3 *)(0x8C2895E4) = vecMake(0.0f, 0.0f, -118.849998f);
                                 }
                                 miniBallObjSpawn();
-                                ballInit((int)Ball);
+                                ballInit(0x8C291F24);
                                 *(unsigned int *)0x8C291F78 = ((*(int *)0x8C291F78) & 0xFFFFFFF7);
                                 *(unsigned int *)(((*(int *)0x8C2FBEF0) + 0x18)) = 0x0;
                             }
@@ -93,7 +92,7 @@ void miniOnEvent(int a4, int a5, int a6, int a7, float f4)
                                 *(unsigned int *)0x8C289664 = 0x0;
                                 *(Stk3 *)(0x8C2895E4) = vecMake(0.0f, 0.0f, -50.0f);
                                 miniBallObjSpawn();
-                                ballInit((int)Ball);
+                                ballInit(0x8C291F24);
                                 *(unsigned int *)0x8C291F78 = ((*(int *)0x8C291F78) & 0xFFFFFFF7);
                                 *(unsigned int *)(((*(int *)0x8C2FBEF0) + 0x18)) = 0x0;
                             }
@@ -103,7 +102,7 @@ void miniOnEvent(int a4, int a5, int a6, int a7, float f4)
                                 *(unsigned int *)0x8C289664 = 0x0;
                                 *(Stk3 *)(0x8C2895E4) = vecMake(0.0f, 0.0f, -79.2333298f);
                                 miniBallObjSpawn();
-                                ballInit((int)Ball);
+                                ballInit(0x8C291F24);
                                 *(unsigned int *)0x8C291F78 = ((*(int *)0x8C291F78) & 0xFFFFFFF7);
                                 *(unsigned int *)(((*(int *)0x8C2FBEF0) + 0x18)) = 0x0;
                             }
@@ -113,7 +112,7 @@ void miniOnEvent(int a4, int a5, int a6, int a7, float f4)
                                 *(unsigned int *)0x8C289664 = 0x0;
                                 *(Stk3 *)(0x8C2895E4) = vecMake(0.0f, 0.0f, -118.849998f);
                                 miniBallObjSpawn();
-                                ballInit((int)Ball);
+                                ballInit(0x8C291F24);
                                 *(unsigned int *)0x8C291F78 = ((*(int *)0x8C291F78) & 0xFFFFFFF7);
                                 *(unsigned int *)(((*(int *)0x8C2FBEF0) + 0x18)) = 0x0;
                             }

@@ -1,9 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_sr): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
-extern char Player[];
-extern char replayFrame[];
-extern char replayInput[];
 
 typedef struct { int w[1]; } Stk1;
 typedef struct { int w[3]; } Stk3;
@@ -85,7 +81,7 @@ int playerControl(int a4, int a5, int a6, int a7)
     v0_1 = a7;
     *(unsigned int *)(((0x39C + ((int)stk + 68)) + 0x0)) = v0_3;
     *(unsigned int *)(((int)stk + 904)) = 0x8C287ACC;
-    *(unsigned int *)(((int)stk + 900)) = (int)Ball;
+    *(unsigned int *)(((int)stk + 900)) = 0x8C291F24;
     *(unsigned short *)(((int)stk + 716)) = 0x0;
     *(unsigned short *)(((int)stk + 714)) = 0x0;
     *(unsigned short *)(((int)stk + 712)) = 0x0;
@@ -253,8 +249,8 @@ int playerControl(int a4, int a5, int a6, int a7)
     if (((int)(v0_2 + 0x2) < 0)) goto L_8C022EB4;
     v0_4 = ((v0_4 & 0x3));
     L_8C022EBE:;
-    *(unsigned int *)(((int)stk + 76)) = ((v0_4 * 0xD78) + (int)Player);
-    *(unsigned int *)(((0xC40 + ((v0_4 * 0xD78) + (int)Player)) + 0x0)) = 0x14;
+    *(unsigned int *)(((int)stk + 76)) = ((v0_4 * 0xD78) + 0x8C287D84);
+    *(unsigned int *)(((0xC40 + ((v0_4 * 0xD78) + 0x8C287D84)) + 0x0)) = 0x14;
     *(unsigned int *)(((0xC50 + (*(int *)(((int)stk + 76)))) + 0x0)) = 0x63;
     *(unsigned int *)(((0xC54 + (*(int *)(((int)stk + 76)))) + 0x0)) = 0x63;
     v0_2 = *(int *)(((int)stk + 76));
@@ -1979,7 +1975,7 @@ int playerControl(int a4, int a5, int a6, int a7)
     if (((int)(v0_5 + 0x2) < 0)) goto L_8C01E3C8;
     v0_4 = ((v0_4 & 0x3));
     L_8C01E3D2:;
-    *(unsigned int *)(((int)stk + 76)) = ((v0_4 * 0xD78) + (int)Player);
+    *(unsigned int *)(((int)stk + 76)) = ((v0_4 * 0xD78) + 0x8C287D84);
     if (((*(int *)(((*(int *)(((int)stk + 904))) + 0x10))) != 4)) goto L_8C01E450;
     if ((((*(int *)((0x54 + (*(int *)(((int)stk + 900)))))) & 4) != 0)) goto L_8C01E450;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)(((*(int *)(((int)stk + 900))) + 0xC)); }
@@ -2549,11 +2545,11 @@ int playerControl(int a4, int a5, int a6, int a7)
     if ((((*(int *)0x8C287B3C) & 1) == 0)) goto L_8C01DF40;
     v0_4 = *(int *)(((int)stk + 992));
     v0_5 = *(int *)(((0xB5C + v0_4) + 0x0));
-    v0_6 = *(int *)(int)replayFrame;
-    *(unsigned char *)(((v0_4 + 0xD44) + 0x0)) = (*(signed char *)(((((v0_5 * 0x960) + (int)replayInput) + (v0_6 << 2)) + 0x0)));
-    *(unsigned char *)(((v0_4 + 0xD44) + 0x1)) = (*(signed char *)(((((v0_5 * 0x960) + (int)replayInput) + (v0_6 << 2)) + 0x1)));
-    *(unsigned char *)(((v0_4 + 0xD44) + 0x2)) = (*(signed char *)(((((v0_5 * 0x960) + (int)replayInput) + (v0_6 << 2)) + 0x2)));
-    *(unsigned char *)(((v0_4 + 0xD44) + 0x3)) = (*(signed char *)(((((v0_5 * 0x960) + (int)replayInput) + (v0_6 << 2)) + 0x3)));
+    v0_6 = *(int *)0x8C287C1C;
+    *(unsigned char *)(((v0_4 + 0xD44) + 0x0)) = (*(signed char *)(((((v0_5 * 0x960) + 0x8C2920C8) + (v0_6 << 2)) + 0x0)));
+    *(unsigned char *)(((v0_4 + 0xD44) + 0x1)) = (*(signed char *)(((((v0_5 * 0x960) + 0x8C2920C8) + (v0_6 << 2)) + 0x1)));
+    *(unsigned char *)(((v0_4 + 0xD44) + 0x2)) = (*(signed char *)(((((v0_5 * 0x960) + 0x8C2920C8) + (v0_6 << 2)) + 0x2)));
+    *(unsigned char *)(((v0_4 + 0xD44) + 0x3)) = (*(signed char *)(((((v0_5 * 0x960) + 0x8C2920C8) + (v0_6 << 2)) + 0x3)));
     goto L_8C01E008;
     L_8C01DF40:;
     if (((*(int *)((((*(int *)(((*(int *)(((int)stk + 992))) + 0xB5C))) << 2) + 0x8C287AE0))) != 0)) goto L_8C01DF60;
@@ -2572,12 +2568,12 @@ int playerControl(int a4, int a5, int a6, int a7)
     *(unsigned short *)(((0xD46 + v0_4) + 0x0)) = 0x0;
     L_8C01DFE0:;
     v0_4 = *(int *)(((*(int *)(((int)stk + 992))) + 0xB5C));
-    v0_5 = *(int *)(int)replayFrame;
+    v0_5 = *(int *)0x8C287C1C;
     v0_6 = *(int *)(((int)stk + 992));
-    *(unsigned char *)(((((v0_4 * 0x960) + (int)replayInput) + (v0_5 << 2)) + 0x0)) = (*(signed char *)(((v0_6 + 0xD44) + 0x0)));
-    *(unsigned char *)(((((v0_4 * 0x960) + (int)replayInput) + (v0_5 << 2)) + 0x1)) = (*(signed char *)(((v0_6 + 0xD44) + 0x1)));
-    *(unsigned char *)(((((v0_4 * 0x960) + (int)replayInput) + (v0_5 << 2)) + 0x2)) = (*(signed char *)(((v0_6 + 0xD44) + 0x2)));
-    *(unsigned char *)(((((v0_4 * 0x960) + (int)replayInput) + (v0_5 << 2)) + 0x3)) = (*(signed char *)(((v0_6 + 0xD44) + 0x3)));
+    *(unsigned char *)(((((v0_4 * 0x960) + 0x8C2920C8) + (v0_5 << 2)) + 0x0)) = (*(signed char *)(((v0_6 + 0xD44) + 0x0)));
+    *(unsigned char *)(((((v0_4 * 0x960) + 0x8C2920C8) + (v0_5 << 2)) + 0x1)) = (*(signed char *)(((v0_6 + 0xD44) + 0x1)));
+    *(unsigned char *)(((((v0_4 * 0x960) + 0x8C2920C8) + (v0_5 << 2)) + 0x2)) = (*(signed char *)(((v0_6 + 0xD44) + 0x2)));
+    *(unsigned char *)(((((v0_4 * 0x960) + 0x8C2920C8) + (v0_5 << 2)) + 0x3)) = (*(signed char *)(((v0_6 + 0xD44) + 0x3)));
     goto L_8C01E008;
     L_8C01DF7C:;
     playerCpuInput((*(int *)(((int)stk + 992))));

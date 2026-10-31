@@ -1,8 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_aw): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gMapleDriver[];
-extern char gNlRenderTextureTableState[];
-extern char gVmsVolumeStates[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[12]; } Stk12;
@@ -11,6 +8,7 @@ int SJUNI_Lock(void);
 int SJUNI_Unlock(int, int);
 int SJ_SplitChunk(int, int, int, int);
 extern float _builtin_sqrtf(float);
+int adxf_purge_all(int, int, int, int);
 int buIsFormat(int);
 extern int camViewToWorld();
 int fadeScreenDraw(float, float);
@@ -61,6 +59,7 @@ void SJUNI_GetChunk(int a4, int a5, int a6, int a7);
 int ADX_DecodeInfoSpsd(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14);
 int primRectIncGradX(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
 int trigger(int a4, int a5);
+int FUN_8c1f1906(int a4, int a5, int a6, int a7);
 float camMoveBegin(float f4, float f5);
 int ndbBuildIndex(int a4, int a5, int a6, int a7);
 int stageLoadSelectSprites(float f4);
@@ -137,7 +136,7 @@ int nlRenderTextureBegin(int a4)
     int t13;
     int t14;
 
-    t1 = *(int *)(int)gNlRenderTextureTableState;
+    t1 = *(int *)0x8C44FBEC;
     if ((int)(*(int *)0x8C44FBF4) >= 0) {
         *(unsigned int *)0x8C44FBF4 = 0xFFFFFFFF;
         nlSetWindowSize((*(float *)0x8C44FBF8), (*(float *)0x8C44FBFC), (*(float *)0x8C44FC00), (*(float *)0x8C44FC04));
@@ -177,7 +176,7 @@ int vmsfs_sysdiskfree(int a4)
     int t4;
 
     t42 = 0xFFFFFF01;
-    if ((*(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x2))) != 0) {
+    if ((*(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x2))) != 0) {
         t1 = vmsio_isready(a4);
         if (t1 == 0) {
             vmsfs_unmount(a4);
@@ -185,7 +184,7 @@ int vmsfs_sysdiskfree(int a4)
         } else {
             t3 = vmsio_ismount(a4);
             t25 = 0xFFFFFF01;
-            if ((t3 != 0) && (t4 = *(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x8)), t4 != 0)) {
+            if ((t3 != 0) && (t4 = *(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x8)), t4 != 0)) {
                 t5 = buIsFormat(a4);
                 t17 = 0xFFFFFF03;
                 if ((int)t5 < 0) {
@@ -194,7 +193,7 @@ int vmsfs_sysdiskfree(int a4)
                     t7 = 0x0;
                     t8 = 0x0;
                     for (;;) {
-                        t9 = *(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C));
+                        t9 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C));
                         t10 = *(int *)((t9 + 0x2C));
                         t11 = *(int *)((t9 + 0x10));
                         if ((int)t8 >= (int)(((int)((unsigned int)((int)((unsigned int)(t11 * (t10 + 0x1)) + (unsigned int)0x0)) + ((((int)0x0 > (int)(t11 * (t10 + 0x1)))) ? 1u : 0u))) >> 1)) {
@@ -625,7 +624,7 @@ int trigger(int a4, int a5)
     int t16;
     int stk[11];
 
-    *(unsigned char *)(((int)stk + 4)) = (*(signed char *)(((*(int *)(int)gMapleDriver) + 0xFB0)));
+    *(unsigned char *)(((int)stk + 4)) = (*(signed char *)(((*(int *)0x8C47317C) + 0xFB0)));
     t2 = 0xFB0;
     t3 = a4;
     t4 = a5;
@@ -674,6 +673,16 @@ int trigger(int a4, int a5)
     return (t6 + 0x1);
 }
 
+int FUN_8c1f1906(int a4, int a5, int a6, int a7)
+{
+    int t1;
+
+    adxf_purge_all(a4, a5, a6, a7);
+    *(unsigned int *)0xFF00001C = ((a4 & 0xFFFFF7FF) | 0x800);
+    t1 = *(int *)0xFF00001C;
+    *(unsigned int *)0xFF00001C = ((t1 & 0xFFFFFFF7) | 0x8);
+    return ((t1 & 0xFFFFFFF7) | 0x8);
+}
 
 float camMoveBegin(float f4, float f5)
 {

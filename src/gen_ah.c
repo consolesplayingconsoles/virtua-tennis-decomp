@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ah): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gAdxfPartitionInfoTable[];
 
 typedef struct { int w[4]; } Stk4;
 int ADXERR_CallErrFunc(Stk4);
@@ -78,7 +77,7 @@ int ADXF_LoadPartition(int a4, int a5, int a6, int a7)
     goto L_8C1E1BFE;
     L_8C1E1C08:;
     memset(R14, 0x0, 0x18);
-    *(unsigned int *)((((*(int *)(((int)stk + 8))) << 2) + (int)gAdxfPartitionInfoTable)) = R14;
+    *(unsigned int *)((((*(int *)(((int)stk + 8))) << 2) + 0x8C46C264)) = R14;
     *(unsigned int *)((R14 + 0x0)) = 0x0;
     *(unsigned int *)((R14 + 0x8)) = (*(int *)(((int)stk + 12)));
     *(unsigned char *)((R14 + 0x12)) = 0x0;

@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_hk): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -121,7 +120,7 @@ int ballMarkCheck(void)
 
     if ((*(int *)0x8C287C60) != 0) {
     } else {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((int)Ball); }
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(0x8C291F24); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(0x8C291F30); }
         *(int *)((int)stk + 4) = (0x18 + ((int)stk + 8));
         vecSub(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 20)));
@@ -135,7 +134,7 @@ int ballMarkCheck(void)
                 t22 = 0x8C084F9C;
                 if ((float)t5 > 0.5f) {
                     *(Stk3 *)((((int)stk + 44) + 0xC)) = vecMake((*(float *)0x8C291F30), 0.0f, (*(float *)0x8C291F38));
-                    *(Stk3 *)((((int)stk + 40) + 0x4)) = vecMake((*(float *)(int)Ball), 0.0f, (*(float *)0x8C291F2C));
+                    *(Stk3 *)((((int)stk + 40) + 0x4)) = vecMake((*(float *)0x8C291F24), 0.0f, (*(float *)0x8C291F2C));
                     *(Stk3 *)((((int)stk + 36) + 0x20)) = vecMake(0.0f, 0.0f, 1.0f);
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0xC)); }
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x24)); }

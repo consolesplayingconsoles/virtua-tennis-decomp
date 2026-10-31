@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ab): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gVmsVolumeStates[];
-extern char strMwRnaNullHandleError[];
 
 int ADXB_DecodeHeader(int, int, int);
 int ADXB_GetFormat(int);
@@ -93,9 +91,9 @@ int vmsfs_save_exec_file(int a4, int a5, int a6, int a7, int a8, int a9)
                 if ((int)t5 >= 0) {
                     *(unsigned char *)(((*(int *)(((int)stk + 12))) + 0x1)) = a9;
                     t7 = *(int *)(((int)stk + 16));
-                    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x30)) = 0x1;
-                    t8 = *(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x4));
-                    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x34)) = ((*(int *)((((((t8 << 2) + t8) << 2) << 2) + 0x8C20C77C))) + a7);
+                    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x30)) = 0x1;
+                    t8 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x4));
+                    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x34)) = ((*(int *)((((((t8 << 2) + t8) << 2) << 2) + 0x8C20C77C))) + a7);
                     if ((unsigned int)0x0 < (unsigned int)a7) {
                         t10 = 0x0;
                         t11 = t7;
@@ -366,7 +364,7 @@ int mwRnaSetTransSw(int a4, int a5, int a6, int a7)
 
     *(unsigned int *)(((int)stk + 12)) = a5;
     if (a4 == 0) {
-        t36 = (mwRnaErrCallFunc((int)strMwRnaNullHandleError));
+        t36 = (mwRnaErrCallFunc(0x8C20AC30));
     } else {
         *(unsigned int *)((a4 + 0x8C)) = 0x1;
         if ((unsigned char)(*(signed char *)((a4 + 0x5))) == 1) {
@@ -679,8 +677,8 @@ int vmsfs_rewrite_exec_file(int a4, int a5, int a6, int a7, int a8)
     int stk[14];
 
     *(unsigned int *)(((int)stk + 4)) = a5;
-    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x30)) = 0x1;
-    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x34)) = a8;
+    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x30)) = 0x1;
+    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x34)) = a8;
     t1 = vmsfs_fgetinfo(a4, (*(int *)(((int)stk + 4))), (((int)stk + 4) + 0x4));
     t41 = t1;
     if ((int)t1 >= 0) {

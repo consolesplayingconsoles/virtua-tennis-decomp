@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_cv): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[29]; } Stk29;
@@ -271,9 +269,9 @@ void cpuDblShot(int a4, int a5, float f4, float f5, float f6, float f7, float f8
     goto L_8C05A622;
     L_8C05A622:;
     t97 = *(int *)((R14 + 0xB5C));
-    t98 = *(int *)(((((0x1 & (t97 + 0x1)) * 0xD78) + (int)Player) + 0xB5C));
+    t98 = *(int *)(((((0x1 & (t97 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB5C));
     u99 = *(float *)((((t98 * R6) + R7) + 0x30));
-    R5 = ((((0x1 & (t97 + 0x1)) * 0xD78) + (int)Player));
+    R5 = ((((0x1 & (t97 + 0x1)) * 0xD78) + 0x8C287D84));
     R6 = (((t98 * R6) + R7));
     F4 = (u99);
     if ((0.0f > u99)) goto L_8C05A670;
@@ -366,7 +364,7 @@ void cpuDblShot(int a4, int a5, float f4, float f5, float f6, float f7, float f8
     *(unsigned short *)((R13 + 0x20)) = R11;
     goto L_8C05A8A6;
     L_8C05A6CA:;
-    R5 = ((int)Ball);
+    R5 = (0x8C291F24);
     F13 = (59.4249992f);
     if (((*(int *)0x8C291F74) != 5)) goto L_8C05A6E2;
     goto L_8C05A6D8;

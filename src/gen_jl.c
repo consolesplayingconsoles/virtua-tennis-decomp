@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_jl): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char motionCur[];
 
 int angleLerp(int, int, float);
 int motionAngleBlend(int, int);
@@ -82,27 +81,27 @@ int motionRotate2(int a4)
     int T_;
     R4 = a4;
     *(unsigned int *)(((int)stk + 12)) = R4;
-    t0 = *(int *)(int)motionCur;
+    t0 = *(int *)0x8C2871D4;
     *(float *)((t0 + 0x10)) = ((*(float *)((t0 + 0x10))) * (*(float *)((((*(int *)((t0 + 0x1C))) + 0xC) + 0x0))));
-    t4 = *(int *)(int)motionCur;
+    t4 = *(int *)0x8C2871D4;
     *(float *)((t4 + 0x14)) = ((*(float *)((t4 + 0x14))) * (*(float *)((((*(int *)((t4 + 0x20))) + 0xC) + 0x0))));
-    t8 = *(int *)(int)motionCur;
+    t8 = *(int *)0x8C2871D4;
     *(float *)((t8 + 0x8)) = ((*(float *)((t8 + 0x8))) * (*(float *)((((*(int *)((t8 + 0x1C))) + 0xC) + 0x0))));
-    t12 = *(int *)(int)motionCur;
+    t12 = *(int *)0x8C2871D4;
     *(float *)((t12 + 0xC)) = ((*(float *)((t12 + 0xC))) * (*(float *)((((*(int *)((t12 + 0x20))) + 0xC) + 0x0))));
-    t16 = *(int *)(int)motionCur;
+    t16 = *(int *)0x8C2871D4;
     *(unsigned int *)((t16 + 0x2C)) = (int)((float)(*(int *)((t16 + 0x2C))) * (*(float *)((((*(int *)((t16 + 0x1C))) + 0xC) + 0x0))));
-    t20 = *(int *)(int)motionCur;
+    t20 = *(int *)0x8C2871D4;
     *(unsigned int *)((t20 + 0x30)) = (int)((float)(*(int *)((t20 + 0x30))) * (*(float *)((((*(int *)((t20 + 0x20))) + 0xC) + 0x0))));
-    t24 = *(int *)(int)motionCur;
-    t28 = *(int *)(int)motionCur;
+    t24 = *(int *)0x8C2871D4;
+    t28 = *(int *)0x8C2871D4;
     t29 = *(int *)(((int)stk + 12));
     u30 = *(float *)((t28 + 0xC));
-    t34 = *(int *)(int)motionCur;
+    t34 = *(int *)0x8C2871D4;
     t35 = *(int *)((((*(int *)((t28 + 0x58))) + (*(int *)(((*(int *)((t28 + 0x34))) + 0x4)))) + 0x0));
     R12 = (((((*(int *)((t24 + 0x54))) + (*(int *)(((*(int *)((t24 + 0x20))) + 0x8)))) + ((((int)u30 * t35) << 1) + (((int)u30 * t35) << 2))) + ((t29 << 1) + (t29 << 2))));
     R13 = (((t29 << 1) + (t29 << 2)));
-    R14 = ((int)motionCur);
+    R14 = (0x8C2871D4);
     R4 = (t34);
     F4 = (1.0f);
     if (((*(int *)((t34 + 0x28))) != 1)) goto L_8C0146E4;

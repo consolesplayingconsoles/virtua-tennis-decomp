@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_te): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[6]; } Stk6;
@@ -69,7 +68,7 @@ int sysVideoSelect(void)
     sprTexLoad(0x151);
     sprTexLoad(0x152);
     *(unsigned int *)(((int)stk + 104)) = 0x8C29B8A8;
-    *(unsigned int *)(((int)stk + 40)) = (int)padPeri;
+    *(unsigned int *)(((int)stk + 40)) = 0x8C29B898;
     *(unsigned int *)(((int)stk + 96)) = 0x8C29B89C;
     *(unsigned int *)(((int)stk + 84)) = 0x8C29B8A0;
     *(unsigned int *)(((int)stk + 80)) = 0x8C29B8A4;

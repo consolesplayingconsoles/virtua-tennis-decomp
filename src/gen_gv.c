@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_gv): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[12]; } Stk12;
@@ -25,7 +24,7 @@ int swingTrackTip(int a4)
     float t7;
     int stk[33];
 
-    *(unsigned int *)(((int)stk + 32)) = ((a4 * 0xD78) + (int)Player);
+    *(unsigned int *)(((int)stk + 32)) = ((a4 * 0xD78) + 0x8C287D84);
     *(Stk3 *)((((int)stk + 32) + 0x44)) = vecMake(0.0f, 0.0f, 1.0f);
     nlPushUnitMatrix();
     nlLoadMatrix((((*(int *)(((int)stk + 32))) + 0x1E0) + 0x2C0));

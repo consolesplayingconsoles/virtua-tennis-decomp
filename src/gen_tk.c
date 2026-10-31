@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_tk): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char motionCur[];
 
 int angleLerp(int, int, float);
 int motionAngleBlend(int, int);
@@ -33,27 +32,27 @@ int motionRotate(int a4)
     float w0_1;
     float w0_2;
     v0_3 = a4;
-    v0_0 = *(int *)(int)motionCur;
+    v0_0 = *(int *)0x8C2871D4;
     *(float *)((v0_0 + 0x10)) = ((*(float *)((v0_0 + 0x10))) * (*(float *)((((*(int *)((v0_0 + 0x1C))) + 0xC) + 0x0))));
-    v0_0 = *(int *)(int)motionCur;
+    v0_0 = *(int *)0x8C2871D4;
     *(float *)((v0_0 + 0x14)) = ((*(float *)((v0_0 + 0x14))) * (*(float *)((((*(int *)((v0_0 + 0x20))) + 0xC) + 0x0))));
-    v0_0 = *(int *)(int)motionCur;
+    v0_0 = *(int *)0x8C2871D4;
     *(float *)((v0_0 + 0x8)) = ((*(float *)((v0_0 + 0x8))) * (*(float *)((((*(int *)((v0_0 + 0x1C))) + 0xC) + 0x0))));
-    v0_0 = *(int *)(int)motionCur;
+    v0_0 = *(int *)0x8C2871D4;
     *(float *)((v0_0 + 0xC)) = ((*(float *)((v0_0 + 0xC))) * (*(float *)((((*(int *)((v0_0 + 0x20))) + 0xC) + 0x0))));
-    v0_0 = *(int *)(int)motionCur;
+    v0_0 = *(int *)0x8C2871D4;
     *(unsigned int *)((v0_0 + 0x2C)) = (int)((float)(*(int *)((v0_0 + 0x2C))) * (*(float *)((((*(int *)((v0_0 + 0x1C))) + 0xC) + 0x0))));
-    v0_0 = *(int *)(int)motionCur;
+    v0_0 = *(int *)0x8C2871D4;
     *(unsigned int *)((v0_0 + 0x30)) = (int)((float)(*(int *)((v0_0 + 0x30))) * (*(float *)((((*(int *)((v0_0 + 0x20))) + 0xC) + 0x0))));
-    v0_0 = *(int *)(int)motionCur;
-    v0_1 = *(int *)(int)motionCur;
+    v0_0 = *(int *)0x8C2871D4;
+    v0_1 = *(int *)0x8C2871D4;
     w0_0 = *(float *)((v0_1 + 0xC));
-    v0_4 = *(int *)(int)motionCur;
+    v0_4 = *(int *)0x8C2871D4;
     v0_1 = *(int *)((((*(int *)((v0_1 + 0x58))) + (*(int *)(((*(int *)((v0_1 + 0x34))) + 0x4)))) + 0x0));
     v0_2 = (((((*(int *)((v0_0 + 0x54))) + (*(int *)(((*(int *)((v0_0 + 0x20))) + 0x8)))) + ((((int)w0_0 * v0_1) << 1) + (((int)w0_0 * v0_1) << 2))) + ((v0_3 << 1) + (v0_3 << 2))));
     v0_1 = (((v0_3 << 1) + (v0_3 << 2)));
     v0_5 = (v0_4);
-    v0_0 = ((int)motionCur);
+    v0_0 = (0x8C2871D4);
     w0_0 = (1.0f);
     if (((*(int *)((v0_4 + 0x28))) != 1)) goto L_8C014118;
     v0_4 = (((int)((int)(int)((*(float *)((v0_5 + 0xC))) + w0_0) % (int)(*(int *)((v0_5 + 0x30))))));

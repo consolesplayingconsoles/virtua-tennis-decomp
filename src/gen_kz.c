@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_kz): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 int nlResetBackColorZ(int, int, int, float);
@@ -331,7 +330,7 @@ int selExec(int a4, int a5)
     if ((t178 != 110)) goto L_8C0A883A;
     *(unsigned int *)((R6 + 0x0)) = R11;
     L_8C0A883A:;
-    R4 = ((int)padPeri);
+    R4 = (0x8C29B898);
     R5 = (0x8C185298);
     R7 = (0x5);
     R9 = (0x8C29B8A8);
@@ -404,7 +403,7 @@ int selExec(int a4, int a5)
     R0 = ((scoreInit()));
     goto L_8C0A8714;
     L_8C0A8558:;
-    if ((((*(int *)(((*(int *)(((int)padPeri + (R9 << 2)))) + 0x10))) & 8) == 0)) goto L_8C0A85BE;
+    if ((((*(int *)(((*(int *)((0x8C29B898 + (R9 << 2)))) + 0x10))) & 8) == 0)) goto L_8C0A85BE;
     if (((*(int *)0x8C185424) != 0)) goto L_8C0A85BE;
     if (((*(int *)0x8C287D5C) == 2)) goto L_8C0A85BE;
     if ((((unsigned short)(*(short *)0x8C343262) & (unsigned short)(*(short *)(((R9 << 1) + 0x8C185298)))) != 0)) goto L_8C0A85BE;

@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_bk): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 extern int _builtin_get_imask(void);
@@ -104,8 +103,8 @@ int sceneTwoPlayerSetup(int a4, int a5, int a6)
     nlsndSeqRequest(0x503A9);
     matchSetupPlayers();
     t25 = *(int *)((((int)stk + 20) + 0x0));
-    *(unsigned int *)((t19 + 0x30)) = ((t25 * 0xD78) + (int)Player);
-    playerInit(((t25 * 0xD78) + (int)Player), (*(int *)((((int)stk + 20) + 0x0))));
+    *(unsigned int *)((t19 + 0x30)) = ((t25 * 0xD78) + 0x8C287D84);
+    playerInit(((t25 * 0xD78) + 0x8C287D84), (*(int *)((((int)stk + 20) + 0x0))));
     *(unsigned int *)0x8C29466C = 0x0;
     *(unsigned int *)0x8C294668 = 0x0;
     *(unsigned int *)(((0xB5C + (*(int *)((t19 + 0x30)))) + 0x0)) = (*(int *)((((int)stk + 20) + 0x0)));
@@ -120,8 +119,8 @@ int sceneTwoPlayerSetup(int a4, int a5, int a6)
     if ((*(int *)0x8C287ADC) == 4) {
         vecMake(0x0, 0x0, 0x0, 0x0, (0xAE8 + (*(int *)((t19 + 0x30)))), -4.0f, 0.0f, -20.0f);
         t46 = *(int *)(((((int)stk + 20) + 0x4) + 0x0));
-        *(unsigned int *)((t19 + 0x34)) = ((t46 * 0xD78) + (int)Player);
-        playerInit(((t46 * 0xD78) + (int)Player), (*(int *)(((((int)stk + 20) + 0x4) + 0x0))));
+        *(unsigned int *)((t19 + 0x34)) = ((t46 * 0xD78) + 0x8C287D84);
+        playerInit(((t46 * 0xD78) + 0x8C287D84), (*(int *)(((((int)stk + 20) + 0x4) + 0x0))));
         *(unsigned int *)(((*(int *)((t19 + 0x30))) + 0xB5C)) = (*(int *)(((((int)stk + 20) + 0x4) + 0x0)));
         *(unsigned int *)(((*(int *)((t19 + 0x34))) + 0xC58)) = 0x11;
         *(unsigned short *)(((*(int *)((t19 + 0x34))) + 0xB10)) = 0x0;

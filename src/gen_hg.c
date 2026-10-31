@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_hg): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char padPeri[];
 
 int BupGetInfo(int);
 extern void _builtin_prefetch(void *);
@@ -205,8 +204,8 @@ int eepromDriveSelect(int a4)
     nlLocate(0x1, (((*(int *)((R14 + 0x0))) << 1) + 0xA));
     nlPrintf(0x8C126B44);
     R4 = (0x7);
-    R5 = ((int)padPeri);
-    if ((((*(int *)(((*(int *)(int)padPeri) + 0x10))) & 16) == 0)) goto L_8C0DF7CE;
+    R5 = (0x8C29B898);
+    if ((((*(int *)(((*(int *)0x8C29B898) + 0x10))) & 16) == 0)) goto L_8C0DF7CE;
     goto L_8C0DF7A6;
     L_8C0DF7A6:;
     t42 = *(int *)((R14 + 0x0));

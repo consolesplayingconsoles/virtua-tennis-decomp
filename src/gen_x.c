@@ -1,9 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_x): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
-extern char fileLoadSlots[];
-extern char padPeri[];
-extern char strMwRnaNullHandleError[];
 
 typedef struct { int w[3]; } Stk3;
 int ADXCRS_Lock(void);
@@ -157,7 +153,7 @@ int mwRnaStart(int a4)
     int stk[5];
 
     if (a4 == 0) {
-        return (mwRnaErrCallFunc((int)strMwRnaNullHandleError));
+        return (mwRnaErrCallFunc(0x8C20AC30));
     }
     ovLockCs_8c200114(((int)stk + 8));
     if ((*(signed char *)((a4 + 0x1))) != 0) {
@@ -285,7 +281,7 @@ int padVibStopAll(void)
         *(unsigned char *)((t0 + 0x3)) = 0x0;
         *(unsigned int *)((t0 + 0x4)) = 0x0;
         t2 = *(int *)((t1 + 0x8C158BE0));
-        t3 = *(int *)((t1 + (int)padPeri));
+        t3 = *(int *)((t1 + 0x8C29B898));
         *(unsigned int *)(((int)stk + 4)) = t3;
         t4 = *(int *)((t3 + 0x4));
         t5 = 0x0;
@@ -460,7 +456,7 @@ int mwRnaDestroy(int a4)
     int stk[6];
 
     if (a4 == 0) {
-        return (mwRnaErrCallFunc((int)strMwRnaNullHandleError));
+        return (mwRnaErrCallFunc(0x8C20AC30));
     }
     ovLockCs_8c200114(((int)stk + 8));
     if ((*(signed char *)((a4 + 0x1))) != 0) {
@@ -517,7 +513,7 @@ int mwRnaContinue(int a4)
     int stk[5];
 
     if (a4 == 0) {
-        return (mwRnaErrCallFunc((int)strMwRnaNullHandleError));
+        return (mwRnaErrCallFunc(0x8C20AC30));
     }
     ovLockCs_8c200114(((int)stk + 8));
     if ((unsigned char)(*(signed char *)((a4 + 0x7))) == 1) {
@@ -704,8 +700,8 @@ int miniPlacePlayers(void)
 
     u0 = *(float *)0x8C036948;
     t1 = 0x0;
-    t2 = (int)Player;
-    t3 = (int)Player;
+    t2 = 0x8C287D84;
+    t3 = 0x8C287D84;
     for (;;) {
         t5 = *(int *)(((*(int *)0x8C2FBEF0) + 0x0));
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(((((((t5 << 1) + t5) << 2) << 1) + 0x8C10BA48) + t1)); }
@@ -740,13 +736,13 @@ int fileLoadPollSlot(int a4)
     t0 = getID_Color(a4, 1.0f);
     nlPrintColor(t0);
     nlLocate(0x14, (a4 + 0x18));
-    t4 = ADXF_GetStat((*(int *)((((a4 * 0x4C) + (int)fileLoadSlots) + 0xC))));
+    t4 = ADXF_GetStat((*(int *)((((a4 * 0x4C) + 0x8C34A238) + 0xC))));
     if ((t4 == -3) || (t4 == 3)) {
         fileLoadCloseSlot(a4);
     }
     nlPrintColor(0xFFFFFFFF);
-    *(unsigned int *)((((a4 * 0x4C) + (int)fileLoadSlots) + 0x8)) = ((*(int *)((((a4 * 0x4C) + (int)fileLoadSlots) + 0x8))) + 0x1);
-    return (*(int *)((((a4 * 0x4C) + (int)fileLoadSlots) + 0x4)));
+    *(unsigned int *)((((a4 * 0x4C) + 0x8C34A238) + 0x8)) = ((*(int *)((((a4 * 0x4C) + 0x8C34A238) + 0x8))) + 0x1);
+    return (*(int *)((((a4 * 0x4C) + 0x8C34A238) + 0x4)));
 }
 
 

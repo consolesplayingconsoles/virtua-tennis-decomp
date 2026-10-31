@@ -1,18 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_a): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char colliObjCount[];
-extern char commonLoadState[];
-extern char fileLoadState[];
-extern char gAdxErrorCallback[];
-extern char gAdxErrorCallbackArgument[];
-extern char gAdxErrorMessageBuffer[];
-extern char gFrameBufferReadControl[];
-extern char gNlDummyTextureSurface[];
-extern char gNlObjectFadeColor[];
-extern char gNlObjectFadeColorCopy[];
-extern char gNlObjectMatrix[];
-extern char gPalExtensionRatioCallback[];
-extern char padPeri[];
 
 int ADXB_GetBlkSmpl(int);
 int ADXB_GetFormat(int);
@@ -634,7 +621,7 @@ int padInit(void)
 
     pdInitPeripheral(0x0, 0x8C29BBC8, 0x8C2CBBC8);
     t1 = pdGetPeripheral(0x0);
-    *(unsigned int *)(int)padPeri = t1;
+    *(unsigned int *)0x8C29B898 = t1;
     t2 = pdGetPeripheral(0x6);
     *(unsigned int *)0x8C29B89C = t2;
     t3 = pdGetPeripheral(0xC);
@@ -689,7 +676,7 @@ void miniSetModel(int a4, int a5)
 
 void colliObjClear(void)
 {
-    *(unsigned int *)(int)colliObjCount = 0x0;
+    *(unsigned int *)0x8C2FC20C = 0x0;
 }
 
 void zoneListClear(void)
@@ -983,7 +970,7 @@ int fileLoadPollAfs(void)
 
 void fileLoadReset(void)
 {
-    *(unsigned int *)(int)fileLoadState = 0x0;
+    *(unsigned int *)0x8C34A1EC = 0x0;
     *(unsigned int *)0x8C34A1F0 = 0x0;
 }
 
@@ -993,12 +980,12 @@ int minigameTexFileLoad(void)
     int t0;
     int t1;
 
-    t0 = *(int *)(int)fileLoadState;
+    t0 = *(int *)0x8C34A1EC;
     if ((t0 == 0)) {
-        *(unsigned int *)(int)fileLoadState = 0x1;
+        *(unsigned int *)0x8C34A1EC = 0x1;
         t1 = fileLoadStart(0x8CA80000, 0x8C11FC04, 0x0);
         if ((t1 == 0)) {
-        *(unsigned int *)(int)fileLoadState = 0x0;
+        *(unsigned int *)0x8C34A1EC = 0x0;
         }
         }
     return fileLoadPoll();
@@ -1009,12 +996,12 @@ int minigameSpriteLoad(void)
     int t0;
     int t1;
 
-    t0 = *(int *)(int)fileLoadState;
+    t0 = *(int *)0x8C34A1EC;
     if ((t0 == 0)) {
-        *(unsigned int *)(int)fileLoadState = 0x1;
+        *(unsigned int *)0x8C34A1EC = 0x1;
         t1 = fileLoadStart(0x8CA80000, 0x8C11FC20, 0x0);
         if ((t1 == 0)) {
-        *(unsigned int *)(int)fileLoadState = 0x0;
+        *(unsigned int *)0x8C34A1EC = 0x0;
         }
         }
     return fileLoadPoll();
@@ -1025,12 +1012,12 @@ int gameSpriteLoad(void)
     int t0;
     int t1;
 
-    t0 = *(int *)(int)fileLoadState;
+    t0 = *(int *)0x8C34A1EC;
     if ((t0 == 0)) {
-        *(unsigned int *)(int)fileLoadState = 0x1;
+        *(unsigned int *)0x8C34A1EC = 0x1;
         t1 = fileLoadStart(0x8CA80000, 0x8C11FC38, 0x0);
         if ((t1 == 0)) {
-        *(unsigned int *)(int)fileLoadState = 0x0;
+        *(unsigned int *)0x8C34A1EC = 0x0;
         }
         }
     return fileLoadPoll();
@@ -1041,12 +1028,12 @@ int advSpriteLoad(void)
     int t0;
     int t1;
 
-    t0 = *(int *)(int)fileLoadState;
+    t0 = *(int *)0x8C34A1EC;
     if ((t0 == 0)) {
-        *(unsigned int *)(int)fileLoadState = 0x1;
+        *(unsigned int *)0x8C34A1EC = 0x1;
         t1 = fileLoadStart(0x8CA80000, 0x8C11FC54, 0x0);
         if ((t1 == 0)) {
-        *(unsigned int *)(int)fileLoadState = 0x0;
+        *(unsigned int *)0x8C34A1EC = 0x0;
         }
         }
     return fileLoadPoll();
@@ -1746,7 +1733,7 @@ int strmVoiceVolRestore(void)
 int commonLoadStart(void)
 {
     initSprLoad();
-    *(unsigned int *)(int)commonLoadState = 0x0;
+    *(unsigned int *)0x8C40C5D0 = 0x0;
     return fileLoadStart(0x8C500000, 0x8C1265A4, 0x0);
 }
 
@@ -1943,10 +1930,10 @@ int nlLoadDummyTexture(void)
     t0 = *(short *)0x8C1278D6;
     t1 = *(int *)0x8C1278D8;
     t2 = *(short *)0x8C1278D4;
-    kmCreateTextureSurface((int)gNlDummyTextureSurface, t2, t0, t1);
+    kmCreateTextureSurface(0x8C4241C8, t2, t0, t1);
     t4 = *(int *)0x8C1278DC;
-    kmLoadTexture((int)gNlDummyTextureSurface, t4);
-    return nlCreateTextureParamA((int)gNlDummyTextureSurface);
+    kmLoadTexture(0x8C4241C8, t4);
+    return nlCreateTextureParamA(0x8C4241C8);
 }
 
 void nlSetPalExtMode(int a4)
@@ -2136,7 +2123,7 @@ int nl_set_cnv_proj_pers(void)
     nlGetMatrix8(0x8C450BB8);
     nlLoadRechangeMatrix(0x8C450A90);
     nlMultiMatrix8(0x8C450BB8);
-    nlGetMatrix8((int)gNlObjectMatrix);
+    nlGetMatrix8(0x8C450B38);
     nlGetMatrix8(0x8C450B78);
     return nlLoadMatrix8(0x8C450BB8);
 }
@@ -2193,14 +2180,14 @@ void nlObjPutSetLightDirectionF(float f4, float f5, float f6)
 
 void nlObjPutSetFadeColorBase(float f4, float f5, float f6)
 {
-    *(float *)(int)gNlObjectFadeColor = f4;
+    *(float *)0x8C1DCA70 = f4;
     *(float *)0x8C1DCA74 = f5;
     *(float *)0x8C1DCA78 = f6;
 }
 
 void nlObjPutSetFadeColorOffset(float f4, float f5, float f6)
 {
-    *(float *)(int)gNlObjectFadeColorCopy = f4;
+    *(float *)0x8C1DCA80 = f4;
     *(float *)0x8C1DCA84 = f5;
     *(float *)0x8C1DCA88 = f6;
 }
@@ -2213,14 +2200,14 @@ void nlSetTrnslMode(int a4, int a5)
 int nlMakeModelProjectMatrix_objput(void)
 {
     nlPushMatrix(0x0);
-    return nlMultiMatrixRevOrder8((int)gNlObjectMatrix);
+    return nlMultiMatrixRevOrder8(0x8C450B38);
 }
 
 int nlMakeModelViewProjectMatrix_objput(void)
 {
     int t1;
 
-    nlPushMatrix((int)gNlObjectMatrix);
+    nlPushMatrix(0x8C450B38);
     t1 = *(int *)0x8C45087C;
     nlMultiMatrix(t1);
     return nlMultiPushedMatrix();
@@ -2795,9 +2782,9 @@ int ADXERR_Finish(void)
 {
     int t0;
 
-    t0 = memset((int)gAdxErrorMessageBuffer, 0x0, 0x100);
-    *(unsigned int *)(int)gAdxErrorCallback = 0x0;
-    *(unsigned int *)(int)gAdxErrorCallbackArgument = 0x0;
+    t0 = memset(0x8C46AD24, 0x0, 0x100);
+    *(unsigned int *)0x8C20C89C = 0x0;
+    *(unsigned int *)0x8C20C8A0 = 0x0;
     return t0;
 }
 
@@ -3154,18 +3141,18 @@ void kmBlankScreen(int a4)
     
     
     if ((a4 == 1)) {
-        t0 = *(int *)(int)gFrameBufferReadControl;
+        t0 = *(int *)0x8C45EE4C;
         kmiWriteRegister(0x44, (t0 & 0xFFFFFFFE));
         t2 = *(int *)0x8C45EE88;
         t7 = (t2 | 0x8);
         } else {
-        t3 = *(int *)(int)gFrameBufferReadControl;
+        t3 = *(int *)0x8C45EE4C;
         kmiWriteRegister(0x44, (t3 & 0xFFFFFFFE));
         t5 = *(int *)0x8C45EE88;
         t7 = t5;
         }
     kmiWriteRegister(0xE8, t7);
-    t9 = *(int *)(int)gFrameBufferReadControl;
+    t9 = *(int *)0x8C45EE4C;
     kmiWriteRegister(0x44, t9);
 }
 
@@ -3204,10 +3191,10 @@ void kmyiUnloadInterrupt(void)
 void kmyRegisterPALEXTCallback(int a4)
 {
     if (!(a4 == 0)) {
-        *(unsigned int *)(int)gPalExtensionRatioCallback = a4;
+        *(unsigned int *)0x8C45EEF0 = a4;
         return;
         }
-    *(unsigned int *)(int)gPalExtensionRatioCallback = 0x8C1F78A0;
+    *(unsigned int *)0x8C45EEF0 = 0x8C1F78A0;
 }
 
 int kmyIsEnabledASyncCopy(void)

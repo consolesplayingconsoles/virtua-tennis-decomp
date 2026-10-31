@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_lz): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
-extern char Player[];
 
 int cpuAimPointSet(int, int, float, float);
 int nlRand(void);
@@ -43,7 +41,7 @@ int cpuDblAimAddShort(int a4, int a5)
     v0_1 = (0x8C041C58);
     v0_1 = (v0_7);
     v0_5 = (0x8C287ACC);
-    v0_2 = ((int)Ball);
+    v0_2 = (0x8C291F24);
     w0_0 = (54.8499985f);
     w0_1 = (118.849998f);
     if ((((*(int *)0x8C287B3C) & 0x4000) == 0)) goto L_8C073302;
@@ -55,9 +53,9 @@ int cpuDblAimAddShort(int a4, int a5)
     L_8C0732F8:;
     v0_3 = (((((-v0_4) + 0x1) << 1) - 1));
     L_8C073358:;
-    v0_4 = *(int *)((((int)Player + ((serveGetServer()) * 0xD78)) + 0xB5C));
-    w0_2 = *(float *)((((((v0_4 + 0x2) & 0x3) * 0xD78) + (int)Player) + 0xAF0));
-    v0_6 = (((((v0_4 + 0x2) & 0x3) * 0xD78) + (int)Player));
+    v0_4 = *(int *)(((0x8C287D84 + ((serveGetServer()) * 0xD78)) + 0xB5C));
+    w0_2 = *(float *)((((((v0_4 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xAF0));
+    v0_6 = (((((v0_4 + 0x2) & 0x3) * 0xD78) + 0x8C287D84));
     v0_8 = (0x3);
     w0_3 = (w0_2);
     if ((0.0f > w0_2)) goto L_8C073388;

@@ -1,10 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_al): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
-extern char fileLoadSlots[];
-extern char gGdFsGlobalState[];
-extern char gNlCommonTextureOffset[];
-extern char muneTexNames[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -334,10 +329,10 @@ int cpuDblAimAddMiddle(int a4, int a5)
     float u8;
 
     t0 = *(int *)((a4 + 0xB5C));
-    u1 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xAE8));
-    u2 = *(float *)((((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xAE8));
-    u3 = *(float *)((((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xAF0));
-    u4 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xAF0));
+    u1 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xAE8));
+    u2 = *(float *)((((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xAE8));
+    u3 = *(float *)((((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xAF0));
+    u4 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xAF0));
     u5 = *(float *)((a4 + 0xB9C));
     u6 = *(float *)((a4 + 0xAF0));
     u7 = *(float *)((a4 + 0xB00));
@@ -398,15 +393,15 @@ int muneTexLoad(int a4, int a5, int a6)
     int t25;
 
     if ((*(int *)((0x8C1891D4 + (a6 << 2)))) != (a4 + 0x64)) {
-        if ((*(int *)((((int)fileLoadSlots + (a6 * 0x4C)) + 0x0))) != 0) {
+        if ((*(int *)(((0x8C34A238 + (a6 * 0x4C)) + 0x0))) != 0) {
             fileLoadCloseSlot(a6);
             *(unsigned int *)((0x8C1891D4 + (a6 << 2))) = 0xFFFFFFFF;
         }
     }
-    if ((*(int *)((((a6 * 0x4C) + (int)fileLoadSlots) + 0x0))) == 0) {
+    if ((*(int *)((((a6 * 0x4C) + 0x8C34A238) + 0x0))) == 0) {
         *(unsigned int *)((0x8C1891D4 + (a6 << 2))) = (a4 + 0x64);
-        *(unsigned int *)((((a6 * 0x4C) + (int)fileLoadSlots) + 0x0)) = 0x1;
-        fileLoadStartSlotOfs(0x8CA80000, (*(int *)(((a4 << 2) + (int)muneTexNames))), 0x0, a5, a6);
+        *(unsigned int *)((((a6 * 0x4C) + 0x8C34A238) + 0x0)) = 0x1;
+        fileLoadStartSlotOfs(0x8CA80000, (*(int *)(((a4 << 2) + 0x8C18918C))), 0x0, a5, a6);
     }
     t25 = fileLoadPollSlot(a6);
     if (t25 == 1) {
@@ -852,7 +847,7 @@ int nlSpriteSetGarbagedTextureOnce_Sub(int a4, int a5, int a6)
     if (a6 == 1) {
         t1 = (*(int *)(((int)stk + 16)));
     }
-    t3 = *(int *)(int)gNlCommonTextureOffset;
+    t3 = *(int *)0x8C458DCC;
     t4 = *(int *)0x8C4241C0;
     t19 = 0xFFFFFFFF;
     if ((*(int *)((((((t1 + t3) << 2) << 1) + t4) + 0x0))) == 0) {
@@ -925,7 +920,7 @@ int gdFsOpenRangeG(int startFad, int sectorCount)
         gdFsSetGlobalErrG(0xFFFFFFE0);
         openedHandleAddress = 0x0;
     } else {
-        globalStateAddress = *(int *)(int)gGdFsGlobalState;
+        globalStateAddress = *(int *)0x8C20C204;
         handleIndexOrError = 0x0;
         candidateHandleAddress = (*(int *)((globalStateAddress + 0x18)));
         for (;;) {

@@ -58,13 +58,6 @@ The SDK naming follow-up is documented in [naming-sdk.md](naming-sdk.md).
 GD filesystem, flash-manager and DMA record names are documented in
 [naming-storage.md](naming-storage.md).
 
-## Corrected entries
-
-The two remaining entries from the initial pass were classification errors,
-not unidentified independent functions. Their corrections and the newly named
-interrupt setters are documented in [naming-boundaries.md](naming-boundaries.md).
-The naming inventory still reports substantial generic variable and alias work.
-
 ## Initial-pass validation
 
 - All 75 changed C files are exactly the original text with the recorded global

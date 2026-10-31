@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ax): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char stageNo[];
 
 typedef struct { int w[3]; } Stk3;
 extern int _builtin_get_imask(void);
@@ -234,12 +233,12 @@ int stageCrowdTexLoad(void)
     L_8C0B1C54:;
     *(unsigned int *)0x8C188E80 = 0x0;
     nlSetCommonTextureOffset(0xF00);
-    R10 = ((int)stageNo);
+    R10 = (0x8C1891F0);
     R11 = (0x8C13293C);
     R12 = (0x8C0F1E90);
     R13 = (0x8C188E80);
     R14 = (0x0);
-    if (((*(int *)(int)stageNo) != 2)) goto L_8C0B1CA0;
+    if (((*(int *)0x8C1891F0) != 2)) goto L_8C0B1CA0;
     goto L_8C0B1C7E;
     L_8C0B1C7E:;
     R8 = (R14);

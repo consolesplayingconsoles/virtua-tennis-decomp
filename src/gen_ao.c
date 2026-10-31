@@ -1,15 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ao): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gNlCommonTextureOffset[];
-extern char gNlPaletteAllocationBitmap[];
-extern char gNlSoundStreams[];
-extern char gNlTextureLoadAttempts[];
-extern char gNlTextureSurfaceCount[];
-extern char gNlTextureSurfaces[];
-extern char gVmsIoInterface[];
-extern char gVmsVolumeStates[];
-extern char motionCur[];
-extern char strMwRnaNullHandleError[];
 
 typedef struct { int w[4]; } Stk4;
 int kmyCopySmallVQToTextureRom(int, int, int, int);
@@ -130,13 +120,13 @@ int vmsfs_read_disk_image(int a4, int a5)
     int t3;
     int t6;
 
-    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x30)) = 0x1;
-    t0 = *(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x4));
-    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x34)) = (*(int *)((((((t0 << 2) + t0) << 2) << 2) + 0x8C20C788)));
+    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x30)) = 0x1;
+    t0 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x4));
+    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x34)) = (*(int *)((((((t0 << 2) + t0) << 2) << 2) + 0x8C20C788)));
     t2 = a5;
     t3 = 0x0;
     for (;;) {
-        if ((int)t3 >= (int)((*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x0))) + 0x1)) {
+        if ((int)t3 >= (int)((*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x0))) + 0x1)) {
             return 0x0;
         }
         t6 = vmsfs_read_retry(a4, t3, t2);
@@ -674,7 +664,7 @@ int nlsndStreamChgFx(int a4, int a5, int a6)
     int stk[8];
 
     *(unsigned short *)(((int)stk + 4)) = a5;
-    t0 = *(signed char *)((((short)a4 * (short)0x1C) + (int)gNlSoundStreams));
+    t0 = *(signed char *)((((short)a4 * (short)0x1C) + 0x8C454CF4));
     if (t0 == 1) {
         *(unsigned int *)(((int)stk + 8)) = ((((short)a4 << 8) << 2) << 2);
         nlsndSeqRequest(((((((short)a4 << 8) << 2) << 2) | ((short)a6 << 16)) | 0x2A2));
@@ -704,7 +694,7 @@ int motionRotateRaw(int a4, float f4, float f5)
     int t16;
     int t18;
 
-    t0 = *(int *)(int)motionCur;
+    t0 = *(int *)0x8C2871D4;
     t1 = *(int *)((t0 + 0x54));
     u3 = *(float *)((t0 + 0xC));
     t4 = *(int *)(((*(int *)((t0 + 0x20))) + 0x8));
@@ -731,9 +721,9 @@ int nlFreeTextureAll(void)
     int t8;
 
     t2 = 0x0;
-    t3 = (*(int *)(int)gNlTextureSurfaces);
+    t3 = (*(int *)0x8C458608);
     for (;;) {
-        if ((int)t2 >= (int)(*(int *)(int)gNlTextureSurfaceCount)) {
+        if ((int)t2 >= (int)(*(int *)0x8C45860C)) {
             break;
         }
         if (((*(int *)((t3 + 0x2C))) != 0) && (t8 = *(int *)((t3 + 0x28)), t8 == 0)) {
@@ -742,10 +732,10 @@ int nlFreeTextureAll(void)
         t2 = (t2 + 0x1);
         t3 = (t3 + 0x3C);
     }
-    t12 = (*(int *)(int)gNlTextureSurfaces);
+    t12 = (*(int *)0x8C458608);
     t13 = 0x0;
     for (;;) {
-        if ((int)t13 >= (int)(*(int *)(int)gNlTextureSurfaceCount)) {
+        if ((int)t13 >= (int)(*(int *)0x8C45860C)) {
             break;
         }
         *(unsigned int *)((t12 + 0x28)) = 0xFFFFFFFF;
@@ -754,8 +744,8 @@ int nlFreeTextureAll(void)
         *(unsigned int *)((t12 + 0x38)) = 0xFFFFFFFF;
         t12 = (t12 + 0x3C);
     }
-    *(unsigned int *)(int)gNlCommonTextureOffset = 0x0;
-    *(unsigned int *)(int)gNlTextureLoadAttempts = 0x0;
+    *(unsigned int *)0x8C458DCC = 0x0;
+    *(unsigned int *)0x8C458DC4 = 0x0;
     return t1;
 }
 
@@ -999,7 +989,7 @@ void nlSetPaletteMap(int firstColor, int colorCount)
     mapIndexOrWord = ((int)firstColor >> 4);
     allocationBit = (((int)(firstColor & 0xF) >= 0) ? (0x1 << ((firstColor & 0xF) & 31)) : ((-(int)(firstColor & 0xF) & 31) ? ((int)0x1 >> (-(int)(firstColor & 0xF) & 31)) : ((int)0x1 >> 31)));
     remainingChunks = ((int)(colorCount + 0xF) >> 4);
-    bitmapAddress = ((((int)firstColor >> 4) << 1) + (int)gNlPaletteAllocationBitmap);
+    bitmapAddress = ((((int)firstColor >> 4) << 1) + 0x8C424204);
     for (;;) {
         hasMoreChunks = ((int)remainingChunks > 0);
         remainingChunks = (remainingChunks - 1);
@@ -1059,14 +1049,14 @@ int search_dir_by_startfat(int a4, int a5)
     int t1;
 
     t2 = 0x0;
-    t3 = (*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x28)));
+    t3 = (*(int *)((((a4 * 0x148) + 0x8C464598) + 0x28)));
     for (;;) {
-        if ((int)t2 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x30)))) {
+        if ((int)t2 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30)))) {
             t1 = 0x0;
             return t1;
         }
         if ((unsigned char)(*(signed char *)((t3 + 0x0))) != 0) {
-            t1 = (((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(t3, 0x2));
+            t1 = (((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(t3, 0x2));
             t1 = (unsigned short)t1;
             if (t1 == a5) {
                 break;
@@ -1506,7 +1496,7 @@ int mwRnaSetOutVol(int a4, int a5)
     int t10;
 
     if (a4 == 0) {
-        t10 = (mwRnaErrCallFunc((int)strMwRnaNullHandleError));
+        t10 = (mwRnaErrCallFunc(0x8C20AC30));
     } else {
         t3 = 0x0;
         if ((int)a5 >= 0) {

@@ -1,9 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ba): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
-extern char fileLoadState[];
-extern char gFrameBufferReadControl[];
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[29]; } Stk29;
@@ -109,10 +105,10 @@ int ndbEditInput(int a4)
     int T_;
     R4 = a4;
     L_8C081F5C:;
-    t0 = *(int *)(int)padPeri;
+    t0 = *(int *)0x8C29B898;
     *(unsigned int *)(((int)stk + 8)) = t0;
     t1 = *(int *)((t0 + 0x10));
-    R10 = ((int)padPeri);
+    R10 = (0x8C29B898);
     R13 = (R4);
     R4 = (t1);
     if (((0x5 & t1) != 0)) goto L_8C081F84;
@@ -476,7 +472,7 @@ int stageLoadTimedStep(void)
     R13 = (0x8C287C50);
     R14 = (0x8C343FE8);
     R4 = ((0x8C344088 + ((t2 << 2) << 1)));
-    if ((((*(int *)(((*(int *)(int)padPeri) + 0x10))) & 5) == 0)) goto L_8C0B246E;
+    if ((((*(int *)(((*(int *)0x8C29B898) + 0x10))) & 5) == 0)) goto L_8C0B246E;
     goto L_8C0B2466;
     L_8C0B2466:;
     *(unsigned int *)0x8C3449E8 = (*(int *)0x8C20D198);
@@ -488,7 +484,7 @@ int stageLoadTimedStep(void)
     goto L_8C0B2478;
     L_8C0B2478:;
     *(unsigned int *)((R14 + 0xC)) = ((*(int *)((R14 + 0xC))) + 0x1);
-    *(unsigned int *)(int)fileLoadState = R12;
+    *(unsigned int *)0x8C34A1EC = R12;
     if (((*(int *)((R11 + 0x0))) == 0)) goto L_8C0B248C;
     goto L_8C0B2488;
     L_8C0B2488:;
@@ -616,7 +612,7 @@ int staffLookAtBall(int a4, int a5, int a6, int a7)
 
     *(unsigned int *)(((int)stk + 12)) = a4;
     *(unsigned int *)(((int)stk + 16)) = a6;
-    *(unsigned int *)(((int)stk + 8)) = (int)Ball;
+    *(unsigned int *)(((int)stk + 8)) = 0x8C291F24;
     mtxGetWorldPos(a4, a5, a6, a7, (((int)stk + 8) + 0x24));
     nlSubVector3op((((int)stk + 8) + 0x18), ((*(int *)(((int)stk + 8))) + 0xC), (((int)stk + 8) + 0x24));
     *(unsigned int *)(((int)stk + 8)) = (unsigned short)(*(int *)(((int)stk + 12)));
@@ -807,7 +803,7 @@ int kmiWriteFBRegister(Stk29 s)
     *(unsigned int *)0x8C45EE84 = (((unsigned short)(*(int *)(((((int)stk + 4) + 0x8) + 0x10))) | (((*(int *)(((((int)stk + 4) + 0x8) + 0xC))) & 0x1) << 16)) | ((((*(int *)(((((int)stk + 4) + 0x8) + 0x1C))) & 0x1) << 16) << 2));
     *(unsigned int *)0x8C45EE48 = ((*(int *)(((((int)stk + 4) + 0x8) + 0x44))) & 0x1FF);
     *(unsigned int *)0x8C45EE50 = (((((*(int *)(((((int)stk + 4) + 0x8) + 0x30))) & 0x7) | ((((*(int *)(((((int)stk + 4) + 0x8) + 0x2C))) & 0x1) << 2) << 1)) | ((unsigned char)(*(int *)(((((int)stk + 4) + 0x8) + 0x34))) << 8)) | ((unsigned char)(*(int *)(((((int)stk + 4) + 0x8) + 0x38))) << 16));
-    *(unsigned int *)(int)gFrameBufferReadControl = (((((((((*(int *)(((((int)stk + 4) + 0x8) + 0x20))) & 0x1) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x28))) & 0x1) << 1)) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x3C))) & 0x3) << 2)) | (((0x7 & (*(int *)(((((int)stk + 4) + 0x8) + 0x40)))) << 2) << 2)) | ((unsigned char)(*(signed char *)(((((int)stk + 4) + 0x8) + 0x70))) << 8)) | ((0x1F & (*(int *)(((((int)stk + 4) + 0x8) + 0x68)))) << 16)) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x64))) & 0x1) << 22)) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x6C))) & 0x1) << 23));
+    *(unsigned int *)0x8C45EE4C = (((((((((*(int *)(((((int)stk + 4) + 0x8) + 0x20))) & 0x1) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x28))) & 0x1) << 1)) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x3C))) & 0x3) << 2)) | (((0x7 & (*(int *)(((((int)stk + 4) + 0x8) + 0x40)))) << 2) << 2)) | ((unsigned char)(*(signed char *)(((((int)stk + 4) + 0x8) + 0x70))) << 8)) | ((0x1F & (*(int *)(((((int)stk + 4) + 0x8) + 0x68)))) << 16)) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x64))) & 0x1) << 22)) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x6C))) & 0x1) << 23));
     return 0x6C;
 }
 

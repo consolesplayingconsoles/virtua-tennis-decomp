@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_hr): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gAdxErrorCallback[];
-extern char gAdxErrorCallbackArgument[];
 
 int kmiWriteRegister(int, int);
 int memset(int, int, int);
@@ -178,8 +176,8 @@ int mwRnaInit(void)
 
 void ADXERR_EntryErrFunc(int a4, int a5)
 {
-    *(unsigned int *)(int)gAdxErrorCallback = a4;
-    *(unsigned int *)(int)gAdxErrorCallbackArgument = a5;
+    *(unsigned int *)0x8C20C89C = a4;
+    *(unsigned int *)0x8C20C8A0 = a5;
 }
 
 int thunk_mwRnaInit(void)

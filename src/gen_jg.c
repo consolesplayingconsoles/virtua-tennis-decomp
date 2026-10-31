@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_jg): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 typedef struct { int w[1]; } Stk1;
 typedef struct { int w[3]; } Stk3;
@@ -779,13 +778,13 @@ int strmCallMatchIntro(int a4)
     int t16;
     int t10;
 
-    if ((int)(*(int *)((((a4 * 0xD78) + (int)Player) + 0xC58))) <= (int)0x11) {
+    if ((int)(*(int *)((((a4 * 0xD78) + 0x8C287D84) + 0xC58))) <= (int)0x11) {
         t1 = *(int *)0x8C1891E8;
         t2 = *(int *)((((t1 << 2) + 0x8C1D4770) + 0x0));
-        t4 = *(int *)((((*(int *)(((0xC58 + ((a4 * 0xD78) + (int)Player)) + 0x0))) << 2) + ((((((t2 << 2) << 1) + t2) << 2) << 1) + 0x8C126168)));
+        t4 = *(int *)((((*(int *)(((0xC58 + ((a4 * 0xD78) + 0x8C287D84)) + 0x0))) << 2) + ((((((t2 << 2) << 1) + t2) << 2) << 1) + 0x8C126168)));
         if (t4 != -1) {
             t5 = *(int *)((((t1 << 2) + 0x8C1D4770) + 0x0));
-            strmVoicePlay(0x9, (*(int *)((((*(int *)(((0xC58 + ((a4 * 0xD78) + (int)Player)) + 0x0))) << 2) + ((((((t5 << 2) << 1) + t5) << 2) << 1) + 0x8C126168)))));
+            strmVoicePlay(0x9, (*(int *)((((*(int *)(((0xC58 + ((a4 * 0xD78) + 0x8C287D84)) + 0x0))) << 2) + ((((((t5 << 2) << 1) + t5) << 2) << 1) + 0x8C126168)))));
             t9 = *(int *)0x8C287ADC;
             if (t9 != 2) {
                 t13 = 0x2;
@@ -797,7 +796,7 @@ int strmCallMatchIntro(int a4)
                     t13 = t10;
                 }
                 t16 = *(int *)((0x8C1D4770 + ((*(int *)0x8C1891E8) << 2)));
-                return strmVoiceQueueAdd((*(int *)(((((*(int *)(((0xC58 + ((t13 * 0xD78) + (int)Player)) + 0x0))) << 2) + (0x8C125EE0 + (((((t16 << 2) << 1) + t16) << 2) << 1))) + 0x0))));
+                return strmVoiceQueueAdd((*(int *)(((((*(int *)(((0xC58 + ((t13 * 0xD78) + 0x8C287D84)) + 0x0))) << 2) + (0x8C125EE0 + (((((t16 << 2) << 1) + t16) << 2) << 1))) + 0x0))));
             }
             return t9;
         }

@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_lj): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
-extern char charaTbl[];
 
 typedef struct { int w[3]; } Stk3;
 int camInit(void);
@@ -121,21 +119,21 @@ int selInit(void)
     R11 = (0x29DE0);
     R13 = (R12);
     L_8C0A69BA:;
-    playerInit(((R13 * 0xD78) + (int)Player), R13, R6, R7);
+    playerInit(((R13 * 0xD78) + 0x8C287D84), R13, R6, R7);
     *(unsigned int *)0x8C29466C = R12;
     *(unsigned int *)0x8C294668 = R12;
-    *(unsigned int *)((((R13 * 0xD78) + (int)Player) + 0xC58)) = R12;
+    *(unsigned int *)((((R13 * 0xD78) + 0x8C287D84) + 0xC58)) = R12;
     t30 = (*(int *)(((*(int *)(((int)stk + 16))) + 0x0)));
     *(int *)((int)stk + 12) = t30;
-    t33 = (*(int *)(((int)charaTbl + ((*(int *)((((R13 * 0xD78) + (int)Player) + 0xC58))) * R10))));
+    t33 = (*(int *)((0x8C102424 + ((*(int *)((((R13 * 0xD78) + 0x8C287D84) + 0xC58))) * R10))));
     *(int *)((int)stk + 8) = t33;
-    motionSet(((R13 * 0xD78) + (int)Player), R11, 0x1, 0x12755C, t33, t30, (*(float *)0x8C23D204));
-    *(int *)((int)stk + 4) = (0xAF4 + ((R13 * 0xD78) + (int)Player));
-    *(Stk3 *)((0xAF4 + ((R13 * 0xD78) + (int)Player))) = vecMake(F15, F15, F15);
+    motionSet(((R13 * 0xD78) + 0x8C287D84), R11, 0x1, 0x12755C, t33, t30, (*(float *)0x8C23D204));
+    *(int *)((int)stk + 4) = (0xAF4 + ((R13 * 0xD78) + 0x8C287D84));
+    *(Stk3 *)((0xAF4 + ((R13 * 0xD78) + 0x8C287D84))) = vecMake(F15, F15, F15);
     R0 = (0xC);
-    R1 = ((0xAE8 + ((R13 * 0xD78) + (int)Player)));
-    R14 = (((R13 * 0xD78) + (int)Player));
-    R2 = ((0xAF4 + ((R13 * 0xD78) + (int)Player)));
+    R1 = ((0xAE8 + ((R13 * 0xD78) + 0x8C287D84)));
+    R14 = (((R13 * 0xD78) + 0x8C287D84));
+    R2 = ((0xAF4 + ((R13 * 0xD78) + 0x8C287D84)));
     t40 = 0;
     for (; t40 < (int)R0; t40++) *(unsigned char *)(R1 + t40) = *(unsigned char *)(R2 + t40);
     *(float *)((R14 + 0xC90)) = F15;

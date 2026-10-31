@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ne): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
 
 int cpuPointOverInput(int a4);
 
@@ -45,7 +44,7 @@ int cpuPointOverInput(int a4)
     int T_;
     R4 = a4;
     u1 = *(float *)0x8C291F7C;
-    R14 = ((int)Ball);
+    R14 = (0x8C291F24);
     R5 = ((((*(int *)((R4 + 0xB5C))) * 0x160) + 0x8C2FC69C));
     R6 = (0x8C287ACC);
     F4 = (u1);

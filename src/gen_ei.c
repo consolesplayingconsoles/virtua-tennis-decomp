@@ -1,8 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ei): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gAdxErrorCallback[];
-extern char gAdxErrorCallbackArgument[];
-extern char gAdxErrorMessageBuffer[];
 
 typedef struct { int w[3]; } Stk3;
 int vsprintf(int, int, int);
@@ -22,10 +19,10 @@ int ADXERR_CallErrFunc(Stk3 s)
     if ((0x3 & ((((int)stk + 4) + 0x8) + 0x4)) != 0) {
         t0 = ((((int)stk + 4) + 0x8) + 0x8);
     }
-    t3 = *(int *)(int)gAdxErrorCallback;
-    t6 = (vsprintf((int)gAdxErrorMessageBuffer, s.w[0], t0));
+    t3 = *(int *)0x8C20C89C;
+    t6 = (vsprintf(0x8C46AD24, s.w[0], t0));
     if (t3 != 0) {
-        t6 = (((int (*)(int, int))(t3))((*(int *)(int)gAdxErrorCallbackArgument), (int)gAdxErrorMessageBuffer));
+        t6 = (((int (*)(int, int))(t3))((*(int *)0x8C20C8A0), 0x8C46AD24));
     }
     return t6;
 }

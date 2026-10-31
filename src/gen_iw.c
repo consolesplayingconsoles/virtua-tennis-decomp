@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_iw): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 int charaTexFree(int);
@@ -194,7 +193,7 @@ int entryCharaSelPort(int a4, int a5, int a6, int a7, float f4, float f5, float 
     if ((1.0f > (u75 + 0.200000003f))) goto L_8C0ADB1A;
     *(float *)((R10 + 0x8C3438C8)) = F4;
     L_8C0ADB1A:;
-    if ((((*(int *)(((*(int *)((R8 + (int)padPeri))) + 0x10))) & 5) == 0)) goto L_8C0ADB54;
+    if ((((*(int *)(((*(int *)((R8 + 0x8C29B898))) + 0x10))) & 5) == 0)) goto L_8C0ADB54;
     if (((*(int *)(((R14 << 2) + 0x8C343878))) == 2)) goto L_8C0ADB54;
     *(unsigned int *)(((R14 << 2) + 0x8C343878)) = 0x2;
     if (((*(int *)(((R14 << 2) + 0x8C343888))) != 0)) goto L_8C0ADB4A;
@@ -221,7 +220,7 @@ int entryCharaSelPort(int a4, int a5, int a6, int a7, float f4, float f5, float 
     t97 = *(int *)(((int)stk + 20));
     *(unsigned int *)(((int)stk + 32)) = (R14 << 2);
     decoHeaderDrawB((*(int *)((((*(int *)((((R14 << 2) + (0x56C + R13)) + 0x0))) << 2) + 0x8C3438E8))), t97, R6, R7, *(Stk3 *)(((int)stk + 8)), F4, F5, F6);
-    if ((((*(int *)(((*(int *)((R8 + (int)padPeri))) + 0x10))) & 2) == 0)) goto L_8C0ADCEC;
+    if ((((*(int *)(((*(int *)((R8 + 0x8C29B898))) + 0x10))) & 2) == 0)) goto L_8C0ADCEC;
     if (((*(int *)(((*(int *)(((int)stk + 32))) + 0x8C343878))) != 1)) goto L_8C0ADCEC;
     t109 = (padDirAny((*(int *)(((int)stk + 28))))) != 0;
     if (t109) goto L_8C0ADCEC;
@@ -337,13 +336,13 @@ int entryCharaSelPort(int a4, int a5, int a6, int a7, float f4, float f5, float 
     if (((*(int *)((R6 + 0x4))) != 1)) goto L_8C0AD73C;
     *(unsigned int *)((R4 + (R14 << 2))) = R7;
     L_8C0AD73C:;
-    if ((((*(int *)(((*(int *)((R8 + (int)padPeri))) + 0x10))) & 5) == 0)) goto L_8C0AD83A;
+    if ((((*(int *)(((*(int *)((R8 + 0x8C29B898))) + 0x10))) & 5) == 0)) goto L_8C0AD83A;
     if (((*(int *)((((*(int *)(((R14 << 2) + 0x8C343ACC))) << 2) + 0x8C1AFA64))) != 2)) goto L_8C0AD83A;
     t211 = *(int *)(((((R14 << 2) << 1) + R12) + 0x4));
     if (((*(int *)(((((*(int *)(((((R14 << 2) << 1) + R12) + 0x0))) << 2) + (0x8C185330 + ((((t211 << 2) << 1) + t211) << 2))) + 0x0))) != 0)) goto L_8C0AD7A8;
     sndSe05_04();
     L_8C0AD83A:;
-    if ((((*(int *)(((*(int *)((R8 + (int)padPeri))) + 0x10))) & 2) != 0)) goto L_8C0AD848;
+    if ((((*(int *)(((*(int *)((R8 + 0x8C29B898))) + 0x10))) & 2) != 0)) goto L_8C0AD848;
     goto L_8C0ADCEC;
     L_8C0AD848:;
     t221 = (padDirAny((*(int *)(((int)stk + 28))))) == 0;

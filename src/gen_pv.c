@@ -1,8 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_pv): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
-extern char charaTbl[];
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 int decoHeaderDraw(int, int, int, int, float);
@@ -260,13 +257,13 @@ int selPortsExec(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     L_8C0A7D1E:;
     selCursorInputC(R4, R5, R6, R7, *(int *)((int)stk + 32), *(int *)((int)stk + 32 + 4), *(int *)((int)stk + 32 + 8), *(int *)((int)stk + 32 + 12), *(int *)((int)stk + 32 + 16));
     t123 = R11;
-    R10 = ((int)charaTbl);
+    R10 = (0x8C102424);
     R11 = (0x8C11098C);
     R12 = (0x6C);
     R4 = t123;
     R5 = (0x8C185298);
     R7 = (0x8C1852A0);
-    R8 = ((int)Player);
+    R8 = (0x8C287D84);
     R9 = (0xD78);
     L_8C0A7D38:;
     if ((((unsigned short)(*(short *)((R14 + 0xA))) & (unsigned short)(*(short *)((R5 + 0x0)))) == 0)) goto L_8C0A7DA2;
@@ -373,7 +370,7 @@ int selPortsExec(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     R4 = (R10);
     L_8C0A7846:;
     R5 = ((R12 << 2));
-    if ((((*(int *)(((*(int *)(((R12 << 2) + (int)padPeri))) + 0x10))) & 5) == 0)) goto L_8C0A7882;
+    if ((((*(int *)(((*(int *)(((R12 << 2) + 0x8C29B898))) + 0x10))) & 5) == 0)) goto L_8C0A7882;
     if (((*(int *)((R5 + 0x8C343878))) == 2)) goto L_8C0A7882;
     if ((R4 == 0)) goto L_8C0A7882;
     *(unsigned int *)(((R12 << 2) + 0x8C343878)) = 0x2;
@@ -385,7 +382,7 @@ int selPortsExec(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     L_8C0A7882:;
     *(unsigned int *)(((int)stk + 32)) = (R12 << 2);
     *(unsigned int *)(((0x8C3438A8 + (R12 << 2)) + 0x0)) = (*(int *)(((R12 << 2) + 0x8C343898)));
-    if ((((*(int *)(((*(int *)(((*(int *)(((int)stk + 32))) + (int)padPeri))) + 0x10))) & 11) == 0)) goto L_8C0A7928;
+    if ((((*(int *)(((*(int *)(((*(int *)(((int)stk + 32))) + 0x8C29B898))) + 0x10))) & 11) == 0)) goto L_8C0A7928;
     if (((*(int *)(((*(int *)(((int)stk + 32))) + 0x8C343878))) == 2)) goto L_8C0A7928;
     t271 = (padDirAny(R12)) != 0;
     if (t271) goto L_8C0A7928;

@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_iu): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 int entryCountJoined(void);
@@ -257,7 +256,7 @@ int selCursorInputC(void)
     if (((*(int *)((R4 + 0x4))) != 1)) goto L_8C0AA012;
     *(unsigned int *)((R9 + 0x8C343ACC)) = 0x11;
     L_8C0AA012:;
-    if ((((*(int *)(((*(int *)((R9 + (int)padPeri))) + 0x10))) & 5) == 0)) goto L_8C0AA0D4;
+    if ((((*(int *)(((*(int *)((R9 + 0x8C29B898))) + 0x10))) & 5) == 0)) goto L_8C0AA0D4;
     if (((*(int *)((((*(int *)((R9 + 0x8C343ACC))) << 2) + 0x8C1AFA64))) != 2)) goto L_8C0AA0D4;
     t157 = *(int *)(((R13 + R14) + 0x4));
     if (((*(int *)(((((*(int *)(((R13 + R14) + 0x0))) << 2) + (0x8C185330 + ((((t157 << 2) << 1) + t157) << 2))) + 0x0))) != 0)) goto L_8C0AA074;

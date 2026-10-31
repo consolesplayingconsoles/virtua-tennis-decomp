@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_le): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -94,7 +92,7 @@ int cpuBallPredict(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     R11 = (0x0);
     R12 = ((((int)stk + 56) + 0x38));
     R13 = (0x1);
-    R14 = ((int)Ball);
+    R14 = (0x8C291F24);
     R4 = ((t0 - 1));
     R5 = (0x0);
     R6 = ((((t0 - 1) * 0x160) + 0x8C2FC69C));
@@ -201,7 +199,7 @@ int cpuBallPredict(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     t102 = *(int *)0x8C287ADC;
     R4 = ((((t102 - 1) << 2) + (((int)stk + 56) + 0x5C)));
     R6 = ((((t102 - 1) << 2) + (((int)stk + 56) + 0x5C)));
-    R7 = ((((t102 - 1) * 0xD78) + (int)Player));
+    R7 = ((((t102 - 1) * 0xD78) + 0x8C287D84));
     if (((unsigned int)(((t102 - 1) << 2) + (((int)stk + 56) + 0x5C)) < (unsigned int)(*(int *)(((int)stk + 72))))) goto L_8C03EB26;
     L_8C03EA60:;
     if (((*(int *)((R4 + 0x0))) != 0)) goto L_8C03EB18;
@@ -237,7 +235,7 @@ int cpuBallPredict(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     L_8C03EB26:;
     t137 = *(int *)0x8C287ADC;
     *(unsigned int *)(((int)stk + 96)) = (((t137 - 1) << 2) + (((int)stk + 56) + 0x5C));
-    *(unsigned int *)(((int)stk + 92)) = (((t137 - 1) * 0xD78) + (int)Player);
+    *(unsigned int *)(((int)stk + 92)) = (((t137 - 1) * 0xD78) + 0x8C287D84);
     *(unsigned int *)(((int)stk + 68)) = (((t137 - 1) << 2) + (((int)stk + 56) + 0x5C));
     if (((unsigned int)(((t137 - 1) << 2) + (((int)stk + 56) + 0x5C)) >= (unsigned int)(*(int *)(((int)stk + 72))))) goto L_8C03EB52;
     L_8C03EC88:;
@@ -353,7 +351,7 @@ int cpuBallPredict(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     goto L_8C03E8D2;
     L_8C03ECA6:;
     t231 = *(int *)0x8C287ADC;
-    *(unsigned int *)(((int)stk + 64)) = (((t231 - 1) * 0xD78) + (int)Player);
+    *(unsigned int *)(((int)stk + 64)) = (((t231 - 1) * 0xD78) + 0x8C287D84);
     *(unsigned int *)(((int)stk + 60)) = (((t231 - 1) << 2) + (((int)stk + 56) + 0x5C));
     R0 = ((((t231 - 1) << 2) + (((int)stk + 56) + 0x5C)));
     if (((unsigned int)(((t231 - 1) << 2) + (((int)stk + 56) + 0x5C)) >= (unsigned int)(*(int *)(((int)stk + 72))))) goto L_8C03ECCE;

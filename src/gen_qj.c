@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_qj): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
-extern char Player[];
 
 extern int cpuDblPoachCheck();
 int cpuDblPosition(int);
@@ -55,8 +53,8 @@ int cpuDblThinkAll(float f4, float f5, float f6)
     R10 = (0x8C2FC69C);
     R11 = (0x160);
     R12 = (0x8C2FCC1C);
-    R14 = ((int)Player);
-    R8 = ((int)Ball);
+    R14 = (0x8C287D84);
+    R8 = (0x8C291F24);
     R9 = (0x8C2FC69C);
     F14 = (10.0f);
     F15 = (100.0f);
@@ -83,7 +81,7 @@ int cpuDblThinkAll(float f4, float f5, float f6)
     if (((*(int *)((((R4 << 2) + ((*(int *)(((int)stk + 4))) + 0x14)) + 0x0))) == 0)) goto L_8C0577D0;
     u25 = *(float *)((R14 + 0xAF0));
     R0 = (0xAF0);
-    R13 = (((R4 * 0xD78) + (int)Player));
+    R13 = (((R4 * 0xD78) + 0x8C287D84));
     F5 = (u25);
     if ((0.0f > u25)) goto L_8C05771C;
     F3 = (F5);

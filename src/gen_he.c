@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_he): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 int crowdDrawMember(int, int);
@@ -67,7 +66,7 @@ int hudScoreBoardDraw(int a4, int a5)
             }
             t6 = t4;
         }
-        u8 = *(float *)(((int)Player + t6));
+        u8 = *(float *)((0x8C287D84 + t6));
         t10 = (((u1 > 0.0f)) ? 1 : 0);
         u12 = u8;
         if (((*(int *)0x8C287B3C) & 0x10000) != 0) {

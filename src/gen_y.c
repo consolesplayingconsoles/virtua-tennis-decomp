@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_y): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char fileLoadSlots[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -459,9 +458,9 @@ int fileLoadCloseSlot(int a4)
     int t4;
     int t5;
 
-    *(unsigned int *)((((a4 * 0x4C) + (int)fileLoadSlots) + 0x0)) = 0x0;
-    if ((*(int *)((((a4 * 0x4C) + (int)fileLoadSlots) + 0xC))) != 0) {
-        t1 = (((a4 * 0x4C) + (int)fileLoadSlots) + 0x18);
+    *(unsigned int *)((((a4 * 0x4C) + 0x8C34A238) + 0x0)) = 0x0;
+    if ((*(int *)((((a4 * 0x4C) + 0x8C34A238) + 0xC))) != 0) {
+        t1 = (((a4 * 0x4C) + 0x8C34A238) + 0x18);
         t2 = 0x0;
         for (;;) {
             t2 = (t2 + 0x1);
@@ -471,10 +470,10 @@ int fileLoadCloseSlot(int a4)
                 break;
             }
         }
-        t4 = ADXF_Close((*(int *)((((a4 * 0x4C) + (int)fileLoadSlots) + 0xC))));
-        *(unsigned int *)((((a4 * 0x4C) + (int)fileLoadSlots) + 0x4)) = 0x1;
-        *(unsigned int *)((((a4 * 0x4C) + (int)fileLoadSlots) + 0x8)) = 0x0;
-        *(unsigned int *)((((a4 * 0x4C) + (int)fileLoadSlots) + 0xC)) = 0x0;
+        t4 = ADXF_Close((*(int *)((((a4 * 0x4C) + 0x8C34A238) + 0xC))));
+        *(unsigned int *)((((a4 * 0x4C) + 0x8C34A238) + 0x4)) = 0x1;
+        *(unsigned int *)((((a4 * 0x4C) + 0x8C34A238) + 0x8)) = 0x0;
+        *(unsigned int *)((((a4 * 0x4C) + 0x8C34A238) + 0xC)) = 0x0;
         t5 = t4;
     }
     return t5;

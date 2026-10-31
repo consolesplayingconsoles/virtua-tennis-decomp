@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_vd): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gVmsVolumeStates[];
 
 int kdGetDevice(int);
 int kdGetStatus(int, int);
@@ -34,7 +33,7 @@ void vmsio_block_write(int a4, int a5, int a6)
     v0_1 = a6;
     *(unsigned int *)(((int)stk + 24)) = v0_2;
     *(unsigned int *)(((int)stk + 16)) = v0_1;
-    *(unsigned int *)(((int)stk + 36)) = (((*(int *)(((int)stk + 24))) * 0x148) + (int)gVmsVolumeStates);
+    *(unsigned int *)(((int)stk + 36)) = (((*(int *)(((int)stk + 24))) * 0x148) + 0x8C464598);
     v0_1 = (vmsio_ismount((*(int *)(((int)stk + 24))))) != 0;
     v0_2 = (0x8C1E9B7A);
     v0_2 = (0x8C1E9E26);

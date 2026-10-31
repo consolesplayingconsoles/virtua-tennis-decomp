@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_sx): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 int cpuAimPointSet(int, int, float, float);
 float cpuDistXZ(int, int);
@@ -20,12 +19,12 @@ int cpuDblAimAddCourt2(int a4, int a5)
     float u1;
 
     t0 = *(int *)((a4 + 0xB5C));
-    if (((*(int *)((((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xB60))) & 0x100) == 0) {
-        t1 = ((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player);
-        t2 = ((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player);
-        if ((0x100 & (*(int *)((((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xB60)))) != 0) {
-            t1 = ((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player);
-            t2 = ((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player);
+    if (((*(int *)((((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xB60))) & 0x100) == 0) {
+        t1 = ((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84);
+        t2 = ((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84);
+        if ((0x100 & (*(int *)((((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xB60)))) != 0) {
+            t1 = ((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84);
+            t2 = ((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84);
         }
         t3 = *(int *)((t1 + 0xC5C));
         t1 = a5;
@@ -57,12 +56,12 @@ int cpuDblAimAddCourt2(int a4, int a5)
         }
         t2 = t1;
     } else {
-        if (((*(int *)((((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xB60))) & 0x100) == 0) {
-            t1 = ((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player);
-            t3 = ((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player);
-            if ((0x100 & (*(int *)((((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xB60)))) != 0) {
-                t1 = ((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player);
-                t3 = ((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player);
+        if (((*(int *)((((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xB60))) & 0x100) == 0) {
+            t1 = ((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84);
+            t3 = ((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84);
+            if ((0x100 & (*(int *)((((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xB60)))) != 0) {
+                t1 = ((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84);
+                t3 = ((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84);
             }
             t4 = *(int *)((t1 + 0xC5C));
             t1 = a5;
@@ -94,18 +93,18 @@ int cpuDblAimAddCourt2(int a4, int a5)
             }
             t3 = t1;
         } else {
-            t1 = *(int *)((((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xC5C));
+            t1 = *(int *)((((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xC5C));
             if ((int)t1 < (int)0x9) {
-                t4 = *(int *)((((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xC5C));
+                t4 = *(int *)((((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xC5C));
                 t5 = a5;
                 if ((int)t4 < (int)0x9) {
                 } else {
                     t6 = a5;
                     if ((int)t4 > (int)0xC) {
                     } else {
-                        t4 = *(int *)((((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xB5C));
+                        t4 = *(int *)((((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C));
                         u0 = *(float *)((a4 + 0xB9C));
-                        u1 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xAE8));
+                        u1 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xAE8));
                         if (((u0 > 0.0f) - (0.0f > u0)) != ((u1 > 0.0f) - (0.0f > u1))) {
                             u0 = *(float *)((a4 + 0xB9C));
                             cpuAimPointSet(a5, 0x1, ((float)((u0 > 0.0f) - (0.0f > u0)) * 54.8499985f), ((*(float *)((a4 + 0xB00))) * 118.849998f));
@@ -133,16 +132,16 @@ int cpuDblAimAddCourt2(int a4, int a5)
                 t4 = t5;
             } else {
                 if ((int)t1 > (int)0xC) {
-                    t1 = *(int *)((((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xC5C));
+                    t1 = *(int *)((((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xC5C));
                     t5 = a5;
                     if ((int)t1 < (int)0x9) {
                     } else {
                         t6 = a5;
                         if ((int)t1 > (int)0xC) {
                         } else {
-                            t1 = *(int *)((((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xB5C));
+                            t1 = *(int *)((((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C));
                             u0 = *(float *)((a4 + 0xB9C));
-                            u1 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xAE8));
+                            u1 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xAE8));
                             if (((u0 > 0.0f) - (0.0f > u0)) != ((u1 > 0.0f) - (0.0f > u1))) {
                                 u0 = *(float *)((a4 + 0xB9C));
                                 cpuAimPointSet(a5, 0x1, ((float)((u0 > 0.0f) - (0.0f > u0)) * 54.8499985f), ((*(float *)((a4 + 0xB00))) * 118.849998f));
@@ -169,9 +168,9 @@ int cpuDblAimAddCourt2(int a4, int a5)
                     }
                     t1 = t5;
                 } else {
-                    t5 = *(int *)((((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xB5C));
+                    t5 = *(int *)((((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C));
                     u0 = *(float *)((a4 + 0xB9C));
-                    u1 = *(float *)((((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xAE8));
+                    u1 = *(float *)((((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xAE8));
                     if (((u0 > 0.0f) - (0.0f > u0)) != ((u1 > 0.0f) - (0.0f > u1))) {
                         u0 = *(float *)((a4 + 0xB9C));
                         cpuAimPointSet(a5, 0x1, ((float)((u0 > 0.0f) - (0.0f > u0)) * 54.8499985f), ((*(float *)((a4 + 0xB00))) * 118.849998f));
@@ -192,12 +191,12 @@ int cpuDblAimAddCourt2(int a4, int a5)
                         }
                         cpuAimPointSet(a5, 0x1, ((float)t6 * 54.8499985f), u1);
                     }
-                    u0 = cpuDistXZ((0xAE8 + ((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player)), (0xAE8 + ((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player)));
+                    u0 = cpuDistXZ((0xAE8 + ((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84)), (0xAE8 + ((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84)));
                     t5 = (a5 + 0x1);
                     if (!(u0 > 30.0f)) {
                     } else {
-                        u0 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xAE8));
-                        u1 = *(float *)((((((t0 + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xAE8));
+                        u0 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xAE8));
+                        u1 = *(float *)((((((t0 + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xAE8));
                         cpuAimPointSet((a5 + 0x1), 0x1, ((u0 + u1) * 0.5f), ((*(float *)((a4 + 0xB00))) * 118.849998f));
                         t5 = ((a5 + 0x1) + 0x1);
                     }

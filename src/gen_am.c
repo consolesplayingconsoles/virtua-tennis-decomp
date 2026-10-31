@@ -1,8 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_am): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
-extern char gNlSoundStreams[];
-extern char strMwRnaNullHandleError[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -359,9 +356,9 @@ void strmCallNameScore(int a4)
     t1 = *(int *)0x8C287C64;
     if ((*(int *)0x8C287B00) != t1) {
         if ((*(int *)0x8C287B04) != t1) {
-            if ((int)(*(int *)((((a4 * 0xD78) + (int)Player) + 0xC58))) <= (int)0x11) {
+            if ((int)(*(int *)((((a4 * 0xD78) + 0x8C287D84) + 0xC58))) <= (int)0x11) {
                 t6 = *(int *)((0x8C1D4770 + ((*(int *)0x8C1891E8) << 2)));
-                strmVoicePlay(0x9, (*(int *)(((((*(int *)(((0xC58 + ((a4 * 0xD78) + (int)Player)) + 0x0))) << 2) + (0x8C126090 + (((((t6 << 2) << 1) + t6) << 2) << 1))) + 0x0))));
+                strmVoicePlay(0x9, (*(int *)(((((*(int *)(((0xC58 + ((a4 * 0xD78) + 0x8C287D84)) + 0x0))) << 2) + (0x8C126090 + (((((t6 << 2) << 1) + t6) << 2) << 1))) + 0x0))));
     return;
             }
             return;
@@ -508,7 +505,7 @@ int nlsndStreamChgFilter(int a4, int a5, int a6)
     int stk[5];
 
     *(unsigned short *)(((int)stk + 4)) = a6;
-    t0 = *(signed char *)(((int)gNlSoundStreams + ((short)a4 * (short)0x1C)));
+    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
     if (t0 == 1) {
         *(unsigned int *)(((int)stk + 8)) = ((((short)a4 << 8) << 2) << 2);
         nlsndSeqRequest(((((((short)a4 << 8) << 2) << 2) | ((short)a5 << 16)) | 0xAA1));
@@ -577,7 +574,7 @@ int nlsndStreamChgVolBias(int a4, int a5)
 {
     int t0;
 
-    t0 = *(signed char *)(((int)gNlSoundStreams + ((short)a4 * (short)0x1C)));
+    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
     if (t0 == 1) {
         return nlsndSeqRequest((0xCA1 | ((((short)a5 + 0x40) << 16) | ((((short)a4 << 8) << 2) << 2))));
     }
@@ -603,7 +600,7 @@ int nlsndStreamChgVol(int a4, int a5, int a6)
 {
     int t0;
 
-    t0 = *(signed char *)(((int)gNlSoundStreams + ((short)a4 * (short)0x1C)));
+    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
     if (t0 == 1) {
         return nlsndSeqRequest((((((((short)a4 << 8) << 2) << 2) | ((short)a6 << 16)) | 0xA2) + ((((short)a5 << 8) << 2) << 1)));
     }
@@ -614,7 +611,7 @@ int nlsndStreamChgPan(int a4, int a5, int a6)
 {
     int t0;
 
-    t0 = *(signed char *)(((int)gNlSoundStreams + ((short)a4 * (short)0x1C)));
+    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
     if (t0 == 1) {
         return nlsndSeqRequest((((((((short)a4 << 8) << 2) << 2) | ((short)a6 << 16)) | 0x1A2) + ((((short)a5 << 8) << 2) << 1)));
     }
@@ -625,7 +622,7 @@ int nlsndStreamTranspose(int a4, int a5)
 {
     int t0;
 
-    t0 = *(signed char *)(((int)gNlSoundStreams + ((short)a4 * (short)0x1C)));
+    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
     if (t0 == 1) {
         return nlsndSeqRequest((0x8A1 | ((((short)a5 + 0x40) << 16) | ((((short)a4 << 8) << 2) << 2))));
     }
@@ -636,7 +633,7 @@ int nlsndStreamDetune(int a4, int a5)
 {
     int t0;
 
-    t0 = *(signed char *)(((int)gNlSoundStreams + ((short)a4 * (short)0x1C)));
+    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
     if (t0 == 1) {
         return nlsndSeqRequest((0x9A1 | ((((short)a5 + 0x40) << 16) | ((((short)a4 << 8) << 2) << 2))));
     }
@@ -693,7 +690,7 @@ int nlsnd_PL_WaitBlockMove(void)
 int mwRnaGetOutPan(int a4, int a5)
 {
     if (a4 == 0) {
-        mwRnaErrCallFunc((int)strMwRnaNullHandleError);
+        mwRnaErrCallFunc(0x8C20AC30);
         return 0xFFFFFFFF;
     }
     return (*(int *)(((a4 + 0x64) + (a5 << 2))));
@@ -742,7 +739,7 @@ int endingWinnerRootSync(int a4, int a5, int a6, int a7)
 int mwRnaGetOutVol(int a4)
 {
     if (a4 == 0) {
-        mwRnaErrCallFunc((int)strMwRnaNullHandleError);
+        mwRnaErrCallFunc(0x8C20AC30);
         return 0xFFFFFFFF;
     }
     return (*(int *)((a4 + 0x60)));
@@ -751,7 +748,7 @@ int mwRnaGetOutVol(int a4)
 int mwRnaGetDrctLvl(int a4)
 {
     if (a4 == 0) {
-        mwRnaErrCallFunc((int)strMwRnaNullHandleError);
+        mwRnaErrCallFunc(0x8C20AC30);
         return 0xFFFFFFFF;
     }
     return (*(int *)((a4 + 0x84)));
@@ -760,7 +757,7 @@ int mwRnaGetDrctLvl(int a4)
 int mwRnaGetNumData(int a4)
 {
     if (a4 == 0) {
-        mwRnaErrCallFunc((int)strMwRnaNullHandleError);
+        mwRnaErrCallFunc(0x8C20AC30);
         return 0xFFFFFFFF;
     }
     return (*(int *)((a4 + 0x34)));

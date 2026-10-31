@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_bp): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 int nlUnitVector(int);
@@ -1237,9 +1236,9 @@ int matchPointWon(int a4)
     goto L_8C01A3B2;
     L_8C01A3B2:;
     *(unsigned int *)(((int)stk + 4)) = 0x8C105FCC;
-    t66 = *(int *)(((((*(int *)((R14 + 0x24))) * 0xD78) + (int)Player) + 0xC60));
+    t66 = *(int *)(((((*(int *)((R14 + 0x24))) * 0xD78) + 0x8C287D84) + 0xC60));
     R0 = ((*(int *)((R14 + 0x24))));
-    R6 = ((int)Player);
+    R6 = (0x8C287D84);
     R7 = (0xD78);
     if ((((*(int *)(((((((t66 << 1) + t66) << 2) << 1) + (*(int *)(((int)stk + 4)))) + 0x14))) & 0x40000) == 0)) goto L_8C01A3E0;
     goto L_8C01A3DE;

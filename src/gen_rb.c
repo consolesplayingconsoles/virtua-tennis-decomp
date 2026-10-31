@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_rb): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gMapleDriver[];
 
 int mpdrv_make_deviceinfo(int a4, int a5, int a6);
 
@@ -41,7 +40,7 @@ int mpdrv_make_deviceinfo(int a4, int a5, int a6)
     *(unsigned char *)(((R4 + 0x12) + 0x0)) = ((*(signed char *)((R5 + 0x0))) & 0x3);
     *(unsigned char *)(((0x13 + R4) + 0x0)) = (((unsigned int)(unsigned char)(*(signed char *)((R5 + 0x0))) >> 2) & 0x3);
     L_8C1FE5A4:;
-    if (((*(int *)((0x10C4 + (*(int *)(int)gMapleDriver)))) != 1)) goto L_8C1FE5C8;
+    if (((*(int *)((0x10C4 + (*(int *)0x8C47317C)))) != 1)) goto L_8C1FE5C8;
     R6 = ((R4 + 0x14));
     L_8C1FE5BC:;
     if (!(((unsigned int)R6 < (unsigned int)(R4 + 0x33)))) goto L_8C1FE5E2;

@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_hj): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char charaTbl[];
 
 extern float _builtin_sqrtf(float);
 int nlArcTan2(int, int, int, int, float, float);
@@ -47,12 +46,12 @@ void cpuReachRange(int a4, int a5, int a6, int a7, float f4, float f5, float f6,
     L_8C080FEC:;
     return;
     L_8C080C50:;
-    *(float *)(((int)stk + 16)) = ((*(float *)(((((*(int *)((v0_1 + 0xC58))) * 0x6C) + (int)charaTbl) + 0x2C))) / (*(float *)0x8C102450));
+    *(float *)(((int)stk + 16)) = ((*(float *)(((((*(int *)((v0_1 + 0xC58))) * 0x6C) + 0x8C102424) + 0x2C))) / (*(float *)0x8C102450));
     w0_1 = *(float *)((v0_1 + 0xB00));
     v0_3 = nlArcTan2(v0_4, v0_3, v0_5, v0_7, (w0_1 * (*(float *)((v0_0 + 0x30)))), (-(w0_1 * (*(float *)((v0_0 + 0x28))))));
     v0_5 = ((((int)v0_3 >> 12) + 0x1));
     v0_9 = (0x0);
-    v0_6 = ((int)charaTbl);
+    v0_6 = (0x8C102424);
     if (((int)(((int)v0_3 >> 12) + 0x1) < 0)) goto L_8C080C96;
     v0_5 = ((v0_5 & 0xF));
     L_8C080CA0:;

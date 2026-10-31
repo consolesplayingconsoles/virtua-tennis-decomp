@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_bb): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -577,13 +576,13 @@ int cpuDblNetmanPos(int a4, float f4, float f5, float f6)
     if ((*(int *)((a4 + 0xA24))) == 0) {
     } else {
         t2 = serveGetServer();
-        if ((t2 == (*(int *)(((0xB5C + (((0x3 & (t0 + 0x2)) * 0xD78) + (int)Player)) + 0x0)))) && (t4 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13F)), (unsigned char)t4 == 1)) {
+        if ((t2 == (*(int *)(((0xB5C + (((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84)) + 0x0)))) && (t4 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13F)), (unsigned char)t4 == 1)) {
             t5 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D));
             u61 = (-((*(float *)((a4 + 0xB00))) * 35.6550026f));
             u62 = (float)(-(((t5 << 2) << 1) - t5));
         } else {
             t7 = serveGetServer();
-            if ((t7 == (*(int *)(((0xB5C + (((0x3 & (t0 + 0x2)) * 0xD78) + (int)Player)) + 0x0)))) && (t9 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13F)), (unsigned char)t9 == 2)) {
+            if ((t7 == (*(int *)(((0xB5C + (((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84)) + 0x0)))) && (t9 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13F)), (unsigned char)t9 == 2)) {
                 u50 = (-((*(float *)((a4 + 0xB00))) * 35.6550026f));
                 u51 = ((float)(-(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D)))) * 27.4249992f);
             } else {

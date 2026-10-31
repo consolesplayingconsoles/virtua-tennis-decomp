@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_be): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char stageNo[];
 
 typedef struct { int w[3]; } Stk3;
 int BupRequestSave(int, int, int, int);
@@ -122,7 +121,7 @@ int arcadeNextMatch(void)
     }
     t32 = *(int *)((((((*(int *)0x8C287AF0) & 0x1) << 2) + 0x8C287AD0) + 0x0));
     *(unsigned int *)0x8C287ACC = t32;
-    *(unsigned int *)(int)stageNo = (*(int *)(((t32 << 2) + 0x8C1022B8)));
+    *(unsigned int *)0x8C1891F0 = (*(int *)(((t32 << 2) + 0x8C1022B8)));
     *(unsigned int *)0x8C287C50 = 0x96;
     sndFadeFlagsClear();
     t35 = matchSetupPlayers();

@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_mc): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char charaTbl[];
 
 typedef struct { int w[3]; } Stk3;
 extern float _builtin_sqrtf(float);
@@ -90,13 +89,13 @@ float cpuReachPoint(int a4, int a5, int a6, Stk3 s)
     R10 = (R4);
     L_8C080808:;
     t16 = *(int *)((R14 + 0xC58));
-    *(unsigned int *)(((int)stk + 20)) = ((t16 * 0x6C) + (int)charaTbl);
-    *(unsigned int *)(((int)stk + 16)) = (int)charaTbl;
-    u17 = *(float *)(((((t16 * 0x6C) + (int)charaTbl) + 0x28) + 0x4));
+    *(unsigned int *)(((int)stk + 20)) = ((t16 * 0x6C) + 0x8C102424);
+    *(unsigned int *)(((int)stk + 16)) = 0x8C102424;
+    u17 = *(float *)(((((t16 * 0x6C) + 0x8C102424) + 0x28) + 0x4));
     u18 = *(float *)0x8C102450;
-    *(float *)(((int)stk + 8)) = ((*(float *)(((((t16 * 0x6C) + (int)charaTbl) + 0x28) + 0x0))) / (*(float *)0x8C10244C));
+    *(float *)(((int)stk + 8)) = ((*(float *)(((((t16 * 0x6C) + 0x8C102424) + 0x28) + 0x0))) / (*(float *)0x8C10244C));
     u21 = *(float *)((R14 + 0xB00));
-    t24 = nlArcTan2((((t16 * 0x6C) + (int)charaTbl) + 0x28), 0x8C10244C, (int)charaTbl, (u21 * (*(float *)((R12 + 0x30)))), (-(u21 * (*(float *)((R12 + 0x28))))));
+    t24 = nlArcTan2((((t16 * 0x6C) + 0x8C102424) + 0x28), 0x8C10244C, 0x8C102424, (u21 * (*(float *)((R12 + 0x30)))), (-(u21 * (*(float *)((R12 + 0x28))))));
     R0 = ((((int)t24 >> 12) + 0x1));
     R3 = (0x0);
     F12 = ((u17 / u18));

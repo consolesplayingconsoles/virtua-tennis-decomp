@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_jz): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char padPeri[];
-extern char replayInput[];
 
 typedef struct { int w[1]; } Stk1;
 typedef struct { int w[2]; } Stk2;
@@ -141,10 +139,10 @@ int menuListExec(int a4, int a5, int a6, int a7)
     t24 = 0x8C125908;
     t26 = (((int)stk + 40) + 0x54);
     for (;;) { t27 = *(int *)t24; t24 = (t24 + 4); if ((unsigned int)((0x8C125908 + 108)) < (unsigned int)t24) break; *(unsigned int *)t26 = t27; t26 = (t26 + 4); }
-    t28 = *(int *)(((a4 << 2) + (int)padPeri));
+    t28 = *(int *)(((a4 << 2) + 0x8C29B898));
     *(unsigned int *)(((int)stk + 44)) = t28;
     t29 = *(int *)((t28 + 0x8));
-    t87 = (int)padPeri;
+    t87 = 0x8C29B898;
     if (((0x400 & t29) != 0) && ((0x200 & t29) != 0)) {
     } else {
         menuDimScreen((a4 << 2), t29, a6, a7);
@@ -496,7 +494,7 @@ int circuitDrawPrompt(void)
     int stk[13];
 
     t6 = 0x0;
-    if (((*(int *)(((*(int *)(((int)padPeri + ((*(int *)0x8C421F70) << 2)))) + 0x10))) & 8) != 0) {
+    if (((*(int *)(((*(int *)((0x8C29B898 + ((*(int *)0x8C421F70) << 2)))) + 0x10))) & 8) != 0) {
         sndSeDecide();
         t6 = 0x1;
     }
@@ -554,12 +552,12 @@ int ballInit(int a4)
         t8 = t5;
         for (;;) { t9 = *(int *)t6; t6 = (t6 + 4); if ((unsigned int)((a4 + 140)) < (unsigned int)t6) break; *(unsigned int *)t8 = t9; t8 = (t8 + 4); }
         t5 = (t5 + 0x8C);
-        if ((unsigned int)t5 >= (unsigned int)(int)replayInput) {
+        if ((unsigned int)t5 >= (unsigned int)0x8C2920C8) {
             break;
         }
     }
     *(unsigned int *)0x8C295480 = 0x0;
-    t11 = ballColliInit(t5, 0x8C, (int)replayInput, 0x8C291FB0);
+    t11 = ballColliInit(t5, 0x8C, 0x8C2920C8, 0x8C291FB0);
     *(unsigned int *)0x8C1D126C = 0x0;
     return t11;
 }

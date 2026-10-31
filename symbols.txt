@@ -271,11 +271,3 @@
 8C00007E g_8c00007e
 
 # Named interrupt callback storage and CPU event-to-vector table.
-8C454F40 gNlIntrRenderEndCallback
-8C454F44 gNlIntrVSyncCallback
-8C454F48 gNlIntrHSyncCallback
-8C454F4C gNlIntrGdDmaCallback
-8C454F50 gNlIntrGdCommandCallback
-8C454F70 gNlIntrTextureOverflowCallback
-8C127FC8 nlCpuInterruptEventCodes
-8C1FEB4C gMapleTransferLockByte

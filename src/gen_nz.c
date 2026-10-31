@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_nz): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 int gameModeSet(int, int, int);
@@ -72,7 +70,7 @@ int menuResultExec(int a4)
             if ((*(int *)(((t7 << 2) + 0x8C287AE0))) == 0) {
                 t5 = 0xD78;
                 t5 = (t7 * t5);
-                t5 = (t5 + (int)Player);
+                t5 = (t5 + 0x8C287D84);
                 *(unsigned int *)(((int)stk + 20)) = t5;
                 t5 = (*(int *)((t5 + 0xB64)));
                 t6 = (padDirRepeat(t5, 0x10));
@@ -82,7 +80,7 @@ int menuResultExec(int a4)
                 t5 = (*(int *)(((int)stk + 20)));
                 t5 = (*(int *)((t5 + 0xB64)));
                 t5 = (t5 << 2);
-                t5 = (*(int *)((t5 + (int)padPeri)));
+                t5 = (*(int *)((t5 + 0x8C29B898)));
                 *(unsigned int *)(((int)stk + 28)) = t5;
                 t5 = (*(int *)((t5 + 0x10)));
                 t19 = (t5 & 0x8);

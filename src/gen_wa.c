@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_wa): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gRenderTextureReady[];
 
 int kmyAllocateArea(int, int, int);
 int nlkmCreateTextureSurface_stride(int a4, int a5, int a6);
@@ -139,7 +138,7 @@ int nlkmCreateTextureSurface_stride(int a4, int a5, int a6)
     *(unsigned int *)((a4 + 0x18)) = 0x0;
     *(unsigned int *)((a4 + 0x0)) = 0x2;
     *(unsigned int *)((a4 + 0x4)) = 0x1;
-    *(unsigned int *)((a4 + 0x8)) = ((*(int *)(int)gRenderTextureReady) << 27);
+    *(unsigned int *)((a4 + 0x8)) = ((*(int *)0x8C44FBE8) << 27);
     *(unsigned int *)((a4 + 0xC)) = t0;
     *(unsigned int *)((a4 + 0x10)) = t2;
     *(unsigned int *)((a4 + 0x18)) = (((((*(int *)((a4 + 0x18))) | t1) | t3) | 0x4000000) | 0x2000000);

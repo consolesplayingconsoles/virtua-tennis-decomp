@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_bd): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
 
 typedef struct { int w[3]; } Stk3;
 int BupCheckFile(void);
@@ -303,7 +302,7 @@ void ballBoyReset(int a4, int a5, int a6)
         t4 = (*(int *)((t6 + t1)));
         if ((t4 != 0) && (t1 = 0x5E0, t9 = *(int *)((t6 + t1)), t10 = (t4 == 0), t4 = t9, t4 == 0)) {
             t4 = 0x8C0F7DAC;
-            t3 = (int)Ball;
+            t3 = 0x8C291F24;
             t2 = 0x8C38B784;
             t3 = (t3 + 0xC);
             t1 = 0xC;

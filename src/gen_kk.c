@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_kk): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 int advDrawFigure(int);
@@ -198,7 +196,7 @@ int advExec(int a4, int a5, int a6, int a7)
     *(unsigned int *)0x8C295DE8 = ((*(int *)0x8C295DE8) + 0x1);
     t1 = *(int *)0x8C29B27C;
     R0 = (t1);
-    R12 = ((int)Player);
+    R12 = (0x8C287D84);
     R14 = (0x8C295DD8);
     R8 = (0xD78);
     F14 = (1.0f);
@@ -577,8 +575,8 @@ int advExec(int a4, int a5, int a6, int a7)
     L_8C02EF3C:;
     return R0;
     L_8C02EC56:;
-    R4 = ((int)padPeri);
-    if ((((*(int *)(((*(int *)(int)padPeri) + 0x10))) & 8) != 0)) goto L_8C02EC78;
+    R4 = (0x8C29B898);
+    if ((((*(int *)(((*(int *)0x8C29B898) + 0x10))) & 8) != 0)) goto L_8C02EC78;
     if ((((*(int *)(((*(int *)((R4 + 0x4))) + 0x10))) & 8) != 0)) goto L_8C02EC78;
     if ((((*(int *)(((*(int *)((R4 + 0x8))) + 0x10))) & 8) != 0)) goto L_8C02EC78;
     if (!((((*(int *)(((*(int *)((R4 + 0xC))) + 0x10))) & 8) == 0))) goto L_8C02EC78;
@@ -771,7 +769,7 @@ int advExec(int a4, int a5, int a6, int a7)
     strmBgmFadeOut(0x2, 0x0);
     goto L_8C02EC4C;
     L_8C02E090:;
-    if ((((*(int *)(((*(int *)(int)padPeri) + 0x10))) & 8) == 0)) goto L_8C02E09E;
+    if ((((*(int *)(((*(int *)0x8C29B898) + 0x10))) & 8) == 0)) goto L_8C02E09E;
     goto L_8C02EC78;
     L_8C02E09E:;
     if ((((*(int *)(((*(int *)0x8C29B89C) + 0x10))) & 8) == 0)) goto L_8C02E0AC;

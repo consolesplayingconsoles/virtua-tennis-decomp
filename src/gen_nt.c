@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_nt): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 int buGetDiskInfo(int, int);
@@ -66,7 +65,7 @@ void BupFailDialog(int a4)
     pdTmrAlarm(0x1, (((int)stk + 20) + 0x50));
     padLcdMessage(0xA);
     *(unsigned int *)(((int)stk + 24)) = 0x8C29B8A8;
-    *(unsigned int *)(((int)stk + 32)) = (int)padPeri;
+    *(unsigned int *)(((int)stk + 32)) = 0x8C29B898;
     *(unsigned int *)(((int)stk + 36)) = (((int)stk + 20) + 0x24);
     *(unsigned int *)(((int)stk + 40)) = ((((int)stk + 20) + 0x24) + 0xC);
     *(unsigned int *)(((int)stk + 44)) = ((((int)stk + 20) + 0x24) + 0x18);

@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_kf): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
-extern char Player[];
 
 typedef struct { int w[1]; } Stk1;
 typedef struct { int w[3]; } Stk3;
@@ -37,8 +35,8 @@ int cpuDblHitCheck(int a4)
     register float w0_3;
     v0_0 = a4;
     *(unsigned int *)(((int)stk + 92)) = v0_0;
-    *(unsigned int *)(((int)stk + 88)) = (int)Ball;
-    *(unsigned int *)(((int)stk + 84)) = (((((*(int *)((0xB5C + (*(int *)(((int)stk + 92)))))) + 0x2) & 0x3) * 0xD78) + (int)Player);
+    *(unsigned int *)(((int)stk + 88)) = 0x8C291F24;
+    *(unsigned int *)(((int)stk + 84)) = (((((*(int *)((0xB5C + (*(int *)(((int)stk + 92)))))) + 0x2) & 0x3) * 0xD78) + 0x8C287D84);
     *(unsigned int *)(((int)stk + 80)) = (((*(int *)(((*(int *)(((int)stk + 92))) + 0xB5C))) * 0x160) + 0x8C2FC69C);
     if ((((*(int *)((0xB60 + (*(int *)(((int)stk + 92)))))) & 1) != 0)) goto L_8C0585EE;
     L_8C05A3D2:;

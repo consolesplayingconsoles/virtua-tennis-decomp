@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_qt): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 int ADXT_GetStat(int);
 int strmVoicePlay(int, int);
@@ -70,7 +69,7 @@ void strmCallScore(int a4, int a5, int a6, int a7)
     strmVoicePlay(0x9, R14);
     return;
     L_8C0D7972:;
-    R14 = ((int)Player);
+    R14 = (0x8C287D84);
     if (((int)R6 <= (int)R7)) goto L_8C0D79A2;
     *(unsigned int *)(((int)stk + 4)) = (*(int *)((R14 + 0xC58)));
     R1 = (R12);

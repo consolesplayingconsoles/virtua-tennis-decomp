@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_to): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 int cpuAimPointSet(int, int, float, float);
 int cpuSglAimAddGrid(int a4, int a5);
@@ -18,7 +17,7 @@ int cpuSglAimAddGrid(int a4, int a5)
     float u1;
 
     t0 = *(int *)((a4 + 0xB5C));
-    t1 = *(int *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB5C));
+    t1 = *(int *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB5C));
     if (((*(int *)0x8C287B3C) & 0x4000) != 0) {
         t2 = (int)((int)(((*(int *)0x8C287B10) + (*(int *)0x8C287B14)) + 0x6) % (int)0x6);
         t3 = (int)((unsigned int)((int)((unsigned int)t2 + (unsigned int)0x0)) + ((((int)0x0 > (int)t2)) ? 1u : 0u));
@@ -74,7 +73,7 @@ int cpuSglAimAddGrid(int a4, int a5)
                 cpuAimPointSet(((a5 + 0x1) + 0x1), 0x1, ((float)(-t3) * 41.1500015f), ((*(float *)((a4 + 0xB00))) * 11.8850002f));
                 u0 = *(float *)((((t1 * 0x160) + 0x8C2FC69C) + 0x30));
                 t1 = (((a5 + 0x1) + 0x1) + 0x1);
-                if ((float)((u0 > 0.0f) - (0.0f > u0)) == (*(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB00)))) {
+                if ((float)((u0 > 0.0f) - (0.0f > u0)) == (*(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB00)))) {
                     u1 = (-u0);
                     if (!(0.0f > u0)) {
                         u1 = u0;

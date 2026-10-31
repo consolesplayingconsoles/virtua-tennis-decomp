@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_u): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char buFbrServers[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[12]; } Stk12;
@@ -415,7 +414,7 @@ int buFbrCreateServer(int a4)
     t0 = _builtin_get_imask();
     _builtin_set_imask(0xF);
     t1 = 0x0;
-    t2 = (int)buFbrServers;
+    t2 = 0x8C4747D0;
     for (;;) {
         if ((*(int *)((t2 + 0x0))) != 0) {
             t1 = (t1 + 0x1);

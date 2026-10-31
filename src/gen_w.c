@@ -1,10 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_w): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char fileLoadState[];
-extern char gMapleDriver[];
-extern char gMapleTransferLockAddress[];
-extern char motionCur[];
-extern char strMwRnaNullHandleError[];
 
 typedef struct { int w[3]; } Stk3;
 int ADXB_EndDecode(int);
@@ -320,7 +315,7 @@ int kdSetDeviceResetEx(int a4, int a5)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
+    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
         mpdrv_dpf(0x8C20A820);
         return 0xFFFFFFFE;
     }
@@ -328,8 +323,8 @@ int kdSetDeviceResetEx(int a4, int a5)
     if ((int)t2 > 0) {
         kdSetCallback(a4, a5, t2);
     }
-    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
-    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
+    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t2;
@@ -342,7 +337,7 @@ int mwRnaPause(int a4)
     int stk[6];
 
     if (a4 == 0) {
-        t20 = (mwRnaErrCallFunc((int)strMwRnaNullHandleError));
+        t20 = (mwRnaErrCallFunc(0x8C20AC30));
     } else {
         ovLockCs_8c200114(((int)stk + 8));
         if ((*(signed char *)((a4 + 0x7))) == 0) {
@@ -413,7 +408,7 @@ int kdSetARControlEx(int a4, int a5, int a6)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
+    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
         mpdrv_dpf(0x8C20A820);
         return 0xFFFFFFFE;
     }
@@ -421,8 +416,8 @@ int kdSetARControlEx(int a4, int a5, int a6)
     if ((int)t2 > 0) {
         kdSetCallback(a4, a6, t2);
     }
-    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
-    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
+    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t2;
@@ -480,7 +475,7 @@ int kdSetGetConditionEx(int a4, int a5, int a6)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
+    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
         mpdrv_dpf(0x8C20A820);
         return 0xFFFFFFFE;
     }
@@ -488,8 +483,8 @@ int kdSetGetConditionEx(int a4, int a5, int a6)
     if ((int)t2 > 0) {
         kdSetCallback(a4, a6, t2);
     }
-    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
-    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
+    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t2;
@@ -560,7 +555,7 @@ int kdSetSetConditionEx(int a4, int a5, int a6, int a7, int a8)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
+    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
         mpdrv_dpf(0x8C20A820);
         return 0xFFFFFFFE;
     }
@@ -568,8 +563,8 @@ int kdSetSetConditionEx(int a4, int a5, int a6, int a7, int a8)
     if ((int)t2 > 0) {
         kdSetCallback(a4, a8, t2);
     }
-    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
-    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
+    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t2;
@@ -672,13 +667,13 @@ int motionRootRaw(int a4)
     int t8;
     int t14;
 
-    t0 = *(int *)(int)motionCur;
+    t0 = *(int *)0x8C2871D4;
     t3 = *(int *)((t0 + 0x54));
     t4 = *(int *)(((*(int *)((t0 + 0x20))) + 0x4));
-    u7 = *(float *)(((*(int *)(int)motionCur) + 0xC));
-    t8 = *(int *)(((*(int *)(((*(int *)(int)motionCur) + 0x20))) + 0x10));
-    t14 = *(int *)(int)motionCur;
-    return nlTranslate(((float)(*(short *)((((t3 + t4) + (((((int)u7 * t8) + a4) << 1) + ((((int)u7 * t8) + a4) << 2))) + 0x0))) / (*(float *)((((*(int *)((t14 + 0x20))) + 0x14) + 0x0)))), ((float)(*(short *)((((t3 + t4) + (((((int)u7 * t8) + a4) << 1) + ((((int)u7 * t8) + a4) << 2))) + 0x2))) / (*(float *)((((*(int *)((t14 + 0x20))) + 0x18) + 0x0)))), ((float)(-(*(short *)((((t3 + t4) + (((((int)u7 * t8) + a4) << 1) + ((((int)u7 * t8) + a4) << 2))) + 0x4)))) / (*(float *)((((*(int *)(((*(int *)(int)motionCur) + 0x20))) + 0x1C) + 0x0)))));
+    u7 = *(float *)(((*(int *)0x8C2871D4) + 0xC));
+    t8 = *(int *)(((*(int *)(((*(int *)0x8C2871D4) + 0x20))) + 0x10));
+    t14 = *(int *)0x8C2871D4;
+    return nlTranslate(((float)(*(short *)((((t3 + t4) + (((((int)u7 * t8) + a4) << 1) + ((((int)u7 * t8) + a4) << 2))) + 0x0))) / (*(float *)((((*(int *)((t14 + 0x20))) + 0x14) + 0x0)))), ((float)(*(short *)((((t3 + t4) + (((((int)u7 * t8) + a4) << 1) + ((((int)u7 * t8) + a4) << 2))) + 0x2))) / (*(float *)((((*(int *)((t14 + 0x20))) + 0x18) + 0x0)))), ((float)(-(*(short *)((((t3 + t4) + (((((int)u7 * t8) + a4) << 1) + ((((int)u7 * t8) + a4) << 2))) + 0x4)))) / (*(float *)((((*(int *)(((*(int *)0x8C2871D4) + 0x20))) + 0x1C) + 0x0)))));
 }
 
 
@@ -691,7 +686,7 @@ int fileLoadStartAfs(int a4, int a5, int a6)
     if ((*(int *)0x8C34A1F8) != 0) {
         fileLoadClose();
     }
-    *(unsigned int *)(int)fileLoadState = 0x1;
+    *(unsigned int *)0x8C34A1EC = 0x1;
     *(unsigned int *)0x8C34A1F0 = 0x0;
     *(unsigned int *)0x8C34A1FC = a5;
     *(unsigned int *)0x8C34A200 = a6;
@@ -711,7 +706,7 @@ int fileLoadStartAfs(int a4, int a5, int a6)
         ADXF_ReadNw32((*(int *)0x8C34A1F8), t11, a4);
         return 0x1;
     }
-    *(unsigned int *)(int)fileLoadState = 0x0;
+    *(unsigned int *)0x8C34A1EC = 0x0;
     *(unsigned int *)0x8C34A1F4 = 0x0;
     *(unsigned int *)0x8C34A1F0 = 0x1;
     return 0x0;

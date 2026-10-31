@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ex): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char fileLoadState[];
-extern char stageNo[];
 
 typedef struct { int w[3]; } Stk3;
 int colliObjInit(int, int, int, int, int, float);
@@ -80,7 +78,7 @@ int stageLoadStep(int a4, int a5, int a6, float f4, float f5, float f6)
     F6 = f6;
     L_8C0B1584:;
     *(unsigned int *)(((int)stk + 24)) = 0x8C287ACC;
-    *(unsigned int *)0x8C1891E8 = (*(int *)(int)stageNo);
+    *(unsigned int *)0x8C1891E8 = (*(int *)0x8C1891F0);
     t1 = *(int *)0x8C344008;
     R0 = (t1);
     R12 = (0x8C287C50);
@@ -101,7 +99,7 @@ int stageLoadStep(int a4, int a5, int a6, float f4, float f5, float f6)
     goto L_8C0B15CC;
     L_8C0B15CC:;
     *(unsigned int *)((R14 + 0xC)) = ((*(int *)((R14 + 0xC))) + 0x1);
-    *(unsigned int *)(int)fileLoadState = 0x0;
+    *(unsigned int *)0x8C34A1EC = 0x0;
     goto L_8C0B17D4;
     L_8C0B17D4:;
     if (((*(int *)((R14 + 0x0))) == 0)) goto L_8C0B181C;

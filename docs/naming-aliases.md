@@ -49,13 +49,6 @@ Wibo using the project's SHC flags. Their assembly is identical after:
 
 No instructions, operand values or pool contents were excluded from this
 comparison. Existing case payloads follow the eight renamed functions
-unchanged. The separately documented boundary repair retires one invalid
-function's case file and adds cases for seven real setters.
-The final `bash build.sh` through Wibo prints `MATCH` against the original
+unchanged. The final `bash build.sh` through Wibo prints `MATCH` against the original
 executable after both changes.
 
-`tools/naming_audit.py` now finds no generic function entries or function
-aliases in C. It still finds 134 generic global names in the name tables,
-26 generic global names in C, and 18,509 generated temporary file/name pairs.
-Those unresolved variable names and record fields keep the full relabeling
-goal open.

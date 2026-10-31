@@ -1,8 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_pk): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gNlG2DmaHandles[];
-extern char gNlSoundPackUsedBytes[];
-extern char gNlSoundStreams[];
 
 int nlsndG2Read(int);
 int nlsndG2Write(int, int);
@@ -60,11 +57,11 @@ int nlsndInit(int a4, int a5)
     v0_3 = (0x0);
     v0_1 = (0x8C454DD4);
     v0_5 = (0xFFFFFFFF);
-    v0_4 = ((int)gNlG2DmaHandles);
+    v0_4 = (0x8C454E34);
     L_8C0F5178:;
     if (((unsigned int)v0_1 < (unsigned int)v0_4)) goto L_8C0F5170;
     v0_4 = (0x8C454DD4);
-    v0_1 = ((int)gNlSoundStreams);
+    v0_1 = (0x8C454CF4);
     L_8C0F51C0:;
     if (((unsigned int)v0_1 < (unsigned int)v0_4)) goto L_8C0F51B0;
     *(unsigned int *)0x8C454CB0 = ((*(int *)((v0_0 + 0x84))) + v0_2);
@@ -74,7 +71,7 @@ int nlsndInit(int a4, int a5)
     *(unsigned int *)((v0_4 + 0x0)) = v0_5;
     *(unsigned int *)0x8C454CAC = (v0_2 + (*(int *)((v0_0 + v0_1))));
     *(unsigned int *)0x8C454CA8 = 0xA0800400;
-    *(unsigned int *)(int)gNlSoundPackUsedBytes = v0_3;
+    *(unsigned int *)0x8C454CBC = v0_3;
     *(unsigned int *)0x8C454CA4 = v0_3;
     *(unsigned int *)0x8C454CE8 = 0x8C454CC4;
     *(unsigned int *)0x8C454CC4 = v0_3;

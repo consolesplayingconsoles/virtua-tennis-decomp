@@ -1,8 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ak): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char fileLoadSlots[];
-extern char fileLoadState[];
-extern char uniformTexNames[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -582,7 +579,7 @@ int fileLoadStart(int a4, int a5, int a6)
         fileLoadClose();
     }
     *(unsigned int *)0x8C34A1F4 = 0x0;
-    *(unsigned int *)(int)fileLoadState = 0x1;
+    *(unsigned int *)0x8C34A1EC = 0x1;
     *(unsigned int *)0x8C34A1F0 = 0x0;
     t8 = 0x0;
     t9 = 0x1;
@@ -616,7 +613,7 @@ int fileLoadStart(int a4, int a5, int a6)
         ADXF_ReadNw32((*(int *)0x8C34A1F8), ((unsigned int)((unsigned int)((unsigned int)a6 >> 8) >> 2) >> 1), a4);
         return 0x1;
     }
-    *(unsigned int *)(int)fileLoadState = 0x0;
+    *(unsigned int *)0x8C34A1EC = 0x0;
     *(unsigned int *)0x8C34A1F4 = 0x0;
     *(unsigned int *)0x8C34A1F0 = 0x1;
     return 0x0;
@@ -771,16 +768,16 @@ int uniformTexLoad(int a4, int a5, int a6)
     int t26;
 
     if ((*(int *)((0x8C1891D4 + (a6 << 2)))) != a4) {
-        if ((*(int *)((((int)fileLoadSlots + (a6 * 0x4C)) + 0x0))) != 0) {
+        if ((*(int *)(((0x8C34A238 + (a6 * 0x4C)) + 0x0))) != 0) {
             fileLoadCloseSlot(a6);
             *(unsigned int *)((0x8C1891D4 + (a6 << 2))) = 0xFFFFFFFF;
         }
     }
-    if ((*(int *)((((a6 * 0x4C) + (int)fileLoadSlots) + 0x0))) == 0) {
+    if ((*(int *)((((a6 * 0x4C) + 0x8C34A238) + 0x0))) == 0) {
         *(unsigned int *)((0x8C1891D4 + (a6 << 2))) = a4;
-        *(unsigned int *)((((a6 * 0x4C) + (int)fileLoadSlots) + 0x0)) = 0x1;
+        *(unsigned int *)((((a6 * 0x4C) + 0x8C34A238) + 0x0)) = 0x1;
         cacheOcbiRange((a5 + 0x8CA80000), 0x20000);
-        fileLoadStartSlotOfs(0x8CA80000, (*(int *)(((a4 << 2) + (int)uniformTexNames))), 0x0, a5, a6);
+        fileLoadStartSlotOfs(0x8CA80000, (*(int *)(((a4 << 2) + 0x8C18911C))), 0x0, a5, a6);
     }
     t26 = fileLoadPollSlot(a6);
     if (t26 == 1) {

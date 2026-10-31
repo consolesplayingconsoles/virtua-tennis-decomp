@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_uc): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 float cpuDblPathCross(int, int, int, Stk3, Stk3);
@@ -90,7 +89,7 @@ void cpuDblPoachCheck(int a4, float f4, float f5, float f6)
     int t385;
 
     t0 = *(int *)((a4 + 0xB5C));
-    t1 = *(int *)(((((0x3 & (t0 + 0x2)) * 0xD78) + (int)Player) + 0xB5C));
+    t1 = *(int *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB5C));
     if (((*(int *)0x8C291F78) & 0x4) != 0) {
     } else {
         if ((unsigned char)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12E))) == 1) {
@@ -98,17 +97,17 @@ void cpuDblPoachCheck(int a4, float f4, float f5, float f6)
             t67 = 0x8C2FC69C;
             if (((*(int *)((a4 + 0xB60))) & 0x4) == 0) {
             } else {
-                if (((*(int *)(((((0x3 & (t0 + 0x2)) * 0xD78) + (int)Player) + 0xB60))) & 0x4) == 0) {
+                if (((*(int *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB60))) & 0x4) == 0) {
                     t52 = 0x160;
                     t53 = 0x8C2FC69C;
                 } else {
                     t18 = cpuDistXZ((0xAE8 + a4), (0xBA8 + a4));
-                    t19 = cpuDistXZ((0xAE8 + (((0x3 & (t0 + 0x2)) * 0xD78) + (int)Player)), (0xBA8 + (((0x3 & (t0 + 0x2)) * 0xD78) + (int)Player)));
+                    t19 = cpuDistXZ((0xAE8 + (((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84)), (0xBA8 + (((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84)));
                     if ((t18 > t19) && (t20 = *(short *)((((t1 * 0x160) + 0x8C2FC69C) + 0x118)), (int)t20 < (int)0xF)) {
-                        t21 = cpuDistXZ((0xAE8 + (((0x3 & (t0 + 0x2)) * 0xD78) + (int)Player)), (0xBA8 + (((0x3 & (t0 + 0x2)) * 0xD78) + (int)Player)));
+                        t21 = cpuDistXZ((0xAE8 + (((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84)), (0xBA8 + (((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84)));
                         if (!(10.0f > t21)) {
                             u24 = *(float *)((a4 + 0xAF0));
-                            u25 = *(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + (int)Player) + 0xAF0));
+                            u25 = *(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0));
                             u26 = (-u24);
                             if (!(0.0f > u24)) {
                                 u26 = u24;
@@ -133,13 +132,13 @@ void cpuDblPoachCheck(int a4, float f4, float f5, float f6)
             t124 = t66;
             t125 = t67;
         } else {
-            if (((unsigned char)(*(signed char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E))) == 1) && ((t76 = *(int *)(((((0x3 & (t0 + 0x2)) * 0xD78) + (int)Player) + 0xB60)), (t76 & 0x4) != 0) && (t77 = *(int *)((a4 + 0xB60)), (t77 & 0x4) != 0))) {
-                t78 = cpuDistXZ((0xAE8 + (((0x3 & (t0 + 0x2)) * 0xD78) + (int)Player)), (0xBA8 + (((0x3 & (t0 + 0x2)) * 0xD78) + (int)Player)));
+            if (((unsigned char)(*(signed char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12E))) == 1) && ((t76 = *(int *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB60)), (t76 & 0x4) != 0) && (t77 = *(int *)((a4 + 0xB60)), (t77 & 0x4) != 0))) {
+                t78 = cpuDistXZ((0xAE8 + (((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84)), (0xBA8 + (((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84)));
                 t79 = cpuDistXZ((0xAE8 + a4), (0xBA8 + a4));
                 if ((t78 > t79) && (t80 = *(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118)), (int)t80 < (int)0xF)) {
                     t81 = cpuDistXZ((0xAE8 + a4), (0xBA8 + a4));
                     if (!(10.0f > t81)) {
-                        u84 = *(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + (int)Player) + 0xAF0));
+                        u84 = *(float *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0));
                         u85 = *(float *)((a4 + 0xAF0));
                         u86 = (-u84);
                         if (!(0.0f > u84)) {

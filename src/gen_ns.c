@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ns): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -70,7 +69,7 @@ int miniLaunchAimed(int a4, int a5, float f4, float f5, float f6)
     F5 = f5;
     F6 = f6;
     R0 = (0xFFFFFF5C);
-    R14 = ((int)Ball);
+    R14 = (0x8C291F24);
     if (((*(int *)0x8C287C60) == 0)) goto L_8C03A3DA;
     L_8C03A624:;
     return R0;
@@ -90,9 +89,9 @@ int miniLaunchAimed(int a4, int a5, float f4, float f5, float f6)
     if ((t18 == 0)) goto L_8C03A430;
     goto L_8C03A624;
     L_8C03A430:;
-    t21 = (int)Ball;
+    t21 = 0x8C291F24;
     t23 = (((int)stk + 20) + 0x18);
-    for (;;) { t24 = *(int *)t21; t21 = (t21 + 4); if ((unsigned int)(((int)Ball + 140)) < (unsigned int)t21) break; *(unsigned int *)t23 = t24; t23 = (t23 + 4); }
+    for (;;) { t24 = *(int *)t21; t21 = (t21 + 4); if ((unsigned int)((0x8C291F24 + 140)) < (unsigned int)t21) break; *(unsigned int *)t23 = t24; t23 = (t23 + 4); }
     R11 = (0x64);
     R8 = (0x0);
     R9 = (0x8C0ED2B0);
@@ -148,7 +147,7 @@ int miniLaunchAimed(int a4, int a5, float f4, float f5, float f6)
     miniBallCopySpawn();
     t67 = (((int)stk + 20) + 0x18);
     t68 = ((((int)stk + 20) + 0x18) + 140);
-    t69 = (int)Ball;
+    t69 = 0x8C291F24;
     for (;;) { t70 = *(int *)t67; t67 = (t67 + 4); if ((unsigned int)t68 < (unsigned int)t67) break; *(unsigned int *)t69 = t70; t69 = (t69 + 4); }
     nlsndSeqRequest(0x1202A9);
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((int)stk + 32))), F12, ((*(float *)(((int)stk + 40))) + F15));

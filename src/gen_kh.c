@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_kh): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
-extern char charaTbl[];
 
 typedef struct { int w[1]; } Stk1;
 typedef struct { int w[3]; } Stk3;
@@ -45,7 +43,7 @@ void playerMoveToTarget(int a4)
     register float w0_6;
     v0_6 = a4;
     *(unsigned int *)(((int)stk + 60)) = 0x8C287ACC;
-    *(unsigned int *)(((int)stk + 48)) = (int)Ball;
+    *(unsigned int *)(((int)stk + 48)) = 0x8C291F24;
     *(unsigned int *)(((int)stk + 64)) = 0x0;
     *(unsigned int *)(((int)stk + 80)) = 0x0;
     v0_2 = *(int *)((v0_6 + 0xB60));
@@ -143,9 +141,9 @@ void playerMoveToTarget(int a4)
     *(unsigned int *)(((int)stk + 44)) = 0xFFFFFFFF;
     L_8C027430:;
     v0_3 = *(int *)((v0_0 + 0xC58));
-    *(unsigned int *)(((int)stk + 68)) = ((v0_3 * 0x6C) + (int)charaTbl);
-    w0_2 = *(float *)(((((v0_3 * 0x6C) + (int)charaTbl) + 0x28) + 0x4));
-    *(float *)((v0_0 + 0xBDC)) = (((*(float *)(((((v0_3 * 0x6C) + (int)charaTbl) + 0x28) + 0x0))) + w0_2) / w0_1);
+    *(unsigned int *)(((int)stk + 68)) = ((v0_3 * 0x6C) + 0x8C102424);
+    w0_2 = *(float *)(((((v0_3 * 0x6C) + 0x8C102424) + 0x28) + 0x4));
+    *(float *)((v0_0 + 0xBDC)) = (((*(float *)(((((v0_3 * 0x6C) + 0x8C102424) + 0x28) + 0x0))) + w0_2) / w0_1);
     L_8C027450:;
     if (((*(int *)((v0_0 + 0xB58))) != v0_2)) goto L_8C027460;
     if (((*(int *)((v0_0 + 0xCF0))) == 0)) goto L_8C0274AC;

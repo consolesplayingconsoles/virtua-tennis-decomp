@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ui): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 int nlRand(void);
 int serveGetReceiver(void);
@@ -26,7 +25,7 @@ int cpuDblPickTactic(void)
     register int v0_7;
     register int v0_8;
     *(unsigned int *)(((int)stk + 4)) = 0x8C287ACC;
-    *(unsigned int *)(((int)stk + 8)) = (int)Player;
+    *(unsigned int *)(((int)stk + 8)) = 0x8C287D84;
     *(unsigned int *)(((int)stk + 12)) = 0x8C289874;
     v0_0 = (0x0);
     v0_1 = (0x8C2FCC1C);
@@ -37,9 +36,9 @@ int cpuDblPickTactic(void)
     v0_8 = *(int *)(((v0_6 << 2) + ((*(int *)(((int)stk + 4))) + 0x14)));
     v0_7 = (v0_8);
     v0_5 = (v0_3);
-    v0_3 = ((((*(int *)(((((0x3 & (v0_6 + 0x2)) * 0xD78) + (int)Player) + 0xB5C))) * 0x160) + 0x8C2FC69C));
+    v0_3 = ((((*(int *)(((((0x3 & (v0_6 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB5C))) * 0x160) + 0x8C2FC69C));
     v0_4 = (((v0_6 * 0x160) + 0x8C2FC69C));
-    v0_6 = ((((0x3 & (v0_6 + 0x2)) * 0xD78) + (int)Player));
+    v0_6 = ((((0x3 & (v0_6 + 0x2)) * 0xD78) + 0x8C287D84));
     if (!((v0_8 == 1))) goto L_8C05C9DC;
     v0_7 = (serveGetServer()) == (*(int *)(((0xB5C + v0_5) + 0x0)));
     if (v0_7) goto L_8C05C622;

@@ -1,13 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_cd): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gFmMngState[];
-extern char gGdFsGlobalState[];
-extern char gMapleDriver[];
-extern char gPdPeripheralActive[];
-extern char gPdPeripheralSlotWords[];
-extern char gPdPeripheralSlots[];
-extern char gVmsIoInterface[];
-extern char gVmsVolumeStates[];
 
 int DECtoBCD(int);
 extern int _builtin_get_imask(void);
@@ -128,14 +120,14 @@ int write_fat(int a4)
             if ((int)t0 < 0) {
                 return 0xFFFFFF40;
             }
-            *(unsigned int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0xC)) = t0;
-            t7 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x20))), 0x46, t0);
+            *(unsigned int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0xC)) = t0;
+            t7 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x20))), 0x46, t0);
             t0 = 0x0;
             for (;;) {
-                if ((int)t0 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x10)))) {
+                if ((int)t0 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x10)))) {
                     break;
                 }
-                set_fat(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0xC))) + t0), 0xFFFA);
+                set_fat(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0xC))) + t0), 0xFFFA);
                 t0 = (t0 + 0x1);
             }
             t0 = 0x1;
@@ -155,19 +147,19 @@ int pdInitPeripheral(int a4, int a5, int a6)
     int t4;
 
     *(unsigned int *)0x8C45A6AC = a4;
-    *(unsigned int *)(int)gPdPeripheralActive = 0x0;
+    *(unsigned int *)0x8C45A164 = 0x0;
     *(unsigned int *)0x8C45A160 = 0x1;
     *(unsigned int *)0x8C45A168 = 0x0;
-    memset((int)gPdPeripheralSlots, 0x0, 0x4E0);
+    memset(0x8C45A16C, 0x0, 0x4E0);
     if ((a6 != 0) && (a5 != 0)) {
-        *(unsigned int *)(int)gPdPeripheralActive = 0x1;
+        *(unsigned int *)0x8C45A164 = 0x1;
         kdInitSystem(a5, a6);
     }
     t4 = 0x0;
     for (;;) {
-        *(unsigned int *)((((t4 * 0x34) + (int)gPdPeripheralSlots) + 0x30)) = (kdGetDeviceInfo(t4));
-        _pd_peripheral_set_null(((t4 * 0x34) + (int)gPdPeripheralSlots));
-        *(unsigned int *)(((int)gPdPeripheralSlotWords + (t4 << 2))) = 0x0;
+        *(unsigned int *)((((t4 * 0x34) + 0x8C45A16C) + 0x30)) = (kdGetDeviceInfo(t4));
+        _pd_peripheral_set_null(((t4 * 0x34) + 0x8C45A16C));
+        *(unsigned int *)((0x8C45A64C + (t4 << 2))) = 0x0;
         *(unsigned char *)((t4 + 0x8C45A6B2)) = 0x0;
         *(unsigned char *)((t4 + 0x8C45A6CA)) = 0x0;
         t4 = (t4 + 0x1);
@@ -275,8 +267,8 @@ int vmsfs_load_file_ex(int a4, int a5, int a6, int a7, int a8)
     goto L_8C1EEF7A;
     L_8C1EEF7A:;
     t14 = *(int *)(((int)stk + 16));
-    *(unsigned int *)((((R11 * 0x148) + (int)gVmsVolumeStates) + 0x30)) = 0x1;
-    *(unsigned int *)((((R11 * 0x148) + (int)gVmsVolumeStates) + 0x34)) = R13;
+    *(unsigned int *)((((R11 * 0x148) + 0x8C464598) + 0x30)) = 0x1;
+    *(unsigned int *)((((R11 * 0x148) + 0x8C464598) + 0x34)) = R13;
     vmsfs_fseek((*(int *)(((int)stk + 4))), (*(int *)(((int)stk + 8))), 0x0, R7);
     R11 = (0x0);
     R12 = (t14);
@@ -519,18 +511,18 @@ int gdFsReqDrvStatG(void)
     int t13;
     int t16;
 
-    t2 = gdFsReopenHn((*(int *)(((*(int *)(int)gGdFsGlobalState) + 0x14))), 0x0, 0x0, 0x0);
+    t2 = gdFsReopenHn((*(int *)(((*(int *)0x8C20C204) + 0x14))), 0x0, 0x0, 0x0);
     t18 = 0xFFFFFFF3;
     if (t2 != 0) {
         t3 = _builtin_get_imask();
         _builtin_set_imask(0xF);
-        t8 = ((int (*)(int, int, int))((*(int *)(((*(int *)(((*(int *)(int)gGdFsGlobalState) + 0xC))) + 0x3C)))))(0x1, 0xE, ((*(int *)(int)gGdFsGlobalState) + 0x40));
+        t8 = ((int (*)(int, int, int))((*(int *)(((*(int *)(((*(int *)0x8C20C204) + 0xC))) + 0x3C)))))(0x1, 0xE, ((*(int *)0x8C20C204) + 0x40));
         if (t8 != 0) {
             *(unsigned int *)((t2 + 0x3C)) = t8;
             *(unsigned short *)((t2 + 0x50)) = 0x4;
             *(unsigned short *)((t2 + 0x48)) = 0xA;
             *(unsigned int *)(((*(int *)((t2 + 0x0))) + 0x1C)) = t2;
-            t13 = ((int (*)(void))((*(int *)(((*(int *)(((*(int *)(int)gGdFsGlobalState) + 0xC))) + 0x40)))))();
+            t13 = ((int (*)(void))((*(int *)(((*(int *)(((*(int *)0x8C20C204) + 0xC))) + 0x40)))))();
         }
         _builtin_set_imask(((unsigned int)(((t3 & 0xF) << 2) << 2) >> 4));
         t16 = 0x0;
@@ -559,7 +551,7 @@ int check_file_correct(int a4, int a5)
     if ((int)t0 >= 0) {
         direntry(a4, t0);
         t3 = *(int *)(((int)stk + 16));
-        if ((int)t3 < (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x30)))) {
+        if ((int)t3 < (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30)))) {
             t5 = t3;
             t6 = 0x0;
             for (;;) {
@@ -575,7 +567,7 @@ int check_file_correct(int a4, int a5)
                     t5 = (unsigned short)t8;
                     continue;
                 }
-                if (((unsigned short)t8 != t5) && (((unsigned short)t8 != 0xFFFA) && (((unsigned short)t8 != 0xFFFC) && (((unsigned short)t8 != 0xFFFF) && (t12 = *(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C)), t13 = *(int *)((t12 + 0x30)), (int)(unsigned short)t8 < (int)t13))))) {
+                if (((unsigned short)t8 != t5) && (((unsigned short)t8 != 0xFFFA) && (((unsigned short)t8 != 0xFFFC) && (((unsigned short)t8 != 0xFFFF) && (t12 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C)), t13 = *(int *)((t12 + 0x30)), (int)(unsigned short)t8 < (int)t13))))) {
                     t6 = (t6 + 0x1);
                     t5 = (unsigned short)t8;
                     continue;
@@ -665,15 +657,15 @@ int vmsfs_getvolume(int a4, int a5)
 
     *(unsigned int *)(((int)stk + 8)) = a5;
     *(unsigned int *)(((int)stk + 12)) = (a4 * 0x148);
-    *(unsigned int *)(((int)stk + 4)) = ((a4 * 0x148) + (int)gVmsVolumeStates);
-    if ((*(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x2))) != 0) {
+    *(unsigned int *)(((int)stk + 4)) = ((a4 * 0x148) + 0x8C464598);
+    if ((*(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x2))) != 0) {
         t1 = vmsio_isready(a4);
         if (t1 == 0) {
             vmsfs_unmount(a4);
             return 0xFFFFFF01;
         }
         t3 = vmsio_ismount(a4);
-        if ((t3 != 0) && (t4 = *(int *)(((int)stk + 12)), t5 = *(signed char *)(((t4 + (int)gVmsVolumeStates) + 0x8)), t5 != 0)) {
+        if ((t3 != 0) && (t4 = *(int *)(((int)stk + 12)), t5 = *(signed char *)(((t4 + 0x8C464598) + 0x8)), t5 != 0)) {
             t6 = buIsFormat(a4);
             if ((int)t6 < 0) {
                 return 0xFFFFFF03;
@@ -713,7 +705,7 @@ int fmMngFormat(int formatMode, int a5, int a6)
     int cacheReadResult;
     int cacheReadStatus;
 
-    managerAddress = *(int *)(int)gFmMngState;
+    managerAddress = *(int *)0x8C20CA44;
     formatResult = 0xFFFFFFF5;
     if (managerAddress == 0) {
     } else {
@@ -723,17 +715,17 @@ int fmMngFormat(int formatMode, int a5, int a6)
             eraseAndRebuildResult = 0xFFFFFFFD;
             if (eraseResult != 0) {
             } else {
-                headerManagerAddress = *(int *)(int)gFmMngState;
+                headerManagerAddress = *(int *)0x8C20CA44;
                 thunk_fmMngCopyBytes();
-                *(unsigned short *)(((*(int *)(int)gFmMngState) + 0x2)) = formatMode;
+                *(unsigned short *)(((*(int *)0x8C20CA44) + 0x2)) = formatMode;
                 *(unsigned char *)(((headerManagerAddress + 0x34) + 0x11)) = formatMode;
-                *(unsigned char *)(((headerManagerAddress + 0x34) + 0x10)) = (*(signed char *)(((*(int *)(int)gFmMngState) + 0x0)));
-                headerWriteByteCount = syBtFlWrite((*(int *)(((*(int *)(int)gFmMngState) + 0x4))), (headerManagerAddress + 0x34), 0x12);
+                *(unsigned char *)(((headerManagerAddress + 0x34) + 0x10)) = (*(signed char *)(((*(int *)0x8C20CA44) + 0x0)));
+                headerWriteByteCount = syBtFlWrite((*(int *)(((*(int *)0x8C20CA44) + 0x4))), (headerManagerAddress + 0x34), 0x12);
                 cacheRebuildResult = 0xFFFFFFFE;
                 if (headerWriteByteCount != 18) {
                 } else {
-                    fmMngClearBuf((*(int *)(((*(int *)(int)gFmMngState) + 0xC))), (*(int *)(((*(int *)(int)gFmMngState) + 0x8))));
-                    cacheReadResult = fmMngReadSctAllData((*(int *)(int)gFmMngState));
+                    fmMngClearBuf((*(int *)(((*(int *)0x8C20CA44) + 0xC))), (*(int *)(((*(int *)0x8C20CA44) + 0x8))));
+                    cacheReadResult = fmMngReadSctAllData((*(int *)0x8C20CA44));
                     cacheReadStatus = 0x0;
                     if (cacheReadResult != 0) {
                         cacheReadStatus = cacheReadResult;
@@ -756,13 +748,13 @@ int gdFsGetTocG(int a4, int a5)
     int t7;
     int t15;
 
-    t2 = gdFsReopenHn((*(int *)(((*(int *)(int)gGdFsGlobalState) + 0x14))), 0x0, 0x0, 0x0);
+    t2 = gdFsReopenHn((*(int *)(((*(int *)0x8C20C204) + 0x14))), 0x0, 0x0, 0x0);
     if (t2 == 0) {
         return 0xFFFFFFF3;
     }
     t3 = _builtin_get_imask();
     _builtin_set_imask(0xF);
-    t7 = ((int (*)(int, int))((*(int *)(((*(int *)(((*(int *)(int)gGdFsGlobalState) + 0xC))) + 0x38)))))(a4, a5);
+    t7 = ((int (*)(int, int))((*(int *)(((*(int *)(((*(int *)0x8C20C204) + 0xC))) + 0x38)))))(a4, a5);
     if (t7 != 0) {
         *(unsigned int *)((t2 + 0x3C)) = t7;
         *(unsigned short *)((t2 + 0x50)) = 0x4;
@@ -789,7 +781,7 @@ int vmsfs_isformat(int a4, int a5, int a6, int a7)
     int t4;
 
     t26 = 0xFFFFFF01;
-    if ((*(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x2))) != 0) {
+    if ((*(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x2))) != 0) {
         t1 = vmsio_isready(a4);
         if (t1 == 0) {
             vmsfs_unmount(a4);
@@ -797,8 +789,8 @@ int vmsfs_isformat(int a4, int a5, int a6, int a7)
         } else {
             t3 = vmsio_ismount(a4);
             t12 = 0xFFFFFF01;
-            if ((t3 != 0) && (t4 = *(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x8)), t4 != 0)) {
-                t6 = (*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x20)));
+            if ((t3 != 0) && (t4 = *(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x8)), t4 != 0)) {
+                t6 = (*(int *)((((a4 * 0x148) + 0x8C464598) + 0x20)));
                 t7 = 0x0;
                 for (;;) {
                     if ((unsigned char)(*(signed char *)((t6 + 0x0))) != 85) {
@@ -813,8 +805,8 @@ int vmsfs_isformat(int a4, int a5, int a6, int a7)
                         return 0x0;
                     }
                 }
-                *(unsigned char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0xB)) = 0x0;
-                *(unsigned char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0xC)) = 0x0;
+                *(unsigned char *)((((a4 * 0x148) + 0x8C464598) + 0xB)) = 0x0;
+                *(unsigned char *)((((a4 * 0x148) + 0x8C464598) + 0xC)) = 0x0;
                 t12 = 0xFFFFFF03;
             }
             t19 = t12;
@@ -901,7 +893,7 @@ int mpdrv_frame_recv_main(int a4)
         t0 = 0x8C20B030;
         t1 = 0xF90;
         t2 = (*(int *)(((t7 << 2) + t0)));
-        t0 = (*(int *)(int)gMapleDriver);
+        t0 = (*(int *)0x8C47317C);
         t1 = (t1 + t0);
         t2 = (t2 + t1);
         if ((*(signed char *)((t2 + 0x0))) != 0) {
@@ -915,7 +907,7 @@ int mpdrv_frame_recv_main(int a4)
             t5 = t3;
             t6 = t3;
             for (;;) {
-                t0 = (*(int *)(int)gMapleDriver);
+                t0 = (*(int *)0x8C47317C);
                 t2 = (*(signed char *)((((0xF90 + t0) + t5) + 0x0)));
                 if (t2 != 0) {
                     t3 = t6;
@@ -950,7 +942,7 @@ int fmMngExecServer(int a4, int a5, int a6)
     int writeResult;
     int readResult;
 
-    managerAddress = *(int *)(int)gFmMngState;
+    managerAddress = *(int *)0x8C20CA44;
     managerStatus = 0x0;
     if (managerAddress == 0) {
     } else {
@@ -959,31 +951,31 @@ int fmMngExecServer(int a4, int a5, int a6)
             if (pendingOperation != 1) {
                 if (pendingOperation != 2) {
                     *(unsigned int *)((managerAddress + 0x1C)) = 0x0;
-                    *(unsigned int *)(((*(int *)(int)gFmMngState) + 0x20)) = 0x0;
+                    *(unsigned int *)(((*(int *)0x8C20CA44) + 0x20)) = 0x0;
                 } else {
                     writeResult = fmMngWriteData(managerAddress, a5, a6);
                     if (writeResult != 1) {
-                        *(unsigned int *)(((*(int *)(int)gFmMngState) + 0x1C)) = 0x0;
+                        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x1C)) = 0x0;
                         if (writeResult != 0) {
-                            *(unsigned int *)(((*(int *)(int)gFmMngState) + 0x20)) = 0x3;
+                            *(unsigned int *)(((*(int *)0x8C20CA44) + 0x20)) = 0x3;
                         } else {
-                            *(unsigned int *)(((*(int *)(int)gFmMngState) + 0x20)) = 0x1;
+                            *(unsigned int *)(((*(int *)0x8C20CA44) + 0x20)) = 0x1;
                         }
-                        *(unsigned int *)(((*(int *)(int)gFmMngState) + 0x2C)) = writeResult;
+                        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x2C)) = writeResult;
                     }
                 }
             } else {
                 readResult = fmMngReadData(managerAddress);
-                *(unsigned int *)(((*(int *)(int)gFmMngState) + 0x1C)) = 0x0;
+                *(unsigned int *)(((*(int *)0x8C20CA44) + 0x1C)) = 0x0;
                 if (readResult != 0) {
-                    *(unsigned int *)(((*(int *)(int)gFmMngState) + 0x20)) = 0x3;
+                    *(unsigned int *)(((*(int *)0x8C20CA44) + 0x20)) = 0x3;
                 } else {
-                    *(unsigned int *)(((*(int *)(int)gFmMngState) + 0x20)) = 0x1;
+                    *(unsigned int *)(((*(int *)0x8C20CA44) + 0x20)) = 0x1;
                 }
-                *(unsigned int *)(((*(int *)(int)gFmMngState) + 0x2C)) = readResult;
+                *(unsigned int *)(((*(int *)0x8C20CA44) + 0x2C)) = readResult;
             }
         }
-        managerStatus = (*(int *)(((*(int *)(int)gFmMngState) + 0x20)));
+        managerStatus = (*(int *)(((*(int *)0x8C20CA44) + 0x20)));
     }
     return managerStatus;
 }

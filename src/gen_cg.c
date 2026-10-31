@@ -1,9 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_cg): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gBuBlockTableA[];
-extern char gBuBlockTableB[];
-extern char gDisplayFilterUsesSharedFrameBuffer[];
-extern char gMapleDriver[];
 
 typedef struct { int w[3]; } Stk3;
 int ADXB_GetDecDtLen(int);
@@ -322,8 +318,8 @@ int buAnalyzeBackupFileImage(int a4, int a5)
 
     t45 = 0xFFFFFF21;
     if (((*(short *)((a5 + 0x40))) != 0) && ((t1 = *(short *)((a5 + 0x40)), (int)(unsigned short)t1 <= (int)0x3) && ((t2 = *(short *)((a5 + 0x44)), (int)(unsigned short)t2 <= (int)0x3) && (t3 = *(int *)((a5 + 0x48)), (unsigned int)t3 <= (unsigned int)0xE1000)))) {
-        t5 = *(int *)((((unsigned short)(*(short *)((a5 + 0x40))) << 2) + (int)gBuBlockTableA));
-        t7 = *(int *)((((unsigned short)(*(short *)((a5 + 0x44))) << 2) + (int)gBuBlockTableB));
+        t5 = *(int *)((((unsigned short)(*(short *)((a5 + 0x40))) << 2) + 0x8C20C220));
+        t7 = *(int *)((((unsigned short)(*(short *)((a5 + 0x44))) << 2) + 0x8C20C230));
         t8 = *(int *)((a5 + 0x48));
         t37 = 0xFFFFFF21;
         if ((unsigned int)(((t5 + t7) + t8) + 0x80) > (unsigned int)0xE1000) {
@@ -764,9 +760,9 @@ int kmSetDisplayMode(int a4, int a5, int a6, int a7)
         kmyGetDefaultFilterMode((*(int *)0x8C45EFD0), (*(int *)(((int)stk + 12))), 0x8C45EFD8, 0x8C45EFE4);
         t16 = *(int *)0x8C45EFE4;
         if ((t16 != 2) && ((t16 != 10) && (((int)t16 < (int)0x1E) || ((int)t16 > (int)0x22)))) {
-            *(unsigned int *)(int)gDisplayFilterUsesSharedFrameBuffer = 0x0;
+            *(unsigned int *)0x8C45EFEC = 0x0;
         } else {
-            *(unsigned int *)(int)gDisplayFilterUsesSharedFrameBuffer = 0x1;
+            *(unsigned int *)0x8C45EFEC = 0x1;
         }
         *(unsigned int *)0x8C45EFE0 = ((*(int *)0x8C45EFE0) | 0x3);
         kmyWaitVBlank(t16);
@@ -789,9 +785,9 @@ int kmSetDisplayMode(int a4, int a5, int a6, int a7)
             kmyGetDefaultFilterMode((*(int *)0x8C45EFD0), (*(int *)(((int)stk + 12))), 0x8C45EFD8, 0x8C45EFE4);
             t31 = *(int *)0x8C45EFE4;
             if ((t31 != 2) && ((t31 != 10) && (((int)t31 < (int)0x1E) || ((int)t31 > (int)0x22)))) {
-                *(unsigned int *)(int)gDisplayFilterUsesSharedFrameBuffer = 0x0;
+                *(unsigned int *)0x8C45EFEC = 0x0;
             } else {
-                *(unsigned int *)(int)gDisplayFilterUsesSharedFrameBuffer = 0x1;
+                *(unsigned int *)0x8C45EFEC = 0x1;
             }
             *(unsigned int *)0x8C45EFE0 = ((*(int *)0x8C45EFE0) | 0x3);
             kmyWaitVBlank(t31);
@@ -847,7 +843,7 @@ int mpdrv_make_exdevicedata(int a4, int a5, int a6, int a7, int a8)
                     *(unsigned char *)((a7 + 0x4)) = 0x0;
                 } else {
                     *(unsigned int *)((a7 + 0x24)) = ((*(int *)((a7 + 0x24))) + 0x1);
-                    if ((unsigned int)(*(int *)((a7 + 0x24))) <= (unsigned int)(*(int *)(((*(int *)(int)gMapleDriver) + 0x10D8)))) {
+                    if ((unsigned int)(*(int *)((a7 + 0x24))) <= (unsigned int)(*(int *)(((*(int *)0x8C47317C) + 0x10D8)))) {
                         *(unsigned char *)((a7 + 0x4)) = 0x1;
                     } else {
                         *(unsigned char *)((a7 + 0x0)) = 0x0;
@@ -872,7 +868,7 @@ int mpdrv_make_exdevicedata(int a4, int a5, int a6, int a7, int a8)
         *(unsigned char *)((a7 + 0x4)) = 0xFF;
         *(unsigned char *)((a7 + 0x0)) = 0x0;
     }
-    if (((*(signed char *)((a7 + 0x0))) != 0) && ((t62 = *(signed char *)((a7 + 0x7)), t62 != 0) && (t63 = *(int *)(int)gMapleDriver, t64 = *(int *)((0x10C4 + t63)), t64 == 1))) {
+    if (((*(signed char *)((a7 + 0x0))) != 0) && ((t62 = *(signed char *)((a7 + 0x7)), t62 != 0) && (t63 = *(int *)0x8C47317C, t64 = *(int *)((0x10C4 + t63)), t64 == 1))) {
         t68 = *(int *)((a8 + 0x0));
         if ((t68 != -1) && (t68 != 0xFFFFFF00)) {
             mpdrv_swaplong(a8, ((unsigned char)(*(int *)((a8 + 0x0))) + 0x1));

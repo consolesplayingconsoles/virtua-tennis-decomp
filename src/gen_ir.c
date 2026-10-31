@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ir): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gPaletteData[];
 
 int nlSetPaletteData(int a4, int a5, int a6);
 
@@ -23,7 +22,7 @@ int nlSetPaletteData(int a4, int a5, int a6)
             t4 = *(short *)((t2 + 0x0));
             t2 = (t2 + 0x2);
             t3 = (t3 - 0x1);
-            *(unsigned short *)((t1 + (int)gPaletteData)) = t4;
+            *(unsigned short *)((t1 + 0x8C458EA0)) = t4;
             t1 = (t1 + 0x4);
             if (t3 == 0) {
                 break;
@@ -39,7 +38,7 @@ int nlSetPaletteData(int a4, int a5, int a6)
         t8 = *(int *)((t6 + 0x0));
         t6 = (t6 + 0x4);
         t7 = (t7 - 0x1);
-        *(unsigned int *)((t5 + (int)gPaletteData)) = t8;
+        *(unsigned int *)((t5 + 0x8C458EA0)) = t8;
         t5 = (t5 + 0x4);
         if (t7 == 0) {
             break;

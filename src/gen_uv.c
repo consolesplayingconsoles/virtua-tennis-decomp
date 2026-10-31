@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_uv): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -59,8 +57,8 @@ int hudPlayerMarkers(void)
     w0_1 = (0.00200000009f);
     L_8C09629A:;
     if (((int)v0_1 >= (int)(*(int *)0x8C287ADC))) goto L_8C0962A6;
-    v0_6 = (((v0_1 * 0xD78) + (int)Player));
-    if ((((*(int *)((((v0_1 * 0xD78) + (int)Player) + 0xB60))) & 0x40000) == 0)) goto L_8C096134;
+    v0_6 = (((v0_1 * 0xD78) + 0x8C287D84));
+    if ((((*(int *)((((v0_1 * 0xD78) + 0x8C287D84) + 0xB60))) & 0x40000) == 0)) goto L_8C096134;
     if (((*(int *)((v0_6 + 0xB68))) != 5)) goto L_8C096134;
     *(unsigned int *)0x8C1850A0 = v0_4;
     L_8C096134:;
@@ -69,7 +67,7 @@ int hudPlayerMarkers(void)
     R0 = (v0_5);
     v0_5 = (v0_5);
     if (((*(int *)0x8C287C60) != 0)) goto L_8C096188;
-    v0_7 = *(int *)((((*(int *)((v0_6 + 0xB64))) << 2) + (int)padPeri));
+    v0_7 = *(int *)((((*(int *)((v0_6 + 0xB64))) << 2) + 0x8C29B898));
     *(unsigned int *)(((int)stk + 48)) = v0_7;
     t28 = *(int *)((v0_7 + 0x10));
     R4 = (t28);
@@ -78,10 +76,10 @@ int hudPlayerMarkers(void)
     L_8C096164:;
     *(unsigned int *)((v0_2 + (*(int *)(((int)stk + 40))))) = 0x1;
     L_8C09616A:;
-    v0_7 = *(int *)((((*(int *)((v0_6 + 0xB64))) << 2) + (int)padPeri));
+    v0_7 = *(int *)((((*(int *)((v0_6 + 0xB64))) << 2) + 0x8C29B898));
     *(unsigned int *)(((int)stk + 44)) = v0_7;
     t35 = *(int *)((v0_7 + 0x10));
-    R0 = ((int)padPeri);
+    R0 = (0x8C29B898);
     R4 = (t35);
     if (((0x10 & t35) != 0)) goto L_8C096184;
     if (((0x40 & R4) == 0)) goto L_8C096188;

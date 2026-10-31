@@ -1,8 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_qq): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gNlCommonTextureOffset[];
-extern char gNlPaletteCount[];
-extern char gNlPaletteTable[];
 
 int nlFreePalette(int, int, int, int);
 int nlSearchPalette(int, int);
@@ -23,7 +20,7 @@ int nlSpriteChangePalette(int a4, int a5, int a6, int a7)
     register int t8;
     register int t9;
 
-    t0 = *(short *)((((a4 + (*(int *)(int)gNlCommonTextureOffset)) << 1) + (*(int *)0x8C454C80)));
+    t0 = *(short *)((((a4 + (*(int *)0x8C458DCC)) << 1) + (*(int *)0x8C454C80)));
     t1 = *(int *)0x8C454C90;
     t2 = *(int *)((((((t0 << 2) << 2) << 1) + t1) + 0xC));
     if ((*(int *)0x8C1DC888) != 0) {
@@ -38,9 +35,9 @@ int nlSpriteChangePalette(int a4, int a5, int a6, int a7)
             t2 = *(short *)((((((t0 << 2) << 2) << 1) + t1) + 0x16));
             nlFreePalette((unsigned short)t2, a5, a6, a7);
             *(unsigned short *)((((((t0 << 2) << 2) << 1) + t1) + 0x16)) = 0xFFFF;
-            if ((int)a5 < (int)(*(short *)(int)gNlPaletteCount)) {
+            if ((int)a5 < (int)(*(short *)0x8C458E24)) {
                 *(unsigned short *)((((((t0 << 2) << 2) << 1) + t1) + 0x16)) = a5;
-                t4 = *(int *)(int)gNlPaletteTable;
+                t4 = *(int *)0x8C458E38;
                 t5 = *(int *)0x8C450BF8;
                 if ((*(short *)(((t4 + ((a5 << 2) << 1)) + 0x4))) != 0) {
                     *(unsigned short *)(((t4 + ((a5 << 2) << 1)) + 0x4)) = ((*(short *)(((t4 + ((a5 << 2) << 1)) + 0x4))) + 0x1);

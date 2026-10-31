@@ -1,9 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_qw): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gNlFontHeight[];
-extern char gNlFontWidth[];
-extern char gNlPrintFlags[];
-extern char gNlPrintTileClipFlags[];
 
 extern void _builtin_prefetch(void *);
 int nlCharacter(int, int, int, int);
@@ -45,13 +41,13 @@ int nlPuts(int a4)
     int T_;
     R4 = a4;
     R12 = (R4);
-    R4 = ((int)gNlPrintTileClipFlags);
+    R4 = (0x8C44F9AC);
     if (((*(int *)0x8C44F9C0) == 0)) goto L_8C0EDB50;
     R5 = (0x0);
     L_8C0EDB52:;
     *(unsigned int *)(((int)stk + 4)) = (R5 << 2);
     t6 = *(int *)(((R5 << 2) + (*(int *)0x8C42445C)));
-    t7 = *(int *)(int)gNlPrintFlags;
+    t7 = *(int *)0x8C44F950;
     t8 = *(int *)0x8C44F954;
     t9 = *(int *)0x8C44F958;
     *(unsigned int *)0xFF000038 = ((unsigned int)((unsigned int)t6 >> 16) >> 8);
@@ -87,7 +83,7 @@ int nlPuts(int a4)
     if ((T_)) goto L_8C0EDBBA;
     R14 = (R5);
     L_8C0EDBBA:;
-    R11 = ((R11 + (*(int *)(int)gNlFontHeight)));
+    R11 = ((R11 + (*(int *)0x8C44F960)));
     L_8C0EDC52:;
     R12 = ((R12 + 0x1));
     goto L_8C0EDC54;
@@ -100,7 +96,7 @@ int nlPuts(int a4)
     L_8C0EDC40:;
     R13 = ((nlCharacter(R14, R11, (*(signed char *)((R12 + 0x0))), R13)));
     L_8C0EDC4C:;
-    R14 = ((R14 + (*(int *)(int)gNlFontWidth)));
+    R14 = ((R14 + (*(int *)0x8C44F95C)));
     goto L_8C0EDC52;
     L_8C0EDB50:;
     R5 = (0x2);

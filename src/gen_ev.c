@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ev): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 int cpuAimPointSet(int, int, float, float);
 int ndbIsValid(void);
@@ -78,10 +77,10 @@ int ndbGetTargets(int a4, int a5, int a6)
     R6 = a6;
     *(unsigned int *)(((int)stk + 8)) = R6;
     t0 = *(int *)((R4 + 0xB5C));
-    t1 = *(int *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB5C));
+    t1 = *(int *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB5C));
     *(unsigned int *)(((int)stk + 16)) = R5;
     R10 = (R5);
-    R13 = ((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player));
+    R13 = ((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84));
     R14 = (R4);
     R9 = (((t1 * 0x160) + 0x8C2FC69C));
     if (((*(int *)0x8C421F60) != 0)) goto L_8C081952;

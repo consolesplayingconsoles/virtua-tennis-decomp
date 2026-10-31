@@ -1,12 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ar): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gGdFsGlobalState[];
-extern char gNlCommonTextureOffset[];
-extern char gNlPaletteCount[];
-extern char gNlSoundStreams[];
-extern char gNlTextureSurfaces[];
-extern char gVmsIoInterface[];
-extern char gVmsVolumeStates[];
 
 typedef struct { int w[3]; } Stk3;
 int ADXPD_GetStat(int);
@@ -110,7 +103,7 @@ int write_dir(int a4, int a5, int a6, int a7)
     int t6;
     int stk[12];
 
-    t0 = *(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C));
+    t0 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C));
     t2 = *(int *)((t0 + 0x14));
     *(unsigned int *)(((int)stk + 8)) = (*(int *)((t0 + 0x18)));
     *(unsigned int *)(((int)stk + 12)) = 0x0;
@@ -131,10 +124,10 @@ int write_dir(int a4, int a5, int a6, int a7)
             }
             return 0x0;
         }
-        if ((*(signed char *)((((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x48) + t4) + 0x0))) != 0) {
+        if ((*(signed char *)((((((a4 * 0x148) + 0x8C464598) + 0x48) + t4) + 0x0))) != 0) {
             *(unsigned int *)(((int)stk + 4)) = ((t4 << 8) << 1);
             for (;;) {
-                t17 = vmsfs_write_retry(a4, t7, ((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x28))) + (*(int *)(((int)stk + 4)))));
+                t17 = vmsfs_write_retry(a4, t7, ((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x28))) + (*(int *)(((int)stk + 4)))));
                 if (t17 == 0) {
                     break;
                 }
@@ -148,7 +141,7 @@ int write_dir(int a4, int a5, int a6, int a7)
                     }
                     set_fat(a4, t6, t5);
                     if (t4 == 0) {
-                        t25 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x20))), 0x4A, t6);
+                        t25 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x20))), 0x4A, t6);
                     } else {
                         set_fat(a4, t3, t6);
                     }
@@ -160,7 +153,7 @@ int write_dir(int a4, int a5, int a6, int a7)
             }
             t29 = ((int (*)(int, int))(get_fat))(a4, t7);
             t3 = t7;
-            *(unsigned char *)((((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x48) + t4) + 0x0)) = 0x0;
+            *(unsigned char *)((((((a4 * 0x148) + 0x8C464598) + 0x48) + t4) + 0x0)) = 0x0;
             t5 = (unsigned short)t29;
             t7 = t5;
             t4 = (t4 + 0x1);
@@ -190,13 +183,13 @@ int nlsndStreamStop(int a4)
     int t13;
     int t14;
 
-    t0 = *(signed char *)(((int)gNlSoundStreams + ((short)a4 * (short)0x1C)));
+    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
     t29 = t0;
     if (t0 == 1) {
-        t2 = *(signed char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x1));
+        t2 = *(signed char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x1));
         t22 = t2;
         if (t2 != 0) {
-            t3 = *(int *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x14));
+            t3 = *(int *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x14));
             t4 = 0x0;
             for (;;) {
                 t5 = nlsndG2Read(t3);
@@ -213,7 +206,7 @@ int nlsndStreamStop(int a4)
                 nlsndG2Write(t4, (t6 | 0xA0000000));
                 t9 = nlsndG2Read((((((((short)a4 << 1) + (short)a4) << 2) << 2) << 1) + 0xA0800128));
                 if ((t9 & 0x300) == 0x100) {
-                    t10 = *(int *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x14));
+                    t10 = *(int *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x14));
                     t11 = 0x0;
                     for (;;) {
                         t12 = nlsndG2Read((t10 + 0x4));
@@ -230,21 +223,21 @@ int nlsndStreamStop(int a4)
                         t4 = (t4 | 0x8000);
                         nlsndG2Write(t4, (t6 | 0xA0000000));
                         nlsndSeqRequest((((((short)a4 << 8) << 2) << 2) + 0x2A1));
-                        *(unsigned char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x1)) = 0x0;
+                        *(unsigned char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x1)) = 0x0;
                         return 0x0;
                     }
                     nlsndSeqRequest((((((short)a4 << 8) << 2) << 2) + 0x2A1));
-                    *(unsigned char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x1)) = 0x0;
+                    *(unsigned char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x1)) = 0x0;
                     return 0x0;
                 }
                 t4 = (t4 | 0x8000);
                 nlsndG2Write(t4, (t6 | 0xA0000000));
                 nlsndSeqRequest((((((short)a4 << 8) << 2) << 2) + 0x2A1));
-                *(unsigned char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x1)) = 0x0;
+                *(unsigned char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x1)) = 0x0;
                 return 0x0;
             }
             nlsndSeqRequest((((((short)a4 << 8) << 2) << 2) + 0x2A1));
-            *(unsigned char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x1)) = 0x0;
+            *(unsigned char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x1)) = 0x0;
             t22 = 0x0;
         }
         t29 = t22;
@@ -898,7 +891,7 @@ int nlSpriteFreeTextureOnce_Sub(int a4, int a5, int a6, int a7)
     R6 = ((*(int *)((R4 + 0xC))));
     goto L_8C0F4002;
     L_8C0F4002:;
-    t5 = *(int *)(int)gNlCommonTextureOffset;
+    t5 = *(int *)0x8C458DCC;
     *(unsigned int *)(((int)stk + 4)) = (R6 + t5);
     R13 = (0x8C4241C0);
     R14 = ((((R6 + t5) << 2) << 1));
@@ -912,9 +905,9 @@ int nlSpriteFreeTextureOnce_Sub(int a4, int a5, int a6, int a7)
     L_8C0F4032:;
     t17 = *(int *)((((*(int *)((R13 + 0x0))) + R14) + 0x4));
     R10 = (t17);
-    R11 = ((int)gNlTextureSurfaces);
+    R11 = (0x8C458608);
     R12 = ((t17 * 0x3C));
-    if (((*(int *)((((*(int *)(int)gNlTextureSurfaces) + (t17 * 0x3C)) + 0x28))) != 0)) goto L_8C0F4070;
+    if (((*(int *)((((*(int *)0x8C458608) + (t17 * 0x3C)) + 0x28))) != 0)) goto L_8C0F4070;
     goto L_8C0F404A;
     L_8C0F404A:;
     t25 = kmFreeTexture(((*(int *)((R11 + 0x0))) + R12));
@@ -953,7 +946,7 @@ int nlSpriteFreeTextureOnce_Sub(int a4, int a5, int a6, int a7)
     if ((R5 != 6)) goto L_8C0F40EA;
     goto L_8C0F40DC;
     L_8C0F40DC:;
-    if (((int)R4 >= (int)(*(short *)(int)gNlPaletteCount))) goto L_8C0F40EA;
+    if (((int)R4 >= (int)(*(short *)0x8C458E24))) goto L_8C0F40EA;
     goto L_8C0F40E4;
     L_8C0F40E4:;
     nlFreePalette(R4, R5, R6, R7);
@@ -976,7 +969,7 @@ int gdFsInitG(int a4, int a5, int a6, int a7, int a8)
     int t24;
     int t1;
 
-    t0 = *(int *)(int)gGdFsGlobalState;
+    t0 = *(int *)0x8C20C204;
     if ((t0 != 0) && (t1 = *(short *)((t0 + 0x38)), t1 == 1)) {
         return 0x0;
     }
@@ -987,35 +980,35 @@ int gdFsInitG(int a4, int a5, int a6, int a7, int a8)
     t4 = ((int (*)(void))((*(int *)((t2 + 0x0)))))();
     t5 = _builtin_get_imask();
     _builtin_set_imask(0xF);
-    *(unsigned int *)(int)gGdFsGlobalState = a5;
+    *(unsigned int *)0x8C20C204 = a5;
     *(unsigned short *)((a5 + 0x38)) = 0x0;
-    *(unsigned int *)(((*(int *)(int)gGdFsGlobalState) + 0x20)) = 0x0;
-    *(unsigned int *)(((*(int *)(int)gGdFsGlobalState) + 0x0)) = a4;
-    *(unsigned int *)((((*(int *)(int)gGdFsGlobalState) + 0x10) + 0x0)) = (gdFsCreateDirhn(a7, a6));
-    *(unsigned int *)(((*(int *)(int)gGdFsGlobalState) + 0xC)) = t2;
-    *(unsigned int *)(((*(int *)(int)gGdFsGlobalState) + 0x1C)) = 0x0;
-    *(unsigned short *)(((*(int *)(int)gGdFsGlobalState) + 0x3A)) = 0x0;
-    *(unsigned int *)(((*(int *)(int)gGdFsGlobalState) + 0x24)) = 0x0;
-    *(unsigned int *)(((*(int *)(int)gGdFsGlobalState) + 0x34)) = 0x0;
-    *(unsigned int *)(((*(int *)(int)gGdFsGlobalState) + 0x3C)) = a8;
+    *(unsigned int *)(((*(int *)0x8C20C204) + 0x20)) = 0x0;
+    *(unsigned int *)(((*(int *)0x8C20C204) + 0x0)) = a4;
+    *(unsigned int *)((((*(int *)0x8C20C204) + 0x10) + 0x0)) = (gdFsCreateDirhn(a7, a6));
+    *(unsigned int *)(((*(int *)0x8C20C204) + 0xC)) = t2;
+    *(unsigned int *)(((*(int *)0x8C20C204) + 0x1C)) = 0x0;
+    *(unsigned short *)(((*(int *)0x8C20C204) + 0x3A)) = 0x0;
+    *(unsigned int *)(((*(int *)0x8C20C204) + 0x24)) = 0x0;
+    *(unsigned int *)(((*(int *)0x8C20C204) + 0x34)) = 0x0;
+    *(unsigned int *)(((*(int *)0x8C20C204) + 0x3C)) = a8;
     t17 = 0x3A;
-    t18 = ((*(int *)(int)gGdFsGlobalState) + 0x1080);
+    t18 = ((*(int *)0x8C20C204) + 0x1080);
     t19 = 0x0;
     for (;;) {
-        if ((int)t19 >= (int)((*(int *)(((*(int *)(int)gGdFsGlobalState) + 0x0))) + 0x1)) {
+        if ((int)t19 >= (int)((*(int *)(((*(int *)0x8C20C204) + 0x0))) + 0x1)) {
             break;
         }
         t17 = 0x4C;
         *(unsigned short *)((t18 + t17)) = 0x0;
         t19 = (t19 + 0x1);
-        *(unsigned int *)((t18 + 0x0)) = (*(int *)(int)gGdFsGlobalState);
+        *(unsigned int *)((t18 + 0x0)) = (*(int *)0x8C20C204);
         t18 = (t18 + 0x54);
     }
-    t23 = *(int *)(int)gGdFsGlobalState;
+    t23 = *(int *)0x8C20C204;
     *(unsigned int *)((t23 + 0x14)) = (0x1080 + t23);
-    t24 = *(int *)(int)gGdFsGlobalState;
+    t24 = *(int *)0x8C20C204;
     *(unsigned int *)((t24 + 0x18)) = ((0x1080 + t24) + 0x54);
-    gdFsCreateHnG((*(int *)(((*(int *)(int)gGdFsGlobalState) + 0x14))), 0x0, 0x0, 0x0);
+    gdFsCreateHnG((*(int *)(((*(int *)0x8C20C204) + 0x14))), 0x0, 0x0, 0x0);
     _builtin_set_imask(((unsigned int)(((t5 & 0xF) << 2) << 2) >> 4));
     return ((int (*)(void))(0x8C1DD6E4))();
 }
@@ -1327,7 +1320,7 @@ int vmsfs_getinfo(int a4, int a5)
 
     *(unsigned int *)(((int)stk + 4)) = (a4 * 0x148);
     t48 = 0xFFFFFF01;
-    if ((*(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x2))) != 0) {
+    if ((*(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x2))) != 0) {
         t1 = vmsio_isready(a4);
         if (t1 == 0) {
             vmsfs_unmount(a4);
@@ -1335,7 +1328,7 @@ int vmsfs_getinfo(int a4, int a5)
         } else {
             t3 = vmsio_ismount(a4);
             t38 = 0xFFFFFF01;
-            if ((t3 != 0) && (t4 = *(int *)(((int)stk + 4)), t5 = *(signed char *)(((t4 + (int)gVmsVolumeStates) + 0x8)), t5 != 0)) {
+            if ((t3 != 0) && (t4 = *(int *)(((int)stk + 4)), t5 = *(signed char *)(((t4 + 0x8C464598) + 0x8)), t5 != 0)) {
                 t6 = buIsFormat(a4);
                 t33 = 0xFFFFFF03;
                 if ((int)t6 >= 0) {
@@ -1346,7 +1339,7 @@ int vmsfs_getinfo(int a4, int a5)
                             break;
                         }
                         t10 = t11;
-                        t7 = (*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x20)));
+                        t7 = (*(int *)((((a4 * 0x148) + 0x8C464598) + 0x20)));
                         t10 = (t10 + 0x10);
                         t9 = a5;
                         t9 = (t9 + t11);
@@ -1355,7 +1348,7 @@ int vmsfs_getinfo(int a4, int a5)
                     }
                     t15 = t10;
                     t16 = (((int)stk + 4) + 0x4);
-                    t17 = ((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x20))) + 0x30);
+                    t17 = ((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x20))) + 0x30);
                     for (;;) {
                         if ((unsigned int)t16 >= (unsigned int)((((int)stk + 4) + 0x4) + 0x8)) {
                             break;
@@ -1366,14 +1359,14 @@ int vmsfs_getinfo(int a4, int a5)
                         t16 = (t16 + 0x1);
                     }
                     get_vmstime((a5 + 0x30), (((int)stk + 4) + 0x4));
-                    *(unsigned short *)((a5 + 0x20)) = ((*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x0))) + 0x1);
-                    *(unsigned short *)((a5 + 0x22)) = (*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x30)));
+                    *(unsigned short *)((a5 + 0x20)) = ((*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x0))) + 0x1);
+                    *(unsigned short *)((a5 + 0x22)) = (*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30)));
                     *(unsigned short *)(((0x26 + a5) + 0x0)) = (vmsfs_diskfree(a4, 0x0));
                     *(unsigned short *)((a5 + 0x24)) = (*(short *)((a5 + 0x26)));
-                    *(unsigned short *)((a5 + 0x28)) = (*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x38)));
+                    *(unsigned short *)((a5 + 0x28)) = (*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x38)));
                     *(unsigned short *)(((0x2A + a5) + 0x0)) = (vmsfs_diskfree(a4, 0x1));
-                    *(unsigned short *)((a5 + 0x2C)) = ((*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x2C))) + 0x1);
-                    *(unsigned short *)((a5 + 0x2E)) = (unsigned char)(*(signed char *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x20))) + 0x4E)));
+                    *(unsigned short *)((a5 + 0x2C)) = ((*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x2C))) + 0x1);
+                    *(unsigned short *)((a5 + 0x2E)) = (unsigned char)(*(signed char *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x20))) + 0x4E)));
                     t33 = 0x0;
                 }
                 t38 = t33;

@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_cu): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 int atcomResetBlackList(void);
@@ -220,7 +219,7 @@ int rankNameEntryExec(void)
     L_8C0E3352:;
     v0_2 = ((R14 << 2));
     if (!(((*(int *)((R10 + (R14 << 2)))) == 0))) goto L_8C0E3516;
-    if ((((*(int *)(((*(int *)((((*(int *)((0x8C421E5C + v0_2))) << 2) + (int)padPeri))) + 0x10))) & 5) != 0)) goto L_8C0E3376;
+    if ((((*(int *)(((*(int *)((((*(int *)((0x8C421E5C + v0_2))) << 2) + 0x8C29B898))) + 0x10))) & 5) != 0)) goto L_8C0E3376;
     goto L_8C0E34DE;
     L_8C0E3516:;
     R14 = ((R14 + 0x1));
@@ -229,7 +228,7 @@ int rankNameEntryExec(void)
     v0_2 = ((R14 << 2));
     if (((*(int *)((R10 + (R14 << 2)))) != 0)) goto L_8C0E3516;
     if (((int)(*(int *)((0x8C421E4C + v0_2))) <= 0)) goto L_8C0E3516;
-    if ((((*(int *)(((*(int *)((((*(int *)((0x8C421E5C + v0_2))) << 2) + (int)padPeri))) + 0x10))) & 2) == 0)) goto L_8C0E3516;
+    if ((((*(int *)(((*(int *)((((*(int *)((0x8C421E5C + v0_2))) << 2) + 0x8C29B898))) + 0x10))) & 2) == 0)) goto L_8C0E3516;
     *(unsigned int *)((R9 + (R14 << 2))) = ((*(int *)((R9 + (R14 << 2)))) - 1);
     *(unsigned int *)(((R14 << 2) + 0x8C421E64)) = R13;
     sndSeCancel();
@@ -589,7 +588,7 @@ int rankNameEntryExec(void)
     goto L_8C0E27F8;
     L_8C0E28D4:;
     if (!(((*(int *)((R10 + 0x0))) == 0))) goto L_8C0E2A24;
-    if ((((*(int *)(((*(int *)(((int)padPeri + ((*(int *)0x8C421E5C) << 2)))) + 0x10))) & 5) != 0)) goto L_8C0E28F2;
+    if ((((*(int *)(((*(int *)((0x8C29B898 + ((*(int *)0x8C421E5C) << 2)))) + 0x10))) & 5) != 0)) goto L_8C0E28F2;
     goto L_8C0E29F8;
     L_8C0E2A24:;
     if (((int)(*(int *)0x8C1D7928) <= 0)) goto L_8C0E2A3C;
@@ -615,7 +614,7 @@ int rankNameEntryExec(void)
     L_8C0E29F8:;
     if (((*(int *)((R10 + 0x0))) != 0)) goto L_8C0E2A24;
     if (((int)(*(int *)0x8C421E4C) <= 0)) goto L_8C0E2A24;
-    if ((((*(int *)(((*(int *)(((int)padPeri + ((*(int *)0x8C421E5C) << 2)))) + 0x10))) & 2) == 0)) goto L_8C0E2A24;
+    if ((((*(int *)(((*(int *)((0x8C29B898 + ((*(int *)0x8C421E5C) << 2)))) + 0x10))) & 2) == 0)) goto L_8C0E2A24;
     *(unsigned int *)((R8 + 0x0)) = ((*(int *)((R8 + 0x0))) - 1);
     *(unsigned int *)0x8C421E64 = R11;
     sndSeCancel();

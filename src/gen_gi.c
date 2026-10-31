@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_gi): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gBuBlockTableA[];
-extern char gBuBlockTableB[];
 
 int buCalcCRC(int, int);
 int memmove(int, int, int);
@@ -97,8 +95,8 @@ int buMakeBackupFileImage(int a4, int a5)
     R9 = ((R9 + 0x1));
     if (t54) goto L_8C1E0632;
     L_8C1E0644:;
-    t59 = *(int *)(((((unsigned short)(*(short *)((R14 + 0x4C))) & R10) << 2) + (int)gBuBlockTableA));
-    t61 = *(int *)(((((unsigned short)(*(short *)((R14 + 0x54))) & R10) << 2) + (int)gBuBlockTableB));
+    t59 = *(int *)(((((unsigned short)(*(short *)((R14 + 0x4C))) & R10) << 2) + 0x8C20C220));
+    t61 = *(int *)(((((unsigned short)(*(short *)((R14 + 0x54))) & R10) << 2) + 0x8C20C230));
     t62 = *(int *)((R14 + 0x5C));
     *(unsigned short *)((R13 + 0x42)) = (*(short *)((R14 + 0x4E)));
     *(unsigned short *)((R13 + 0x40)) = (*(short *)((R14 + 0x4C)));

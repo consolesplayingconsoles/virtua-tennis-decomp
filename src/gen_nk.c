@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_nk): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char colliObjCount[];
-extern char colliObjList[];
 
 typedef struct { int w[1]; } Stk1;
 typedef struct { int w[3]; } Stk3;
@@ -70,8 +68,8 @@ float colliObjResolve(void)
     R9 = (0x8C016010);
     F15 = ((1.0f + 1.0f));
     L_8C03C112:;
-    if (((int)(*(int *)(((int)stk + 68))) >= (int)(*(int *)(int)colliObjCount))) goto L_8C03C120;
-    t9 = *(int *)((((*(int *)(((int)stk + 68))) << 2) + (int)colliObjList));
+    if (((int)(*(int *)(((int)stk + 68))) >= (int)(*(int *)0x8C2FC20C))) goto L_8C03C120;
+    t9 = *(int *)((((*(int *)(((int)stk + 68))) << 2) + 0x8C2FC210));
     t10 = *(int *)((t9 + 0x38));
     R14 = (t9);
     R4 = (t10);
@@ -86,8 +84,8 @@ float colliObjResolve(void)
     L_8C03BE7C:;
     R12 = (0x0);
     L_8C03C100:;
-    if (((int)R12 >= (int)(*(int *)(int)colliObjCount))) goto L_8C03C10C;
-    R13 = ((*(int *)(((R12 << 2) + (int)colliObjList))));
+    if (((int)R12 >= (int)(*(int *)0x8C2FC20C))) goto L_8C03C10C;
+    R13 = ((*(int *)(((R12 << 2) + 0x8C2FC210))));
     if (!(((*(int *)(((int)stk + 68))) != R12))) goto L_8C03C0FE;
     t26 = *(int *)((R13 + 0x30));
     R1 = (t26);
@@ -171,6 +169,6 @@ float colliObjResolve(void)
     nlAddVector((R14 + 0x60), (((int)stk + 68) + 0x1C));
     goto L_8C03C0FE;
     L_8C03C120:;
-    *(unsigned int *)(int)colliObjCount = 0x0;
+    *(unsigned int *)0x8C2FC20C = 0x0;
     return F0;
 }

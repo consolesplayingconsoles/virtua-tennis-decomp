@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_fq): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
-extern char Player[];
 
 int cpuSglAimLv09(int, int);
 int cpuSglAimScore(int, int);
@@ -37,12 +35,12 @@ int cpuSglAimPickNet(int a4)
     register float w0_1;
     v0_4 = a4;
     v0_1 = *(int *)((v0_4 + 0xB5C));
-    *(unsigned int *)(((int)stk + 4)) = ((((v0_1 + 0x1) & 0x1) * 0xD78) + (int)Player);
+    *(unsigned int *)(((int)stk + 4)) = ((((v0_1 + 0x1) & 0x1) * 0xD78) + 0x8C287D84);
     w0_0 = *(float *)0x8C291F7C;
     v0_0 = (v0_4);
     v0_1 = (((v0_1 * 0x160) + 0x8C2FC69C));
     v0_2 = (0x0);
-    v0_4 = ((int)Ball);
+    v0_4 = (0x8C291F24);
     v0_5 = (0x0);
     w0_1 = (w0_0);
     if ((0.0f > w0_0)) goto L_8C04EF66;

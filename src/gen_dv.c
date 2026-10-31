@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_dv): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 int nlResetBackColorZ(int, int, int);
@@ -93,8 +91,8 @@ int pauseExec(int a4, int a5)
     if (t10) goto L_8C0CE5FC;
     goto L_8C0CE616;
     L_8C0CE616:;
-    R4 = (((R5 * 0xD78) + (int)Player));
-    R6 = ((int)Player);
+    R4 = (((R5 * 0xD78) + 0x8C287D84));
+    R6 = (0x8C287D84);
     R7 = (0xD78);
     R9 = (R11);
     if (((*(int *)((R10 + 0x10))) != 2)) goto L_8C0CE630;
@@ -409,7 +407,7 @@ int pauseExec(int a4, int a5)
     L_8C0CE82A:;
     goto L_8C0CE954;
     L_8C0CE82E:;
-    R6 = ((int)padPeri);
+    R6 = (0x8C29B898);
     goto L_8C0CE830;
     L_8C0CE830:;
     if ((((*(int *)(((*(int *)((R6 + ((*(int *)((R4 + 0x0))) << 2)))) + 0x10))) & 8) == 0)) goto L_8C0CE870;

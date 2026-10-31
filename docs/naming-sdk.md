@@ -59,18 +59,3 @@ renamed case files retain their test payloads. The return-register and
 proof-record audits remain clean; the three previously documented consistency
 findings are unchanged. No fresh simulator equivalence run is claimed. The required `bash build.sh`
 rebuild through Wibo prints `MATCH` against the original executable.
-
-`python3 tools/naming_audit.py` provides a read-only, lower-bound inventory of
-the remaining generic identifiers. It separates unnamed function entries,
-address-based globals, legacy function aliases and generated temporaries.
-Declarations are included, so an old alias may be an unused declaration rather
-than an actual call. Counts are work indicators, not evidence of naming quality.
-
-The two `FUN_` entries remaining after this batch are corrected in
-[naming-boundaries.md](naming-boundaries.md). Many generated locals and partially
-known record fields still remain; this does not finish the relabeling goal.
-
-Inventory after this batch: 134 generic global names in the name tables, 48
-generic global names declared or referenced in C, 293 generic function aliases
-declared or referenced in C, and 18,509 generated temporary file/name pairs.
-These counts intentionally keep the full remaining labeling work visible.

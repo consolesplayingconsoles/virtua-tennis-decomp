@@ -14,8 +14,6 @@ sdk-source/
 *.sigs
 report*.txt
 .env
-# User-supplied game discs, including cue sheets and any extracted files.
-GAME/
 disc/
 .idea/
 __pycache__/

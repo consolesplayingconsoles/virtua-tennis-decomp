@@ -1,8 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_da): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gMapleDriver[];
-extern char gMapleTransferLockAddress[];
-extern char strMwRnaNullHandleError[];
 
 extern int _builtin_tas(char *);
 int kdRecvFrame(void);
@@ -78,12 +75,12 @@ int mpdrv_set_getlerr(int a4, int a5, int a6, int a7, int a8)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
+    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
         mpdrv_dpf(0x8C20AFF0);
         return 0xFFFFFFFE;
     }
     t2 = mpdrv_set_getlerr_ns(a4, a5, a6, a7, a8);
-    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
+    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
     return t2;
 }
 
@@ -92,7 +89,7 @@ int kdSetBlockRead(int a4, int a5, int a6, int a7, int a8)
     int t0;
 
     t0 = mpdrv_set_bread(a4, a5, a6, a7, a8);
-    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t0;
@@ -101,7 +98,7 @@ int kdSetBlockRead(int a4, int a5, int a6, int a7, int a8)
 int mwRnaGetPlaySw(int a4)
 {
     if (a4 == 0) {
-        mwRnaErrCallFunc((int)strMwRnaNullHandleError);
+        mwRnaErrCallFunc(0x8C20AC30);
         return 0xFFFFFFFF;
     }
     return ((0x2 & (unsigned char)(*(signed char *)((a4 + 0x1)))) >> 1);
@@ -112,7 +109,7 @@ int kdSetAllStatusRequest(int a4)
     int t0;
 
     t0 = mpdrv_set_allstatreq(a4);
-    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t0;
@@ -123,7 +120,7 @@ int kdSetDeviceReset(int a4)
     int t0;
 
     t0 = mpdrv_set_dreset(a4);
-    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t0;
@@ -134,7 +131,7 @@ int kdSetDeviceKill(int a4)
     int t0;
 
     t0 = mpdrv_set_dkill(a4);
-    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t0;
@@ -145,7 +142,7 @@ int kdSetGetCondition(int a4, int a5)
     int t0;
 
     t0 = mpdrv_set_getcond(a4, a5);
-    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t0;
@@ -156,7 +153,7 @@ int kdSetGetMediaInfo(int a4, int a5, int a6)
     int t0;
 
     t0 = mpdrv_set_getminfo(a4, a5, a6);
-    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t0;
@@ -167,7 +164,7 @@ int kdSetARControl(int a4, int a5)
     int t0;
 
     t0 = mpdrv_set_arctrl(a4, a5);
-    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t0;
@@ -178,7 +175,7 @@ int kdSetFT4Control(int a4, int a5)
     int t0;
 
     t0 = mpdrv_set_ft4ctrl(a4, a5);
-    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t0;
@@ -190,7 +187,7 @@ int kdSetTransmitAgain(int a4)
     int t0;
 
     t0 = mpdrv_set_transagain(a4);
-    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t0;
@@ -199,7 +196,7 @@ int kdSetTransmitAgain(int a4)
 int mwRnaGetNumRoom(int a4)
 {
     if (a4 == 0) {
-        mwRnaErrCallFunc((int)strMwRnaNullHandleError);
+        mwRnaErrCallFunc(0x8C20AC30);
         return 0xFFFFFFFF;
     }
     return ((*(int *)((a4 + 0x28))) - (*(int *)((a4 + 0x34))));
@@ -208,7 +205,7 @@ int mwRnaGetNumRoom(int a4)
 int mwRnaIsPause(int a4)
 {
     if (a4 == 0) {
-        mwRnaErrCallFunc((int)strMwRnaNullHandleError);
+        mwRnaErrCallFunc(0x8C20AC30);
         return 0x0;
     }
     return (unsigned char)(*(signed char *)((a4 + 0x7)));
@@ -217,7 +214,7 @@ int mwRnaIsPause(int a4)
 int mwRnaGetStat(int a4)
 {
     if (a4 == 0) {
-        mwRnaErrCallFunc((int)strMwRnaNullHandleError);
+        mwRnaErrCallFunc(0x8C20AC30);
         return 0xFFFFFFFF;
     }
     return (unsigned char)(*(signed char *)((a4 + 0x1)));
@@ -226,7 +223,7 @@ int mwRnaGetStat(int a4)
 int mwRnaGetBitPerSmpl(int a4)
 {
     if (a4 == 0) {
-        mwRnaErrCallFunc((int)strMwRnaNullHandleError);
+        mwRnaErrCallFunc(0x8C20AC30);
         return 0xFFFFFFFF;
     }
     return (*(int *)((a4 + 0x8)));

@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ac): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char motionCur[];
-extern char padPeri[];
 
 int ADXRNA_SetOutPan(int, int, int);
 int ADXSJD_GetNumChan(int);
@@ -115,13 +113,13 @@ int mainDebugPause(int a4, int a5)
     if (((unsigned char)t0 == 0)) goto L_8C010308;
     goto L_8C010278;
     L_8C010278:;
-    t4 = *(short *)(((*(int *)(int)padPeri) + 0x1C));
+    t4 = *(short *)(((*(int *)0x8C29B898) + 0x1C));
     R0 = (t4);
     R12 = (0x1);
     R13 = (0x40);
     R14 = (0x8C12C5A8);
     R4 = (t4);
-    R5 = ((int)padPeri);
+    R5 = (0x8C29B898);
     if (((int)t4 < 0)) goto L_8C01028E;
     goto L_8C01028A;
     L_8C01028A:;
@@ -137,7 +135,7 @@ int mainDebugPause(int a4, int a5)
     if (((*(int *)((R14 + 0x0))) == 0)) goto L_8C0102A8;
     goto L_8C01029C;
     L_8C01029C:;
-    t17 = *(short *)(((*(int *)(int)padPeri) + 0x1C));
+    t17 = *(short *)(((*(int *)0x8C29B898) + 0x1C));
     R0 = (t17);
     if (((int)t17 < (int)0xFFFFFFC0)) goto L_8C0102B0;
     goto L_8C0102A8;
@@ -219,7 +217,7 @@ int motionAngleBlend(int a4, int a5)
             a5 = (a5 - 65536);
         }
     }
-    t3 = *(int *)(int)motionCur;
+    t3 = *(int *)0x8C2871D4;
     u4 = *(float *)((t3 + 0x0));
     u5 = *(float *)((t3 + 0x4));
     k = *(float *)0x8C2873F4;

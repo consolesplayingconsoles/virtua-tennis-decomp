@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_qm): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gKdGunCount[];
-extern char gMapleDriver[];
 
 extern int _builtin_get_imask(void);
 extern void _builtin_set_imask(int);
@@ -54,7 +52,7 @@ int kdRecvFrame(void)
     R10 = (0x8C461E5C);
     R13 = (t1);
     R8 = (0x1);
-    R9 = ((int)gMapleDriver);
+    R9 = (0x8C47317C);
     if ((t1 != -2)) goto L_8C1E996C;
     *(unsigned int *)(((*(int *)((R9 + 0x0))) + 0x10E8)) = R8;
     L_8C1E9ABE:;
@@ -82,10 +80,10 @@ int kdRecvFrame(void)
     t28 = (((int (*)(int, int, int, int))(R14))(R4, R5, R6, R7)) == 0;
     if (t28) goto L_8C1E99D2;
     L_8C1E99CA:;
-    *(unsigned int *)(int)gKdGunCount = (trigger(R4, R5));
+    *(unsigned int *)0x8C4620EC = (trigger(R4, R5));
     L_8C1E99D2:;
     if (((*(int *)(((*(int *)((R9 + 0x0))) + 0xFBC))) == 0)) goto L_8C1E9A08;
-    if (((*(int *)(int)gKdGunCount) == 0)) goto L_8C1E9A08;
+    if (((*(int *)0x8C4620EC) == 0)) goto L_8C1E9A08;
     *(unsigned int *)0x8C4620E4 = (*(int *)0xA05F8040);
     *(unsigned int *)0xA05F8040 = (*(int *)((0xFBC + (*(int *)((R9 + 0x0))))));
     *(unsigned int *)0xA05F80E8 = ((*(int *)0xA05F80E8) | 0x8);

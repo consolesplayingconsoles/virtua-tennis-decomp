@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_co): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
-extern char Player[];
 
 int cpuAimPointSet(int, int, float, float);
 int cpuShotRange(int, int, int, int, int, float, float);
@@ -29,12 +27,12 @@ int cpuSglAimAddOpen(int a4, int a5, float f4, float f5)
     w0_0 = f4;
     w0_1 = f5;
     v0_0 = *(int *)((v0_2 + 0xB5C));
-    *(unsigned int *)(((int)stk + 8)) = (int)Ball;
+    *(unsigned int *)(((int)stk + 8)) = 0x8C291F24;
     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x4);
     cpuShotRange(v0_2, (((int)stk + 4) + 0x20), (((int)stk + 4) + 0x14), (((int)stk + 4) + 0x8), (((int)stk + 8) + 0x4), w0_0, w0_1);
     w0_0 = *(float *)(((*(int *)(((int)stk + 8))) + 0x60));
     v0_2 = (v0_2);
-    v0_0 = ((((0x1 & (v0_0 + 0x1)) * 0xD78) + (int)Player));
+    v0_0 = ((((0x1 & (v0_0 + 0x1)) * 0xD78) + 0x8C287D84));
     v0_3 = (0x8C041C58);
     v0_1 = (v0_1);
     w0_1 = (w0_0);

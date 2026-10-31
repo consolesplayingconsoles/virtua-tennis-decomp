@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ie): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -43,7 +42,7 @@ float hudFadeNearPlayers(int a4, int a5, int a6)
         t2 = 0xD78;
         t1 = (((int)stk + 32) + 0x18);
         t2 = (t6 * t2);
-        t2 = (t2 + (int)Player);
+        t2 = (t2 + 0x8C287D84);
         t0 = 0xC;
         { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0xAE8 + t2)); }
         t0 = 0x4;

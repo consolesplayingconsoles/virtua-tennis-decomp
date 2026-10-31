@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_b): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gFrameBufferReadControl[];
-extern char gNlPrintTileClipFlags[];
 
 int ADXERR_CallErrFunc(int, int);
 int abs(int, int);
@@ -56,7 +54,7 @@ void sprPutAlpha(int a4, float f4)
 
 void nlPrintInitFontTexture(void)
 {
-    *(unsigned int *)(int)gNlPrintTileClipFlags = 0xA2000009;
+    *(unsigned int *)0x8C44F9AC = 0xA2000009;
     *(unsigned int *)0x8C44F9B0 = 0x80000000;
     *(unsigned int *)0x8C44F9B4 = 0x949004C7;
     nlPrintSetGarbagedTexture();
@@ -139,7 +137,7 @@ void kmiWriteDispModeRegisters(void)
     kmiWriteRegister(0xF4, t10);
     t12 = *(int *)0x8C45EE50;
     kmiWriteRegister(0x48, t12);
-    t14 = *(int *)(int)gFrameBufferReadControl;
+    t14 = *(int *)0x8C45EE4C;
     kmiWriteRegister(0x44, (t14 & 0xFFFFFFFE));
     t16 = *(int *)0x8C45EE88;
     kmiWriteRegister(0xE8, (t16 | 0x8));

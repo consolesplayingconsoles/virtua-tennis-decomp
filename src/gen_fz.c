@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_fz): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gVmsVolumeStates[];
 
 typedef struct { int w[3]; } Stk3;
 int cpuDblChase(int);
@@ -189,9 +188,9 @@ int vmsfs_save_file(int a4, int a5, int a6, int a7, int a8, int a9)
                 if ((int)t6 >= 0) {
                     *(unsigned char *)(((*(int *)(((int)stk + 12))) + 0x1)) = a9;
                     t8 = *(int *)(((int)stk + 16));
-                    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x30)) = 0x1;
-                    t9 = *(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x4));
-                    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x34)) = ((*(int *)((((((t9 << 2) + t9) << 2) << 2) + 0x8C20C77C))) + a7);
+                    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x30)) = 0x1;
+                    t9 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x4));
+                    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x34)) = ((*(int *)((((((t9 << 2) + t9) << 2) << 2) + 0x8C20C77C))) + a7);
                     if ((unsigned int)0x0 < (unsigned int)a7) {
                         t11 = t8;
                         t12 = 0x0;

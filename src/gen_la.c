@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_la): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 extern float _builtin_sqrtf(float);
@@ -91,7 +90,7 @@ int cpuDblAimRateB(int a4, int a5)
     int t171;
 
     t0 = *(int *)((a4 + 0xB5C));
-    t1 = *(int *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xB5C));
+    t1 = *(int *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xB5C));
     *(float *)(((((int)stk + 124) + 0x10) + 0x0)) = ((*(float *)((a5 + 0x0))) - (*(float *)((a4 + 0xB9C))));
     *(float *)(((((int)stk + 124) + 0x10) + 0x4)) = 0.0f;
     *(float *)(((((int)stk + 124) + 0x10) + 0x8)) = ((*(float *)((a5 + 0x8))) - (*(float *)((a4 + 0xBA4))));
@@ -103,14 +102,14 @@ int cpuDblAimRateB(int a4, int a5)
         }
         u11 = u7;
         u11 = u11 + ((u8 + 89.1374969f) * 0.5f) * (*(float *)((a4 + 0xB00)));
-        u12 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAF0));
+        u12 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0));
         u13 = (-u12);
         if (!(0.0f > u12)) {
             u13 = u12;
         }
         u52 = 0.0f;
         if (89.1374969f > u13) {
-            u15 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAF0));
+            u15 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0));
             *(float *)(((int)stk + 132)) = u15;
             *(float *)(((int)stk + 128)) = (u15 - u11);
             if (!(0.0f > (u15 - u11))) {
@@ -121,18 +120,18 @@ int cpuDblAimRateB(int a4, int a5)
             u22 = (16384.0f / ((u8 + 89.1374969f) * 0.5f));
             t23 = nlCos((int)(u22 * u19));
             if (!(0.0f > t23)) {
-                if (!(0.0f > ((*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAF0))) - u11))) {
-                    u27 = ((*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAF0))) - u11);
+                if (!(0.0f > ((*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0))) - u11))) {
+                    u27 = ((*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0))) - u11);
                 } else {
-                    u27 = ((-(*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAF0)))) + u11);
+                    u27 = ((-(*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0)))) + u11);
                 }
                 u30 = (16384.0f / ((u8 + 89.1374969f) * 0.5f));
                 u41 = (nlCos((int)(u30 * u27)));
             } else {
-                if (!(0.0f > ((*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAF0))) - u11))) {
-                    u35 = ((*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAF0))) - u11);
+                if (!(0.0f > ((*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0))) - u11))) {
+                    u35 = ((*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0))) - u11);
                 } else {
-                    u35 = ((-(*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAF0)))) + u11);
+                    u35 = ((-(*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0)))) + u11);
                 }
                 u38 = (16384.0f / ((u8 + 89.1374969f) * 0.5f));
                 u41 = (-(nlCos((int)(u38 * u35))));
@@ -146,11 +145,11 @@ int cpuDblAimRateB(int a4, int a5)
             u55 = u12;
             u56 = ((u8 + 89.1374969f) * 0.5f);
         }
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)((0xAE8 + (((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player))); }
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)((0xAE8 + (((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84))); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 100)) = *(struct mv3 *)((((int)stk + 124) + 0x10)); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)((0xB9C + a4)); }
         t58 = ((int (*)(int, int, int, Stk3, Stk3, Stk3, float, float))(cpuLineCrossXZ))((((int)stk + 88) + 0x40), t48, t49, *(Stk3 *)(((int)stk + 88)), *(Stk3 *)(((int)stk + 100)), *(Stk3 *)(((int)stk + 112)), u55, u56);
-        t59 = cpuDistXZ((0xAE8 + (((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player)), (((int)stk + 124) + 0x1C));
+        t59 = cpuDistXZ((0xAE8 + (((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84)), (((int)stk + 124) + 0x1C));
         *(float *)(((int)stk + 120)) = t59;
         t60 = cpuDistXZ((0xB9C + a4), (((int)stk + 120) + 0x20));
         *(float *)(((int)stk + 120)) = (t59 / t60);
@@ -159,13 +158,13 @@ int cpuDblAimRateB(int a4, int a5)
         if (0.0f > (u52 + ((u62 * 5.0f) / 54.8499985f))) {
             u63 = 0.0f;
         }
-        u65 = *(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAF0));
+        u65 = *(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0));
         u66 = (-u65);
         if (!(0.0f > u65)) {
             u66 = u65;
         }
         if (89.1374969f > u66) {
-            u68 = *(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAF0));
+            u68 = *(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0));
             *(float *)(((int)stk + 136)) = (u68 - u11);
             u70 = ((-u68) + u11);
             if (!(0.0f > (u68 - u11))) {
@@ -174,18 +173,18 @@ int cpuDblAimRateB(int a4, int a5)
             u73 = (16384.0f / ((u8 + 89.1374969f) * 0.5f));
             t74 = nlCos((int)(u73 * u70));
             if (!(0.0f > t74)) {
-                if (!(0.0f > ((*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAF0))) - u11))) {
-                    u78 = ((*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAF0))) - u11);
+                if (!(0.0f > ((*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0))) - u11))) {
+                    u78 = ((*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0))) - u11);
                 } else {
-                    u78 = ((-(*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAF0)))) + u11);
+                    u78 = ((-(*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0)))) + u11);
                 }
                 u81 = (16384.0f / ((u8 + 89.1374969f) * 0.5f));
                 u92 = (nlCos((int)(u81 * u78)));
             } else {
-                if (!(0.0f > ((*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAF0))) - u11))) {
-                    u86 = ((*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAF0))) - u11);
+                if (!(0.0f > ((*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0))) - u11))) {
+                    u86 = ((*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0))) - u11);
                 } else {
-                    u86 = ((-(*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAF0)))) + u11);
+                    u86 = ((-(*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0)))) + u11);
                 }
                 u89 = (16384.0f / ((u8 + 89.1374969f) * 0.5f));
                 u92 = (-(nlCos((int)(u89 * u86))));
@@ -197,11 +196,11 @@ int cpuDblAimRateB(int a4, int a5)
             *(float *)(((int)stk + 124)) = 0.0f;
             u101 = u65;
         }
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)((0xAE8 + (((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player))); }
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)((0xAE8 + (((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84))); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 100)) = *(struct mv3 *)((((int)stk + 124) + 0x10)); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)((0xB9C + a4)); }
         t103 = ((int (*)(int, Stk3, Stk3, Stk3, float))(cpuLineCrossXZ))((((int)stk + 88) + 0x40), *(Stk3 *)(((int)stk + 88)), *(Stk3 *)(((int)stk + 100)), *(Stk3 *)(((int)stk + 112)), u101);
-        t104 = cpuDistXZ((0xAE8 + (((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player)), (((int)stk + 124) + 0x1C));
+        t104 = cpuDistXZ((0xAE8 + (((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84)), (((int)stk + 124) + 0x1C));
         *(float *)(((int)stk + 120)) = t104;
         t105 = cpuDistXZ((0xB9C + a4), (((int)stk + 120) + 0x20));
         *(float *)(((int)stk + 120)) = (t104 / t105);
@@ -215,24 +214,24 @@ int cpuDblAimRateB(int a4, int a5)
     } else {
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)((((int)stk + 124) + 0x10)); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 100)) = *(struct mv3 *)((0xB9C + a4)); }
-        t112 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 100)), *(Stk3 *)(((int)stk + 112)), (*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAF0))));
-        u113 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAE8));
+        t112 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 100)), *(Stk3 *)(((int)stk + 112)), (*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0))));
+        u113 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAE8));
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)((((int)stk + 124) + 0x10)); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)((0xB9C + a4)); }
-        t115 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 76)), *(Stk3 *)(((int)stk + 88)), (*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAF0))));
-        u116 = *(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAE8));
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)((0xAE8 + (((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player))); }
+        t115 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 76)), *(Stk3 *)(((int)stk + 88)), (*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0))));
+        u116 = *(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAE8));
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)((0xAE8 + (((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84))); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 124) + 0x10)); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((0xB9C + a4)); }
         t117 = ((int (*)(int, Stk3, Stk3, Stk3))(cpuLineCrossXZ))((((int)stk + 40) + 0x70), *(Stk3 *)(((int)stk + 40)), *(Stk3 *)(((int)stk + 52)), *(Stk3 *)(((int)stk + 64)));
-        t118 = cpuDistXZ((0xAE8 + (((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player)), (((int)stk + 40) + 0x70));
+        t118 = cpuDistXZ((0xAE8 + (((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84)), (((int)stk + 40) + 0x70));
         *(float *)(((int)stk + 36)) = t118;
         t119 = cpuDistXZ((0xB9C + a4), (((int)stk + 36) + 0x74));
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((0xAE8 + (((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player))); }
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((0xAE8 + (((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84))); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 124) + 0x10)); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xB9C + a4)); }
         t120 = ((int (*)(int, Stk3, Stk3, Stk3))(cpuLineCrossXZ))((0x94 + ((int)stk + 4)), *(Stk3 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 16)), *(Stk3 *)(((int)stk + 28)));
-        t121 = cpuDistXZ((0xAE8 + (((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player)), (((int)stk + 124) + 0x1C));
+        t121 = cpuDistXZ((0xAE8 + (((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84)), (((int)stk + 124) + 0x1C));
         *(float *)(((int)stk + 120)) = t121;
         t122 = cpuDistXZ((0xB9C + a4), (((int)stk + 120) + 0x20));
         t123 = cpuDistXZ(a5, (0xB9C + a4));

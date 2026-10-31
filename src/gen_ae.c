@@ -1,13 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ae): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char fileLoadState[];
-extern char gEventAllocCount[];
-extern char gEventCount[];
-extern char gEventList[];
-extern char gNlG2DmaHandles[];
-extern char gNlSoundPackUsedBytes[];
-extern char gNlTextureSurfaceCount[];
-extern char gNlTextureSurfaces[];
 
 typedef struct { int w[4]; } Stk4;
 int ADXF_GetStat(int);
@@ -233,12 +225,12 @@ int nlsndPackFreeInit(int packIndex, int releasedBytes, int movedBytesAddress)
     int firstAddressCursor;
     int firstAddress;
 
-    *(unsigned int *)(int)gNlSoundPackUsedBytes = ((*(int *)(int)gNlSoundPackUsedBytes) - releasedBytes);
+    *(unsigned int *)0x8C454CBC = ((*(int *)0x8C454CBC) - releasedBytes);
     *(unsigned int *)(((((packIndex << 1) + packIndex) << 2) + 0x8C454DD4)) = 0xFFFFFFFF;
     nlsndG2Write(0xFFFFFFFF, ((packIndex << 2) + 0xA0800060));
     movedBytes = 0x0;
     firstMovedAddress = 0x0;
-    if ((unsigned int)(((((packIndex + 0x1) << 1) + (packIndex + 0x1)) << 2) + 0x8C454DD4) < (unsigned int)(int)gNlG2DmaHandles) {
+    if ((unsigned int)(((((packIndex + 0x1) << 1) + (packIndex + 0x1)) << 2) + 0x8C454DD4) < (unsigned int)0x8C454E34) {
         accumulatedBytes = 0x0;
         t3 = 0x8C454DD4;
         t4 = (packIndex + 0x1);
@@ -260,7 +252,7 @@ int nlsndPackFreeInit(int packIndex, int releasedBytes, int movedBytesAddress)
             packCursor = (packCursor + 0xC);
             packAddressCursor = (packAddressCursor + 0xC);
             firstAddressCursor = (firstAddressCursor + 0xC);
-            if ((unsigned int)packCursor >= (unsigned int)(int)gNlG2DmaHandles) {
+            if ((unsigned int)packCursor >= (unsigned int)0x8C454E34) {
                 break;
             }
         }
@@ -282,7 +274,7 @@ int nlInitEvent(void)
     int t1;
     int t2;
 
-    t3 = (*(int *)(int)gEventList);
+    t3 = (*(int *)0x8C22D1AC);
     for (;;) {
         if (t3 == 0) {
             break;
@@ -303,9 +295,9 @@ int nlInitEvent(void)
     *(unsigned int *)0x8C22D1B8 = 0x0;
     *(unsigned int *)0x8C22D1B4 = 0x0;
     *(unsigned int *)0x8C22D1B0 = 0x0;
-    *(unsigned int *)(int)gEventList = 0x0;
-    *(unsigned int *)(int)gEventCount = 0x0;
-    *(unsigned int *)(int)gEventAllocCount = 0x0;
+    *(unsigned int *)0x8C22D1AC = 0x0;
+    *(unsigned int *)0x8C23D1EC = 0x0;
+    *(unsigned int *)0x8C23D1E8 = 0x0;
     t13 = t1;
     t14 = t2;
     t15 = (*(int *)0x8C23D1CC);
@@ -802,7 +794,7 @@ int nlSpriteFreeTextureGI(int a4, int a5)
 
 int titleStartSprLoad(void)
 {
-    *(unsigned int *)(int)fileLoadState = 0x0;
+    *(unsigned int *)0x8C34A1EC = 0x0;
     fileLoadStart(0x8CA80000, 0x8C12740C, 0x0);
     for (;;) {
         if ((*(int *)0x8C34A1F0) == 1) {
@@ -914,12 +906,12 @@ int nlCommonTextureGarbageCollection(void)
     int t3;
     int t4;
 
-    t1 = *(int *)(int)gNlTextureSurfaces;
+    t1 = *(int *)0x8C458608;
     t2 = (kmCollectTextureGarbage());
     t3 = 0x0;
     t4 = t1;
     for (;;) {
-        if ((int)t3 >= (int)(*(int *)(int)gNlTextureSurfaceCount)) {
+        if ((int)t3 >= (int)(*(int *)0x8C45860C)) {
             break;
         }
         if ((*(int *)((t4 + 0x28))) == 0) {

@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_gd): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 float cpuLineXAtZ(Stk3, float);
@@ -40,8 +39,8 @@ int cpuDblReceivePos(int a4)
         if ((*(int *)((a4 + 0xA24))) == 0) {
         } else {
             t4 = serveGetServer();
-            { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 32) + 0x4)) = *(struct mv3 *)((0xAE8 + ((int)Player + (t4 * 0xD78)))); }
-            u5 = *(float *)((((int)Player + (t4 * 0xD78)) + 0xAE8));
+            { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 32) + 0x4)) = *(struct mv3 *)((0xAE8 + (0x8C287D84 + (t4 * 0xD78)))); }
+            u5 = *(float *)(((0x8C287D84 + (t4 * 0xD78)) + 0xAE8));
             t8 = 0x1;
             if (u5 > 0.0f) {
             } else {

@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ha): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 int cpuInFan(int, int, Stk3);
@@ -28,10 +26,10 @@ float cpuDblSupportT55(int a4)
     register float w0_3;
     v0_0 = a4;
     *(unsigned int *)(((int)stk + 44)) = v0_0;
-    *(unsigned int *)(((int)stk + 40)) = (((((*(int *)((0xB5C + v0_0))) + 0x2) & 0x3) * 0xD78) + (int)Player);
+    *(unsigned int *)(((int)stk + 40)) = (((((*(int *)((0xB5C + v0_0))) + 0x2) & 0x3) * 0xD78) + 0x8C287D84);
     *(unsigned int *)(((int)stk + 36)) = (((*(int *)(((*(int *)(((int)stk + 44))) + 0xB5C))) * 0x160) + 0x8C2FC69C);
     *(unsigned int *)(((int)stk + 32)) = (0x8C2FC69C + ((*(int *)(((*(int *)(((int)stk + 40))) + 0xB5C))) * 0x160));
-    *(unsigned int *)(((int)stk + 28)) = (int)Ball;
+    *(unsigned int *)(((int)stk + 28)) = 0x8C291F24;
     v0_0 = *(int *)(((int)stk + 44));
     if ((0.0f > ((*(float *)((v0_0 + 0xAE8))) - (*(float *)((v0_0 + 0xB9C)))))) goto L_8C06CB9E;
     v0_0 = *(int *)(((int)stk + 44));

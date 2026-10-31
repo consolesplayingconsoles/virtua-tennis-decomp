@@ -1,9 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_bc): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
-extern char gNlCommonTextureOffset[];
-extern char gNlTextureSurfaces[];
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -181,19 +177,19 @@ int cpuDblPartnerSignal(void)
     *(unsigned char *)(((int)stk + 16)) = 0x1;
     *(unsigned char *)(((int)stk + 4)) = 0x1;
     t1 = 0x1;
-    t2 = (int)Player;
+    t2 = 0x8C287D84;
     for (;;) {
         t3 = *(int *)((t2 + 0xB5C));
-        t6 = *(int *)((((*(int *)(((0xB5C + (((0x3 & (t3 + 0x2)) * 0xD78) + (int)Player)) + 0x0))) << 2) + ((*(int *)(((int)stk + 12))) + 0x14)));
+        t6 = *(int *)((((*(int *)(((0xB5C + (((0x3 & (t3 + 0x2)) * 0xD78) + 0x8C287D84)) + 0x0))) << 2) + ((*(int *)(((int)stk + 12))) + 0x14)));
         t40 = t6;
         t41 = 0x0;
         if (t6 == 2) {
             t0 = 0x20000;
-            t1 = (*(int *)(((((0x3 & (t3 + 0x2)) * 0xD78) + (int)Player) + 0xB5C)));
+            t1 = (*(int *)(((((0x3 & (t3 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB5C)));
             t1 = (t1 * 0x160);
             t1 = (t1 + 0x8C2FC69C);
             t17 = 0x0;
-            if (((*(int *)(((*(int *)(((int)padPeri + ((*(int *)((t2 + 0xB64))) << 2)))) + 0x10))) & t0) != 0) {
+            if (((*(int *)(((*(int *)((0x8C29B898 + ((*(int *)((t2 + 0xB64))) << 2)))) + 0x10))) & t0) != 0) {
                 t12 = *(signed char *)((t1 + 0x12B));
                 *(unsigned char *)((t1 + 0x12B)) = (t12 - 1);
                 if ((int)(signed char)(t12 - 1) < 0) {
@@ -203,7 +199,7 @@ int cpuDblPartnerSignal(void)
                 }
                 t17 = 0x1;
             }
-            t0 = (*(int *)(((*(int *)(((int)padPeri + ((*(int *)((t2 + 0xB64))) << 2)))) + 0x10)));
+            t0 = (*(int *)(((*(int *)((0x8C29B898 + ((*(int *)((t2 + 0xB64))) << 2)))) + 0x10)));
             t28 = t17;
             if ((t0 & 0x10000) != 0) {
                 t0 = (*(signed char *)((t1 + 0x12B)));
@@ -220,7 +216,7 @@ int cpuDblPartnerSignal(void)
                 t28 = (t17 + 0x1);
             }
             t30 = *(int *)((t2 + 0xB64));
-            t0 = (*(int *)(((*(int *)(((int)padPeri + (t30 << 2)))) + 0x10)));
+            t0 = (*(int *)(((*(int *)((0x8C29B898 + (t30 << 2)))) + 0x10)));
             t36 = (t30 << 2);
             t37 = t28;
             if ((t0 & 0x100) != 0) {
@@ -241,9 +237,9 @@ int cpuDblPartnerSignal(void)
         t54 = t40;
         if (t41 != 0) {
             t50 = 0xA24;
-            if ((*(int *)(((((0x3 & (t3 + 0x2)) * 0xD78) + (int)Player) + 0xA24))) == 0) {
-                t1 = (*(int *)(((((0x3 & (t3 + 0x2)) * 0xD78) + (int)Player) + 0xB5C)));
-                *(unsigned int *)(((((0x3 & (t3 + 0x2)) * 0xD78) + (int)Player) + 0xA24)) = 0x4;
+            if ((*(int *)(((((0x3 & (t3 + 0x2)) * 0xD78) + 0x8C287D84) + 0xA24))) == 0) {
+                t1 = (*(int *)(((((0x3 & (t3 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB5C)));
+                *(unsigned int *)(((((0x3 & (t3 + 0x2)) * 0xD78) + 0x8C287D84) + 0xA24)) = 0x4;
                 t1 = (t1 * 0x160);
                 t1 = (t1 + 0x8C2FC69C);
                 *(unsigned char *)((t1 + 0xAF)) = 0x0;
@@ -496,7 +492,7 @@ int nlObjPutFreeTextureOnce_Sub(int a4, int a5, int a6)
     L_8C0F2060:;
     *(unsigned int *)(((int)stk + 16)) = (((((*(int *)(((int)stk + 8))) == 0)) ? 1 : 0) ^ 0x1);
     R10 = ((R4 + 0x18));
-    R13 = ((int)gNlTextureSurfaces);
+    R13 = (0x8C458608);
     R14 = (0x8C4241C0);
     R8 = (0xFFFFFFFF);
     goto L_8C0F2074;
@@ -518,7 +514,7 @@ int nlObjPutFreeTextureOnce_Sub(int a4, int a5, int a6)
     R4 = ((*(int *)(((((R4 << 2) << 2) + (*(int *)(((int)stk + 8)))) + 0xC))));
     goto L_8C0F2096;
     L_8C0F2096:;
-    t23 = *(int *)(int)gNlCommonTextureOffset;
+    t23 = *(int *)0x8C458DCC;
     R11 = ((((R4 + t23) << 2) << 1));
     R3 = ((*(int *)((R14 + 0x0))));
     R4 = ((R4 + t23));

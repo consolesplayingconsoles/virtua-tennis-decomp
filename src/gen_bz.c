@@ -1,15 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_bz): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gGdFsGlobalState[];
-extern char gGdFsOperations[];
-extern char gKdGunCount[];
-extern char gMapleDriver[];
-extern char gPdPeripheralSlotWords[];
-extern char gPdPeripheralSlots[];
-extern char gVmsFileCommandStates[];
-extern char gVmsVolumeStates[];
-extern char syRtcFlags[];
-extern char syRtcLastCount[];
 
 extern int _builtin_get_imask(void);
 extern void _builtin_set_imask(int);
@@ -160,13 +150,13 @@ int gdFsGetFileFad(int handleAddress, int startFadAddress)
 
 int vmsfs_c_settime(int a4, int a5)
 {
-    return memmove(((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x6C), a5, 0x8);
+    return memmove(((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x6C), a5, 0x8);
 }
 
 int direntry_dirty(int a4, int a5)
 {
-    *(unsigned char *)(((((int)a5 >> 4) + (((a4 * 0x148) + (int)gVmsVolumeStates) + 0x48)) + 0x0)) = 0x1;
-    return (((a4 * 0x148) + (int)gVmsVolumeStates) + 0x48);
+    *(unsigned char *)(((((int)a5 >> 4) + (((a4 * 0x148) + 0x8C464598) + 0x48)) + 0x0)) = 0x1;
+    return (((a4 * 0x148) + 0x8C464598) + 0x48);
 }
 
 void ovLockCs(int a4)
@@ -180,7 +170,7 @@ int gdFsOpenFast(void)
     int t0;
     int t1;
 
-    t0 = *(int *)(int)gGdFsOperations;
+    t0 = *(int *)0x8C20C210;
     if (t0 != 0) {
         t1 = *(int *)((t0 + 0x40));
         return ((int (*)(void))(t1))();
@@ -193,7 +183,7 @@ int gdFsGetToc(void)
     int t0;
     int t1;
 
-    t0 = *(int *)(int)gGdFsOperations;
+    t0 = *(int *)0x8C20C210;
     if (t0 != 0) {
         t1 = *(int *)((t0 + 0x50));
         return ((int (*)(void))(t1))();
@@ -206,7 +196,7 @@ int gdFsReqDrvStat(void)
     int t0;
     int t1;
 
-    t0 = *(int *)(int)gGdFsOperations;
+    t0 = *(int *)0x8C20C210;
     if (t0 != 0) {
         t1 = *(int *)((t0 + 0x58));
         return ((int (*)(void))(t1))();
@@ -251,12 +241,12 @@ int gdFsGetStat(int handleAddress)
 
 int read_sys(int a4)
 {
-    return vmsfs_read_retry(a4, (*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x8))), (*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x20))));
+    return vmsfs_read_retry(a4, (*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x8))), (*(int *)((((a4 * 0x148) + 0x8C464598) + 0x20))));
 }
 
 int write_sys(int a4)
 {
-    return vmsfs_write_retry(a4, (*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x8))), (*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x20))));
+    return vmsfs_write_retry(a4, (*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x8))), (*(int *)((((a4 * 0x148) + 0x8C464598) + 0x20))));
 }
 
 void ovUnlockCs(int a4)
@@ -269,7 +259,7 @@ int gdFsReinit(void)
     int t0;
     int t1;
 
-    t0 = *(int *)(int)gGdFsOperations;
+    t0 = *(int *)0x8C20C210;
     if (t0 != 0) {
         t1 = *(int *)((t0 + 0x10));
         return ((int (*)(void))(t1))();
@@ -282,7 +272,7 @@ int gdFsCreateHn(void)
     int t0;
     int t1;
 
-    t0 = *(int *)(int)gGdFsOperations;
+    t0 = *(int *)0x8C20C210;
     if (t0 != 0) {
         t1 = *(int *)((t0 + 0x38));
         return ((int (*)(void))(t1))();
@@ -295,7 +285,7 @@ int gdFsLoadDir(void)
     int t0;
     int t1;
 
-    t0 = *(int *)(int)gGdFsOperations;
+    t0 = *(int *)0x8C20C210;
     if (t0 != 0) {
         t1 = *(int *)((t0 + 0x20));
         return ((int (*)(void))(t1))();
@@ -308,7 +298,7 @@ int gdFsSetDir(void)
     int t0;
     int t1;
 
-    t0 = *(int *)(int)gGdFsOperations;
+    t0 = *(int *)0x8C20C210;
     if (t0 != 0) {
         t1 = *(int *)((t0 + 0x28));
         return ((int (*)(void))(t1))();
@@ -321,7 +311,7 @@ int gdFsGetDirInfo(void)
     int t0;
     int t1;
 
-    t0 = *(int *)(int)gGdFsOperations;
+    t0 = *(int *)0x8C20C210;
     if (t0 != 0) {
         t1 = *(int *)((t0 + 0x2C));
         return ((int (*)(void))(t1))();
@@ -334,7 +324,7 @@ int gdFsGetWorkHn(void)
     int t0;
     int t1;
 
-    t0 = *(int *)(int)gGdFsOperations;
+    t0 = *(int *)0x8C20C210;
     if (t0 != 0) {
         t1 = *(int *)((t0 + 0x30));
         return ((int (*)(void))(t1))();
@@ -347,7 +337,7 @@ int gdFsGetSysHn(void)
     int t0;
     int t1;
 
-    t0 = *(int *)(int)gGdFsOperations;
+    t0 = *(int *)0x8C20C210;
     if (t0 != 0) {
         t1 = *(int *)((t0 + 0x34));
         return ((int (*)(void))(t1))();
@@ -359,7 +349,7 @@ void gdFsExecServer(void)
 {
     int t0;
 
-    t0 = *(int *)(int)gGdFsOperations;
+    t0 = *(int *)0x8C20C210;
     if (t0 != 0) {
         ((int (*)(void))((*(int *)((t0 + 0x48)))))();
     return;
@@ -370,7 +360,7 @@ void gdFsEntryErrFuncAll(void)
 {
     int t0;
 
-    t0 = *(int *)(int)gGdFsOperations;
+    t0 = *(int *)0x8C20C210;
     if (t0 != 0) {
         ((int (*)(void))((*(int *)((t0 + 0x74)))))();
     return;
@@ -423,7 +413,7 @@ int syRtcDbgSetLogAddr(int a4, int a5)
 {
     int t0;
 
-    t0 = *(int *)(int)syRtcFlags;
+    t0 = *(int *)0x8C45A6E8;
     if ((t0 & 8) != 0) {
         *(unsigned int *)0x8C45A6F4 = a4;
         *(unsigned int *)0x8C45A6F8 = a5;
@@ -435,7 +425,7 @@ int mpdrv_set_end_ns(void)
 {
     int t1;
 
-    t1 = *(int *)(((*(int *)(int)gMapleDriver) + 0xFCC));
+    t1 = *(int *)(((*(int *)0x8C47317C) + 0xFCC));
     *(unsigned int *)((t1 + 0x0)) = ((*(int *)((t1 + 0x0))) | 0x80000000);
     return 0x0;
 }
@@ -450,7 +440,7 @@ int syCblCheckCable(void)
 
 int mpdrv_get_deviceinfo(int a4)
 {
-    return (((*(int *)(int)gMapleDriver) + 0x44C) + (a4 * 0x78));
+    return (((*(int *)0x8C47317C) + 0x44C) + (a4 * 0x78));
 }
 
 int syHwInit2(void)
@@ -461,12 +451,12 @@ int syHwInit2(void)
 
 int vmsfs_c_getstate(int a4)
 {
-    return (*(int *)(((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x4)));
+    return (*(int *)(((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x4)));
 }
 
 void vmsfs_c_setfunc(int a4, int a5)
 {
-    *(unsigned int *)(((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x8)) = a5;
+    *(unsigned int *)(((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x8)) = a5;
 }
 
 int mpdrv_recognize(int a4)
@@ -477,7 +467,7 @@ int mpdrv_recognize(int a4)
 
 int mpdrv_get_timeout(void)
 {
-    return (unsigned short)(short)((unsigned int)(*(int *)((0x10C0 + (*(int *)(int)gMapleDriver)))) >> 16);
+    return (unsigned short)(short)((unsigned int)(*(int *)((0x10C0 + (*(int *)0x8C47317C)))) >> 16);
 }
 
 int mpdrv_ischanged(int a4)
@@ -487,8 +477,8 @@ int mpdrv_ischanged(int a4)
 
 int mpdrv_optimize(int a4)
 {
-    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10E0)) = a4;
-    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10E4)) = a4;
+    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10E0)) = a4;
+    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10E4)) = a4;
     return 0x10E4;
 }
 
@@ -504,7 +494,7 @@ int pdGunGetFlashColor(int a4, int a5, int a6, int a7)
 
 int syRtcFinish(void)
 {
-    *(unsigned int *)(int)syRtcLastCount = 0x0;
+    *(unsigned int *)0x8C45A6E4 = 0x0;
     return syChainDeleteHandler((*(int *)0x8C45A6EC));
 }
 
@@ -516,13 +506,13 @@ int kdGetPortStatus(int a4)
 
 int mpdrv_swapmode(int a4)
 {
-    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10C4)) = (a4 & 0x1);
+    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10C4)) = (a4 & 0x1);
     return 0x10C4;
 }
 
 int pdGetPeripheral(int a4)
 {
-    return ((a4 * 0x34) + (int)gPdPeripheralSlots);
+    return ((a4 * 0x34) + 0x8C45A16C);
 }
 
 int gdFsCreateDirhn(int a4, int a5)
@@ -546,7 +536,7 @@ int syCblCheckCableType(void)
 
 int mpdrv_timeout(int a4)
 {
-    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10C0)) = (a4 << 16);
+    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10C0)) = (a4 << 16);
     return 0x10C0;
 }
 
@@ -558,7 +548,7 @@ void ovInit(int a4, int a5)
 
 int pdGetPeripheralError(int a4)
 {
-    return (*(int *)(((int)gPdPeripheralSlotWords + (a4 << 2))));
+    return (*(int *)((0x8C45A64C + (a4 << 2))));
 }
 
 void pdSetThreshold(int a4, int a5)
@@ -569,70 +559,70 @@ void pdSetThreshold(int a4, int a5)
 
 int mpdrv_get_swapmode(void)
 {
-    return (*(int *)((0x10C4 + (*(int *)(int)gMapleDriver))));
+    return (*(int *)((0x10C4 + (*(int *)0x8C47317C))));
 }
 
 int mpdrv_get_nopcount(void)
 {
-    return (*(int *)((0x10CC + (*(int *)(int)gMapleDriver))));
+    return (*(int *)((0x10CC + (*(int *)0x8C47317C))));
 }
 
 int mpdrv_get_speed(void)
 {
-    return (*(int *)((0x10D0 + (*(int *)(int)gMapleDriver))));
+    return (*(int *)((0x10D0 + (*(int *)0x8C47317C))));
 }
 
 int mpdrv_debugmode(int a4)
 {
-    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10C8)) = a4;
+    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10C8)) = a4;
     return 0x10C8;
 }
 
 int mpdrv_get_dreqcount(void)
 {
-    return (*(int *)((0x10D8 + (*(int *)(int)gMapleDriver))));
+    return (*(int *)((0x10D8 + (*(int *)0x8C47317C))));
 }
 
 int mpdrv_get_optimize(void)
 {
-    return (*(int *)((0x10E4 + (*(int *)(int)gMapleDriver))));
+    return (*(int *)((0x10E4 + (*(int *)0x8C47317C))));
 }
 
 int mpdrv_rootplay(int a4)
 {
-    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10DC)) = a4;
+    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10DC)) = a4;
     return 0x10DC;
 }
 
 int mpdrv_get_rootplay(void)
 {
-    return (*(int *)((0x10DC + (*(int *)(int)gMapleDriver))));
+    return (*(int *)((0x10DC + (*(int *)0x8C47317C))));
 }
 
 int mpdrv_autoflash(int a4)
 {
-    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFBC)) = a4;
+    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFBC)) = a4;
     return 0xFBC;
 }
 
 int mpdrv_get_autoflash(void)
 {
-    return (*(int *)((0xFBC + (*(int *)(int)gMapleDriver))));
+    return (*(int *)((0xFBC + (*(int *)0x8C47317C))));
 }
 
 int gdFsGetGlobalErrG(void)
 {
-    return (*(int *)(((*(int *)(int)gGdFsGlobalState) + 0x30)));
+    return (*(int *)(((*(int *)0x8C20C204) + 0x30)));
 }
 
 int gdFsGetWorkHnG(void)
 {
-    return (*(int *)(((*(int *)(int)gGdFsGlobalState) + 0x1C)));
+    return (*(int *)(((*(int *)0x8C20C204) + 0x1C)));
 }
 
 int gdFsGetSysHnG(void)
 {
-    return (*(int *)(((*(int *)(int)gGdFsGlobalState) + 0x14)));
+    return (*(int *)(((*(int *)0x8C20C204) + 0x14)));
 }
 
 int kdDmaEndHandler1(void)
@@ -643,7 +633,7 @@ int kdDmaEndHandler1(void)
 
 void kdSetGunTrigger(int a4)
 {
-    *(unsigned int *)(int)gKdGunCount = (a4 + 0x1);
+    *(unsigned int *)0x8C4620EC = (a4 + 0x1);
 }
 
 int gdFsInit(void)
@@ -668,12 +658,12 @@ int pdGunGetPosition(int a4, int a5)
 
 void syRtcSetServerMode(int a4)
 {
-    *(unsigned int *)(int)syRtcFlags = a4;
+    *(unsigned int *)0x8C45A6E8 = a4;
 }
 
 int syRtcGetStat(void)
 {
-    return (*(int *)(int)syRtcFlags);
+    return (*(int *)0x8C45A6E8);
 }
 
 int pdVibMxIsReady(int a4)

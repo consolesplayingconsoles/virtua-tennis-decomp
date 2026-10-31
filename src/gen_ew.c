@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ew): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char stageNo[];
 
 typedef struct { int w[3]; } Stk3;
 int ambLevelGet(void);
@@ -102,7 +101,7 @@ int gameMatchSetup(void)
     dbgMenuInit();
     *(unsigned int *)0x8C287C60 = 0x0;
     *(unsigned int *)0x8C287ACC = (*(int *)0x8C1891E8);
-    *(unsigned int *)(int)stageNo = (*(int *)0x8C1891E8);
+    *(unsigned int *)0x8C1891F0 = (*(int *)0x8C1891E8);
     if ((*(int *)0x8C287D5C) == 2) {
         t9 = *(int *)0x8C2FBE20;
         t10 = *(int *)(((((((t9 << 2) << 2) + t9) << 2) + 0x8C108E5C) + 0x2C));

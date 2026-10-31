@@ -271,6 +271,7 @@ kmCollectTextureGarbage
 kmSetCullingThreshold
 gdFsStringEquals
 kbCfgIni
+FUN_8c1f1906
 fmMngBufferEquals
 fmMngCopyBytes
 Qreset
@@ -3144,10 +3145,3 @@ write_fat_1
 write_sys
 zoneListClear
 zoneListSample
-nlIntrSetCpuVectorCallback
-nlIntrSetGdCommandCallback
-nlIntrSetGdDmaCallback
-nlIntrSetHSyncCallback
-nlIntrSetRenderEndCallback
-nlIntrSetTextureOverflowCallback
-nlIntrSetVSyncCallback

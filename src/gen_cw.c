@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_cw): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gNlObjectFadeColor[];
-extern char gNlSpriteInverseScreenSize[];
 
 extern void _builtin_prefetch(void *);
 float lerpf(float, float, float);
@@ -102,7 +100,7 @@ int nlSprPut(int a4, int a5)
             u60 = *(float *)0x8C1DCA28;
             u61 = *(float *)0x8C454C98;
             u62 = *(float *)0x8C1DCA24;
-            u63 = *(float *)(int)gNlSpriteInverseScreenSize;
+            u63 = *(float *)0x8C454C94;
             t64 = 0x4;
             t65 = 0x0;
             u66 = u60;
@@ -153,7 +151,7 @@ int nlSprPut(int a4, int a5)
                 u109 = 1.0f;
             }
             if ((0x2000 & (*(int *)((a4 + 0x34)))) != 0) {
-                *(unsigned int *)((((((t13 << 2) << 2) << 1) + t21) + 0x10)) = (nlSpriteF2ARGB(u109, (*(float *)(int)gNlObjectFadeColor), (*(float *)0x8C1DCA74), (*(float *)0x8C1DCA78)));
+                *(unsigned int *)((((((t13 << 2) << 2) << 1) + t21) + 0x10)) = (nlSpriteF2ARGB(u109, (*(float *)0x8C1DCA70), (*(float *)0x8C1DCA74), (*(float *)0x8C1DCA78)));
             } else {
                 if (((*(int *)((a4 + 0x34))) & 0x20000) != 0) {
                     t121 = ((((nlSpriteF2C(u109)) << 16) << 8) | (*(int *)((a4 + 0x38))));

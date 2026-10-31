@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ob): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 int charaModelCount(int, int);
 int charaTexCount(int);
@@ -61,7 +60,7 @@ int uniformLoadStep(void)
     R3 = ((t0 << 2));
     R4 = (((t0 * 0x38) + 0x8C343264));
     if (((*(int *)0x8C37DAF0) != (*(int *)0x8C37DAEC))) goto L_8C0C65A2;
-    t15 = (muneTexLoad((*(int *)((((*(int *)(((int)stk + 4))) + (int)Player) + 0xC58))), (*(int *)((R3 + 0x8C124AE0))), R13)) == 1;
+    t15 = (muneTexLoad((*(int *)((((*(int *)(((int)stk + 4))) + 0x8C287D84) + 0xC58))), (*(int *)((R3 + 0x8C124AE0))), R13)) == 1;
     if (t15) goto L_8C0C6594;
     L_8C0C676E:;
     if (((*(int *)0x8C287D5C) != 2)) goto L_8C0C678A;

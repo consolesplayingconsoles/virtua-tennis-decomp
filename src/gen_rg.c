@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_rg): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 int cpuDblSignalPut(int, int, int, int, float);
 int cpuDblSignalDraw(int a4, int a5, int a6, int a7, float f4);
@@ -36,7 +35,7 @@ int cpuDblSignalDraw(int a4, int a5, int a6, int a7, float f4)
     *(unsigned int *)(((int)stk + 4)) = 0x8C287ACC;
     R11 = (0x21C);
     R12 = (0x3);
-    R13 = ((int)Player);
+    R13 = (0x8C287D84);
     R8 = (0x78);
     R9 = (0x0);
     F15 = (180.0f);

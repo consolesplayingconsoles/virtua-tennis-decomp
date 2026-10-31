@@ -1,39 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_e): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
-extern char ballColliObj[];
-extern char charaTbl[];
-extern char colliObjCount[];
-extern char colliObjList[];
-extern char fileLoadState[];
-extern char gAdxStreamFileHandles[];
-extern char gAdxfFileHandles[];
-extern char gAdxfPartitionInfoTable[];
-extern char gDisplayFilterUsesSharedFrameBuffer[];
-extern char gFrameBufferControlRecords[];
-extern char gKdGunBusy[];
-extern char gKdGunCount[];
-extern char gKdGunLast[];
-extern char gMapleDeviceTable[];
-extern char gMapleDriver[];
-extern char gMapleHandlers[];
-extern char gNlG2DmaHandles[];
-extern char gNlObjectMatrix[];
-extern char gNlPrintTileClipFlags[];
-extern char gRenderPacketQueues[];
-extern char gRenderPacketVBlankWaitPending[];
-extern char gSjRbfHandles[];
-extern char gSjRbfInitCount[];
-extern char gStripBufferEnabled[];
-extern char gVertexBufferLockState[];
-extern char motFileAddr[];
-extern char motFileQueue[];
-extern char motLoadAddr[];
-extern char motionCur[];
-extern char motionSkelOfs[];
-extern char padPeri[];
-extern char stageNo[];
-extern char str_set_event[];
 
 int ADXB_CheckAu(int);
 int ADXB_CheckSpsd(void);
@@ -440,7 +406,7 @@ void mainCheckReset(void)
     int t4;
     int t5;
 
-    t0 = (int)padPeri;
+    t0 = 0x8C29B898;
     do {
         t1 = *(int *)((t0 + 0x0));
         t0 = (t0 + 0x4);
@@ -705,7 +671,7 @@ int set_event2(int a4, int a5)
         *(unsigned int *)((t1 + 0x8)) = 0x0;
         *(unsigned int *)((t1 + 0xC)) = a5;
         *(unsigned int *)((t1 + 0x0)) = 0x0;
-        *(unsigned int *)((t1 + 0x10)) = (int)str_set_event;
+        *(unsigned int *)((t1 + 0x10)) = 0x8C100ED0;
         *(unsigned int *)0x8C23D1D0 = t1;
         t4 = *(int *)0x8C23D1F4;
         *(unsigned int *)0x8C23D1F4 = (t4 + 0x1);
@@ -738,8 +704,8 @@ void motionSetCurrent(int a4)
     t0 = *(int *)((a4 + 0x34));
     t1 = *(int *)((a4 + 0x58));
     t2 = *(int *)((t0 + 0x10));
-    *(unsigned int *)(int)motionSkelOfs = (t1 + t2);
-    *(unsigned int *)(int)motionCur = a4;
+    *(unsigned int *)0x8C2873B8 = (t1 + t2);
+    *(unsigned int *)0x8C2871D4 = a4;
     *(unsigned int *)0x8C2873C0 = 0x0;
 }
 
@@ -749,7 +715,7 @@ int motionRootAuto(void)
     int t1;
     float u2;
 
-    t0 = *(int *)(int)motionCur;
+    t0 = *(int *)0x8C2871D4;
     t1 = *(int *)((t0 + 0x44));
     if (t1 != 0) {
         u2 = *(float *)((t0 + 0x4));
@@ -767,7 +733,7 @@ int motionRotateAuto(void)
     int t1;
     float u2;
 
-    t0 = *(int *)(int)motionCur;
+    t0 = *(int *)0x8C2871D4;
     t1 = *(int *)((t0 + 0x44));
     if (t1 != 0) {
         u2 = *(float *)((t0 + 0x4));
@@ -786,15 +752,15 @@ int motFileInit(void)
 
     t0 = 0x0;
     do {
-        *(unsigned int *)(((int)motFileAddr + t0)) = 0x0;
+        *(unsigned int *)((0x8C2873CC + t0)) = 0x0;
         *(unsigned int *)((0x8C287598 + t0)) = 0x0;
         t0 = (t0 + 0x4);
     } while ((unsigned int)t0 < (unsigned int)0x28);
-    t1 = (int)motFileQueue;
+    t1 = 0x8C2873F8;
     do {
         *(unsigned int *)((t1 + 0x0)) = 0x0;
         t1 = (t1 + 0x28);
-    } while ((unsigned int)t1 < (unsigned int)(int)motLoadAddr);
+    } while ((unsigned int)t1 < (unsigned int)0x8C287588);
     *(unsigned int *)0x8C287594 = 0x0;
     *(unsigned int *)0x8C28758C = 0x0;
     return t1;
@@ -820,7 +786,7 @@ void motFileLoadBegin(void)
     if (t0 != 0) {
         t1 = *(int *)0x8C28758C;
         if (t1 == 0) {
-            *(unsigned int *)(int)motLoadAddr = 0xCC00000;
+            *(unsigned int *)0x8C287588 = 0xCC00000;
             t2 = 0x0;
             do {
                 t3 = t2;
@@ -828,10 +794,10 @@ void motFileLoadBegin(void)
                 *(unsigned int *)((0x8C287598 + t3)) = 0x0;
                 *(unsigned int *)(((((int)stk + 4) + 0x4) + t3)) = 0x0;
             } while ((unsigned int)t2 < (unsigned int)0x28);
-            *(unsigned int *)(((int)stk + 4)) = (int)motFileQueue;
+            *(unsigned int *)(((int)stk + 4)) = 0x8C2873F8;
             t4 = t3;
-            t5 = (int)motFileQueue;
-            t6 = (int)motFileQueue;
+            t5 = 0x8C2873F8;
+            t6 = 0x8C2873F8;
             do {
                 t7 = *(int *)((t5 + 0x0));
                 if (t7 != 0) {
@@ -842,9 +808,9 @@ void motFileLoadBegin(void)
                 }
                 t5 = (t5 + 0x28);
                 t6 = (t6 + 0x28);
-            } while ((unsigned int)t5 < (unsigned int)(int)motLoadAddr);
+            } while ((unsigned int)t5 < (unsigned int)0x8C287588);
             t9 = (((int)stk + 4) + 0x4);
-            t10 = (int)motFileAddr;
+            t10 = 0x8C2873CC;
             do {
                 t11 = *(int *)((t9 + 0x0));
                 if (t11 == 0) {
@@ -1454,7 +1420,7 @@ int charaNodeIdInit(void)
     int t3;
     int t4;
 
-    t0 = (int)charaTbl;
+    t0 = 0x8C102424;
     do {
         t1 = *(int *)((t0 + 0x0));
         t2 = 0x0;
@@ -2074,13 +2040,13 @@ void ballColliSync(void)
     }
     t10 = *(int *)0x8C287AF8;
     if (t10 == 0) {
-        colliObjEntry((int)ballColliObj);
+        colliObjEntry(0x8C2FBFE0);
         t12 = *(int *)0x8C291F38;
         *(unsigned int *)0x8C2FBFE8 = t12;
         t13 = *(int *)0x8C291F34;
         *(unsigned int *)0x8C2FBFE4 = t13;
         t14 = *(int *)0x8C291F30;
-        *(unsigned int *)(int)ballColliObj = t14;
+        *(unsigned int *)0x8C2FBFE0 = t14;
         t15 = *(int *)0x8C291F38;
         *(unsigned int *)0x8C2FBFF4 = t15;
         t16 = *(int *)0x8C291F34;
@@ -2279,13 +2245,13 @@ int colliObjEntry(int a4)
     *(float *)((a4 + 0x40)) = 1.0f;
     t12 = *(int *)((a4 + 0x38));
     *(unsigned int *)((a4 + 0x38)) = (t12 & 0xFFFFFFFE);
-    t13 = *(int *)(int)colliObjCount;
+    t13 = *(int *)0x8C2FC20C;
     t15 = t13;
     if (t13 != 64) {
-        *(unsigned int *)(((t13 << 2) + (int)colliObjList)) = a4;
-        t14 = *(int *)(int)colliObjCount;
-        *(unsigned int *)(int)colliObjCount = (t14 + 0x1);
-        t15 = (int)colliObjList;
+        *(unsigned int *)(((t13 << 2) + 0x8C2FC210)) = a4;
+        t14 = *(int *)0x8C2FC20C;
+        *(unsigned int *)0x8C2FC20C = (t14 + 0x1);
+        t15 = 0x8C2FC210;
     }
     return t15;
 }
@@ -2326,7 +2292,7 @@ int cpuSglThinkAll(void)
 
     t0 = 0x8C2FC69C;
     t1 = 0x1;
-    t2 = (int)Player;
+    t2 = 0x8C287D84;
     do {
         t3 = *(signed char *)((t0 + 0x128));
         t8 = 0x128;
@@ -3617,7 +3583,7 @@ void scoreInit(void)
     strmScoreReset();
     t5 = 0x0;
     do {
-        t6 = *(int *)((((t5 * 0xD78) + (int)Player) + 0xC58));
+        t6 = *(int *)((((t5 * 0xD78) + 0x8C287D84) + 0xC58));
         *(unsigned int *)(((0x8C3343F0 + (t5 << 2)) + 0x0)) = t6;
         t7 = *(int *)(((0x8C287AE0 + (t5 << 2)) + 0x0));
         if (t7 != 0) {
@@ -5022,7 +4988,7 @@ void crowdAnimateAlt(void)
             t7 = *(int *)((t1 + 0x1E8));
             motionSetFrame(t1, (float)t7);
             t1 = (t1 + 0x1F4);
-        } while ((unsigned int)t1 < (unsigned int)(int)fileLoadState);
+        } while ((unsigned int)t1 < (unsigned int)0x8C34A1EC);
     }
 }
 
@@ -5086,7 +5052,7 @@ int fileLoadSync(int a4, int a5, int a6)
         *(unsigned int *)0x8C34B138 = (t21 + 0x1);
         return t0;
     }
-    *(unsigned int *)(int)fileLoadState = 0x0;
+    *(unsigned int *)0x8C34A1EC = 0x0;
     *(unsigned int *)0x8C34A1F4 = 0x0;
     *(unsigned int *)0x8C34A1F0 = 0x1;
     return 0x0;
@@ -5114,7 +5080,7 @@ void fileLoadClose(void)
         } while ((int)t1 < (int)0x32);
         t3 = *(int *)0x8C34A1F8;
         ADXF_Close(t3);
-        *(unsigned int *)(int)fileLoadState = 0x0;
+        *(unsigned int *)0x8C34A1EC = 0x0;
         *(unsigned int *)0x8C34A1F4 = 0x0;
         *(unsigned int *)0x8C34A1F0 = 0x1;
         *(unsigned int *)0x8C34A1F8 = 0x0;
@@ -5271,7 +5237,7 @@ void matchStageSlot(void)
 {
     int t0;
 
-    t0 = *(int *)(int)stageNo;
+    t0 = *(int *)0x8C1891F0;
     if (t0 != 2) {
         if (t0 != 0) {
             if (t0 != 1) {
@@ -7808,11 +7774,11 @@ int padUnplugCheck(void)
                 if ((int)t0 > (int)0x1) {
                     *(unsigned int *)((((int)stk + 4) + (t0 << 2))) = 0xFFFFFFFF;
                 } else {
-                    t3 = *(int *)(((0xB64 + ((t0 * 0xD78) + (int)Player)) + 0x0));
+                    t3 = *(int *)(((0xB64 + ((t0 * 0xD78) + 0x8C287D84)) + 0x0));
                     *(unsigned int *)((((int)stk + 4) + (t0 << 2))) = t3;
                 }
             } else {
-                t6 = *(int *)(((0xB64 + ((t0 * 0xD78) + (int)Player)) + 0x0));
+                t6 = *(int *)(((0xB64 + ((t0 * 0xD78) + 0x8C287D84)) + 0x0));
                 *(unsigned int *)((((int)stk + 4) + (t0 << 2))) = t6;
             }
         } else {
@@ -7820,7 +7786,7 @@ int padUnplugCheck(void)
         }
         t11 = *(int *)((((int)stk + 4) + (t0 << 2)));
         if (t11 != -1) {
-            t12 = *(int *)(((t11 << 2) + (int)padPeri));
+            t12 = *(int *)(((t11 << 2) + 0x8C29B898));
             t13 = *(int *)((t12 + 0x0));
             if (t13 == 0) break;
             t0 = (t0 + 0x1);
@@ -9012,7 +8978,7 @@ int resTitleLoadStep(void)
         if (t2 == 1) {
             t3 = *(int *)0x8C343FF4;
             *(unsigned int *)0x8C343FF4 = (t3 + 0x1);
-            *(unsigned int *)(int)fileLoadState = 0x0;
+            *(unsigned int *)0x8C34A1EC = 0x0;
         }
     } else {
         t4 = *(int *)0x8C343FF4;
@@ -9027,7 +8993,7 @@ int resTitleLoadStep(void)
                     resTitleSprTexLoad();
                     t9 = *(int *)0x8C343FF4;
                     *(unsigned int *)0x8C343FF4 = (t9 + 0x1);
-                    *(unsigned int *)(int)fileLoadState = 0x0;
+                    *(unsigned int *)0x8C34A1EC = 0x0;
                     *(unsigned int *)0x8C287C50 = 0x1;
                     *(unsigned int *)0x8C343FE8 = 0x1;
                     *(unsigned int *)0x8C301970 = 0x0;
@@ -9168,16 +9134,16 @@ int nlPrintSetOpaqueMode(int a4)
     int t5;
 
     *(unsigned int *)0x8C44F9C0 = a4;
-    t0 = *(int *)(int)gNlPrintTileClipFlags;
-    *(unsigned int *)(int)gNlPrintTileClipFlags = (t0 & 0xF8FFFFFF);
+    t0 = *(int *)0x8C44F9AC;
+    *(unsigned int *)0x8C44F9AC = (t0 & 0xF8FFFFFF);
     t1 = *(int *)0x8C44F9B4;
     *(unsigned int *)0x8C44F9B4 = (t1 & 0x3FFFFFF);
     if (a4 != 0) {
         t2 = *(int *)0x8C44F9B4;
         t5 = (t2 | 0x20000000);
     } else {
-        t3 = *(int *)(int)gNlPrintTileClipFlags;
-        *(unsigned int *)(int)gNlPrintTileClipFlags = (t3 | 0x2000000);
+        t3 = *(int *)0x8C44F9AC;
+        *(unsigned int *)0x8C44F9AC = (t3 | 0x2000000);
         t4 = *(int *)0x8C44F9B4;
         t5 = (t4 | 0x94000000);
     }
@@ -9228,7 +9194,7 @@ int nlObjPutTrnsl(int a4, float f4)
         nlInvLightVector();
     }
     nlPushMatrix(0x0);
-    nlMultiMatrixRevOrder8((int)gNlObjectMatrix);
+    nlMultiMatrixRevOrder8(0x8C450B38);
     return nlobjput_sub_trnsl(a4);
 }
 
@@ -9460,7 +9426,7 @@ void nlsndG2DmaInit(void)
     int t1;
 
     t0 = 0x10;
-    t1 = (int)gNlG2DmaHandles;
+    t1 = 0x8C454E34;
     do {
         t0 = (t0 - 0x1);
         *(unsigned int *)((t1 + 0x0)) = 0x0;
@@ -9792,15 +9758,15 @@ int adxf_AllocAdxFs(void)
     int t2;
 
     t6 = 0x0;
-    if ((unsigned int)(int)gAdxfFileHandles < (unsigned int)(int)gAdxfPartitionInfoTable) {
-        t0 = (int)gAdxfFileHandles;
-        t1 = (int)gAdxfFileHandles;
+    if ((unsigned int)0x8C46BF64 < (unsigned int)0x8C46C264) {
+        t0 = 0x8C46BF64;
+        t1 = 0x8C46BF64;
         for (;;) {
             t2 = *(signed char *)((t0 + 0x0));
             if (t2 == 0) break;
             t0 = (t0 + 0x30);
             t1 = (t1 + 0x30);
-            if ((unsigned int)t0 >= (unsigned int)(int)gAdxfPartitionInfoTable) {
+            if ((unsigned int)t0 >= (unsigned int)0x8C46C264) {
                 return 0x0;
             }
         }
@@ -9815,14 +9781,14 @@ int ADXF_ExecServer(void)
     int t2;
 
     ADXCRS_Lock();
-    t1 = (int)gAdxfFileHandles;
+    t1 = 0x8C46BF64;
     do {
         t2 = *(signed char *)((t1 + 0x0));
         if (t2 == 1) {
             adxf_ExecOne(t1);
         }
         t1 = (t1 + 0x30);
-    } while ((unsigned int)t1 < (unsigned int)(int)gAdxfPartitionInfoTable);
+    } while ((unsigned int)t1 < (unsigned int)0x8C46C264);
     return ADXCRS_Unlock();
 }
 
@@ -10440,9 +10406,9 @@ int copy_device(void)
     int t12;
     int t13;
 
-    t0 = *(int *)(int)gMapleDriver;
+    t0 = *(int *)0x8C47317C;
     t1 = (t0 + 0x28);
-    t2 = (int)gMapleDeviceTable;
+    t2 = 0x8C461C1C;
     t3 = 0x0;
     do {
         t4 = *(signed char *)((t1 + 0x0));
@@ -10500,16 +10466,16 @@ int init_sub(void)
     *(unsigned int *)0x8C4620E0 = 0x0;
     *(unsigned int *)0x8C4620E4 = 0x0;
     *(unsigned int *)0x8C4620E8 = 0x0;
-    *(unsigned int *)(int)gKdGunCount = 0x0;
-    *(unsigned int *)(int)gKdGunLast = 0x0;
+    *(unsigned int *)0x8C4620EC = 0x0;
+    *(unsigned int *)0x8C4620F4 = 0x0;
     *(unsigned int *)0x8C4620F0 = 0xFFFFFFFF;
     *(unsigned int *)0x8C462108 = 0x0;
-    *(unsigned int *)(int)gKdGunBusy = 0x0;
+    *(unsigned int *)0x8C46210C = 0x0;
     *(unsigned int *)0x8C462110 = 0x0;
     memset(0x8C461E5C, 0x0, 0x38);
-    memset((int)gMapleDeviceTable, 0x0, 0x240);
+    memset(0x8C461C1C, 0x0, 0x240);
     memset(0x8C461E9C, 0x0, 0x240);
-    t11 = memset((int)gMapleHandlers, 0x0, 0x80);
+    t11 = memset(0x8C461B9C, 0x0, 0x80);
     return t11;
 }
 
@@ -10637,7 +10603,7 @@ int ADXSJD_ExecServer(void)
             t3 = t2;
         }
         t0 = (t0 + 0x98);
-    } while ((unsigned int)t0 < (unsigned int)(int)gAdxStreamFileHandles);
+    } while ((unsigned int)t0 < (unsigned int)0x8C46B2E4);
     return t3;
 }
 
@@ -10757,8 +10723,8 @@ void SJRBF_Finish(void)
 {
     int initCount;
 
-    initCount = *(int *)(int)gSjRbfInitCount;
-    *(unsigned int *)(int)gSjRbfInitCount = (initCount - 1);
+    initCount = *(int *)0x8C20C928;
+    *(unsigned int *)0x8C20C928 = (initCount - 1);
 }
 
 int SJRBF_Create(int bufferAddress, int bufferBytes, int wrapMarginBytes)
@@ -10768,7 +10734,7 @@ int SJRBF_Create(int bufferAddress, int bufferBytes, int wrapMarginBytes)
 
     handleIndex = 0x0;
     for (;;) {
-        allocated = *(int *)(((((((handleIndex << 1) + handleIndex) << 2) << 2) + (int)gSjRbfHandles) + 0x4));
+        allocated = *(int *)(((((((handleIndex << 1) + handleIndex) << 2) << 2) + 0x8C46EFD4) + 0x4));
         if (allocated != 0) {
             handleIndex = (handleIndex + 0x1);
             if ((int)handleIndex >= (int)0x40) break;
@@ -10779,16 +10745,16 @@ int SJRBF_Create(int bufferAddress, int bufferBytes, int wrapMarginBytes)
     if (handleIndex == 64) {
         return 0x0;
     }
-    *(unsigned int *)((((int)gSjRbfHandles + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x4)) = 0x1;
-    *(unsigned int *)((((int)gSjRbfHandles + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x0)) = 0x8C20C8F8;
-    *(unsigned int *)((((int)gSjRbfHandles + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x1C)) = bufferAddress;
-    *(unsigned int *)((((int)gSjRbfHandles + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x20)) = bufferBytes;
-    *(unsigned int *)((((int)gSjRbfHandles + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x24)) = wrapMarginBytes;
-    *(unsigned int *)((((int)gSjRbfHandles + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x8)) = 0x8C20AD70;
-    *(unsigned int *)((((int)gSjRbfHandles + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x28)) = 0x8C1F3416;
-    *(unsigned int *)((((int)gSjRbfHandles + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x2C)) = ((int)gSjRbfHandles + ((((handleIndex << 1) + handleIndex) << 2) << 2));
-    SJRBF_Reset(((int)gSjRbfHandles + ((((handleIndex << 1) + handleIndex) << 2) << 2)));
-    return ((int)gSjRbfHandles + ((((handleIndex << 1) + handleIndex) << 2) << 2));
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x4)) = 0x1;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x0)) = 0x8C20C8F8;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x1C)) = bufferAddress;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x20)) = bufferBytes;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x24)) = wrapMarginBytes;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x8)) = 0x8C20AD70;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x28)) = 0x8C1F3416;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x2C)) = (0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2));
+    SJRBF_Reset((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)));
+    return (0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2));
 }
 
 int SJUNI_Init(void)
@@ -10903,7 +10869,7 @@ void kmyGetFrameBufferAddress(int a4, int a5)
     int t4;
 
     if (a5 != 0) {
-        t0 = (int)gFrameBufferControlRecords;
+        t0 = 0x8C45EEF4;
         t1 = 0x0;
         do {
             t2 = (t0 == a4);
@@ -10931,7 +10897,7 @@ void kmyReleaseFrameBufferHandle(int a4)
     int t3;
 
     if (a4 != 0) {
-        t0 = (int)gFrameBufferControlRecords;
+        t0 = 0x8C45EEF4;
         t1 = 0x0;
         do {
             t2 = (t0 == a4);
@@ -11552,7 +11518,7 @@ int kmiFLWCTRLFindVacantQueue(void)
     t0 = 0x0;
     t1 = 0x0;
     for (;;) {
-        t2 = *(int *)((t0 + (int)gRenderPacketQueues));
+        t2 = *(int *)((t0 + 0x8C45F964));
         if (t2 == 0) break;
         t0 = (t0 + 0x1C4);
         t1 = (t1 + 0x1C4);
@@ -11560,7 +11526,7 @@ int kmiFLWCTRLFindVacantQueue(void)
             return 0x0;
         }
     }
-    return ((int)gRenderPacketQueues + t1);
+    return (0x8C45F964 + t1);
 }
 
 int kmiFLWCTRLFindTopQueue(void)
@@ -11573,7 +11539,7 @@ int kmiFLWCTRLFindTopQueue(void)
     t0 = 0x0;
     t1 = 0x0;
     for (;;) {
-        t2 = *(int *)((t0 + (int)gRenderPacketQueues));
+        t2 = *(int *)((t0 + 0x8C45F964));
         if (t2 == 1) {
             t3 = *(int *)((t0 + 0x8C45F970));
             if (t3 == 0) break;
@@ -11590,7 +11556,7 @@ int kmiFLWCTRLFindTopQueue(void)
             return 0x0;
         }
     }
-    return ((int)gRenderPacketQueues + t1);
+    return (0x8C45F964 + t1);
 }
 
 int kmiFLWCTRLGetNBufLockStatus(int a4)
@@ -11634,8 +11600,8 @@ void kmiFLWCTRLLockVBuf(int a4)
     int t0;
 
     *(unsigned int *)0x8C45F958 = 0x1;
-    t0 = *(int *)(int)gVertexBufferLockState;
-    *(unsigned int *)(int)gVertexBufferLockState = (t0 | (((int)a4 >= 0) ? (0x1 << (a4 & 31)) : ((-(int)a4 & 31) ? ((int)0x1 >> (-(int)a4 & 31)) : ((int)0x1 >> 31))));
+    t0 = *(int *)0x8C45F940;
+    *(unsigned int *)0x8C45F940 = (t0 | (((int)a4 >= 0) ? (0x1 << (a4 & 31)) : ((-(int)a4 & 31) ? ((int)0x1 >> (-(int)a4 & 31)) : ((int)0x1 >> 31))));
     *(unsigned int *)0x8C45F958 = 0x0;
 }
 
@@ -11660,7 +11626,7 @@ int kmiFLWCTRLLockNBuf(int a4)
     t0 = *(int *)0x8C45F944;
     *(unsigned int *)0x8C45F944 = (t0 | (((int)a4 >= 0) ? (0x1 << (a4 & 31)) : ((-(int)a4 & 31) ? ((int)0x1 >> (-(int)a4 & 31)) : ((int)0x1 >> 31))));
     *(unsigned int *)0x8C45F95C = 0x0;
-    t1 = *(int *)(int)gRenderPacketVBlankWaitPending;
+    t1 = *(int *)0x8C4607E8;
     t3 = 0x8C45F95C;
     if (t1 != 0) {
         t2 = *(int *)0x8C4607E4;
@@ -11684,8 +11650,8 @@ void kmiFLWCTRLUnLockVBuf(int a4)
             t2 = *(int *)0x8C45F94C;
             *(unsigned int *)0x8C45F94C = (t2 | (((int)a4 >= 0) ? (0x1 << (a4 & 31)) : ((-(int)a4 & 31) ? ((int)0x1 >> (-(int)a4 & 31)) : ((int)0x1 >> 31))));
         } else {
-            t3 = *(int *)(int)gVertexBufferLockState;
-            *(unsigned int *)(int)gVertexBufferLockState = (t3 & (~(((int)a4 >= 0) ? (0x1 << (a4 & 31)) : ((-(int)a4 & 31) ? ((int)0x1 >> (-(int)a4 & 31)) : ((int)0x1 >> 31)))));
+            t3 = *(int *)0x8C45F940;
+            *(unsigned int *)0x8C45F940 = (t3 & (~(((int)a4 >= 0) ? (0x1 << (a4 & 31)) : ((-(int)a4 & 31) ? ((int)0x1 >> (-(int)a4 & 31)) : ((int)0x1 >> 31)))));
         }
     }
 }
@@ -11751,7 +11717,7 @@ int kmiFLWCTRLFindFreeNBuf(void)
         *(unsigned int *)0x8C45F944 = (t1 & (~t0));
         *(unsigned int *)0x8C45F95C = 0x0;
     }
-    t4 = *(int *)(int)gRenderPacketVBlankWaitPending;
+    t4 = *(int *)0x8C4607E8;
     if (t4 != 0) {
         t5 = *(int *)0x8C4607E4;
         t6 = *(int *)0x8C45F944;
@@ -11833,7 +11799,7 @@ void kmiFLWCTRLStartDisplayEntry(int a4)
     t1 = *(int *)((a4 + 0x28));
     *(unsigned int *)0x8C4607C4 = t1;
     *(unsigned int *)((a4 + 0x14)) = 0x7;
-    t2 = *(int *)(int)gDisplayFilterUsesSharedFrameBuffer;
+    t2 = *(int *)0x8C45EFEC;
     if (t2 != 0) {
         t3 = *(int *)((a4 + 0x40));
         kmySetDisplayFrameBuffer(t3, t3);
@@ -12028,7 +11994,7 @@ void mpdrv_make_rootdevicedata(int a4, int a5, int a6, int a7)
     t4 = *(signed char *)((a6 + 0x0));
     t5 = *(signed char *)((a6 + 0x1));
     *(unsigned char *)((a6 + 0x3)) = ((t5 ^ t4) & (~t4));
-    t6 = *(int *)(int)gMapleDriver;
+    t6 = *(int *)0x8C47317C;
     t7 = *(int *)((0x10C4 + t6));
     if (t7 == 1) {
         t8 = *(signed char *)((a6 + 0x8));
@@ -12061,7 +12027,7 @@ void mpdrv_init_memory(void)
 {
     int t0;
 
-    t0 = *(int *)(int)gMapleDriver;
+    t0 = *(int *)0x8C47317C;
     *(unsigned int *)((t0 + 0x10F4)) = 0xA05F6C00;
 }
 
@@ -12469,7 +12435,7 @@ int kmyStartRenderTexture(int a4, int a5, int a6)
     t0 = kmyiCheckNativeHandle(a4);
     t28 = 0xEEEE;
     if (t0 != 0) {
-        t1 = *(int *)(int)gStripBufferEnabled;
+        t1 = *(int *)0x8C45EEE4;
         t27 = 0xEEEE;
         if (t1 == 0) {
             t2 = *(int *)((a4 + 0x88));
@@ -12558,7 +12524,7 @@ int kmyStartRender(int a4, int a5)
             kmiWriteRegister(0x6C, t21);
             t23 = *(int *)((a5 + 0x2C));
             kmiWriteRegister(0x4C, t23);
-            t25 = *(int *)(int)gStripBufferEnabled;
+            t25 = *(int *)0x8C45EEE4;
             if (t25 == 0) {
                 t26 = *(int *)((a5 + 0x1C));
                 kmiWriteRegister(0x60, t26);

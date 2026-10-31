@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ec): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 extern float _builtin_sqrtf(float);
@@ -91,7 +90,7 @@ int cpuDblAimArc(int a4, int a5)
     int stk[32];
 
     t0 = *(int *)((a4 + 0xB5C));
-    t1 = *(int *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xB5C));
+    t1 = *(int *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xB5C));
     *(float *)((a5 + 0x1C)) = 0.0f;
     *(float *)(((int)stk + 64)) = 0.0f;
     *(float *)(((int)stk + 76)) = 0.0f;
@@ -103,23 +102,23 @@ int cpuDblAimArc(int a4, int a5)
         t81 = (t8 + 0xA);
     } else {
         *(Stk3 *)(((int)stk + 44)) = vecMake(1.0f, 0.0f, 0.0f);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((0xAE8 + (((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player))); }
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((0xAE8 + (((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84))); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x28)); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xB9C + a4)); }
         vecLineCrossXZ((((int)stk + 8) + 0x34));
         u11 = *(float *)(((int)stk + 60));
-        u12 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAE8));
+        u12 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAE8));
         u14 = ((-u11) + u12);
         if (!(0.0f > (u11 - u12))) {
             u14 = (u11 - u12);
         }
         u16 = *(float *)((a4 + 0xBA4));
-        u17 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAF0));
+        u17 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0));
         u19 = ((-u16) + u17);
         if (!(0.0f > (u16 - u17))) {
             u19 = (u16 - u17);
         }
-        u21 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAE8));
+        u21 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAE8));
         u22 = *(float *)(((int)stk + 60));
         t25 = 0x1;
         if ((u22 - u21) > 0.0f) {
@@ -132,23 +131,23 @@ int cpuDblAimArc(int a4, int a5)
         }
         *(unsigned int *)(((int)stk + 56)) = t25;
         *(Stk3 *)(((int)stk + 44)) = vecMake(1.0f, 0.0f, 0.0f);
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((0xAE8 + (((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player))); }
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((0xAE8 + (((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84))); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x28)); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xB9C + a4)); }
         vecLineCrossXZ((((int)stk + 8) + 0x34));
         u28 = *(float *)(((int)stk + 60));
-        u29 = *(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAE8));
+        u29 = *(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAE8));
         u31 = ((-u28) + u29);
         if (!(0.0f > (u28 - u29))) {
             u31 = (u28 - u29);
         }
         u33 = *(float *)((a4 + 0xBA4));
-        u34 = *(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAF0));
+        u34 = *(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0));
         u36 = ((-u33) + u34);
         if (!(0.0f > (u33 - u34))) {
             u36 = (u33 - u34);
         }
-        u38 = *(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAE8));
+        u38 = *(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAE8));
         u39 = *(float *)(((int)stk + 60));
         t42 = 0x1;
         if ((u39 - u38) > 0.0f) {
@@ -170,8 +169,8 @@ int cpuDblAimArc(int a4, int a5)
         }
         *(float *)((a5 + 0x1C)) = u48;
         if ((*(int *)(((int)stk + 56))) != t42) {
-            *(float *)(((int)stk + 60)) = ((*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAE8))) - (*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAE8))));
-            *(float *)(((int)stk + 68)) = ((*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAF0))) - (*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + (int)Player) + 0xAF0))));
+            *(float *)(((int)stk + 60)) = ((*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAE8))) - (*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAE8))));
+            *(float *)(((int)stk + 68)) = ((*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0))) - (*(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0))));
             t55 = nlInnerProduct((((int)stk + 52) + 0x14), (((int)stk + 52) + 0x8));
             t56 = nlScalor((((int)stk + 52) + 0x14));
             t57 = nlScalor((((int)stk + 52) + 0x8));

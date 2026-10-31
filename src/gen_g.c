@@ -1,10 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_g): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gMapleDriver[];
-extern char gNlCommonTextureOffset[];
-extern char gNlRenderTextureTableState[];
-extern char gNlTextureSurfaces[];
-extern char stageNo[];
 
 int ADXT_Pause(int, int);
 int ADXT_Stop(void);
@@ -59,7 +54,7 @@ void stageLoadTimedInit(int a4)
     t3 = *(int *)0x8C287ACC;
     t4 = *(int *)(((t3 << 2) + 0x8C1022B8));
     *(unsigned int *)0x8C1891E8 = t4;
-    *(unsigned int *)(int)stageNo = t4;
+    *(unsigned int *)0x8C1891F0 = t4;
     *(unsigned int *)0x8C287C50 = 0x5DC;
 }
 
@@ -395,13 +390,13 @@ void nlRenderTextureFree(int a4)
     int t18;
 
     t0 = *(int *)0x8C44FBF0;
-    t1 = *(int *)(int)gNlRenderTextureTableState;
+    t1 = *(int *)0x8C44FBEC;
     if ((unsigned int)a4 <= (unsigned int)t0) {
         t2 = *(int *)(((t1 + ((a4 << 2) << 2)) + 0x0));
         if ((int)t2 >= 0) {
             *(unsigned int *)(((t1 + ((a4 << 2) << 2)) + 0x0)) = 0xFFFFFFFF;
             *(unsigned int *)(((t1 + ((a4 << 2) << 2)) + 0x4)) = 0xFFFFFFFF;
-            t3 = *(int *)(int)gNlCommonTextureOffset;
+            t3 = *(int *)0x8C458DCC;
             t4 = *(int *)0x8C4241C0;
             t5 = *(int *)((((((t2 + t3) << 2) << 1) + t4) + 0x0));
             if (t5 != 0) {
@@ -410,20 +405,20 @@ void nlRenderTextureFree(int a4)
                 t7 = *(int *)(((t6 + (((t2 + t3) << 2) << 1)) + 0x4));
                 *(unsigned int *)(((t6 + (((t2 + t3) << 2) << 1)) + 0x4)) = 0xFFFFFFFF;
                 nlCommonTextureClearTextureIndex(t7);
-                t9 = *(int *)(int)gNlTextureSurfaces;
+                t9 = *(int *)0x8C458608;
                 t10 = *(int *)(((t9 + (t7 * 0x3C)) + 0x2C));
                 if (t10 != 0) {
-                    t11 = *(int *)(int)gNlTextureSurfaces;
+                    t11 = *(int *)0x8C458608;
                     t12 = *(int *)(((t11 + (t7 * 0x3C)) + 0x28));
                     if (t12 == 0) {
-                        t13 = *(int *)(int)gNlTextureSurfaces;
+                        t13 = *(int *)0x8C458608;
                         kmFreeTexture((t13 + (t7 * 0x3C)));
                     }
-                    t16 = *(int *)(int)gNlTextureSurfaces;
+                    t16 = *(int *)0x8C458608;
                     *(unsigned int *)(((t16 + (t7 * 0x3C)) + 0x28)) = 0xFFFFFFFF;
-                    t17 = *(int *)(int)gNlTextureSurfaces;
+                    t17 = *(int *)0x8C458608;
                     *(unsigned int *)(((t17 + (t7 * 0x3C)) + 0x2C)) = 0x0;
-                    t18 = *(int *)(int)gNlTextureSurfaces;
+                    t18 = *(int *)0x8C458608;
                     *(unsigned int *)(((t18 + (t7 * 0x3C)) + 0x38)) = 0xFFFFFFFF;
                 }
             }
@@ -501,7 +496,7 @@ void make_header(int a4, int a5)
 
     t0 = *(int *)((a5 + 0x0));
     *(unsigned int *)(((int)stk + 4)) = t0;
-    t1 = *(int *)(int)gMapleDriver;
+    t1 = *(int *)0x8C47317C;
     t2 = *(int *)((0x10C4 + t1));
     if (t2 == 1) {
         t3 = *(signed char *)((((int)stk + 4) + 0x0));

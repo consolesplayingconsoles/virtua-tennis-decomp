@@ -1,13 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_v): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gAdxStreamFileHandles[];
-extern char gNlFontHeight[];
-extern char gNlFontTextureAddress[];
-extern char gNlFontWidth[];
-extern char gNlPrintFlags[];
-extern char motFileQueue[];
-extern char motFileTbl[];
-extern char motLoadAddr[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -119,23 +111,23 @@ void motFileRequest(int a4, int a5)
     int t2;
 
     if ((*(int *)0x8C28758C) != 0) {
-        t1 = (int)motFileQueue;
+        t1 = 0x8C2873F8;
         for (;;) {
             *(unsigned int *)((t1 + 0x0)) = 0x0;
             t1 = (t1 + 0x28);
-            if ((unsigned int)t1 >= (unsigned int)(int)motLoadAddr) {
+            if ((unsigned int)t1 >= (unsigned int)0x8C287588) {
                 break;
             }
         }
         *(unsigned int *)0x8C287594 = 0x0;
         *(unsigned int *)0x8C28758C = 0x0;
-        t2 = (int)motLoadAddr;
+        t2 = 0x8C287588;
     }
     t4 = 0x0;
     t5 = t2;
     for (;;) {
-        if ((*(int *)(((((((t4 << 2) + t4) << 2) << 1) + (int)motFileQueue) + 0x0))) != a4) {
-            if ((*(int *)(((((((t4 << 2) + t4) << 2) << 1) + (int)motFileQueue) + 0x0))) == 0) {
+        if ((*(int *)(((((((t4 << 2) + t4) << 2) << 1) + 0x8C2873F8) + 0x0))) != a4) {
+            if ((*(int *)(((((((t4 << 2) + t4) << 2) << 1) + 0x8C2873F8) + 0x0))) == 0) {
                 t5 = t4;
                 t4 = 0xA;
             }
@@ -147,7 +139,7 @@ void motFileRequest(int a4, int a5)
         }
         return;
     }
-    { struct mv10 { int w[10]; }; *(struct mv10 *)((((((t5 << 2) + t5) << 2) << 1) + (int)motFileQueue)) = *(struct mv10 *)((((((a4 << 2) + a4) << 2) << 1) + (int)motFileTbl)); }
+    { struct mv10 { int w[10]; }; *(struct mv10 *)((((((t5 << 2) + t5) << 2) << 1) + 0x8C2873F8)) = *(struct mv10 *)((((((a4 << 2) + a4) << 2) << 1) + 0x8C101534)); }
     *(unsigned int *)0x8C287594 = ((*(int *)0x8C287594) + 0x1);
 }
 
@@ -586,7 +578,7 @@ int ADXSTMF_Create(int a4, int a5, int a6, int a7)
 
     t0 = 0x0;
     for (;;) {
-        if ((*(signed char *)((((t0 * 0x64) + (int)gAdxStreamFileHandles) + 0x0))) != 0) {
+        if ((*(signed char *)((((t0 * 0x64) + 0x8C46B2E4) + 0x0))) != 0) {
             t0 = (t0 + 0x1);
             if ((int)t0 >= (int)0x20) {
                 break;
@@ -598,25 +590,25 @@ int ADXSTMF_Create(int a4, int a5, int a6, int a7)
     if (t0 == 32) {
         t14 = 0x0;
     } else {
-        *(unsigned char *)((((t0 * 0x64) + (int)gAdxStreamFileHandles) + 0x1)) = 0x1;
-        *(unsigned char *)((((t0 * 0x64) + (int)gAdxStreamFileHandles) + 0x2)) = 0x0;
-        *(unsigned int *)((((t0 * 0x64) + (int)gAdxStreamFileHandles) + 0x4)) = a7;
-        *(unsigned int *)((((t0 * 0x64) + (int)gAdxStreamFileHandles) + 0x8)) = a4;
-        *(unsigned int *)((((t0 * 0x64) + (int)gAdxStreamFileHandles) + 0xC)) = 0x0;
-        *(unsigned int *)((((t0 * 0x64) + (int)gAdxStreamFileHandles) + 0x10)) = a5;
-        *(unsigned int *)((((t0 * 0x64) + (int)gAdxStreamFileHandles) + 0x14)) = a6;
-        *(unsigned int *)((((t0 * 0x64) + (int)gAdxStreamFileHandles) + 0x2C)) = 0x20;
-        t7 = *(int *)((((t0 * 0x64) + (int)gAdxStreamFileHandles) + 0x14));
+        *(unsigned char *)((((t0 * 0x64) + 0x8C46B2E4) + 0x1)) = 0x1;
+        *(unsigned char *)((((t0 * 0x64) + 0x8C46B2E4) + 0x2)) = 0x0;
+        *(unsigned int *)((((t0 * 0x64) + 0x8C46B2E4) + 0x4)) = a7;
+        *(unsigned int *)((((t0 * 0x64) + 0x8C46B2E4) + 0x8)) = a4;
+        *(unsigned int *)((((t0 * 0x64) + 0x8C46B2E4) + 0xC)) = 0x0;
+        *(unsigned int *)((((t0 * 0x64) + 0x8C46B2E4) + 0x10)) = a5;
+        *(unsigned int *)((((t0 * 0x64) + 0x8C46B2E4) + 0x14)) = a6;
+        *(unsigned int *)((((t0 * 0x64) + 0x8C46B2E4) + 0x2C)) = 0x20;
+        t7 = *(int *)((((t0 * 0x64) + 0x8C46B2E4) + 0x14));
         t9 = (t7 + 0x7FF);
         if ((int)(t7 + 0x7FF) < 0) {
             t9 = ((t7 + 0x7FF) + 0x7FF);
         }
-        *(unsigned int *)((((t0 * 0x64) + (int)gAdxStreamFileHandles) + 0x30)) = ((int)t9 >> 11);
-        *(unsigned char *)((((t0 * 0x64) + (int)gAdxStreamFileHandles) + 0x0)) = 0x1;
+        *(unsigned int *)((((t0 * 0x64) + 0x8C46B2E4) + 0x30)) = ((int)t9 >> 11);
+        *(unsigned char *)((((t0 * 0x64) + 0x8C46B2E4) + 0x0)) = 0x1;
         t13 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)((a7 + 0x0))) + 0x24)))))(a7, 0x0, a6, 0x1);
-        *(unsigned int *)((((t0 * 0x64) + (int)gAdxStreamFileHandles) + 0x18)) = t13;
-        *(unsigned int *)((((t0 * 0x64) + (int)gAdxStreamFileHandles) + 0x1C)) = t13;
-        t14 = ((t0 * 0x64) + (int)gAdxStreamFileHandles);
+        *(unsigned int *)((((t0 * 0x64) + 0x8C46B2E4) + 0x18)) = t13;
+        *(unsigned int *)((((t0 * 0x64) + 0x8C46B2E4) + 0x1C)) = t13;
+        t14 = ((t0 * 0x64) + 0x8C46B2E4);
     }
     return t14;
 }
@@ -750,9 +742,9 @@ int nlInitPrint(void)
     *(unsigned int *)0x8C44F964 = 0x0;
     *(unsigned int *)0x8C44F99C = 0xFFFFFFFF;
     *(unsigned short *)0x8C44F998 = 0x8;
-    *(unsigned int *)(int)gNlFontWidth = 0x8;
-    *(unsigned int *)(int)gNlFontHeight = 0x8;
-    *(unsigned int *)(int)gNlPrintFlags = 0x0;
+    *(unsigned int *)0x8C44F95C = 0x8;
+    *(unsigned int *)0x8C44F960 = 0x8;
+    *(unsigned int *)0x8C44F950 = 0x0;
     *(float *)0x8C44F9A0 = 0.0f;
     *(float *)0x8C44F9A4 = 1.0f;
     *(float *)0x8C44F9A8 = (*(float *)0x8C0ED8F4);
@@ -768,7 +760,7 @@ int nlInitPrint(void)
         }
     }
     kmCreateTextureSurface(0x8C44F9C4, 0x8, 0x400, 0x902);
-    kmLoadTexture(0x8C44F9C4, (*(int *)(int)gNlFontTextureAddress));
+    kmLoadTexture(0x8C44F9C4, (*(int *)0x8C1DC8D4));
     return (nlPrintInitFontTexture());
 }
 

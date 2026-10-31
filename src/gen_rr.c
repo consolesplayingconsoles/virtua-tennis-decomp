@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_rr): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 int entryRecordCharas(void);
 
@@ -18,7 +17,7 @@ int entryRecordCharas(void)
     t1 = 0x0;
     t2 = 0x0;
     t3 = 0x0;
-    t4 = (int)Player;
+    t4 = 0x8C287D84;
     t5 = 0x0;
     for (;;) {
         t7 = *(short *)0x8C343262;
@@ -32,7 +31,7 @@ int entryRecordCharas(void)
                 t4 = (t4 << 2);
                 t4 = (t4 << 2);
                 t4 = (t4 << 1);
-                t7 = (t7 + (int)Player);
+                t7 = (t7 + 0x8C287D84);
                 *(unsigned int *)((((*(int *)(((0x8C343724 + t3) + 0x0))) << 2) + (0x8C343524 + t4))) = (*(int *)((t7 + 0x0)));
                 *(unsigned int *)((((*(int *)(((0x8C343724 + t3) + 0x0))) << 2) + (0x8C343624 + t4))) = (*(int *)0x8C28A4CC);
                 t7 = (0x8C343624 + t4);

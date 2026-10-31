@@ -94,25 +94,16 @@ The function/name temporary lower bound falls from 28,957 to 28,728 across
 still 101 address-based global identifiers in the name tables. These are
 inventory measurements, not a claim that relabeling is complete.
 
-## GD handle offsets 44 and 48, and three unlisted entries
+## GD handle offsets 44 and 48
 
-`gdFsChainHandleDmaCallback` (`8c1dd692`) reads the current handle from the
+The code at `8c1dd692` (a sync chain handler registered through
+`syChainAddHandler` with id `0xa40`) reads the current handle from the
 filesystem state at +28 and, when handle +44 is nonzero, passes handle +44 and
 +48 to GDC BIOS command 5 (callback and argument); otherwise it passes zero
 for both. The constructor clears +44. The members are therefore
 `dmaCallbackAddress` (+44) and `dmaCallbackArgument` (+48).
 
-Three code entries were missing from `functions.txt` (found as pool-referenced
-code after `gdFsReadWG`, and before `gdGdcReqDmaTrans`):
-
-- `gdFsChainHandleDmaCallback` (`8c1dd692`): sync chain handler, registered
-  through `syChainAddHandler` with id `0xa40` in the filesystem init code.
-- `gdFsChainExecServer` (`8c1dd6ac`): chain handler registered with id
-  `0x900`; returns when state +32 is 1, otherwise tail-calls `gdFsExecServerG`.
-- `gdGdcSetDmaCallback` (`8c1ef400`): GDC BIOS command 5 with callback and
-  argument, same stub shape as its neighbours.
-
-The state +44 reads in the init code (packed version digits) belong to the
+The reads of state +44 in the init code (packed version digits) belong to the
 global state, not to the handle.
 
 ## DMA request shorts and ADX decoder slot flag
@@ -138,34 +129,3 @@ halves at +0x10a8/+0x10ac. The frame send/receive routines test +0xfc0. The
 fields are `initialized`, `halfBufferedWorkArea` and `frameSlotArea`; the
 send/receive roles of the two tables are not established. +0xfd0/+0xfd4 remain
 unaccessed.
-
-## DMA request builders
-
-`kmiSetFogDMA` and `kmySetTADMA` fill the same record as `kmySetTextureDMA`:
-+4 operation flags (1 fog, 9 TA, 8 texture), +8 transfer kind (7 fog, caller
-value for TA, 0 texture), +12 byte count, +16 source, +20 destination (fog
-registers `0x5F8200 + (offset & 480)`, TA FIFO `0x10000000`, texture
-`dest | 0x11000000`), +28 a control halfword (`0x4000` fog, `flags | 0x8000`
-TA, `0x8000` texture; renamed `transferControlWord`), +30 zero. +40 is the
-status written by `kmyRequestDMA`, +44 the user value, +48 a word that the
-fog builder clears and the TA builder takes from its argument (`extraWord`,
-purpose not established). Parameters and the record type are named
-accordingly in `src/vtsdk_d.c`. `ADXT_SetOutPan` still differs in the checker,
-as before this change (one of the three known missing passes).
-
-## Named addresses in generated C
-
-Exact `0x8Cxxxxxx` literals that equal a data symbol in `symbols.txt` or
-`globals.txt` are now written as `(int)<name>` with an `extern char <name>[];`
-declaration (238 files in `src/gen_*.c`, about 750 uses), for example the
-`Player` table, `motionCur`, `gVmsVolumeStates`. Literals inside larger
-expressions are unchanged. Each changed file was rechecked with the equivalence
-runner and reports the same results as before. `src/gen_av.c` was left as it
-was: with the names in place `kmyGetFrameBufferHandle` differs on case 7, so
-that file keeps raw addresses until the cause is understood. More than 11,000
-raw-address accesses remain, mostly to addresses that have no name yet.
-
-Correction: the substitution above also replaced addresses whose only symbol is
-a placeholder (`g_0c...`), which adds no information. Those 61 files were put
-back to the raw literal, so the C references no placeholder global names.
-Substitution only counts when the name came from evidence.

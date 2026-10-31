@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_qc): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char motionCur[];
 
 float lerpf(float, float, float);
 int nlTranslate(float, float, float);
@@ -94,26 +93,26 @@ int motionRoot2(int a4)
     float F15;
     int T_;
     R4 = a4;
-    t0 = *(int *)(int)motionCur;
+    t0 = *(int *)0x8C2871D4;
     *(float *)((t0 + 0x10)) = ((*(float *)((t0 + 0x10))) * (*(float *)((((*(int *)((t0 + 0x1C))) + 0xC) + 0x0))));
-    t4 = *(int *)(int)motionCur;
+    t4 = *(int *)0x8C2871D4;
     *(float *)((t4 + 0x14)) = ((*(float *)((t4 + 0x14))) * (*(float *)((((*(int *)((t4 + 0x20))) + 0xC) + 0x0))));
-    t8 = *(int *)(int)motionCur;
+    t8 = *(int *)0x8C2871D4;
     *(float *)((t8 + 0x8)) = ((*(float *)((t8 + 0x8))) * (*(float *)((((*(int *)((t8 + 0x1C))) + 0xC) + 0x0))));
-    t12 = *(int *)(int)motionCur;
+    t12 = *(int *)0x8C2871D4;
     *(float *)((t12 + 0xC)) = ((*(float *)((t12 + 0xC))) * (*(float *)((((*(int *)((t12 + 0x20))) + 0xC) + 0x0))));
-    t16 = *(int *)(int)motionCur;
+    t16 = *(int *)0x8C2871D4;
     *(unsigned int *)((t16 + 0x2C)) = (int)((float)(*(int *)((t16 + 0x2C))) * (*(float *)((((*(int *)((t16 + 0x1C))) + 0xC) + 0x0))));
-    t20 = *(int *)(int)motionCur;
+    t20 = *(int *)0x8C2871D4;
     t21 = *(int *)((t20 + 0x20));
     *(unsigned int *)((t20 + 0x30)) = (int)((float)(*(int *)((t20 + 0x30))) * (*(float *)(((t21 + 0xC) + 0x0))));
-    t26 = *(int *)(((*(int *)(((*(int *)(int)motionCur) + 0x20))) + 0x10));
-    t28 = *(int *)(int)motionCur;
-    u29 = *(float *)(((*(int *)(int)motionCur) + 0xC));
-    t33 = *(int *)(int)motionCur;
+    t26 = *(int *)(((*(int *)(((*(int *)0x8C2871D4) + 0x20))) + 0x10));
+    t28 = *(int *)0x8C2871D4;
+    u29 = *(float *)(((*(int *)0x8C2871D4) + 0xC));
+    t33 = *(int *)0x8C2871D4;
     R1 = ((t21 + 0xC));
     R12 = ((((*(int *)((t28 + 0x54))) + (*(int *)(((*(int *)((t28 + 0x20))) + 0x4)))) + (((((int)u29 * t26) + R4) << 1) + ((((int)u29 * t26) + R4) << 2))));
-    R14 = ((int)motionCur);
+    R14 = (0x8C2871D4);
     R5 = (t33);
     R6 = (t26);
     R7 = (((((int)u29 * t26) + R4) + t26));

@@ -1,11 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_eq): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gDisplayFilterUsesSharedFrameBuffer[];
-extern char gRenderPacketQueues[];
-extern char gVertexBufferLockState[];
-extern char gVmsIoInterface[];
-extern char gVmsVolumeStates[];
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 extern int _builtin_get_imask(void);
@@ -353,7 +347,7 @@ int kmSetSystemConfiguration(int a4)
             break;
         }
     }
-    if (((*(int *)0x8C45EFF0) == 0) && (t69 = *(int *)(int)gDisplayFilterUsesSharedFrameBuffer, t69 == 0)) {
+    if (((*(int *)0x8C45EFF0) == 0) && (t69 = *(int *)0x8C45EFEC, t69 == 0)) {
     } else {
         kmySetDisplayFrameBuffer((*(int *)0x8C460790), (*(int *)0x8C460794));
     }
@@ -399,9 +393,9 @@ int vmsfs_xdefrag(int a4, int a5)
     L_8C1EDBAC:;
     *(unsigned int *)(((int)stk + 4)) = (R4 * 0x148);
     R10 = (R5);
-    R11 = (((R4 * 0x148) + (int)gVmsVolumeStates));
+    R11 = (((R4 * 0x148) + 0x8C464598));
     R14 = (R4);
-    if (((*(signed char *)((((R4 * 0x148) + (int)gVmsVolumeStates) + 0x2))) == 0)) goto L_8C1EDC16;
+    if (((*(signed char *)((((R4 * 0x148) + 0x8C464598) + 0x2))) == 0)) goto L_8C1EDC16;
     goto L_8C1EDBD2;
     L_8C1EDBD2:;
     t6 = (vmsio_isready(R14)) != 0;
@@ -420,7 +414,7 @@ int vmsfs_xdefrag(int a4, int a5)
     if (t10) goto L_8C1EDC16;
     goto L_8C1EDC0A;
     L_8C1EDC0A:;
-    if (((*(signed char *)((((*(int *)(((int)stk + 4))) + (int)gVmsVolumeStates) + 0x8))) != 0)) goto L_8C1EDC1C;
+    if (((*(signed char *)((((*(int *)(((int)stk + 4))) + 0x8C464598) + 0x8))) != 0)) goto L_8C1EDC1C;
     goto L_8C1EDC16;
     L_8C1EDC1C:;
     t15 = (int)(buIsFormat(R14)) >= 0;
@@ -479,7 +473,7 @@ int vmsfs_xdefrag(int a4, int a5)
     goto L_8C1EDC50;
     L_8C1EDC9E:;
     t45 = search_dir_by_startfat(R14, R13, R6);
-    t48 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))(t45, 0x2, R12);
+    t48 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))(t45, 0x2, R12);
     goto L_8C1EDCB2;
     L_8C1EDD18:;
     R0 = (R4);
@@ -636,21 +630,21 @@ int playerReadPad(int a4)
     t5 = padDirOn((*(int *)((a4 + 0xB64))), 0x40);
     *(unsigned short *)((a4 + 0xD46)) = (((t1 | t3) | t5) | (padDirOn((*(int *)((a4 + 0xB64))), 0x80)));
     playerInputSide(a4);
-    t11 = *(int *)(((*(int *)(((int)padPeri + ((*(int *)((a4 + 0xB64))) << 2)))) + 0x10));
+    t11 = *(int *)(((*(int *)((0x8C29B898 + ((*(int *)((a4 + 0xB64))) << 2)))) + 0x10));
     t13 = 0x1;
     if (((t11 & 0x2) == 0) && ((0x400 & t11) == 0)) {
         t13 = 0x0;
     }
     *(unsigned short *)(((0xD44 + a4) + 0x0)) = ((((((0x5 & t11) == 0)) ? 1 : 0) ^ 0x1) + (t13 << 1));
-    t16 = *(int *)(((*(int *)(((int)padPeri + ((*(int *)((a4 + 0xB64))) << 2)))) + 0x4));
+    t16 = *(int *)(((*(int *)((0x8C29B898 + ((*(int *)((a4 + 0xB64))) << 2)))) + 0x4));
     if (((0x100000 & t16) != 0) && ((0x200000 & t16) != 0)) {
         if (((*(int *)((a4 + 0xB60))) & 0x40000) != 0) {
-            if (((*(int *)((a4 + 0xB68))) == 2) && (t42 = *(int *)((a4 + 0xB64)), t43 = *(int *)(((t42 << 2) + (int)padPeri)), t44 = *(short *)((t43 + 0x22)), (int)t44 < (int)0xFFFFFFE2)) {
+            if (((*(int *)((a4 + 0xB68))) == 2) && (t42 = *(int *)((a4 + 0xB64)), t43 = *(int *)(((t42 << 2) + 0x8C29B898)), t44 = *(short *)((t43 + 0x22)), (int)t44 < (int)0xFFFFFFE2)) {
                 *(unsigned short *)((a4 + 0xD44)) = 0x1;
             }
             if ((*(int *)((a4 + 0xB68))) == 5) {
-                if ((int)(*(short *)(((*(int *)(((int)padPeri + ((*(int *)((a4 + 0xB64))) << 2)))) + 0x22))) <= (int)0x1E) {
-                    t63 = *(short *)(((*(int *)(((int)padPeri + ((*(int *)((a4 + 0xB64))) << 2)))) + 0x20));
+                if ((int)(*(short *)(((*(int *)((0x8C29B898 + ((*(int *)((a4 + 0xB64))) << 2)))) + 0x22))) <= (int)0x1E) {
+                    t63 = *(short *)(((*(int *)((0x8C29B898 + ((*(int *)((a4 + 0xB64))) << 2)))) + 0x20));
                     t64 = (-t63);
                     if ((int)t63 >= 0) {
                         t64 = t63;
@@ -664,7 +658,7 @@ int playerReadPad(int a4)
                 }
             }
         } else {
-            t80 = *(short *)(((*(int *)(((int)padPeri + ((*(int *)((a4 + 0xB64))) << 2)))) + 0x20));
+            t80 = *(short *)(((*(int *)((0x8C29B898 + ((*(int *)((a4 + 0xB64))) << 2)))) + 0x20));
             t81 = (-t80);
             if ((int)t80 >= 0) {
                 t81 = t80;
@@ -672,7 +666,7 @@ int playerReadPad(int a4)
             if ((int)t81 > (int)0x1E) {
                 *(unsigned short *)((a4 + 0xD44)) = 0x1;
             } else {
-                if ((int)(*(short *)(((*(int *)(((int)padPeri + ((*(int *)((a4 + 0xB64))) << 2)))) + 0x22))) < (int)0xFFFFFFE2) {
+                if ((int)(*(short *)(((*(int *)((0x8C29B898 + ((*(int *)((a4 + 0xB64))) << 2)))) + 0x22))) < (int)0xFFFFFFE2) {
                     *(unsigned short *)((a4 + 0xD44)) = 0x2;
                 }
             }
@@ -750,7 +744,7 @@ int kmiFLWCTRLInitFLWControl(void)
     *(unsigned int *)0x8C4607B4 = 0x0;
     *(unsigned int *)0x8C4607C0 = 0x0;
     *(unsigned int *)0x8C4607C4 = 0xFFFFFFFF;
-    *(unsigned int *)(int)gVertexBufferLockState = 0x0;
+    *(unsigned int *)0x8C45F940 = 0x0;
     *(unsigned int *)0x8C45F944 = 0x0;
     *(unsigned int *)0x8C45F948 = 0x0;
     *(unsigned int *)0x8C45F94C = 0x0;
@@ -764,9 +758,9 @@ int kmiFLWCTRLInitFLWControl(void)
     *(unsigned int *)0x8C4607E0 = 0x0;
     t33 = 0x0;
     for (;;) {
-        *(unsigned int *)((t33 + (int)gRenderPacketQueues)) = 0x0;
-        *(unsigned int *)((((int)gRenderPacketQueues + t33) + 0xC)) = 0x0;
-        t34 = ((int)gRenderPacketQueues + t33);
+        *(unsigned int *)((t33 + 0x8C45F964)) = 0x0;
+        *(unsigned int *)(((0x8C45F964 + t33) + 0xC)) = 0x0;
+        t34 = (0x8C45F964 + t33);
         t33 = (t33 + 0x1C4);
         *(unsigned int *)((t34 + 0x10)) = 0x0;
         if ((unsigned int)t33 >= (unsigned int)0xE20) {

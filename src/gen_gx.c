@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_gx): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 int cpuAimPointSet(int, int, float, float);
 int cpuDblAimAddAngles(int a4, int a5, float f4, float f5, float f6, float f7, float f8, float f9);
@@ -37,13 +36,13 @@ int cpuDblAimAddAngles(int a4, int a5, float f4, float f5, float f6, float f7, f
     w0_7 = f9;
     *(unsigned int *)(((int)stk + 8)) = v0_6;
     v0_2 = *(int *)((v0_3 + 0xB5C));
-    w0_0 = *(float *)((((((v0_2 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xAF0));
+    w0_0 = *(float *)((((((v0_2 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xAF0));
     v0_5 = (0xAF0);
     v0_0 = (v0_6);
-    v0_4 = (((((v0_2 + 0x3) & 0x3) * 0xD78) + (int)Player));
+    v0_4 = (((((v0_2 + 0x3) & 0x3) * 0xD78) + 0x8C287D84));
     v0_1 = (v0_3);
-    v0_2 = (((((v0_2 + 0x1) & 0x3) * 0xD78) + (int)Player));
-    v0_3 = ((int)Player);
+    v0_2 = (((((v0_2 + 0x1) & 0x3) * 0xD78) + 0x8C287D84));
+    v0_3 = (0x8C287D84);
     v0_6 = (0xD78);
     w0_5 = (w0_0);
     w0_4 = (51.2000008f);

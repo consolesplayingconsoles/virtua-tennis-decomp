@@ -1,12 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_cf): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gInterruptHandlerChains[];
-extern char gMapleDriver[];
-extern char gMapleTransferLockAddress[];
-extern char gNlFontHeight[];
-extern char gNlFontWidth[];
-extern char gVmsIoInterface[];
-extern char gVmsVolumeStates[];
 
 typedef struct { int w[3]; } Stk3;
 int kmSetHSyncCallback(int, int);
@@ -92,56 +85,56 @@ int mpdrv_frame_send(int a4, int a5, int a6)
     int t77;
 
     t94 = 0xFFFFFFFD;
-    if ((*(int *)((0xFC0 + (*(int *)(int)gMapleDriver)))) != 1) {
+    if ((*(int *)((0xFC0 + (*(int *)0x8C47317C)))) != 1) {
     } else {
         t85 = 0xFFFFFFFF;
-        if (((*(int *)(((*(int *)(((*(int *)(int)gMapleDriver) + 0x10F4))) + 0x18))) & 0x1) != 0) {
+        if (((*(int *)(((*(int *)(((*(int *)0x8C47317C) + 0x10F4))) + 0x18))) & 0x1) != 0) {
         } else {
-            if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
+            if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
                 mpdrv_dpf(0x8C20AFC4);
                 t77 = 0xFFFFFFFE;
             } else {
-                t13 = *(int *)(int)gMapleDriver;
+                t13 = *(int *)0x8C47317C;
                 if ((*(int *)((t13 + 0xFB0))) != (*(int *)((t13 + 0xFAC)))) {
-                    t16 = *(int *)(int)gMapleDriver;
+                    t16 = *(int *)0x8C47317C;
                     *(unsigned int *)((t16 + 0xFB0)) = (*(int *)((t16 + 0xFAC)));
-                    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0xFAC))) != 0) {
-                        *(unsigned int *)(((0x10C0 + (*(int *)(int)gMapleDriver)) + 0x0)) = (((int)((int)((*(int *)0x8C20A818) * 0x3E8) / (int)0x14)) << 16);
+                    if ((*(int *)(((*(int *)0x8C47317C) + 0xFAC))) != 0) {
+                        *(unsigned int *)(((0x10C0 + (*(int *)0x8C47317C)) + 0x0)) = (((int)((int)((*(int *)0x8C20A818) * 0x3E8) / (int)0x14)) << 16);
                     } else {
-                        *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10C0)) = 0xC3500000;
+                        *(unsigned int *)(((*(int *)0x8C47317C) + 0x10C0)) = 0xC3500000;
                     }
-                    *(unsigned int *)(((*(int *)(((*(int *)(int)gMapleDriver) + 0x10F4))) + 0x14)) = 0x0;
-                    t31 = *(int *)(int)gMapleDriver;
+                    *(unsigned int *)(((*(int *)(((*(int *)0x8C47317C) + 0x10F4))) + 0x14)) = 0x0;
+                    t31 = *(int *)0x8C47317C;
                     *(unsigned int *)(((*(int *)((t31 + 0x10F4))) + 0x80)) = ((*(int *)((t31 + 0x10C0))) | (*(int *)((t31 + 0x10D0))));
-                    *(unsigned int *)(((*(int *)(((*(int *)(int)gMapleDriver) + 0x10F4))) + 0x14)) = 0x1;
+                    *(unsigned int *)(((*(int *)(((*(int *)0x8C47317C) + 0x10F4))) + 0x14)) = 0x1;
                 }
                 frame_make();
-                t43 = *(int *)(int)gMapleDriver;
+                t43 = *(int *)0x8C47317C;
                 *(unsigned int *)(((0x10B0 + t43) + 0x0)) = (*(int *)(((((*(int *)(((0x10B8 + t43) + 0x0))) << 2) + (0x10A8 + t43)) + 0x0)));
-                t46 = *(int *)(int)gMapleDriver;
+                t46 = *(int *)0x8C47317C;
                 *(unsigned int *)((((*(int *)((t46 + 0x10F4))) + 0x4) + 0x0)) = (mpdrv_v2p((*(int *)(((((*(int *)(((0x10B8 + t46) + 0x0))) << 2) + (0x10A8 + t46)) + 0x0)))));
-                *(unsigned int *)(((*(int *)(((*(int *)(int)gMapleDriver) + 0x10F4))) + 0x18)) = 0x1;
-                *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFD8)) = 0x0;
-                t54 = *(int *)(int)gMapleDriver;
+                *(unsigned int *)(((*(int *)(((*(int *)0x8C47317C) + 0x10F4))) + 0x18)) = 0x1;
+                *(unsigned int *)(((*(int *)0x8C47317C) + 0xFD8)) = 0x0;
+                t54 = *(int *)0x8C47317C;
                 *(unsigned int *)((t54 + 0x10B8)) = ((*(int *)((t54 + 0x10B8))) ^ 0x1);
-                t56 = *(int *)(int)gMapleDriver;
+                t56 = *(int *)0x8C47317C;
                 *(unsigned int *)(((0xFCC + t56) + 0x0)) = (*(int *)(((((*(int *)(((0x10B8 + t56) + 0x0))) << 2) + (0x10A8 + t56)) + 0x0)));
-                t59 = *(int *)(int)gMapleDriver;
+                t59 = *(int *)0x8C47317C;
                 t60 = *(int *)((t59 + 0x10B4));
                 *(unsigned int *)((t59 + 0x10B4)) = (t60 ^ 0x1);
-                t61 = *(int *)(int)gMapleDriver;
+                t61 = *(int *)0x8C47317C;
                 *(unsigned int *)((t61 + 0xFDC)) = 0x0;
                 t63 = 0xFDC;
                 t64 = (t60 ^ 0x1);
                 t65 = t61;
-                t66 = ((*(int *)(int)gMapleDriver) + 0x28);
+                t66 = ((*(int *)0x8C47317C) + 0x28);
                 t67 = 0x0;
                 for (;;) {
                     if ((int)t67 >= (int)0x18) {
                         break;
                     }
                     t65 = 0xF90;
-                    t63 = (*(int *)(int)gMapleDriver);
+                    t63 = (*(int *)0x8C47317C);
                     t65 = (t65 + t63);
                     t65 = (t65 + t67);
                     t64 = (*(signed char *)((t65 + 0x0)));
@@ -157,8 +150,8 @@ int mpdrv_frame_send(int a4, int a5, int a6)
                     }
                     t66 = (t66 + 0x2C);
                 }
-                *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFC0)) = 0x0;
-                *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
+                *(unsigned int *)(((*(int *)0x8C47317C) + 0xFC0)) = 0x0;
+                *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
                 t77 = 0x0;
             }
             t85 = t77;
@@ -514,7 +507,7 @@ void syChainDeleteHandler(int a4)
     R12 = (0xC0);
     R13 = t20;
     R14 = (R5);
-    R4 = ((int)gInterruptHandlerChains);
+    R4 = (0x8C461818);
     R7 = (0x90);
     R8 = (0x200);
     R9 = (0xA05F6924);
@@ -607,10 +600,10 @@ void vmsfs_fclose(int a4, int a5)
     L_8C1EC67A:;
     return;
     L_8C1EC53E:;
-    R10 = ((int)gVmsVolumeStates);
+    R10 = (0x8C464598);
     R11 = (0x148);
     R13 = (0x0);
-    if (((*(signed char *)(((((*(int *)((R14 + 0x28))) * 0x148) + (int)gVmsVolumeStates) + 0x2))) != 0)) goto L_8C1EC556;
+    if (((*(signed char *)(((((*(int *)((R14 + 0x28))) * 0x148) + 0x8C464598) + 0x2))) != 0)) goto L_8C1EC556;
     goto L_8C1EC552;
     L_8C1EC552:;
     goto L_8C1EC672;
@@ -664,9 +657,9 @@ void vmsfs_fclose(int a4, int a5)
     L_8C1EC5FA:;
     *(unsigned char *)((R13 + 0x0)) = R4;
     *(unsigned char *)((R13 + 0x1)) = (*(signed char *)((R14 + 0x1)));
-    t44 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))(R13, 0x2, (*(int *)((R14 + 0x38))));
-    t48 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))(R13, 0x18, (*(int *)((R14 + 0x30))));
-    t52 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))(R13, 0x1A, (*(short *)((R14 + 0x2))));
+    t44 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))(R13, 0x2, (*(int *)((R14 + 0x38))));
+    t48 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))(R13, 0x18, (*(int *)((R14 + 0x30))));
+    t52 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))(R13, 0x1A, (*(short *)((R14 + 0x2))));
     R11 = ((R13 + 0x10));
     R4 = ((R13 + 0x4));
     R5 = ((R14 + 0x10));
@@ -746,7 +739,7 @@ void vmsfs_xcreate(int a4, int a5, int a6, int a7)
     *(unsigned int *)(((int)stk + 12)) = R6;
     *(unsigned int *)(((int)stk + 8)) = R7;
     *(unsigned int *)(((int)stk + 16)) = (R4 * 0x148);
-    *(unsigned int *)(((int)stk + 4)) = ((R4 * 0x148) + (int)gVmsVolumeStates);
+    *(unsigned int *)(((int)stk + 4)) = ((R4 * 0x148) + 0x8C464598);
     *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x0)) = 0x0;
     R11 = (0x0);
     R12 = (R5);
@@ -770,7 +763,7 @@ void vmsfs_xcreate(int a4, int a5, int a6, int a7)
     if (t12) goto L_8C1EC214;
     goto L_8C1EC208;
     L_8C1EC208:;
-    if (((*(signed char *)((((*(int *)(((int)stk + 16))) + (int)gVmsVolumeStates) + 0x8))) != 0)) goto L_8C1EC21A;
+    if (((*(signed char *)((((*(int *)(((int)stk + 16))) + 0x8C464598) + 0x8))) != 0)) goto L_8C1EC21A;
     goto L_8C1EC214;
     L_8C1EC21A:;
     t17 = (int)(buIsFormat(R14)) >= 0;
@@ -859,9 +852,9 @@ int nlCharacter(int a4, int a5, int a6, int a7)
     int t7;
     int t8;
 
-    t0 = *(int *)(int)gNlFontWidth;
+    t0 = *(int *)0x8C44F95C;
     u1 = *(float *)0x8C1DC8D0;
-    t2 = *(int *)(int)gNlFontHeight;
+    t2 = *(int *)0x8C44F960;
     if ((*(int *)0x8C1DC8CC) == 0) {
         t4 = *(short *)(((((signed char)a6 << 1) + 0x8C44F9E4) + 0x2));
         t5 = *(short *)(((((signed char)a6 << 1) + 0x8C44F9E4) + 0x0));
@@ -938,9 +931,9 @@ int vmsfs_init_work_normal(int a4, int a5, int a6)
     R10 = (0x1);
     R12 = (0x8C20C72C);
     R13 = (0x0);
-    R14 = ((int)gVmsVolumeStates);
+    R14 = (0x8C464598);
     R5 = (0x8C20C73C);
-    R7 = ((*(int *)(int)gVmsIoInterface));
+    R7 = ((*(int *)0x8C464594));
     if ((R4 == 15)) goto L_8C1EB308;
     goto L_8C1EB2F8;
     L_8C1EB2F8:;

@@ -1,8 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_qh): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gNlPaletteCount[];
-extern char gNlPaletteTable[];
-extern char gNlTextureSurfaces[];
 
 int kmProcessVertexRenderState(int);
 int kmSetVertexRenderState(int, int, int);
@@ -20,14 +17,14 @@ int nlstripSetVertexContextTex(int a4, int a5)
     if ((*(int *)(((((a5 << 2) << 1) + t0) + 0x0))) == 0) {
     } else {
         t2 = *(int *)(((((a5 << 2) << 1) + t0) + 0x4));
-        *(unsigned int *)(((*(int *)0x8C458C10) + 0x6C)) = ((*(int *)(int)gNlTextureSurfaces) + (t2 * 0x3C));
+        *(unsigned int *)(((*(int *)0x8C458C10) + 0x6C)) = ((*(int *)0x8C458608) + (t2 * 0x3C));
         *(unsigned int *)(((*(int *)0x8C458C10) + 0x0)) = 0x600608;
         *(unsigned int *)(((*(int *)0x8C458C10) + 0x8)) = (*(int *)((a4 + 0x0)));
         *(unsigned int *)(((*(int *)0x8C458C10) + 0xC)) = (*(int *)((a4 + 0x4)));
         *(unsigned int *)(((*(int *)0x8C458C10) + 0x20)) = (*(int *)((a4 + 0x8)));
         *(unsigned int *)(((*(int *)0x8C458C10) + 0x44)) = (*(int *)((a4 + 0xC)));
         *(unsigned int *)(((*(int *)0x8C458C10) + 0x40)) = (*(int *)((a4 + 0x10)));
-        t0 = *(int *)((((*(int *)(int)gNlTextureSurfaces) + (t2 * 0x3C)) + 0x34));
+        t0 = *(int *)((((*(int *)0x8C458608) + (t2 * 0x3C)) + 0x34));
         t2 = 0x0;
         if (((((int)t0 >> 27) & 0x7) == 5) || ((((int)t0 >> 27) & 0x7) == 6)) {
             t0 = *(int *)0x8C458C10;
@@ -36,9 +33,9 @@ int nlstripSetVertexContextTex(int a4, int a5)
                 *(unsigned int *)(((0x68 + (*(int *)0x8C458C10)) + 0x0)) = (*(int *)0x8C454F38);
             } else {
                 *(unsigned int *)(((*(int *)0x8C458C10) + 0x68)) = 0x0;
-                if ((int)(*(int *)0x8C454F38) < (int)(*(short *)(int)gNlPaletteCount)) {
+                if ((int)(*(int *)0x8C454F38) < (int)(*(short *)0x8C458E24)) {
                     t0 = *(int *)0x8C454F38;
-                    t3 = *(int *)(int)gNlPaletteTable;
+                    t3 = *(int *)0x8C458E38;
                     if ((*(short *)(((t3 + ((t0 << 2) << 1)) + 0x4))) != 0) {
                         *(unsigned int *)(((*(int *)0x8C458C10) + 0x68)) = (*(short *)(((t3 + ((t0 << 2) << 1)) + 0x0)));
                     }

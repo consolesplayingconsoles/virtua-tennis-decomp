@@ -1,8 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_p): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
-extern char gNlSoundStreams[];
-extern char padPeri[];
 
 int ADXPD_EntrySte(int, int, int, int);
 int ADXPD_Start(int);
@@ -239,7 +236,7 @@ int padDirAny(int a4)
     int t4;
     int t5;
 
-    t0 = *(int *)(((a4 << 2) + (int)padPeri));
+    t0 = *(int *)(((a4 << 2) + 0x8C29B898));
     t1 = *(int *)((t0 + 0x8));
     if ((t1 & 0x10) == 0) {
         if ((0x20 & t1) == 0) {
@@ -280,11 +277,11 @@ int strmCallName(int a4)
     int t3;
     int t4;
 
-    t0 = *(int *)((((a4 * 0xD78) + (int)Player) + 0xC58));
+    t0 = *(int *)((((a4 * 0xD78) + 0x8C287D84) + 0xC58));
     if ((int)t0 <= (int)0x11) {
         t1 = *(int *)0x8C1891E8;
         t2 = *(int *)((0x8C1D4770 + (t1 << 2)));
-        t3 = *(int *)(((0xC58 + ((a4 * 0xD78) + (int)Player)) + 0x0));
+        t3 = *(int *)(((0xC58 + ((a4 * 0xD78) + 0x8C287D84)) + 0x0));
         t4 = *(int *)((((t3 << 2) + (0x8C125FB8 + (((((t2 << 2) << 1) + t2) << 2) << 1))) + 0x0));
         return strmVoicePlay(0x9, t4);
     }
@@ -619,14 +616,14 @@ int nlsndStreamStart(int a4)
     int t1;
     int t3;
 
-    t0 = *(signed char *)(((int)gNlSoundStreams + ((short)a4 * (short)0x1C)));
+    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
     t8 = t0;
     if (t0 == 1) {
-        t1 = *(signed char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x1));
+        t1 = *(signed char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x1));
         t3 = t1;
         if (t1 == 0) {
             nlsndSeqRequest((((((short)a4 << 8) << 2) << 2) + 0x1A1));
-            *(unsigned char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x1)) = 0x1;
+            *(unsigned char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x1)) = 0x1;
             t3 = 0x1;
         }
         t8 = t3;

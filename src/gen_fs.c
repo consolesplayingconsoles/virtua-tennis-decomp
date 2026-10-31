@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_fs): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 extern float _builtin_sqrtf(float);
@@ -383,11 +382,11 @@ int cpuDblAimRateD(int a4, int a5)
     int stk[89];
 
     t0 = *(int *)((a4 + 0xB5C));
-    *(unsigned int *)(((int)stk + 76)) = ((((t0 + 0x2) & 0x3) * 0xD78) + (int)Player);
-    t1 = *(int *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xB5C));
+    *(unsigned int *)(((int)stk + 76)) = ((((t0 + 0x2) & 0x3) * 0xD78) + 0x8C287D84);
+    t1 = *(int *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C));
     *(unsigned int *)(((int)stk + 84)) = 0x8C287ACC;
     *(unsigned int *)(((int)stk + 80)) = (((t0 << 1) + (t0 << 2)) + 0x8C15A0F4);
-    u5 = (*(float *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xAE8)));
+    u5 = (*(float *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xAE8)));
     u5 = u5 + 0.800000012f * ((*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x28))) * (float)(*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))));
     *(float *)(((int)stk + 296)) = u5;
     u6 = (-u5);
@@ -407,7 +406,7 @@ int cpuDblAimRateD(int a4, int a5)
         }
         *(float *)(((int)stk + 296)) = ((float)t12 * 46.6225014f);
     }
-    u23 = (*(float *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xAF0)));
+    u23 = (*(float *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xAF0)));
     u23 = u23 + 0.800000012f * ((*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x30))) * (float)(*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))));
     *(float *)(((int)stk + 304)) = u23;
     u24 = (-u23);
@@ -415,7 +414,7 @@ int cpuDblAimRateD(int a4, int a5)
         u24 = u23;
     }
     if (u24 > 118.849998f) {
-        *(float *)(((int)stk + 304)) = (-((*(float *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xB00))) * 118.849998f));
+        *(float *)(((int)stk + 304)) = (-((*(float *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xB00))) * 118.849998f));
     } else {
         u28 = *(float *)(((int)stk + 304));
         t31 = 0x1;
@@ -427,11 +426,11 @@ int cpuDblAimRateD(int a4, int a5)
             }
             t31 = t29;
         }
-        if ((float)t31 == (*(float *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xB00)))) {
-            *(float *)(((int)stk + 304)) = (-((*(float *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xB00))) * 11.8850002f));
+        if ((float)t31 == (*(float *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xB00)))) {
+            *(float *)(((int)stk + 304)) = (-((*(float *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xB00))) * 11.8850002f));
         }
     }
-    u49 = (*(float *)((((((t1 + 0x2) & 0x3) * 0xD78) + (int)Player) + 0xAE8)));
+    u49 = (*(float *)((((((t1 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xAE8)));
     u49 = u49 + 0.800000012f * ((*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x28))) * (float)(*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))));
     *(float *)(((int)stk + 284)) = u49;
     u50 = (-u49);
@@ -451,7 +450,7 @@ int cpuDblAimRateD(int a4, int a5)
         }
         *(float *)(((int)stk + 284)) = ((float)t56 * 46.6225014f);
     }
-    u67 = (*(float *)((((((t1 + 0x2) & 0x3) * 0xD78) + (int)Player) + 0xAF0)));
+    u67 = (*(float *)((((((t1 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xAF0)));
     u67 = u67 + 0.800000012f * ((*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x30))) * (float)(*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))));
     *(float *)(((int)stk + 292)) = u67;
     u68 = (-u67);
@@ -459,7 +458,7 @@ int cpuDblAimRateD(int a4, int a5)
         u68 = u67;
     }
     if (u68 > 118.849998f) {
-        *(float *)(((int)stk + 292)) = (-((*(float *)((((((t1 + 0x2) & 0x3) * 0xD78) + (int)Player) + 0xB00))) * 118.849998f));
+        *(float *)(((int)stk + 292)) = (-((*(float *)((((((t1 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xB00))) * 118.849998f));
     } else {
         u72 = *(float *)(((int)stk + 292));
         t75 = 0x1;
@@ -471,8 +470,8 @@ int cpuDblAimRateD(int a4, int a5)
             }
             t75 = t73;
         }
-        if ((float)t75 == (*(float *)((((((t1 + 0x2) & 0x3) * 0xD78) + (int)Player) + 0xB00)))) {
-            *(float *)(((int)stk + 292)) = (-((*(float *)((((((t1 + 0x2) & 0x3) * 0xD78) + (int)Player) + 0xB00))) * 11.8850002f));
+        if ((float)t75 == (*(float *)((((((t1 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xB00)))) {
+            *(float *)(((int)stk + 292)) = (-((*(float *)((((((t1 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xB00))) * 11.8850002f));
         }
     }
     *(float *)(((0xB8 + ((int)stk + 76)) + 0x0)) = ((*(float *)((a5 + 0x0))) - (*(float *)((a4 + 0xB9C))));
@@ -515,7 +514,7 @@ int cpuDblAimRateD(int a4, int a5)
             *(float *)(((int)stk + 72)) = t117;
             u142 = ((t117 / (cpuDistXZ((0xB9C + a4), (0xC8 + ((int)stk + 72))))) * 0.100000001f);
         } else {
-            *(unsigned int *)(((int)stk + 92)) = (((*(int *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xB5C))) * 0x160) + 0x8C2FC69C);
+            *(unsigned int *)(((int)stk + 92)) = (((*(int *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C))) * 0x160) + 0x8C2FC69C);
             t120 = cpuDistXZ((0xDC + ((int)stk + 76)), (0xC4 + ((int)stk + 76)));
             *(float *)(((int)stk + 72)) = t120;
             t121 = cpuDistXZ((0xB9C + a4), (0xA4 + ((int)stk + 72)));
@@ -533,7 +532,7 @@ int cpuDblAimRateD(int a4, int a5)
                 }
                 t128 = t126;
             }
-            u134 = ((float)((((*(int *)(((((*(int *)(((0xB5C + (((((-t0) + 0x3) & 0x3) * 0xD78) + (int)Player)) + 0x0))) << 2) + ((*(int *)(((int)stk + 84))) + 0x14)) + 0x0))) == 0)) ? 1 : 0) * 0.5f);
+            u134 = ((float)((((*(int *)(((((*(int *)(((0xB5C + (((((-t0) + 0x3) & 0x3) * 0xD78) + 0x8C287D84)) + 0x0))) << 2) + ((*(int *)(((int)stk + 84))) + 0x14)) + 0x0))) == 0)) ? 1 : 0) * 0.5f);
             u134 = u134 + 1.0f * (float)((((float)t128 == (-(*(float *)((a4 + 0xB00)))))) ? 1 : 0);
             u142 = ((((t120 / t121) * ((t122 / t123) + 1.0f))) * u134);
             u143 = u125;
@@ -559,7 +558,7 @@ int cpuDblAimRateD(int a4, int a5)
             *(float *)(((int)stk + 72)) = t154;
             *(float *)(((int)stk + 88)) = ((*(float *)(((int)stk + 88))) * (((t154 / (cpuDistXZ((0xB9C + a4), (0xC8 + ((int)stk + 72))))) * 0.100000001f)));
         } else {
-            *(unsigned int *)(((int)stk + 92)) = (((*(int *)((((((t1 + 0x2) & 0x3) * 0xD78) + (int)Player) + 0xB5C))) * 0x160) + 0x8C2FC69C);
+            *(unsigned int *)(((int)stk + 92)) = (((*(int *)((((((t1 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C))) * 0x160) + 0x8C2FC69C);
             t159 = cpuDistXZ((0xD0 + ((int)stk + 76)), (0xC4 + ((int)stk + 76)));
             *(float *)(((int)stk + 72)) = t159;
             t160 = cpuDistXZ((0xB9C + a4), (0xA4 + ((int)stk + 72)));
@@ -577,7 +576,7 @@ int cpuDblAimRateD(int a4, int a5)
                 }
                 t167 = t165;
             }
-            u173 = ((float)((((*(int *)(((((*(int *)(((0xB5C + ((((t1 + 0x2) & 0x3) * 0xD78) + (int)Player)) + 0x0))) << 2) + ((*(int *)(((int)stk + 84))) + 0x14)) + 0x0))) == 0)) ? 1 : 0) * 0.5f);
+            u173 = ((float)((((*(int *)(((((*(int *)(((0xB5C + ((((t1 + 0x2) & 0x3) * 0xD78) + 0x8C287D84)) + 0x0))) << 2) + ((*(int *)(((int)stk + 84))) + 0x14)) + 0x0))) == 0)) ? 1 : 0) * 0.5f);
             u173 = u173 + 1.0f * (float)((((float)t167 == (-(*(float *)((a4 + 0xB00)))))) ? 1 : 0);
             *(float *)(((int)stk + 88)) = ((*(float *)(((int)stk + 88))) * (((((t159 / t160) * ((t161 / t162) + 1.0f))) * u173)));
         }
@@ -694,22 +693,22 @@ int cpuDblAimRateD(int a4, int a5)
     *(float *)(((int)stk + 72)) = t284;
     t285 = cpuDistXZ(a5, (0xD4 + ((int)stk + 72)));
     if (t285 > t284) {
-        t297 = *(int *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xB5C));
+        t297 = *(int *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C));
         u310 = u276;
         if (((*(int *)(((*(int *)(((int)stk + 84))) + 0x2C))) == t297) && (t299 = *(int *)(((int)stk + 84)), t300 = *(int *)((((t297 << 2) + (t299 + 0x14)) + 0x0)), t300 == 0)) {
             u303 = ((u276 + (1.0f + 1.0f)) + 4.0f);
-            if (((*(int *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xB60))) & 0x100) == 0) {
+            if (((*(int *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xB60))) & 0x100) == 0) {
                 u303 = (u276 + (1.0f + 1.0f));
             }
             u310 = u303;
         }
         u333 = u310;
     } else {
-        t313 = *(int *)((((((t1 + 0x2) & 0x3) * 0xD78) + (int)Player) + 0xB5C));
+        t313 = *(int *)((((((t1 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C));
         u326 = u276;
         if (((*(int *)(((*(int *)(((int)stk + 84))) + 0x2C))) == t313) && (t315 = *(int *)(((int)stk + 84)), t316 = *(int *)((((t313 << 2) + (t315 + 0x14)) + 0x0)), t316 == 0)) {
             u319 = (u276 + (1.0f + 1.0f));
-            if (((*(int *)((((((t1 + 0x2) & 0x3) * 0xD78) + (int)Player) + 0xB60))) & 0x100) != 0) {
+            if (((*(int *)((((((t1 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xB60))) & 0x100) != 0) {
                 u319 = ((u276 + (1.0f + 1.0f)) + 4.0f);
             }
             u326 = u319;
@@ -725,7 +724,7 @@ int cpuDblAimRateD(int a4, int a5)
         u338 = (u99 - t98);
     }
     if (u338 > u336) {
-        u341 = *(float *)(((((*(int *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + (int)Player) + 0xB5C))) * 0x160) + 0x8C2FC69C) + 0x28));
+        u341 = *(float *)(((((*(int *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C))) * 0x160) + 0x8C2FC69C) + 0x28));
         t344 = 0x1;
         if (u341 > 0.0f) {
         } else {
@@ -750,7 +749,7 @@ int cpuDblAimRateD(int a4, int a5)
         }
         u372 = u351;
     } else {
-        u355 = *(float *)(((((*(int *)((((((t1 + 0x2) & 0x3) * 0xD78) + (int)Player) + 0xB5C))) * 0x160) + 0x8C2FC69C) + 0x28));
+        u355 = *(float *)(((((*(int *)((((((t1 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C))) * 0x160) + 0x8C2FC69C) + 0x28));
         t358 = 0x1;
         if (u355 > 0.0f) {
         } else {

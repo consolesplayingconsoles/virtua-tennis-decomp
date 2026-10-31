@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_vq): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gInterruptHandlerChains[];
 
 int kmSetHSyncCallback(int, int);
 int kmSetVSyncCallback(int, int);
@@ -38,7 +37,7 @@ int syChainAddHandler(int a4, int a5, int a6, int a7)
     *(unsigned short *)(((int)stk + 12)) = (_builtin_get_imask());
     _builtin_set_imask(0xF);
     v0_1 = *(short *)(((int)stk + 8));
-    v0_4 = *(int *)(((int)gInterruptHandlerChains + (((int)v0_1 >> 4) << 2)));
+    v0_4 = *(int *)((0x8C461818 + (((int)v0_1 >> 4) << 2)));
     v0_5 = R7;
     v0_0 = ((v0_2 | 0x80000000));
     v0_3 = (v0_1);
@@ -46,7 +45,7 @@ int syChainAddHandler(int a4, int a5, int a6, int a7)
     v0_4 = (v0_4);
     R7 = (0x80000000);
     v0_5 = v0_5;
-    v0_6 = ((int)gInterruptHandlerChains);
+    v0_6 = (0x8C461818);
     L_8C1E82F0:;
     if ((v0_1 == 0)) goto L_8C1E82FA;
     if (!(((unsigned int)(*(int *)((v0_1 + 0xC))) < (unsigned int)v0_0))) goto L_8C1E82FA;

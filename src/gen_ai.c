@@ -1,7 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ai): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gNlPaletteAllocationBitmap[];
-extern char gNlPaletteTable[];
 
 int buIsFormat(int);
 int search_exec_file(int, int);
@@ -90,7 +88,7 @@ int nlFreePalette(int a4, int a5, int a6, int a7)
     int t10;
     int t13;
 
-    t0 = *(int *)(int)gNlPaletteTable;
+    t0 = *(int *)0x8C458E38;
     if ((int)(*(short *)(((t0 + ((a4 << 2) << 1)) + 0x4))) > (int)0x1) {
         t2 = *(short *)(((t0 + ((a4 << 2) << 1)) + 0x4));
         *(unsigned short *)(((t0 + ((a4 << 2) << 1)) + 0x4)) = (t2 - 1);
@@ -102,9 +100,9 @@ int nlFreePalette(int a4, int a5, int a6, int a7)
         *(unsigned short *)(((t0 + ((a4 << 2) << 1)) + 0x0)) = 0xFFFFFFFF;
         *(unsigned char *)(((t0 + ((a4 << 2) << 1)) + 0x2)) = 0xFFFFFFFF;
         *(unsigned short *)(((t0 + ((a4 << 2) << 1)) + 0x4)) = 0x0;
-        t5 = (int)gNlPaletteAllocationBitmap;
-        t6 = (int)gNlPaletteTable;
-        t7 = ((((int)t4 >> 4) << 1) + (int)gNlPaletteAllocationBitmap);
+        t5 = 0x8C424204;
+        t6 = 0x8C458E38;
+        t7 = ((((int)t4 >> 4) << 1) + 0x8C424204);
         t8 = (((int)(0xF & t4) >= 0) ? (0x1 << ((0xF & t4) & 31)) : ((-(int)(0xF & t4) & 31) ? ((int)0x1 >> (-(int)(0xF & t4) & 31)) : ((int)0x1 >> 31)));
         t9 = (unsigned char)t3;
         for (;;) {

@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_pa): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 int entryAnyAtRound5(void);
 int entryCountJoined(void);
@@ -32,7 +31,7 @@ int matchSetupPlayers(void)
             break;
         }
     }
-    t1 = (int)Player;
+    t1 = 0x8C287D84;
     t2 = 0x0;
     t3 = 0x8C287AE0;
     t4 = 0x8C287AE0;
@@ -57,7 +56,7 @@ int matchSetupPlayers(void)
         t1 = 0x0;
         t3 = 0x2;
         t4 = 0x8C287AE0;
-        t5 = (int)Player;
+        t5 = 0x8C287D84;
         for (;;) {
             if ((*(int *)(((t1 << 2) + 0x8C287AE0))) != 0) {
                 t6 = ((~(((~t3) + 0x1) & 0x3)) + 0x1);

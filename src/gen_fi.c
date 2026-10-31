@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_fi): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 int colliObjInit(int, int, int, int, int, float);
@@ -79,7 +78,7 @@ int ndbEditDrawMatches(int a4)
             t2 = 0xC;
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x4)); }
             t2 = 0xAF0;
-            u25 = *(float *)(((int)Player + t2));
+            u25 = *(float *)((0x8C287D84 + t2));
             t2 = (*(signed char *)((t6 + 0x7)));
             t3 = (unsigned char)t2;
             t2 = 0xAE8;
@@ -87,7 +86,7 @@ int ndbEditDrawMatches(int a4)
             t3 = 0x8C015EEA;
             u29 = 0.200000003f;
             u29 = u29 + 0.100000001f * (float)t27;
-            *(Stk3 *)(((int)stk + 16)) = vecMake((*(float *)(((int)Player + t2))), u29, u25);
+            *(Stk3 *)(((int)stk + 16)) = vecMake((*(float *)((0x8C287D84 + t2))), u29, u25);
             t2 = (cpuDebugLine2(t5, 1.0f));
             t3 = 0x8C0F7DAC;
             t2 = 0xC;

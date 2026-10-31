@@ -1,14 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_ad): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gAdxfPartitionInfoTable[];
-extern char gBuFiberScheduler[];
-extern char gNlCommonTextureOffset[];
-extern char gNlSoundPackUsedBytes[];
-extern char gNlSpriteIndexBitmap[];
-extern char gNlTextureLoadAttempts[];
-extern char gNlTextureSurfaces[];
-extern char gVmsIoInterface[];
-extern char gVmsVolumeStates[];
 
 int ADXF_ExecServer(void);
 int ADXF_GetNumReadSct(int);
@@ -91,7 +82,7 @@ int vmsfs_init(int a4, int a5, int a6)
     int t19;
     int t4;
 
-    *(unsigned int *)(int)gVmsIoInterface = 0x8C464580;
+    *(unsigned int *)0x8C464594 = 0x8C464580;
     t0 = 0x8C464FD8;
     for (;;) {
         *(unsigned int *)((t0 + 0x0)) = 0x0;
@@ -101,7 +92,7 @@ int vmsfs_init(int a4, int a5, int a6)
         }
     }
     memset(0x8C464580, 0x0, 0x14);
-    memset((int)gVmsVolumeStates, 0x0, 0xA40);
+    memset(0x8C464598, 0x0, 0xA40);
     vmsfs_setdevicetype(0x0);
     *(unsigned int *)0x8C4694A0 = 0x0;
     t5 = 0x0;
@@ -120,10 +111,10 @@ int vmsfs_init(int a4, int a5, int a6)
     }
     if (a6 != 0) {
         vmsfs_init_work_normal(a4, a5, a6);
-        *(unsigned int *)(((*(int *)(int)gVmsIoInterface) + 0x8)) = 0x0;
+        *(unsigned int *)(((*(int *)0x8C464594) + 0x8)) = 0x0;
     } else {
         vmsfs_init_work_new(a4);
-        *(unsigned int *)(((*(int *)(int)gVmsIoInterface) + 0x8)) = 0x1;
+        *(unsigned int *)(((*(int *)0x8C464594) + 0x8)) = 0x1;
     }
     *(unsigned int *)0x8C469498 = 0x8;
     *(unsigned int *)0x8C46949C = 0x0;
@@ -158,7 +149,7 @@ int ADXF_GetFileRange(int a4, int a5, int a6, int a7)
         *(unsigned int *)((a6 + 0x0)) = 0xFFFFFFFF;
         *(unsigned int *)((a7 + 0x0)) = 0xFFFFFFFF;
     } else {
-        t1 = *(int *)(((a4 << 2) + (int)gAdxfPartitionInfoTable));
+        t1 = *(int *)(((a4 << 2) + 0x8C46C264));
         for (;;) {
             t2 = *(int *)((t1 + 0x0));
             if (t2 == 0) {
@@ -283,7 +274,7 @@ int nlsndPackLoadInit(int a4, int a5, int a6, int a7)
     L_8C0F4EA0:;
     *(unsigned int *)(((int)stk + 4)) = R5;
     *(unsigned int *)(((int)stk + 12)) = R7;
-    *(unsigned int *)(int)gNlSoundPackUsedBytes = ((*(int *)(int)gNlSoundPackUsedBytes) + R6);
+    *(unsigned int *)0x8C454CBC = ((*(int *)0x8C454CBC) + R6);
     *(unsigned int *)(((int)stk + 8)) = (((R4 << 1) + R4) << 2);
     *(unsigned int *)((((((R4 << 1) + R4) << 2) + 0x8C454DD4) + 0x0)) = (*(int *)(((int)stk + 4)));
     *(unsigned int *)((((((R4 << 1) + R4) << 2) + 0x8C454DD4) + 0x8)) = R6;
@@ -356,10 +347,10 @@ int buFbrExecFiberServer(int a4, int a5, int a6, int a7, float f4, float f5, flo
     int t7;
     int t3;
 
-    *(unsigned int *)0x8C4762CC = (*(int *)(int)gBuFiberScheduler);
+    *(unsigned int *)0x8C4762CC = (*(int *)0x8C4762C8);
     t1 = _builtin_get_fpscr();
     _builtin_set_fpscr(0x40000);
-    *(unsigned int *)(int)gBuFiberScheduler = a4;
+    *(unsigned int *)0x8C4762C8 = a4;
     setjmp((a4 + 0x4), a5, a6, a7, f4, f5, f6, f7, f8, f9, f10, f11);
     t4 = 0x0;
     t5 = (0x210 + a4);
@@ -393,7 +384,7 @@ int buFbrExecFiberServer(int a4, int a5, int a6, int a7, float f4, float f5, flo
         t5 = (t5 + t3);
     }
     *(unsigned int *)((a4 + 0x204)) = ((*(int *)((a4 + 0x204))) + 0x1);
-    *(unsigned int *)(int)gBuFiberScheduler = (*(int *)0x8C4762CC);
+    *(unsigned int *)0x8C4762C8 = (*(int *)0x8C4762CC);
     _builtin_set_fpscr(t1);
     return 0x204;
 }
@@ -508,8 +499,8 @@ int nlLoadTextureMem(int textureHeaderAddress, int textureIndex, int sourceAddre
     int dmaBusy;
     int t17;
 
-    surfaceTableAddress = *(int *)(int)gNlTextureSurfaces;
-    *(unsigned int *)(int)gNlTextureLoadAttempts = ((*(int *)(int)gNlTextureLoadAttempts) + 0x1);
+    surfaceTableAddress = *(int *)0x8C458608;
+    *(unsigned int *)0x8C458DC4 = ((*(int *)0x8C458DC4) + 0x1);
     createResult = kmCreateTextureSurface((surfaceTableAddress + (textureIndex * 0x3C)), (*(short *)((textureHeaderAddress + 0x0))), (*(short *)((textureHeaderAddress + 0x2))), (*(int *)((textureHeaderAddress + 0x4))));
     *(unsigned int *)(((surfaceTableAddress + (textureIndex * 0x3C)) + 0x28)) = createResult;
     result = 0x1;
@@ -525,10 +516,10 @@ int nlLoadTextureMem(int textureHeaderAddress, int textureIndex, int sourceAddre
             loadDataAddress = candidateDataAddress;
         }
         if (((*(int *)0x8C424460) != 0) && (t17 = *(int *)0x8C424464, t17 != 1)) {
-            kmLoadTextureRom(((*(int *)(int)gNlTextureSurfaces) + (textureIndex * 0x3C)), loadDataAddress);
+            kmLoadTextureRom(((*(int *)0x8C458608) + (textureIndex * 0x3C)), loadDataAddress);
         } else {
             kmyEnableASyncCopy(0x1);
-            kmLoadTextureRom(((*(int *)(int)gNlTextureSurfaces) + (textureIndex * 0x3C)), loadDataAddress);
+            kmLoadTextureRom(((*(int *)0x8C458608) + (textureIndex * 0x3C)), loadDataAddress);
             kmyEnableASyncCopy(0x0);
             for (;;) {
                 dmaBusy = kmQueryFinishLastTextureDMA();
@@ -633,7 +624,7 @@ int nlInitSprite(int a4, int a5, int a6)
     *(unsigned int *)0x8C454C84 = a6;
     *(unsigned int *)0x8C454C88 = a5;
     *(unsigned int *)0x8C454C80 = a4;
-    *(unsigned int *)(int)gNlSpriteIndexBitmap = ((((a6 << 1) + a4) + 0x3) & 0xFFFFFFFC);
+    *(unsigned int *)0x8C454C8C = ((((a6 << 1) + a4) + 0x3) & 0xFFFFFFFC);
     *(unsigned int *)0x8C454C90 = ((((((int)((int)(a5 + 0x1F) / (int)0x20)) << 2) + ((((a6 << 1) + a4) + 0x3) & 0xFFFFFFFC)) + 0x3) & 0xFFFFFFFC);
     if ((int)a6 > 0) {
         t4 = 0x0;
@@ -655,7 +646,7 @@ int nlInitSprite(int a4, int a5, int a6)
         }
         t14 = (t10 << 2);
         t10 = (t10 + 0x1);
-        *(unsigned int *)(((*(int *)(int)gNlSpriteIndexBitmap) + t14)) = 0x0;
+        *(unsigned int *)(((*(int *)0x8C454C8C) + t14)) = 0x0;
     }
     return t12;
 }
@@ -715,9 +706,9 @@ int vmsfs_load_file(int a4, int a5, int a6, int a7)
     goto L_8C1EEA52;
     L_8C1EEA52:;
     t13 = *(int *)(((int)stk + 12));
-    *(unsigned int *)((((R11 * 0x148) + (int)gVmsVolumeStates) + 0x30)) = 0x1;
-    *(unsigned int *)((((R11 * 0x148) + (int)gVmsVolumeStates) + 0x34)) = R13;
-    t17 = ((R11 * 0x148) + (int)gVmsVolumeStates);
+    *(unsigned int *)((((R11 * 0x148) + 0x8C464598) + 0x30)) = 0x1;
+    *(unsigned int *)((((R11 * 0x148) + 0x8C464598) + 0x34)) = R13;
+    t17 = ((R11 * 0x148) + 0x8C464598);
     R11 = (0x0);
     R12 = (t13);
     R4 = t17;
@@ -828,6 +819,6 @@ int nlInitCommonTexture(int workspaceAddress, int textureCount, int commonTextur
         *(unsigned int *)((bitmapByteOffset + bitmapOrConfigurationAddress)) = 0x0;
         bitmapByteOffset = (bitmapByteOffset + 0x4);
     }
-    *(unsigned int *)(int)gNlCommonTextureOffset = 0x0;
+    *(unsigned int *)0x8C458DCC = 0x0;
     return bitmapOrConfigurationAddress;
 }

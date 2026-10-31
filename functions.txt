@@ -1842,15 +1842,8 @@ F 8c0f7eb8 52 memcmp
 F 8c0f7eec 68 memmove
 F 8c0f7f30 24 memset
 F 8c0f7f48 168 _slow_strcmp1
-F 8c0f81d0 4 nlInitInterruptDC
-F 8c0f81e0 8 nlIntrSetRenderEndCallback
-F 8c0f81f0 8 nlIntrSetVSyncCallback
-F 8c0f8200 8 nlIntrSetHSyncCallback
-D 8c0f8208 0 nlInterruptInitLiteralPool
-F 8c0f8250 8 nlIntrSetGdDmaCallback
-F 8c0f8260 8 nlIntrSetGdCommandCallback
-F 8c0f8270 26 nlIntrSetCpuVectorCallback
-F 8c0f8290 8 nlIntrSetTextureOverflowCallback
+F 8c0f81d0 80 nlInitInterruptDC
+F 8c0f8220 110 FUN_8c0f8220
 F 8c0f82a0 4 nlIntrDefaultFunction
 F 8c0f82b0 98 nlSetIntrFunction
 F 8c0f83f0 84 nlSetIntrPriority
@@ -2015,8 +2008,6 @@ F 8c1dd3a2 34 gdFsCheckMedia
 F 8c1dd3c4 10 gdFsSetGlobalErrG
 F 8c1dd3ce 646 gdFsGetStatG
 F 8c1dd654 62 gdFsReadWG
-F 8c1dd692 26 gdFsChainHandleDmaCallback
-F 8c1dd6ac 14 gdFsChainExecServer
 F 8c1dd6ba 22 gdFsLockDir
 F 8c1dd9ee 6 gdFsInit
 F 8c1dd9f4 286 gdFsInitG
@@ -2578,7 +2569,6 @@ F 8c1ef3b0 12 gdGdcGetCmdStat
 F 8c1ef3c4 12 gdGdcExecServer
 F 8c1ef3d8 12 gdGdcInitSystem
 F 8c1ef3ec 12 gdGdcGetDrvStat
-F 8c1ef400 12 gdGdcSetDmaCallback
 F 8c1ef414 12 gdGdcReqDmaTrans
 F 8c1ef428 12 gdGdcCheckDmaTrans
 F 8c1ef4a0 10 kbCfgIni
@@ -2718,7 +2708,8 @@ F 8c1f1522 34 adxt_stat_decend
 F 8c1f15cc 4 adxt_stat_playend
 F 8c1f15d0 136 adxt_RcvrReplay
 F 8c1f1808 254 ADXT_ExecHndl
-F 8c1f1854 180 adxf_purge_all
+F 8c1f1854 38 adxf_purge_all
+F 8c1f1906 202 FUN_8c1f1906
 F 8c1f1908 42 ADXF_InitCache_P2_
 F 8c1f1932 556 ADXF_Ocbi
 F 8c1f1b60 58 ADXF_Init

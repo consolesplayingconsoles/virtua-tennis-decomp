@@ -1,6 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_kl): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 int cpuAimPointSet(int, int, float, float);
@@ -34,16 +33,16 @@ void cpuDblAimAddLv16(int a4, int a5)
     v0_5 = a4;
     v0_7 = a5;
     v0_8 = *(int *)((v0_5 + 0xB5C));
-    *(unsigned int *)(((int)stk + 52)) = ((((v0_8 + 0x2) & 0x3) * 0xD78) + (int)Player);
-    w0_0 = *(float *)((((((v0_8 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xAF0));
+    *(unsigned int *)(((int)stk + 52)) = ((((v0_8 + 0x2) & 0x3) * 0xD78) + 0x8C287D84);
+    w0_0 = *(float *)((((((v0_8 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xAF0));
     v0_6 = (0xAF0);
     v0_0 = (v0_7);
     v0_2 = (((v0_8 * 0x160) + 0x8C2FC69C));
-    v0_4 = (((((v0_8 + 0x1) & 0x3) * 0xD78) + (int)Player));
+    v0_4 = (((((v0_8 + 0x1) & 0x3) * 0xD78) + 0x8C287D84));
     v0_1 = (v0_5);
-    v0_3 = (((((v0_8 + 0x3) & 0x3) * 0xD78) + (int)Player));
+    v0_3 = (((((v0_8 + 0x3) & 0x3) * 0xD78) + 0x8C287D84));
     v0_5 = (v0_8);
-    v0_7 = ((int)Player);
+    v0_7 = (0x8C287D84);
     v0_5 = (0xD78);
     v0_5 = (0x3);
     w0_5 = (w0_0);

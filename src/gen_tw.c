@@ -1,8 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_tw): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char Ball[];
-extern char Player[];
-extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -80,7 +77,7 @@ float cameraExec(int a4)
     v0_0 = a4;
     *(unsigned int *)(((0x9C + ((int)stk + 32)) + 0x0)) = v0_0;
     *(unsigned int *)(((int)stk + 184)) = 0x8C287ACC;
-    *(unsigned int *)(((int)stk + 180)) = (int)Ball;
+    *(unsigned int *)(((int)stk + 180)) = 0x8C291F24;
     *(unsigned int *)(((int)stk + 68)) = (((*(int *)0x8C1891E8) * 0xD0) + 0x8C157594);
     *(unsigned int *)(((int)stk + 44)) = 0x0;
     v0_1 = (0x8C287C60);
@@ -96,7 +93,7 @@ float cameraExec(int a4)
     v0_1 = (entryCountJoined()) != 1;
     if (v0_1) goto L_8C02A154;
     if (((*(int *)0x8C287B44) != 0)) goto L_8C02A154;
-    if ((((*(int *)(((*(int *)((((*(int *)0x8C421F70) << 2) + (int)padPeri))) + 0x10))) & 0x200) == 0)) goto L_8C02A154;
+    if ((((*(int *)(((*(int *)((((*(int *)0x8C421F70) << 2) + 0x8C29B898))) + 0x10))) & 0x200) == 0)) goto L_8C02A154;
     v0_1 = *(int *)0x8C295DAC;
     *(unsigned int *)0x8C295DAC = (0x1 - v0_1);
     if (((0x1 - v0_1) != 1)) goto L_8C02A14A;
@@ -185,7 +182,7 @@ float cameraExec(int a4)
     *(int *)((int)stk + 28) = 0x0;
     v0_1 = (*(int *)(((int)stk + 180)));
     *(int *)((int)stk + 24) = v0_1;
-    lightCamCalc((int)Player, (((int)stk + 24) + 0x6C), (0x84 + ((int)stk + 24)), 0x8C287A04, v0_1, 0x0);
+    lightCamCalc(0x8C287D84, (((int)stk + 24) + 0x6C), (0x84 + ((int)stk + 24)), 0x8C287A04, v0_1, 0x0);
     L_8C02D452:;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)) = *(struct mv3 *)((((int)stk + 32) + 0x64)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)) = *(struct mv3 *)((((int)stk + 32) + 0x7C)); }
@@ -231,7 +228,7 @@ float cameraExec(int a4)
     *(int *)((int)stk + 28) = 0x1;
     v0_1 = (*(int *)(((int)stk + 180)));
     *(int *)((int)stk + 24) = v0_1;
-    lightCamCalc((int)Player, (((int)stk + 24) + 0x6C), (0x84 + ((int)stk + 24)), 0x8C287A04, v0_1, 0x1);
+    lightCamCalc(0x8C287D84, (((int)stk + 24) + 0x6C), (0x84 + ((int)stk + 24)), 0x8C287A04, v0_1, 0x1);
     goto L_8C02D452;
     L_8C02D2AA:;
     if ((v0_1 != 4)) goto L_8C02D2B2;
@@ -1591,7 +1588,7 @@ float cameraExec(int a4)
     *(int *)((int)stk + 28) = 0x1;
     v0_1 = (*(int *)(((int)stk + 180)));
     *(int *)((int)stk + 24) = v0_1;
-    lightCamCalc((int)Player, (((int)stk + 24) + 0x6C), (0x84 + ((int)stk + 24)), 0x8C287A04, v0_1, 0x1);
+    lightCamCalc(0x8C287D84, (((int)stk + 24) + 0x6C), (0x84 + ((int)stk + 24)), 0x8C287A04, v0_1, 0x1);
     nlScaleVector((0x84 + ((int)stk + 24)), (0x84 + ((int)stk + 24)), 0.5f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 12)) = *(struct mv3 *)((((int)stk + 24) + 0x6C)); }
     v0_1 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 12)));
@@ -1647,7 +1644,7 @@ float cameraExec(int a4)
     *(int *)((int)stk + 16) = 0x0;
     v0_1 = (*(int *)(((int)stk + 180)));
     *(int *)((int)stk + 12) = v0_1;
-    lightCamCalc((int)Player, (((int)stk + 12) + 0x78), (0x90 + ((int)stk + 12)), 0x8C287A04, v0_1, 0x0);
+    lightCamCalc(0x8C287D84, (((int)stk + 12) + 0x78), (0x90 + ((int)stk + 12)), 0x8C287A04, v0_1, 0x0);
     w0_0 = (0.0f);
     if ((!((*(float *)(((int)stk + 140))) > 0.0f))) goto L_8C02A3A6;
     v0_2 = (0x1);

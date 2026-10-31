@@ -1,14 +1,5 @@
 /* Straight-line functions with calls and guards (batch gen_cc): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
-extern char gGdFsGlobalState[];
-extern char gKdGunBusy[];
-extern char gMapleDeviceTable[];
-extern char gMapleDriver[];
-extern char gMapleHandlers[];
-extern char gMapleTransferLockAddress[];
-extern char gVmsFileCommandStates[];
-extern char gVmsIoInterface[];
-extern char gVmsVolumeStates[];
 
 int BCDtoDEC(int);
 extern int _builtin_get_imask(void);
@@ -110,22 +101,22 @@ int write_fat_1(int a4)
     int t2;
     int t6;
 
-    t1 = *(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x10));
+    t1 = *(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x10));
     t13 = 0x0;
     if ((int)t1 > 0) {
         t2 = 0x0;
         for (;;) {
-            t6 = vmsfs_write_retry(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0xC))) + t2), (((t2 << 8) << 1) + (*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x24)))));
+            t6 = vmsfs_write_retry(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0xC))) + t2), (((t2 << 8) << 1) + (*(int *)((((a4 * 0x148) + 0x8C464598) + 0x24)))));
             if ((int)t6 < 0) {
                 break;
             }
-            set_fat(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0xC))) + t2), 0xFFFA);
+            set_fat(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0xC))) + t2), 0xFFFA);
             t2 = (t2 + 0x1);
             if ((int)t2 >= (int)t1) {
                 return 0x0;
             }
         }
-        set_fat(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0xC))) + t2), 0xFFFF);
+        set_fat(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0xC))) + t2), 0xFFFF);
         t13 = t6;
     }
     return t13;
@@ -158,7 +149,7 @@ int search_subst_fat_top(int a4)
     int T_;
     R4 = a4;
     L_8C1EE2CE:;
-    t3 = *(int *)((((R4 * 0x148) + (int)gVmsVolumeStates) + 0x1C));
+    t3 = *(int *)((((R4 * 0x148) + 0x8C464598) + 0x1C));
     t4 = *(int *)((t3 + 0x20));
     t5 = *(int *)((t3 + 0x1C));
     t6 = *(int *)((t3 + 0x10));
@@ -264,10 +255,10 @@ int set_file_info(int a4, int a5)
             break;
         }
     }
-    *(unsigned int *)((a5 + 0xC)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(a4, 0x2));
-    *(unsigned int *)((a5 + 0x28)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(a4, 0x18));
+    *(unsigned int *)((a5 + 0xC)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(a4, 0x2));
+    *(unsigned int *)((a5 + 0x28)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(a4, 0x18));
     *(unsigned char *)((a5 + 0xA)) = (*(signed char *)((a4 + 0x1)));
-    t16 = ((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(a4, 0x1A);
+    t16 = ((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(a4, 0x1A);
     *(unsigned short *)((a5 + 0x8)) = t16;
     return t16;
 }
@@ -283,14 +274,14 @@ int gdFsOpenG(int fileNameAddress, int directoryAddress)
 
     searchDirectoryAddress = directoryAddress;
     if (directoryAddress == 0) {
-        searchDirectoryAddress = (*(int *)(((*(int *)(int)gGdFsGlobalState) + 0x10)));
+        searchDirectoryAddress = (*(int *)(((*(int *)0x8C20C204) + 0x10)));
     }
     directoryEntryId = gdFsSearchName(fileNameAddress, searchDirectoryAddress, 0x0);
     if (directoryEntryId == 0) {
         gdFsSetGlobalErrG(0xFFFFFFF8);
         openedHandleAddress = 0x0;
     } else {
-        globalStateAddress = *(int *)(int)gGdFsGlobalState;
+        globalStateAddress = *(int *)0x8C20C204;
         handleIndexOrError = 0x0;
         candidateHandleAddress = (*(int *)((globalStateAddress + 0x18)));
         for (;;) {
@@ -384,28 +375,28 @@ int vmsfs_c_setfname(int a4, int a5, int a6)
     int t18;
     int t8;
 
-    t0 = ((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x2C);
+    t0 = ((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x2C);
     for (;;) {
         *(unsigned char *)((t0 + 0x0)) = 0x0;
         t0 = (t0 + 0x1);
-        if ((unsigned int)t0 >= (unsigned int)((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x39)) {
+        if ((unsigned int)t0 >= (unsigned int)((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x39)) {
             break;
         }
     }
-    t1 = ((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x3C);
+    t1 = ((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x3C);
     for (;;) {
         *(unsigned char *)((t1 + 0x0)) = 0x0;
         t1 = (t1 + 0x1);
-        if ((unsigned int)t1 >= (unsigned int)((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x49)) {
+        if ((unsigned int)t1 >= (unsigned int)((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x49)) {
             break;
         }
     }
     t9 = a5;
-    t11 = (int)gVmsFileCommandStates;
+    t11 = 0x8C462180;
     if ((unsigned int)a5 < (unsigned int)(a5 + 0xC)) {
         t3 = a5;
         t4 = a5;
-        t5 = ((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x2C);
+        t5 = ((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x2C);
         for (;;) {
             t6 = *(signed char *)((t4 + 0x0));
             if (t6 != 0) {
@@ -427,7 +418,7 @@ int vmsfs_c_setfname(int a4, int a5, int a6)
     if ((unsigned int)a6 < (unsigned int)(a6 + 0xC)) {
         t13 = t11;
         t14 = a6;
-        t15 = ((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x3C);
+        t15 = ((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x3C);
         t16 = a6;
         for (;;) {
             if ((*(signed char *)((t14 + 0x0))) != 0) {
@@ -461,11 +452,11 @@ int vmsfs_fread(int a4, int a5, int a6)
     t24 = 0xFFFFFF00;
     if (a4 != 0) {
         t14 = 0xFFFFFF01;
-        if ((*(signed char *)(((((*(int *)((a4 + 0x28))) * 0x148) + (int)gVmsVolumeStates) + 0x2))) == 0) {
+        if ((*(signed char *)(((((*(int *)((a4 + 0x28))) * 0x148) + 0x8C464598) + 0x2))) == 0) {
         } else {
             t2 = *(int *)((a4 + 0x28));
-            *(unsigned int *)((((int)gVmsVolumeStates + (t2 * 0x148)) + 0x30)) = 0x1;
-            *(unsigned int *)((((int)gVmsVolumeStates + (t2 * 0x148)) + 0x34)) = a6;
+            *(unsigned int *)(((0x8C464598 + (t2 * 0x148)) + 0x30)) = 0x1;
+            *(unsigned int *)(((0x8C464598 + (t2 * 0x148)) + 0x34)) = a6;
             t6 = 0x0;
             if ((int)a6 > 0) {
                 t3 = 0x0;
@@ -550,9 +541,9 @@ int search_dir(int a4, int a5, int a6)
     int t8;
 
     t1 = 0x0;
-    t2 = (*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x28)));
+    t2 = (*(int *)((((a4 * 0x148) + 0x8C464598) + 0x28)));
     for (;;) {
-        if ((int)t1 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x30)))) {
+        if ((int)t1 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30)))) {
             return 0xFFFFFFFF;
         }
         t6 = *(signed char *)((t2 + 0x0));
@@ -580,19 +571,19 @@ int check_fat_all(int a4, int a5, int a6, int a7)
 
     t0 = 0x0;
     for (;;) {
-        if ((int)t0 >= (int)((*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x0))) + 0x1)) {
+        if ((int)t0 >= (int)((*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x0))) + 0x1)) {
             return 0x0;
         }
         t3 = get_fat(a4, t0, a6, a7);
         if (((unsigned short)t3 != 0xFFFC) && (((unsigned short)t3 != 0xFFFF) && ((unsigned short)t3 != 0xFFFA))) {
-            if ((int)t0 < (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x30)))) {
-                if ((int)(unsigned short)t3 < (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x30)))) {
+            if ((int)t0 < (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30)))) {
+                if ((int)(unsigned short)t3 < (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30)))) {
                     t0 = (t0 + 0x1);
                     continue;
                 }
                 break;
             }
-            if ((int)(unsigned short)t3 >= (int)((*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x0))) + 0x1)) {
+            if ((int)(unsigned short)t3 >= (int)((*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x0))) + 0x1)) {
                 break;
             }
             t0 = (t0 + 0x1);
@@ -707,13 +698,13 @@ int vmsfs_write_disk_image(int a4, int a5)
     int t3;
     int t6;
 
-    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x30)) = 0x1;
-    t0 = *(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x4));
-    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x34)) = (*(int *)((((((t0 << 2) + t0) << 2) << 2) + 0x8C20C78C)));
+    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x30)) = 0x1;
+    t0 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x4));
+    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x34)) = (*(int *)((((((t0 << 2) + t0) << 2) << 2) + 0x8C20C78C)));
     t2 = a5;
     t3 = 0x0;
     for (;;) {
-        if ((int)t3 >= (int)((*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x0))) + 0x1)) {
+        if ((int)t3 >= (int)((*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x0))) + 0x1)) {
             return 0x0;
         }
         t6 = vmsfs_write_retry(a4, t3, t2);
@@ -763,7 +754,7 @@ int gdFsSetDirG(int a4)
     int t20;
 
     t1 = *(int *)((a4 + 0x0));
-    t2 = *(int *)(((*(int *)(int)gGdFsGlobalState) + 0x10));
+    t2 = *(int *)(((*(int *)0x8C20C204) + 0x10));
     t3 = *(int *)((t2 + 0x4));
     t4 = *(int *)((a4 + 0x8));
     t5 = t3;
@@ -808,14 +799,14 @@ void kdDmaEndHandler0(int a4, int a5)
     int t15;
 
     _builtin_set_imask(0xF);
-    if ((*(int *)(int)gKdGunBusy) == 0) {
+    if ((*(int *)0x8C46210C) == 0) {
         *(unsigned int *)0x8C461E68 = ((*(int *)0x8C461E68) + 0x1);
         kdRecvFrame();
         kdExecGun();
-        t5 = (int)gMapleHandlers;
-        t6 = (int)gMapleHandlers;
-        t8 = (int)gMapleHandlers;
-        t9 = (int)gMapleHandlers;
+        t5 = 0x8C461B9C;
+        t6 = 0x8C461B9C;
+        t8 = 0x8C461B9C;
+        t9 = 0x8C461B9C;
         for (;;) {
             if ((*(int *)((t9 + 0x0))) != 0) {
                 t12 = ((int (*)(int, int))(((*(int *)((t8 + 0x0))))))(t5, t6);
@@ -827,12 +818,12 @@ void kdDmaEndHandler0(int a4, int a5)
             t5 = t14;
             t6 = t15;
             t8 = (t8 + 0x4);
-            if ((unsigned int)t9 >= (unsigned int)(int)gMapleDeviceTable) {
+            if ((unsigned int)t9 >= (unsigned int)0x8C461C1C) {
                 break;
             }
         }
     } else {
-        *(unsigned int *)(int)gKdGunBusy = 0x0;
+        *(unsigned int *)0x8C46210C = 0x0;
         *(unsigned int *)0x8C462110 = ((*(int *)0x8C462110) + 0x1);
     }
 }
@@ -861,11 +852,11 @@ void kdExitSystem(void)
     _builtin_set_imask(0xF);
     *(unsigned int *)0xA05F6920 = ((*(int *)0xA05F6920) & 0xFFFFCFFF);
     syChainDeleteHandler((*(int *)0x8C461B98));
-    syChainDeleteHandler((*(int *)(int)gMapleHandlers));
+    syChainDeleteHandler((*(int *)0x8C461B9C));
     syChainDeleteHandler((*(int *)0x8C461B94));
     syChainDeleteHandler((*(int *)0x8C461B90));
     mpdrv_exit();
-    memset((int)gMapleDeviceTable, 0x0, 0x240);
+    memset(0x8C461C1C, 0x0, 0x240);
     _builtin_set_imask(((unsigned int)(((t0 & 0xF) << 2) << 2) >> 4));
 }
 
@@ -934,7 +925,7 @@ int check_fat_xross(int a4, int a5)
 
     t0 = 0x0;
     for (;;) {
-        if ((int)t0 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x30)))) {
+        if ((int)t0 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30)))) {
             return (unsigned short)a5;
         }
         t3 = direntry(a4, t0);
@@ -943,7 +934,7 @@ int check_fat_xross(int a4, int a5)
             t0 = (t0 + 0x1);
             continue;
         }
-        t7 = ((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(t3, 0x2);
+        t7 = ((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(t3, 0x2);
         if ((unsigned short)a5 == (unsigned short)t7) {
             break;
         }
@@ -974,17 +965,17 @@ int gdFsFinishG(void)
     *(unsigned int *)0x8C20C208 = 0x0;
     *(unsigned int *)0x8C20C20C = 0x0;
     t14 = t8;
-    t15 = ((*(int *)(int)gGdFsGlobalState) + 0x1080);
+    t15 = ((*(int *)0x8C20C204) + 0x1080);
     t16 = 0x0;
     for (;;) {
-        if ((int)t16 >= (int)((*(int *)(((*(int *)(int)gGdFsGlobalState) + 0x0))) + 0x1)) {
+        if ((int)t16 >= (int)((*(int *)(((*(int *)0x8C20C204) + 0x0))) + 0x1)) {
             break;
         }
         t14 = (gdFsClose(t15));
         t16 = (t16 + 0x1);
         t15 = (t15 + 0x54);
     }
-    *(unsigned int *)(int)gGdFsGlobalState = 0x0;
+    *(unsigned int *)0x8C20C204 = 0x0;
     return t14;
 }
 
@@ -1010,7 +1001,7 @@ int kdSetGetLastErrorEx(int a4, int a5, int a6, int a7, int a8, int a9)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
+    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
         mpdrv_dpf(0x8C20A820);
         return 0xFFFFFFFE;
     }
@@ -1018,8 +1009,8 @@ int kdSetGetLastErrorEx(int a4, int a5, int a6, int a7, int a8, int a9)
     if ((int)t2 > 0) {
         kdSetCallback(a4, a9, t2);
     }
-    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
-    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
+    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t2;
