@@ -126,7 +126,7 @@
 8C209678 gPdServerActive
 8C45A6E8 syRtcFlags
 8C45A6E4 syRtcLastCount
-8C209610 gGdFsDefaultTag
+8C209610 gGdFsDefaultTransferMode
 8C1DCB5C g_0c14ab2c
 8C1DCB5C g_0c14ab18
 8C1DCB70 g_0c14ab2c
@@ -262,7 +262,7 @@
 8C46EFD4 gSjRbfHandles
 8C46FBD4 g_0c2f85a4
 8C471F7C g_0c2f9338
-8C473184 g_0c2fa540
+8C473184 gFlashMemoryManagerStorage
 8C4731F8 g_0c2fa5b4
 8C473B98 g_0c2faf54
 8C474398 g_0c2fb754

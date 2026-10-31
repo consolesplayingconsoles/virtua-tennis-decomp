@@ -12032,40 +12032,40 @@ void mpdrv_init_memory(void)
 }
 
 
-int fmMngReadData(int a4)
+int fmMngReadData(int managerAddress)
 {
-    int t0;
-    int t11;
-    int t1;
-    int t2;
-    int t3;
-    int t5;
-    int t9;
-    int t6;
-    int t7;
-    int t8;
+    int formatMode;
+    int readResult;
+    int recordIndex;
+    int cacheBufferAddress;
+    int dataBufferAddress;
+    int cachedRecordIndex;
+    int recordReadResult;
+    int computedCrc;
+    int storedCrc;
+    int crcResult;
 
-    t0 = *(short *)((a4 + 0x2));
-    t11 = 0xFFFFFFFA;
-    if (t0 == 0) {
-        t1 = *(int *)((a4 + 0x28));
-        t2 = *(int *)((a4 + 0xC));
-        t3 = *(int *)((a4 + 0x30));
+    formatMode = *(short *)((managerAddress + 0x2));
+    readResult = 0xFFFFFFFA;
+    if (formatMode == 0) {
+        recordIndex = *(int *)((managerAddress + 0x28));
+        cacheBufferAddress = *(int *)((managerAddress + 0xC));
+        dataBufferAddress = *(int *)((managerAddress + 0x30));
         thunk_fmMngCopyBytes();
-        t5 = *(short *)(((((((t1 + 0x1) << 2) << 2) << 2) + t2) + 0x0));
-        t9 = 0x0;
-        if ((unsigned short)t5 != 0xFFFF) {
-            t6 = fmcalccrc(0x3E, (((((t1 + 0x1) << 2) << 2) << 2) + t2));
-            t7 = *(short *)(((((((t1 + 0x1) << 2) << 2) << 2) + t2) + 0x3E));
-            t8 = 0x0;
-            if ((unsigned short)t7 != (unsigned short)t6) {
-                t8 = 0xFFFFFFFC;
+        cachedRecordIndex = *(short *)(((((((recordIndex + 0x1) << 2) << 2) << 2) + cacheBufferAddress) + 0x0));
+        recordReadResult = 0x0;
+        if ((unsigned short)cachedRecordIndex != 0xFFFF) {
+            computedCrc = fmcalccrc(0x3E, (((((recordIndex + 0x1) << 2) << 2) << 2) + cacheBufferAddress));
+            storedCrc = *(short *)(((((((recordIndex + 0x1) << 2) << 2) << 2) + cacheBufferAddress) + 0x3E));
+            crcResult = 0x0;
+            if ((unsigned short)storedCrc != (unsigned short)computedCrc) {
+                crcResult = 0xFFFFFFFC;
             }
-            t9 = t8;
+            recordReadResult = crcResult;
         }
-        t11 = t9;
+        readResult = recordReadResult;
     }
-    return t11;
+    return readResult;
 }
 
 int ADXB_Create(int a4, int a5, int a6, int a7)

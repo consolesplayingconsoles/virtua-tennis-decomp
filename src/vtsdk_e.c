@@ -71,14 +71,14 @@ int buGetDiskFree(int a, int b)
     return vmsfs_diskfree(a, b);
 }
 
-int gdFsCheckEof(char *h, int *out)
+int gdFsCheckEof(char *handle, int *atEndOfFile)
 {
-    if (h == 0 || *(short *)(h + 76) == 0)
+    if (handle == 0 || *(short *)(handle + 76) == 0)
         return -10;
-    if (*(int *)(h + 20) >= *(int *)(h + 16))
-        *out = 1;
+    if (*(int *)(handle + 20) >= *(int *)(handle + 16))
+        *atEndOfFile = 1;
     else
-        *out = 0;
+        *atEndOfFile = 0;
     return 0;
 }
 

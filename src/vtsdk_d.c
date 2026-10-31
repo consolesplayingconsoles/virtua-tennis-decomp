@@ -102,13 +102,13 @@ void ADXT_SetOutPan(char *adxt, int ch, short pan)
     ADXRNA_SetOutPan(*(int *)(adxt + 12), ch, pan);
 }
 
-void gdFsClose(char *p)
+void gdFsClose(char *handle)
 {
-    if (p != 0 && *(short *)(p + 76) != 0) {
-        short st = *(short *)(p + 80);
-        if (st == 2 || st == 3 || st == 4)
-            gdFsStopRd((int *)p);
-        *(short *)(p + 76) = 0;
+    if (handle != 0 && *(short *)(handle + 76) != 0) {
+        short driveStatus = *(short *)(handle + 80);
+        if (driveStatus == 2 || driveStatus == 3 || driveStatus == 4)
+            gdFsStopRd((int *)handle);
+        *(short *)(handle + 76) = 0;
     }
 }
 

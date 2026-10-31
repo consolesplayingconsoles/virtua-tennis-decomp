@@ -163,47 +163,47 @@ int _fmtout_putstr(int a4, int a5, int a6)
     return t20;
 }
 
-int fmMngWriteData(int a4, int a5, int a6)
+int fmMngWriteData(int managerAddress, int a5, int a6)
 {
-    int t0;
-    int t3;
-    int t6;
-    int t8;
-    int t14;
-    int t16;
-    int t20;
-    int t12;
+    int writePhase;
+    int refreshResult;
+    int eraseResult;
+    int erasePhaseResult;
+    int appendResult;
+    int appendPhaseResult;
+    int writeResult;
+    int eraseOrRefreshResult;
 
-    t0 = *(int *)((a4 + 0x24));
-    if (t0 != 0) {
-        if (t0 != 1) {
-            t3 = 0xFFFFFFFE;
-            if (t0 != 2) {
+    writePhase = *(int *)((managerAddress + 0x24));
+    if (writePhase != 0) {
+        if (writePhase != 1) {
+            refreshResult = 0xFFFFFFFE;
+            if (writePhase != 2) {
             } else {
-                t3 = (fmMngSctRefresh(a4));
+                refreshResult = (fmMngSctRefresh(managerAddress));
             }
-            t12 = t3;
+            eraseOrRefreshResult = refreshResult;
         } else {
-            t6 = syBtFlDeleteSct((*(int *)((a4 + 0x4))), a5, a6);
-            t8 = 0xFFFFFFFD;
-            if (t6 == -1) {
+            eraseResult = syBtFlDeleteSct((*(int *)((managerAddress + 0x4))), a5, a6);
+            erasePhaseResult = 0xFFFFFFFD;
+            if (eraseResult == -1) {
             } else {
-                *(unsigned int *)((a4 + 0x24)) = 0x2;
-                t8 = 0x1;
+                *(unsigned int *)((managerAddress + 0x24)) = 0x2;
+                erasePhaseResult = 0x1;
             }
-            t12 = t8;
+            eraseOrRefreshResult = erasePhaseResult;
         }
-        t20 = t12;
+        writeResult = eraseOrRefreshResult;
     } else {
-        t14 = fmMngAddData(a4);
-        t16 = t14;
-        if (t14 == -10) {
-            *(unsigned int *)((a4 + 0x24)) = 0x1;
-            t16 = 0x1;
+        appendResult = fmMngAddData(managerAddress);
+        appendPhaseResult = appendResult;
+        if (appendResult == -10) {
+            *(unsigned int *)((managerAddress + 0x24)) = 0x1;
+            appendPhaseResult = 0x1;
         }
-        t20 = t16;
+        writeResult = appendPhaseResult;
     }
-    return t20;
+    return writeResult;
 }
 
 int courtPropPickPose(int a4)

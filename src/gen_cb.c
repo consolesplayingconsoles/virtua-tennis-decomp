@@ -265,28 +265,28 @@ int ovLibEntryTbl(int a4)
     return 0x0;
 }
 
-int gdFsReopenHn(int a4, int a5, int a6, int a7)
+int gdFsReopenHn(int handleAddress, int directoryEntryId, int startFad, int fileByteCount)
 {
-    int t0;
-    int t1;
+    int globalStateAddress;
+    int activeHandleAddress;
 
-    if ((a4 != 0) && (t0 = *(int *)((a4 + 0x0)), t1 = *(int *)((t0 + 0x1C)), t1 != a4)) {
-        *(unsigned int *)((a4 + 0x4)) = a5;
-        *(unsigned int *)((a4 + 0x8)) = a6;
-        *(unsigned int *)((a4 + 0xC)) = a7;
-        *(unsigned int *)((a4 + 0x10)) = ((int)(a7 + 0x7FF) >> 11);
-        *(unsigned int *)((a4 + 0x14)) = 0x0;
-        *(unsigned int *)((a4 + 0x18)) = 0x0;
-        *(unsigned int *)((a4 + 0x1C)) = 0x0;
-        *(unsigned int *)((a4 + 0x20)) = 0x0;
-        *(unsigned int *)((a4 + 0x3C)) = 0x0;
-        *(unsigned int *)((a4 + 0x44)) = 0x0;
-        *(unsigned short *)((a4 + 0x48)) = 0x0;
-        *(unsigned short *)((a4 + 0x4A)) = 0x0;
-        *(unsigned short *)((a4 + 0x4C)) = 0x1;
-        *(unsigned short *)((a4 + 0x50)) = 0x0;
-        *(unsigned short *)((a4 + 0x52)) = 0x0;
-        return a4;
+    if ((handleAddress != 0) && (globalStateAddress = *(int *)((handleAddress + 0x0)), activeHandleAddress = *(int *)((globalStateAddress + 0x1C)), activeHandleAddress != handleAddress)) {
+        *(unsigned int *)((handleAddress + 0x4)) = directoryEntryId;
+        *(unsigned int *)((handleAddress + 0x8)) = startFad;
+        *(unsigned int *)((handleAddress + 0xC)) = fileByteCount;
+        *(unsigned int *)((handleAddress + 0x10)) = ((int)(fileByteCount + 0x7FF) >> 11);
+        *(unsigned int *)((handleAddress + 0x14)) = 0x0;
+        *(unsigned int *)((handleAddress + 0x18)) = 0x0;
+        *(unsigned int *)((handleAddress + 0x1C)) = 0x0;
+        *(unsigned int *)((handleAddress + 0x20)) = 0x0;
+        *(unsigned int *)((handleAddress + 0x3C)) = 0x0;
+        *(unsigned int *)((handleAddress + 0x44)) = 0x0;
+        *(unsigned short *)((handleAddress + 0x48)) = 0x0;
+        *(unsigned short *)((handleAddress + 0x4A)) = 0x0;
+        *(unsigned short *)((handleAddress + 0x4C)) = 0x1;
+        *(unsigned short *)((handleAddress + 0x50)) = 0x0;
+        *(unsigned short *)((handleAddress + 0x52)) = 0x0;
+        return handleAddress;
     }
     return 0x0;
 }
@@ -310,36 +310,36 @@ int search_fat_used(int a4)
     return t0;
 }
 
-int gdFsSeek(int a4, int a5, int a6)
+int gdFsSeek(int handleAddress, int sectorOffset, int origin)
 {
-    int t4;
-    int t5;
+    int sectorCount;
+    int sectorPosition;
 
-    if (a4 != 0) {
-        if ((*(short *)((a4 + 0x4C))) == 0) {
+    if (handleAddress != 0) {
+        if ((*(short *)((handleAddress + 0x4C))) == 0) {
             return 0xFFFFFFF6;
         }
-        t4 = *(int *)((a4 + 0x10));
-        if (a6 != 0) {
-            if (a6 != 1) {
-                if (a6 != 2) {
+        sectorCount = *(int *)((handleAddress + 0x10));
+        if (origin != 0) {
+            if (origin != 1) {
+                if (origin != 2) {
                     return 0xFFFFFFF0;
                 }
-                if (((int)(a5 + t4) >= 0) && ((int)(a5 + t4) <= (int)t4)) {
-                    *(unsigned int *)((a4 + 0x14)) = (a5 + t4);
+                if (((int)(sectorOffset + sectorCount) >= 0) && ((int)(sectorOffset + sectorCount) <= (int)sectorCount)) {
+                    *(unsigned int *)((handleAddress + 0x14)) = (sectorOffset + sectorCount);
                     return 0x0;
                 }
                 return 0xFFFFFFEF;
             }
-            t5 = *(int *)((a4 + 0x14));
-            if (((int)(t5 + a5) >= 0) && ((int)(t5 + a5) <= (int)t4)) {
-                *(unsigned int *)((a4 + 0x14)) = (t5 + a5);
+            sectorPosition = *(int *)((handleAddress + 0x14));
+            if (((int)(sectorPosition + sectorOffset) >= 0) && ((int)(sectorPosition + sectorOffset) <= (int)sectorCount)) {
+                *(unsigned int *)((handleAddress + 0x14)) = (sectorPosition + sectorOffset);
                 return 0x0;
             }
             return 0xFFFFFFEF;
         }
-        if (((int)a5 >= 0) && ((int)a5 <= (int)t4)) {
-            *(unsigned int *)((a4 + 0x14)) = a5;
+        if (((int)sectorOffset >= 0) && ((int)sectorOffset <= (int)sectorCount)) {
+            *(unsigned int *)((handleAddress + 0x14)) = sectorOffset;
             return 0x0;
         }
         return 0xFFFFFFEF;
@@ -481,23 +481,23 @@ int mpdrv_dpf(Stk4 s)
     return t10;
 }
 
-int fmMngWrite(int a4, int a5)
+int fmMngWrite(int recordIndex, int dataBufferAddress)
 {
-    int t0;
-    int t5;
+    int managerAddress;
+    int recordCapacity;
 
-    t0 = *(int *)0x8C20CA44;
-    if (t0 == 0) {
+    managerAddress = *(int *)0x8C20CA44;
+    if (managerAddress == 0) {
         return 0xFFFFFFF5;
     }
-    if ((*(int *)((t0 + 0x1C))) != 0) {
+    if ((*(int *)((managerAddress + 0x1C))) != 0) {
         return 0xFFFFFFF7;
     }
-    if (((int)a4 >= 0) && (t5 = *(int *)((t0 + 0x14)), (int)a4 < (int)t5)) {
-        *(unsigned int *)((t0 + 0x1C)) = 0x2;
+    if (((int)recordIndex >= 0) && (recordCapacity = *(int *)((managerAddress + 0x14)), (int)recordIndex < (int)recordCapacity)) {
+        *(unsigned int *)((managerAddress + 0x1C)) = 0x2;
         *(unsigned int *)(((*(int *)0x8C20CA44) + 0x20)) = 0x2;
-        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x28)) = a4;
-        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x30)) = a5;
+        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x28)) = recordIndex;
+        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x30)) = dataBufferAddress;
         *(unsigned int *)(((*(int *)0x8C20CA44) + 0x24)) = 0x0;
         return 0x0;
     }

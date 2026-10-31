@@ -110,19 +110,19 @@ int kmyFreeArea(int a)
     return FBfree(*(short *)buf, r);
 }
 
-int gdFsSetTmode(char *p, short v)
+int gdFsSetTmode(char *handle, short transferMode)
 {
-    if (p == 0 || *(short *)(p + 76) == 0)
+    if (handle == 0 || *(short *)(handle + 76) == 0)
         return -10;
-    *(short *)(p + 78) = v;
+    *(short *)(handle + 78) = transferMode;
     return 0;
 }
 
-int gdFsGetTransStat(char *p)
+int gdFsGetTransStat(char *handle)
 {
-    if (p == 0 || *(short *)(p + 76) == 0)
+    if (handle == 0 || *(short *)(handle + 76) == 0)
         return -10;
-    return *(short *)(p + 74);
+    return *(short *)(handle + 74);
 }
 
 void set_fat(int a, int b)

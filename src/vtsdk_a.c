@@ -29,7 +29,7 @@ extern char gMapleDeviceTable[];
 extern void (*gMapleHandlers[])(void);
 
 struct TextureBlockQueuePrefix { int allocationFlags; struct TextureBlockQueuePrefix *next; struct TextureBlockQueuePrefix *previous; };
-struct TextureDmaRequestPrefix { int f0; int operation; int f8; int byteCount; int sourceAddress; int destinationAddress; int f24; short s28; short s30; };
+struct TextureDmaRequestPrefix { int requestId; int operationFlags; int transferKind; int byteCount; int sourceAddress; int destinationAddress; int callbackAddress; short s28; short s30; };
 struct AdxBitstreamDecoderPrefix { int f0; int status; void *pcmDecoder; };
 
 void pdGunSetTrigger(int x)
@@ -132,8 +132,8 @@ int kmySetTextureDMA(struct TextureDmaRequestPrefix *request, unsigned int desti
     request->sourceAddress = sourceAddress;
     request->destinationAddress = destinationAddress | 0x11000000;
     request->byteCount = byteCount;
-    request->f8 = 0;
-    request->operation = 8;
+    request->transferKind = 0;
+    request->operationFlags = 8;
     request->s28 = 0x8000;
     request->s30 = 0;
     return 0;

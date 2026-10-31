@@ -350,40 +350,40 @@ int pdTmrGetTimeCallback(int a4, int a5, int a6, int a7)
     return t35;
 }
 
-int gdFsMovePickup(int a4)
+int gdFsMovePickup(int handleAddress)
 {
-    int t30;
-    int t25;
-    int t7;
-    int t13;
-    int t18;
-    int t22;
-    int t0;
+    int pickupResult;
+    int idleDriveResult;
+    int savedInterruptMask;
+    int commandRequestId;
+    int driverExecuteResult;
+    int completionResult;
+    int handleAllocated;
 
-    t30 = 0xFFFFFFF6;
-    if ((a4 != 0) && (t0 = *(short *)((a4 + 0x4C)), t0 != 0)) {
-        t25 = 0xFFFFFFF3;
-        if ((*(int *)(((*(int *)((a4 + 0x0))) + 0x1C))) == 0) {
-            t7 = _builtin_get_imask();
+    pickupResult = 0xFFFFFFF6;
+    if ((handleAddress != 0) && (handleAllocated = *(short *)((handleAddress + 0x4C)), handleAllocated != 0)) {
+        idleDriveResult = 0xFFFFFFF3;
+        if ((*(int *)(((*(int *)((handleAddress + 0x0))) + 0x1C))) == 0) {
+            savedInterruptMask = _builtin_get_imask();
             _builtin_set_imask(0xF);
-            t13 = ((int (*)(int))((*(int *)(((*(int *)(((*(int *)((a4 + 0x0))) + 0xC))) + 0x18)))))(((*(int *)((a4 + 0x8))) + (*(int *)((a4 + 0x14)))));
-            if (t13 != 0) {
-                *(unsigned int *)((a4 + 0x3C)) = t13;
-                *(unsigned short *)((a4 + 0x50)) = 0x3;
-                *(unsigned short *)((a4 + 0x48)) = 0x2;
-                *(unsigned int *)(((*(int *)((a4 + 0x0))) + 0x1C)) = a4;
-                t18 = ((int (*)(void))((*(int *)(((*(int *)(((*(int *)((a4 + 0x0))) + 0xC))) + 0x40)))))();
+            commandRequestId = ((int (*)(int))((*(int *)(((*(int *)(((*(int *)((handleAddress + 0x0))) + 0xC))) + 0x18)))))(((*(int *)((handleAddress + 0x8))) + (*(int *)((handleAddress + 0x14)))));
+            if (commandRequestId != 0) {
+                *(unsigned int *)((handleAddress + 0x3C)) = commandRequestId;
+                *(unsigned short *)((handleAddress + 0x50)) = 0x3;
+                *(unsigned short *)((handleAddress + 0x48)) = 0x2;
+                *(unsigned int *)(((*(int *)((handleAddress + 0x0))) + 0x1C)) = handleAddress;
+                driverExecuteResult = ((int (*)(void))((*(int *)(((*(int *)(((*(int *)((handleAddress + 0x0))) + 0xC))) + 0x40)))))();
             }
-            _builtin_set_imask(((unsigned int)(((t7 & 0xF) << 2) << 2) >> 4));
-            t22 = 0xFFFFFFF3;
-            if (t13 != 0) {
-                t22 = (gdFsWaitCompleteReq(a4));
+            _builtin_set_imask(((unsigned int)(((savedInterruptMask & 0xF) << 2) << 2) >> 4));
+            completionResult = 0xFFFFFFF3;
+            if (commandRequestId != 0) {
+                completionResult = (gdFsWaitCompleteReq(handleAddress));
             }
-            t25 = t22;
+            idleDriveResult = completionResult;
         }
-        t30 = t25;
+        pickupResult = idleDriveResult;
     }
-    return t30;
+    return pickupResult;
 }
 
 int gdFsWaitCompleteReq(int a4)
@@ -580,66 +580,66 @@ int check_file_correct(int a4, int a5)
     return t20;
 }
 
-int gdFsRead(int a4, int a5, int a6)
+int gdFsRead(int handleAddress, int requestedSectorCount, int destinationAddress)
 {
-    int t0;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t25;
-    int t21;
-    int t2;
-    int t3;
-    int t11;
-    int t12;
+    int useAlignedRead;
+    int alignmentMaskOrSectorCount;
+    int handleOrRequestResult;
+    int sectorCountOrDelayCounter;
+    int retryCount;
+    int readResult;
+    int completionResult;
+    int readModeOrRequestResult;
+    int sectorPosition;
+    int currentSectorPosition;
+    int fileSectorCount;
 
-    t0 = 0x0;
-    if ((0x1F & a6) == 0) {
-        t0 = 0x1;
+    useAlignedRead = 0x0;
+    if ((0x1F & destinationAddress) == 0) {
+        useAlignedRead = 0x1;
     }
-    t4 = 0x1F;
-    t5 = 0x0;
-    t6 = a5;
-    t7 = 0x0;
+    alignmentMaskOrSectorCount = 0x1F;
+    handleOrRequestResult = 0x0;
+    sectorCountOrDelayCounter = requestedSectorCount;
+    retryCount = 0x0;
     for (;;) {
-        if ((int)t7 >= (int)0x4E20) {
+        if ((int)retryCount >= (int)0x4E20) {
             break;
         }
-        t2 = t0;
-        if (t2 == 1) {
-            t6 = a5;
-            t5 = a4;
-            t2 = (gdFsReqRd32(t5, t6, a6));
+        readModeOrRequestResult = useAlignedRead;
+        if (readModeOrRequestResult == 1) {
+            sectorCountOrDelayCounter = requestedSectorCount;
+            handleOrRequestResult = handleAddress;
+            readModeOrRequestResult = (gdFsReqRd32(handleOrRequestResult, sectorCountOrDelayCounter, destinationAddress));
         } else {
-            t6 = a5;
-            t5 = a4;
-            t2 = (gdFsReqRdPio(t5, t6, a6));
+            sectorCountOrDelayCounter = requestedSectorCount;
+            handleOrRequestResult = handleAddress;
+            readModeOrRequestResult = (gdFsReqRdPio(handleOrRequestResult, sectorCountOrDelayCounter, destinationAddress));
         }
-        t5 = t2;
-        if ((t5 == 0) && ((a5 != 0) && (t11 = *(int *)((a4 + 0x14)), t3 = t11, t12 = *(int *)((a4 + 0x10)), t4 = t12, (int)t3 < (int)t4))) {
-            t6 = 0xC350;
+        handleOrRequestResult = readModeOrRequestResult;
+        if ((handleOrRequestResult == 0) && ((requestedSectorCount != 0) && (currentSectorPosition = *(int *)((handleAddress + 0x14)), sectorPosition = currentSectorPosition, fileSectorCount = *(int *)((handleAddress + 0x10)), alignmentMaskOrSectorCount = fileSectorCount, (int)sectorPosition < (int)alignmentMaskOrSectorCount))) {
+            sectorCountOrDelayCounter = 0xC350;
             for (;;) {
-                if (t6 == 0) {
+                if (sectorCountOrDelayCounter == 0) {
                     break;
                 }
-                t6 = (t6 - 1);
+                sectorCountOrDelayCounter = (sectorCountOrDelayCounter - 1);
             }
-            t7 = (t7 + 0x1);
+            retryCount = (retryCount + 0x1);
             continue;
         }
         break;
     }
-    t25 = 0xFFFFFFEB;
-    if (t7 == 0x4E20) {
+    readResult = 0xFFFFFFEB;
+    if (retryCount == 0x4E20) {
     } else {
-        t21 = t5;
-        if ((int)t5 >= 0) {
-            t21 = (gdFsWaitCompleteReq(a4));
+        completionResult = handleOrRequestResult;
+        if ((int)handleOrRequestResult >= 0) {
+            completionResult = (gdFsWaitCompleteReq(handleAddress));
         }
-        t25 = t21;
+        readResult = completionResult;
     }
-    return t25;
+    return readResult;
 }
 
 int vmsfs_getvolume(int a4, int a5)
@@ -692,53 +692,53 @@ int vmsfs_getvolume(int a4, int a5)
     return 0xFFFFFF01;
 }
 
-int fmMngFormat(int a4, int a5, int a6)
+int fmMngFormat(int formatMode, int a5, int a6)
 {
-    int t0;
-    int t30;
-    int t27;
-    int t2;
-    int t23;
-    int t3;
-    int t10;
-    int t20;
-    int t17;
-    int t18;
+    int managerAddress;
+    int formatResult;
+    int modeValidationResult;
+    int eraseResult;
+    int eraseAndRebuildResult;
+    int headerManagerAddress;
+    int headerWriteByteCount;
+    int cacheRebuildResult;
+    int cacheReadResult;
+    int cacheReadStatus;
 
-    t0 = *(int *)0x8C20CA44;
-    t30 = 0xFFFFFFF5;
-    if (t0 == 0) {
+    managerAddress = *(int *)0x8C20CA44;
+    formatResult = 0xFFFFFFF5;
+    if (managerAddress == 0) {
     } else {
-        t27 = 0xFFFFFFFA;
-        if ((a4 == 0) || (a4 == 1)) {
-            t2 = syBtFlDeleteSct((*(int *)((t0 + 0x4))), a5, a6);
-            t23 = 0xFFFFFFFD;
-            if (t2 != 0) {
+        modeValidationResult = 0xFFFFFFFA;
+        if ((formatMode == 0) || (formatMode == 1)) {
+            eraseResult = syBtFlDeleteSct((*(int *)((managerAddress + 0x4))), a5, a6);
+            eraseAndRebuildResult = 0xFFFFFFFD;
+            if (eraseResult != 0) {
             } else {
-                t3 = *(int *)0x8C20CA44;
+                headerManagerAddress = *(int *)0x8C20CA44;
                 thunk_fmMngCopyBytes();
-                *(unsigned short *)(((*(int *)0x8C20CA44) + 0x2)) = a4;
-                *(unsigned char *)(((t3 + 0x34) + 0x11)) = a4;
-                *(unsigned char *)(((t3 + 0x34) + 0x10)) = (*(signed char *)(((*(int *)0x8C20CA44) + 0x0)));
-                t10 = syBtFlWrite((*(int *)(((*(int *)0x8C20CA44) + 0x4))), (t3 + 0x34), 0x12);
-                t20 = 0xFFFFFFFE;
-                if (t10 != 18) {
+                *(unsigned short *)(((*(int *)0x8C20CA44) + 0x2)) = formatMode;
+                *(unsigned char *)(((headerManagerAddress + 0x34) + 0x11)) = formatMode;
+                *(unsigned char *)(((headerManagerAddress + 0x34) + 0x10)) = (*(signed char *)(((*(int *)0x8C20CA44) + 0x0)));
+                headerWriteByteCount = syBtFlWrite((*(int *)(((*(int *)0x8C20CA44) + 0x4))), (headerManagerAddress + 0x34), 0x12);
+                cacheRebuildResult = 0xFFFFFFFE;
+                if (headerWriteByteCount != 18) {
                 } else {
                     fmMngClearBuf((*(int *)(((*(int *)0x8C20CA44) + 0xC))), (*(int *)(((*(int *)0x8C20CA44) + 0x8))));
-                    t17 = fmMngReadSctAllData((*(int *)0x8C20CA44));
-                    t18 = 0x0;
-                    if (t17 != 0) {
-                        t18 = t17;
+                    cacheReadResult = fmMngReadSctAllData((*(int *)0x8C20CA44));
+                    cacheReadStatus = 0x0;
+                    if (cacheReadResult != 0) {
+                        cacheReadStatus = cacheReadResult;
                     }
-                    t20 = t18;
+                    cacheRebuildResult = cacheReadStatus;
                 }
-                t23 = t20;
+                eraseAndRebuildResult = cacheRebuildResult;
             }
-            t27 = t23;
+            modeValidationResult = eraseAndRebuildResult;
         }
-        t30 = t27;
+        formatResult = modeValidationResult;
     }
-    return t30;
+    return formatResult;
 }
 
 int gdFsGetTocG(int a4, int a5)
@@ -936,46 +936,46 @@ int mpdrv_frame_recv_main(int a4)
 
 int fmMngExecServer(int a4, int a5, int a6)
 {
-    int t0;
-    int t46;
-    int t2;
-    int t4;
-    int t23;
+    int managerAddress;
+    int managerStatus;
+    int pendingOperation;
+    int writeResult;
+    int readResult;
 
-    t0 = *(int *)0x8C20CA44;
-    t46 = 0x0;
-    if (t0 == 0) {
+    managerAddress = *(int *)0x8C20CA44;
+    managerStatus = 0x0;
+    if (managerAddress == 0) {
     } else {
-        t2 = *(int *)((t0 + 0x1C));
-        if (t2 != 0) {
-            if (t2 != 1) {
-                if (t2 != 2) {
-                    *(unsigned int *)((t0 + 0x1C)) = 0x0;
+        pendingOperation = *(int *)((managerAddress + 0x1C));
+        if (pendingOperation != 0) {
+            if (pendingOperation != 1) {
+                if (pendingOperation != 2) {
+                    *(unsigned int *)((managerAddress + 0x1C)) = 0x0;
                     *(unsigned int *)(((*(int *)0x8C20CA44) + 0x20)) = 0x0;
                 } else {
-                    t4 = fmMngWriteData(t0, a5, a6);
-                    if (t4 != 1) {
+                    writeResult = fmMngWriteData(managerAddress, a5, a6);
+                    if (writeResult != 1) {
                         *(unsigned int *)(((*(int *)0x8C20CA44) + 0x1C)) = 0x0;
-                        if (t4 != 0) {
+                        if (writeResult != 0) {
                             *(unsigned int *)(((*(int *)0x8C20CA44) + 0x20)) = 0x3;
                         } else {
                             *(unsigned int *)(((*(int *)0x8C20CA44) + 0x20)) = 0x1;
                         }
-                        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x2C)) = t4;
+                        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x2C)) = writeResult;
                     }
                 }
             } else {
-                t23 = fmMngReadData(t0);
+                readResult = fmMngReadData(managerAddress);
                 *(unsigned int *)(((*(int *)0x8C20CA44) + 0x1C)) = 0x0;
-                if (t23 != 0) {
+                if (readResult != 0) {
                     *(unsigned int *)(((*(int *)0x8C20CA44) + 0x20)) = 0x3;
                 } else {
                     *(unsigned int *)(((*(int *)0x8C20CA44) + 0x20)) = 0x1;
                 }
-                *(unsigned int *)(((*(int *)0x8C20CA44) + 0x2C)) = t23;
+                *(unsigned int *)(((*(int *)0x8C20CA44) + 0x2C)) = readResult;
             }
         }
-        t46 = (*(int *)(((*(int *)0x8C20CA44) + 0x20)));
+        managerStatus = (*(int *)(((*(int *)0x8C20CA44) + 0x20)));
     }
-    return t46;
+    return managerStatus;
 }

@@ -55,6 +55,8 @@ Registers with multiple roles retain that fact in their names, for example
 ## Follow-up
 
 The SDK naming follow-up is documented in [naming-sdk.md](naming-sdk.md).
+GD filesystem, flash-manager and DMA record names are documented in
+[naming-storage.md](naming-storage.md).
 
 ## Corrected entries
 

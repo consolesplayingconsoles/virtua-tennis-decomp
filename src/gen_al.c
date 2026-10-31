@@ -909,37 +909,37 @@ int lightPlayerApply(int a4)
     return t19;
 }
 
-int gdFsOpenRangeG(int a4, int a5)
+int gdFsOpenRangeG(int startFad, int sectorCount)
 {
-    int t1;
-    int t3;
-    int t4;
-    int t11;
+    int globalStateAddress;
+    int handleIndexOrError;
+    int candidateHandleAddress;
+    int openedHandleAddress;
 
-    if ((int)a4 < (int)0xB05E) {
+    if ((int)startFad < (int)0xB05E) {
         gdFsSetGlobalErrG(0xFFFFFFE0);
-        t11 = 0x0;
+        openedHandleAddress = 0x0;
     } else {
-        t1 = *(int *)0x8C20C204;
-        t3 = 0x0;
-        t4 = (*(int *)((t1 + 0x18)));
+        globalStateAddress = *(int *)0x8C20C204;
+        handleIndexOrError = 0x0;
+        candidateHandleAddress = (*(int *)((globalStateAddress + 0x18)));
         for (;;) {
-            if ((int)t3 >= (int)(*(int *)((t1 + 0x0)))) {
-                t3 = 0xFFFFFFF7;
-                gdFsSetGlobalErrG(t3);
+            if ((int)handleIndexOrError >= (int)(*(int *)((globalStateAddress + 0x0)))) {
+                handleIndexOrError = 0xFFFFFFF7;
+                gdFsSetGlobalErrG(handleIndexOrError);
                 return 0x0;
             }
-            if ((*(short *)((t4 + 0x4C))) == 0) {
+            if ((*(short *)((candidateHandleAddress + 0x4C))) == 0) {
                 break;
             }
-            t4 = (t4 + 0x54);
-            t3 = (t3 + 0x1);
+            candidateHandleAddress = (candidateHandleAddress + 0x54);
+            handleIndexOrError = (handleIndexOrError + 0x1);
         }
-        gdFsCreateHnG(t4, 0x0, a4, (((a5 << 8) << 2) << 1));
+        gdFsCreateHnG(candidateHandleAddress, 0x0, startFad, (((sectorCount << 8) << 2) << 1));
         gdFsSetGlobalErrG(0x0);
-        t11 = t4;
+        openedHandleAddress = candidateHandleAddress;
     }
-    return t11;
+    return openedHandleAddress;
 }
 
 int sprPutScaledAlpha(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5)

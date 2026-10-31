@@ -3205,9 +3205,9 @@ int kmyIsEnabledASyncCopy(void)
     return t0;
 }
 
-void kmySetDMACallback(int a4, int a5)
+void kmySetDMACallback(int requestAddress, int callbackAddress)
 {
-    *(unsigned int *)((a4 + 0x18)) = a5;
+    *(unsigned int *)((requestAddress + 0x18)) = callbackAddress;
 }
 
 void kmySetDisplayBpp(int a4)
@@ -3527,17 +3527,17 @@ void kmyiInitializeDriverObject(int a4, int a5)
     *(unsigned int *)((a5 + 0x8)) = 0x8C20B4F8;
 }
 
-void kmySetDMAValue(int a4, int a5)
+void kmySetDMAValue(int requestAddress, int userValue)
 {
-    *(unsigned int *)((a4 + 0x2C)) = a5;
+    *(unsigned int *)((requestAddress + 0x2C)) = userValue;
 }
 
-int kmyGetDMAValue(int a4)
+int kmyGetDMAValue(int requestAddress)
 {
-    int t0;
+    int userValue;
 
-    t0 = *(int *)((a4 + 0x2C));
-    return t0;
+    userValue = *(int *)((requestAddress + 0x2C));
+    return userValue;
 }
 
 void kmySetPunchThroughThreshold(int a4)

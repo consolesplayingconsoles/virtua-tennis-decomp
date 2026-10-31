@@ -567,72 +567,72 @@ int fileLoadStartSlot(int a4, int a5, int a6, int a7)
     return 0x0;
 }
 
-int gdFsReqRdPio(int a4, int a5, int a6)
+int gdFsReqRdPio(int handleAddress, int requestedSectorCount, int destinationAddress)
 {
-    int t56;
-    int t48;
-    int t16;
-    int t17;
-    int t18;
-    int t19;
-    int t21;
-    int t25;
-    int t30;
-    int t33;
-    int t0;
-    int t41;
-    int t35;
+    int requestResult;
+    int idleDriveResult;
+    int sectorPosition;
+    int startFad;
+    int sectorCount;
+    int clampedSectorCount;
+    int savedInterruptMask;
+    int commandRequestId;
+    int driverExecuteResult;
+    int acceptedSectorCount;
+    int handleAllocated;
+    int fileRangeResult;
+    int readSubmissionResult;
 
-    t56 = 0xFFFFFFF6;
-    if ((a4 != 0) && (t0 = *(short *)((a4 + 0x4C)), t0 != 0)) {
-        t48 = 0x0;
-        if ((*(int *)(((*(int *)((a4 + 0x0))) + 0x1C))) == 0) {
-            t16 = *(int *)((a4 + 0x14));
-            t17 = *(int *)((a4 + 0x8));
-            t18 = *(int *)((a4 + 0x10));
-            if ((int)(t16 + t17) < (int)(t17 + t18)) {
-                t19 = a5;
-                if ((int)(a5 + (t16 + t17)) > (int)(t17 + t18)) {
-                    t19 = ((t17 + t18) - (t16 + t17));
+    requestResult = 0xFFFFFFF6;
+    if ((handleAddress != 0) && (handleAllocated = *(short *)((handleAddress + 0x4C)), handleAllocated != 0)) {
+        idleDriveResult = 0x0;
+        if ((*(int *)(((*(int *)((handleAddress + 0x0))) + 0x1C))) == 0) {
+            sectorPosition = *(int *)((handleAddress + 0x14));
+            startFad = *(int *)((handleAddress + 0x8));
+            sectorCount = *(int *)((handleAddress + 0x10));
+            if ((int)(sectorPosition + startFad) < (int)(startFad + sectorCount)) {
+                clampedSectorCount = requestedSectorCount;
+                if ((int)(requestedSectorCount + (sectorPosition + startFad)) > (int)(startFad + sectorCount)) {
+                    clampedSectorCount = ((startFad + sectorCount) - (sectorPosition + startFad));
                 }
-                if (t19 == 0) {
-                    *(unsigned int *)((a4 + 0x18)) = 0x0;
-                    *(unsigned short *)((a4 + 0x50)) = 0x1;
-                    t35 = 0x0;
+                if (clampedSectorCount == 0) {
+                    *(unsigned int *)((handleAddress + 0x18)) = 0x0;
+                    *(unsigned short *)((handleAddress + 0x50)) = 0x1;
+                    readSubmissionResult = 0x0;
                 } else {
-                    t21 = _builtin_get_imask();
+                    savedInterruptMask = _builtin_get_imask();
                     _builtin_set_imask(0xF);
-                    t25 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)(((*(int *)((a4 + 0x0))) + 0xC))) + 0x4)))))((t16 + t17), t19, a6, 0x0);
-                    if (t25 != 0) {
-                        *(unsigned int *)((a4 + 0x3C)) = t25;
-                        *(unsigned int *)((a4 + 0x1C)) = t19;
-                        *(unsigned short *)((a4 + 0x50)) = 0x2;
-                        *(unsigned short *)((a4 + 0x4A)) = 0x1;
-                        *(unsigned short *)((a4 + 0x48)) = 0x1;
-                        *(unsigned int *)((a4 + 0x18)) = 0x0;
-                        *(unsigned int *)(((*(int *)((a4 + 0x0))) + 0x1C)) = a4;
-                        t30 = ((int (*)(void))((*(int *)(((*(int *)(((*(int *)((a4 + 0x0))) + 0xC))) + 0x40)))))();
+                    commandRequestId = ((int (*)(int, int, int, int))((*(int *)(((*(int *)(((*(int *)((handleAddress + 0x0))) + 0xC))) + 0x4)))))((sectorPosition + startFad), clampedSectorCount, destinationAddress, 0x0);
+                    if (commandRequestId != 0) {
+                        *(unsigned int *)((handleAddress + 0x3C)) = commandRequestId;
+                        *(unsigned int *)((handleAddress + 0x1C)) = clampedSectorCount;
+                        *(unsigned short *)((handleAddress + 0x50)) = 0x2;
+                        *(unsigned short *)((handleAddress + 0x4A)) = 0x1;
+                        *(unsigned short *)((handleAddress + 0x48)) = 0x1;
+                        *(unsigned int *)((handleAddress + 0x18)) = 0x0;
+                        *(unsigned int *)(((*(int *)((handleAddress + 0x0))) + 0x1C)) = handleAddress;
+                        driverExecuteResult = ((int (*)(void))((*(int *)(((*(int *)(((*(int *)((handleAddress + 0x0))) + 0xC))) + 0x40)))))();
                     } else {
-                        *(unsigned short *)((a4 + 0x50)) = 0x1;
+                        *(unsigned short *)((handleAddress + 0x50)) = 0x1;
                     }
-                    _builtin_set_imask(((unsigned int)(((t21 & 0xF) << 2) << 2) >> 4));
-                    t33 = 0x0;
-                    if (t25 != 0) {
-                        t33 = t19;
+                    _builtin_set_imask(((unsigned int)(((savedInterruptMask & 0xF) << 2) << 2) >> 4));
+                    acceptedSectorCount = 0x0;
+                    if (commandRequestId != 0) {
+                        acceptedSectorCount = clampedSectorCount;
                     }
-                    t35 = t33;
+                    readSubmissionResult = acceptedSectorCount;
                 }
-                t41 = t35;
+                fileRangeResult = readSubmissionResult;
             } else {
-                *(unsigned int *)((a4 + 0x18)) = 0x0;
-                *(unsigned short *)((a4 + 0x50)) = 0x1;
-                t41 = 0x0;
+                *(unsigned int *)((handleAddress + 0x18)) = 0x0;
+                *(unsigned short *)((handleAddress + 0x50)) = 0x1;
+                fileRangeResult = 0x0;
             }
-            t48 = t41;
+            idleDriveResult = fileRangeResult;
         }
-        t56 = t48;
+        requestResult = idleDriveResult;
     }
-    return t56;
+    return requestResult;
 }
 
 
