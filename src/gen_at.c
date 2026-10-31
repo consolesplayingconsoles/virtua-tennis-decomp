@@ -10,7 +10,7 @@ int ADXPD_GetStat(int);
 int ADXSJD_GetBlkSmpl(int);
 int ADXSJD_GetTotalNumSmpl(int);
 int ADX_DecodeInfoAiff(int, int, int, int, int, int, int, int, int, int);
-int FUN_8c1e6420(float);
+int kmSetCullingThreshold(float);
 int _lsfts(int, int, int);
 int _mvito4b(int, int);
 int adxt_stat_decend(int, int, int, int);
@@ -946,7 +946,7 @@ int nlCreateVertexBuffer(int a4, int a5, int a6, int a7)
     } else {
         nlSetWindowSize(0.0f, 0.0f, (float)t8, (float)(short)t7);
     }
-    FUN_8c1e6420(0.0199999996f);
+    kmSetCullingThreshold(0.0199999996f);
     *(unsigned int *)0xFF000038 = 0xC;
     *(unsigned int *)0xFF00003C = 0xC;
     kmSetWaitVsyncCount((*(int *)0x8C424474));

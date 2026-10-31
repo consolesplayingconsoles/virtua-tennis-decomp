@@ -265,10 +265,10 @@ stage17Draw
 nlResetBackColorZ
 nlUnitVector
 kmyCopySmallVQToTextureRom
-FUN_8c1e3080
-FUN_8c1e3180
+kmSetHSyncCallback
+kmSetVSyncCallback
 kmCollectTextureGarbage
-FUN_8c1e6420
+kmSetCullingThreshold
 gdFsStringEquals
 kbCfgIni
 FUN_8c1f1906

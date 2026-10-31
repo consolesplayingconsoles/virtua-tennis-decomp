@@ -6969,8 +6969,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 111
 - the cases run 28 of 28 instructions
 
-### FUN_8c1e3080 (`8C1E3080`, 18 bytes, `src/gen_a.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/FUN_8c1e3080.json`
+### kmSetHSyncCallback (`8C1E3080`, 18 bytes, `src/gen_a.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/kmSetHSyncCallback.json`
 - case 0
 - case 1
 - case 2
@@ -6995,8 +6995,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 9 of 9 instructions
 
-### FUN_8c1e3180 (`8C1E3180`, 18 bytes, `src/gen_a.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/FUN_8c1e3180.json`
+### kmSetVSyncCallback (`8C1E3180`, 18 bytes, `src/gen_a.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/kmSetVSyncCallback.json`
 - case 0
 - case 1
 - case 2
@@ -7047,8 +7047,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 7 of 7 instructions
 
-### FUN_8c1e6420 (`8C1E6420`, 56 bytes, `src/gen_ap.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ap/FUN_8c1e6420.json`
+### kmSetCullingThreshold (`8C1E6420`, 56 bytes, `src/gen_ap.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ap/kmSetCullingThreshold.json`
 - case 0
 - case 1
 - case 2

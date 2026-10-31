@@ -192,7 +192,7 @@ int syCachePurgeAll(void);
 int adxf_purge_all(void);
 void miniEffectSpawn(Stk4 s);
 int sprPutAt(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
-int FUN_8c1e6420(float f4);
+int kmSetCullingThreshold(float f4);
 int kmyEnableInterrupt(void);
 int kmyRequestCallback(int a4);
 int _destructFiber(int a4, int a5);

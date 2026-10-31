@@ -1,8 +1,8 @@
 /* Straight-line functions with calls and guards (batch gen_vq): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c1e3080(int, int);
-int FUN_8c1e3180(int, int);
+int kmSetHSyncCallback(int, int);
+int kmSetVSyncCallback(int, int);
 extern int _builtin_get_imask(void);
 extern void _builtin_set_imask(int);
 int syChainAddHandler(int a4, int a5, int a6, int a7);
@@ -93,11 +93,11 @@ int syChainAddHandler(int a4, int a5, int a6, int a7)
     goto L_8C1E8422;
     L_8C1E8344:;
     if ((v0_3 != v0_1)) goto L_8C1E837C;
-    FUN_8c1e3180(0x8C1E8476, 0x0);
+    kmSetVSyncCallback(0x8C1E8476, 0x0);
     goto L_8C1E8396;
     L_8C1E837C:;
     if ((v0_3 != 0x920)) goto L_8C1E838E;
-    FUN_8c1e3080(0x8C1E84C0, 0x0);
+    kmSetHSyncCallback(0x8C1E84C0, 0x0);
     goto L_8C1E8396;
     L_8C1E838E:;
     *(unsigned int *)((((int)_builtin_get_vbr()) + 0x22C)) = 0x8C1E84E6;

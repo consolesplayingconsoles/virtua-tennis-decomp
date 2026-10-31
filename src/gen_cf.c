@@ -2,8 +2,8 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int FUN_8c1e3080(int, int);
-int FUN_8c1e3180(int, int);
+int kmSetHSyncCallback(int, int);
+int kmSetVSyncCallback(int, int);
 extern int _builtin_get_imask(void);
 extern void _builtin_prefetch(void *);
 extern void _builtin_set_imask(int);
@@ -524,7 +524,7 @@ void syChainDeleteHandler(int a4)
     if ((R14 != R7)) goto L_8C1E8654;
     goto L_8C1E8648;
     L_8C1E8648:;
-    FUN_8c1e3180(0x0, 0x0);
+    kmSetVSyncCallback(0x0, 0x0);
     goto L_8C1E86EE;
     L_8C1E86EE:;
     goto L_8C1E86F0;
@@ -532,7 +532,7 @@ void syChainDeleteHandler(int a4)
     if ((R14 != 0x92)) goto L_8C1E8666;
     goto L_8C1E865A;
     L_8C1E865A:;
-    FUN_8c1e3080(0x0, 0x0);
+    kmSetHSyncCallback(0x0, 0x0);
     goto L_8C1E86EE;
     L_8C1E8666:;
     R0 = (((int)(short)((R14 << 2) << 2) >> 8));

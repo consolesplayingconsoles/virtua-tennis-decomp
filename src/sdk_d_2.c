@@ -1,15 +1,15 @@
 /* Small SDK (nl library) functions: texture and font settings, tri-put attributes, vector helpers, string compare. */
 
-extern int g_0c2aec8c[];
-extern int g_0c14a7c0;
-extern int g_0c2af0c8;
-extern int g_0c2af0cc;
+extern int gNlDummyTextureSurface[];
+extern int gNlFontTextureAddress;
+extern int gNlFontWidth;
+extern int gNlFontHeight;
 extern float gNlObjectFadeColor[];
 extern unsigned int g_0c14aa70;
-extern unsigned int *g_0c2b76c4;
+extern unsigned int *gNlSpriteIndexBitmap;
 extern int g_0c14a834[];
 extern int g_0c14a644;
-extern short g_0c2b7bc4;
+extern short gNlPaletteCount;
 extern char g_0c2aedd8[];
 extern char g_0c14ab04[];
 
@@ -26,10 +26,10 @@ void FUN_0c080c50(int a, int b);
 int FUN_0c088738(char *a, char *b);
 
 
-void nlSetDummyTextureParameter(int *p)
+void nlSetDummyTextureParameter(int *polygonParameters)
 {
-    p[2] = (p[2] & -64) | g_0c2aec8c[12];
-    p[3] = (p[3] & 0xF8000000) | g_0c2aec8c[13];
+    polygonParameters[2] = (polygonParameters[2] & -64) | gNlDummyTextureSurface[12];
+    polygonParameters[3] = (polygonParameters[3] & 0xF8000000) | gNlDummyTextureSurface[13];
 }
 
 
@@ -39,10 +39,10 @@ void nlReloadPalette8888(int index)
 }
 
 
-void nlSetFontSize(int w, int h)
+void nlSetFontSize(int width, int height)
 {
-    g_0c2af0c8 = w;
-    g_0c2af0cc = h;
+    gNlFontWidth = width;
+    gNlFontHeight = height;
 }
 
 
@@ -60,7 +60,7 @@ void nlSubVector(float *a, float *b)
 }
 
 
-void nlSpriteClearSpriteIndex(int i)
+void nlSpriteClearSpriteIndex(int spriteIndex)
 {
-    g_0c2b76c4[i >> 5] &= ~(1 << (i & 31));
+    gNlSpriteIndexBitmap[spriteIndex >> 5] &= ~(1 << (spriteIndex & 31));
 }

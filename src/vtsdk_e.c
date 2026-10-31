@@ -16,12 +16,12 @@ extern int setjmp(void *jb);
 extern void longjmp(void *jb, int v);
 
 typedef struct { char used; char busy; char pad[14]; int handle; char rest[8]; } SndStream;
-extern SndStream g_8c454cf4[];
-extern char *g_8c47317c;
-extern void (*g_8c45eef0)(void *s);
-extern char *g_8c4762c8;
+extern SndStream gNlSoundStreams[];
+extern char *gMapleDriver;
+extern void (*gPalExtensionRatioCallback)(void *s);
+extern char *gBuFiberScheduler;
 typedef struct { char pad[36]; int (*fn)(int a); } GdFsObj;
-extern GdFsObj *g_8c20c210;
+extern GdFsObj *gGdFsOperations;
 
 void nlArcCot(float x)
 {
@@ -30,17 +30,17 @@ void nlArcCot(float x)
     nlArcTan(1.0f / x);
 }
 
-int nlsndStreamGetPlayPos(int i)
+int nlsndStreamGetPlayPos(int streamIndex)
 {
-    SndStream *s = &g_8c454cf4[(short)i];
-    if (s->used == 1 && s->busy != 0)
-        return nlsndG2Read(s->handle);
+    SndStream *stream = &gNlSoundStreams[(short)streamIndex];
+    if (stream->used == 1 && stream->busy != 0)
+        return nlsndG2Read(stream->handle);
     return 0;
 }
 
 int gdFsLoadDirFast(int a)
 {
-    GdFsObj *o = g_8c20c210;
+    GdFsObj *o = gGdFsOperations;
     if (o == 0)
         return 0;
     return o->fn(a);
@@ -85,7 +85,7 @@ int gdFsCheckEof(char *h, int *out)
 int kdSetDeviceRequest(int a)
 {
     int r = mpdrv_set_dreq(a);
-    if (*(int *)(g_8c47317c + 4328) != 0)
+    if (*(int *)(gMapleDriver + 4328) != 0)
         kdRecvFrame();
     return r;
 }
@@ -113,29 +113,29 @@ void ADXSTM_GetGdfsStat(char *p, int *out)
     *out = gdFsGetStat(*(int *)(p + 8));
 }
 
-int kmyiGetPALExtRatio(int mode)
+int kmyiGetPALExtRatio(int displayMode)
 {
-    struct { int mode; int ratio; } s;
-    s.mode = mode;
-    g_8c45eef0(&s);
-    if (s.ratio < 0 || s.ratio > 4)
-        s.ratio = 1;
-    return s.ratio;
+    struct { int displayMode; int ratio; } request;
+    request.displayMode = displayMode;
+    gPalExtensionRatioCallback(&request);
+    if (request.ratio < 0 || request.ratio > 4)
+        request.ratio = 1;
+    return request.ratio;
 }
 
 char *mpdrv_get_device(int n)
 {
-    return g_8c47317c + 40 + n * 44;
+    return gMapleDriver + 40 + n * 44;
 }
 
 int mpdrv_get_debugmode(void)
 {
-    return *(int *)(g_8c47317c + 4296);
+    return *(int *)(gMapleDriver + 4296);
 }
 
 int mpdrv_get_lastsendaddr(void)
 {
-    return *(int *)(g_8c47317c + 4272);
+    return *(int *)(gMapleDriver + 4272);
 }
 
 void ADXB_Start(char *p)
@@ -155,16 +155,16 @@ int kmyResetFatalError(void)
     return kmiWriteRegister(8, 0);
 }
 
-void buFbrSleepFiber(int t)
+void buFbrSleepFiber(int sleepTicks)
 {
-    int wake;
-    char *g = g_8c4762c8;
-    char *cur = *(char **)(g + 3448);
-    if (t >= 0)
-        wake = *(int *)(g + 516) + t;
+    int wakeTick;
+    char *scheduler = gBuFiberScheduler;
+    char *currentFiber = *(char **)(scheduler + 3448);
+    if (sleepTicks >= 0)
+        wakeTick = *(int *)(scheduler + 516) + sleepTicks;
     else
-        wake = 0x7fffffff;
-    *(int *)(cur + 20) = wake;
-    if (setjmp(*(char **)(g_8c4762c8 + 3448) + 24) == 0)
-        longjmp(g_8c4762c8 + 4, 1);
+        wakeTick = 0x7fffffff;
+    *(int *)(currentFiber + 20) = wakeTick;
+    if (setjmp(*(char **)(gBuFiberScheduler + 3448) + 24) == 0)
+        longjmp(gBuFiberScheduler + 4, 1);
 }

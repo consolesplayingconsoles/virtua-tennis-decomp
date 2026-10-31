@@ -18,7 +18,7 @@ typedef struct {
     int flag;           /* 24 */
 } MpGun;
 
-extern MpDrv *g_8c47317c;
+extern MpDrv *gMapleDriver;
 extern int gKdGunCount;
 extern char gKdGunBuf[];
 extern int gKdGunBusy;
@@ -29,12 +29,12 @@ int mpdrv_setcmd_force(int a, int b, int *c, int d, int e, int f);
 
 int mpdrv_insertnop(int n)
 {
-    MpDrv *d = g_8c47317c;
+    MpDrv *d = gMapleDriver;
     int *p;
     int i;
 
     d->wp = (int *)((char *)d->wp + d->count * 4);
-    p = g_8c47317c->wp;
+    p = gMapleDriver->wp;
     if (n > 0) {
         i = 0;
         do {
@@ -43,8 +43,8 @@ int mpdrv_insertnop(int n)
             p++;
         } while (i < n);
     }
-    g_8c47317c->count = n;
-    g_8c47317c->limit += n * 4;
+    gMapleDriver->count = n;
+    gMapleDriver->limit += n * 4;
     return 0;
 }
 
@@ -61,8 +61,8 @@ void kdExecGun(void)
         addr = ((unsigned int)gKdGunBuf & 0x1fffffe0) + 32;
         *(unsigned int *)(addr | 0xa0000000) = ((unsigned int)m << 16) | 0x80000200;
         gKdGunBusy = 1;
-        ((MpGun *)g_8c47317c->gun)->addr = addr;
-        ((MpGun *)g_8c47317c->gun)->flag = 1;
+        ((MpGun *)gMapleDriver->gun)->addr = addr;
+        ((MpGun *)gMapleDriver->gun)->flag = 1;
         mpdrv_setcmd_force(m * 6, 9, &one, 1, 0, 0);
         gKdGunLast = gKdGunCount;
     }

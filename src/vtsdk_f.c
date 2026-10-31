@@ -15,21 +15,21 @@ extern int memcmp(char *a, char *b, int n);
 extern int kmiReadRegister(int a);
 
 extern unsigned int gNlPrintFlags;
-extern int g_8c4620f8[];
-extern char *g_8c20c204;
+extern int gLightGunPosition[];
+extern char *gGdFsGlobalState;
 extern char g_8c46b2e4[];
 extern int g_8c46c664;
 extern int g_8c46d688;
 extern char g_8c46d668[];
 extern char g_8c46c668[];
-extern char g_8c46c264[];
+extern char gAdxfPartitionInfoTable[];
 extern char g_8c46bf64[];
 extern int g_8c20c928;
 extern char g_8c46efd4[];
-extern char g_8c45f964[];
+extern char gRenderPacketQueues[];
 extern char g_8c45f974[];
 extern int g_8c45efec;
-extern char *g_8c47317c;
+extern char *gMapleDriver;
 extern char g_8c20b990[];
 
 float nlAbsSqrt(float x)
@@ -51,16 +51,16 @@ int nlFogDensity(int v)
 
 int gdFsReadWG(int a, int b, int c)
 {
-    int h = gdFsReopenHn(*(int *)(g_8c20c204 + 20), 0, a, b << 11);
+    int h = gdFsReopenHn(*(int *)(gGdFsGlobalState + 20), 0, a, b << 11);
     if (h == 0)
         return -13;
     return gdFsRead(h, b, c);
 }
 
-void kdGetGunPosition(int *x, int *y)
+void kdGetGunPosition(int *positionX, int *positionY)
 {
-    *x = g_8c4620f8[0];
-    *y = g_8c4620f8[1];
+    *positionX = gLightGunPosition[0];
+    *positionY = gLightGunPosition[1];
 }
 
 void ADXSTM_ExecServer(void)
@@ -86,7 +86,7 @@ void ADXF_Finish(void)
     g_8c46d688 = 0;
     memset(g_8c46d668, 0, 32);
     memset(g_8c46c668, 255, 4096);
-    memset(g_8c46c264, 0, 1024);
+    memset(gAdxfPartitionInfoTable, 0, 1024);
     memset(g_8c46bf64, 0, 768);
 }
 
@@ -116,8 +116,8 @@ char *kmiFLWCTRLFindTailQueue(void)
 {
     int i;
     for (i = 0; i < 3616; i += 452) {
-        if (*(int *)(g_8c45f964 + i) == 1 && *(int *)(g_8c45f974 + i) == 0)
-            return g_8c45f964 + i;
+        if (*(int *)(gRenderPacketQueues + i) == 1 && *(int *)(g_8c45f974 + i) == 0)
+            return gRenderPacketQueues + i;
     }
     return 0;
 }
@@ -133,7 +133,7 @@ int kmiCheckSysConfigSetting(int *p)
 
 char *mpdrv_get_portstatus(int n)
 {
-    return g_8c47317c + 4 + n * 8;
+    return gMapleDriver + 4 + n * 8;
 }
 
 int kmySetBackGroundDepth(int h, float d)

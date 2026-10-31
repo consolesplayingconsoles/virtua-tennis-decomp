@@ -18,9 +18,9 @@ extern void FUN_0c080d70(void *a, void *b);
 
 extern char gPaletteMode;
 extern int gPaletteModeTable[];
-extern short g_0c2b7bc4;
+extern short gNlPaletteCount;
 extern int gNlPaletteTable;
-extern unsigned int g_0c2af118;
+extern unsigned int gNlPrintTileClipFlags;
 extern char g_0c2b34a8[];
 extern int g_0c2b75b8[];
 extern char g_0c14aab4[];
@@ -29,21 +29,21 @@ extern char g_0c14ab2c[];
 
 void nlFreePaletteAll(void)
 {
-    nlInitPalette(gNlPaletteTable, g_0c2b7bc4);
+    nlInitPalette(gNlPaletteTable, gNlPaletteCount);
 }
 
 
-float nlInvertSqrt(float x)
+float nlInvertSqrt(float value)
 {
-    if (x == 0.0f)
+    if (value == 0.0f)
         return 3.4028234663852886e+38f;
-    return 1.0f / _builtin_sqrtf(x);
+    return 1.0f / _builtin_sqrtf(value);
 }
 
 
-void nlPrintTileClipMode(int mode)
+void nlPrintTileClipMode(int clipMode)
 {
-    g_0c2af118 = (g_0c2af118 & 0xfffcffff) | (mode << 16);
+    gNlPrintTileClipFlags = (gNlPrintTileClipFlags & 0xfffcffff) | (clipMode << 16);
 }
 
 

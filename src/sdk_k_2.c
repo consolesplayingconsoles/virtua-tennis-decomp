@@ -30,7 +30,7 @@ int ADXSJD_GetLpStartOfst(int a);
 int toupper_(int c);
 int gdFsToUpper(int c);
 
-extern char g_8c464598[];
+extern char gVmsVolumeStates[];
 
 
 int convert_support(unsigned int x)

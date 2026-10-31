@@ -52,13 +52,15 @@ section visibility and bounds, and CPU/player/match record pointers.
 Registers with multiple roles retain that fact in their names, for example
 `courtModeOrSectionIndex` and `difficultyOrPlayerAddress`.
 
+## Follow-up
+
+The SDK naming follow-up is documented in [naming-sdk.md](naming-sdk.md).
+
 ## Unresolved entries
 
 | Entry | Reason to retain the generic label |
 |---|---|
 | `FUN_8c0f8220` | Starts with the literal word `8c0f7ff0`, inside a pointer pool. Its recorded span also includes interrupt setters at `8c0f8250` and `8c0f8260`. It cannot be accurately named as one callable function. |
-| `FUN_8c1e3080`, `FUN_8c1e3180` | Register callback slots 2 and 1. `syChainAddHandler` associates them with event codes `0x920` and `0x900`; the semantic callback names require further evidence. |
-| `FUN_8c1e6420` | Stores a float at `8c471e38` while changing bit 1 of the renderer's update flags. The parameter's meaning is not yet established. |
 | `FUN_8c1f1906` | Begins at an isolated stack adjustment two bytes before `ADXF_InitCache_P2_`, and its 202-byte span overlaps that routine and `ADXF_Ocbi`. Needs a boundary audit, not a guessed independent function name. |
 
 No boundary repairs or port implementation are part of this naming pass.

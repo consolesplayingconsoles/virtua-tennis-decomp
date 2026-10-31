@@ -1,8 +1,8 @@
 /* Small library functions (batch i): Kamui context and DMA helpers, the system config, vmsfs and fiber setup, ADX/SJ
    stream helpers. */
 
-extern char g_8c462180[];
-extern char g_8c464598[];
+extern char gVmsFileCommandStates[];
+extern char gVmsVolumeStates[];
 
 void *memset(void *p, int c, unsigned int n);
 void FUN_0c15887e(int *d, int *s, unsigned int n);

@@ -2622,9 +2622,9 @@ int kmSetFatalErrorCallback(int a4)
     return kmyRegisterCallback(0x8, a4, 0x8C45F920);
 }
 
-int FUN_8c1e3080(int a4, int a5)
+int kmSetHSyncCallback(int callback, int callbackArgument)
 {
-    return kmyRegisterCallback(0x2, a4, a5);
+    return kmyRegisterCallback(0x2, callback, callbackArgument);
 }
 
 int kmSetPALEXTCallback(int a4)
@@ -2637,9 +2637,9 @@ int kmSetTexOverflowCallback(int a4, int a5)
     return kmyRegisterCallback(0x3, a4, a5);
 }
 
-int FUN_8c1e3180(int a4, int a5)
+int kmSetVSyncCallback(int callback, int callbackArgument)
 {
-    return kmyRegisterCallback(0x1, a4, a5);
+    return kmyRegisterCallback(0x1, callback, callbackArgument);
 }
 
 int kmSetWaitVsyncCallback(int a4, int a5)

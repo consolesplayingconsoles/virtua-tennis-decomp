@@ -2256,10 +2256,10 @@ F 8c1e2e1c 290 FBfree
 F 8c1e2f70 32 kmQueryFinishLastTextureDMA
 F 8c1e2fc0 18 kmSetEORCallback
 F 8c1e3040 16 kmSetFatalErrorCallback
-F 8c1e3080 18 FUN_8c1e3080
+F 8c1e3080 18 kmSetHSyncCallback
 F 8c1e30c0 16 kmSetPALEXTCallback
 F 8c1e3140 18 kmSetTexOverflowCallback
-F 8c1e3180 18 FUN_8c1e3180
+F 8c1e3180 18 kmSetVSyncCallback
 F 8c1e31c0 18 kmSetWaitVsyncCallback
 F 8c1e3200 36 kmChangeDisplayFilterMode
 F 8c1e3280 228 kmInitDevice
@@ -2295,7 +2295,7 @@ F 8c1e61d2 200 kmiProcessVertex_16
 F 8c1e62c0 14 kmSetBorderColor
 F 8c1e6300 68 kmSetCheapShadowMode
 F 8c1e6380 106 kmSetColorClampValue
-F 8c1e6420 56 FUN_8c1e6420
+F 8c1e6420 56 kmSetCullingThreshold
 F 8c1e6480 22 kmSetPixelClipping
 F 8c1e64c0 22 kmSetRegionClipping
 F 8c1e6500 54 kmSetStrideWidth

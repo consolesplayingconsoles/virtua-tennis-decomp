@@ -9,14 +9,14 @@ typedef struct { float x, y, z; } Vector3f;
 typedef struct { short w, h; int data; int pal; } NlTextureDescriptor;
 
 extern NlTextureDescriptor g_0c0d6264;
-extern char g_0c2aec8c[];
+extern char gNlDummyTextureSurface[];
 extern char *gNlPaletteTable;
 extern unsigned int gNlPrintFlags;
-extern int g_0c2b31bc[3];
+extern int gNlRenderTextureTableState[3];
 extern Vector3f gNlObjectFadeColor;
 extern Vector3f gNlObjectFadeColorCopy;
 extern signed char g_0c14a9c0[][4];
-extern float g_0c2b76d4[2];
+extern float gNlSpriteScreenSize[2];
 extern char g_0c14aaf0[];
 
 void kmCreateTextureSurface(void *s, int w, int h, int fmt);
@@ -46,18 +46,18 @@ void nlReloadPalette(int paletteIndex, int paletteData)
 }
 
 
-void setBorderColor(unsigned int c)
+void setBorderColor(unsigned int color)
 {
-    kmSetBorderColor(c | 0xFF000000);
+    kmSetBorderColor(color | 0xFF000000);
 }
 
 
-float nlCosec(int a)
+float nlCosec(int angle)
 {
-    a = a & 0xFFFF;
-    if (a == 0 || a == 0x8000)
+    angle = angle & 0xFFFF;
+    if (angle == 0 || angle == 0x8000)
         return 3.4028235e38f;
-    return 1.0f / nlSin(a);
+    return 1.0f / nlSin(angle);
 }
 
 
@@ -95,17 +95,17 @@ void nlObjPutSetFadeColor(float red, float green, float blue)
 }
 
 
-void nlSpriteGetImaginaryScreenSize(float *w, float *h)
+void nlSpriteGetImaginaryScreenSize(float *width, float *height)
 {
-    *w = g_0c2b76d4[0];
-    *h = g_0c2b76d4[1];
+    *width = gNlSpriteScreenSize[0];
+    *height = gNlSpriteScreenSize[1];
 }
 
 
-int nlsndG2DmaHandleClose(int *h)
+int nlsndG2DmaHandleClose(int *handle)
 {
-    if (*h == 1) {
-        *h = 0;
+    if (*handle == 1) {
+        *handle = 0;
         return 0;
     }
     return -1;
