@@ -66,6 +66,10 @@ int selInitB(void)
     float F6;
     float F15;
     int T_;
+    int R1016;
+    int R1020;
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
     L_8C0A6F86:;
     { struct mv4 { int w[4]; }; *(struct mv4 *)((((int)stk + 16) + 0x18)) = *(struct mv4 *)(0x8C110AB4); }
     { struct mv4 { int w[4]; }; *(struct mv4 *)((((int)stk + 16) + 0x8)) = *(struct mv4 *)(0x8C110AC4); }
@@ -201,10 +205,10 @@ int selInitB(void)
     goto L_8C0A70D4;
     L_8C0A70D4:;
     *(unsigned int *)0x8C3439D8 = R9;
-    *(unsigned int *)(((int)stk + 16)) = R12;
+    R1016 = R12;
     goto L_8C0A7106;
     L_8C0A7106:;
-    t61 = (int)(*(int *)(((int)stk + 16))) < (int)((unlockCountW0()) + 0x1);
+    t61 = (int)(R1016) < (int)((unlockCountW0()) + 0x1);
     if (t61) goto L_8C0A70DC;
     goto L_8C0A7114;
     L_8C0A7114:;
@@ -217,15 +221,15 @@ int selInitB(void)
     if (t65) goto L_8C0A7160;
     goto L_8C0A7130;
     L_8C0A7130:;
-    *(unsigned int *)(((int)stk + 16)) = 0x8C1853C0;
-    *(unsigned int *)(((int)stk + 20)) = 0x8C1852A0;
+    R1016 = 0x8C1853C0;
+    R1020 = 0x8C1852A0;
     R6 = (R14);
     R7 = (0x8C1852E8);
     goto L_8C0A713E;
     L_8C0A713E:;
     R11 = ((R6 << 2));
-    R4 = ((*(int *)(((int)stk + 20))));
-    R5 = ((*(int *)(((int)stk + 16))));
+    R4 = ((R1020));
+    R5 = ((R1016));
     goto L_8C0A7146;
     L_8C0A7146:;
     if (((*(int *)((R4 + R11))) != 0)) goto L_8C0A7152;
@@ -245,13 +249,13 @@ int selInitB(void)
     if (t79) goto L_8C0A713E;
     goto L_8C0A7160;
     L_8C0A7160:;
-    *(unsigned int *)(((int)stk + 16)) = 0x8C185330;
+    R1016 = 0x8C185330;
     R6 = (R14);
     R7 = (0x8C185378);
     goto L_8C0A716A;
     L_8C0A716A:;
     R11 = ((R6 << 2));
-    R4 = ((*(int *)(((int)stk + 16))));
+    R4 = ((R1016));
     R5 = (R14);
     goto L_8C0A7172;
     L_8C0A7172:;
@@ -275,7 +279,7 @@ int selInitB(void)
     goto L_8C0A723A;
     L_8C0A723A:;
     matchSetupPlayers();
-    *(unsigned int *)(((int)stk + 16)) = 0x8C2873D0;
+    R1016 = 0x8C2873D0;
     R11 = (R14);
     goto L_8C0A7246;
     L_8C0A7246:;
@@ -283,7 +287,7 @@ int selInitB(void)
     *(unsigned int *)0x8C29466C = R14;
     *(unsigned int *)0x8C294668 = R14;
     *(unsigned int *)((((R11 * 0xD78) + 0x8C287D84) + 0xC58)) = R14;
-    motionSet(((R11 * 0xD78) + 0x8C287D84), 0x29DE0, 0x1, 0x12755C, ((*(int *)((0x8C102424 + ((*(int *)((((R11 * 0xD78) + 0x8C287D84) + 0xC58))) * 0x6C))))), ((*(int *)(((*(int *)(((int)stk + 16))) + 0x0)))), (*(float *)0x8C23D204));
+    motionSet(((R11 * 0xD78) + 0x8C287D84), 0x29DE0, 0x1, 0x12755C, ((*(int *)((0x8C102424 + ((*(int *)((((R11 * 0xD78) + 0x8C287D84) + 0xC58))) * 0x6C))))), ((*(int *)(((R1016) + 0x0)))), (*(float *)0x8C23D204));
     vecMake(0x0, 0x0, 0x0, 0x0, (0xAF4 + ((R11 * 0xD78) + 0x8C287D84)), F15, F15, F15);
     { struct mv3 { int w[3]; }; *(struct mv3 *)((0xAE8 + ((R11 * 0xD78) + 0x8C287D84))) = *(struct mv3 *)((0xAF4 + ((R11 * 0xD78) + 0x8C287D84))); }
     *(float *)((((R11 * 0xD78) + 0x8C287D84) + 0xC90)) = F15;
@@ -343,7 +347,7 @@ int selInitB(void)
     goto L_8C0A73DE;
     L_8C0A70DC:;
     R4 = (R14);
-    R5 = ((((*(int *)(((int)stk + 16))) << 2) + 0x8C3439D8));
+    R5 = ((((R1016) << 2) + 0x8C3439D8));
     goto L_8C0A70E6;
     L_8C0A70E6:;
     if (((*(int *)((R13 + (R4 << 2)))) == 0)) goto L_8C0A70FA;
@@ -353,7 +357,7 @@ int selInitB(void)
     *(unsigned int *)((R13 + (R4 << 2))) = R14;
     goto L_8C0A7100;
     L_8C0A7100:;
-    *(unsigned int *)(((int)stk + 16)) = ((*(int *)(((int)stk + 16))) + 0x1);
+    R1016 = ((R1016) + 0x1);
     goto L_8C0A7106;
     L_8C0A70FA:;
     t133 = (int)(R4 + 0x1) < (int)R11;

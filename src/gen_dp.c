@@ -23,19 +23,28 @@ void vecLineCrossXZ(Stk13 s, float f4, float f5, float f6, float f7, float f8, f
     float u48;
     float u49;
     int stk[26];
+    int R1020;
+    int R1040;
+    int R1052;
+    int R1064;
 
-    stk[5] = s.w[0];
+    R1020 = *(int *)((int)stk + 20);
+    R1040 = *(int *)((int)stk + 40);
+    R1052 = *(int *)((int)stk + 52);
+    R1064 = *(int *)((int)stk + 64);
+
+    R1020 = s.w[0];
     stk[6] = s.w[1];
     stk[7] = s.w[2];
     stk[8] = s.w[3];
     stk[9] = s.w[4];
-    stk[10] = s.w[5];
+    R1040 = s.w[5];
     stk[11] = s.w[6];
     stk[12] = s.w[7];
-    stk[13] = s.w[8];
+    R1052 = s.w[8];
     stk[14] = s.w[9];
     stk[15] = s.w[10];
-    stk[16] = s.w[11];
+    R1064 = s.w[11];
     stk[17] = s.w[12];
     u0 = *(float *)(((((int)stk + 4) + 0x14) + 0x0));
     u1 = *(float *)(((((int)stk + 4) + 0x2C) + 0x0));

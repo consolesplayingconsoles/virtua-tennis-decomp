@@ -1,14 +1,39 @@
 {
  "dev": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "search: empty",
+   "regs": {},
+   "poke": {}
+  },
+  {
+   "about": "search: 8C287ADC=02000000",
+   "regs": {
+    "r6": "01000000"
+   },
+   "poke": {
+    "8C287ADC": "02000000"
+   },
+   "calls": []
   }
  ],
  "holdout": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "search: r6=00000001",
+   "regs": {
+    "r6": "01000000"
+   },
+   "poke": {}
+  },
+  {
+   "about": "search: 8C3417D8=01000000",
+   "regs": {
+    "r6": "01000000"
+   },
+   "poke": {
+    "8C287ADC": "02000000",
+    "8C3417D8": "01000000"
+   },
+   "calls": []
   }
  ]
 }

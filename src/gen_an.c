@@ -517,12 +517,17 @@ int rankDrawString(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     int t14;
     float u15;
     int stk[23];
+    int R1016;
+    int R1056;
+
+    R1016 = *(int *)((int)stk + 16);
+    R1056 = *(int *)((int)stk + 56);
 
     stk[11] = a8;
     stk[12] = a9;
     stk[13] = a10;
-    stk[14] = a11;
-    *(unsigned int *)(((int)stk + 16)) = a5;
+    R1056 = a11;
+    R1016 = a5;
     t0 = 0x8C0E13DC;
     t1 = a4;
     t2 = a5;
@@ -536,7 +541,7 @@ int rankDrawString(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
         if ((t0 != 32) && (t8 = (t0 == 32), t0 = t1, t0 != 95)) {
             t0 = 0xC;
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
-            t2 = (*(int *)(((int)stk + 16)));
+            t2 = (R1016);
             t1 = (*(signed char *)((t3 + 0x0)));
             t0 = (rankDrawGlyph(t1, t2, *(Stk3 *)((((int)stk + 16) + 0x1C))));
         } else {

@@ -432,13 +432,17 @@ void vmsfs_fcreate(int a4, int a5, int a6, int a7)
     float F0;
     float F15;
     int T_;
+    int R1004;
+    int R1008;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
     R4 = a4;
     R5 = a5;
     R6 = a6;
     R7 = a7;
     L_8C1EC31E:;
-    *(unsigned int *)(((int)stk + 8)) = R6;
-    *(unsigned int *)(((int)stk + 4)) = R7;
+    R1008 = R6;
+    R1004 = R7;
     *(unsigned int *)((R7 + 0x0)) = 0x0;
     R11 = (0x0);
     R12 = (R5);
@@ -520,8 +524,8 @@ void vmsfs_fcreate(int a4, int a5, int a6, int a7)
     goto L_8C1EC444;
     L_8C1EC444:;
     *(unsigned char *)((R4 + 0x0)) = R11;
-    set_vmstime((R13 + 0x20), (*(int *)(((int)stk + 8))));
-    *(unsigned int *)(((*(int *)(((int)stk + 4))) + 0x0)) = R13;
+    set_vmstime((R13 + 0x20), (R1008));
+    *(unsigned int *)(((R1004) + 0x0)) = R13;
     R0 = (0x0);
     goto L_8C1EC456;
     L_8C1EC438:;
@@ -1067,11 +1071,14 @@ int modeMarkPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11
     int t31;
     int t21;
     int stk[24];
+    int R1060;
+
+    R1060 = *(int *)((int)stk + 60);
 
     stk[12] = a8;
     stk[13] = a9;
     stk[14] = a10;
-    stk[15] = a11;
+    R1060 = a11;
     *(float *)(((((int)stk + 16) + 0x20) + 0x4)) = ((*(float *)(((((int)stk + 16) + 0x20) + 0x4))) + 3.0f);
     t1 = *(int *)0x8C287D5C;
     if (t1 != 0) {
@@ -1117,11 +1124,14 @@ int hudFramePutWide(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int
     int t14;
     float u17;
     int stk[20];
+    int R1044;
+
+    R1044 = *(int *)((int)stk + 44);
 
     stk[8] = a8;
     stk[9] = a9;
     stk[10] = a10;
-    stk[11] = a11;
+    R1044 = a11;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x10)); }
     t0 = ((int (*)(int, int, int, int, Stk3, float))(sprPutAtAlpha))(0x8C33A450, a5, a6, a7, *(Stk3 *)((((int)stk + 16) + 0x10)), f4);
     *(float *)(((((int)stk + 16) + 0x10) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x10) + 0x0))) + (*(float *)0x8C0954A4));

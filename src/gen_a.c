@@ -476,10 +476,6 @@ void dbgLockClear(void)
     *(unsigned int *)0x8C287A4C = 0x0;
 }
 
-int thunk_FUN_8c0eee50(void)
-{
-    return nlGetMatrix();
-}
 
 void perfReset(void)
 {
@@ -526,35 +522,6 @@ int fadeGameInit(void)
     return motFileLoadBegin(0x0);
 }
 
-int fadeCaptureEnd(int a4)
-{
-    int t0;
-    int t6;
-    float u2;
-    int t3;
-    int t4;
-
-    t0 = *(int *)0x8C1389FC;
-    t6 = t0;
-    if ((t0 == 1)) {
-        nlRenderTextureEnd(a4);
-        u2 = *(float *)0x8C287D64;
-        t3 = thunk_FUN_8c0bcda0(1.0f, u2);
-        *(unsigned int *)0x8C287D7C = a4;
-        *(float *)0x8C287D80 = (float)(a4 + 0xFFFFFFFE);
-    
-    
-        if ((a4 == 0)) {
-        *(unsigned int *)0x8C1389FC = 0x3;
-        t4 = 0x3;
-        } else {
-        *(unsigned int *)0x8C1389FC = 0x2;
-        t4 = t3;
-        }
-        t6 = t4;
-        }
-    return t6;
-}
 
 int fadeStart(int a4)
 {
@@ -705,41 +672,6 @@ int cpuSglAimTableCall(void)
     return t0;
 }
 
-void ndbKeyEqual(int a4, int a5)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-
-    t0 = *(signed char *)((a5 + 0x0));
-    t1 = *(signed char *)((a4 + 0x0));
-    if ((t1 == t0)) {
-        t2 = *(signed char *)((a4 + 0x1));
-        t3 = *(signed char *)((a5 + 0x1));
-        if ((t2 == t3)) {
-        t4 = *(signed char *)((a4 + 0x2));
-        t5 = *(signed char *)((a5 + 0x2));
-        if ((t4 == t5)) {
-        t6 = *(signed char *)((a4 + 0x3));
-        t7 = *(signed char *)((a5 + 0x3));
-        if ((t6 == t7)) {
-        t8 = *(signed char *)((a4 + 0x4));
-        t9 = *(signed char *)((a5 + 0x4));
-        if (!(t8 == t9)) {
-        return;
-        }
-        }
-        }
-        }
-        }
-}
 
 int effCloseCounted(void)
 {
@@ -843,10 +775,6 @@ void crowdCheerStop(void)
     *(unsigned int *)0x8C182664 = 0x0;
 }
 
-int thunk_FUN_8c0f41f0(void)
-{
-    return nlSprPut();
-}
 
 void selSlot0FlagSet(void)
 {
@@ -1722,13 +1650,6 @@ int strmUmpireCallAnim(int a4, int a5)
     return strmUmpireCall(a4, a5, 0xFFFFFFFF);
 }
 
-int strmVoiceVolRestore(void)
-{
-    int t0;
-
-    t0 = *(signed char *)0x8C40C2FD;
-    return strmVoiceSetVol((unsigned char)t0);
-}
 
 int commonLoadStart(void)
 {
@@ -1845,10 +1766,6 @@ int BupInit(void)
     return t1;
 }
 
-int thunk_FUN_8c1e0150(void)
-{
-    return buIsExistFile();
-}
 
 int BupGetRequest(void)
 {
@@ -2622,7 +2539,7 @@ int kmSetFatalErrorCallback(int a4)
     return kmyRegisterCallback(0x8, a4, 0x8C45F920);
 }
 
-int FUN_8c1e3080(int a4, int a5)
+int kmSetHSyncCallback(int a4, int a5)
 {
     return kmyRegisterCallback(0x2, a4, a5);
 }
@@ -2637,7 +2554,7 @@ int kmSetTexOverflowCallback(int a4, int a5)
     return kmyRegisterCallback(0x3, a4, a5);
 }
 
-int FUN_8c1e3180(int a4, int a5)
+int kmSetVSyncCallback(int a4, int a5)
 {
     return kmyRegisterCallback(0x1, a4, a5);
 }

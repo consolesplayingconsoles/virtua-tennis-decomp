@@ -1139,6 +1139,10 @@ int write_dir_all(int a4, int a5, int a6, int a7)
     int R13;
     int R14;
     int T_;
+    int R1012;
+    int R1016;
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
     R4 = a4;
     R6 = a6;
     L_8C1EDD9A:;
@@ -1173,7 +1177,7 @@ int write_dir_all(int a4, int a5, int a6, int a7)
     goto L_8C1EDDF4;
     L_8C1EDDF4:;
     t21 = *(short *)(((int)stk + 8));
-    *(unsigned int *)(((int)stk + 12)) = (R8 - 1);
+    R1012 = (R8 - 1);
     R11 = (0x0);
     R12 = (t21);
     goto L_8C1EDE7C;
@@ -1219,14 +1223,14 @@ int write_dir_all(int a4, int a5, int a6, int a7)
     *(unsigned short *)(((int)stk + 8)) = R12;
     goto L_8C1EDE58;
     L_8C1EDE58:;
-    *(unsigned int *)(((int)stk + 16)) = (unsigned short)R12;
+    R1016 = (unsigned short)R12;
     set_fat(R14, (unsigned short)R12, R6);
-    if ((R11 == (*(int *)(((int)stk + 12))))) goto L_8C1EDE7A;
+    if ((R11 == (R1012))) goto L_8C1EDE7A;
     goto L_8C1EDE66;
     L_8C1EDE66:;
     t52 = search_fat_dir(R14, R13);
     *(unsigned short *)(((int)stk + 4)) = t52;
-    set_fat(R14, (*(int *)(((int)stk + 16))), t52);
+    set_fat(R14, (R1016), t52);
     R12 = ((*(short *)(((int)stk + 4))));
     goto L_8C1EDE7A;
     L_8C1EDE7A:;

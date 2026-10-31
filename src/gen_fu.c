@@ -38,9 +38,12 @@ int primPanelDraw(Stk1 s)
     int t76;
     int t78;
     int stk[74];
+    int R1128;
+
+    R1128 = *(int *)((int)stk + 128);
 
     stk[65] = s.w[0];
-    *(unsigned int *)(((int)stk + 128)) = 0xE3;
+    R1128 = 0xE3;
     u0 = *(float *)0x8C18D2D0;
     *(float *)0x8C18D2DC = (float)(int)(u0 * 0.600000024f);
     *(float *)(((0x84 + ((int)stk + 128)) + 0x0)) = ((*(float *)(((0x84 + ((int)stk + 128)) + 0x0))) + (float)(int)(u0 * 0.600000024f));
@@ -48,10 +51,10 @@ int primPanelDraw(Stk1 s)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)((((int)stk + 124) + 0x14)); }
     winDrawA(0xFFE31800, 0x2, *(Stk3 *)(((int)stk + 112)), 361.0f, 1.0f, 0.78125f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 100)) = *(struct mv3 *)((0x84 + ((int)stk + 128))); }
-    primRectFrame(0x9A, (*(int *)(((int)stk + 128))), 0x2, 0xFFFFFFFF, *(Stk3 *)(((int)stk + 100)));
-    *(unsigned int *)(((int)stk + 128)) = 0x64000000;
+    primRectFrame(0x9A, (R1128), 0x2, 0xFFFFFFFF, *(Stk3 *)(((int)stk + 100)));
+    R1128 = 0x64000000;
     *(Stk3 *)(((int)stk + 116)) = vecMake((*(float *)(((0x84 + ((int)stk + 128)) + 0x0))), (*(float *)(((0x84 + ((int)stk + 128)) + 0x4))), 501.0f);
-    primRect(0x9A, 0xE5, (*(int *)(((int)stk + 128))), 0x0, *(int *)((int)stk + 116), *(int *)((int)stk + 116 + 4), *(int *)((int)stk + 116 + 8), *(int *)((int)stk + 116 + 12));
+    primRect(0x9A, 0xE5, (R1128), 0x0, *(int *)((int)stk + 116), *(int *)((int)stk + 116 + 4), *(int *)((int)stk + 116 + 8), R1128);
     *(Stk3 *)((((int)stk + 116) + 0x58)) = vecMake(((*(float *)(((0x84 + ((int)stk + 128)) + 0x0))) + -20.0f), (*(float *)(((0x84 + ((int)stk + 128)) + 0x4))), ((*(float *)(((0x84 + ((int)stk + 128)) + 0x8))) + (-1.0f)));
     *(Stk3 *)((((int)stk + 112) + 0x50)) = vecMake(((*(float *)(((0x84 + ((int)stk + 128)) + 0x0))) + -20.0f), ((*(float *)(((0x84 + ((int)stk + 128)) + 0x4))) + 229.0f), ((*(float *)(((0x84 + ((int)stk + 128)) + 0x8))) + (-1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 96)) = *(struct mv3 *)((((int)stk + 112) + 0x50)); }
@@ -121,7 +124,7 @@ int primPanelDraw(Stk1 s)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 116) + 0x58)); }
     primLineV(0x2, 0xFFFFFFFF, *(Stk3 *)(((int)stk + 16)), *(Stk3 *)(((int)stk + 28)));
     *(Stk3 *)(((int)stk + 116)) = vecMake(641.0f, 418.0f, 420.0f);
-    t61 = ((int (*)(int, int, int, int, int, int, int, int))(primRectIncGradY))(0x297, 0x23, 0xA4E31800, 0xA4E31800, *(int *)((int)stk + 116), *(int *)((int)stk + 116 + 4), *(int *)((int)stk + 116 + 8), *(int *)((int)stk + 116 + 12));
+    t61 = ((int (*)(int, int, int, int, int, int, int, int))(primRectIncGradY))(0x297, 0x23, 0xA4E31800, 0xA4E31800, *(int *)((int)stk + 116), *(int *)((int)stk + 116 + 4), *(int *)((int)stk + 116 + 8), R1128);
     *(float *)0x8C18D2E0 = ((*(float *)0x8C18D2E0) - 1.0f);
     *(float *)0x8C18D2E4 = ((*(float *)0x8C18D2E4) - 1.0f);
     *(float *)0x8C18D2E8 = ((*(float *)0x8C18D2E8) - 1.0f);

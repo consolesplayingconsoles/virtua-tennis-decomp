@@ -30,6 +30,15 @@ int courtDrawStageModels(void)
     int t1;
     int t6;
     int stk[48];
+    int R1028;
+    int R1056;
+    int R1084;
+    int R1112;
+
+    R1028 = *(int *)((int)stk + 28);
+    R1056 = *(int *)((int)stk + 56);
+    R1084 = *(int *)((int)stk + 84);
+    R1112 = *(int *)((int)stk + 112);
 
     u4 = 0.00499999989f;
     if (((*(int *)0x8C287B44) == 5) && (t1 = *(int *)0x8C421F60, t1 == 0)) {
@@ -47,7 +56,7 @@ int courtDrawStageModels(void)
     nlObjPut((*(int *)((((((t12 << 1) + t12) << 2) + 0x8C189C94) + 0x0))));
     nlPopMatrix(0x1);
     nlPushMatrix(0x0);
-    *(int *)((int)stk + 112) = (((int)stk + 116) + 0x4);
+    R1112 = (((int)stk + 116) + 0x4);
     *(Stk3 *)((((int)stk + 116) + 0x4)) = vecMake(0.0f, 0.0f, 63.5f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 100)) = *(struct mv3 *)((((int)stk + 116) + 0x4)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)((((int)stk + 120) + 0xC)); }
@@ -59,7 +68,7 @@ int courtDrawStageModels(void)
     nlObjPut((*(int *)((((((t21 << 1) + t21) << 2) + 0x8C189C94) + 0x4))));
     nlPopMatrix(0x1);
     nlPushMatrix(0x0);
-    *(int *)((int)stk + 84) = (((int)stk + 116) + 0x4);
+    R1084 = (((int)stk + 116) + 0x4);
     *(Stk3 *)((((int)stk + 116) + 0x4)) = vecMake(0.0f, 0.0f, -63.5f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 72)) = *(struct mv3 *)((((int)stk + 116) + 0x4)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 60)) = *(struct mv3 *)((((int)stk + 120) + 0xC)); }
@@ -71,7 +80,7 @@ int courtDrawStageModels(void)
     nlObjPut((*(int *)((((((t30 << 1) + t30) << 2) + 0x8C189C94) + 0x4))));
     nlPopMatrix(0x1);
     nlPushMatrix(0x0);
-    *(int *)((int)stk + 56) = (((int)stk + 116) + 0x4);
+    R1056 = (((int)stk + 116) + 0x4);
     *(Stk3 *)((((int)stk + 116) + 0x4)) = vecMake(0.0f, 0.0f, 118.349998f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 44)) = *(struct mv3 *)((((int)stk + 116) + 0x4)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((((int)stk + 120) + 0xC)); }
@@ -83,7 +92,7 @@ int courtDrawStageModels(void)
     nlObjPut((*(int *)((((((t39 << 1) + t39) << 2) + 0x8C189C94) + 0x8))));
     nlPopMatrix(0x1);
     nlPushMatrix(0x0);
-    *(int *)((int)stk + 28) = (((int)stk + 116) + 0x4);
+    R1028 = (((int)stk + 116) + 0x4);
     *(Stk3 *)((((int)stk + 116) + 0x4)) = vecMake(0.0f, 0.0f, -118.349998f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 116) + 0x4)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 120) + 0xC)); }

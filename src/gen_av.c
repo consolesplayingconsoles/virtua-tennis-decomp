@@ -514,13 +514,20 @@ int fileLoadStartSlot(int a4, int a5, int a6, int a7)
     int t29;
     int t5;
     int stk[11];
+    int R1004;
+    int R1008;
+    int R1012;
 
-    *(unsigned int *)(((int)stk + 12)) = a4;
-    *(unsigned int *)(((int)stk + 8)) = a6;
-    *(unsigned int *)(((int)stk + 4)) = a7;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+
+    R1012 = a4;
+    R1008 = a6;
+    R1004 = a7;
     t0 = *(int *)((((a7 * 0x4C) + 0x8C34A238) + 0xC));
     if (t0 != 0) {
-        fileLoadCloseSlot((*(int *)(((int)stk + 4))));
+        fileLoadCloseSlot((R1004));
     } else {
         t5 = t0;
     }
@@ -540,25 +547,25 @@ int fileLoadStartSlot(int a4, int a5, int a6, int a7)
     }
     t17 = 0x0;
     for (;;) {
-        *(unsigned int *)(((int)stk + 4)) = ((a7 * 0x4C) + 0x8C34A238);
+        R1004 = ((a7 * 0x4C) + 0x8C34A238);
         *(unsigned int *)(((((a7 * 0x4C) + 0x8C34A238) + 0xC) + 0x0)) = (ADXF_Open(a5, 0x0));
         *(unsigned int *)0x8C34B134 = ((*(int *)0x8C34B134) + 0x1);
-        if ((*(int *)(((*(int *)(((int)stk + 4))) + 0xC))) == 0) {
+        if ((*(int *)(((R1004) + 0xC))) == 0) {
             if ((int)t17 < (int)0xA) {
                 t17 = (t17 + 0x1);
                 continue;
             }
             break;
         }
-        if ((*(int *)(((int)stk + 8))) == 0) {
+        if ((R1008) == 0) {
             t25 = ADXF_GetFsizeSct((*(int *)((((a7 * 0x4C) + 0x8C34A238) + 0xC))));
             *(unsigned int *)0x8C34B13C = t25;
-            ADXF_ReadNw32((*(int *)((((a7 * 0x4C) + 0x8C34A238) + 0xC))), t25, (*(int *)(((int)stk + 12))));
+            ADXF_ReadNw32((*(int *)((((a7 * 0x4C) + 0x8C34A238) + 0xC))), t25, (R1012));
             return 0x1;
         }
-        t29 = *(int *)(((int)stk + 8));
+        t29 = R1008;
         *(unsigned int *)0x8C34B13C = ((unsigned int)((unsigned int)((unsigned int)t29 >> 8) >> 2) >> 1);
-        ADXF_ReadNw32((*(int *)((((a7 * 0x4C) + 0x8C34A238) + 0xC))), ((unsigned int)((unsigned int)((unsigned int)t29 >> 8) >> 2) >> 1), (*(int *)(((int)stk + 12))));
+        ADXF_ReadNw32((*(int *)((((a7 * 0x4C) + 0x8C34A238) + 0xC))), ((unsigned int)((unsigned int)((unsigned int)t29 >> 8) >> 2) >> 1), (R1012));
         return 0x1;
     }
     *(unsigned int *)0x8C34A1EC = 0x0;
@@ -733,8 +740,11 @@ float bodyRaySphere(Stk10 s, float f4, float f5)
     float u35;
     float u36;
     int stk[25];
+    int R1028;
 
-    stk[7] = s.w[0];
+    R1028 = *(int *)((int)stk + 28);
+
+    R1028 = s.w[0];
     stk[8] = s.w[1];
     stk[9] = s.w[2];
     stk[10] = s.w[3];
@@ -840,25 +850,36 @@ int primRectIncGradY(int a4, int a5, int a6, int a7, int a8, int a9, int a10, in
     int t6;
     int t13;
     int stk[44];
+    int R1020;
+    int R1024;
+    int R1028;
+    int R1032;
+    int R1140;
+
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
+    R1140 = *(int *)((int)stk + 140);
 
     stk[32] = a8;
     stk[33] = a9;
     stk[34] = a10;
-    stk[35] = a11;
-    *(unsigned int *)(((int)stk + 28)) = a4;
-    *(unsigned int *)(((int)stk + 32)) = a5;
-    *(unsigned int *)(((int)stk + 24)) = a6;
-    *(unsigned int *)(((int)stk + 20)) = a7;
+    R1140 = a11;
+    R1028 = a4;
+    R1032 = a5;
+    R1024 = a6;
+    R1020 = a7;
     vecMake(a4, a5, a6, a7, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x6C) + 0x0))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x4))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
-    primVertexSet((*(int *)(((int)stk + 24))), 0x0, 0x0, 0x0, (((int)stk + 20) + 0x10));
-    t6 = *(int *)(((int)stk + 28));
+    primVertexSet((R1024), 0x0, 0x0, 0x0, (((int)stk + 20) + 0x10));
+    t6 = R1028;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x6C) + 0x0))) - (float)t6), (*(float *)(((((int)stk + 20) + 0x6C) + 0x4))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
-    primVertexSet((*(int *)(((int)stk + 24))), 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x10)));
-    t13 = *(int *)(((int)stk + 32));
+    primVertexSet((R1024), 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x10)));
+    t13 = R1032;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x6C) + 0x0))), (((*(float *)(((((int)stk + 20) + 0x6C) + 0x4))) + (float)t13) + 1.0f), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
-    primVertexSet((*(int *)(((int)stk + 20))), 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x10)));
+    primVertexSet((R1020), 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x10)));
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x6C) + 0x0))) - (float)t6), (((*(float *)(((((int)stk + 20) + 0x6C) + 0x4))) + (float)t13) + 1.0f), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
-    primVertexSet((*(int *)(((int)stk + 20))), 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x10)));
+    primVertexSet((R1020), 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x10)));
     return (nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x10)));
 }
 
@@ -871,11 +892,14 @@ int pdTmrSetTime(int a4, int a5, int a6, int a7)
     int t13;
     int t19;
     int stk[12];
+    int R1020;
 
-    *(unsigned int *)(((int)stk + 20)) = a7;
+    R1020 = *(int *)((int)stk + 20);
+
+    R1020 = a7;
     t0 = *(signed char *)((a4 + 0x8C20A958));
     *(unsigned int *)(((((((unsigned char)t0 << 1) + (unsigned char)t0) << 2) + 0x8C46A8A4) + 0x0)) = a5;
-    *(unsigned int *)(((((((unsigned char)t0 << 1) + (unsigned char)t0) << 2) + 0x8C46A8A4) + 0x4)) = (*(int *)(((int)stk + 20)));
+    *(unsigned int *)(((((((unsigned char)t0 << 1) + (unsigned char)t0) << 2) + 0x8C46A8A4) + 0x4)) = (R1020);
     *(unsigned int *)(((((((unsigned char)t0 << 1) + (unsigned char)t0) << 2) + 0x8C46A8A4) + 0x8)) = a6;
     t2 = pdTmrIsReady(a4);
     t16 = 0xFFFFFFFE;
@@ -897,7 +921,7 @@ int pdTmrSetTime(int a4, int a5, int a6, int a7)
         t16 = t13;
     }
     if (((int)t16 < 0) && (a6 != 0)) {
-        t19 = ((int (*)(int, int))(a6))(t16, (*(int *)(((int)stk + 20))));
+        t19 = ((int (*)(int, int))(a6))(t16, (R1020));
     }
     return 0x0;
 }
@@ -1121,19 +1145,24 @@ int primRectDirY(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a1
     int t0;
     int t7;
     int stk[42];
+    int R1020;
+    int R1132;
+
+    R1020 = *(int *)((int)stk + 20);
+    R1132 = *(int *)((int)stk + 132);
 
     stk[30] = a8;
     stk[31] = a9;
     stk[32] = a10;
-    stk[33] = a11;
-    *(unsigned int *)(((int)stk + 20)) = a6;
+    R1132 = a11;
+    R1020 = a6;
     t0 = (-a5);
     if (a7 != 0) {
         t0 = a5;
     }
     vecMake(a4, a5, a6, a7, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x64) + 0x0))), (*(float *)(((((int)stk + 20) + 0x64) + 0x4))), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
     primVertexSet(a4, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x4));
-    t7 = *(int *)(((int)stk + 20));
+    t7 = R1020;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x64) + 0x0))) - (float)t7), (*(float *)(((((int)stk + 20) + 0x64) + 0x4))), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
     primVertexSet(a4, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x4)));
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x64) + 0x0))), ((*(float *)(((((int)stk + 20) + 0x64) + 0x4))) + (float)t0), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
@@ -1163,12 +1192,19 @@ int nlObjPutSetGarbagedTexture_Sub(int a4, int a5, int a6)
     int t15;
     int t23;
     int stk[12];
+    int R1004;
+    int R1008;
+    int R1012;
 
-    *(unsigned int *)(((int)stk + 4)) = a6;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+
+    R1004 = a6;
     t0 = *(int *)((a4 + 0x0));
     t35 = 0x0;
     if (((int)t0 >= 0) && (t1 = *(int *)((a4 + 0x18)), t1 != 0)) {
-        *(unsigned int *)(((int)stk + 8)) = ((((a5 == 0)) ? 1 : 0) ^ 0x1);
+        R1008 = ((((a5 == 0)) ? 1 : 0) ^ 0x1);
         t2 = ((((a5 == 0)) ? 1 : 0) ^ 0x1);
         t3 = t1;
         t5 = t0;
@@ -1181,9 +1217,9 @@ int nlObjPutSetGarbagedTexture_Sub(int a4, int a5, int a6)
             t8 = (t8 + 0x50);
             t25 = t9;
             if ((int)t9 >= 0) {
-                t5 = (*(int *)(((int)stk + 4)));
+                t5 = (R1004);
                 t17 = t9;
-                if ((t5 != 0) && (t14 = *(int *)(((int)stk + 8)), t15 = (t5 == 0), t5 = t14, t5 != 0)) {
+                if ((t5 != 0) && (t14 = R1008, t15 = (t5 == 0), t5 = t14, t5 != 0)) {
                     t5 = t9;
                     t5 = (t5 << 2);
                     t5 = (t5 << 2);
@@ -1209,7 +1245,7 @@ int nlObjPutSetGarbagedTexture_Sub(int a4, int a5, int a6)
             }
             t4 = (*(int *)((t10 + 0xC)));
             t4 = (t4 & 0x7E00000);
-            *(unsigned int *)(((int)stk + 12)) = t4;
+            R1012 = t4;
             if ((int)t25 >= 0) {
                 t4 = 0x8C0EA610;
                 t6 = t10;
@@ -1220,7 +1256,7 @@ int nlObjPutSetGarbagedTexture_Sub(int a4, int a5, int a6)
                 t2 = (nlSetDummyTextureParameter(t6));
             }
             t2 = 0x4C;
-            t5 = (*(int *)(((int)stk + 12)));
+            t5 = (R1012);
             t4 = (*(int *)((t10 + 0xC)));
             t4 = (t4 | t5);
             *(unsigned int *)((t10 + 0xC)) = t4;

@@ -961,9 +961,12 @@ def _run(name,passthru=False,frame=False,flat=False):
                     if isint(v): c.R[a[1]]=((((v^0x80000000)-0x80000000)>>k)&M) if sg else (v>>k)
                 else: c.R[a[1]]=('e','((int)%s >> 31)'%ex(v)) if sg else 0
             else:
+                # a shift by a register: SHC compiles `y << x` to one shad (int y) or shld (unsigned y), whose meaning for a negative count
+                # (a right shift, zero or the sign past 31) is the hardware's, the same the ternary spelt out at 19 instructions a site
+                # (Crazy Taxi 111 sites, Virtua Tennis 188; tools/7-reduction/textpass.py shift rewrites the C written before this)
                 ty='int' if sg else 'unsigned int'
                 x=ex(m); y=ex(v)
-                c.R[a[1]]=('e','(((int)%s >= 0) ? (%s << (%s & 31)) : ((-(int)%s & 31) ? ((%s)%s >> (-(int)%s & 31)) : %s))'%(x,y,x,x,ty,y,x,'((int)%s >> 31)'%y if sg else '0'))
+                c.R[a[1]]=('e','((%s)%s << (int)%s)'%(ty,y,x))
             return
         if mn=='shar': v=c.gi(a[0]); c.R[a[0]]=('e','(%s >> 1)'%ex(v)) if not isint(v) else ((v>>1)|(v&0x80000000)); return
         if mn=='swap.w':

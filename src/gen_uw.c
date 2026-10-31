@@ -22,6 +22,8 @@ int _fmtout_intcnv(int a4, int a5, int a6, int a7)
     register int v0_7;
     register int v0_8;
     register int v0_9;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     v0_3 = a4;
     v0_0 = a5;
     v0_5 = a6;
@@ -57,7 +59,7 @@ int _fmtout_intcnv(int a4, int a5, int a6, int a7)
     if ((v0_8 == 111)) goto L_8C0FEDBC;
     if ((v0_8 == 120)) goto L_8C0FEDCA;
     L_8C0FEDDA:;
-    *(unsigned int *)(((int)stk + 4)) = v0_9;
+    R1004 = v0_9;
     v0_7 = ((v0_7 + v0_9));
     if ((v0_5 == 100)) goto L_8C0FEDEA;
     if ((v0_5 != 105)) goto L_8C0FEE1C;
@@ -110,7 +112,7 @@ int _fmtout_intcnv(int a4, int a5, int a6, int a7)
     *(unsigned int *)((v0_4 + 0x20)) = ((*(int *)((v0_4 + 0x20))) + ((*(int *)((v0_4 + 0x4))) - v0_3));
     *(unsigned int *)((v0_4 + 0x28)) = v0_1;
     L_8C0FEEB0:;
-    v0_4 = *(int *)(((int)stk + 4));
+    v0_4 = R1004;
     v0_3 = ((v0_4 - 1));
     if (((int)(v0_4 - 1) < 0)) goto L_8C0FEEC6;
     L_8C0FEEB8:;
@@ -168,9 +170,9 @@ int _fmtout_intcnv(int a4, int a5, int a6, int a7)
     L_8C0FED4A:;
     if (((unsigned int)v0_8 <= (unsigned int)0x0)) goto L_8C0FEDA4;
     L_8C0FED50:;
-    *(unsigned int *)(((int)stk + 4)) = (v0_9 + v0_2);
+    R1004 = (v0_9 + v0_2);
     *(unsigned char *)(((v0_9 + v0_2) + 0x0)) = ((int)((unsigned int)v0_8 % (unsigned int)R8));
-    if (((int)(*(signed char *)(((*(int *)(((int)stk + 4))) + 0x0))) > (int)0x9)) goto L_8C0FED78;
+    if (((int)(*(signed char *)(((R1004) + 0x0))) > (int)0x9)) goto L_8C0FED78;
     *(unsigned char *)((v0_2 + v0_9)) = ((*(signed char *)((v0_2 + v0_9))) + 0x30);
     L_8C0FED92:;
     v0_10 = (int)((unsigned int)v0_8 / (unsigned int)R8);
@@ -179,7 +181,7 @@ int _fmtout_intcnv(int a4, int a5, int a6, int a7)
     if (((unsigned int)v0_10 > (unsigned int)0x0)) goto L_8C0FED50;
     goto L_8C0FEDA4;
     L_8C0FED78:;
-    *(unsigned int *)(((int)stk + 4)) = (v0_9 + v0_2);
+    R1004 = (v0_9 + v0_2);
     v0_10 = ((v0_9 + v0_2));
     if ((v0_5 != 120)) goto L_8C0FED8C;
     *(unsigned char *)((v0_10 + 0x0)) = ((*(signed char *)((v0_10 + 0x0))) + 0x57);

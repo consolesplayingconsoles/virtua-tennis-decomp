@@ -42,6 +42,10 @@ int sklDrawNode(int a4, float f4, float f5, float f6, float f7, float f8, float 
     int R13;
     int R14;
     int T_;
+    int R1004;
+    int R1008;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
     R4 = a4;
     R14 = (R4);
     L_8C01B964:;
@@ -85,10 +89,10 @@ int sklDrawNode(int a4, float f4, float f5, float f6, float f7, float f8, float 
     t42 = *(int *)((R14 + 0x4));
     t43 = *(int *)((((0x80 + R14) + R13) + 0x0));
     t44 = *(int *)((((R14 + 0x40) + R13) + 0x0));
-    *(unsigned int *)(((int)stk + 8)) = ((t44 + t41) + 0xC);
-    *(unsigned int *)(((int)stk + 4)) = ((t42 + t43) + 0xC);
+    R1008 = ((t44 + t41) + 0xC);
+    R1004 = ((t42 + t43) + 0xC);
     nlCalcPoint((t44 + t41), (t42 + t43));
-    nlCalcVector((*(int *)(((int)stk + 8))), (*(int *)(((int)stk + 4))));
+    nlCalcVector((R1008), (R1004));
     *(unsigned int *)(((t42 + t43) + 0x0)) = ((*(int *)(((t42 + t43) + 0x0))) | R8);
     t50 = (int)(R11 + 0x1) < (int)R9;
     R11 = ((R11 + 0x1));

@@ -95,6 +95,13 @@ void emotKeysSort(int a4)
     float u11;
     int t12;
     int stk[11];
+    int R1004;
+    int R1008;
+    float R1012;
+
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(float *)((int)stk + 12);
 
     t0 = 0x0;
     for (;;) {
@@ -108,17 +115,17 @@ void emotKeysSort(int a4)
             t5 = *(int *)(((a4 + (((t0 << 1) + t0) << 2)) + 0x0));
             if ((int)t5 > (int)t4) {
                 t6 = *(int *)(((((t0 << 1) + t0) << 2) + a4));
-                *(unsigned int *)((((int)stk + 4) + 0x0)) = t6;
+                R1004 = t6;
                 u7 = *(float *)(((a4 + (((t0 << 1) + t0) << 2)) + 0x8));
-                *(float *)((((int)stk + 4) + 0x8)) = u7;
+                R1012 = u7;
                 t8 = *(int *)(((a4 + (((t0 << 1) + t0) << 2)) + 0x4));
-                *(unsigned int *)((((int)stk + 4) + 0x4)) = t8;
+                R1008 = t8;
                 emotKeyCopy(a4, t2, t0);
-                t10 = *(int *)((((int)stk + 4) + 0x0));
+                t10 = R1004;
                 *(unsigned int *)(((a4 + (((t2 << 1) + t2) << 2)) + 0x0)) = t10;
-                u11 = *(float *)((((int)stk + 4) + 0x8));
+                u11 = R1012;
                 *(float *)(((a4 + (((t2 << 1) + t2) << 2)) + 0x8)) = u11;
-                t12 = *(int *)((((int)stk + 4) + 0x4));
+                t12 = R1008;
                 *(unsigned int *)(((a4 + (((t2 << 1) + t2) << 2)) + 0x4)) = t12;
             }
             t2 = (t2 + 0x1);

@@ -1,0 +1,60 @@
+{
+ "dev": [
+  {
+   "about": "aligned, one line",
+   "regs": {
+    "r4": "8C500000",
+    "r5": "00000020"
+   },
+   "poke": {},
+   "calls": []
+  },
+  {
+   "about": "unaligned start, crosses a line",
+   "regs": {
+    "r4": "8C500013",
+    "r5": "00000028"
+   },
+   "poke": {},
+   "calls": []
+  },
+  {
+   "about": "one byte",
+   "regs": {
+    "r4": "0C600001",
+    "r5": "00000001"
+   },
+   "poke": {},
+   "calls": []
+  },
+  {
+   "about": "four lines",
+   "regs": {
+    "r4": "AC500020",
+    "r5": "00000080"
+   },
+   "poke": {},
+   "calls": []
+  }
+ ],
+ "holdout": [
+  {
+   "about": "unaligned, 3 lines",
+   "regs": {
+    "r4": "8C51001F",
+    "r5": "00000046"
+   },
+   "poke": {},
+   "calls": []
+  },
+  {
+   "about": "cached mirror, 2 lines",
+   "regs": {
+    "r4": "0C700008",
+    "r5": "00000032"
+   },
+   "poke": {},
+   "calls": []
+  }
+ ]
+}

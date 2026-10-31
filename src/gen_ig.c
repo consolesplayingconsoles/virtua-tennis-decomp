@@ -21,11 +21,13 @@ void evBallMarkSpawn(int a4, Stk3 s)
     register int v0_1;
     register int v0_2;
     register float w0_0;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     stk[4] = s.w[0];
     stk[5] = s.w[1];
     stk[6] = s.w[2];
     v0_0 = a4;
-    *(unsigned int *)(((int)stk + 4)) = v0_0;
+    R1004 = v0_0;
     if (((*(int *)0x8C287C60) != 0)) goto L_8C0DA2D4;
     v0_2 = *(int *)0x8C20D14C;
     v0_1 = (v0_2);
@@ -55,6 +57,6 @@ void evBallMarkSpawn(int a4, Stk3 s)
     *(unsigned int *)((v0_0 + 0x28)) = (int)(600.0f / w0_0);
     *(unsigned int *)((v0_0 + 0x24)) = (int)(600.0f / w0_0);
     { struct mv3 { int w[3]; }; *(struct mv3 *)((v0_0 + 0x14)) = *(struct mv3 *)((((int)stk + 4) + 0xC)); }
-    *(unsigned int *)((v0_0 + 0x20)) = (*(int *)(((int)stk + 4)));
+    *(unsigned int *)((v0_0 + 0x20)) = (R1004);
     L_8C0DA2D4:;
 }

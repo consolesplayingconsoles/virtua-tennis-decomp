@@ -68,8 +68,12 @@ int miniSetupObjects(int a4, int a5, int a6, int a7)
     int R13;
     int R14;
     int T_;
+    int R1016;
+    int R1020;
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
     R7 = a7;
-    *(unsigned int *)(((int)stk + 20)) = 0x8C287ACC;
+    R1020 = 0x8C287ACC;
     *(unsigned int *)(((*(int *)0x8C2FBEF0) + 0x8)) = 0x0;
     *(unsigned int *)(((*(int *)0x8C2FBEF0) + 0xC)) = 0x0;
     t2 = *(int *)0x8C2FBEF0;
@@ -94,7 +98,7 @@ int miniSetupObjects(int a4, int a5, int a6, int a7)
     L_8C037044:;
     if (((unsigned int)R4 < (unsigned int)R6)) goto L_8C037040;
     *(unsigned int *)(((*(int *)((R14 + 0x0))) + 0x28)) = R5;
-    *(unsigned int *)(((int)stk + 16)) = (*(int *)(((((*(int *)(((*(int *)((R14 + 0x0))) + 0x4))) * R11) + R10) + 0x60)));
+    R1016 = (*(int *)(((((*(int *)(((*(int *)((R14 + 0x0))) + 0x4))) * R11) + R10) + 0x60)));
     R12 = (R13);
     L_8C0370C8:;
     if (((int)R12 < (int)(*(int *)(((((*(int *)(((*(int *)((R14 + 0x0))) + 0x4))) * R11) + R10) + 0x58))))) goto L_8C037060;
@@ -120,8 +124,8 @@ int miniSetupObjects(int a4, int a5, int a6, int a7)
     t53 = *(int *)((R14 + 0x0));
     *(unsigned int *)((t53 + 0x8)) = ((*(int *)((t53 + 0x8))) | R9);
     L_8C0372E2:;
-    *(unsigned int *)(((*(int *)(((int)stk + 20))) + 0x68)) = R8;
-    *(unsigned int *)(((*(int *)(((int)stk + 20))) + 0x6C)) = R8;
+    *(unsigned int *)(((R1020) + 0x68)) = R8;
+    *(unsigned int *)(((R1020) + 0x6C)) = R8;
     R0 = (0x6C);
     L_8C0372EE:;
     return R0;
@@ -179,8 +183,8 @@ int miniSetupObjects(int a4, int a5, int a6, int a7)
     *(unsigned int *)((t98 + 0x8)) = (R6 | (*(int *)((t98 + 0x8))));
     t100 = *(int *)((R14 + 0x0));
     *(unsigned int *)((t100 + 0x8)) = ((*(int *)((t100 + 0x8))) | R9);
-    *(unsigned int *)(((*(int *)(((int)stk + 20))) + 0x68)) = R8;
-    *(unsigned int *)(((*(int *)(((int)stk + 20))) + 0x6C)) = R8;
+    *(unsigned int *)(((R1020) + 0x68)) = R8;
+    *(unsigned int *)(((R1020) + 0x6C)) = R8;
     return miniClearTables();
     L_8C037162:;
     t104 = *(int *)((R14 + 0x0));
@@ -222,7 +226,7 @@ int miniSetupObjects(int a4, int a5, int a6, int a7)
     if ((t128 != 4)) goto L_8C037072;
     miniLobTargetSpawn(R12);
     L_8C0370B8:;
-    *(unsigned int *)(((int)stk + 16)) = ((*(int *)(((int)stk + 16))) + 0x1C);
+    R1016 = ((R1016) + 0x1C);
     *(unsigned int *)(((R12 << 2) + 0x8C2FBF54)) = R13;
     R12 = ((R12 + 0x1));
     goto L_8C0370C8;
@@ -232,7 +236,7 @@ int miniSetupObjects(int a4, int a5, int a6, int a7)
     goto L_8C0370B8;
     L_8C0370A0:;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(0x8C1016D4); }
-    miniTargetSpawn((*(int *)(((*(int *)(((int)stk + 16))) + 0x18))), (R12 + 0x2), R6, R7, *(Stk3 *)(((int)stk + 4)));
+    miniTargetSpawn((*(int *)(((R1016) + 0x18))), (R12 + 0x2), R6, R7, *(Stk3 *)(((int)stk + 4)));
     goto L_8C0370B8;
     L_8C037040:;
     *(unsigned int *)((R4 + 0x0)) = R5;

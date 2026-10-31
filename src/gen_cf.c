@@ -2,8 +2,8 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int FUN_8c1e3080(int, int);
-int FUN_8c1e3180(int, int);
+int kmSetHSyncCallback(int, int);
+int kmSetVSyncCallback(int, int);
 extern int _builtin_get_imask(void);
 extern void _builtin_prefetch(void *);
 extern void _builtin_set_imask(int);
@@ -524,7 +524,7 @@ void syChainDeleteHandler(int a4)
     if ((R14 != R7)) goto L_8C1E8654;
     goto L_8C1E8648;
     L_8C1E8648:;
-    FUN_8c1e3180(0x0, 0x0);
+    kmSetVSyncCallback(0x0, 0x0);
     goto L_8C1E86EE;
     L_8C1E86EE:;
     goto L_8C1E86F0;
@@ -532,7 +532,7 @@ void syChainDeleteHandler(int a4)
     if ((R14 != 0x92)) goto L_8C1E8666;
     goto L_8C1E865A;
     L_8C1E865A:;
-    FUN_8c1e3080(0x0, 0x0);
+    kmSetHSyncCallback(0x0, 0x0);
     goto L_8C1E86EE;
     L_8C1E8666:;
     R0 = (((int)(short)((R14 << 2) << 2) >> 8));
@@ -922,11 +922,19 @@ int vmsfs_init_work_normal(int a4, int a5, int a6)
     int R13;
     int R14;
     int T_;
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1016;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
     R4 = a4;
     R5 = a5;
     R6 = a6;
     L_8C1EB2D0:;
-    *(unsigned int *)(((int)stk + 8)) = R5;
+    R1008 = R5;
     R0 = (R4);
     R10 = (0x1);
     R12 = (0x8C20C72C);
@@ -961,9 +969,9 @@ int vmsfs_init_work_normal(int a4, int a5, int a6)
     *(unsigned int *)(((int)stk + 20)) = R1;
     goto L_8C1EB35C;
     L_8C1EB35C:;
-    *(unsigned int *)(((int)stk + 12)) = (((R4 << 8) << 1) + 0x20);
-    *(unsigned int *)(((int)stk + 4)) = R10;
-    *(unsigned int *)(((int)stk + 16)) = (((R8 + 0x1) << 8) << 1);
+    R1012 = (((R4 << 8) << 1) + 0x20);
+    R1004 = R10;
+    R1016 = (((R8 + 0x1) << 8) << 1);
     R11 = (R6);
     R12 = (0x8C0F7F30);
     R9 = (R13);
@@ -975,7 +983,7 @@ int vmsfs_init_work_normal(int a4, int a5, int a6)
     R0 = (0x0);
     goto L_8C1EB412;
     L_8C1EB378:;
-    if ((((*(int *)(((int)stk + 8))) & (*(int *)(((int)stk + 4)))) == 0)) goto L_8C1EB3FE;
+    if ((((R1008) & (R1004)) == 0)) goto L_8C1EB3FE;
     goto L_8C1EB380;
     L_8C1EB380:;
     *(unsigned char *)((R14 + 0x2)) = R10;
@@ -987,7 +995,7 @@ int vmsfs_init_work_normal(int a4, int a5, int a6)
     *(unsigned int *)((R14 + 0x2C)) = R11;
     *(unsigned int *)((R14 + 0x20)) = (R11 + 0x20);
     *(unsigned int *)((R14 + 0x24)) = (0x220 + R11);
-    *(unsigned int *)((R14 + 0x28)) = (((*(int *)(((int)stk + 16))) + R11) + 0x20);
+    *(unsigned int *)((R14 + 0x28)) = (((R1016) + R11) + 0x20);
     *(unsigned char *)((R14 + 0x8)) = R13;
     *(unsigned char *)((R14 + 0x9)) = R13;
     *(unsigned short *)((R14 + 0xE)) = R10;
@@ -1000,10 +1008,10 @@ int vmsfs_init_work_normal(int a4, int a5, int a6)
     memset((*(int *)((R14 + 0x20))), 0x53, 0x20);
     memset((*(int *)((R14 + 0x24))), 0x46, 0x20);
     memset((*(int *)((R14 + 0x28))), 0x44, 0x20);
-    R11 = ((R11 + (*(int *)(((int)stk + 12)))));
+    R11 = ((R11 + (R1012)));
     goto L_8C1EB3FE;
     L_8C1EB3FE:;
-    *(unsigned int *)(((int)stk + 4)) = ((*(int *)(((int)stk + 4))) << 1);
+    R1004 = ((R1004) << 1);
     R14 = ((R14 + 0x148));
     R9 = ((R9 + 0x1));
     goto L_8C1EB40A;

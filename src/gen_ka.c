@@ -32,6 +32,16 @@ int selModelSpawn(int a4, int a5)
     register int v0_6;
     register float w0_0;
     register float w0_1;
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1016;
+    int R1020;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
     v0_6 = a4;
     v0_2 = a5;
     v0_0 = (0x8C343258);
@@ -64,7 +74,7 @@ int selModelSpawn(int a4, int a5)
     w0_0 = (-2.0f);
     w0_1 = (-24.0f);
     if ((v0_3 != 0)) goto L_8C0A95A4;
-    *(int *)((int)stk + 8) = (0x1C + v0_2);
+    R1008 = (0x1C + v0_2);
     *(Stk3 *)((0x1C + v0_2)) = vecMake(-18.0f, w0_0, w0_1);
     v0_6 = (0x1B00);
     L_8C0A95B8:;
@@ -81,13 +91,13 @@ int selModelSpawn(int a4, int a5)
     *(unsigned int *)0x8C29466C = v0_5;
     *(unsigned int *)0x8C294668 = v0_5;
     v0_3 = *(int *)((v0_2 + 0x5C));
-    *(unsigned int *)(((int)stk + 20)) = v0_3;
-    *(unsigned int *)(((int)stk + 12)) = (0xAE8 + v0_3);
-    v0_3 = *(int *)(((int)stk + 20));
-    *(unsigned int *)(((int)stk + 16)) = (0xAF4 + v0_3);
-    *(int *)((int)stk + 8) = (0xAF4 + v0_3);
+    R1020 = v0_3;
+    R1012 = (0xAE8 + v0_3);
+    v0_3 = R1020;
+    R1016 = (0xAF4 + v0_3);
+    R1008 = (0xAF4 + v0_3);
     *(Stk3 *)((0xAF4 + v0_3)) = vecMake(0.0f, 0.0f, 0.0f);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((*(int *)(((int)stk + 12)))) = *(struct mv3 *)((*(int *)(((int)stk + 16)))); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((R1012)) = *(struct mv3 *)((R1016)); }
     *(float *)(((*(int *)((v0_2 + 0x5C))) + 0xC90)) = 0.0f;
     *(float *)(((*(int *)((v0_2 + 0x5C))) + 0xB18)) = 0.0f;
     if (((*(int *)((((v0_0 + 0xC) + v0_1) + 0x8))) == 0)) goto L_8C0A96C6;
@@ -99,16 +109,16 @@ int selModelSpawn(int a4, int a5)
     *(unsigned int *)((v0_2 + 0x54)) = 0x1;
     *(unsigned int *)((v0_2 + 0x28)) = 0x19;
     v0_0 = (*(int *)0x8C2873D0);
-    *(int *)((int)stk + 8) = v0_0;
+    R1008 = v0_0;
     v0_1 = *(int *)((v0_2 + 0x5C));
-    *(unsigned int *)(((int)stk + 20)) = v0_1;
+    R1020 = v0_1;
     v0_1 = (*(int *)((((*(int *)((v0_1 + 0xC58))) * 0x6C) + 0x8C102424)));
-    *(int *)((int)stk + 4) = v0_1;
-    v0_0 = ((motionSet((*(int *)(((int)stk + 20))), 0x10D2D8, 0x1, 0x12755C, v0_1, v0_0, (*(float *)0x8C23D204))));
+    R1004 = v0_1;
+    v0_0 = ((motionSet((R1020), 0x10D2D8, 0x1, 0x12755C, v0_1, v0_0, (*(float *)0x8C23D204))));
     L_8C0A9706:;
     return v0_0;
     L_8C0A95A4:;
-    *(int *)((int)stk + 8) = (0x1C + v0_2);
+    R1008 = (0x1C + v0_2);
     *(Stk3 *)((0x1C + v0_2)) = vecMake(18.0f, w0_0, w0_1);
     v0_6 = (0xE500);
     goto L_8C0A95B8;

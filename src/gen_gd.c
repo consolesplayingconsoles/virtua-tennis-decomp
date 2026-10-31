@@ -30,6 +30,9 @@ int cpuDblReceivePos(int a4)
     float u38;
     float u40;
     int stk[21];
+    float R1032;
+
+    R1032 = *(float *)((int)stk + 32);
 
     t1 = *(int *)((0x8C2888EC + ((serveGetServer()) * 0xD78)));
     t82 = t1;
@@ -52,7 +55,7 @@ int cpuDblReceivePos(int a4)
             }
             u10 = *(float *)(((((int)stk + 32) + 0x4) + 0x0));
             u11 = *(float *)(((((int)stk + 32) + 0x4) + 0x8));
-            *(float *)(((int)stk + 32)) = ((float)(-t8) * 41.1500015f);
+            R1032 = ((float)(-t8) * 41.1500015f);
             u12 = (-u10);
             if (!(0.0f > u10)) {
                 u12 = u10;
@@ -65,7 +68,7 @@ int cpuDblReceivePos(int a4)
                 *(float *)(((int)stk + 28)) = (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), (*(float *)((a4 + 0xAF0)))));
                 u23 = (*(float *)(((((int)stk + 32) + 0x4) + 0x8)));
                 u23 = u23 + 64.0f * (*(float *)((a4 + 0xB00)));
-                *(Stk3 *)(((int)stk + 16)) = vecMake(((*(float *)(((((int)stk + 32) + 0x4) + 0x0))) - (*(float *)(((int)stk + 32)))), 0.0f, u23);
+                *(Stk3 *)(((int)stk + 16)) = vecMake(((*(float *)(((((int)stk + 32) + 0x4) + 0x0))) - (R1032)), 0.0f, u23);
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 32) + 0x4)); }
                 u38 = 0.200000003f;
                 u40 = ((cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), (*(float *)((a4 + 0xAF0))))) * 0.800000012f);
@@ -77,7 +80,7 @@ int cpuDblReceivePos(int a4)
                 *(float *)(((int)stk + 28)) = (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), (*(float *)((a4 + 0xAF0)))));
                 u34 = (*(float *)(((((int)stk + 32) + 0x4) + 0x8)));
                 u34 = u34 + 64.0f * (*(float *)((a4 + 0xB00)));
-                *(Stk3 *)(((int)stk + 16)) = vecMake(((*(float *)(((((int)stk + 32) + 0x4) + 0x0))) - (*(float *)(((int)stk + 32)))), 0.0f, u34);
+                *(Stk3 *)(((int)stk + 16)) = vecMake(((*(float *)(((((int)stk + 32) + 0x4) + 0x0))) - (R1032)), 0.0f, u34);
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 32) + 0x4)); }
                 u38 = 0.5f;
                 u40 = ((cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), (*(float *)((a4 + 0xAF0))))) * 0.5f);

@@ -914,6 +914,8 @@ int nlsndStreamInit(int a4, int a5, int a6)
     int R13;
     int R14;
     int T_;
+    int R1008;
+    R1008 = *(int *)((int)stk + 8);
     R4 = a4;
     R5 = a5;
     R6 = a6;
@@ -956,7 +958,7 @@ int nlsndStreamInit(int a4, int a5, int a6)
     goto L_8C0F61EA;
     L_8C0F61EA:;
     t17 = *(short *)(((int)stk + 12));
-    *(unsigned int *)(((int)stk + 8)) = t17;
+    R1008 = t17;
     nlsndG2Write(t17, 0xA08000A0);
     t19 = *(short *)(((int)stk + 4));
     *(unsigned int *)(((int)stk + 12)) = t19;
@@ -990,7 +992,7 @@ int nlsndStreamInit(int a4, int a5, int a6)
     L_8C0F6294:;
     nlsndG2Write((*(int *)(((int)stk + 4))), 0xA08000A8);
     R8 = (0xA0800000);
-    T_ = ((((int)(*(int *)(((int)stk + 8))) > 0)));
+    T_ = ((((int)(R1008) > 0)));
     goto L_8C0F62A2;
     L_8C0F62A2:;
     R13 = (R11);
@@ -1011,16 +1013,16 @@ int nlsndStreamInit(int a4, int a5, int a6)
     nlsndG2Write(0x0, (R14 + 0x10));
     *(unsigned int *)(((((short)R13 * (short)R10) + R3) + 0x10)) = (R14 + 0x14);
     *(unsigned int *)(((((short)R13 * (short)R10) + R3) + 0x14)) = (R14 + 0x4);
-    t51 = (int)(short)(R13 + 0x1) < (int)(*(int *)(((int)stk + 8)));
+    t51 = (int)(short)(R13 + 0x1) < (int)(R1008);
     R12 = ((R12 - t48));
     R13 = ((R13 + 0x1));
     R14 = ((R14 + 0x60));
     if (t51) goto L_8C0F62A6;
     goto L_8C0F62F2;
     L_8C0F62F2:;
-    t55 = *(int *)(((int)stk + 8));
+    t55 = R1008;
     t56 = *(int *)(((int)stk + 12));
-    *(unsigned int *)(((int)stk + 8)) = (t55 + t56);
+    R1008 = (t55 + t56);
     if (((int)(short)R13 >= (int)(t55 + t56))) goto L_8C0F6352;
     goto L_8C0F6300;
     L_8C0F6300:;
@@ -1035,7 +1037,7 @@ int nlsndStreamInit(int a4, int a5, int a6)
     t61 = *(int *)(((int)stk + 4));
     *(unsigned int *)(((((short)R13 * (short)0x1C) + 0x8C454CF4) + 0x10)) = (R14 + 0x14);
     *(unsigned int *)(((((short)R13 * (short)0x1C) + 0x8C454CF4) + 0x14)) = (R14 + 0x4);
-    t63 = (int)(short)(R13 + 0x1) < (int)(*(int *)(((int)stk + 8)));
+    t63 = (int)(short)(R13 + 0x1) < (int)(R1008);
     R12 = (((R12 - t59) - t61));
     R13 = ((R13 + 0x1));
     R14 = ((R14 + 0x60));

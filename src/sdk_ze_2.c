@@ -290,24 +290,6 @@ unsigned int syRtcMakeAgeOfMoon(void *date)
 
 /* Stop a playing stream inside the RNA critical section: play and transfer off, buffer cleared,
    both state bytes (+1, +7) cleared. */
-void mwRnaStop(int *h, int b, int c, int d)
-{
-    int cs;
-
-    if (!h) {
-        mwRnaErrCallFunc(h, b, c, d, (char *)0x0C176680);
-        return;
-    }
-    if (((unsigned char *)h)[1]) {
-        FUN_0c1717d8(&cs);
-        mwRnaSetPlaySw(h, 0);
-        mwRnaSetTransSw(h, 0);
-        mwlRnaClearBuf(h);
-        ((unsigned char *)h)[7] = 0;
-        ((unsigned char *)h)[1] = 0;
-        mwRnaUnlockCs(&cs);
-    }
-}
 
 
 /* Queue a VMU load (operation 11): file name, buffer and size; -1 while the drive is busy. */

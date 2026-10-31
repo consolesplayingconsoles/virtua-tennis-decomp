@@ -364,7 +364,7 @@ int nlScaleUnitVector(int, int, float);
 int nlScaleVector(int, int);
 int nlSetTextureParameter(int);
 int nlSpriteFreeTextureOnce(void);
-int nlSpriteSetGarbagedTextureOnce(void);
+int nlSpriteSetGarbagedTextureOnce(int, int);
 int nlSubVector(int, int);
 int nlTranslate(float, float, float);
 int nldispstripTexOfsSub(int, int);
@@ -391,8 +391,8 @@ int syG2DmaResume(int);
 int syG2DmaSuspend(int);
 int syMmuDeleteEntry(int);
 int thunk_FUN_8c09e55a(void);
-int thunk_FUN_8c0f2210(void);
-int thunk_FUN_8c0f41f0(void);
+int thunk_FUN_8c0f2210(int);
+int thunk_FUN_8c0f41f0(int);
 int thunk_FUN_8c1e0150(void);
 int thunk_FUN_8c1ff1ee(void);
 int vmsfs_c_getstate(int);
@@ -886,18 +886,25 @@ void camProject(int a4, int a5)
     float u6;
     float u7;
     int stk[1];
+    float R1004;
+    float R1008;
+    float R1012;
 
-    u0 = *(float *)((((int)stk + 4) + 0x0));
+    R1004 = *(float *)((int)stk + 4);
+    R1008 = *(float *)((int)stk + 8);
+    R1012 = *(float *)((int)stk + 12);
+
+    u0 = R1004;
     u1 = *(float *)0x8C287A10;
-    u2 = *(float *)((((int)stk + 4) + 0x8));
+    u2 = R1012;
     u3 = (-u2);
     if (!(0.0f > u2)) {
         u3 = u2;
     }
     *(float *)((a4 + 0x0)) = ((u0 * u1) / u3);
-    u4 = *(float *)((((int)stk + 4) + 0x4));
+    u4 = R1008;
     u5 = *(float *)0x8C287A10;
-    u6 = *(float *)((((int)stk + 4) + 0x8));
+    u6 = R1012;
     u7 = (-u6);
     if (!(0.0f > u6)) {
         u7 = u6;
@@ -1062,39 +1069,68 @@ int camMoveBeginAtGoal(float f4, float f5)
     float u32;
     float u33;
     int stk[17];
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1016;
+    int R1020;
+    int R1024;
+    int R1028;
+    int R1032;
+    int R1036;
+    int R1040;
+    int R1044;
+    int R1048;
+    float R1052;
+    float R1056;
 
-    *(float *)(((int)stk + 56)) = f4;
-    *(float *)(((int)stk + 52)) = f5;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
+    R1036 = *(int *)((int)stk + 36);
+    R1040 = *(int *)((int)stk + 40);
+    R1044 = *(int *)((int)stk + 44);
+    R1048 = *(int *)((int)stk + 48);
+    R1052 = *(float *)((int)stk + 52);
+    R1056 = *(float *)((int)stk + 56);
+
+    R1056 = f4;
+    R1052 = f5;
     t0 = *(int *)0x8C287640;
     t34 = 0x80;
     if (t0 == 0) {
         t1 = *(int *)0x8C287634;
         if (t1 != 0) {
             t2 = *(int *)0x8C2875D4;
-            *(unsigned int *)((((int)stk + 40) + 0x8)) = t2;
+            R1048 = t2;
             t3 = *(int *)0x8C2875D0;
-            *(unsigned int *)((((int)stk + 40) + 0x4)) = t3;
+            R1044 = t3;
             t4 = *(int *)0x8C2875CC;
-            *(unsigned int *)((((int)stk + 40) + 0x0)) = t4;
+            R1040 = t4;
             t5 = *(int *)0x8C2875C8;
-            *(unsigned int *)((((int)stk + 28) + 0x8)) = t5;
+            R1036 = t5;
             t6 = *(int *)0x8C2875C4;
-            *(unsigned int *)((((int)stk + 28) + 0x4)) = t6;
+            R1032 = t6;
             t7 = *(int *)0x8C2875C0;
-            *(unsigned int *)((((int)stk + 28) + 0x0)) = t7;
+            R1028 = t7;
             vecAnglesTo(0x8C287648, 0x8C28764A);
             t9 = *(int *)0x8C2875D4;
-            *(unsigned int *)((((int)stk + 16) + 0x8)) = t9;
+            R1024 = t9;
             t10 = *(int *)0x8C2875D0;
-            *(unsigned int *)((((int)stk + 16) + 0x4)) = t10;
+            R1020 = t10;
             t11 = *(int *)0x8C2875CC;
-            *(unsigned int *)((((int)stk + 16) + 0x0)) = t11;
+            R1016 = t11;
             t12 = *(int *)0x8C2875C8;
-            *(unsigned int *)((((int)stk + 4) + 0x8)) = t12;
+            R1012 = t12;
             t13 = *(int *)0x8C2875C4;
-            *(unsigned int *)((((int)stk + 4) + 0x4)) = t13;
+            R1008 = t13;
             t14 = *(int *)0x8C2875C0;
-            *(unsigned int *)((((int)stk + 4) + 0x0)) = t14;
+            R1004 = t14;
             t15 = vecDist();
             *(float *)0x8C287628 = t15;
         }
@@ -1128,9 +1164,9 @@ int camMoveBeginAtGoal(float f4, float f5)
         *(unsigned short *)0x8C287646 = t30;
         u31 = *(float *)0x8C287628;
         *(float *)0x8C287624 = u31;
-        u32 = *(float *)(((int)stk + 56));
+        u32 = R1056;
         *(float *)0x8C287614 = u32;
-        u33 = *(float *)(((int)stk + 52));
+        u33 = R1052;
         *(float *)0x8C287618 = u33;
         *(unsigned int *)0x8C28763C = 0x0;
         *(unsigned int *)0x8C287638 = 0x0;
@@ -1204,43 +1240,6 @@ void dbgLineStart(int a4, int a5, float f4, float f5, float f6, float f7, float 
     *(float *)((t0 + 0x24)) = f8;
 }
 
-int matchGetCpuRank(void)
-{
-    int t0;
-    int t1;
-    int t3;
-    int t2;
-    int t4;
-    int t6;
-    int t5;
-    int t7;
-
-    t0 = *(int *)0x8C287D5C;
-    if (t0 == 3) {
-        t1 = *(int *)0x8C2FBEB4;
-        t3 = 0x2;
-        if ((int)t1 >= (int)0x3) {
-            t2 = 0x1;
-            if ((int)t1 >= (int)0x6) {
-                t2 = 0x0;
-            }
-            t3 = t2;
-        }
-        t7 = t3;
-    } else {
-        t4 = *(int *)0x8C287B84;
-        t6 = 0x2;
-        if ((int)t4 >= (int)0x3) {
-            t5 = 0x0;
-            if ((int)t4 < (int)0x6) {
-                t5 = 0x1;
-            }
-            t6 = t5;
-        }
-        t7 = t6;
-    }
-    return t7;
-}
 
 int dbgMenuPageTennis(int a4)
 {
@@ -1260,27 +1259,6 @@ int dbgMenuPageTennis(int a4)
     return t9;
 }
 
-void scoreReset(void)
-{
-    int t0;
-    int t1;
-    int t2;
-
-    *(unsigned int *)0x8C287B88 = 0x0;
-    t0 = 0x0;
-    do {
-        *(unsigned int *)(((0x8C287B8C + t0) + 0x8)) = 0x0;
-        *(unsigned int *)(((0x8C287B8C + t0) + 0xC)) = 0x0;
-        *(unsigned int *)(((0x8C287B8C + t0) + 0x10)) = 0x0;
-        *(float *)(((0x8C287B8C + t0) + 0x14)) = 0.0f;
-        *(unsigned int *)(((0x8C287B8C + t0) + 0x18)) = 0x0;
-        t1 = (0x8C287B8C + t0);
-        t2 = (0x8C287B8C + t0);
-        t0 = (t0 + 0x24);
-        *(unsigned int *)((t2 + 0x1C)) = 0x0;
-        *(unsigned int *)((t1 + 0x20)) = 0x0;
-    } while ((unsigned int)t0 < (unsigned int)0x90);
-}
 
 void serveNextGame(void)
 {
@@ -1637,52 +1615,6 @@ int padLcdUpdate(void)
     return t3;
 }
 
-void padLcdPixel(int a4, int a5, int a6, int a7)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t7;
-    int t9;
-
-    if ((int)a5 >= 0) {
-        if ((int)a5 <= (int)0x2F) {
-            if ((int)a6 >= 0) {
-                if ((int)a6 <= (int)0x1F) {
-                    if (a7 != 0) {
-                        t0 = a5;
-                        if ((int)a5 < 0) {
-                            t0 = (a5 + 0x7);
-                        }
-                        t1 = ((~(((~a5) + 0x1) & 0x7)) + 0x1);
-                        if ((int)a5 >= 0) {
-                            t1 = (a5 & 0x7);
-                        }
-                        t2 = *(signed char *)((((((((((a4 << 1) + a4) << 2) << 2) << 2) + 0x8C29B8B8) + (((0x1F - a6) << 1) + ((0x1F - a6) << 2))) + (0x5 - (((t0 >> 1) >> 1) >> 1))) + 0x0));
-                        t7 = ((((int)t1 >= 0) ? (0x1 << (t1 & 31)) : ((-(int)t1 & 31) ? ((int)0x1 >> (-(int)t1 & 31)) : ((int)0x1 >> 31))) | t2);
-                        t9 = ((((((((a4 << 1) + a4) << 2) << 2) << 2) + 0x8C29B8B8) + (((0x1F - a6) << 1) + ((0x1F - a6) << 2))) + (0x5 - (((t0 >> 1) >> 1) >> 1)));
-                    } else {
-                        t3 = a5;
-                        if ((int)a5 < 0) {
-                            t3 = (a5 + 0x7);
-                        }
-                        t4 = ((~(((~a5) + 0x1) & 0x7)) + 0x1);
-                        if ((int)a5 >= 0) {
-                            t4 = (a5 & 0x7);
-                        }
-                        t5 = *(signed char *)((((((((((a4 << 1) + a4) << 2) << 2) << 2) + 0x8C29B8B8) + (((0x1F - a6) << 1) + ((0x1F - a6) << 2))) + (0x5 - (((t3 >> 1) >> 1) >> 1))) + 0x0));
-                        t7 = ((~(((int)t4 >= 0) ? (0x1 << (t4 & 31)) : ((-(int)t4 & 31) ? ((int)0x1 >> (-(int)t4 & 31)) : ((int)0x1 >> 31)))) & t5);
-                        t9 = ((((((((a4 << 1) + a4) << 2) << 2) << 2) + 0x8C29B8B8) + (((0x1F - a6) << 1) + ((0x1F - a6) << 2))) + (0x5 - (((t3 >> 1) >> 1) >> 1)));
-                    }
-                    *(unsigned char *)((t9 + 0x0)) = t7;
-                }
-            }
-        }
-    }
-}
 
 void padLcdBlit(int a4, int a5, int a6)
 {
@@ -2267,16 +2199,6 @@ int cpuInit(void)
     return cpuDblInit();
 }
 
-int playerCpuInput(void)
-{
-    int t0;
-
-    t0 = *(int *)0x8C287ADC;
-    if (t0 == 2) {
-        return cpuSglInput();
-    }
-    return cpuDblInput();
-}
 
 int cpuSglThinkAll(void)
 {
@@ -2382,100 +2304,6 @@ int cpuSglSwingInput(int a4)
 }
 
 
-int ndbLoadRequest(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t9;
-    int t6;
-    int t8;
-    int t7;
-    int t10;
-    int t12;
-    int t13;
-    int t14;
-    int t15;
-    int t19;
-    int t16;
-    int t18;
-    int t17;
-    int t20;
-    int t11;
-    int t21;
-
-    t0 = *(int *)0x8C20D14C;
-    if (t0 == 6) {
-        t1 = *(int *)0x8C2FCC20;
-        if ((int)t1 < (int)0x2) {
-            *(unsigned int *)0x8C181750 = 0x1;
-            return 0x8C2FCC20;
-        }
-        t2 = *(int *)0x8C185410;
-        if (t2 != 0) {
-            *(unsigned int *)0x8C181750 = 0x1;
-            *(unsigned int *)0x8C30195C = 0xFFFFFFFF;
-            return 0x8C2FCC20;
-        }
-        t3 = *(int *)0x8C30195C;
-        t4 = *(int *)0x8C287ACC;
-        if (t3 == t4) {
-            t5 = *(int *)0x8C301958;
-            t9 = t5;
-            if ((int)t5 <= 0) {
-                t6 = ndbIsValid();
-                t8 = t6;
-                if (t6 == 0) {
-                    t7 = set_event(0x18, 0x8C082716);
-                    *(unsigned int *)0x8C301958 = 0x1;
-                    *(unsigned int *)((t7 + 0x14)) = 0x0;
-                    t8 = t7;
-                }
-                t9 = t8;
-            }
-            t11 = t9;
-        } else {
-            t10 = set_event(0x18, 0x8C082716);
-            *(unsigned int *)0x8C301958 = 0x1;
-            *(unsigned int *)((t10 + 0x14)) = 0x0;
-            t11 = t10;
-        }
-        return t11;
-    }
-    t12 = *(int *)0x8C185410;
-    if (t12 != 0) {
-        *(unsigned int *)0x8C181750 = 0x1;
-        *(unsigned int *)0x8C30195C = 0xFFFFFFFF;
-        return t0;
-    }
-    t13 = *(int *)0x8C30195C;
-    t14 = *(int *)0x8C287ACC;
-    if (t13 == t14) {
-        t15 = *(int *)0x8C301958;
-        t19 = t15;
-        if ((int)t15 <= 0) {
-            t16 = ndbIsValid();
-            t18 = t16;
-            if (t16 == 0) {
-                t17 = set_event(0x18, 0x8C082716);
-                *(unsigned int *)0x8C301958 = 0x1;
-                *(unsigned int *)((t17 + 0x14)) = 0x0;
-                t18 = t17;
-            }
-            t19 = t18;
-        }
-        t21 = t19;
-    } else {
-        t20 = set_event(0x18, 0x8C082716);
-        *(unsigned int *)0x8C301958 = 0x1;
-        *(unsigned int *)((t20 + 0x14)) = 0x0;
-        t21 = t20;
-    }
-    return t21;
-}
 
 int ndbLoadStart(void)
 {
@@ -2506,37 +2334,6 @@ int ndbLoadWaitStart(void)
     return t0;
 }
 
-void effServeSpeedShow(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-
-    t0 = *(int *)0x8C181700;
-    *(unsigned int *)0x8C181700 = (t0 + 0x1);
-    t1 = *(int *)0x8C421F60;
-    if (t1 == 0) {
-        t2 = *(int *)0x8C287D5C;
-        if (t2 != 3) {
-            t3 = *(int *)0x8C20D150;
-            if (t3 != 11) {
-                t4 = *(int *)0x8C181614;
-                *(unsigned int *)0x8C181614 = (t4 + 0x1);
-                t5 = set_event(0x38, 0x8C083310);
-                *(unsigned int *)((t5 + 0x14)) = 0x0;
-                *(float *)((t5 + 0x1C)) = 0.0f;
-                *(unsigned int *)((t5 + 0x2C)) = 0x5A;
-                *(unsigned int *)((t5 + 0x30)) = 0x0;
-                *(unsigned int *)((t5 + 0x18)) = 0x0;
-                *(unsigned int *)((t5 + 0x34)) = 0x0;
-                *(unsigned int *)0x8C334420 = a4;
-            }
-        }
-    }
-}
 
 int effEventTestStart(void)
 {
@@ -2725,28 +2522,6 @@ int umpCallSecondServeDelayed(int a4)
     return t0;
 }
 
-int umpCallServeNo(int a4)
-{
-    int t0;
-    int t1;
-    int t4;
-
-    t0 = *(int *)0x8C421F60;
-    if (t0 == 0) {
-        t1 = *(int *)0x8C334408;
-        if (t1 == 0) {
-            umpCallFirstServeDelayed(a4);
-            strmCallPair(0x1);
-        }
-        t4 = *(int *)0x8C334408;
-        if (t4 == 1) {
-            umpCallSecondServeDelayed(a4);
-            return strmCallPair(0x2);
-        }
-        return t4;
-    }
-    return 0;
-}
 
 int umpBusyStart(void)
 {
@@ -3434,21 +3209,35 @@ int shadowMulShear(void)
     float u5;
     int t6;
     int stk[18];
+    float R1020;
+    float R1024;
+    float R1028;
+    float R1072;
+    float R1076;
+    float R1080;
+
+    R1020 = *(float *)((int)stk + 20);
+    R1024 = *(float *)((int)stk + 24);
+    R1028 = *(float *)((int)stk + 28);
+    R1072 = *(float *)((int)stk + 72);
+    R1076 = *(float *)((int)stk + 76);
+    R1080 = *(float *)((int)stk + 80);
 
     nlPushUnitMatrix();
     nlGetMatrix(((int)stk + 4));
     nlPopMatrix(0x1);
-    u3 = *(float *)(((((int)stk + 4) + 0x44) + 0x0));
-    *(float *)(((int)stk + 20)) = u3;
-    u4 = *(float *)(((((int)stk + 4) + 0x44) + 0x4));
-    *(float *)(((int)stk + 24)) = (u4 + 1.0f);
-    u5 = *(float *)(((((int)stk + 4) + 0x44) + 0x8));
-    *(float *)(((int)stk + 28)) = u5;
+    u3 = R1072;
+    R1020 = u3;
+    u4 = R1076;
+    R1024 = (u4 + 1.0f);
+    u5 = R1080;
+    R1028 = u5;
     t6 = nlMultiMatrix(((int)stk + 4));
     return t6;
 }
 
-int thunk_FUN_8c0f2210(void)
+/* manual: a trampoline: r4 passes through to nlObjPutMvInit (the NAOMI library's own code reads it). */
+int thunk_FUN_8c0f2210(int a4)
 {
     return nlObjPutMvInit();
 }
@@ -3467,12 +3256,14 @@ int crowdFrameTcw(void)
 }
 
 
+/* manual: the call passes the argument the original sets (r4 = 180); the callee is a trampoline into the NAOMI library, which reads none
+   itself, so the generated call passed none and the proof never compared it (as gdFsInit in sysInit). */
 int sceneObjPutInit(void)
 {
     int t1;
 
     nlObjPutSetVtxColorMode(0x1);
-    t1 = thunk_FUN_8c0f2210();
+    t1 = thunk_FUN_8c0f2210(0xB4);
     *(unsigned int *)0x8C30196C = 0x0;
     return t1;
 }
@@ -3516,17 +3307,34 @@ int menuIconPutRot(int a4, int a5)
     int t4;
     int t5;
     int stk[7];
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1016;
+    int R1020;
+    int R1028;
+    int R1032;
+    int R1036;
 
-    *(unsigned int *)(((int)stk + 16)) = a4;
-    *(unsigned int *)(((int)stk + 20)) = a5;
-    t0 = *(int *)(((((int)stk + 16) + 0xC) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-    t1 = *(int *)(((((int)stk + 16) + 0xC) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-    t2 = *(int *)(((((int)stk + 16) + 0xC) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
-    t3 = *(int *)(((int)stk + 16));
-    t4 = *(int *)(((int)stk + 20));
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
+    R1036 = *(int *)((int)stk + 36);
+
+    R1016 = a4;
+    R1020 = a5;
+    t0 = R1036;
+    R1012 = t0;
+    t1 = R1032;
+    R1008 = t1;
+    t2 = R1028;
+    R1004 = t2;
+    t3 = R1016;
+    t4 = R1020;
     t5 = primSprDraw((((((t3 << 2) + t3) << 2) << 2) + 0x8C334434), 0x80, 0x80, t4);
     return t5;
 }
@@ -3787,31 +3595,56 @@ void selConstStub(void)
     int t10;
     int t11;
     int stk[14];
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1016;
+    int R1020;
+    int R1024;
+    int R1028;
+    int R1032;
+    int R1036;
+    int R1040;
+    int R1044;
+    int R1048;
+
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
+    R1036 = *(int *)((int)stk + 36);
+    R1040 = *(int *)((int)stk + 40);
+    R1044 = *(int *)((int)stk + 44);
+    R1048 = *(int *)((int)stk + 48);
 
     t0 = *(int *)0x8C1103C4;
-    *(unsigned int *)(((((int)stk + 4) + 0x20) + 0xC)) = t0;
+    R1048 = t0;
     t1 = *(int *)0x8C1103C0;
-    *(unsigned int *)(((((int)stk + 4) + 0x20) + 0x8)) = t1;
+    R1044 = t1;
     t2 = *(int *)0x8C1103BC;
-    *(unsigned int *)(((((int)stk + 4) + 0x20) + 0x4)) = t2;
+    R1040 = t2;
     t3 = *(int *)0x8C1103B8;
-    *(unsigned int *)(((((int)stk + 4) + 0x20) + 0x0)) = t3;
+    R1036 = t3;
     t4 = *(int *)0x8C1103D4;
-    *(unsigned int *)(((((int)stk + 4) + 0x10) + 0xC)) = t4;
+    R1032 = t4;
     t5 = *(int *)0x8C1103D0;
-    *(unsigned int *)(((((int)stk + 4) + 0x10) + 0x8)) = t5;
+    R1028 = t5;
     t6 = *(int *)0x8C1103CC;
-    *(unsigned int *)(((((int)stk + 4) + 0x10) + 0x4)) = t6;
+    R1024 = t6;
     t7 = *(int *)0x8C1103C8;
-    *(unsigned int *)(((((int)stk + 4) + 0x10) + 0x0)) = t7;
+    R1020 = t7;
     t8 = *(int *)0x8C1103E4;
-    *(unsigned int *)((((int)stk + 4) + 0xC)) = t8;
+    R1016 = t8;
     t9 = *(int *)0x8C1103E0;
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t9;
+    R1012 = t9;
     t10 = *(int *)0x8C1103DC;
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t10;
+    R1008 = t10;
     t11 = *(int *)0x8C1103D8;
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t11;
+    R1004 = t11;
 }
 
 int infoPlayerDrawWrap(void)
@@ -3821,17 +3654,32 @@ int infoPlayerDrawWrap(void)
     int t2;
     int t3;
     int stk[5];
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1020;
+    int R1024;
+    int R1028;
 
-    t0 = *(int *)(((((int)stk + 16) + 0x4) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-    t1 = *(int *)(((((int)stk + 16) + 0x4) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-    t2 = *(int *)(((((int)stk + 16) + 0x4) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
+    R1028 = *(int *)((int)stk + 28);
+
+    t0 = R1028;
+    R1012 = t0;
+    t1 = R1024;
+    R1008 = t1;
+    t2 = R1020;
+    R1004 = t2;
     t3 = infoPlayerDraw();
     return t3;
 }
 
+/* manual: the call passes the argument the original sets (r4, the record being drawn); the callee is a trampoline into the NAOMI library, which reads none
+   itself, so the generated call passed none and the proof never compared it (as gdFsInit in sysInit). */
 int standBgDraw(void)
 {
     int t0;
@@ -3839,7 +3687,7 @@ int standBgDraw(void)
 
     t0 = 0x8C33F1D0;
     do {
-        t1 = thunk_FUN_8c0f41f0();
+        t1 = thunk_FUN_8c0f41f0(t0);
         t0 = (t0 + 0x50);
     } while ((unsigned int)t0 < (unsigned int)0x8C33F3B0);
     return t1;
@@ -5147,53 +4995,6 @@ int courtWinDrawNumber(int a4)
     return nlObjPut(t4);
 }
 
-int courtWinDrawSign(int a4)
-{
-    int t0;
-    int t3;
-    int t5;
-    int t6;
-    int t8;
-    int t11;
-    int t14;
-    int t15;
-    int t17;
-    int t18;
-    int t10;
-    int t16;
-
-    t0 = *(int *)0x8C287ADC;
-    if (t0 == 2) {
-        nlObjPut(0xC9377A8);
-        nlObjPut(0xC5189E0);
-        if (a4 != 0) {
-            t3 = *(int *)0x8C18C33C;
-            nlObjPut(t3);
-            t5 = *(int *)0x8C18C344;
-            t10 = t5;
-        } else {
-            t6 = *(int *)0x8C18C338;
-            nlObjPut(t6);
-            t8 = *(int *)0x8C18C340;
-            t10 = t8;
-        }
-        t11 = nlObjPut(t10);
-        t18 = t11;
-    } else {
-        nlObjPut(0xC9541F0);
-        nlObjPut(0xC51E510);
-        if (a4 != 0) {
-            t14 = *(int *)0x8C18C34C;
-            t16 = t14;
-        } else {
-            t15 = *(int *)0x8C18C348;
-            t16 = t15;
-        }
-        t17 = nlObjPut(t16);
-        t18 = t17;
-    }
-    return t18;
-}
 
 int stageSegaScoreDigits(int a4)
 {
@@ -6262,447 +6063,6 @@ void menuSprInitGroup(void)
     } while ((int)t0 < (int)0x4);
 }
 
-int lineJudgeExec(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-    int t12;
-    int t13;
-    int t16;
-    int t17;
-    int t20;
-    int t21;
-    int t24;
-    int t25;
-    int t28;
-    int t29;
-    int t32;
-    int t33;
-    int t34;
-    int t35;
-    int t36;
-    int t37;
-    int t40;
-    int t41;
-    int t44;
-    int t45;
-    int t48;
-    int t49;
-    int t52;
-    int t53;
-    int t56;
-    int t57;
-    int t60;
-    int t61;
-    int t62;
-    int t63;
-    int t64;
-    int t65;
-    int t68;
-    int t69;
-    int t72;
-    int t73;
-    int t76;
-    int t77;
-    int t80;
-    int t81;
-    int t84;
-    int t85;
-    int t88;
-    int t89;
-    int t90;
-    int t91;
-    int t92;
-    int t93;
-    int t96;
-    int t97;
-    int t100;
-    int t101;
-    int t104;
-    int t105;
-    int t108;
-    int t109;
-    int t112;
-    int t113;
-
-    t0 = *(int *)0x8C421F60;
-    if (t0 != 0) {
-        t1 = *(int *)0x8C29B27C;
-        if (t1 != 1) {
-            t2 = *(int *)0x8C29B27C;
-            if (t2 != 0) {
-                t3 = *(int *)0x8C29B27C;
-                if (t3 == 3) {
-                    t4 = *(int *)0x8C37EA80;
-                    if ((t4 & 2) == 0) {
-                        t5 = *(int *)0x8C287D5C;
-                        if (t5 != 3) {
-                            if (t0 != 0) {
-                                t6 = *(int *)0x8C29B27C;
-                                if (t6 == 0) {
-                                    t7 = *(int *)0x8C295DF4;
-                                    if (t7 != 0) {
-                                        if (t7 != 6) {
-                                            if (t7 != 12) {
-                                                if (t7 == 14) {
-                                                    t8 = *(int *)0x8C20D14C;
-                                                    if (t8 == 0) {
-                                                        t9 = *(int *)0x8C20D150;
-                                                        if (t9 != 3) {
-                                                            lineJudgeUpdate();
-                                                            return lineJudgeDraw();
-                                                        }
-                                                        return t9;
-                                                    }
-                                                    lineJudgeUpdate();
-                                                    return lineJudgeDraw();
-                                                }
-                                                return t7;
-                                            }
-                                            t12 = *(int *)0x8C20D14C;
-                                            if (t12 == 0) {
-                                                t13 = *(int *)0x8C20D150;
-                                                if (t13 != 3) {
-                                                    lineJudgeUpdate();
-                                                    return lineJudgeDraw();
-                                                }
-                                                return t13;
-                                            }
-                                            lineJudgeUpdate();
-                                            return lineJudgeDraw();
-                                        }
-                                        t16 = *(int *)0x8C20D14C;
-                                        if (t16 == 0) {
-                                            t17 = *(int *)0x8C20D150;
-                                            if (t17 != 3) {
-                                                lineJudgeUpdate();
-                                                return lineJudgeDraw();
-                                            }
-                                            return t17;
-                                        }
-                                        lineJudgeUpdate();
-                                        return lineJudgeDraw();
-                                    }
-                                    t20 = *(int *)0x8C20D14C;
-                                    if (t20 == 0) {
-                                        t21 = *(int *)0x8C20D150;
-                                        if (t21 != 3) {
-                                            lineJudgeUpdate();
-                                            return lineJudgeDraw();
-                                        }
-                                        return t21;
-                                    }
-                                    lineJudgeUpdate();
-                                    return lineJudgeDraw();
-                                }
-                                t24 = *(int *)0x8C20D14C;
-                                if (t24 == 0) {
-                                    t25 = *(int *)0x8C20D150;
-                                    if (t25 != 3) {
-                                        lineJudgeUpdate();
-                                        return lineJudgeDraw();
-                                    }
-                                    return t25;
-                                }
-                                lineJudgeUpdate();
-                                return lineJudgeDraw();
-                            }
-                            t28 = *(int *)0x8C20D14C;
-                            if (t28 == 0) {
-                                t29 = *(int *)0x8C20D150;
-                                if (t29 != 3) {
-                                    lineJudgeUpdate();
-                                    return lineJudgeDraw();
-                                }
-                                return t29;
-                            }
-                            lineJudgeUpdate();
-                            return lineJudgeDraw();
-                        }
-                        return t5;
-                    }
-                    return t4;
-                }
-                return t3;
-            }
-            t32 = *(int *)0x8C37EA80;
-            if ((t32 & 2) == 0) {
-                t33 = *(int *)0x8C287D5C;
-                if (t33 != 3) {
-                    if (t0 != 0) {
-                        t34 = *(int *)0x8C29B27C;
-                        if (t34 == 0) {
-                            t35 = *(int *)0x8C295DF4;
-                            if (t35 != 0) {
-                                if (t35 != 6) {
-                                    if (t35 != 12) {
-                                        if (t35 == 14) {
-                                            t36 = *(int *)0x8C20D14C;
-                                            if (t36 == 0) {
-                                                t37 = *(int *)0x8C20D150;
-                                                if (t37 != 3) {
-                                                    lineJudgeUpdate();
-                                                    return lineJudgeDraw();
-                                                }
-                                                return t37;
-                                            }
-                                            lineJudgeUpdate();
-                                            return lineJudgeDraw();
-                                        }
-                                        return t35;
-                                    }
-                                    t40 = *(int *)0x8C20D14C;
-                                    if (t40 == 0) {
-                                        t41 = *(int *)0x8C20D150;
-                                        if (t41 != 3) {
-                                            lineJudgeUpdate();
-                                            return lineJudgeDraw();
-                                        }
-                                        return t41;
-                                    }
-                                    lineJudgeUpdate();
-                                    return lineJudgeDraw();
-                                }
-                                t44 = *(int *)0x8C20D14C;
-                                if (t44 == 0) {
-                                    t45 = *(int *)0x8C20D150;
-                                    if (t45 != 3) {
-                                        lineJudgeUpdate();
-                                        return lineJudgeDraw();
-                                    }
-                                    return t45;
-                                }
-                                lineJudgeUpdate();
-                                return lineJudgeDraw();
-                            }
-                            t48 = *(int *)0x8C20D14C;
-                            if (t48 == 0) {
-                                t49 = *(int *)0x8C20D150;
-                                if (t49 != 3) {
-                                    lineJudgeUpdate();
-                                    return lineJudgeDraw();
-                                }
-                                return t49;
-                            }
-                            lineJudgeUpdate();
-                            return lineJudgeDraw();
-                        }
-                        t52 = *(int *)0x8C20D14C;
-                        if (t52 == 0) {
-                            t53 = *(int *)0x8C20D150;
-                            if (t53 != 3) {
-                                lineJudgeUpdate();
-                                return lineJudgeDraw();
-                            }
-                            return t53;
-                        }
-                        lineJudgeUpdate();
-                        return lineJudgeDraw();
-                    }
-                    t56 = *(int *)0x8C20D14C;
-                    if (t56 == 0) {
-                        t57 = *(int *)0x8C20D150;
-                        if (t57 != 3) {
-                            lineJudgeUpdate();
-                            return lineJudgeDraw();
-                        }
-                        return t57;
-                    }
-                    lineJudgeUpdate();
-                    return lineJudgeDraw();
-                }
-                return t33;
-            }
-            return t32;
-        }
-        t60 = *(int *)0x8C37EA80;
-        if ((t60 & 2) == 0) {
-            t61 = *(int *)0x8C287D5C;
-            if (t61 != 3) {
-                if (t0 != 0) {
-                    t62 = *(int *)0x8C29B27C;
-                    if (t62 == 0) {
-                        t63 = *(int *)0x8C295DF4;
-                        if (t63 != 0) {
-                            if (t63 != 6) {
-                                if (t63 != 12) {
-                                    if (t63 == 14) {
-                                        t64 = *(int *)0x8C20D14C;
-                                        if (t64 == 0) {
-                                            t65 = *(int *)0x8C20D150;
-                                            if (t65 != 3) {
-                                                lineJudgeUpdate();
-                                                return lineJudgeDraw();
-                                            }
-                                            return t65;
-                                        }
-                                        lineJudgeUpdate();
-                                        return lineJudgeDraw();
-                                    }
-                                    return t63;
-                                }
-                                t68 = *(int *)0x8C20D14C;
-                                if (t68 == 0) {
-                                    t69 = *(int *)0x8C20D150;
-                                    if (t69 != 3) {
-                                        lineJudgeUpdate();
-                                        return lineJudgeDraw();
-                                    }
-                                    return t69;
-                                }
-                                lineJudgeUpdate();
-                                return lineJudgeDraw();
-                            }
-                            t72 = *(int *)0x8C20D14C;
-                            if (t72 == 0) {
-                                t73 = *(int *)0x8C20D150;
-                                if (t73 != 3) {
-                                    lineJudgeUpdate();
-                                    return lineJudgeDraw();
-                                }
-                                return t73;
-                            }
-                            lineJudgeUpdate();
-                            return lineJudgeDraw();
-                        }
-                        t76 = *(int *)0x8C20D14C;
-                        if (t76 == 0) {
-                            t77 = *(int *)0x8C20D150;
-                            if (t77 != 3) {
-                                lineJudgeUpdate();
-                                return lineJudgeDraw();
-                            }
-                            return t77;
-                        }
-                        lineJudgeUpdate();
-                        return lineJudgeDraw();
-                    }
-                    t80 = *(int *)0x8C20D14C;
-                    if (t80 == 0) {
-                        t81 = *(int *)0x8C20D150;
-                        if (t81 != 3) {
-                            lineJudgeUpdate();
-                            return lineJudgeDraw();
-                        }
-                        return t81;
-                    }
-                    lineJudgeUpdate();
-                    return lineJudgeDraw();
-                }
-                t84 = *(int *)0x8C20D14C;
-                if (t84 == 0) {
-                    t85 = *(int *)0x8C20D150;
-                    if (t85 != 3) {
-                        lineJudgeUpdate();
-                        return lineJudgeDraw();
-                    }
-                    return t85;
-                }
-                lineJudgeUpdate();
-                return lineJudgeDraw();
-            }
-            return t61;
-        }
-        return t60;
-    }
-    t88 = *(int *)0x8C37EA80;
-    if ((t88 & 2) == 0) {
-        t89 = *(int *)0x8C287D5C;
-        if (t89 != 3) {
-            if (t0 != 0) {
-                t90 = *(int *)0x8C29B27C;
-                if (t90 == 0) {
-                    t91 = *(int *)0x8C295DF4;
-                    if (t91 != 0) {
-                        if (t91 != 6) {
-                            if (t91 != 12) {
-                                if (t91 == 14) {
-                                    t92 = *(int *)0x8C20D14C;
-                                    if (t92 == 0) {
-                                        t93 = *(int *)0x8C20D150;
-                                        if (t93 != 3) {
-                                            lineJudgeUpdate();
-                                            return lineJudgeDraw();
-                                        }
-                                        return t93;
-                                    }
-                                    lineJudgeUpdate();
-                                    return lineJudgeDraw();
-                                }
-                                return t91;
-                            }
-                            t96 = *(int *)0x8C20D14C;
-                            if (t96 == 0) {
-                                t97 = *(int *)0x8C20D150;
-                                if (t97 != 3) {
-                                    lineJudgeUpdate();
-                                    return lineJudgeDraw();
-                                }
-                                return t97;
-                            }
-                            lineJudgeUpdate();
-                            return lineJudgeDraw();
-                        }
-                        t100 = *(int *)0x8C20D14C;
-                        if (t100 == 0) {
-                            t101 = *(int *)0x8C20D150;
-                            if (t101 != 3) {
-                                lineJudgeUpdate();
-                                return lineJudgeDraw();
-                            }
-                            return t101;
-                        }
-                        lineJudgeUpdate();
-                        return lineJudgeDraw();
-                    }
-                    t104 = *(int *)0x8C20D14C;
-                    if (t104 == 0) {
-                        t105 = *(int *)0x8C20D150;
-                        if (t105 != 3) {
-                            lineJudgeUpdate();
-                            return lineJudgeDraw();
-                        }
-                        return t105;
-                    }
-                    lineJudgeUpdate();
-                    return lineJudgeDraw();
-                }
-                t108 = *(int *)0x8C20D14C;
-                if (t108 == 0) {
-                    t109 = *(int *)0x8C20D150;
-                    if (t109 != 3) {
-                        lineJudgeUpdate();
-                        return lineJudgeDraw();
-                    }
-                    return t109;
-                }
-                lineJudgeUpdate();
-                return lineJudgeDraw();
-            }
-            t112 = *(int *)0x8C20D14C;
-            if (t112 == 0) {
-                t113 = *(int *)0x8C20D150;
-                if (t113 != 3) {
-                    lineJudgeUpdate();
-                    return lineJudgeDraw();
-                }
-                return t113;
-            }
-            lineJudgeUpdate();
-            return lineJudgeDraw();
-        }
-        return t89;
-    }
-    return t88;
-}
 
 
 int netJudgeDraw(void)
@@ -6748,535 +6108,38 @@ int netJudgeDraw(void)
     return 0;
 }
 
+/* manual: the original is one chain of tests whose branches meet at a shared tail (netJudgeUpdate, then netJudgeDraw); the
+   generated form copied that tail into every path (2,664 bytes for 114). r0 at each early return is the value last tested. */
 int netJudgeExec(void)
 {
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-    int t12;
-    int t13;
-    int t14;
-    int t15;
-    int t18;
-    int t19;
-    int t20;
-    int t21;
-    int t24;
-    int t25;
-    int t26;
-    int t27;
-    int t30;
-    int t31;
-    int t32;
-    int t33;
-    int t36;
-    int t37;
-    int t38;
-    int t39;
-    int t42;
-    int t43;
-    int t44;
-    int t45;
-    int t46;
-    int t47;
-    int t50;
-    int t51;
-    int t52;
-    int t53;
-    int t56;
-    int t57;
-    int t58;
-    int t59;
-    int t62;
-    int t63;
-    int t64;
-    int t65;
-    int t68;
-    int t69;
-    int t70;
-    int t71;
-    int t74;
-    int t75;
-    int t76;
-    int t77;
-    int t80;
-    int t81;
-    int t82;
-    int t83;
-    int t84;
-    int t85;
-    int t88;
-    int t89;
-    int t90;
-    int t91;
-    int t94;
-    int t95;
-    int t96;
-    int t97;
-    int t100;
-    int t101;
-    int t102;
-    int t103;
-    int t106;
-    int t107;
-    int t108;
-    int t109;
-    int t112;
-    int t113;
-    int t114;
-    int t115;
-    int t118;
-    int t119;
-    int t120;
-    int t121;
-
-    t0 = *(int *)0x8C421F60;
-    if (t0 != 0) {
-        t1 = *(int *)0x8C29B27C;
-        if (t1 != 1) {
-            t2 = *(int *)0x8C29B27C;
-            if (t2 != 0) {
-                t3 = *(int *)0x8C29B27C;
-                if (t3 == 3) {
-                    if (t0 != 0) {
-                        t4 = *(int *)0x8C29B27C;
-                        if (t4 == 0) {
-                            t5 = *(int *)0x8C295DF4;
-                            if (t5 != 0) {
-                                if (t5 != 6) {
-                                    if (t5 != 12) {
-                                        if (t5 == 14) {
-                                            t6 = *(int *)0x8C287D5C;
-                                            if (t6 != 3) {
-                                                t7 = *(int *)0x8C37EA80;
-                                                if ((t7 & 4) == 0) {
-                                                    t8 = *(int *)0x8C20D14C;
-                                                    if (t8 == 0) {
-                                                        t9 = *(int *)0x8C20D150;
-                                                        if (t9 != 3) {
-                                                            netJudgeUpdate();
-                                                            return netJudgeDraw();
-                                                        }
-                                                        return t9;
-                                                    }
-                                                    netJudgeUpdate();
-                                                    return netJudgeDraw();
-                                                }
-                                                return t7;
-                                            }
-                                            return t6;
-                                        }
-                                        return t5;
-                                    }
-                                    t12 = *(int *)0x8C287D5C;
-                                    if (t12 != 3) {
-                                        t13 = *(int *)0x8C37EA80;
-                                        if ((t13 & 4) == 0) {
-                                            t14 = *(int *)0x8C20D14C;
-                                            if (t14 == 0) {
-                                                t15 = *(int *)0x8C20D150;
-                                                if (t15 != 3) {
-                                                    netJudgeUpdate();
-                                                    return netJudgeDraw();
-                                                }
-                                                return t15;
-                                            }
-                                            netJudgeUpdate();
-                                            return netJudgeDraw();
-                                        }
-                                        return t13;
-                                    }
-                                    return t12;
-                                }
-                                t18 = *(int *)0x8C287D5C;
-                                if (t18 != 3) {
-                                    t19 = *(int *)0x8C37EA80;
-                                    if ((t19 & 4) == 0) {
-                                        t20 = *(int *)0x8C20D14C;
-                                        if (t20 == 0) {
-                                            t21 = *(int *)0x8C20D150;
-                                            if (t21 != 3) {
-                                                netJudgeUpdate();
-                                                return netJudgeDraw();
-                                            }
-                                            return t21;
-                                        }
-                                        netJudgeUpdate();
-                                        return netJudgeDraw();
-                                    }
-                                    return t19;
-                                }
-                                return t18;
-                            }
-                            t24 = *(int *)0x8C287D5C;
-                            if (t24 != 3) {
-                                t25 = *(int *)0x8C37EA80;
-                                if ((t25 & 4) == 0) {
-                                    t26 = *(int *)0x8C20D14C;
-                                    if (t26 == 0) {
-                                        t27 = *(int *)0x8C20D150;
-                                        if (t27 != 3) {
-                                            netJudgeUpdate();
-                                            return netJudgeDraw();
-                                        }
-                                        return t27;
-                                    }
-                                    netJudgeUpdate();
-                                    return netJudgeDraw();
-                                }
-                                return t25;
-                            }
-                            return t24;
-                        }
-                        t30 = *(int *)0x8C287D5C;
-                        if (t30 != 3) {
-                            t31 = *(int *)0x8C37EA80;
-                            if ((t31 & 4) == 0) {
-                                t32 = *(int *)0x8C20D14C;
-                                if (t32 == 0) {
-                                    t33 = *(int *)0x8C20D150;
-                                    if (t33 != 3) {
-                                        netJudgeUpdate();
-                                        return netJudgeDraw();
-                                    }
-                                    return t33;
-                                }
-                                netJudgeUpdate();
-                                return netJudgeDraw();
-                            }
-                            return t31;
-                        }
-                        return t30;
-                    }
-                    t36 = *(int *)0x8C287D5C;
-                    if (t36 != 3) {
-                        t37 = *(int *)0x8C37EA80;
-                        if ((t37 & 4) == 0) {
-                            t38 = *(int *)0x8C20D14C;
-                            if (t38 == 0) {
-                                t39 = *(int *)0x8C20D150;
-                                if (t39 != 3) {
-                                    netJudgeUpdate();
-                                    return netJudgeDraw();
-                                }
-                                return t39;
-                            }
-                            netJudgeUpdate();
-                            return netJudgeDraw();
-                        }
-                        return t37;
-                    }
-                    return t36;
-                }
-                return t3;
-            }
-            if (t0 != 0) {
-                t42 = *(int *)0x8C29B27C;
-                if (t42 == 0) {
-                    t43 = *(int *)0x8C295DF4;
-                    if (t43 != 0) {
-                        if (t43 != 6) {
-                            if (t43 != 12) {
-                                if (t43 == 14) {
-                                    t44 = *(int *)0x8C287D5C;
-                                    if (t44 != 3) {
-                                        t45 = *(int *)0x8C37EA80;
-                                        if ((t45 & 4) == 0) {
-                                            t46 = *(int *)0x8C20D14C;
-                                            if (t46 == 0) {
-                                                t47 = *(int *)0x8C20D150;
-                                                if (t47 != 3) {
-                                                    netJudgeUpdate();
-                                                    return netJudgeDraw();
-                                                }
-                                                return t47;
-                                            }
-                                            netJudgeUpdate();
-                                            return netJudgeDraw();
-                                        }
-                                        return t45;
-                                    }
-                                    return t44;
-                                }
-                                return t43;
-                            }
-                            t50 = *(int *)0x8C287D5C;
-                            if (t50 != 3) {
-                                t51 = *(int *)0x8C37EA80;
-                                if ((t51 & 4) == 0) {
-                                    t52 = *(int *)0x8C20D14C;
-                                    if (t52 == 0) {
-                                        t53 = *(int *)0x8C20D150;
-                                        if (t53 != 3) {
-                                            netJudgeUpdate();
-                                            return netJudgeDraw();
-                                        }
-                                        return t53;
-                                    }
-                                    netJudgeUpdate();
-                                    return netJudgeDraw();
-                                }
-                                return t51;
-                            }
-                            return t50;
-                        }
-                        t56 = *(int *)0x8C287D5C;
-                        if (t56 != 3) {
-                            t57 = *(int *)0x8C37EA80;
-                            if ((t57 & 4) == 0) {
-                                t58 = *(int *)0x8C20D14C;
-                                if (t58 == 0) {
-                                    t59 = *(int *)0x8C20D150;
-                                    if (t59 != 3) {
-                                        netJudgeUpdate();
-                                        return netJudgeDraw();
-                                    }
-                                    return t59;
-                                }
-                                netJudgeUpdate();
-                                return netJudgeDraw();
-                            }
-                            return t57;
-                        }
-                        return t56;
-                    }
-                    t62 = *(int *)0x8C287D5C;
-                    if (t62 != 3) {
-                        t63 = *(int *)0x8C37EA80;
-                        if ((t63 & 4) == 0) {
-                            t64 = *(int *)0x8C20D14C;
-                            if (t64 == 0) {
-                                t65 = *(int *)0x8C20D150;
-                                if (t65 != 3) {
-                                    netJudgeUpdate();
-                                    return netJudgeDraw();
-                                }
-                                return t65;
-                            }
-                            netJudgeUpdate();
-                            return netJudgeDraw();
-                        }
-                        return t63;
-                    }
-                    return t62;
-                }
-                t68 = *(int *)0x8C287D5C;
-                if (t68 != 3) {
-                    t69 = *(int *)0x8C37EA80;
-                    if ((t69 & 4) == 0) {
-                        t70 = *(int *)0x8C20D14C;
-                        if (t70 == 0) {
-                            t71 = *(int *)0x8C20D150;
-                            if (t71 != 3) {
-                                netJudgeUpdate();
-                                return netJudgeDraw();
-                            }
-                            return t71;
-                        }
-                        netJudgeUpdate();
-                        return netJudgeDraw();
-                    }
-                    return t69;
-                }
-                return t68;
-            }
-            t74 = *(int *)0x8C287D5C;
-            if (t74 != 3) {
-                t75 = *(int *)0x8C37EA80;
-                if ((t75 & 4) == 0) {
-                    t76 = *(int *)0x8C20D14C;
-                    if (t76 == 0) {
-                        t77 = *(int *)0x8C20D150;
-                        if (t77 != 3) {
-                            netJudgeUpdate();
-                            return netJudgeDraw();
-                        }
-                        return t77;
-                    }
-                    netJudgeUpdate();
-                    return netJudgeDraw();
-                }
-                return t75;
-            }
-            return t74;
+    int v;
+    if (*(int *)0x8C421F60 != 0) {
+        v = *(int *)0x8C29B27C;
+        if (v != 1 && v != 0 && v != 3) {
+            return v;
         }
-        if (t0 != 0) {
-            t80 = *(int *)0x8C29B27C;
-            if (t80 == 0) {
-                t81 = *(int *)0x8C295DF4;
-                if (t81 != 0) {
-                    if (t81 != 6) {
-                        if (t81 != 12) {
-                            if (t81 == 14) {
-                                t82 = *(int *)0x8C287D5C;
-                                if (t82 != 3) {
-                                    t83 = *(int *)0x8C37EA80;
-                                    if ((t83 & 4) == 0) {
-                                        t84 = *(int *)0x8C20D14C;
-                                        if (t84 == 0) {
-                                            t85 = *(int *)0x8C20D150;
-                                            if (t85 != 3) {
-                                                netJudgeUpdate();
-                                                return netJudgeDraw();
-                                            }
-                                            return t85;
-                                        }
-                                        netJudgeUpdate();
-                                        return netJudgeDraw();
-                                    }
-                                    return t83;
-                                }
-                                return t82;
-                            }
-                            return t81;
-                        }
-                        t88 = *(int *)0x8C287D5C;
-                        if (t88 != 3) {
-                            t89 = *(int *)0x8C37EA80;
-                            if ((t89 & 4) == 0) {
-                                t90 = *(int *)0x8C20D14C;
-                                if (t90 == 0) {
-                                    t91 = *(int *)0x8C20D150;
-                                    if (t91 != 3) {
-                                        netJudgeUpdate();
-                                        return netJudgeDraw();
-                                    }
-                                    return t91;
-                                }
-                                netJudgeUpdate();
-                                return netJudgeDraw();
-                            }
-                            return t89;
-                        }
-                        return t88;
-                    }
-                    t94 = *(int *)0x8C287D5C;
-                    if (t94 != 3) {
-                        t95 = *(int *)0x8C37EA80;
-                        if ((t95 & 4) == 0) {
-                            t96 = *(int *)0x8C20D14C;
-                            if (t96 == 0) {
-                                t97 = *(int *)0x8C20D150;
-                                if (t97 != 3) {
-                                    netJudgeUpdate();
-                                    return netJudgeDraw();
-                                }
-                                return t97;
-                            }
-                            netJudgeUpdate();
-                            return netJudgeDraw();
-                        }
-                        return t95;
-                    }
-                    return t94;
-                }
-                t100 = *(int *)0x8C287D5C;
-                if (t100 != 3) {
-                    t101 = *(int *)0x8C37EA80;
-                    if ((t101 & 4) == 0) {
-                        t102 = *(int *)0x8C20D14C;
-                        if (t102 == 0) {
-                            t103 = *(int *)0x8C20D150;
-                            if (t103 != 3) {
-                                netJudgeUpdate();
-                                return netJudgeDraw();
-                            }
-                            return t103;
-                        }
-                        netJudgeUpdate();
-                        return netJudgeDraw();
-                    }
-                    return t101;
-                }
-                return t100;
+        if (*(int *)0x8C29B27C == 0) {
+            v = *(int *)0x8C295DF4;
+            if (v != 0 && v != 6 && v != 12 && v != 14) {
+                return v;
             }
-            t106 = *(int *)0x8C287D5C;
-            if (t106 != 3) {
-                t107 = *(int *)0x8C37EA80;
-                if ((t107 & 4) == 0) {
-                    t108 = *(int *)0x8C20D14C;
-                    if (t108 == 0) {
-                        t109 = *(int *)0x8C20D150;
-                        if (t109 != 3) {
-                            netJudgeUpdate();
-                            return netJudgeDraw();
-                        }
-                        return t109;
-                    }
-                    netJudgeUpdate();
-                    return netJudgeDraw();
-                }
-                return t107;
-            }
-            return t106;
         }
-        t112 = *(int *)0x8C287D5C;
-        if (t112 != 3) {
-            t113 = *(int *)0x8C37EA80;
-            if ((t113 & 4) == 0) {
-                t114 = *(int *)0x8C20D14C;
-                if (t114 == 0) {
-                    t115 = *(int *)0x8C20D150;
-                    if (t115 != 3) {
-                        netJudgeUpdate();
-                        return netJudgeDraw();
-                    }
-                    return t115;
-                }
-                netJudgeUpdate();
-                return netJudgeDraw();
-            }
-            return t113;
-        }
-        return t112;
     }
-    t118 = *(int *)0x8C287D5C;
-    if (t118 != 3) {
-        t119 = *(int *)0x8C37EA80;
-        if ((t119 & 4) == 0) {
-            t120 = *(int *)0x8C20D14C;
-            if (t120 == 0) {
-                t121 = *(int *)0x8C20D150;
-                if (t121 != 3) {
-                    netJudgeUpdate();
-                    return netJudgeDraw();
-                }
-                return t121;
-            }
-            netJudgeUpdate();
-            return netJudgeDraw();
-        }
-        return t119;
+    if (*(int *)0x8C287D5C == 3) {
+        return 3;
     }
-    return t118;
+    v = *(int *)0x8C37EA80;
+    if (v & 4) {
+        return v;
+    }
+    if (*(int *)0x8C20D14C == 0 && *(int *)0x8C20D150 == 3) {
+        return 3;
+    }
+    netJudgeUpdate();
+    return netJudgeDraw();
 }
 
 
-int staffMorphInit(void)
-{
-    int t0;
-    int t4;
-    int t1;
-    int t3;
-
-    t0 = *(int *)0x8C1891E8;
-    t4 = t0;
-    if (t0 == 2) {
-        t1 = staffMorphCapture(0xC880640, 0x0);
-        *(unsigned int *)0x8C1D0194 = t1;
-        staffMorphCapture(0xC880640, 0x8C38AED0);
-        t3 = staffMorphCapture(0xC880960, 0x8C38B308);
-        t4 = t3;
-    }
-    return t4;
-}
 
 int staffMorphReset(void)
 {
@@ -7344,242 +6207,7 @@ int staffMorphReset(void)
     return t16;
 }
 
-int lineJudgeShadowPut(int a4, int a5)
-{
-    int t0;
-    int t1;
-    int t12;
-    int t11;
-    int t22;
-    int t33;
-    int t44;
-    int t55;
-    int t56;
-    int t45;
-    int t34;
-    int t23;
 
-    t0 = 0x0;
-    do {
-        t1 = *(int *)0x8C38B768;
-        if (t1 == 0) {
-            if (t0 != 0) {
-                if (t0 != 1) {
-                    if (t0 != 4) {
-                        t12 = t0;
-                        if (t0 == 5) {
-                            nlPushMatrix(0x0);
-                            nlScale(1.0f, (-1.0f), 1.0f);
-                            nlMultiMatrix(0x8C287978);
-                            nlMultiMatrix(((a4 + 0x1E4) + (((t0 << 2) << 2) << 2)));
-                            nlGetMatrix((a5 + (((t0 << 2) << 2) << 2)));
-                            nlPopMatrix(0x1);
-                            nlPushMatrix(0x0);
-                            nlLoadMatrix((a5 + (((t0 << 2) << 2) << 2)));
-                            lineJudgeShadowPart(t0);
-                            t11 = nlPopMatrix(0x1);
-                            t12 = t11;
-                        }
-                        t23 = t12;
-                    } else {
-                        nlPushMatrix(0x0);
-                        nlScale(1.0f, (-1.0f), 1.0f);
-                        nlMultiMatrix(0x8C287978);
-                        nlMultiMatrix(((a4 + 0x1E4) + (((t0 << 2) << 2) << 2)));
-                        nlGetMatrix((a5 + (((t0 << 2) << 2) << 2)));
-                        nlPopMatrix(0x1);
-                        nlPushMatrix(0x0);
-                        nlLoadMatrix((a5 + (((t0 << 2) << 2) << 2)));
-                        lineJudgeShadowPart(t0);
-                        t22 = nlPopMatrix(0x1);
-                        t23 = t22;
-                    }
-                    t34 = t23;
-                } else {
-                    nlPushMatrix(0x0);
-                    nlScale(1.0f, (-1.0f), 1.0f);
-                    nlMultiMatrix(0x8C287978);
-                    nlMultiMatrix(((a4 + 0x1E4) + (((t0 << 2) << 2) << 2)));
-                    nlGetMatrix((a5 + (((t0 << 2) << 2) << 2)));
-                    nlPopMatrix(0x1);
-                    nlPushMatrix(0x0);
-                    nlLoadMatrix((a5 + (((t0 << 2) << 2) << 2)));
-                    lineJudgeShadowPart(t0);
-                    t33 = nlPopMatrix(0x1);
-                    t34 = t33;
-                }
-                t45 = t34;
-            } else {
-                nlPushMatrix(0x0);
-                nlScale(1.0f, (-1.0f), 1.0f);
-                nlMultiMatrix(0x8C287978);
-                nlMultiMatrix(((a4 + 0x1E4) + (((t0 << 2) << 2) << 2)));
-                nlGetMatrix((a5 + (((t0 << 2) << 2) << 2)));
-                nlPopMatrix(0x1);
-                nlPushMatrix(0x0);
-                nlLoadMatrix((a5 + (((t0 << 2) << 2) << 2)));
-                lineJudgeShadowPart(t0);
-                t44 = nlPopMatrix(0x1);
-                t45 = t44;
-            }
-            t56 = t45;
-        } else {
-            nlPushMatrix(0x0);
-            nlScale(1.0f, (-1.0f), 1.0f);
-            nlMultiMatrix(0x8C287978);
-            nlMultiMatrix(((a4 + 0x1E4) + (((t0 << 2) << 2) << 2)));
-            nlGetMatrix((a5 + (((t0 << 2) << 2) << 2)));
-            nlPopMatrix(0x1);
-            nlPushMatrix(0x0);
-            nlLoadMatrix((a5 + (((t0 << 2) << 2) << 2)));
-            lineJudgeShadowPart(t0);
-            t55 = nlPopMatrix(0x1);
-            t56 = t55;
-        }
-        t0 = (t0 + 0x1);
-    } while ((int)t0 < (int)0xF);
-    return t56;
-}
-
-int lightAimFromMatrix(void)
-{
-    int t0;
-    int t9;
-    float u1;
-    float u2;
-    float u3;
-    int t7;
-    int t8;
-    float u11;
-    float u12;
-    float u13;
-    int t17;
-    int t18;
-    float u21;
-    float u22;
-    float u23;
-    int t27;
-    int t28;
-    float u31;
-    float u32;
-    float u33;
-    int t37;
-    int t38;
-    float u41;
-    float u42;
-    float u43;
-    int t47;
-    int t48;
-    float u51;
-    float u52;
-    float u53;
-    int t57;
-    int t58;
-    int t59;
-    int t49;
-    int t39;
-    int t29;
-    int t19;
-    int stk[13];
-
-    t0 = *(int *)0x8C1891E8;
-    if (t0 != 4) {
-        if (t0 != 1) {
-            if (t0 != 8) {
-                if (t0 != 7) {
-                    if (t0 != 10) {
-                        t9 = t0;
-                        if (t0 == 14) {
-                            u1 = *(float *)0x8C287920;
-                            u2 = *(float *)0x8C28791C;
-                            u3 = *(float *)0x8C287918;
-                            vecMake(u3, u2, u1);
-                            vecMake(0.0f, 0.0f, 0.0f);
-                            vecAnglesTo((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
-                            t7 = *(short *)(((int)stk + 36));
-                            *(unsigned short *)(((int)stk + 36)) = (-t7);
-                            t8 = *(short *)(((int)stk + 32));
-                            *(unsigned short *)(((int)stk + 32)) = (-t8);
-                            *(unsigned int *)0x8C38B828 = (unsigned short)(-t8);
-                            t9 = (-t7);
-                        }
-                        t19 = t9;
-                    } else {
-                        u11 = *(float *)0x8C287920;
-                        u12 = *(float *)0x8C28791C;
-                        u13 = *(float *)0x8C287918;
-                        vecMake(u13, u12, u11);
-                        vecMake(0.0f, 0.0f, 0.0f);
-                        vecAnglesTo((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
-                        t17 = *(short *)(((int)stk + 36));
-                        *(unsigned short *)(((int)stk + 36)) = (-t17);
-                        t18 = *(short *)(((int)stk + 32));
-                        *(unsigned short *)(((int)stk + 32)) = (-t18);
-                        *(unsigned int *)0x8C38B828 = (unsigned short)(-t18);
-                        t19 = (-t17);
-                    }
-                    t29 = t19;
-                } else {
-                    u21 = *(float *)0x8C287920;
-                    u22 = *(float *)0x8C28791C;
-                    u23 = *(float *)0x8C287918;
-                    vecMake(u23, u22, u21);
-                    vecMake(0.0f, 0.0f, 0.0f);
-                    vecAnglesTo((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
-                    t27 = *(short *)(((int)stk + 36));
-                    *(unsigned short *)(((int)stk + 36)) = (-t27);
-                    t28 = *(short *)(((int)stk + 32));
-                    *(unsigned short *)(((int)stk + 32)) = (-t28);
-                    *(unsigned int *)0x8C38B828 = (unsigned short)(-t28);
-                    t29 = (-t27);
-                }
-                t39 = t29;
-            } else {
-                u31 = *(float *)0x8C287920;
-                u32 = *(float *)0x8C28791C;
-                u33 = *(float *)0x8C287918;
-                vecMake(u33, u32, u31);
-                vecMake(0.0f, 0.0f, 0.0f);
-                vecAnglesTo((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
-                t37 = *(short *)(((int)stk + 36));
-                *(unsigned short *)(((int)stk + 36)) = (-t37);
-                t38 = *(short *)(((int)stk + 32));
-                *(unsigned short *)(((int)stk + 32)) = (-t38);
-                *(unsigned int *)0x8C38B828 = (unsigned short)(-t38);
-                t39 = (-t37);
-            }
-            t49 = t39;
-        } else {
-            u41 = *(float *)0x8C287920;
-            u42 = *(float *)0x8C28791C;
-            u43 = *(float *)0x8C287918;
-            vecMake(u43, u42, u41);
-            vecMake(0.0f, 0.0f, 0.0f);
-            vecAnglesTo((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
-            t47 = *(short *)(((int)stk + 36));
-            *(unsigned short *)(((int)stk + 36)) = (-t47);
-            t48 = *(short *)(((int)stk + 32));
-            *(unsigned short *)(((int)stk + 32)) = (-t48);
-            *(unsigned int *)0x8C38B828 = (unsigned short)(-t48);
-            t49 = (-t47);
-        }
-        t59 = t49;
-    } else {
-        u51 = *(float *)0x8C287920;
-        u52 = *(float *)0x8C28791C;
-        u53 = *(float *)0x8C287918;
-        vecMake(u53, u52, u51);
-        vecMake(0.0f, 0.0f, 0.0f);
-        vecAnglesTo((((int)stk + 8) + 0x1C), (((int)stk + 8) + 0x18));
-        t57 = *(short *)(((int)stk + 36));
-        *(unsigned short *)(((int)stk + 36)) = (-t57);
-        t58 = *(short *)(((int)stk + 32));
-        *(unsigned short *)(((int)stk + 32)) = (-t58);
-        *(unsigned int *)0x8C38B828 = (unsigned short)(-t58);
-        t59 = (-t57);
-    }
-    return t59;
-}
 
 void lightVec3EqualArgs(void)
 {
@@ -7717,15 +6345,26 @@ void sprPutCentered(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
     int t5;
     int t6;
     int stk[8];
+    float R1004;
+    float R1008;
+    float R1036;
+    float R1040;
+    float R1044;
 
-    u0 = *(float *)(((((int)stk + 4) + 0x20) + 0x0));
-    *(float *)((((int)stk + 4) + 0x0)) = (u0 - (f4 / (1.0f + 1.0f)));
-    u1 = *(float *)(((((int)stk + 4) + 0x20) + 0x4));
-    *(float *)((((int)stk + 4) + 0x4)) = (u1 - (f5 / (1.0f + 1.0f)));
-    u2 = *(float *)((((int)stk + 4) + 0x0));
+    R1004 = *(float *)((int)stk + 4);
+    R1008 = *(float *)((int)stk + 8);
+    R1036 = *(float *)((int)stk + 36);
+    R1040 = *(float *)((int)stk + 40);
+    R1044 = *(float *)((int)stk + 44);
+
+    u0 = R1036;
+    R1004 = (u0 - (f4 / (1.0f + 1.0f)));
+    u1 = R1040;
+    R1008 = (u1 - (f5 / (1.0f + 1.0f)));
+    u2 = R1004;
     *(float *)(((((int)stk + 4) + 0xC) + 0x0)) = (float)(int)u2;
     *(float *)(((((int)stk + 4) + 0xC) + 0x4)) = (float)(int)(u1 - (f5 / (1.0f + 1.0f)));
-    u3 = *(float *)(((((int)stk + 4) + 0x20) + 0x8));
+    u3 = R1044;
     *(float *)(((((int)stk + 4) + 0xC) + 0x8)) = u3;
     t4 = *(int *)(((((int)stk + 4) + 0xC) + 0x8));
     *(unsigned int *)((a8 + 0x8)) = t4;
@@ -7752,60 +6391,6 @@ void msgWinSet(int a4, int a5)
     *(unsigned int *)0x8C38BA54 = t2;
 }
 
-int padUnplugCheck(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t6;
-    int t11;
-    int t12;
-    int t13;
-    int t14;
-    int stk[9];
-
-    t0 = 0x0;
-    for (;;) {
-        t1 = *(int *)((((t0 << 2) + 0x8C287AE0) + 0x0));
-        if (t1 == 0) {
-            t2 = *(int *)0x8C287ADC;
-            if (t2 == 2) {
-                if ((int)t0 > (int)0x1) {
-                    *(unsigned int *)((((int)stk + 4) + (t0 << 2))) = 0xFFFFFFFF;
-                } else {
-                    t3 = *(int *)(((0xB64 + ((t0 * 0xD78) + 0x8C287D84)) + 0x0));
-                    *(unsigned int *)((((int)stk + 4) + (t0 << 2))) = t3;
-                }
-            } else {
-                t6 = *(int *)(((0xB64 + ((t0 * 0xD78) + 0x8C287D84)) + 0x0));
-                *(unsigned int *)((((int)stk + 4) + (t0 << 2))) = t6;
-            }
-        } else {
-            *(unsigned int *)((((int)stk + 4) + (t0 << 2))) = 0xFFFFFFFF;
-        }
-        t11 = *(int *)((((int)stk + 4) + (t0 << 2)));
-        if (t11 != -1) {
-            t12 = *(int *)(((t11 << 2) + 0x8C29B898));
-            t13 = *(int *)((t12 + 0x0));
-            if (t13 == 0) break;
-            t0 = (t0 + 0x1);
-            if ((int)t0 >= (int)0x4) {
-                return 0x0;
-            }
-            continue;
-        }
-        t0 = (t0 + 0x1);
-        if ((int)t0 >= (int)0x4) {
-            return 0x0;
-        }
-    }
-    t14 = 0x1;
-    if (t0 == 0) {
-        t14 = 0x2;
-    }
-    return t14;
-}
 
 int seFootstepPlay(int a4, int a5)
 {
@@ -8170,45 +6755,6 @@ int strmCallPair(int a4)
     return 0;
 }
 
-int strmCallPending(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t10;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t8;
-    int t9;
-    int t7;
-
-    t0 = *(int *)0x8C1891E8;
-    t1 = *(int *)(((t0 << 2) + 0x8C1D4770));
-    t2 = *(int *)(((t1 << 2) + 0x8C1D4A5C));
-    t10 = t2;
-    if (t2 != -1) {
-        t3 = *(int *)0x8C38BA98;
-        t4 = ADXT_GetStat(t3);
-        if (t4 != 5) {
-            if (t4 == 0) {
-                t5 = strmVoicePlay(0x9, t2);
-                t7 = t5;
-            } else {
-                t6 = strmVoiceQueueAdd(t2);
-                t7 = t6;
-            }
-            t9 = t7;
-        } else {
-            t8 = strmVoicePlay(0x9, t2);
-            t9 = t8;
-        }
-        *(unsigned int *)0x8C1D4A40 = 0x0;
-        t10 = t9;
-    }
-    return t10;
-}
 
 
 int strmCrowdFadeOut(void)
@@ -8222,71 +6768,6 @@ int strmCrowdFadeOut(void)
     return t0;
 }
 
-void evCrowdPointStart(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t4;
-    int t7;
-    int t8;
-    int t9;
-    int t10;
-    float u11;
-    int t12;
-    int t17;
-    int t19;
-    int t22;
-    int t23;
-    int t24;
-    int t25;
-    float u26;
-    int t27;
-
-    if ((int)a4 >= (int)0x96) {
-        t0 = *(int *)0x8C20D14C;
-        if (t0 == 6) {
-            t1 = *(int *)0x8C287D5C;
-            if (t1 != 3) {
-                t2 = *(int *)0x8C40C28C;
-                if (t2 == 1) {
-                    sndPack1FadeCancel();
-                    t4 = *(int *)0x8C38BA64;
-                    nlsndSystemControl(0x1, 0x10A0, t4);
-                }
-                t7 = set_event(0x20, 0x8C0D9072);
-                *(unsigned int *)0x8C40C278 = t7;
-                *(unsigned int *)0x8C40C280 = 0x1;
-                t8 = *(int *)0x8C287AFC;
-                t9 = *(int *)0x8C40C278;
-                *(unsigned int *)((t9 + 0x14)) = t8;
-                t10 = *(int *)0x8C40C278;
-                u11 = *(float *)0x8C23D204;
-                *(unsigned int *)((t10 + 0x18)) = (int)((float)a4 / u11);
-                t12 = *(int *)0x8C40C278;
-                *(unsigned int *)((t12 + 0x1C)) = a4;
-            }
-        } else {
-            t17 = *(int *)0x8C40C28C;
-            if (t17 == 1) {
-                sndPack1FadeCancel();
-                t19 = *(int *)0x8C38BA64;
-                nlsndSystemControl(0x1, 0x10A0, t19);
-            }
-            t22 = set_event(0x20, 0x8C0D9072);
-            *(unsigned int *)0x8C40C278 = t22;
-            *(unsigned int *)0x8C40C280 = 0x1;
-            t23 = *(int *)0x8C287AFC;
-            t24 = *(int *)0x8C40C278;
-            *(unsigned int *)((t24 + 0x14)) = t23;
-            t25 = *(int *)0x8C40C278;
-            u26 = *(float *)0x8C23D204;
-            *(unsigned int *)((t25 + 0x18)) = (int)((float)a4 / u26);
-            t27 = *(int *)0x8C40C278;
-            *(unsigned int *)((t27 + 0x1C)) = a4;
-        }
-    }
-}
 
 int evSeDelayed(int a4, int a5, int a6, int a7, int a8)
 {
@@ -8475,34 +6956,6 @@ void eepromIsMatchMax(void)
 }
 
 
-int BupRequestLoad(int a4, int a5, int a6, int a7)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-
-    t0 = thunk_FUN_8c1e0150();
-    if (t0 == 0) {
-        t1 = *(int *)0x8C40C6A4;
-        if (t1 == 0) {
-            t2 = 0x0;
-            for (;;) {
-                t3 = *(int *)((((((t2 << 2) + t2) << 2) + 0x8C40C634) + 0x0));
-                if (t3 == 0) break;
-                t2 = (t2 + 0x1);
-            }
-            *(unsigned int *)((((((t2 << 2) + t2) << 2) + 0x8C40C634) + 0x0)) = 0x2;
-            *(unsigned int *)((((((t2 << 2) + t2) << 2) + 0x8C40C634) + 0x4)) = a4;
-            *(unsigned int *)((((((t2 << 2) + t2) << 2) + 0x8C40C634) + 0x8)) = a5;
-            *(unsigned int *)((((((t2 << 2) + t2) << 2) + 0x8C40C634) + 0xC)) = a6;
-            *(unsigned int *)((((((t2 << 2) + t2) << 2) + 0x8C40C634) + 0x10)) = a7;
-            return padLcdSetMode(0xB);
-        }
-        return t0;
-    }
-    return t0;
-}
 
 void BupRequestSave(int a4, int a5, int a6, int a7)
 {
@@ -8638,6 +7091,19 @@ int shopDrawCatIcon(int a4, float f4)
     int t14;
     int t9;
     int stk[9];
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1036;
+    int R1040;
+    int R1044;
+
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1036 = *(int *)((int)stk + 36);
+    R1040 = *(int *)((int)stk + 40);
+    R1044 = *(int *)((int)stk + 44);
 
     if (a4 != 1) {
         if (a4 != 6) {
@@ -8646,162 +7112,77 @@ int shopDrawCatIcon(int a4, float f4)
                     if (a4 != 4) {
                         t4 = a4;
                         if (a4 == 5) {
-                            t0 = *(int *)(((((int)stk + 16) + 0x14) + 0x8));
-                            *(unsigned int *)((((int)stk + 4) + 0x8)) = t0;
-                            t1 = *(int *)(((((int)stk + 16) + 0x14) + 0x4));
-                            *(unsigned int *)((((int)stk + 4) + 0x4)) = t1;
-                            t2 = *(int *)(((((int)stk + 16) + 0x14) + 0x0));
-                            *(unsigned int *)((((int)stk + 4) + 0x0)) = t2;
+                            t0 = R1044;
+                            R1012 = t0;
+                            t1 = R1040;
+                            R1008 = t1;
+                            t2 = R1036;
+                            R1004 = t2;
                             t3 = sprListPut(0x8C1DAA64, 0x1, 0x0, 1.0f, 1.0f, f4);
                             t4 = t3;
                         }
                         t9 = t4;
                     } else {
-                        t5 = *(int *)(((((int)stk + 16) + 0x14) + 0x8));
-                        *(unsigned int *)((((int)stk + 4) + 0x8)) = t5;
-                        t6 = *(int *)(((((int)stk + 16) + 0x14) + 0x4));
-                        *(unsigned int *)((((int)stk + 4) + 0x4)) = t6;
-                        t7 = *(int *)(((((int)stk + 16) + 0x14) + 0x0));
-                        *(unsigned int *)((((int)stk + 4) + 0x0)) = t7;
+                        t5 = R1044;
+                        R1012 = t5;
+                        t6 = R1040;
+                        R1008 = t6;
+                        t7 = R1036;
+                        R1004 = t7;
                         t8 = sprListPut(0x8C1DA9F8, 0x1, 0x0, 1.0f, 1.0f, f4);
                         t9 = t8;
                     }
                     t14 = t9;
                 } else {
-                    t10 = *(int *)(((((int)stk + 16) + 0x14) + 0x8));
-                    *(unsigned int *)((((int)stk + 4) + 0x8)) = t10;
-                    t11 = *(int *)(((((int)stk + 16) + 0x14) + 0x4));
-                    *(unsigned int *)((((int)stk + 4) + 0x4)) = t11;
-                    t12 = *(int *)(((((int)stk + 16) + 0x14) + 0x0));
-                    *(unsigned int *)((((int)stk + 4) + 0x0)) = t12;
+                    t10 = R1044;
+                    R1012 = t10;
+                    t11 = R1040;
+                    R1008 = t11;
+                    t12 = R1036;
+                    R1004 = t12;
                     t13 = sprListPut(0x8C1DA98C, 0x1, 0x0, 1.0f, 1.0f, f4);
                     t14 = t13;
                 }
                 t19 = t14;
             } else {
-                t15 = *(int *)(((((int)stk + 16) + 0x14) + 0x8));
-                *(unsigned int *)((((int)stk + 4) + 0x8)) = t15;
-                t16 = *(int *)(((((int)stk + 16) + 0x14) + 0x4));
-                *(unsigned int *)((((int)stk + 4) + 0x4)) = t16;
-                t17 = *(int *)(((((int)stk + 16) + 0x14) + 0x0));
-                *(unsigned int *)((((int)stk + 4) + 0x0)) = t17;
+                t15 = R1044;
+                R1012 = t15;
+                t16 = R1040;
+                R1008 = t16;
+                t17 = R1036;
+                R1004 = t17;
                 t18 = sprListPut(0x8C1DAAD0, 0x1, 0x0, 1.0f, 1.0f, f4);
                 t19 = t18;
             }
             t24 = t19;
         } else {
-            t20 = *(int *)(((((int)stk + 16) + 0x14) + 0x8));
-            *(unsigned int *)((((int)stk + 4) + 0x8)) = t20;
-            t21 = *(int *)(((((int)stk + 16) + 0x14) + 0x4));
-            *(unsigned int *)((((int)stk + 4) + 0x4)) = t21;
-            t22 = *(int *)(((((int)stk + 16) + 0x14) + 0x0));
-            *(unsigned int *)((((int)stk + 4) + 0x0)) = t22;
+            t20 = R1044;
+            R1012 = t20;
+            t21 = R1040;
+            R1008 = t21;
+            t22 = R1036;
+            R1004 = t22;
             t23 = sprListPut(0x8C1DA920, 0x1, 0x0, 1.0f, 1.0f, f4);
             t24 = t23;
         }
         t29 = t24;
     } else {
-        t25 = *(int *)(((((int)stk + 16) + 0x14) + 0x8));
-        *(unsigned int *)((((int)stk + 4) + 0x8)) = t25;
-        t26 = *(int *)(((((int)stk + 16) + 0x14) + 0x4));
-        *(unsigned int *)((((int)stk + 4) + 0x4)) = t26;
-        t27 = *(int *)(((((int)stk + 16) + 0x14) + 0x0));
-        *(unsigned int *)((((int)stk + 4) + 0x0)) = t27;
+        t25 = R1044;
+        R1012 = t25;
+        t26 = R1040;
+        R1008 = t26;
+        t27 = R1036;
+        R1004 = t27;
         t28 = sprListPut(0x8C1DA8B4, 0x1, 0x0, 1.0f, 1.0f, f4);
         t29 = t28;
     }
     return t29;
 }
 
-int unlockCountW1(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t4;
-    int t5;
-    int t6;
 
-    t0 = 0x8;
-    t1 = 0x0;
-    do {
-        t2 = *(int *)0x8C40C30C;
-        t4 = (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & t2) == 0);
-        t0 = (t0 + 0x1);
-        if (!t4) {
-            t1 = (t1 + 0x1);
-        }
-    } while ((int)t0 < (int)0x1E);
-    t5 = *(int *)0x8C40C30C;
-    t6 = t1;
-    if ((t5 & 0x10000) != 0) {
-        t6 = (t1 - 1);
-    }
-    return t6;
-}
 
-int unlockCountW2(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t4;
 
-    t0 = 0x5;
-    t1 = 0x0;
-    do {
-        t2 = *(int *)0x8C40C310;
-        t4 = (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & t2) == 0);
-        t0 = (t0 + 0x1);
-        if (!t4) {
-            t1 = (t1 + 0x1);
-        }
-    } while ((int)t0 < (int)0x20);
-    return t1;
-}
 
-int unlockCountW0(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t4;
-
-    t0 = 0x0;
-    t1 = 0x0;
-    do {
-        t2 = *(int *)0x8C40C308;
-        t4 = (((((int)t0 >= 0) ? (0x1 << (t0 & 31)) : ((-(int)t0 & 31) ? ((int)0x1 >> (-(int)t0 & 31)) : ((int)0x1 >> 31))) & t2) == 0);
-        t0 = (t0 + 0x1);
-        if (!t4) {
-            t1 = (t1 + 0x1);
-        }
-    } while ((int)t0 < (int)0x20);
-    return t1;
-}
-
-void unlockTestW0(int a4)
-{
-    int t0;
-
-    if ((int)a4 >= 0) {
-        t0 = *(int *)0x8C40C308;
-        if (((((int)a4 >= 0) ? (0x1 << (a4 & 31)) : ((-(int)a4 & 31) ? ((int)0x1 >> (-(int)a4 & 31)) : ((int)0x1 >> 31))) & t0) != 0) {
-            return;
-        }
-        return;
-    }
-}
-
-void unlockTestW1(int a4)
-{
-    int t0;
-
-    t0 = *(int *)0x8C40C30C;
-    if (((((int)a4 >= 0) ? (0x1 << (a4 & 31)) : ((-(int)a4 & 31) ? ((int)0x1 >> (-(int)a4 & 31)) : ((int)0x1 >> 31))) & t0) != 0) {
-        return;
-    }
-}
 
 void unlockTestW2(int a4)
 {
@@ -9005,6 +7386,8 @@ int resTitleLoadStep(void)
     return t14;
 }
 
+/* manual: the call passes the argument the original sets (r4, r5: the texture slot and its entry); the callee is a trampoline into the NAOMI library, which reads none
+   itself, so the generated call passed none and the proof never compared it (as gdFsInit in sysInit). */
 int resCautionTexGarbage(void)
 {
     int t1;
@@ -9024,7 +7407,7 @@ int resCautionTexGarbage(void)
         t5 = *(int *)((t2 + 0x0));
         if (t5 != 0) {
             t6 = *(int *)((t3 + 0x0));
-            nlSpriteSetGarbagedTextureOnce();
+            nlSpriteSetGarbagedTextureOnce(0x8C18281C, t6);
         }
         t2 = (t2 + 0x4);
         t3 = (t3 + 0x4);

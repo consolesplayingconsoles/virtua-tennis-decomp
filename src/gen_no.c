@@ -55,6 +55,12 @@ float courtPropsDraw(void)
     float F14;
     float F15;
     int T_;
+    int R1056;
+    int R1060;
+    int R1064;
+    R1056 = *(int *)((int)stk + 56);
+    R1060 = *(int *)((int)stk + 60);
+    R1064 = *(int *)((int)stk + 64);
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 60) + 0x8)) = *(struct mv3 *)(0x8C120B38); }
     t0 = *(int *)0x8C287B3C;
     R0 = (t0);
@@ -85,21 +91,21 @@ float courtPropsDraw(void)
     goto L_8C0B63AC;
     L_8C0B63AC:;
     t17 = R9;
-    *(int *)((int)stk + 56) = t17;
+    R1056 = t17;
     camGetPos(t17);
     *(float *)((R9 + 0x4)) = F15;
-    *(unsigned int *)(((int)stk + 60)) = 0x0;
+    R1060 = 0x0;
     R0 = (0x4);
     R11 = ((0x0 + R14));
     R12 = ((0x0 + R14));
     if (((int)R10 > 0)) goto L_8C0B63CC;
     goto L_8C0B654C;
     L_8C0B63CC:;
-    *(unsigned int *)(((int)stk + 64)) = (*(int *)((R12 + 0xC)));
+    R1064 = (*(int *)((R12 + 0xC)));
     u24 = *(float *)((R12 + 0x8));
     u25 = *(float *)((R12 + 0x0));
     t26 = *(int *)((R12 + 0x10));
-    *(int *)((int)stk + 56) = (((int)stk + 60) + 0x20);
+    R1056 = (((int)stk + 60) + 0x20);
     *(Stk3 *)((((int)stk + 60) + 0x20)) = vecMake(u25, F15, u24);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 44)) = *(struct mv3 *)(R9); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((((int)stk + 60) + 0x20)); }
@@ -132,13 +138,13 @@ float courtPropsDraw(void)
     if ((R0 == 5)) goto L_8C0B64FE;
     if ((R14 == 0)) goto L_8C0B6536;
     L_8C0B651C:;
-    t53 = *(int *)(((int)stk + 64));
+    t53 = R1064;
     nlObjPut((*(int *)((((R13 << 2) + (0x8C189C48 + (((t53 << 1) + t53) << 2))) + 0x0))));
     R14 = (0x8C0F25B0);
     L_8C0B6536:;
     t57 = nlPopMatrix(0x1);
-    t58 = *(int *)(((int)stk + 60));
-    *(unsigned int *)(((int)stk + 60)) = (t58 + 0x1);
+    t58 = R1060;
+    R1060 = (t58 + 0x1);
     R0 = (t57);
     R11 = ((R11 + 0x14));
     R12 = ((R12 + 0x14));

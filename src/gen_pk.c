@@ -19,6 +19,8 @@ int nlsndInit(int a4, int a5)
     register int v0_3;
     register int v0_4;
     register int v0_5;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     v0_3 = a4;
     v0_1 = a5;
     v0_2 = nlsndG2Read((0xC4 + v0_3));
@@ -41,7 +43,7 @@ int nlsndInit(int a4, int a5)
     v0_2 = nlsndG2Read(0xA0702C00);
     nlsndG2Write((0x1 | (v0_2 & 0xFFFE)), 0xA0702C00);
     v0_2 = nlsndG2Read((v0_0 + 0x54));
-    *(unsigned int *)(((int)stk + 4)) = v0_2;
+    R1004 = v0_2;
     nlsndG2WriteN(v0_0, 0xA0800000, ((unsigned int)v0_2 >> 2));
     nlsndG2Write(v0_1, 0xA0800050);
     R10 = (0xFFFE);
@@ -53,7 +55,7 @@ int nlsndInit(int a4, int a5)
     if ((v0_3 != 0)) goto L_8C0F5140;
     v0_1 = nlsndG2Read(v0_4);
     nlsndG2Write((v0_1 & R10), v0_4);
-    *(unsigned int *)(((int)stk + 4)) = 0x8C454DD4;
+    R1004 = 0x8C454DD4;
     v0_3 = (0x0);
     v0_1 = (0x8C454DD4);
     v0_5 = (0xFFFFFFFF);

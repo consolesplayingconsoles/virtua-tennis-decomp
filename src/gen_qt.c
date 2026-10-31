@@ -30,6 +30,8 @@ void strmCallScore(int a4, int a5, int a6, int a7)
     int R13;
     int R14;
     int T_;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     R6 = a6;
     R7 = a7;
     t1 = *(int *)0x8C287C64;
@@ -71,7 +73,7 @@ void strmCallScore(int a4, int a5, int a6, int a7)
     L_8C0D7972:;
     R14 = (0x8C287D84);
     if (((int)R6 <= (int)R7)) goto L_8C0D79A2;
-    *(unsigned int *)(((int)stk + 4)) = (*(int *)((R14 + 0xC58)));
+    R1004 = (*(int *)((R14 + 0xC58)));
     R1 = (R12);
     R14 = (0x2);
     if (((int)0x2 >= (int)R6)) goto L_8C0D798E;
@@ -81,13 +83,13 @@ void strmCallScore(int a4, int a5, int a6, int a7)
     R14 = ((R14 + 0x1));
     if (t34) goto L_8C0D7986;
     L_8C0D798E:;
-    R14 = (((*(int *)((((((*(int *)((R4 + 0x0))) * R13) + R5) + ((*(int *)(((int)stk + 4))) << 2)) + 0x1C))) + R7));
+    R14 = (((*(int *)((((((*(int *)((R4 + 0x0))) * R13) + R5) + ((R1004) << 2)) + 0x1C))) + R7));
     L_8C0D79CE:;
     R14 = ((R14 + R1));
     goto L_8C0D7A58;
     L_8C0D79A2:;
     if (((int)R7 <= (int)R6)) goto L_8C0D79F4;
-    *(unsigned int *)(((int)stk + 4)) = (*(int *)((R14 + 0x19D0)));
+    R1004 = (*(int *)((R14 + 0x19D0)));
     R1 = (R12);
     R14 = (0x2);
     if (((int)0x2 >= (int)R7)) goto L_8C0D79BC;
@@ -97,7 +99,7 @@ void strmCallScore(int a4, int a5, int a6, int a7)
     R14 = ((R14 + 0x1));
     if (t47) goto L_8C0D79B4;
     L_8C0D79BC:;
-    R14 = (((*(int *)((((((*(int *)((R4 + 0x0))) * R13) + R5) + ((*(int *)(((int)stk + 4))) << 2)) + 0x1C))) + R6));
+    R14 = (((*(int *)((((((*(int *)((R4 + 0x0))) * R13) + R5) + ((R1004) << 2)) + 0x1C))) + R6));
     goto L_8C0D79CE;
     L_8C0D79F4:;
     if ((R7 != R6)) goto L_8C0D7A58;

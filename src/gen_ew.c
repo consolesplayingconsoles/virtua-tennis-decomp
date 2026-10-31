@@ -66,6 +66,15 @@ int gameMatchSetup(void)
     int t58;
     int t69;
     int stk[13];
+    int R1008;
+    int R1012;
+    int R1016;
+    int R1020;
+
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
 
     *(unsigned int *)0x8C287B3C = 0x0;
     *(unsigned int *)0x8C287AD4 = 0x0;
@@ -133,10 +142,10 @@ int gameMatchSetup(void)
                 *(unsigned int *)0x8C289754 = (*(int *)(((((((t36 << 2) << 2) + t36) << 2) + 0x8C108E5C) + 0x3C)));
             }
             if ((*(int *)0x8C289754) == -1) {
-                *(unsigned int *)(((int)stk + 8)) = 0x8C288AFC;
+                R1008 = 0x8C288AFC;
                 for (;;) {
-                    *(unsigned int *)(((0xC58 + (*(int *)(((int)stk + 8)))) + 0x0)) = ((int)((nlRandom()) * 8.0f) + 0x8);
-                    if ((*(int *)(((*(int *)(((int)stk + 8))) + 0xC58))) != (unsigned char)(*(signed char *)0x8C2FBC7D)) {
+                    *(unsigned int *)(((0xC58 + (R1008)) + 0x0)) = ((int)((nlRandom()) * 8.0f) + 0x8);
+                    if ((*(int *)(((R1008) + 0xC58))) != (unsigned char)(*(signed char *)0x8C2FBC7D)) {
                         break;
                     }
                 }
@@ -152,7 +161,7 @@ int gameMatchSetup(void)
             if ((*(int *)0x8C28B244) == -1) {
                 for (;;) {
                     *(unsigned int *)0x8C28B244 = ((int)((nlRandom()) * 8.0f) + 0x8);
-                    *(unsigned int *)(((int)stk + 12)) = 0x8C28A5EC;
+                    R1012 = 0x8C28A5EC;
                     t67 = *(int *)0x8C28B244;
                     if ((t67 != (unsigned char)(*(signed char *)0x8C2FBC7D)) && (t69 = *(int *)0x8C289754, t67 != t69)) {
                         break;
@@ -165,7 +174,7 @@ int gameMatchSetup(void)
         *(unsigned int *)0x8C289754 = 0x10;
     }
     entryInit();
-    entryPortJoin((*(int *)0x8C421F70), 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12));
+    entryPortJoin((*(int *)0x8C421F70), 0x0, 0x0, 0x0, R1008, R1012, R1016, R1020);
     entrySetSlot(0x0, (*(int *)0x8C2889DC), 0x0, (*(int *)0x8C421F70));
     *(unsigned int *)0x8C343294 = (*(signed char *)0x8C2FBC83);
     entrySetSlot(0x1, (*(int *)0x8C289754), 0x1, 0x0);

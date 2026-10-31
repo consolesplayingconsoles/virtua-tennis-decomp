@@ -12,25 +12,32 @@ int primRect(int a4, int a5, int a6, Stk3 s)
     int t4;
     int t9;
     int stk[41];
+    int R1004;
+    int R1020;
+    int R1024;
+
+    R1004 = *(int *)((int)stk + 4);
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
 
     stk[30] = s.w[0];
     stk[31] = s.w[1];
     stk[32] = s.w[2];
-    *(unsigned int *)(((int)stk + 20)) = a4;
-    *(unsigned int *)(((int)stk + 24)) = a5;
+    R1020 = a4;
+    R1024 = a5;
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((((int)stk + 20) + 0x64) + 0x0))), (*(float *)(((((int)stk + 20) + 0x64) + 0x4))), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    *(int *)((int)stk + 4) = (((int)stk + 20) + 0x8);
+    R1004 = (((int)stk + 20) + 0x8);
     primVertexSet(a6, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x8));
-    t4 = *(int *)(((int)stk + 20));
+    t4 = R1020;
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((((int)stk + 20) + 0x64) + 0x0))) - (float)t4), (*(float *)(((((int)stk + 20) + 0x64) + 0x4))), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    *(int *)((int)stk + 4) = (0x10 + (((int)stk + 20) + 0x8));
+    R1004 = (0x10 + (((int)stk + 20) + 0x8));
     primVertexSet(a6, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x8)));
-    t9 = *(int *)(((int)stk + 24));
+    t9 = R1024;
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((((int)stk + 20) + 0x64) + 0x0))), ((*(float *)(((((int)stk + 20) + 0x64) + 0x4))) + (float)t9), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    *(int *)((int)stk + 4) = (0x20 + (((int)stk + 20) + 0x8));
+    R1004 = (0x20 + (((int)stk + 20) + 0x8));
     primVertexSet(a6, 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x8)));
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((((int)stk + 20) + 0x64) + 0x0))) - (float)t4), ((*(float *)(((((int)stk + 20) + 0x64) + 0x4))) + (float)t9), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    *(int *)((int)stk + 4) = (0x30 + (((int)stk + 20) + 0x8));
+    R1004 = (0x30 + (((int)stk + 20) + 0x8));
     primVertexSet(a6, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x8)));
     return (nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x8)));
 }

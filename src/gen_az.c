@@ -557,9 +557,11 @@ void netJudgeUpdate(int a4)
     float F14;
     float F15;
     int T_;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     R4 = a4;
     L_8C0CA5A8:;
-    *(unsigned int *)(((int)stk + 4)) = R4;
+    R1004 = R4;
     t0 = *(int *)0x8C1891E8;
     R4 = (t0);
     if (((int)t0 <= (int)0x9)) goto L_8C0CA5CE;
@@ -658,7 +660,7 @@ void netJudgeUpdate(int a4)
     goto L_8C0CA660;
     L_8C0CA660:;
     motionSetSpeed((R14 + 0x4), F15);
-    t53 = *(int *)(((*(int *)(((int)stk + 4))) + 0x54));
+    t53 = *(int *)(((R1004) + 0x54));
     R0 = (0x54);
     R4 = (t53);
     if (((0x4 & t53) != 0)) goto L_8C0CA67A;
@@ -673,7 +675,7 @@ void netJudgeUpdate(int a4)
     L_8C0CA620:;
     *(unsigned int *)((R14 + 0x5B4)) = R13;
     *(unsigned int *)((R14 + 0x5C0)) = R11;
-    t60 = *(int *)(((*(int *)(((int)stk + 4))) + 0x54));
+    t60 = *(int *)(((R1004) + 0x54));
     R0 = (0x54);
     R4 = (t60);
     if (((0x4 & t60) == 0)) goto L_8C0CA638;

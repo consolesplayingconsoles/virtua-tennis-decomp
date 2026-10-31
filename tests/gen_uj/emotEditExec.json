@@ -1,14 +1,28 @@
 {
  "dev": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "search: r4 -> scratch, r5 -> scratch2",
+   "regs": {
+    "r4": "8C700000",
+    "r5": "8C704000"
+   },
+   "poke": {}
   }
  ],
  "holdout": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "search: call 1 r0=00000001",
+   "regs": {
+    "r4": "8C700000",
+    "r5": "8C704000"
+   },
+   "poke": {},
+   "calls": [
+    {},
+    {
+     "r0": "00000001"
+    }
+   ]
   }
  ]
 }

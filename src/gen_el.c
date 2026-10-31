@@ -345,44 +345,6 @@ int hudCallMsgDrawDab0(float f4, float f5)
     return (sprPutCropV(0x8C33DB00, 0x0, *(Stk3 *)(((int)stk + 4)), f4, 1.0f, f5));
 }
 
-int hudPointsPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
-{
-    int t11;
-    int t8;
-    int t5;
-    int t2;
-    int stk[18];
-
-    stk[7] = a8;
-    stk[8] = a9;
-    stk[9] = a10;
-    if (a4 != 0) {
-        if (a4 != 1) {
-            if (a4 != 2) {
-                if (a4 != 3) {
-                    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                    t2 = (sprPutAt(0x8C33BD50, a5, a6, a7, *(Stk3 *)(((int)stk + 4))));
-                } else {
-                    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                    t2 = (hudNumPut(0x28, *(Stk3 *)(((int)stk + 4)), 1.0f));
-                }
-                t5 = t2;
-            } else {
-                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-                t5 = (hudNumPut(0x1E, *(Stk3 *)(((int)stk + 4)), 1.0f));
-            }
-            t8 = t5;
-        } else {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-            t8 = (hudNumPut(0xF, *(Stk3 *)(((int)stk + 4)), 1.0f));
-        }
-        t11 = t8;
-    } else {
-        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-        t11 = (hudNumPut(0x0, *(Stk3 *)(((int)stk + 4)), 1.0f));
-    }
-    return t11;
-}
 
 int menuTextLetterPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4)
 {
@@ -522,64 +484,7 @@ int hudCallMsgDrawDb00(float f4, float f5)
     return (sprPutCropV(0x8C33DB00, 0x0, *(Stk3 *)(((int)stk + 4)), f4, 1.0f, f5));
 }
 
-int hudImpactSpawn(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14, int a15, int a16, int a17, int a18, int a19, int a20, int a21, int a22, int a23, float f4)
-{
-    int t0;
-    int stk[28];
 
-    stk[4] = a8;
-    stk[5] = a9;
-    stk[6] = a10;
-    stk[7] = a11;
-    stk[8] = a12;
-    stk[9] = a13;
-    stk[10] = a14;
-    stk[11] = a15;
-    stk[12] = a16;
-    stk[13] = a17;
-    stk[14] = a18;
-    stk[15] = a19;
-    stk[16] = a20;
-    stk[17] = a21;
-    stk[18] = a22;
-    stk[19] = a23;
-    *(float *)(((int)stk + 8)) = f4;
-    *(unsigned int *)(((int)stk + 4)) = a4;
-    t0 = set_event(0x64, 0x8C086182);
-    if ((*(int *)0x8C287ADC) == 4) {
-        *(unsigned int *)((t0 + 0x14)) = 0x1;
-    } else {
-        *(unsigned int *)((t0 + 0x14)) = 0x5;
-    }
-    { struct mv16 { int w[16]; }; *(struct mv16 *)((t0 + 0x18)) = *(struct mv16 *)((((int)stk + 4) + 0xC)); }
-    *(float *)((t0 + 0x58)) = (*(float *)(((int)stk + 8)));
-    *(float *)((t0 + 0x5C)) = (*(float *)0x8C086430);
-    *(unsigned int *)((t0 + 0x60)) = (*(int *)(((int)stk + 4)));
-    return 0x60;
-}
-
-int optionQuadPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
-{
-    int t0;
-    int stk[30];
-
-    stk[19] = a8;
-    stk[20] = a9;
-    stk[21] = a10;
-    { struct mv16 { int w[16]; }; *(struct mv16 *)(((int)stk + 4)) = *(struct mv16 *)(0x8C126554); }
-    t0 = ((int)stk + 4);
-    for (;;) {
-        *(float *)((t0 + 0x0)) = ((*(float *)((t0 + 0x0))) + (*(float *)(((((int)stk + 4) + 0x48) + 0x0))));
-        *(float *)((t0 + 0x4)) = ((*(float *)((t0 + 0x4))) + (*(float *)(((0x4 + (((int)stk + 4) + 0x48)) + 0x0))));
-        *(float *)((t0 + 0x8)) = (*(float *)(((((int)stk + 4) + 0x48) + 0x8)));
-        *(unsigned int *)((t0 + 0xC)) = a4;
-        t0 = (t0 + 0x10);
-        if ((unsigned int)t0 >= (unsigned int)(((int)stk + 4) + 0x40)) {
-            break;
-        }
-    }
-    return (nlDispStripTrnsl(0x4, ((int)stk + 4), *(Stk16 *)(((int)stk + 4))));
-}
 
 int rankDraw(void)
 {
@@ -645,13 +550,20 @@ int cpuDebugBallLine(void)
 int sprTexLoad(int a4)
 {
     int stk[11];
+    int R1024;
+    int R1028;
+    int R1032;
+
+    R1024 = *(int *)((int)stk + 24);
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
 
     { struct mv4 { int w[4]; }; *(struct mv4 *)(((int)stk + 4)) = *(struct mv4 *)((((a4 << 2) << 2) + 0x8C18281C)); }
     *(unsigned short *)(((((int)stk + 4) + 0x10) + 0x0)) = 0xFFFFFFFF;
     *(unsigned short *)(((((int)stk + 4) + 0x10) + 0x2)) = 0xFFFFFFFF;
-    *(unsigned int *)(((((int)stk + 4) + 0x10) + 0x4)) = 0xFFFFFFFF;
-    *(unsigned int *)(((((int)stk + 4) + 0x10) + 0x8)) = 0xFFFFFFFF;
-    *(unsigned int *)(((((int)stk + 4) + 0x10) + 0xC)) = 0xFFFFFFFF;
+    R1024 = 0xFFFFFFFF;
+    R1028 = 0xFFFFFFFF;
+    R1032 = 0xFFFFFFFF;
     nlSetCommonTextureOffset(a4, *(Stk4 *)(((int)stk + 4)));
     return (nlSpriteLoadTextureList(((int)stk + 4), 0x0));
 }
@@ -659,13 +571,20 @@ int sprTexLoad(int a4)
 int sprTexFree(int a4)
 {
     int stk[11];
+    int R1024;
+    int R1028;
+    int R1032;
+
+    R1024 = *(int *)((int)stk + 24);
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
 
     { struct mv4 { int w[4]; }; *(struct mv4 *)(((int)stk + 4)) = *(struct mv4 *)((((a4 << 2) << 2) + 0x8C18281C)); }
     *(unsigned short *)(((((int)stk + 4) + 0x10) + 0x0)) = 0xFFFFFFFF;
     *(unsigned short *)(((((int)stk + 4) + 0x10) + 0x2)) = 0xFFFFFFFF;
-    *(unsigned int *)(((((int)stk + 4) + 0x10) + 0x4)) = 0xFFFFFFFF;
-    *(unsigned int *)(((((int)stk + 4) + 0x10) + 0x8)) = 0xFFFFFFFF;
-    *(unsigned int *)(((((int)stk + 4) + 0x10) + 0xC)) = 0xFFFFFFFF;
+    R1024 = 0xFFFFFFFF;
+    R1028 = 0xFFFFFFFF;
+    R1032 = 0xFFFFFFFF;
     nlSetCommonTextureOffset(a4, *(Stk4 *)(((int)stk + 4)));
     return (nlSpriteFreeTexture(((int)stk + 4), 0x0));
 }
@@ -688,13 +607,61 @@ void panelDigitPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
 int sprTexRestore(int a4)
 {
     int stk[11];
+    int R1024;
+    int R1028;
+    int R1032;
+
+    R1024 = *(int *)((int)stk + 24);
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
 
     { struct mv4 { int w[4]; }; *(struct mv4 *)(((int)stk + 4)) = *(struct mv4 *)((((a4 << 2) << 2) + 0x8C18281C)); }
     *(unsigned short *)(((((int)stk + 4) + 0x10) + 0x0)) = 0xFFFFFFFF;
     *(unsigned short *)(((((int)stk + 4) + 0x10) + 0x2)) = 0xFFFFFFFF;
-    *(unsigned int *)(((((int)stk + 4) + 0x10) + 0x4)) = 0xFFFFFFFF;
-    *(unsigned int *)(((((int)stk + 4) + 0x10) + 0x8)) = 0xFFFFFFFF;
-    *(unsigned int *)(((((int)stk + 4) + 0x10) + 0xC)) = 0xFFFFFFFF;
+    R1024 = 0xFFFFFFFF;
+    R1028 = 0xFFFFFFFF;
+    R1032 = 0xFFFFFFFF;
     nlSetCommonTextureOffset(a4, *(Stk4 *)(((int)stk + 4)));
     return (nlSpriteSetGarbagedTexture(((int)stk + 4)));
 }
+
+int hudPointsPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
+{
+    int t11;
+    int t8;
+    int t5;
+    int t2;
+    int stk[18];
+
+    stk[7] = a8;
+    stk[8] = a9;
+    stk[9] = a10;
+    if (a4 != 0) {
+        if (a4 != 1) {
+            if (a4 != 2) {
+                if (a4 != 3) {
+                    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
+                    t2 = (sprPutAt(0x8C33BD50, a5, a6, a7, *(Stk3 *)(((int)stk + 4))));
+                } else {
+                    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
+                    t2 = (hudNumPut(0x28, *(Stk3 *)(((int)stk + 4)), 1.0f));
+                }
+                t5 = t2;
+            } else {
+                { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
+                t5 = (hudNumPut(0x1E, *(Stk3 *)(((int)stk + 4)), 1.0f));
+            }
+            t8 = t5;
+        } else {
+            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
+            t8 = (hudNumPut(0xF, *(Stk3 *)(((int)stk + 4)), 1.0f));
+        }
+        t11 = t8;
+    } else {
+        { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
+        t11 = (hudNumPut(0x0, *(Stk3 *)(((int)stk + 4)), 1.0f));
+    }
+    return t11;
+}
+
+

@@ -10,7 +10,7 @@ int dbgLockClear(void);
 int eepromCfgInit(void);
 int fileLoadReset(void);
 int gdFsEntryErrFuncAll(void);
-int gdFsInit(void);
+int gdFsInit(int, int, int, int);
 int motFileInit(void);
 int nlInitEvent(void);
 int nlInitHeapMemory(int, int);
@@ -30,6 +30,9 @@ int sysVideoSelect(void);
 int thunk_ADXERR_EntryErrFunc(int, int);
 int sysInit(void);
 
+/* manual: gdFsInit is a trampoline (jmp gdFsInitG) that reads none of its arguments itself, so the generated call passed none and the
+   proof never compared them; gdFsInitG then took its file count from a leftover r4 and cleared 84-byte records across memory
+   (the build from C stuck at the licence screen and rebooted). The original passes 12, the work area, 350 and the directory buffer. */
 int sysInit(void)
 {
     int t2;
@@ -67,7 +70,7 @@ int sysInit(void)
     *(unsigned int *)0x8C20D124 = 0x0;
     _builtin_set_imask(0xE);
     syHwInit2();
-    *(unsigned int *)0x8C40C5C8 = (gdFsInit());
+    *(unsigned int *)0x8C40C5C8 = (gdFsInit(0xC, 0x8C2808C0, 0x15E, 0x8C281D88));
     gdFsEntryErrFuncAll();
     ADXT_Init();
     *(unsigned int *)0x8C40C5C4 = ((*(int *)0x8C40C5C4) | 0x1);

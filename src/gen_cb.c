@@ -132,15 +132,18 @@ int ovSearchLibByUuid(int a4)
     int t1;
     int t5;
     int stk[8];
+    int R1004;
 
-    *(unsigned int *)(((int)stk + 4)) = a4;
+    R1004 = *(int *)((int)stk + 4);
+
+    R1004 = a4;
     t0 = ovGetLibTbl((((int)stk + 4) + 0x4));
     t1 = 0x0;
     for (;;) {
         if ((int)t1 >= (int)(*(int *)((t0 + 0x0)))) {
             return 0xFFFFFFFE;
         }
-        t5 = memcmp((*(int *)(((int)stk + 4))), ((*(int *)(((((t1 << 2) << 1) + (t0 + 0x8)) + 0x0))) + 0x10), 0x10);
+        t5 = memcmp((R1004), ((*(int *)(((((t1 << 2) << 1) + (t0 + 0x8)) + 0x0))) + 0x10), 0x10);
         if (t5 == 0) {
             break;
         }
@@ -161,20 +164,23 @@ int syRtcSetDate(void)
     int t11;
     int t8;
     int stk[3];
+    int R1004;
+
+    R1004 = *(int *)((int)stk + 4);
 
     syRtcDateToCount();
     t1 = syRtcAicaSetWriteFlag();
     t23 = t1;
     if (t1 == 0) {
-        t3 = syRtcAicaSetDateLo((unsigned short)(*(int *)(((int)stk + 4))));
+        t3 = syRtcAicaSetDateLo((unsigned short)(R1004));
         t19 = t3;
         if (t3 == 0) {
-            t5 = syRtcAicaSetDateHi((unsigned short)((unsigned int)(*(int *)(((int)stk + 4))) >> 16));
+            t5 = syRtcAicaSetDateHi((unsigned short)((unsigned int)(R1004) >> 16));
             t15 = t5;
             if (t5 == 0) {
                 t6 = syRtcGetCountForce();
                 t11 = 0xFFFFFFFF;
-                if ((t6 != (*(int *)(((int)stk + 4)))) && (t8 = *(int *)(((int)stk + 4)), t6 != (t8 + 0x1))) {
+                if ((t6 != (R1004)) && (t8 = R1004, t6 != (t8 + 0x1))) {
                 } else {
                     *(unsigned int *)0x8C45A6E4 = t6;
                     t11 = 0x0;

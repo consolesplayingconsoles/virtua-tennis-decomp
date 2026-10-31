@@ -1,14 +1,19 @@
 {
  "dev": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "search: empty",
+   "regs": {},
+   "poke": {}
   }
  ],
  "holdout": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "search: 8C287ADC=02000000",
+   "regs": {},
+   "poke": {
+    "8C287ADC": "02000000"
+   },
+   "calls": []
   }
  ]
 }

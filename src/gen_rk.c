@@ -40,12 +40,16 @@ float ADX_DecodeMonoFloat(int a4, int a5, int a6, int a7, int a8, int a9)
     float F9;
     float F10;
     int T_;
+    int R1004;
+    int R1008;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
     R4 = a4;
     R5 = a5;
     R6 = a6;
     R7 = a7;
     t0 = *(short *)((R7 + 0x0));
-    *(unsigned int *)(((int)stk + 8)) = (R7 + 0x2);
+    R1008 = (R7 + 0x2);
     R10 = (0x0);
     R11 = (0x20);
     R12 = (0x0);
@@ -59,7 +63,7 @@ float ADX_DecodeMonoFloat(int a4, int a5, int a6, int a7, int a8, int a9)
     L_8C2090FA:;
     if (((int)R12 < (int)R5)) goto L_8C20907A;
     *(unsigned short *)((R7 + 0x0)) = ((unsigned int)(int)F6 >> 16);
-    *(unsigned short *)(((*(int *)(((int)stk + 8))) + 0x0)) = ((unsigned int)(int)F7 >> 16);
+    *(unsigned short *)(((R1008) + 0x0)) = ((unsigned int)(int)F7 >> 16);
     R0 = (R5);
     L_8C209112:;
     return F0;
@@ -70,7 +74,7 @@ float ADX_DecodeMonoFloat(int a4, int a5, int a6, int a7, int a8, int a9)
     R0 = (R12);
     goto L_8C209112;
     L_8C209098:;
-    *(unsigned int *)(((int)stk + 4)) = R10;
+    R1004 = R10;
     R13 = ((R13 + 0x2));
     F10 = ((float)((R4 & R9) + 0x1));
     L_8C2090A6:;
@@ -85,8 +89,8 @@ float ADX_DecodeMonoFloat(int a4, int a5, int a6, int a7, int a8, int a9)
     u27 = u25;
     u27 = u27 + F10 * (*(float *)((((unsigned char)t21 << 2) + 0x8C20BDF8)));
     *(unsigned short *)(((R6 + 0x2) + 0x0)) = (short)((unsigned int)(int)u27 >> 16);
-    t28 = *(int *)(((int)stk + 4));
-    *(unsigned int *)(((int)stk + 4)) = (t28 + 0x2);
+    t28 = R1004;
+    R1004 = (t28 + 0x2);
     R13 = ((R13 + 0x1));
     R6 = (((R6 + 0x2) + 0x2));
     F0 = (F10);

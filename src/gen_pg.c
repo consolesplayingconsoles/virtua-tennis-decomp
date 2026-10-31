@@ -26,8 +26,10 @@ int ndbPack(void)
     int R13;
     int R14;
     int T_;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     t0 = *(int *)0x8C301938;
-    *(unsigned int *)(((int)stk + 4)) = 0x10000;
+    R1004 = 0x10000;
     *(unsigned int *)0x8C30193C = 0x0;
     R12 = (t0);
     R13 = (0x8CB00000);
@@ -38,8 +40,8 @@ int ndbPack(void)
     t6 = R12 == 0;
     R12 = ((R12 - 1));
     if (t6) goto L_8C081DEE;
-    t8 = *(int *)(((int)stk + 4));
-    *(unsigned int *)(((int)stk + 4)) = (t8 - 1);
+    t8 = R1004;
+    R1004 = (t8 - 1);
     if (!((((t8 - 1) + 0x1) != 0))) goto L_8C081DEE;
     t15 = *(signed char *)((R4 + 0x5));
     t16 = *(signed char *)((R4 + 0x6));

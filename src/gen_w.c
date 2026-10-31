@@ -490,33 +490,6 @@ int kdSetGetConditionEx(int a4, int a5, int a6)
     return t2;
 }
 
-int menuTextIconPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
-{
-    int t0;
-    int t2;
-    int t9;
-    int t4;
-    int stk[19];
-
-    stk[7] = a8;
-    stk[8] = a9;
-    stk[9] = a10;
-    stk[10] = a11;
-    if ((int)a4 <= (int)0x7) {
-        if ((int)a4 < (int)0x6) {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-            t0 = *(int *)(((a4 << 2) + 0x8C10EF0C));
-            t4 = (((((t0 << 2) + t0) << 2) << 2) + 0x8C33506C);
-        } else {
-            *(float *)(((((int)stk + 16) + 0xC) + 0x4)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x4))) + -34.0f);
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-            t2 = *(int *)(((a4 << 2) + 0x8C10EF0C));
-            t4 = (((((t2 << 2) + t2) << 2) << 2) + 0x8C338600);
-        }
-        t9 = (sprPutAtAlpha(t4, *(Stk3 *)((((int)stk + 16) + 0xC)), f4));
-    }
-    return t9;
-}
 
 int selCursorPlace(int a4)
 {
@@ -871,4 +844,31 @@ float iconSlotPutC(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     return u10;
 }
 
+int menuTextIconPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
+{
+    int t0;
+    int t2;
+    int t9;
+    int t4;
+    int stk[19];
+
+    stk[7] = a8;
+    stk[8] = a9;
+    stk[9] = a10;
+    stk[10] = a11;
+    if ((int)a4 <= (int)0x7) {
+        if ((int)a4 < (int)0x6) {
+            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
+            t0 = *(int *)(((a4 << 2) + 0x8C10EF0C));
+            t4 = (((((t0 << 2) + t0) << 2) << 2) + 0x8C33506C);
+        } else {
+            *(float *)(((((int)stk + 16) + 0xC) + 0x4)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x4))) + -34.0f);
+            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
+            t2 = *(int *)(((a4 << 2) + 0x8C10EF0C));
+            t4 = (((((t2 << 2) + t2) << 2) << 2) + 0x8C338600);
+        }
+        t9 = (sprPutAtAlpha(t4, *(Stk3 *)((((int)stk + 16) + 0xC)), f4));
+    }
+    return t9;
+}
 

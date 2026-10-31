@@ -46,10 +46,6 @@ void nlReloadPalette(int idx, int b)
 }
 
 
-void setBorderColor(unsigned int c)
-{
-    kmSetBorderColor(c | 0xFF000000);
-}
 
 
 float nlCosec(int a)

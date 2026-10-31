@@ -510,24 +510,29 @@ int mwlRnaAddRdPos(int a4)
 void vecOrbit(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
 {
     int stk[29];
+    float R1040;
+    int R1068;
 
-    stk[17] = a8;
+    R1040 = *(float *)((int)stk + 40);
+    R1068 = *(int *)((int)stk + 68);
+
+    R1068 = a8;
     stk[18] = a9;
     stk[19] = a10;
     stk[20] = a11;
     *(unsigned short *)(((int)stk + 36)) = a4;
     *(unsigned short *)(((int)stk + 44)) = a5;
-    *(float *)(((int)stk + 40)) = f4;
+    R1040 = f4;
     nlPushUnitMatrix();
     nlRotateAY((unsigned short)(*(short *)(((int)stk + 44))));
     nlRotateAX((unsigned short)(*(short *)(((int)stk + 36))));
-    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0xC), 0.0f, 0.0f, (-(*(float *)(((int)stk + 40)))));
+    vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0xC), 0.0f, 0.0f, (-(R1040)));
     nlCalcPoint((((int)stk + 32) + 0x10), (((int)stk + 32) + 0x10));
     nlPopMatrix(0x1);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x10)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x34)); }
     vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 8) + 0x28));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((*(int *)(((((int)stk + 4) + 0x40) + 0x0)))) = *(struct mv3 *)((((int)stk + 4) + 0x2C)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((R1068)) = *(struct mv3 *)((((int)stk + 4) + 0x2C)); }
 }
 
 void umpCallOut(void)
@@ -644,16 +649,19 @@ int arcadePickRival(int a4, int a5)
     int t6;
     int t7;
     int stk[6];
+    int R1004;
 
-    *(unsigned int *)(((int)stk + 4)) = 0x0;
+    R1004 = *(int *)((int)stk + 4);
+
+    R1004 = 0x0;
     if (((*(int *)0x8C181628) == 0) && (t1 = *(int *)0x8C18162C, t1 == 0)) {
         for (;;) {
             t4 = nlRandom();
             if (((*(int *)((0x8C287D04 + ((int)(t4 * 16.0f) << 2)))) == 0) && ((t6 = *(int *)((0x8C287CBC + ((int)(t4 * 16.0f) << 2))), t6 == 0) && (t7 = *(int *)((0x8C287C74 + ((int)(t4 * 16.0f) << 2))), t7 != 0))) {
                 break;
             }
-            t8 = *(int *)(((int)stk + 4));
-            *(unsigned int *)(((int)stk + 4)) = (t8 + 0x1);
+            t8 = R1004;
+            R1004 = (t8 + 0x1);
             if ((int)(t8 + 0x1) >= (int)0x64) {
                 break;
             }
@@ -778,11 +786,14 @@ int umpCallGamePoint(void)
 int uiBarStretchPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
 {
     int stk[19];
+    int R1040;
+
+    R1040 = *(int *)((int)stk + 40);
 
     stk[7] = a8;
     stk[8] = a9;
     stk[9] = a10;
-    stk[10] = a11;
+    R1040 = a11;
     *(float *)((((a4 + 0x6C) + 0xC) + 0x18)) = 3.0f;
     *(float *)((((a4 + 0x6C) + 0xC) + 0x0)) = 3.0f;
     *(float *)((((a4 + 0x6C) + 0xC) + 0x48)) = ((float)a5 + 3.0f);
@@ -948,11 +959,14 @@ int sprPutScaledAlpha(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
     float u1;
     float u2;
     int stk[18];
+    int R1036;
+
+    R1036 = *(int *)((int)stk + 36);
 
     stk[6] = a8;
     stk[7] = a9;
     stk[8] = a10;
-    stk[9] = a11;
+    R1036 = a11;
     u0 = *(float *)((a4 + 0x10));
     u1 = *(float *)((a4 + 0x14));
     u2 = *(float *)((a4 + 0x2C));
@@ -977,11 +991,14 @@ int menuTextTimePut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int
     int t4;
     int t6;
     int stk[23];
+    int R1056;
+
+    R1056 = *(int *)((int)stk + 56);
 
     stk[11] = a8;
     stk[12] = a9;
     stk[13] = a10;
-    stk[14] = a11;
+    R1056 = a11;
     t0 = (int)((int)a4 / (int)0x3C);
     t1 = (int)((int)t0 / (int)0x3C);
     t3 = ((int)((int)t0 % (int)0x3C));
@@ -1151,18 +1168,25 @@ float cpuSegCrossXZ(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int
     float u18;
     float u11;
     int stk[21];
+    int R1020;
+    int R1032;
+    int R1044;
+
+    R1020 = *(int *)((int)stk + 20);
+    R1032 = *(int *)((int)stk + 32);
+    R1044 = *(int *)((int)stk + 44);
 
     stk[1] = a8;
     stk[2] = a9;
     stk[3] = a10;
     stk[4] = a11;
-    stk[5] = a12;
+    R1020 = a12;
     stk[6] = a13;
     stk[7] = a14;
-    stk[8] = a15;
+    R1032 = a15;
     stk[9] = a16;
     stk[10] = a17;
-    stk[11] = a18;
+    R1044 = a18;
     stk[12] = a19;
     *(float *)((a4 + 0x4)) = (*(float *)((((int)stk + 4) + 0x4)));
     u1 = *(float *)(((((int)stk + 4) + 0xC) + 0x0));
@@ -1260,49 +1284,6 @@ int ADXT_StartSj(int a4, int a5)
     return ADXCRS_Unlock();
 }
 
-int fadeDraw(int a4, int a5, int a6, int a7, float f4, float f5)
-{
-    int t0;
-    float u3;
-    int t5;
-    float u6;
-    int t7;
-    int t12;
-    int t24;
-    int t34;
-    int t25;
-    int t13;
-
-    t0 = *(int *)0x8C1389FC;
-    if (t0 != 0) {
-        u3 = *(float *)0x8C287D64;
-        if (t0 == 2) {
-            t5 = *(int *)0x8C287D7C;
-            if (t5 == 0) {
-                *(unsigned int *)0x8C1389FC = 0x0;
-                t13 = t0;
-            } else {
-                u6 = *(float *)0x8C287D80;
-                t7 = t5;
-                if ((float)t5 > u6) {
-                    t7 = (int)u6;
-                }
-                thunk_FUN_8c0bcda0(t5, 0x8C1389FC, a6, a7, ((float)t7 / u6), u3);
-                t12 = *(int *)0x8C287C60;
-                *(unsigned int *)0x8C287D7C = ((*(int *)0x8C287D7C) - (((t12 == 0)) ? 1 : 0));
-                t13 = (((t12 == 0)) ? 1 : 0);
-            }
-            t25 = t13;
-        } else {
-            thunk_FUN_8c0bcda0(t0, 0x8C1389FC, a6, a7, 1.0f, u3);
-            t24 = *(int *)0x8C287C60;
-            *(unsigned int *)0x8C287D7C = ((*(int *)0x8C287D7C) - (((t24 == 0)) ? 1 : 0));
-            t25 = (((t24 == 0)) ? 1 : 0);
-        }
-        t34 = t25;
-    }
-    return t34;
-}
 
 int sunMatrixSet(int a4, int a5)
 {

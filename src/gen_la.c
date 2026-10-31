@@ -88,6 +88,15 @@ int cpuDblAimRateB(int a4, int a5)
     int t146;
     float u166;
     int t171;
+    float R1124;
+    float R1128;
+    float R1132;
+    float R1136;
+
+    R1124 = *(float *)((int)stk + 124);
+    R1128 = *(float *)((int)stk + 128);
+    R1132 = *(float *)((int)stk + 132);
+    R1136 = *(float *)((int)stk + 136);
 
     t0 = *(int *)((a4 + 0xB5C));
     t1 = *(int *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xB5C));
@@ -110,12 +119,12 @@ int cpuDblAimRateB(int a4, int a5)
         u52 = 0.0f;
         if (89.1374969f > u13) {
             u15 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0));
-            *(float *)(((int)stk + 132)) = u15;
-            *(float *)(((int)stk + 128)) = (u15 - u11);
+            R1132 = u15;
+            R1128 = (u15 - u11);
             if (!(0.0f > (u15 - u11))) {
-                u19 = (*(float *)(((int)stk + 128)));
+                u19 = (R1128);
             } else {
-                u19 = ((-(*(float *)(((int)stk + 132)))) + u11);
+                u19 = ((-(R1132)) + u11);
             }
             u22 = (16384.0f / ((u8 + 89.1374969f) * 0.5f));
             t23 = nlCos((int)(u22 * u19));
@@ -165,10 +174,10 @@ int cpuDblAimRateB(int a4, int a5)
         }
         if (89.1374969f > u66) {
             u68 = *(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAF0));
-            *(float *)(((int)stk + 136)) = (u68 - u11);
+            R1136 = (u68 - u11);
             u70 = ((-u68) + u11);
             if (!(0.0f > (u68 - u11))) {
-                u70 = (*(float *)(((int)stk + 136)));
+                u70 = (R1136);
             }
             u73 = (16384.0f / ((u8 + 89.1374969f) * 0.5f));
             t74 = nlCos((int)(u73 * u70));
@@ -191,9 +200,9 @@ int cpuDblAimRateB(int a4, int a5)
             }
             u94 = (-1.0f);
             u94 = u94 + (1.0f + 1.0f) * u92;
-            *(float *)(((int)stk + 124)) = (u94 * (1.0f + 1.0f));
+            R1124 = (u94 * (1.0f + 1.0f));
         } else {
-            *(float *)(((int)stk + 124)) = 0.0f;
+            R1124 = 0.0f;
             u101 = u65;
         }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)((0xAE8 + (((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84))); }
@@ -204,10 +213,10 @@ int cpuDblAimRateB(int a4, int a5)
         *(float *)(((int)stk + 120)) = t104;
         t105 = cpuDistXZ((0xB9C + a4), (((int)stk + 120) + 0x20));
         *(float *)(((int)stk + 120)) = (t104 / t105);
-        u107 = *(float *)(((int)stk + 124));
+        u107 = R1124;
         u108 = ((t104 / t105) * (cpuDistXZ(a5, (0xB9C + a4))));
         u109 = (u107 + ((u108 * 5.0f) / 54.8499985f));
-        *(float *)(((int)stk + 124)) = (u107 + ((u108 * 5.0f) / 54.8499985f));
+        R1124 = (u107 + ((u108 * 5.0f) / 54.8499985f));
         t110 = *(signed char *)(((((t0 << 1) + (t0 << 2)) + 0x8C15A0F4) + 0x5));
         u206 = _builtin_sqrtf((u63 * u109));
         u207 = (_builtin_sqrtf((u63 * u109)) + (float)t110);

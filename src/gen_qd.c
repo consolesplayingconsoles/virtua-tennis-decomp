@@ -78,6 +78,8 @@ void camExec(int a4, int a5, int a6)
     float F14;
     float F15;
     int T_;
+    int R1036;
+    R1036 = *(int *)((int)stk + 36);
     R6 = a6;
     t0 = *(int *)0x8C287634;
     R0 = (t0);
@@ -155,7 +157,7 @@ void camExec(int a4, int a5, int a6)
     *(float *)(((int)stk + 24)) = (-u75);
     u76 = *(float *)((R14 + 0x4));
     t77 = *(int *)((R14 + 0x70));
-    *(unsigned int *)(((int)stk + 36)) = t77;
+    R1036 = t77;
     u79 = *(float *)((R14 + 0x0));
     u80 = ((float)t77 * (nlSin(((((t77 << 8) << 2) << 2) << 2))));
     nlTranslate((-u79), ((-u76) - (u80 * 0.100000001f)), (-u75));

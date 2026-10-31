@@ -77,9 +77,16 @@ int vmsio_block_read(int a4, int a5, int a6)
     int t38;
     int t10;
     int stk[13];
+    int R1008;
+    int R1012;
+    int R1016;
 
-    *(unsigned int *)(((int)stk + 16)) = a5;
-    *(unsigned int *)(((int)stk + 8)) = a6;
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
+
+    R1016 = a5;
+    R1008 = a6;
     t0 = vmsio_ismount(a4);
     if (t0 == 0) {
         vmsfb_sleep();
@@ -87,10 +94,10 @@ int vmsio_block_read(int a4, int a5, int a6)
     } else {
         t2 = *(int *)(((a4 << 2) + 0x8C20B048));
         kdGetDevice(t2);
-        t4 = *(int *)(((int)stk + 8));
-        *(unsigned int *)(((int)stk + 8)) = 0x0;
+        t4 = R1008;
+        R1008 = 0x0;
         for (;;) {
-            if ((int)(*(int *)(((int)stk + 8))) >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x3C)))) {
+            if ((int)(R1008) >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x3C)))) {
                 return 0x0;
             }
             t8 = t4;
@@ -99,7 +106,7 @@ int vmsio_block_read(int a4, int a5, int a6)
                 t11 = kdIsChanged(t2);
                 if (t11 == 0) {
                     t10 = 0x8C1E9CB8;
-                    t10 = (kdSetBlockRead(t2, 0x2, 0x0, t9, ((*(int *)(((int)stk + 16))))));
+                    t10 = (kdSetBlockRead(t2, 0x2, 0x0, t9, ((R1016))));
                     if ((int)t10 < 0) {
                         vmsfb_sleep();
                         continue;
@@ -112,13 +119,13 @@ int vmsio_block_read(int a4, int a5, int a6)
                         }
                         break;
                     }
-                    *(unsigned int *)(((int)stk + 12)) = (kdGetDevice(t2));
+                    R1012 = (kdGetDevice(t2));
                     t19 = kdIsChanged(t2);
                     if (t19 != 0) {
                         break;
                     }
-                    t26 = *(signed char *)(((*(int *)(((int)stk + 12))) + 0x4));
-                    t27 = *(int *)(((*(int *)(((int)stk + 12))) + 0x8));
+                    t26 = *(signed char *)(((R1012) + 0x4));
+                    t27 = *(int *)(((R1012) + 0x8));
                     if ((unsigned char)t26 != 8) {
                         if ((unsigned char)t26 != 0xFC) {
                             if ((unsigned char)t26 == 0xFB) {
@@ -131,8 +138,8 @@ int vmsio_block_read(int a4, int a5, int a6)
                     vmsfs_memcpyl(t8, (t27 + 0xC), (*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x44))));
                     t9 = (t9 + 0x1);
                     t8 = (t8 + (*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x44))));
-                    *(unsigned int *)(((int)stk + 8)) = ((*(int *)(((int)stk + 8))) + 0x1);
-                    if ((int)(*(int *)(((int)stk + 8))) >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x3C)))) {
+                    R1008 = ((R1008) + 0x1);
+                    if ((int)(R1008) >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x3C)))) {
                         return 0x0;
                     }
                     continue;

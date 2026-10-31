@@ -30,6 +30,11 @@ float shotCheckNet(int a4, int a5, float f4, float f5, float f6)
     register float u55;
     register float u66;
     register float u67;
+    float R1004;
+    float R1008;
+
+    R1004 = *(float *)((int)stk + 4);
+    R1008 = *(float *)((int)stk + 8);
 
     t0 = *(int *)((a4 + 0xC5C));
     if (((*(int *)((((((t0 << 1) + t0) << 2) << 1) + 0x8C105FE0))) & 0x40000) == 0) {
@@ -37,7 +42,7 @@ float shotCheckNet(int a4, int a5, float f4, float f5, float f6)
         u8 = *(float *)((a5 + 0x2C));
         if (((u3 > 0.0f) - (0.0f > u3)) == ((u8 > 0.0f) - (0.0f > u8))) {
         } else {
-            *(float *)(((int)stk + 8)) = 11.75f;
+            R1008 = 11.75f;
             { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 4) + 0x20)) = *(struct mv3 *)((a5 + 0x18)); }
             { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 4) + 0x14)) = *(struct mv3 *)((a5 + 0x24)); }
             *(float *)(((int)stk + 28)) = f4;
@@ -47,7 +52,7 @@ float shotCheckNet(int a4, int a5, float f4, float f5, float f6)
             t16 = 0x0;
             for (;;) {
                 if ((t16 == 0) && ((int)t15 < (int)0x12C)) {
-                    *(float *)(((int)stk + 4)) = (*(float *)(((int)stk + 44)));
+                    R1004 = (*(float *)(((int)stk + 44)));
                     u19 = *(float *)0x8C23D204;
                     if (u19 > 1.0f) {
                         *(float *)(((int)stk + 28)) = ((*(float *)(((int)stk + 28))) - ((*(float *)((a5 + 0x70))) * u19));
@@ -83,7 +88,7 @@ float shotCheckNet(int a4, int a5, float f4, float f5, float f6)
                     if ((t50 != t13) && (u55 = *(float *)(((int)stk + 40)), 0.349999994f > u55)) {
                         t16 = 0x1;
                     }
-                    u59 = *(float *)(((int)stk + 4));
+                    u59 = R1004;
                     if (u59 > 0.0f) {
                         t14 = 0x1;
                     } else {
@@ -93,7 +98,7 @@ float shotCheckNet(int a4, int a5, float f4, float f5, float f6)
                             t14 = 0x0;
                         }
                     }
-                    if ((t14 != ((u17 > 0.0f) - (0.0f > u17))) && (u66 = *(float *)(((int)stk + 8)), u67 = *(float *)(((int)stk + 40)), u66 > u67)) {
+                    if ((t14 != ((u17 > 0.0f) - (0.0f > u17))) && (u66 = R1008, u67 = *(float *)(((int)stk + 40)), u66 > u67)) {
                         break;
                     }
                     t15 = (t15 + 0x1);

@@ -266,6 +266,13 @@ int decoWaveDraw(int a4, Stk2 s)
     float u43;
     float u52;
     int stk[24];
+    float R1020;
+    float R1024;
+    float R1028;
+
+    R1020 = *(float *)((int)stk + 20);
+    R1024 = *(float *)((int)stk + 24);
+    R1028 = *(float *)((int)stk + 28);
 
     stk[14] = s.w[0];
     stk[15] = s.w[1];
@@ -276,14 +283,14 @@ int decoWaveDraw(int a4, Stk2 s)
         } else {
             u7 = (-(nlSin((((*(int *)0x8C20D198) << 8) << 2))));
         }
-        *(float *)((((int)stk + 20) + 0x0)) = u7;
+        R1020 = u7;
         t10 = nlSin(((((*(int *)0x8C20D198) << 8) << 2) + 0x1400));
         if (!(0.0f > t10)) {
             u16 = (nlSin(((((*(int *)0x8C20D198) << 8) << 2) + 0x1400)));
         } else {
             u16 = (-(nlSin(((((*(int *)0x8C20D198) << 8) << 2) + 0x1400))));
         }
-        *(float *)((((int)stk + 20) + 0x4)) = u16;
+        R1024 = u16;
         t19 = nlSin(((((*(int *)0x8C20D198) << 8) << 2) + 0x2800));
         if (!(0.0f > t19)) {
             u25 = (nlSin(((((*(int *)0x8C20D198) << 8) << 2) + 0x2800)));
@@ -298,14 +305,14 @@ int decoWaveDraw(int a4, Stk2 s)
         } else {
             u34 = (-(nlSin((((*(int *)0x8C20D198) << 8) << 2))));
         }
-        *(float *)((((int)stk + 20) + 0x0)) = u34;
+        R1020 = u34;
         t37 = nlSin(((((*(int *)0x8C20D198) << 8) << 2) - 5120));
         if (!(0.0f > t37)) {
             u43 = (nlSin(((((*(int *)0x8C20D198) << 8) << 2) - 5120)));
         } else {
             u43 = (-(nlSin(((((*(int *)0x8C20D198) << 8) << 2) - 5120))));
         }
-        *(float *)((((int)stk + 20) + 0x4)) = u43;
+        R1024 = u43;
         t46 = nlSin(((((*(int *)0x8C20D198) << 8) << 2) - 10240));
         if (!(0.0f > t46)) {
             u52 = (nlSin(((((*(int *)0x8C20D198) << 8) << 2) - 10240)));
@@ -314,13 +321,13 @@ int decoWaveDraw(int a4, Stk2 s)
         }
         u56 = u52;
     }
-    *(float *)((((int)stk + 20) + 0x8)) = u56;
+    R1028 = u56;
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((((int)stk + 20) + 0x24) + 0x0))), (*(float *)(((((int)stk + 20) + 0x24) + 0x4))), (*(float *)0x8C0A5D08));
-    decoPairPut(a4, (*(float *)((((int)stk + 20) + 0x0))));
+    decoPairPut(a4, (R1020));
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((((int)stk + 20) + 0x24) + 0x0))) + (*(float *)0x8C0A5D10)), (*(float *)(((((int)stk + 20) + 0x24) + 0x4))), (*(float *)0x8C0A5D0C));
-    decoPairPut(a4, (*(float *)((((int)stk + 20) + 0x4))));
+    decoPairPut(a4, (R1024));
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((((int)stk + 20) + 0x24) + 0x0))) + (*(float *)0x8C0A5D18)), (*(float *)(((((int)stk + 20) + 0x24) + 0x4))), (*(float *)0x8C0A5D14));
-    return (decoPairPut(a4, (*(float *)((((int)stk + 20) + 0x8)))));
+    return (decoPairPut(a4, (R1028)));
 }
 
 
@@ -372,8 +379,15 @@ float cameraFovForSize(float f4)
     float u14;
     int t19;
     int stk[36];
+    int R1004;
+    float R1052;
+    float R1128;
 
-    *(float *)(((int)stk + 52)) = f4;
+    R1004 = *(int *)((int)stk + 4);
+    R1052 = *(float *)((int)stk + 52);
+    R1128 = *(float *)((int)stk + 128);
+
+    R1052 = f4;
     nlPushUnitMatrix();
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)(0x8C287B54); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(0x8C287B60); }
@@ -384,14 +398,14 @@ float cameraFovForSize(float f4)
     nlGetMatrix((((int)stk + 20) + 0x24));
     nlPopMatrix(0x1);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(0x8C287B60); }
-    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x70);
-    cameraCalcPoint((((int)stk + 8) + 0x30), 0x0, 0x0, 0x0, *(int *)((int)stk + 4));
-    u13 = *(float *)(((int)stk + 128));
+    R1004 = (((int)stk + 8) + 0x70);
+    cameraCalcPoint((((int)stk + 8) + 0x30), 0x0, 0x0, 0x0, R1004);
+    u13 = R1128;
     u14 = (-u13);
     if (!(0.0f > u13)) {
         u14 = u13;
     }
-    t19 = nlArcTan(((*(float *)0x8C02DBEC) / ((u14 * (*(float *)0x8C02DBE8)) / (*(float *)(((int)stk + 52))))));
+    t19 = nlArcTan(((*(float *)0x8C02DBEC) / ((u14 * (*(float *)0x8C02DBE8)) / (R1052))));
     return ((((float)t19 * (*(float *)0x8C02DBF4)) / (*(float *)0x8C02DBF8)) / (*(float *)0x8C02DBFC));
 }
 
@@ -492,6 +506,9 @@ int circuitDrawPrompt(void)
     float u22;
     int t12;
     int stk[13];
+    float R1020;
+
+    R1020 = *(float *)((int)stk + 20);
 
     t6 = 0x0;
     if (((*(int *)(((*(int *)((0x8C29B898 + ((*(int *)0x8C421F70) << 2)))) + 0x10))) & 8) != 0) {
@@ -509,10 +526,10 @@ int circuitDrawPrompt(void)
     }
     sprSheetSet(0x8C10ABC0);
     sprSheetPut(0x0, 250.0f, (float)(t14 + 0x3), 9.99999975e-05f, 1.0f);
-    *(float *)(((int)stk + 20)) = (float)t14;
+    R1020 = (float)t14;
     *(Stk3 *)(((int)stk + 8)) = vecMake(224.0f, (float)t14, 0.000300000014f);
     cursorBoxPut(0x0, *(Stk3 *)((int)stk + 8), 1.0f, 177.0f, 1.0f);
-    *(Stk3 *)(((int)stk + 8)) = vecMake(224.0f, (*(float *)(((int)stk + 20))), 0.000199999995f);
+    *(Stk3 *)(((int)stk + 8)) = vecMake(224.0f, (R1020), 0.000199999995f);
     t21 = nlSin(((*(int *)0x8C20D19C) * 0x888));
     u22 = 0.5f;
     u22 = u22 + 0.5f * t21;

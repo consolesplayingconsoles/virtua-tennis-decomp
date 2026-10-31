@@ -21,10 +21,12 @@ int endingSprAnimStep(int a4, int a5, int a6)
     register float F4;
     register float F5;
     register int T_;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     R4 = a4;
     R5 = a5;
     R6 = a6;
-    *(unsigned int *)(((int)stk + 4)) = ((R6 << 2) << 2);
+    R1004 = ((R6 << 2) << 2);
     *(unsigned int *)((R4 + 0x0)) = (*(int *)(((((R6 << 2) << 2) + 0x8C1D2BE8) + 0x0)));
     *(unsigned int *)((R4 + 0x28)) = 0x0;
     *(float *)((R4 + 0x4)) = 0.0f;

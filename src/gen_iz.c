@@ -29,25 +29,30 @@ int hudPlayerPanelDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, 
 {
     float u10;
     int stk[41];
+    int R1068;
+    int R1072;
+
+    R1068 = *(int *)((int)stk + 68);
+    R1072 = *(int *)((int)stk + 72);
 
     stk[30] = a8;
     stk[31] = a9;
     stk[32] = a10;
-    *(unsigned int *)(((int)stk + 68)) = a4;
-    *(unsigned int *)(((int)stk + 72)) = a5;
+    R1068 = a4;
+    R1072 = a5;
     *(float *)(((int)stk + 64)) = f4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 64) + 0x18)) = *(struct mv3 *)((((int)stk + 64) + 0x38)); }
     *(float *)(((((int)stk + 64) + 0x18) + 0x0)) = ((*(float *)(((((int)stk + 64) + 0x18) + 0x0))) + 109.0f);
     *(float *)(((((int)stk + 64) + 0x18) + 0x4)) = ((*(float *)(((((int)stk + 64) + 0x18) + 0x4))) - 8.0f);
     *(float *)(((((int)stk + 64) + 0x18) + 0x8)) = ((*(float *)(((((int)stk + 64) + 0x18) + 0x8))) - 0.00100000005f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 64) + 0x18)); }
-    phrasePut((*(int *)(((int)stk + 72))), a5, a6, a7, *(Stk3 *)(((int)stk + 52)), *(int *)((int)stk + 52 + 12), (f5 * 1.0f), f5);
+    phrasePut((R1072), a5, a6, a7, *(Stk3 *)(((int)stk + 52)), *(int *)((int)stk + 52 + 12), (f5 * 1.0f), f5);
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 52) + 0x18)) = *(struct mv3 *)((((int)stk + 64) + 0x38)); }
     *(float *)(((((int)stk + 52) + 0x18) + 0x0)) = ((*(float *)(((((int)stk + 52) + 0x18) + 0x0))) + 9.0f);
     *(float *)(((((int)stk + 52) + 0x18) + 0x4)) = ((*(float *)(((((int)stk + 52) + 0x18) + 0x4))) - 5.0f);
     *(float *)(((((int)stk + 52) + 0x18) + 0x8)) = ((*(float *)(((((int)stk + 52) + 0x18) + 0x8))) - 0.00100000005f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x18)); }
-    hudScoreIconPut((*(int *)(((int)stk + 68))), *(Stk3 *)(((int)stk + 40)), f5);
+    hudScoreIconPut((R1068), *(Stk3 *)(((int)stk + 40)), f5);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 64) + 0x38)); }
     u10 = *(float *)(((int)stk + 64));
     sprPutAtAlpha(0x8C33A360, *(Stk3 *)(((int)stk + 28)), (u10 * f5));

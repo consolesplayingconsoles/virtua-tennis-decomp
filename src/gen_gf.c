@@ -40,6 +40,11 @@ int FUN_8c08535e(int a4, int a5)
     int t25;
     int t81;
     int stk[10];
+    int R1004;
+    int R1008;
+
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
 
     ndbLoadWaitStart();
     *(unsigned int *)0x8C181754 = 0x1;
@@ -55,7 +60,7 @@ int FUN_8c08535e(int a4, int a5)
             break;
         }
     }
-    *(unsigned int *)(((int)stk + 4)) = 0x8C301BB4;
+    R1004 = 0x8C301BB4;
     t6 = 0x0;
     t7 = 0x8C301BB4;
     t8 = 0x8C301BB4;
@@ -86,7 +91,7 @@ int FUN_8c08535e(int a4, int a5)
     *(unsigned int *)0x8C181638 = 0x0;
     if (((*(int *)0x8C1891E8) != 2) && ((t23 = *(int *)0x8C1891E8, t23 != 3) && ((t24 = *(int *)0x8C1891E8, t24 != 9) && (t25 = *(int *)0x8C1891E8, t25 != 5)))) {
     } else {
-        ambEventStart(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4));
+        ambEventStart(0x0, 0x0, 0x0, 0x0, R1004, R1008);
     }
     nlsndSystemControl(0x0, 0x10A0, (*(int *)0x8C38BA64));
     scoreInit();
@@ -148,7 +153,7 @@ int FUN_8c08535e(int a4, int a5)
     }
     *(unsigned int *)((t33 + 0x2C)) = (matchStageSlot());
     if (((*(int *)0x8C287D5C) != 2) && (t81 = *(int *)0x8C287D5C, t81 != 3)) {
-        fadeScreenStart(0x2, 0x1, 0xA, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4));
+        fadeScreenStart(0x2, 0x1, 0xA, 0x0, R1004, R1008);
     }
     *(volatile int *)0x8C1891E8;
     return matchSceneInit();
@@ -164,8 +169,13 @@ float FUN_8c029f50(Stk7 s)
     int t9;
     float u12;
     int stk[21];
+    int R1004;
+    int R1024;
 
-    stk[6] = s.w[0];
+    R1004 = *(int *)((int)stk + 4);
+    R1024 = *(int *)((int)stk + 24);
+
+    R1024 = s.w[0];
     stk[7] = s.w[1];
     stk[8] = s.w[2];
     stk[9] = s.w[3];
@@ -174,17 +184,17 @@ float FUN_8c029f50(Stk7 s)
     stk[12] = s.w[6];
     u0 = *(float *)0x8C02A00C;
     t1 = *(int *)0x8C287B4C;
-    *(unsigned int *)(((int)stk + 4)) = t1;
+    R1004 = t1;
     u4 = ((*(float *)(((((int)stk + 4) + 0x24) + 0x0))) * (float)((-t1) + 0xF0));
     u4 = u4 + (float)t1 * (*(float *)(((((int)stk + 4) + 0x18) + 0x0)));
     *(float *)(((((int)stk + 4) + 0x4) + 0x0)) = (u4 / u0);
     t5 = *(int *)0x8C287B4C;
-    *(unsigned int *)(((int)stk + 4)) = t5;
+    R1004 = t5;
     u8 = ((*(float *)(((((int)stk + 4) + 0x24) + 0x4))) * (float)((-t5) + 0xF0));
     u8 = u8 + (float)t5 * (*(float *)(((((int)stk + 4) + 0x18) + 0x4)));
     *(float *)(((((int)stk + 4) + 0x4) + 0x4)) = (u8 / u0);
     t9 = *(int *)0x8C287B4C;
-    *(unsigned int *)(((int)stk + 4)) = t9;
+    R1004 = t9;
     u12 = ((*(float *)(((((int)stk + 4) + 0x24) + 0x8))) * (float)((-t9) + 0xF0));
     u12 = u12 + (float)t9 * (*(float *)(((((int)stk + 4) + 0x18) + 0x8)));
     *(float *)(((((int)stk + 4) + 0x4) + 0x8)) = (u12 / u0);

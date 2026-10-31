@@ -654,10 +654,17 @@ int vmsfs_getvolume(int a4, int a5)
     int t9;
     int t10;
     int stk[6];
+    int R1004;
+    int R1008;
+    int R1012;
 
-    *(unsigned int *)(((int)stk + 8)) = a5;
-    *(unsigned int *)(((int)stk + 12)) = (a4 * 0x148);
-    *(unsigned int *)(((int)stk + 4)) = ((a4 * 0x148) + 0x8C464598);
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+
+    R1008 = a5;
+    R1012 = (a4 * 0x148);
+    R1004 = ((a4 * 0x148) + 0x8C464598);
     if ((*(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x2))) != 0) {
         t1 = vmsio_isready(a4);
         if (t1 == 0) {
@@ -665,21 +672,21 @@ int vmsfs_getvolume(int a4, int a5)
             return 0xFFFFFF01;
         }
         t3 = vmsio_ismount(a4);
-        if ((t3 != 0) && (t4 = *(int *)(((int)stk + 12)), t5 = *(signed char *)(((t4 + 0x8C464598) + 0x8)), t5 != 0)) {
+        if ((t3 != 0) && (t4 = R1012, t5 = *(signed char *)(((t4 + 0x8C464598) + 0x8)), t5 != 0)) {
             t6 = buIsFormat(a4);
             if ((int)t6 < 0) {
                 return 0xFFFFFF03;
             }
-            t11 = ((*(int *)(((*(int *)(((int)stk + 4))) + 0x20))) + 0x10);
+            t11 = ((*(int *)(((R1004) + 0x20))) + 0x10);
             t12 = 0x0;
             for (;;) {
                 if ((int)t12 >= (int)0x20) {
                     break;
                 }
-                t9 = (*(int *)(((int)stk + 8)));
+                t9 = (R1008);
                 t12 = (t12 + 0x1);
                 t9 = (t9 + 0x1);
-                *(unsigned int *)(((int)stk + 8)) = t9;
+                R1008 = t9;
                 t10 = (*(signed char *)((t11 + 0x0)));
                 t11 = (t11 + 0x1);
                 *(unsigned char *)(((t9 - 0x1) + 0x0)) = t10;

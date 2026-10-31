@@ -85,14 +85,21 @@ int strmExec(void)
     int t95;
     int t87;
     int stk[9];
+    int R1004;
+    int R1008;
+    int R1012;
+
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
 
     t0 = *(int *)0x8C38BA94;
     if (t0 != 0) {
-        *(unsigned int *)((((int)stk + 4) + 0x0)) = (ADXT_GetStat(t0));
+        R1004 = (ADXT_GetStat(t0));
     }
     t5 = *(int *)0x8C38BA98;
     if (t5 != 0) {
-        *(unsigned int *)((((int)stk + 4) + 0x4)) = (ADXT_GetStat(t5));
+        R1008 = (ADXT_GetStat(t5));
     }
     if ((*(int *)0x8C40C220) == 2) {
         if ((*(float *)0x8C40C228) > (*(float *)0x8C0D6C80)) {
@@ -120,7 +127,7 @@ int strmExec(void)
             *(unsigned int *)0x8C40C220 = 0x0;
             *(unsigned int *)0x8C38BA60 = (*(int *)0x8C40C268);
         }
-        strmBgmSetVol(0x50, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8));
+        strmBgmSetVol(0x50, 0x0, 0x0, 0x0, R1004, R1008, R1012);
     }
     if ((*(int *)0x8C40C220) == 4) {
         if ((int)(*(int *)0x8C38BA60) > (int)(*(int *)0x8C40C268)) {
@@ -132,12 +139,12 @@ int strmExec(void)
             *(unsigned int *)0x8C40C220 = 0x0;
             *(unsigned int *)0x8C38BA60 = (*(int *)0x8C40C268);
         }
-        strmBgmSetVol(0x50, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8));
+        strmBgmSetVol(0x50, 0x0, 0x0, 0x0, R1004, R1008, R1012);
     }
     t70 = *(int *)0x8C40C230;
     t115 = t70;
     if (t70 == 3) {
-        t72 = *(int *)((((int)stk + 4) + 0x4));
+        t72 = R1008;
         t108 = t72;
         if ((t72 == 5) || (t72 == 0)) {
             t73 = *(int *)0x8C40C23C;
@@ -453,125 +460,6 @@ int ADXF_ReadNw32(int a4, int a5, int a6)
     return t62;
 }
 
-int eepromBootLoad(int a4)
-{
-    int t5;
-    int t8;
-    int t11;
-    int t20;
-    int t22;
-    int t34;
-    int t38;
-    int t23;
-    int stk[9];
-
-    int R0;
-    int R1;
-    int R2;
-    int R3;
-    int R4;
-    int R5;
-    int R6;
-    int R7;
-    int R8;
-    int R9;
-    int R10;
-    int R11;
-    int R12;
-    int R13;
-    int R14;
-    int T_;
-    R4 = a4;
-    L_8C0DF308:;
-    *(unsigned int *)0x8C40C628 = 0x0;
-    *(unsigned int *)(((int)stk + 4)) = (R8);
-    R11 = (0x8C40C628);
-    R9 = (0x0);
-    goto L_8C0DF31E;
-    L_8C0DF31E:;
-    t5 = (thunk_FUN_8c1e0150((*(int *)((R11 + 0x0))), 0x8C126AB0)) != 0;
-    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
-    R8 = (0x8C126AB0);
-    if (t5) goto L_8C0DF34A;
-    goto L_8C0DF32A;
-    L_8C0DF32A:;
-    t8 = BupLoadFile((*(int *)((R11 + 0x0))), R8, 0x8C40C2F4, 0x128);
-    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
-    R14 = (t8);
-    if ((t8 == 0)) goto L_8C0DF34C;
-    goto L_8C0DF33A;
-    L_8C0DF33A:;
-    t11 = BupFailDialog(0x0);
-    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
-    R4 = (t11);
-    if ((t11 == 0)) goto L_8C0DF31E;
-    goto L_8C0DF346;
-    L_8C0DF346:;
-    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
-    goto L_8C0DF34C;
-    L_8C0DF34C:;
-    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
-    R12 = (0x8C40C2F4);
-    R13 = (0x1);
-    if ((R14 == 0)) goto L_8C0DF38A;
-    goto L_8C0DF354;
-    L_8C0DF354:;
-    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
-    R10 = (0x4);
-    R14 = (R9);
-    goto L_8C0DF362;
-    L_8C0DF362:;
-    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
-    if (((int)R14 < (int)R10)) goto L_8C0DF35A;
-    goto L_8C0DF366;
-    L_8C0DF366:;
-    t20 = 0x8C1D775C;
-    t22 = R12;
-    for (;;) { t23 = *(int *)t20; t20 = (t20 + 4); if ((unsigned int)((0x8C1D775C + 296)) < (unsigned int)t20) break; *(unsigned int *)t22 = t23; t22 = (t22 + 4); }
-    *(unsigned int *)((R12 + 0xC)) = ((*(int *)((R12 + 0xC))) | R13);
-    *(unsigned int *)0x8C29BBB8 = R13;
-    BupRequestSave((*(int *)((R11 + 0x0))), R8, 0x8C40C2F4, 0x128);
-    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
-    goto L_8C0DF3A6;
-    L_8C0DF3A6:;
-    unlockApplyW1();
-    unlockApplyW2();
-    syCfgGetSoundMode(0x8C40C2F0);
-    strmSetStereo(((((*(int *)0x8C40C2F0) == 0)) ? 1 : 0));
-    strmBgmSetVol(0x50, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8));
-    t34 = strmVoiceSetVol((unsigned char)(*(signed char *)((R12 + 0x9))));
-    *(unsigned int *)0x8C38BA78 = R13;
-    *(unsigned int *)0x8C38BA74 = R13;
-    *(unsigned int *)0x8C38BA70 = R13;
-    return t34;
-    L_8C0DF35A:;
-    padLcdClear(R14);
-    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
-    R14 = ((R14 + 0x1));
-    goto L_8C0DF362;
-    L_8C0DF38A:;
-    t38 = ((*(int *)((R12 + 0xC))) & R13) == 0;
-    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
-    R6 = (0x40);
-    if (t38) goto L_8C0DF398;
-    goto L_8C0DF392;
-    L_8C0DF392:;
-    *(unsigned int *)0x8C29BBB8 = R13;
-    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
-    goto L_8C0DF39C;
-    L_8C0DF39C:;
-    memmove(0x8C2FBC58, (0xE8 + R12), R6);
-    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
-    goto L_8C0DF3A6;
-    L_8C0DF398:;
-    *(unsigned int *)0x8C29BBB8 = R9;
-    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
-    goto L_8C0DF39C;
-    L_8C0DF34A:;
-    *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
-    R14 = (0xFFFFFF05);
-    goto L_8C0DF34C;
-}
 
 int objListPutLerp(int a4, int a5, float f4)
 {

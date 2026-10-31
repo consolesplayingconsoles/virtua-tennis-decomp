@@ -30,11 +30,17 @@ int kmyGetFreeSize(int a4, int a5)
     int R13;
     int R14;
     int T_;
+    int R1004;
+    int R1008;
+    int R1012;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
     R4 = a4;
     R5 = a5;
-    *(unsigned int *)(((int)stk + 8)) = 0x0;
-    *(unsigned int *)(((int)stk + 12)) = 0x0;
-    *(unsigned int *)(((int)stk + 4)) = 0x0;
+    R1008 = 0x0;
+    R1012 = 0x0;
+    R1004 = 0x0;
     t0 = *(int *)0x8C20C9F4;
     R13 = (0x0);
     R6 = (t0);
@@ -46,7 +52,7 @@ int kmyGetFreeSize(int a4, int a5)
     if (((unsigned int)(*(int *)((R6 + 0x10))) <= (unsigned int)R8)) goto L_8C1F552C;
     R8 = ((*(int *)((R6 + 0x10))));
     L_8C1F552C:;
-    *(unsigned int *)(((int)stk + 12)) = ((*(int *)(((int)stk + 12))) + (*(int *)((R6 + 0x10))));
+    R1012 = ((R1012) + (*(int *)((R6 + 0x10))));
     t13 = *(int *)((R6 + 0x8));
     R6 = (t13);
     if ((t13 != 0)) goto L_8C1F5524;
@@ -59,7 +65,7 @@ int kmyGetFreeSize(int a4, int a5)
     if (((unsigned int)(*(int *)((R6 + 0x10))) <= (unsigned int)R9)) goto L_8C1F554A;
     R9 = ((*(int *)((R6 + 0x10))));
     L_8C1F554A:;
-    *(unsigned int *)(((int)stk + 8)) = ((*(int *)(((int)stk + 8))) + R3);
+    R1008 = ((R1008) + R3);
     t26 = *(int *)((R6 + 0x8));
     R6 = (t26);
     if ((t26 != 0)) goto L_8C1F5540;
@@ -70,7 +76,7 @@ int kmyGetFreeSize(int a4, int a5)
     R14 = (0x10);
     goto L_8C1F5564;
     L_8C1F5656:;
-    *(unsigned int *)((R4 + 0x0)) = (((*(int *)(((int)stk + 12))) + (*(int *)(((int)stk + 8)))) + (*(int *)(((int)stk + 4))));
+    *(unsigned int *)((R4 + 0x0)) = (((R1012) + (R1008)) + (R1004));
     if (((unsigned int)R8 >= (unsigned int)R9)) goto L_8C1F566A;
     R3 = (R9);
     L_8C1F566C:;
@@ -99,7 +105,7 @@ int kmyGetFreeSize(int a4, int a5)
     L_8C1F563C:;
     R10 = ((R10 + 0x1));
     if (((*(int *)((R11 + 0x0))) != 0)) goto L_8C1F564A;
-    *(unsigned int *)(((int)stk + 4)) = ((*(int *)(((int)stk + 4))) + R7);
+    R1004 = ((R1004) + R7);
     L_8C1F564A:;
     R11 = ((R11 + 0x4));
     if (((unsigned int)R10 < (unsigned int)R6)) goto L_8C1F563C;

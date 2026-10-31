@@ -266,6 +266,9 @@ int kmSetSystemConfiguration(int a4)
     int t17;
     int t69;
     int stk[11];
+    int R1008;
+
+    R1008 = *(int *)((int)stk + 8);
 
     kmiCheckSysConfigSetting(a4);
     if (((*(int *)((a4 + 0x4))) & 0x100) != 0) {
@@ -274,9 +277,9 @@ int kmSetSystemConfiguration(int a4)
         *(unsigned int *)0x8C45F924 = 0x0;
     }
     t3 = *(int *)((a4 + 0x20));
-    *(unsigned int *)(((int)stk + 8)) = t3;
+    R1008 = t3;
     t4 = *(int *)((a4 + 0x18));
-    kmyInitAllocator((*(int *)0x8C45F7BC), (*(int *)((a4 + 0x18))), (*(int *)(((int)stk + 8))), (*(int *)((a4 + 0x1C))), (t3 + (((unsigned int)((((t4 << 1) + t4) << 2) << 1) >> 2) << 2)));
+    kmyInitAllocator((*(int *)0x8C45F7BC), (*(int *)((a4 + 0x18))), (R1008), (*(int *)((a4 + 0x1C))), (t3 + (((unsigned int)((((t4 << 1) + t4) << 2) << 1) >> 2) << 2)));
     t11 = 0x0;
     if (((*(int *)((a4 + 0x4))) & 0x100000) != 0) {
         t11 = 0x1;
@@ -314,8 +317,8 @@ int kmSetSystemConfiguration(int a4)
             *(unsigned int *)(((t33 << 2) + 0x8C460790)) = (*(int *)(((0x8C45F7A4 + (t33 << 2)) + 0x0)));
             if (((*(int *)((a4 + 0x4))) & 0x1) != 0) {
                 t37 = *(int *)(((t33 << 2) + (*(int *)((a4 + 0x8)))));
-                *(unsigned int *)(((int)stk + 8)) = t37;
-                kmyZeroMemory(((*(int *)(((*(int *)(((int)stk + 8))) + 0x1C))) + 0xA5000000), (*(int *)((t37 + 0x14))));
+                R1008 = t37;
+                kmyZeroMemory(((*(int *)(((R1008) + 0x1C))) + 0xA5000000), (*(int *)((t37 + 0x14))));
             }
             t33 = (t33 + 0x1);
             if ((unsigned int)t33 >= (unsigned int)(*(int *)((a4 + 0xC)))) {
@@ -388,10 +391,12 @@ int vmsfs_xdefrag(int a4, int a5)
     int R14;
     float F15;
     int T_;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     R4 = a4;
     R5 = a5;
     L_8C1EDBAC:;
-    *(unsigned int *)(((int)stk + 4)) = (R4 * 0x148);
+    R1004 = (R4 * 0x148);
     R10 = (R5);
     R11 = (((R4 * 0x148) + 0x8C464598));
     R14 = (R4);
@@ -414,7 +419,7 @@ int vmsfs_xdefrag(int a4, int a5)
     if (t10) goto L_8C1EDC16;
     goto L_8C1EDC0A;
     L_8C1EDC0A:;
-    if (((*(signed char *)((((*(int *)(((int)stk + 4))) + 0x8C464598) + 0x8))) != 0)) goto L_8C1EDC1C;
+    if (((*(signed char *)((((R1004) + 0x8C464598) + 0x8))) != 0)) goto L_8C1EDC1C;
     goto L_8C1EDC16;
     L_8C1EDC1C:;
     t15 = (int)(buIsFormat(R14)) >= 0;

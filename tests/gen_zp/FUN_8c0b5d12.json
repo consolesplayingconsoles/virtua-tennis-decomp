@@ -1,0 +1,68 @@
+{
+ "dev": [
+  {
+   "about": "idle: starts the load, then polls",
+   "regs": {
+    "r4": "8CA80000",
+    "r5": "8C11FD3C"
+   },
+   "poke": {
+    "0C34A1EC": "00000000"
+   },
+   "calls": [
+    {},
+    {
+     "r0": "00000002"
+    }
+   ]
+  },
+  {
+   "about": "busy: only polls",
+   "regs": {
+    "r4": "8CA80000",
+    "r5": "8C11FD3C"
+   },
+   "poke": {
+    "0C34A1EC": "01000000"
+   },
+   "calls": [
+    {
+     "r0": "00000002"
+    }
+   ]
+  }
+ ],
+ "holdout": [
+  {
+   "about": "idle, other arguments",
+   "regs": {
+    "r4": "8C9B0000",
+    "r5": "00000005"
+   },
+   "poke": {
+    "0C34A1EC": "00000000"
+   },
+   "calls": [
+    {},
+    {
+     "r0": "00000002"
+    }
+   ]
+  },
+  {
+   "about": "busy with state 2",
+   "regs": {
+    "r4": "00000000",
+    "r5": "00000000"
+   },
+   "poke": {
+    "0C34A1EC": "02000000"
+   },
+   "calls": [
+    {
+     "r0": "00000002"
+    }
+   ]
+  }
+ ]
+}

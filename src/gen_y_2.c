@@ -170,27 +170,42 @@ int pdVibSetStopTime(int a4, int a5, int a6, int a7)
     int t19;
     int t20;
     int stk[16];
+    int R1016;
+    int R1020;
+    int R1024;
+    int R1032;
+    int R1036;
+    int R1040;
+    int R1044;
 
-    *(unsigned int *)(((int)stk + 24)) = a4;
-    *(unsigned int *)(((int)stk + 20)) = a5;
-    *(unsigned int *)(((int)stk + 16)) = a6;
-    t0 = *(int *)(((int)stk + 24));
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
+    R1032 = *(int *)((int)stk + 32);
+    R1036 = *(int *)((int)stk + 36);
+    R1040 = *(int *)((int)stk + 40);
+    R1044 = *(int *)((int)stk + 44);
+
+    R1024 = a4;
+    R1020 = a5;
+    R1016 = a6;
+    t0 = R1024;
     t1 = pdVibIsReady(t0, a5, a6, a7);
     t21 = 0xFFFFFFFE;
     if (t1 != 0) {
-        *(unsigned int *)(((((int)stk + 16) + 0xC) + 0x10)) = 0x0;
-        *(unsigned int *)(((((int)stk + 16) + 0xC) + 0xC)) = 0x0;
-        *(unsigned int *)(((((int)stk + 16) + 0xC) + 0x8)) = 0x0;
-        *(unsigned int *)(((((int)stk + 16) + 0xC) + 0x4)) = 0x0;
+        R1044 = 0x0;
+        R1040 = 0x0;
+        R1036 = 0x0;
+        R1032 = 0x0;
         *(unsigned int *)(((((int)stk + 16) + 0xC) + 0x0)) = 0x0;
         t8 = 0x0;
         if ((unsigned int)0x0 < (unsigned int)a7) {
             t2 = 0x0;
             t3 = 0x0;
             do {
-                t4 = *(int *)(((int)stk + 20));
+                t4 = R1020;
                 t3 = (t3 + 0x1);
-                *(unsigned int *)(((int)stk + 20)) = (t4 + 0x1);
+                R1020 = (t4 + 0x1);
                 t5 = *(signed char *)((((t4 + 0x1) - 1) + 0x0));
                 t2 = (t2 | (((int)(unsigned char)t5 >= 0) ? (0x1 << ((unsigned char)t5 & 31)) : ((-(int)(unsigned char)t5 & 31) ? ((int)0x1 >> (-(int)(unsigned char)t5 & 31)) : ((int)0x1 >> 31))));
             } while ((unsigned int)t3 < (unsigned int)a7);
@@ -202,16 +217,16 @@ int pdVibSetStopTime(int a4, int a5, int a6, int a7)
             t10 = 0x0;
             t11 = (((((int)stk + 16) + 0xC) + 0x1) + 0x1);
             do {
-                t12 = *(int *)(((int)stk + 16));
+                t12 = R1016;
                 t10 = (t10 + 0x1);
-                *(unsigned int *)(((int)stk + 16)) = (t12 + 0x1);
+                R1016 = (t12 + 0x1);
                 t13 = *(signed char *)((((t12 + 0x1) - 1) + 0x0));
                 *(unsigned char *)((t11 + 0x0)) = t13;
                 t11 = (t11 + 0x1);
             } while ((unsigned int)t10 < (unsigned int)a7);
         }
-        *(unsigned int *)(((int)stk + 16)) = ((unsigned int)(a7 + 0x5) >> 2);
-        t18 = *(int *)(((int)stk + 24));
+        R1016 = ((unsigned int)(a7 + 0x5) >> 2);
+        t18 = R1024;
         t19 = kdSetBlockWrite(t18, 0x100, 0x0, 0x0, 0x0, (((int)stk + 16) + 0xC), ((unsigned int)(a7 + 0x5) >> 2));
         t20 = 0x0;
         if ((int)t19 < 0) {

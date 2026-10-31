@@ -58,11 +58,14 @@ int BupCardWarning(int a4);
 int stageSelMarkDraw(Stk4 s)
 {
     int stk[52];
+    int R1172;
+
+    R1172 = *(int *)((int)stk + 172);
 
     stk[40] = s.w[0];
     stk[41] = s.w[1];
     stk[42] = s.w[2];
-    stk[43] = s.w[3];
+    R1172 = s.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 100)) = *(struct mv3 *)((((int)stk + 100) + 0x3C)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)(((int)stk + 100)); }
     primSprDrawOfs(0x8C341484, 0x100, 0x100, 0x969600, *(Stk3 *)(((int)stk + 100)));

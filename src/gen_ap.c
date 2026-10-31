@@ -1,6 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_ap): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
+typedef struct { int w[1]; } Stk1;
 typedef struct { int w[4]; } Stk4;
 int ADXPD_EntrySte(int, int, int, int, int);
 int ADXPD_Start(int);
@@ -59,7 +60,7 @@ int netJudgeStart(void);
 int titleSprTexGarbage(void);
 int resEndObjTexFree(void);
 int resWtcShopObjTexFree(void);
-void camGetPos(Stk4 s);
+void camGetPos(Stk1 s);
 int sprPutAtAlpha(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
 int resGetTexLoad(int a4);
 int FUN_8c1e6420(float f4);
@@ -660,7 +661,7 @@ int resWtcShopObjTexFree(void)
     return t6;
 }
 
-void camGetPos(Stk4 s)
+void camGetPos(Stk1 s)
 {
     int stk[6];
 

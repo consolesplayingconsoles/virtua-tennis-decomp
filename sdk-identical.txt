@@ -118,3 +118,9 @@ ADXB_DecodeHeaderWav 226 cri_adxs.lib 28585
 syIntAdrChk_init 204 softkey.elf 588428
 _calcnpw 222 softkey.elf 94756 relaxed
 vsprintf 34 softkey.elf 61004 relaxed
+FUN_8c0f9a30 912 libnlobj.elf 16768
+FUN_8c0faba0 212 libnlobj.lib 34288
+FUN_8c0fb740 212 libnlobj.lib 37634
+FUN_8c1fc640 228 shinobi.elf 57812
+FUN_8c1fc77c 56 shinobi.elf 59272
+FUN_8c1fc7fc 346 shinobi.elf 59400

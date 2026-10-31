@@ -470,11 +470,14 @@ float easeSin(int a4, float f4, float f5, float f6)
 int sprPutScaleXArgs(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5)
 {
     int stk[14];
+    int R1020;
+
+    R1020 = *(int *)((int)stk + 20);
 
     stk[2] = a8;
     stk[3] = a9;
     stk[4] = a10;
-    stk[5] = a11;
+    R1020 = a11;
     *(float *)((a4 + 0x4)) = (*(float *)(((((int)stk + 4) + 0x4) + 0x0)));
     *(float *)((a4 + 0x8)) = (*(float *)(((((int)stk + 4) + 0x4) + 0x4)));
     *(float *)((a4 + 0xC)) = (*(float *)(((((int)stk + 4) + 0x4) + 0x8)));
@@ -701,10 +704,15 @@ int cpuInRange(Stk4 s)
     float u0;
     float u1;
     int stk[13];
+    int R1008;
+    int R1012;
+
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
 
     stk[1] = s.w[0];
-    stk[2] = s.w[1];
-    stk[3] = s.w[2];
+    R1008 = s.w[1];
+    R1012 = s.w[2];
     stk[4] = s.w[3];
     u0 = *(float *)((((int)stk + 4) + 0x0));
     u1 = *(float *)(((((int)stk + 4) + 0xC) + 0x0));

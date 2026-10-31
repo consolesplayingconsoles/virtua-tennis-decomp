@@ -24,6 +24,13 @@ int circuitDrawMatchIcon(void)
     register float u38;
     register int t10;
     register int t36;
+    int R1004;
+    int R1008;
+    int R1012;
+
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
 
     { struct mv16 { int w[16]; }; *(struct mv16 *)((((int)stk + 4) + 0xC)) = *(struct mv16 *)(0x8C10AB40); }
     t0 = *(int *)0x8C2FBE48;
@@ -47,9 +54,9 @@ int circuitDrawMatchIcon(void)
         if (0.0f > ((float)t10 / 20.0f)) {
             u12 = 0.0f;
         }
-        *(unsigned int *)(((int)stk + 8)) = (((int)stk + 4) + 0xC);
+        R1008 = (((int)stk + 4) + 0xC);
         *(unsigned int *)(((((int)stk + 4) + 0xC) + 0xC)) = ((*(int *)(((((int)stk + 4) + 0xC) + 0xC))) | (((int)(u12 * 64.0f) << 16) << 8));
-        *(unsigned int *)(((int)stk + 12)) = ((((int)stk + 4) + 0xC) + 0x10);
+        R1012 = ((((int)stk + 4) + 0xC) + 0x10);
         t15 = *(int *)0x8C2FBE48;
         t18 = (t15 - 30);
         if ((int)(t15 - 30) >= 0) {
@@ -58,16 +65,16 @@ int circuitDrawMatchIcon(void)
         }
         *(unsigned int *)((((((int)stk + 4) + 0xC) + 0x10) + 0xC)) = ((*(int *)((((((int)stk + 4) + 0xC) + 0x10) + 0xC))) | (((int)(((float)((-t18) + 0x1E) / 30.0f) * 64.0f) << 16) << 8));
         t21 = *(int *)0x8C2FBE48;
-        *(unsigned int *)(((int)stk + 4)) = (t21 - 30);
+        R1004 = (t21 - 30);
         t24 = (t21 - 30);
         if ((int)(t21 - 30) >= 0) {
         } else {
             t24 = (0x1E - (*(int *)0x8C2FBE48));
         }
         *(unsigned int *)((((((int)stk + 4) + 0xC) + 0x20) + 0xC)) = ((*(int *)((((((int)stk + 4) + 0xC) + 0x20) + 0xC))) | (((int)(((float)((-t24) + 0x1E) / 30.0f) * 64.0f) << 16) << 8));
-        t27 = *(int *)(((int)stk + 8));
+        t27 = R1008;
         *(float *)((t27 + 0x4)) = ((*(float *)((t27 + 0x4))) + (float)t6);
-        t29 = *(int *)(((int)stk + 12));
+        t29 = R1012;
         *(float *)((t29 + 0x4)) = ((*(float *)((t29 + 0x4))) + (float)t6);
         *(float *)((((((int)stk + 4) + 0xC) + 0x20) + 0x4)) = ((*(float *)((((((int)stk + 4) + 0xC) + 0x20) + 0x4))) + (float)t6);
         *(float *)((((((int)stk + 4) + 0xC) + 0x30) + 0x4)) = ((*(float *)((((((int)stk + 4) + 0xC) + 0x30) + 0x4))) + (float)t6);

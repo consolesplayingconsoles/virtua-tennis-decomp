@@ -1,3 +1,5 @@
 # The executable's layout for the tools (tools/layout.py): <name> <start hex> [<end hex>]
-game    0C010080 0C20CCD4    # the game's own code: what the build from C replaces (main at 8c010080 to the end of the last object; the 128-byte entry stub before it stays)
+game    0C010080 0C1DCC88    # the game's own code: what the build from C replaces (main at 8c010080 up to the SDK libraries at 8c1dcc88, which stay as the original bytes; the 128-byte entry stub before it stays too)
+keep    0C0EA1A0 0C1DCC88    # the NAOMI library and C runtime (8c0ea1a0-8c100e6a) and 900 KB of data after the game's own code: they stay at their address, the words in them that point at moved game code are followed (4,712 pointers in it, 3,637 words outside point into it)
 code    0C010000 0C20CCD4    # first object (8c010000) to the end of the last function (8c20ccd4): the cases may not write there
+shift   00038000 0C480000    # the shifted layout (tools/8-build/shift.py): the kept block, the SDK, the BSS and the heaps (up to 0C480000, under the 0C500000 file buffers) move up by 0x38000, the executable grows by that much and the C gets that much more room

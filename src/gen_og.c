@@ -34,6 +34,8 @@ void seShotHit(int a4, int a5)
     float F3;
     float F4;
     int T_;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     R4 = a4;
     R5 = a5;
     R12 = (R5);
@@ -70,7 +72,7 @@ void seShotHit(int a4, int a5)
     seShotHit2(R14, R12);
     return;
     L_8C0D1CA8:;
-    *(unsigned int *)(((int)stk + 4)) = (((*(int *)0x8C402C04) * 0x54) + 0x8C1D2B2C);
+    R1004 = (((*(int *)0x8C402C04) * 0x54) + 0x8C1D2B2C);
     R10 = (0x54);
     R11 = (0x8C0F5DF0);
     R8 = (0x8C1D2B2C);
@@ -78,7 +80,7 @@ void seShotHit(int a4, int a5)
     if (((*(int *)((R14 + 0xC64))) != 2)) goto L_8C0D1CCA;
     if ((R13 == 0)) goto L_8C0D1CE6;
     L_8C0D1CEE:;
-    R4 = ((*(int *)(((*(int *)(((int)stk + 4))) + 0x3C))));
+    R4 = ((*(int *)(((R1004) + 0x3C))));
     L_8C0D1CF2:;
     nlsndSeqRequest(R4);
     L_8C0D1DA0:;
@@ -88,7 +90,7 @@ void seShotHit(int a4, int a5)
     seBallSpeed(0x0, R14);
     return;
     L_8C0D1CE6:;
-    R4 = ((*(int *)(((*(int *)(((int)stk + 4))) + 0x1C))));
+    R4 = ((*(int *)(((R1004) + 0x1C))));
     goto L_8C0D1CF2;
     L_8C0D1CCA:;
     if (((*(int *)((R14 + 0xC64))) != 5)) goto L_8C0D1CDA;

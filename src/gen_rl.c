@@ -20,9 +20,12 @@ float cpuEdgeX(int a4, Stk3 s, float f4)
     float u15;
     float u27;
     float u23;
+    int R1008;
+
+    R1008 = *(int *)((int)stk + 8);
 
     stk[1] = s.w[0];
-    stk[2] = s.w[1];
+    R1008 = s.w[1];
     stk[3] = s.w[2];
     u0 = *(float *)((((int)stk + 4) + 0x8));
     u1 = *(float *)((((int)stk + 4) + 0x0));

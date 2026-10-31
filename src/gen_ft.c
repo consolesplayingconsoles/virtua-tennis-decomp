@@ -15,14 +15,17 @@ int crowdSetup(void)
     int t11;
     int t13;
     int stk[13];
+    int R1004;
+
+    R1004 = *(int *)((int)stk + 4);
 
     u0 = *(float *)0x8C08CF34;
     t1 = 0x0;
     for (;;) {
-        *(unsigned int *)(((int)stk + 4)) = (0x8C3020C8 + (t1 * 0x460));
+        R1004 = (0x8C3020C8 + (t1 * 0x460));
         t2 = 0x0;
         for (;;) {
-            t3 = *(int *)(((int)stk + 4));
+            t3 = R1004;
             *(unsigned int *)((((t2 * 0x1C) + t3) + 0x0)) = ((int)((int)t2 % (int)0xA));
             *(float *)((((t2 * 0x1C) + t3) + 0x8)) = (((float)((int)((int)(nlRand()) % (int)0x1E)) / u0) + 1.0f);
             *(float *)((((t2 * 0x1C) + t3) + 0x4)) = 0.0f;

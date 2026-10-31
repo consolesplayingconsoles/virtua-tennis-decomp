@@ -212,42 +212,61 @@ int windowBgDraw(int a4, int a5, float f4)
     register float u43;
     register float u45;
     int stk[75];
+    float R1068;
+    float R1072;
+    float R1076;
+    int R1080;
+    float R1084;
+    float R1088;
+    float R1300;
+    float R1304;
+    float R1308;
+
+    R1068 = *(float *)((int)stk + 68);
+    R1072 = *(float *)((int)stk + 72);
+    R1076 = *(float *)((int)stk + 76);
+    R1080 = *(int *)((int)stk + 80);
+    R1084 = *(float *)((int)stk + 84);
+    R1088 = *(float *)((int)stk + 88);
+    R1300 = *(float *)((int)stk + 300);
+    R1304 = *(float *)((int)stk + 304);
+    R1308 = *(float *)((int)stk + 308);
 
     t51 = 0xFFFFFF48;
     if ((int)a4 < 0) {
     } else {
-        *(unsigned int *)(((int)stk + 80)) = (*(int *)(((a4 << 2) + 0x8C10F5B0)));
-        *(float *)(((int)stk + 88)) = 0.0f;
-        *(float *)(((int)stk + 84)) = 93.0f;
-        *(float *)(((int)stk + 68)) = (*(float *)(((0xE8 + ((int)stk + 68)) + 0x8)));
-        *(float *)(((int)stk + 72)) = (*(float *)(((0xE8 + ((int)stk + 68)) + 0x4)));
-        *(float *)(((int)stk + 76)) = (*(float *)(((0xE8 + ((int)stk + 68)) + 0x0)));
+        R1080 = (*(int *)(((a4 << 2) + 0x8C10F5B0)));
+        R1088 = 0.0f;
+        R1084 = 93.0f;
+        R1068 = (R1308);
+        R1072 = (R1304);
+        R1076 = (R1300);
         if (a5 == 1) {
-            *(float *)(((int)stk + 88)) = ((1.0f - f4) * 93.0f);
-            *(Stk3 *)((((int)stk + 68) + 0x3C)) = vecMake(((f4 * 93.0f) + (*(float *)(((int)stk + 76)))), (*(float *)(((int)stk + 72))), (*(float *)(((int)stk + 68))));
-            *(Stk3 *)((((int)stk + 68) + 0x30)) = vecMake((*(float *)(((0xE8 + ((int)stk + 68)) + 0x0))), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x4))), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x8))));
-            *(Stk3 *)((((int)stk + 68) + 0x24)) = vecMake(((f4 * 93.0f) + (*(float *)(((0xE8 + ((int)stk + 68)) + 0x0)))), (120.0f + (*(float *)(((0xE8 + ((int)stk + 68)) + 0x4)))), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x8))));
-            *(Stk3 *)((((int)stk + 68) + 0x18)) = vecMake((*(float *)(((0xE8 + ((int)stk + 68)) + 0x0))), (120.0f + (*(float *)(((0xE8 + ((int)stk + 68)) + 0x4)))), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x8))));
+            R1088 = ((1.0f - f4) * 93.0f);
+            *(Stk3 *)((((int)stk + 68) + 0x3C)) = vecMake(((f4 * 93.0f) + (R1076)), (R1072), (R1068));
+            *(Stk3 *)((((int)stk + 68) + 0x30)) = vecMake((R1300), (R1304), (R1308));
+            *(Stk3 *)((((int)stk + 68) + 0x24)) = vecMake(((f4 * 93.0f) + (R1300)), (120.0f + (R1304)), (R1308));
+            *(Stk3 *)((((int)stk + 68) + 0x18)) = vecMake((R1300), (120.0f + (R1304)), (R1308));
         } else {
             if (a5 == 0) {
-                *(float *)(((int)stk + 84)) = (f4 * 93.0f);
-                *(Stk3 *)((((int)stk + 68) + 0x3C)) = vecMake(((*(float *)(((int)stk + 76))) + 93.0f), (*(float *)(((int)stk + 72))), (*(float *)(((int)stk + 68))));
-                *(Stk3 *)((((int)stk + 68) + 0x30)) = vecMake(((*(float *)(((0xE8 + ((int)stk + 68)) + 0x0))) + ((1.0f - f4) * 93.0f)), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x4))), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x8))));
-                *(Stk3 *)((((int)stk + 68) + 0x24)) = vecMake(((*(float *)(((0xE8 + ((int)stk + 68)) + 0x0))) + 93.0f), (120.0f + (*(float *)(((0xE8 + ((int)stk + 68)) + 0x4)))), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x8))));
-                *(Stk3 *)((((int)stk + 68) + 0x18)) = vecMake(((*(float *)(((0xE8 + ((int)stk + 68)) + 0x0))) + ((1.0f - f4) * 93.0f)), (120.0f + (*(float *)(((0xE8 + ((int)stk + 68)) + 0x4)))), (*(float *)(((0xE8 + ((int)stk + 68)) + 0x8))));
+                R1084 = (f4 * 93.0f);
+                *(Stk3 *)((((int)stk + 68) + 0x3C)) = vecMake(((R1076) + 93.0f), (R1072), (R1068));
+                *(Stk3 *)((((int)stk + 68) + 0x30)) = vecMake(((R1300) + ((1.0f - f4) * 93.0f)), (R1304), (R1308));
+                *(Stk3 *)((((int)stk + 68) + 0x24)) = vecMake(((R1300) + 93.0f), (120.0f + (R1304)), (R1308));
+                *(Stk3 *)((((int)stk + 68) + 0x18)) = vecMake(((R1300) + ((1.0f - f4) * 93.0f)), (120.0f + (R1304)), (R1308));
             }
         }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)((((int)stk + 68) + 0x3C)); }
-        u43 = *(float *)(((int)stk + 84));
+        u43 = R1084;
         primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (((int)stk + 68) + 0x48), (u43 / 128.0f), 1.0f);
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 68) + 0x30)); }
-        u45 = *(float *)(((int)stk + 88));
+        u45 = R1088;
         primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (0x1C + (((int)stk + 68) + 0x48)), (u45 / 128.0f), 1.0f);
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)((((int)stk + 68) + 0x24)); }
         primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (0x38 + (((int)stk + 68) + 0x48)), (u43 / 128.0f), 0.0625f);
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 68) + 0x18)); }
         primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (0x54 + (((int)stk + 68) + 0x48)), (u45 / 128.0f), 0.0625f);
-        t51 = (nlDispStripTexOfsTrnsl(0x4, (((int)stk + 68) + 0x48), (*(int *)(((int)stk + 80)))));
+        t51 = (nlDispStripTexOfsTrnsl(0x4, (((int)stk + 68) + 0x48), (R1080)));
     }
     return t51;
 }
@@ -264,24 +283,39 @@ int primSprDrawScaleFadeY(int a4, int a5, int a6, float f4, float f5, float f6, 
     int t13;
     float u14;
     int stk[76];
+    float R1084;
+    int R1088;
+    int R1092;
+    float R1096;
+    float R1304;
+    float R1308;
+    float R1312;
+
+    R1084 = *(float *)((int)stk + 84);
+    R1088 = *(int *)((int)stk + 88);
+    R1092 = *(int *)((int)stk + 92);
+    R1096 = *(float *)((int)stk + 96);
+    R1304 = *(float *)((int)stk + 304);
+    R1308 = *(float *)((int)stk + 308);
+    R1312 = *(float *)((int)stk + 312);
 
     u0 = *(float *)((a4 + 0x20));
     u1 = *(float *)((a4 + 0x18));
-    *(unsigned int *)(((int)stk + 92)) = (int)(((f4 * (u0 - u1))) * (float)a5);
+    R1092 = (int)(((f4 * (u0 - u1))) * (float)a5);
     u3 = *(float *)((a4 + 0x24));
     u4 = *(float *)((a4 + 0x1C));
-    *(unsigned int *)(((int)stk + 88)) = (int)(((f5 * (u3 - u4))) * (float)a6);
-    t6 = *(int *)(((int)stk + 92));
-    u7 = *(float *)(((0xDC + ((int)stk + 84)) + 0x8));
-    u8 = *(float *)(((0xDC + ((int)stk + 84)) + 0x4));
-    *(float *)(((int)stk + 84)) = (float)t6;
-    *(Stk3 *)((((int)stk + 84) + 0x34)) = vecMake(((float)t6 + (*(float *)(((0xDC + ((int)stk + 84)) + 0x0)))), u8, u7);
-    *(Stk3 *)((((int)stk + 80) + 0x2C)) = vecMake((*(float *)(((0xDC + ((int)stk + 84)) + 0x0))), (*(float *)(((0xDC + ((int)stk + 84)) + 0x4))), (*(float *)(((0xDC + ((int)stk + 84)) + 0x8))));
-    t13 = *(int *)(((int)stk + 88));
-    u14 = *(float *)(((0xDC + ((int)stk + 84)) + 0x8));
-    *(float *)(((int)stk + 96)) = (float)t13;
-    *(Stk3 *)((((int)stk + 76) + 0x24)) = vecMake(((*(float *)(((int)stk + 84))) + (*(float *)(((0xDC + ((int)stk + 84)) + 0x0)))), ((float)t13 + (*(float *)(((0xDC + ((int)stk + 84)) + 0x4)))), u14);
-    *(Stk3 *)((((int)stk + 72) + 0x1C)) = vecMake((*(float *)(((0xDC + ((int)stk + 84)) + 0x0))), ((*(float *)(((int)stk + 96))) + (*(float *)(((0xDC + ((int)stk + 84)) + 0x4)))), (*(float *)(((0xDC + ((int)stk + 84)) + 0x8))));
+    R1088 = (int)(((f5 * (u3 - u4))) * (float)a6);
+    t6 = R1092;
+    u7 = R1312;
+    u8 = R1308;
+    R1084 = (float)t6;
+    *(Stk3 *)((((int)stk + 84) + 0x34)) = vecMake(((float)t6 + (R1304)), u8, u7);
+    *(Stk3 *)((((int)stk + 80) + 0x2C)) = vecMake((R1304), (R1308), (R1312));
+    t13 = R1088;
+    u14 = R1312;
+    R1096 = (float)t13;
+    *(Stk3 *)((((int)stk + 76) + 0x24)) = vecMake(((R1084) + (R1304)), ((float)t13 + (R1308)), u14);
+    *(Stk3 *)((((int)stk + 72) + 0x1C)) = vecMake((R1304), ((R1096) + (R1308)), (R1312));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)((((int)stk + 68) + 0x44)); }
     primTexVertexSet((((((int)(f6 * 255.0f) & 0xFF) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (((int)stk + 68) + 0x50), u0, ((-u4) + 1.0f));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x48)); }
@@ -330,24 +364,39 @@ int primSprDrawScaleAlpha(int a4, int a5, int a6, float f4, float f5, float f6)
     register int t13;
     register float u14;
     int stk[75];
+    float R1084;
+    float R1088;
+    int R1092;
+    int R1096;
+    float R1300;
+    float R1304;
+    float R1308;
+
+    R1084 = *(float *)((int)stk + 84);
+    R1088 = *(float *)((int)stk + 88);
+    R1092 = *(int *)((int)stk + 92);
+    R1096 = *(int *)((int)stk + 96);
+    R1300 = *(float *)((int)stk + 300);
+    R1304 = *(float *)((int)stk + 304);
+    R1308 = *(float *)((int)stk + 308);
 
     u0 = *(float *)((a4 + 0x20));
     u1 = *(float *)((a4 + 0x18));
-    *(unsigned int *)(((int)stk + 92)) = (int)(((f4 * (u0 - u1))) * (float)a5);
+    R1092 = (int)(((f4 * (u0 - u1))) * (float)a5);
     u3 = *(float *)((a4 + 0x24));
     u4 = *(float *)((a4 + 0x1C));
-    *(unsigned int *)(((int)stk + 96)) = (int)(((f5 * (u3 - u4))) * (float)a6);
-    t6 = *(int *)(((int)stk + 92));
-    u7 = *(float *)(((0xD8 + ((int)stk + 84)) + 0x8));
-    u8 = *(float *)(((0xD8 + ((int)stk + 84)) + 0x4));
-    *(float *)(((int)stk + 84)) = (float)t6;
-    *(Stk3 *)((((int)stk + 84) + 0x34)) = vecMake(((float)t6 + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x0)))), u8, u7);
-    *(Stk3 *)((((int)stk + 80) + 0x2C)) = vecMake((*(float *)(((0xD8 + ((int)stk + 84)) + 0x0))), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x4))), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x8))));
-    t13 = *(int *)(((int)stk + 96));
-    u14 = *(float *)(((0xD8 + ((int)stk + 84)) + 0x8));
-    *(float *)(((int)stk + 88)) = (float)t13;
-    *(Stk3 *)((((int)stk + 76) + 0x24)) = vecMake(((*(float *)(((int)stk + 84))) + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x0)))), ((float)t13 + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x4)))), u14);
-    *(Stk3 *)((((int)stk + 72) + 0x1C)) = vecMake((*(float *)(((0xD8 + ((int)stk + 84)) + 0x0))), ((*(float *)(((int)stk + 88))) + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x4)))), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x8))));
+    R1096 = (int)(((f5 * (u3 - u4))) * (float)a6);
+    t6 = R1092;
+    u7 = R1308;
+    u8 = R1304;
+    R1084 = (float)t6;
+    *(Stk3 *)((((int)stk + 84) + 0x34)) = vecMake(((float)t6 + (R1300)), u8, u7);
+    *(Stk3 *)((((int)stk + 80) + 0x2C)) = vecMake((R1300), (R1304), (R1308));
+    t13 = R1096;
+    u14 = R1308;
+    R1088 = (float)t13;
+    *(Stk3 *)((((int)stk + 76) + 0x24)) = vecMake(((R1084) + (R1300)), ((float)t13 + (R1304)), u14);
+    *(Stk3 *)((((int)stk + 72) + 0x1C)) = vecMake((R1300), ((R1088) + (R1304)), (R1308));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)((((int)stk + 68) + 0x44)); }
     primTexVertexSet(((((0xFF & (int)(f6 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0xFF000000, 0x0, 0x0, (((int)stk + 68) + 0x50), u0, ((-u4) + 1.0f));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x48)); }
@@ -371,24 +420,39 @@ int primSprDraw(int a4, int a5, int a6, int a7)
     register int t11;
     register float u12;
     int stk[75];
+    int R1084;
+    int R1088;
+    float R1092;
+    float R1096;
+    float R1300;
+    float R1304;
+    float R1308;
+
+    R1084 = *(int *)((int)stk + 84);
+    R1088 = *(int *)((int)stk + 88);
+    R1092 = *(float *)((int)stk + 92);
+    R1096 = *(float *)((int)stk + 96);
+    R1300 = *(float *)((int)stk + 300);
+    R1304 = *(float *)((int)stk + 304);
+    R1308 = *(float *)((int)stk + 308);
 
     u0 = *(float *)((a4 + 0x20));
     u1 = *(float *)((a4 + 0x18));
-    *(unsigned int *)(((int)stk + 84)) = (int)((u0 - u1) * (float)a5);
+    R1084 = (int)((u0 - u1) * (float)a5);
     u2 = *(float *)((a4 + 0x24));
     u3 = *(float *)((a4 + 0x1C));
-    *(unsigned int *)(((int)stk + 88)) = (int)((u2 - u3) * (float)a6);
-    t4 = *(int *)(((int)stk + 84));
-    u5 = *(float *)(((0xD8 + ((int)stk + 84)) + 0x8));
-    u6 = *(float *)(((0xD8 + ((int)stk + 84)) + 0x4));
-    *(float *)(((int)stk + 92)) = (float)t4;
-    *(Stk3 *)((((int)stk + 84) + 0x34)) = vecMake(((float)t4 + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x0)))), u6, u5);
-    *(Stk3 *)((((int)stk + 80) + 0x2C)) = vecMake((*(float *)(((0xD8 + ((int)stk + 84)) + 0x0))), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x4))), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x8))));
-    t11 = *(int *)(((int)stk + 88));
-    u12 = *(float *)(((0xD8 + ((int)stk + 84)) + 0x8));
-    *(float *)(((int)stk + 96)) = (float)t11;
-    *(Stk3 *)((((int)stk + 76) + 0x24)) = vecMake(((*(float *)(((int)stk + 92))) + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x0)))), ((float)t11 + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x4)))), u12);
-    *(Stk3 *)((((int)stk + 72) + 0x1C)) = vecMake((*(float *)(((0xD8 + ((int)stk + 84)) + 0x0))), ((*(float *)(((int)stk + 96))) + (*(float *)(((0xD8 + ((int)stk + 84)) + 0x4)))), (*(float *)(((0xD8 + ((int)stk + 84)) + 0x8))));
+    R1088 = (int)((u2 - u3) * (float)a6);
+    t4 = R1084;
+    u5 = R1308;
+    u6 = R1304;
+    R1092 = (float)t4;
+    *(Stk3 *)((((int)stk + 84) + 0x34)) = vecMake(((float)t4 + (R1300)), u6, u5);
+    *(Stk3 *)((((int)stk + 80) + 0x2C)) = vecMake((R1300), (R1304), (R1308));
+    t11 = R1088;
+    u12 = R1308;
+    R1096 = (float)t11;
+    *(Stk3 *)((((int)stk + 76) + 0x24)) = vecMake(((R1092) + (R1300)), ((float)t11 + (R1304)), u12);
+    *(Stk3 *)((((int)stk + 72) + 0x1C)) = vecMake((R1300), ((R1096) + (R1304)), (R1308));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)((((int)stk + 68) + 0x44)); }
     primTexVertexSet(a7, 0xFF000000, 0x0, 0x0, (((int)stk + 68) + 0x50), u0, ((-u3) + 1.0f));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x48)); }
@@ -412,24 +476,39 @@ int primSprDrawScale(int a4, int a5, int a6, float f4, float f5)
     register int t13;
     register float u14;
     int stk[74];
+    int R1084;
+    int R1088;
+    float R1092;
+    float R1096;
+    float R1296;
+    float R1300;
+    float R1304;
+
+    R1084 = *(int *)((int)stk + 84);
+    R1088 = *(int *)((int)stk + 88);
+    R1092 = *(float *)((int)stk + 92);
+    R1096 = *(float *)((int)stk + 96);
+    R1296 = *(float *)((int)stk + 296);
+    R1300 = *(float *)((int)stk + 300);
+    R1304 = *(float *)((int)stk + 304);
 
     u0 = *(float *)((a4 + 0x20));
     u1 = *(float *)((a4 + 0x18));
-    *(unsigned int *)(((int)stk + 84)) = (int)(((f4 * (u0 - u1))) * (float)a5);
+    R1084 = (int)(((f4 * (u0 - u1))) * (float)a5);
     u3 = *(float *)((a4 + 0x24));
     u4 = *(float *)((a4 + 0x1C));
-    *(unsigned int *)(((int)stk + 88)) = (int)(((f5 * (u3 - u4))) * (float)a6);
-    t6 = *(int *)(((int)stk + 84));
-    u7 = *(float *)(((0xD4 + ((int)stk + 84)) + 0x8));
-    u8 = *(float *)(((0xD4 + ((int)stk + 84)) + 0x4));
-    *(float *)(((int)stk + 92)) = (float)t6;
-    *(Stk3 *)((((int)stk + 84) + 0x34)) = vecMake(((float)t6 + (*(float *)(((0xD4 + ((int)stk + 84)) + 0x0)))), u8, u7);
-    *(Stk3 *)((((int)stk + 80) + 0x2C)) = vecMake((*(float *)(((0xD4 + ((int)stk + 84)) + 0x0))), (*(float *)(((0xD4 + ((int)stk + 84)) + 0x4))), (*(float *)(((0xD4 + ((int)stk + 84)) + 0x8))));
-    t13 = *(int *)(((int)stk + 88));
-    u14 = *(float *)(((0xD4 + ((int)stk + 84)) + 0x8));
-    *(float *)(((int)stk + 96)) = (float)t13;
-    *(Stk3 *)((((int)stk + 76) + 0x24)) = vecMake(((*(float *)(((int)stk + 92))) + (*(float *)(((0xD4 + ((int)stk + 84)) + 0x0)))), ((float)t13 + (*(float *)(((0xD4 + ((int)stk + 84)) + 0x4)))), u14);
-    *(Stk3 *)((((int)stk + 72) + 0x1C)) = vecMake((*(float *)(((0xD4 + ((int)stk + 84)) + 0x0))), ((*(float *)(((int)stk + 96))) + (*(float *)(((0xD4 + ((int)stk + 84)) + 0x4)))), (*(float *)(((0xD4 + ((int)stk + 84)) + 0x8))));
+    R1088 = (int)(((f5 * (u3 - u4))) * (float)a6);
+    t6 = R1084;
+    u7 = R1304;
+    u8 = R1300;
+    R1092 = (float)t6;
+    *(Stk3 *)((((int)stk + 84) + 0x34)) = vecMake(((float)t6 + (R1296)), u8, u7);
+    *(Stk3 *)((((int)stk + 80) + 0x2C)) = vecMake((R1296), (R1300), (R1304));
+    t13 = R1088;
+    u14 = R1304;
+    R1096 = (float)t13;
+    *(Stk3 *)((((int)stk + 76) + 0x24)) = vecMake(((R1092) + (R1296)), ((float)t13 + (R1300)), u14);
+    *(Stk3 *)((((int)stk + 72) + 0x1C)) = vecMake((R1296), ((R1096) + (R1300)), (R1304));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)((((int)stk + 68) + 0x44)); }
     primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (((int)stk + 68) + 0x50), u0, ((-u4) + 1.0f));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x48)); }

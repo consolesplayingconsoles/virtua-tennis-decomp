@@ -42,6 +42,8 @@ int cpuPointOverInput(int a4)
     float F8;
     float F9;
     int T_;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     R4 = a4;
     u1 = *(float *)0x8C291F7C;
     R14 = (0x8C291F24);
@@ -153,7 +155,7 @@ int cpuPointOverInput(int a4)
     *(unsigned short *)((R5 + 0x20)) = R7;
     L_8C03DC2A:;
     if ((((*(int *)0x8C287B3C) & 0x4000) == 0)) goto L_8C03DC94;
-    *(unsigned int *)(((int)stk + 4)) = (R6 + 0x44);
+    R1004 = (R6 + 0x44);
     t86 = (int)((int)(((*(int *)(((R6 + 0x44) + 0x0))) + (*(int *)(((R6 + 0x44) + 0x4)))) + 0x6) % (int)0x6);
     t88 = (int)((unsigned int)((int)((unsigned int)t86 + (unsigned int)0x0)) + ((((int)0x0 > (int)t86)) ? 1u : 0u));
     R0 = (((t88 >> 1) + 0x2));
@@ -220,14 +222,14 @@ int cpuPointOverInput(int a4)
     R0 = (((~(((~R0) + 0x1) & 0x1)) + 0x1));
     goto L_8C03DC66;
     L_8C03DC94:;
-    *(unsigned int *)(((int)stk + 4)) = (R6 + 0x44);
+    R1004 = (R6 + 0x44);
     t129 = *(int *)(((R6 + 0x44) + 0x0));
     t130 = *(int *)(((R6 + 0x44) + 0x4));
     R0 = (((t129 + t130) + 0x2));
     if (((int)((t129 + t130) + 0x2) < 0)) goto L_8C03DCAC;
     R0 = ((R0 & 0x1));
     L_8C03DCB6:;
-    *(unsigned int *)(((int)stk + 4)) = (R6 + 0x34);
+    R1004 = (R6 + 0x34);
     t134 = *(int *)(((R6 + 0x34) + 0x0));
     t135 = *(int *)(((R6 + 0x34) + 0x4));
     t137 = (int)((unsigned int)((int)((unsigned int)(t134 + t135) + (unsigned int)0x0)) + ((((int)0x0 > (int)(t134 + t135))) ? 1u : 0u));

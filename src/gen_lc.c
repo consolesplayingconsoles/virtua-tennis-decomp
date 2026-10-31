@@ -31,6 +31,14 @@ float miniEp2TargetSpawn(int a4)
     register int v0_4;
     register float w0_0;
     register float w0_1;
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1016;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
     v0_0 = a4;
     v0_2 = set_event(0x118, 0x8C03AA92);
     v0_1 = *(int *)0x8C2FBEF0;
@@ -45,9 +53,9 @@ float miniEp2TargetSpawn(int a4)
     *(unsigned short *)(((0x8C2FC094 + (v0_0 << 1)) + 0x0)) = 0x0;
     *(unsigned int *)(((v0_0 << 2) + 0x8C2FC0A0)) = 0x0;
     *(unsigned int *)(((v0_0 << 2) + 0x8C2FC0B4)) = 0x0;
-    *(unsigned int *)(((int)stk + 8)) = 0x8C10C788;
-    *(unsigned int *)(((int)stk + 12)) = (*(int *)0x8C10C790);
-    *(unsigned int *)(((int)stk + 16)) = (v0_0 + 0x2);
+    R1008 = 0x8C10C788;
+    R1012 = (*(int *)0x8C10C790);
+    R1016 = (v0_0 + 0x2);
     v0_4 = (0x8C2FC0B4);
     v0_0 = (0x4);
     v0_1 = (0x0);
@@ -56,16 +64,16 @@ float miniEp2TargetSpawn(int a4)
     v0_3 = (0x78);
     w0_0 = ((w0_0 * 65536.0f));
     L_8C03AA76:;
-    if (((int)v0_1 < (int)(*(int *)(((*(int *)(((int)stk + 8))) + 0xC))))) goto L_8C03AA00;
+    if (((int)v0_1 < (int)(*(int *)(((R1008) + 0xC))))) goto L_8C03AA00;
     return w0_0;
     L_8C03AA00:;
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 8) + 0xC)) = *(struct mv3 *)((0x104 + v0_2)); }
-    v0_4 = *(int *)(((int)stk + 12));
+    v0_4 = R1012;
     nlAddVector((((int)stk + 8) + 0xC), ((((v0_1 << 2) + v0_1) << 2) + v0_4));
     w0_1 = *(float *)((((((v0_1 << 2) + v0_1) << 2) + v0_4) + 0xC));
-    *(int *)((int)stk + 4) = ((v0_2 + 0x14) + (v0_1 * v0_3));
+    R1004 = ((v0_2 + 0x14) + (v0_1 * v0_3));
     colliObjInit((((int)stk + 8) + 0xC), 0x0, 0x0, 0x0, ((v0_2 + 0x14) + (v0_1 * v0_3)), w0_1);
-    *(unsigned int *)((((v0_2 + 0x14) + (v0_1 * v0_3)) + 0x30)) = (*(int *)(((int)stk + 16)));
+    *(unsigned int *)((((v0_2 + 0x14) + (v0_1 * v0_3)) + 0x30)) = (R1016);
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((v0_2 + 0x14) + (v0_1 * v0_3)) + 0x24)) = *(struct mv3 *)((((int)stk + 8) + 0xC)); }
     *(float *)((((v0_2 + 0x14) + (v0_1 * v0_3)) + 0x5C)) = (*(float *)((((((v0_1 << 2) + v0_1) << 2) + v0_4) + 0x10)));
     *(unsigned int *)((((v0_2 + 0x14) + (v0_1 * v0_3)) + 0x38)) = ((*(int *)((((v0_2 + 0x14) + (v0_1 * v0_3)) + 0x38))) | v0_0);

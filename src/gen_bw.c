@@ -373,6 +373,13 @@ int miniWallTargetsHit(int a4, int a5, int a6, int a7, float f4, float f5, float
     register int t37;
     register int t38;
     int stk[19];
+    int R1016;
+    float R1020;
+    float R1024;
+
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(float *)((int)stk + 20);
+    R1024 = *(float *)((int)stk + 24);
 
     if ((*(int *)0x8C287C60) != 0) {
     } else {
@@ -399,11 +406,11 @@ int miniWallTargetsHit(int a4, int a5, int a6, int a7, float f4, float f5, float
                         for (;;) {
                             u20 = 10.0f;
                             u20 = u20 + 20.0f * ((float)t17 + 0.5f);
-                            *(float *)(((int)stk + 20)) = u20;
+                            R1020 = u20;
                             t21 = ((t17 << 2) + t17);
                             t22 = 0xFFFFFFE0;
                             for (;;) {
-                                t26 = vecDistXZf(a4, a5, a6, a7, (*(float *)0x8C291F30), (*(float *)0x8C291F34), (float)t22, (*(float *)(((int)stk + 20))));
+                                t26 = vecDistXZf(a4, a5, a6, a7, (*(float *)0x8C291F30), (*(float *)0x8C291F34), (float)t22, (R1020));
                                 if (u19 > t26) {
                                     t18 = t21;
                                     u19 = t26;
@@ -464,15 +471,15 @@ int miniWallTargetsHit(int a4, int a5, int a6, int a7, float f4, float f5, float
     nlPopMatrix(0x1);
     t154 = 0x0;
     for (;;) {
-        *(unsigned int *)(((int)stk + 16)) = 0x0;
+        R1016 = 0x0;
         u155 = 10.0f;
         u155 = u155 + 20.0f * ((float)t154 + 0.5f);
-        *(float *)(((int)stk + 24)) = u155;
+        R1024 = u155;
         t156 = ((t154 << 2) + t154);
         t157 = 0xFFFFFFE0;
         for (;;) {
             nlPushMatrix(0x0);
-            nlTranslate((float)t157, (*(float *)(((int)stk + 24))), 0.0f);
+            nlTranslate((float)t157, (R1024), 0.0f);
             if ((*(int *)0x8C287C60) == 0) {
                 if ((*(int *)(((t156 << 2) + 0x8C2FC18C))) != 0) {
                     t163 = *(int *)(((0x8C2FC1B4 + (t156 << 2)) + 0x0));
@@ -486,9 +493,9 @@ int miniWallTargetsHit(int a4, int a5, int a6, int a7, float f4, float f5, float
             nlScale((*(float *)(((0x8C2FC1DC + (t156 << 2)) + 0x0))), 1.0f, 1.0f);
             nlObjPut((*(int *)(((t156 << 2) + 0x8C159D64))));
             t199 = nlPopMatrix(0x1);
-            t200 = *(int *)(((int)stk + 16));
+            t200 = R1016;
             t157 = (t157 + 0x10);
-            *(unsigned int *)(((int)stk + 16)) = (t200 + 0x1);
+            R1016 = (t200 + 0x1);
             t156 = (t156 + 0x1);
             if ((int)(t200 + 0x1) >= (int)0x5) {
                 break;
