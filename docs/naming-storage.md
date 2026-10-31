@@ -93,3 +93,24 @@ The function/name temporary lower bound falls from 28,957 to 28,728 across
 2,532 functions; offset-style record identifiers fall from 31 to 9. There are
 still 101 address-based global identifiers in the name tables. These are
 inventory measurements, not a claim that relabeling is complete.
+
+## GD handle offsets 44 and 48, and three unlisted entries
+
+`gdFsChainHandleDmaCallback` (`8c1dd692`) reads the current handle from the
+filesystem state at +28 and, when handle +44 is nonzero, passes handle +44 and
++48 to GDC BIOS command 5 (callback and argument); otherwise it passes zero
+for both. The constructor clears +44. The members are therefore
+`dmaCallbackAddress` (+44) and `dmaCallbackArgument` (+48).
+
+Three code entries were missing from `functions.txt` (found as pool-referenced
+code after `gdFsReadWG`, and before `gdGdcReqDmaTrans`):
+
+- `gdFsChainHandleDmaCallback` (`8c1dd692`): sync chain handler, registered
+  through `syChainAddHandler` with id `0xa40` in the filesystem init code.
+- `gdFsChainExecServer` (`8c1dd6ac`): chain handler registered with id
+  `0x900`; returns when state +32 is 1, otherwise tail-calls `gdFsExecServerG`.
+- `gdGdcSetDmaCallback` (`8c1ef400`): GDC BIOS command 5 with callback and
+  argument, same stub shape as its neighbours.
+
+The state +44 reads in the init code (packed version digits) belong to the
+global state, not to the handle.

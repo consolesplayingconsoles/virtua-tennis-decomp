@@ -8,8 +8,8 @@ typedef struct {
     int sectorCount;     /* 16 */
     int sectorPosition, completedTransferAmount, requestedSectorCount, transferByteCount, readCompletionCallbackAddress;
     int readCompletionCallbackArgument;        /* untouched */
-    int f44;
-    int f48;        /* untouched */
+    int dmaCallbackAddress;
+    int dmaCallbackArgument;        /* untouched */
     int errorCallbackAddress;
     int errorCallbackArgument;        /* untouched */
     int commandRequestId;
@@ -38,7 +38,7 @@ GdFsFileHandle *gdFsCreateHnG(GdFsFileHandle *handle, int directoryEntryId, int 
     handle->requestedSectorCount = 0;
     handle->transferByteCount = 0;
     handle->readCompletionCallbackAddress = 0;
-    handle->f44 = 0;
+    handle->dmaCallbackAddress = 0;
     handle->errorCallbackAddress = 0;
     handle->commandRequestId = 0;
     handle->driverStatusWord2 = 0;

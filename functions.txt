@@ -2015,6 +2015,8 @@ F 8c1dd3a2 34 gdFsCheckMedia
 F 8c1dd3c4 10 gdFsSetGlobalErrG
 F 8c1dd3ce 646 gdFsGetStatG
 F 8c1dd654 62 gdFsReadWG
+F 8c1dd692 26 gdFsChainHandleDmaCallback
+F 8c1dd6ac 14 gdFsChainExecServer
 F 8c1dd6ba 22 gdFsLockDir
 F 8c1dd9ee 6 gdFsInit
 F 8c1dd9f4 286 gdFsInitG
@@ -2576,6 +2578,7 @@ F 8c1ef3b0 12 gdGdcGetCmdStat
 F 8c1ef3c4 12 gdGdcExecServer
 F 8c1ef3d8 12 gdGdcInitSystem
 F 8c1ef3ec 12 gdGdcGetDrvStat
+F 8c1ef400 12 gdGdcSetDmaCallback
 F 8c1ef414 12 gdGdcReqDmaTrans
 F 8c1ef428 12 gdGdcCheckDmaTrans
 F 8c1ef4a0 10 kbCfgIni
