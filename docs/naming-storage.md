@@ -114,3 +114,16 @@ code after `gdFsReadWG`, and before `gdGdcReqDmaTrans`):
 
 The state +44 reads in the init code (packed version digits) belong to the
 global state, not to the handle.
+
+## DMA request shorts and ADX decoder slot flag
+
+- Texture DMA request +28/+30 (`kmySetTextureDMA` writes `0x8000` and `0`):
+  no function reads them (`kmiLaunchQ` switches on +8 and reads +12/+16 only),
+  so they are named `textureSetupControlWord` / `textureSetupReservedWord`,
+  not given a semantic role. `kmyRequestDMA` writes 2 at +40 (request status).
+- ADX bitstream decoder slot offset 0 is a halfword, not an int: `ADXB_Create`
+  scans eight 172-byte slots for a zero halfword, stores 1 there with `mov.w`;
+  `ADXB_Destroy` clears the slot. It is `slotInUse`; +2 is padding.
+- Maple driver +0xfd0/+0xfd4 (`pad0`/`pad1`): no access in the driver code was
+  found; left unnamed. +0xfc4/+0xfc8 are 32-byte-aligned buffer pointers set in
+  `mpdrv_init`, not yet named.
