@@ -4,7 +4,7 @@
 int BupRequestLoad(int, int, int, int);
 int buGetDiskInfo(int, int);
 int resCautionReset(int);
-int thunk_FUN_8c1e0150(int, int);
+int thunk_buIsExistFile(int, int);
 int BupCheckCard(int a4);
 
 int BupCheckCard(int a4)
@@ -50,7 +50,7 @@ int BupCheckCard(int a4)
     if ((R0 == 0xFFFFFF01)) goto L_8C0E058A;
     if ((R0 == -1)) goto L_8C0E058E;
     if (!((R0 == 0))) goto L_8C0E05BA;
-    t18 = (thunk_FUN_8c1e0150(0x0, 0x8C126AB0)) != 0;
+    t18 = (thunk_buIsExistFile(0x0, 0x8C126AB0)) != 0;
     R0 = (0x3A);
     R14 = (R12);
     if (t18) goto L_8C0E05A2;

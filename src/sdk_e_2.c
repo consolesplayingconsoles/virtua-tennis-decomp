@@ -4,25 +4,15 @@ extern float nlAbsSqrt(float x);
 extern int vsprintf(void *buf, char *fmt, void *args);
 extern int nlPuts(void *buf);
 extern int nlLoadMatrix8(void *m);
-extern int FUN_0c077290(int n, void *m);
 extern int nlSpriteLoadTextureOnce_Sub(void *p, void *name, int i, int z);
-extern int FUN_0c080990(void *a, int b);
-extern int FUN_0c080c50(int a, int b);
 extern int kmSetPaletteData(void *p);
 extern int kmDiscardVertexBuffer(void *p);
 
 extern char gPaletteDirty[];
 extern char gPaletteData[];
 extern short g_0c2aecc8[];
-extern char g_0c2af368[];
-extern float g_0c14a7bc;
-extern char g_0c2b31dc[];
 extern float gNlObjectFadeColorCopy[];
 extern int g_0c2b356c;
-extern int g_0c2b77dc[];
-extern int g_0c2b76fc;
-extern int g_0c2b7940;
-extern char g_0c14ab18[];
 
 
 void nlInitPalette(char *paletteTable, int paletteCount)

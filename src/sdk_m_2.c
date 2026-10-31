@@ -10,7 +10,6 @@ void nlGetMatrix(void *m);
 void nlPopMatrix(int n);
 void nlLoadRechangeMatrix(void *m);
 void nlLoadMatrix8(void *m);
-void FUN_0c0781a0(int n);
 void nlPrintSetGarbagedTexture(void);
 int kmiWriteRegister(int off, int v);
 

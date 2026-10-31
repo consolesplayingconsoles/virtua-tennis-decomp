@@ -5,13 +5,8 @@ extern int gNlFontTextureAddress;
 extern int gNlFontWidth;
 extern int gNlFontHeight;
 extern float gNlObjectFadeColor[];
-extern unsigned int g_0c14aa70;
 extern unsigned int *gNlSpriteIndexBitmap;
-extern int g_0c14a834[];
-extern int g_0c14a644;
 extern short gNlPaletteCount;
-extern char g_0c2aedd8[];
-extern char g_0c14ab04[];
 
 void nlReloadPalette(int index);
 int kmfGetInternalSystemMetrics(char *p);
@@ -21,9 +16,6 @@ void nlTranslate(float x, float y, float z);
 void nlObjPutLoadTexture(int *p, int tex);
 void kmSetCheapShadowMode(int mode);
 void nlFreePalette(int index);
-int FUN_0c080990(char *a, int b);
-void FUN_0c080c50(int a, int b);
-int FUN_0c088738(char *a, char *b);
 
 
 void nlSetDummyTextureParameter(int *polygonParameters)

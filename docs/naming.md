@@ -1,6 +1,6 @@
 # Source naming evidence
 
-This pass changes identifiers only. Original addresses, function boundaries,
+The initial pass changed identifiers only. Original addresses, function boundaries,
 prototypes, storage layouts, expressions and control flow are retained. The
 addressed rename ledger is [naming.tsv](naming.tsv); scoped parameter and local
 renames are in [naming-locals.tsv](naming-locals.tsv). These are inferred names,
@@ -56,16 +56,14 @@ Registers with multiple roles retain that fact in their names, for example
 
 The SDK naming follow-up is documented in [naming-sdk.md](naming-sdk.md).
 
-## Unresolved entries
+## Corrected entries
 
-| Entry | Reason to retain the generic label |
-|---|---|
-| `FUN_8c0f8220` | Starts with the literal word `8c0f7ff0`, inside a pointer pool. Its recorded span also includes interrupt setters at `8c0f8250` and `8c0f8260`. It cannot be accurately named as one callable function. |
-| `FUN_8c1f1906` | Begins at an isolated stack adjustment two bytes before `ADXF_InitCache_P2_`, and its 202-byte span overlaps that routine and `ADXF_Ocbi`. Needs a boundary audit, not a guessed independent function name. |
+The two remaining entries from the initial pass were classification errors,
+not unidentified independent functions. Their corrections and the newly named
+interrupt setters are documented in [naming-boundaries.md](naming-boundaries.md).
+The naming inventory still reports substantial generic variable and alias work.
 
-No boundary repairs or port implementation are part of this naming pass.
-
-## Validation
+## Initial-pass validation
 
 - All 75 changed C files are exactly the original text with the recorded global
   and scoped identifier substitutions. No executable expressions changed.

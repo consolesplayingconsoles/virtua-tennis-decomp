@@ -41,7 +41,7 @@ int set_event(int, int);
 int sprInitPos(int, int, Stk3);
 int strmVoicePlay(int, int);
 int syBtFlDeleteSct(int, int, int);
-int thunk_FUN_8c0f41f0(int);
+int thunk_nlSprPut(int);
 int uniformPreviewPut(int, int);
 float vecDist(Stk3);
 int vecMake(int, int, int, int, int, float, float, float);

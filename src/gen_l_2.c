@@ -2,7 +2,6 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 int nlsndStreamChgFilter(int, int, int);
-int FUN_0c15c3c8(int);
 int InitArrow(int);
 int kmiDefaultInterruptHandler(int);
 int kmiTXalloc(int, int);

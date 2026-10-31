@@ -49,7 +49,7 @@ int sprInitPos(int, int);
 int sprInitRectF(int, int, int, int, int, int);
 int sprListPut(int, int, int, float, float, float);
 int strmControl(int, int);
-extern int thunk_FUN_8c0f41f0();
+extern int thunk_nlSprPut();
 int vecMake(int, int, int, int, int, float, float, float);
 int vmsfs_read_retry(int, int, int);
 int winPartsPut(int, int, int, int, float, float);
@@ -860,12 +860,12 @@ int bgScreenDraw(int a4, int a5, int a6, int a7)
     int t5;
     int stk[10];
 
-    t0 = ((int (*)(int, int, int, int))(thunk_FUN_8c0f41f0))(0x8C33CF40, a5, a6, a7);
-    t1 = ((int (*)(int))(thunk_FUN_8c0f41f0))(0x8C33CF90);
-    t2 = ((int (*)(int))(thunk_FUN_8c0f41f0))(0x8C33CFE0);
-    t3 = ((int (*)(int))(thunk_FUN_8c0f41f0))(0x8C33D030);
-    t4 = ((int (*)(int))(thunk_FUN_8c0f41f0))(0x8C33D080);
-    t5 = ((int (*)(int))(thunk_FUN_8c0f41f0))(0x8C33D0D0);
+    t0 = ((int (*)(int, int, int, int))(thunk_nlSprPut))(0x8C33CF40, a5, a6, a7);
+    t1 = ((int (*)(int))(thunk_nlSprPut))(0x8C33CF90);
+    t2 = ((int (*)(int))(thunk_nlSprPut))(0x8C33CFE0);
+    t3 = ((int (*)(int))(thunk_nlSprPut))(0x8C33D030);
+    t4 = ((int (*)(int))(thunk_nlSprPut))(0x8C33D080);
+    t5 = ((int (*)(int))(thunk_nlSprPut))(0x8C33D0D0);
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)0x8C098354), (*(float *)0x8C098350), (*(float *)0x8C09834C));
     modeMarkPut(1.0f);
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)0x8C098368), (*(float *)0x8C098364), (*(float *)0x8C098360));

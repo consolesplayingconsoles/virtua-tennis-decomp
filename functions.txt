@@ -127,7 +127,7 @@ F 8c01780a 332 sprSheetPut
 F 8c017956 204 dbgLinePut
 F 8c017a22 90 dbgLineStart
 F 8c017aac 8 dbgLockClear
-F 8c017c58 6 thunk_FUN_8c0eee50
+F 8c017c58 6 thunk_nlGetMatrix
 F 8c017c5e 36 mtxMultiKeepPos
 F 8c017c82 36 mtxMultiLeftKeepPos
 F 8c017dee 8 perfReset
@@ -238,9 +238,9 @@ F 8c03020e 308 padPauseOnUnplug
 F 8c0309b0 194 circuitDrawFrame
 F 8c030af4 1684 circuitDrawStage
 F 8c0311cc 664 circuitDrawStatus
-F 8c031464 6 thunk_FUN_8c0bcda0
+F 8c031464 6 thunk_fadeScreenDraw
 F 8c0324ee 1488 circuitApplyResult
-F 8c032abe 4 thunk_FUN_8c032f6c
+F 8c032abe 4 thunk_circuitTaskRun
 F 8c032acc 864 gameMatchSetup
 F 8c032e2c 82 circuitStageStart
 F 8c032e7e 8 circuitTaskClear
@@ -577,7 +577,7 @@ F 8c08b5e0 990 shadowBallDraw
 F 8c08b9be 64 shadowPlayerScale
 F 8c08ba24 2068 shadowPlayerDraw
 F 8c08c8bc 724 flareSunDraw
-F 8c08cb90 6 thunk_FUN_8c0f2210
+F 8c08cb90 6 thunk_nlObjPutMvInit
 F 8c08cbe0 106 crowdCheerStart
 F 8c08cc4a 8 crowdCheerStop
 F 8c08cd2a 160 crowdModelUpdate
@@ -601,7 +601,7 @@ F 8c08e694 64 sprTexFree
 F 8c08e6d4 68 sprInitPos
 F 8c08e718 140 sprInitRectF
 F 8c08e7a4 150 sprInitRect
-F 8c08e83a 6 thunk_FUN_8c0f41f0
+F 8c08e83a 6 thunk_nlSprPut
 F 8c08e840 34 sprPutAt
 F 8c08e8c4 112 sprPutScaledAlpha
 F 8c08e93c 8 sprPutAlpha
@@ -756,7 +756,7 @@ F 8c09c69e 88 texPicPut
 F 8c09c7ec 4708 selCursorDraw
 F 8c09da5c 1690 selPanelDraw
 F 8c09e104 1110 selCharInfoDraw
-F 8c09e55a 46 selConstStub
+F 8c09e55a 46 selCopyLocalConstants
 F 8c09e66c 102 stageSelSprInit
 F 8c09e710 168 stageSelSprInit2
 F 8c09e7b8 166 stageSelSprInit3
@@ -1047,7 +1047,7 @@ F 8c0c4a6c 116 stage17Draw
 F 8c0c4b18 74 sprMatchInit
 F 8c0c4b62 92 sprCommonInit
 F 8c0c4bbe 50 sprAdvInit
-F 8c0c4bf4 6 thunk_FUN_8c09e55a
+F 8c0c4bf4 6 thunk_selCopyLocalConstants
 F 8c0c4cf0 4 sprSet266InitThunk
 F 8c0c4cf4 20 sprSet109Init
 F 8c0c4d08 50 sprStartInit
@@ -1375,7 +1375,7 @@ F 8c0dfbd4 34 BupInit
 F 8c0dfbf6 12 BupGetInfo
 F 8c0dfc9e 652 BupSaveFile
 F 8c0dff60 346 BupLoadFile
-F 8c0e00ba 6 thunk_FUN_8c1e0150
+F 8c0e00ba 6 thunk_buIsExistFile
 F 8c0e0518 176 BupCheckCard
 F 8c0e0648 230 BupExecRequest
 F 8c0e0710 112 BupRequestLoad
@@ -1842,8 +1842,15 @@ F 8c0f7eb8 52 memcmp
 F 8c0f7eec 68 memmove
 F 8c0f7f30 24 memset
 F 8c0f7f48 168 _slow_strcmp1
-F 8c0f81d0 80 nlInitInterruptDC
-F 8c0f8220 110 FUN_8c0f8220
+F 8c0f81d0 4 nlInitInterruptDC
+F 8c0f81e0 8 nlIntrSetRenderEndCallback
+F 8c0f81f0 8 nlIntrSetVSyncCallback
+F 8c0f8200 8 nlIntrSetHSyncCallback
+D 8c0f8208 0 nlInterruptInitLiteralPool
+F 8c0f8250 8 nlIntrSetGdDmaCallback
+F 8c0f8260 8 nlIntrSetGdCommandCallback
+F 8c0f8270 26 nlIntrSetCpuVectorCallback
+F 8c0f8290 8 nlIntrSetTextureOverflowCallback
 F 8c0f82a0 4 nlIntrDefaultFunction
 F 8c0f82b0 98 nlSetIntrFunction
 F 8c0f83f0 84 nlSetIntrPriority
@@ -2708,8 +2715,7 @@ F 8c1f1522 34 adxt_stat_decend
 F 8c1f15cc 4 adxt_stat_playend
 F 8c1f15d0 136 adxt_RcvrReplay
 F 8c1f1808 254 ADXT_ExecHndl
-F 8c1f1854 38 adxf_purge_all
-F 8c1f1906 202 FUN_8c1f1906
+F 8c1f1854 180 adxf_purge_all
 F 8c1f1908 42 ADXF_InitCache_P2_
 F 8c1f1932 556 ADXF_Ocbi
 F 8c1f1b60 58 ADXF_Init

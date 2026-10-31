@@ -3,11 +3,8 @@
 
 int kmiWriteRegister(int off, int v);
 int kmiRegisterCallback(int dev, int kind, void *f, void *p);
-void FUN_0c16dd00(int v);
 int kmiVQFBfree(int *s);
 int kmiFBfree(int a);
-void FUN_0c15888e(void *p);
-void FUN_0c15887e(int *d, int *s, unsigned int n);
 int kmiPurgeMemory(char *p, int n);
 int kmiCopyToPVRMemory(int off, int *src, unsigned int n);
 int vmsfs_c_getstate(int drive);

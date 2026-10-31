@@ -66,9 +66,9 @@ address-based globals, legacy function aliases and generated temporaries.
 Declarations are included, so an old alias may be an unused declaration rather
 than an actual call. Counts are work indicators, not evidence of naming quality.
 
-The two remaining `FUN_` entries still require the boundary corrections
-described in [naming.md](naming.md). Many generated locals and partially known
-record fields also remain; this batch does not finish the relabeling goal.
+The two `FUN_` entries remaining after this batch are corrected in
+[naming-boundaries.md](naming-boundaries.md). Many generated locals and partially
+known record fields still remain; this does not finish the relabeling goal.
 
 Inventory after this batch: 134 generic global names in the name tables, 48
 generic global names declared or referenced in C, 293 generic function aliases

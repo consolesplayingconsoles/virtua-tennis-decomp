@@ -3,8 +3,6 @@
 
 extern int *gAdxfPartitionInfoTable[];
 
-int FUN_0c07ba90(int a, int b, int c, int d);
-int FUN_0c07bc00(int a, int b);
 void ovMdlEntryTbl(int a);
 void ovMdlDeleteTbl(int a);
 int buExecServer(void);

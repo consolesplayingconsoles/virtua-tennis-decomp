@@ -3,7 +3,6 @@
 
 int kmiRegisterCallback(int dev, int kind, void *f, void *p);
 void Voice_ShutUp(int i);
-void FUN_0c051556(void);
 void selectDrawDriver(int d);
 
 

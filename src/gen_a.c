@@ -78,7 +78,7 @@ int panelMenuSprInitA(void);
 int panelMenuSprInitB(void);
 int panelMenuSprInitC(void);
 int texPicInit(void);
-int selConstStub(void);
+int selCopyLocalConstants(void);
 int stageSelSprInit(void);
 int stageSelSprInit2(void);
 int stageSelSprInit3(void);
@@ -276,7 +276,7 @@ int padLcdModeClear(void);
 int memcmp(int, int, int);
 int syBtCfgSet(int, int);
 int syCfgInit(int);
-int thunk_FUN_8c0bcda0(float, float);
+int thunk_fadeScreenDraw(float, float);
 int vmsfb_exec(void);
 int vmsfs_c_dispatch(int);
 int vmsfs_c_exit(void);
@@ -476,7 +476,7 @@ void dbgLockClear(void)
     *(unsigned int *)0x8C287A4C = 0x0;
 }
 
-int thunk_FUN_8c0eee50(void)
+int thunk_nlGetMatrix(void)
 {
     return nlGetMatrix();
 }
@@ -539,7 +539,7 @@ int fadeCaptureEnd(int a4)
     if ((t0 == 1)) {
         nlRenderTextureEnd(a4);
         u2 = *(float *)0x8C287D64;
-        t3 = thunk_FUN_8c0bcda0(1.0f, u2);
+        t3 = thunk_fadeScreenDraw(1.0f, u2);
         *(unsigned int *)0x8C287D7C = a4;
         *(float *)0x8C287D80 = (float)(a4 + 0xFFFFFFFE);
     
@@ -640,7 +640,7 @@ void padLcdMessage(int a4)
     *(unsigned int *)0x8C29BBC0 = 0x78;
 }
 
-int thunk_FUN_8c032f6c(void)
+int thunk_circuitTaskRun(void)
 {
     return circuitTaskRun();
 }
@@ -843,7 +843,7 @@ void crowdCheerStop(void)
     *(unsigned int *)0x8C182664 = 0x0;
 }
 
-int thunk_FUN_8c0f41f0(void)
+int thunk_nlSprPut(void)
 {
     return nlSprPut();
 }
@@ -1350,9 +1350,9 @@ int sprAdvInit(void)
     return decoSprInit();
 }
 
-int thunk_FUN_8c09e55a(void)
+int thunk_selCopyLocalConstants(void)
 {
-    return selConstStub();
+    return selCopyLocalConstants();
 }
 
 int sprSet109Init(void)
@@ -1845,7 +1845,7 @@ int BupInit(void)
     return t1;
 }
 
-int thunk_FUN_8c1e0150(void)
+int thunk_buIsExistFile(void)
 {
     return buIsExistFile();
 }

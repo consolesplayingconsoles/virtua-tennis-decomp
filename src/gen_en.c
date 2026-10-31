@@ -30,7 +30,7 @@ int sprListPut(int, int, int, float, float, float);
 int sprPutAtAlpha(int, Stk3, float);
 int stageSelNameDraw(int, int, Stk3);
 int sunMatrixSet(int, int);
-int thunk_FUN_8c0f41f0(int);
+int thunk_nlSprPut(int);
 Stk3 vecMake(float, float, float);
 int resultTeamsDrawAlt(float f4);
 int sseleGridDraw(void);
@@ -355,7 +355,7 @@ int texPicPut(float f4)
     *(float *)0x8C340740 = (*(float *)(((int)stk + 20)));
     *(float *)0x8C340724 = 40.0f;
     *(float *)0x8C340728 = 30.0f;
-    return (thunk_FUN_8c0f41f0(0x8C340714));
+    return (thunk_nlSprPut(0x8C340714));
 }
 
 int titleSprBlinkPut(float f4)

@@ -74,7 +74,7 @@ int stageLoadInit(int);
 int stageTexFree(int, int, int, int, int);
 int stageWtcMainTexFree(void);
 int standSort(void);
-int thunk_FUN_8c0bcda0(int, int, int, int, float, float);
+int thunk_fadeScreenDraw(int, int, int, int, float, float);
 int umpBusyStart(void);
 int umpCallServeNo(int);
 int vecAdd(int, int, int, int, int);
@@ -1287,14 +1287,14 @@ int fadeDraw(int a4, int a5, int a6, int a7, float f4, float f5)
                 if ((float)t5 > u6) {
                     t7 = (int)u6;
                 }
-                thunk_FUN_8c0bcda0(t5, 0x8C1389FC, a6, a7, ((float)t7 / u6), u3);
+                thunk_fadeScreenDraw(t5, 0x8C1389FC, a6, a7, ((float)t7 / u6), u3);
                 t12 = *(int *)0x8C287C60;
                 *(unsigned int *)0x8C287D7C = ((*(int *)0x8C287D7C) - (((t12 == 0)) ? 1 : 0));
                 t13 = (((t12 == 0)) ? 1 : 0);
             }
             t25 = t13;
         } else {
-            thunk_FUN_8c0bcda0(t0, 0x8C1389FC, a6, a7, 1.0f, u3);
+            thunk_fadeScreenDraw(t0, 0x8C1389FC, a6, a7, 1.0f, u3);
             t24 = *(int *)0x8C287C60;
             *(unsigned int *)0x8C287D7C = ((*(int *)0x8C287D7C) - (((t24 == 0)) ? 1 : 0));
             t25 = (((t24 == 0)) ? 1 : 0);

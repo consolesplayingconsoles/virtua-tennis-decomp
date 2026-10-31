@@ -74,7 +74,7 @@ int shadowVolBuildDir(int);
 int sprInitPos(int, int);
 int sprPutAt(int, Stk3);
 int sprPutAtAlpha(int, Stk3, float);
-extern int thunk_FUN_8c0f41f0();
+extern int thunk_nlSprPut();
 int vecMake(float, float, float);
 int shadowLightMatrix(float f4);
 int kmyUnloadDevice(void);

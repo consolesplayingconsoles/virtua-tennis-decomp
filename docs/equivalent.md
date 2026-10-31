@@ -7167,46 +7167,6 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 79
 - the cases run 5 of 5 instructions
 
-### FUN_8c1f1906 (`8C1F1906`, 202 bytes, `src/gen_aw.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_aw/FUN_8c1f1906.json`
-- case 0
-- case 1
-- case 2
-- case 3
-- case 4
-- case 5
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 13
-- case 14
-- case 15
-- case 16
-- case 17
-- case 88
-- case 79
-- case 108
-- case 69
-- case 41
-- case 92
-- case 65
-- case 62
-- case 44
-- case 73
-- case 100
-- case 57
-- case 37
-- case 58
-- case 70
-- case 83
-- case 75
-- case 101
-- the cases run 22 of 22 instructions
-
 ### fmMngBufferEquals (`8C1FF1BC`, 24 bytes, `src/gen_z.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_z/fmMngBufferEquals.json`
 - case 3
@@ -10689,7 +10649,7 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 405
 - the cases run 60 of 60 instructions
 
-### adxf_purge_all (`8C1F1854`, 38 bytes, `src/gen_z.c`)
+### adxf_purge_all (`8C1F1854`, 180 bytes, `src/gen_z.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_z/adxf_purge_all.json`
 - case 0
 - case 1
@@ -59751,7 +59711,7 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 90
 - the cases run 25 of 25 instructions
 
-### nlInitInterruptDC (`8C0F81D0`, 80 bytes, `src/gen_o.c`)
+### nlInitInterruptDC (`8C0F81D0`, 4 bytes, `src/gen_o.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_o/nlInitInterruptDC.json`
 - case 0
 - case 1
@@ -77675,8 +77635,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 339 of 465 instructions
 
-### selConstStub (`8C09E55A`, 46 bytes, `src/gen_e.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/selConstStub.json`
+### selCopyLocalConstants (`8C09E55A`, 46 bytes, `src/gen_e.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/selCopyLocalConstants.json`
 - case 0
 - case 1
 - case 2
@@ -89188,8 +89148,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 60
 - the cases run 3 of 3 instructions
 
-### thunk_FUN_8c032f6c (`8C032ABE`, 4 bytes, `src/gen_a.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_FUN_8c032f6c.json`
+### thunk_circuitTaskRun (`8C032ABE`, 4 bytes, `src/gen_a.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_circuitTaskRun.json`
 - case 0
 - case 1
 - case 2
@@ -89214,8 +89174,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 2 of 2 instructions
 
-### thunk_FUN_8c09e55a (`8C0C4BF4`, 6 bytes, `src/gen_a.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_FUN_8c09e55a.json`
+### thunk_selCopyLocalConstants (`8C0C4BF4`, 6 bytes, `src/gen_a.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_selCopyLocalConstants.json`
 - case 0
 - case 1
 - case 2
@@ -89240,8 +89200,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 3 of 3 instructions
 
-### thunk_FUN_8c0bcda0 (`8C031464`, 6 bytes, `src/gen_b.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_b/thunk_FUN_8c0bcda0.json`
+### thunk_fadeScreenDraw (`8C031464`, 6 bytes, `src/gen_b.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_b/thunk_fadeScreenDraw.json`
 - case 0
 - case 1
 - case 2
@@ -89266,8 +89226,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 3 of 3 instructions
 
-### thunk_FUN_8c0eee50 (`8C017C58`, 6 bytes, `src/gen_a.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_FUN_8c0eee50.json`
+### thunk_nlGetMatrix (`8C017C58`, 6 bytes, `src/gen_a.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_nlGetMatrix.json`
 - case 0
 - case 1
 - case 2
@@ -89292,8 +89252,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 3 of 3 instructions
 
-### thunk_FUN_8c0f2210 (`8C08CB90`, 6 bytes, `src/gen_e.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/thunk_FUN_8c0f2210.json`
+### thunk_nlObjPutMvInit (`8C08CB90`, 6 bytes, `src/gen_e.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/thunk_nlObjPutMvInit.json`
 - case 0
 - case 1
 - case 2
@@ -89318,8 +89278,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 3 of 3 instructions
 
-### thunk_FUN_8c0f41f0 (`8C08E83A`, 6 bytes, `src/gen_a.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_FUN_8c0f41f0.json`
+### thunk_nlSprPut (`8C08E83A`, 6 bytes, `src/gen_a.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_nlSprPut.json`
 - case 0
 - case 1
 - case 2
@@ -89344,8 +89304,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 3 of 3 instructions
 
-### thunk_FUN_8c1e0150 (`8C0E00BA`, 6 bytes, `src/gen_a.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_FUN_8c1e0150.json`
+### thunk_buIsExistFile (`8C0E00BA`, 6 bytes, `src/gen_a.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_buIsExistFile.json`
 - case 0
 - case 1
 - case 2
@@ -95984,3 +95944,85 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - rescue: empty case
 - the cases run 51 of 124 instructions
+
+### nlIntrSetCpuVectorCallback (`8C0F8270`, 26 bytes, `src/nlintr_callbacks.c`)
+- equivalent on 9 development and 9 holdout cases, in `tests/nlintr_callbacks/nlIntrSetCpuVectorCallback.json`
+- CPU event-table entry 0 with VBR 8C900000
+- CPU event-table entry 1 with VBR 8C900000
+- CPU event-table entry 2 with VBR 8C900000
+- CPU event-table entry 3 with VBR 8C900000
+- CPU event-table entry 4 with VBR 8C900000
+- CPU event-table entry 5 with VBR 8C900000
+- CPU event-table entry 6 with VBR 8C900000
+- CPU event-table entry 7 with VBR 8C900000
+- signed event halfword is extended before the logical shift
+- CPU event-table entry 0 with VBR 0C910000
+- CPU event-table entry 1 with VBR 0C910000
+- CPU event-table entry 2 with VBR 0C910000
+- CPU event-table entry 3 with VBR 0C910000
+- CPU event-table entry 4 with VBR 0C910000
+- CPU event-table entry 5 with VBR 0C910000
+- CPU event-table entry 6 with VBR 0C910000
+- CPU event-table entry 7 with VBR 0C910000
+- signed event halfword is extended before the logical shift
+- the cases run 13 of 13 instructions
+
+### nlIntrSetGdCommandCallback (`8C0F8260`, 8 bytes, `src/nlintr_callbacks.c`)
+- equivalent on 3 development and 3 holdout cases, in `tests/nlintr_callbacks/nlIntrSetGdCommandCallback.json`
+- clear callback address 00000000; interrupt ID is ignored
+- store callback address 8C010000; interrupt ID is ignored
+- store callback address FFFFFFFF; interrupt ID is ignored
+- store callback address 0C900040; interrupt ID is ignored
+- store callback address 80000000; interrupt ID is ignored
+- store callback address 13579BDF; interrupt ID is ignored
+- the cases run 4 of 4 instructions
+
+### nlIntrSetGdDmaCallback (`8C0F8250`, 8 bytes, `src/nlintr_callbacks.c`)
+- equivalent on 3 development and 3 holdout cases, in `tests/nlintr_callbacks/nlIntrSetGdDmaCallback.json`
+- clear callback address 00000000; interrupt ID is ignored
+- store callback address 8C010000; interrupt ID is ignored
+- store callback address FFFFFFFF; interrupt ID is ignored
+- store callback address 0C900040; interrupt ID is ignored
+- store callback address 80000000; interrupt ID is ignored
+- store callback address 13579BDF; interrupt ID is ignored
+- the cases run 4 of 4 instructions
+
+### nlIntrSetHSyncCallback (`8C0F8200`, 8 bytes, `src/nlintr_callbacks.c`)
+- equivalent on 3 development and 3 holdout cases, in `tests/nlintr_callbacks/nlIntrSetHSyncCallback.json`
+- clear callback address 00000000; interrupt ID is ignored
+- store callback address 8C010000; interrupt ID is ignored
+- store callback address FFFFFFFF; interrupt ID is ignored
+- store callback address 0C900040; interrupt ID is ignored
+- store callback address 80000000; interrupt ID is ignored
+- store callback address 13579BDF; interrupt ID is ignored
+- the cases run 4 of 4 instructions
+
+### nlIntrSetRenderEndCallback (`8C0F81E0`, 8 bytes, `src/nlintr_callbacks.c`)
+- equivalent on 3 development and 3 holdout cases, in `tests/nlintr_callbacks/nlIntrSetRenderEndCallback.json`
+- clear callback address 00000000; interrupt ID is ignored
+- store callback address 8C010000; interrupt ID is ignored
+- store callback address FFFFFFFF; interrupt ID is ignored
+- store callback address 0C900040; interrupt ID is ignored
+- store callback address 80000000; interrupt ID is ignored
+- store callback address 13579BDF; interrupt ID is ignored
+- the cases run 4 of 4 instructions
+
+### nlIntrSetTextureOverflowCallback (`8C0F8290`, 8 bytes, `src/nlintr_callbacks.c`)
+- equivalent on 3 development and 3 holdout cases, in `tests/nlintr_callbacks/nlIntrSetTextureOverflowCallback.json`
+- clear callback address 00000000; interrupt ID is ignored
+- store callback address 8C010000; interrupt ID is ignored
+- store callback address FFFFFFFF; interrupt ID is ignored
+- store callback address 0C900040; interrupt ID is ignored
+- store callback address 80000000; interrupt ID is ignored
+- store callback address 13579BDF; interrupt ID is ignored
+- the cases run 4 of 4 instructions
+
+### nlIntrSetVSyncCallback (`8C0F81F0`, 8 bytes, `src/nlintr_callbacks.c`)
+- equivalent on 3 development and 3 holdout cases, in `tests/nlintr_callbacks/nlIntrSetVSyncCallback.json`
+- clear callback address 00000000; interrupt ID is ignored
+- store callback address 8C010000; interrupt ID is ignored
+- store callback address FFFFFFFF; interrupt ID is ignored
+- store callback address 0C900040; interrupt ID is ignored
+- store callback address 80000000; interrupt ID is ignored
+- store callback address 13579BDF; interrupt ID is ignored
+- the cases run 4 of 4 instructions

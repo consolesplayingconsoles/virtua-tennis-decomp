@@ -1,0 +1,156 @@
+{
+  "dev": [
+    {
+      "about": "CPU event-table entry 0 with VBR 8C900000",
+      "regs": {
+        "r4": "00000005",
+        "r5": "8C010000",
+        "vbr": "8C900000"
+      }
+    },
+    {
+      "about": "CPU event-table entry 1 with VBR 8C900000",
+      "regs": {
+        "r4": "00000006",
+        "r5": "00000000",
+        "vbr": "8C900000"
+      }
+    },
+    {
+      "about": "CPU event-table entry 2 with VBR 8C900000",
+      "regs": {
+        "r4": "00000007",
+        "r5": "8C010000",
+        "vbr": "8C900000"
+      }
+    },
+    {
+      "about": "CPU event-table entry 3 with VBR 8C900000",
+      "regs": {
+        "r4": "00000008",
+        "r5": "00000000",
+        "vbr": "8C900000"
+      }
+    },
+    {
+      "about": "CPU event-table entry 4 with VBR 8C900000",
+      "regs": {
+        "r4": "00000009",
+        "r5": "8C010000",
+        "vbr": "8C900000"
+      }
+    },
+    {
+      "about": "CPU event-table entry 5 with VBR 8C900000",
+      "regs": {
+        "r4": "0000000A",
+        "r5": "00000000",
+        "vbr": "8C900000"
+      }
+    },
+    {
+      "about": "CPU event-table entry 6 with VBR 8C900000",
+      "regs": {
+        "r4": "0000000B",
+        "r5": "8C010000",
+        "vbr": "8C900000"
+      }
+    },
+    {
+      "about": "CPU event-table entry 7 with VBR 8C900000",
+      "regs": {
+        "r4": "0000000C",
+        "r5": "00000000",
+        "vbr": "8C900000"
+      }
+    },
+    {
+      "about": "signed event halfword is extended before the logical shift",
+      "regs": {
+        "r4": "00000005",
+        "r5": "13579BDF",
+        "vbr": "8C900000"
+      },
+      "poke": {
+        "8C127FC8": "0080"
+      }
+    }
+  ],
+  "holdout": [
+    {
+      "about": "CPU event-table entry 0 with VBR 0C910000",
+      "regs": {
+        "r4": "00000005",
+        "r5": "FFFFFFFF",
+        "vbr": "0C910000"
+      }
+    },
+    {
+      "about": "CPU event-table entry 1 with VBR 0C910000",
+      "regs": {
+        "r4": "00000006",
+        "r5": "00000000",
+        "vbr": "0C910000"
+      }
+    },
+    {
+      "about": "CPU event-table entry 2 with VBR 0C910000",
+      "regs": {
+        "r4": "00000007",
+        "r5": "FFFFFFFF",
+        "vbr": "0C910000"
+      }
+    },
+    {
+      "about": "CPU event-table entry 3 with VBR 0C910000",
+      "regs": {
+        "r4": "00000008",
+        "r5": "00000000",
+        "vbr": "0C910000"
+      }
+    },
+    {
+      "about": "CPU event-table entry 4 with VBR 0C910000",
+      "regs": {
+        "r4": "00000009",
+        "r5": "FFFFFFFF",
+        "vbr": "0C910000"
+      }
+    },
+    {
+      "about": "CPU event-table entry 5 with VBR 0C910000",
+      "regs": {
+        "r4": "0000000A",
+        "r5": "00000000",
+        "vbr": "0C910000"
+      }
+    },
+    {
+      "about": "CPU event-table entry 6 with VBR 0C910000",
+      "regs": {
+        "r4": "0000000B",
+        "r5": "FFFFFFFF",
+        "vbr": "0C910000"
+      }
+    },
+    {
+      "about": "CPU event-table entry 7 with VBR 0C910000",
+      "regs": {
+        "r4": "0000000C",
+        "r5": "00000000",
+        "vbr": "0C910000"
+      }
+    },
+    {
+      "about": "signed event halfword is extended before the logical shift",
+      "regs": {
+        "r4": "00000005",
+        "r5": "13579BDF",
+        "vbr": "0C910000"
+      },
+      "poke": {
+        "8C127FC8": "e0ff"
+      }
+    }
+  ]
+}

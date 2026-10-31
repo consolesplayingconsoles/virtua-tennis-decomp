@@ -390,10 +390,10 @@ int syChainAddHandler(int, int, int, int);
 int syG2DmaResume(int);
 int syG2DmaSuspend(int);
 int syMmuDeleteEntry(int);
-int thunk_FUN_8c09e55a(void);
-int thunk_FUN_8c0f2210(void);
-int thunk_FUN_8c0f41f0(void);
-int thunk_FUN_8c1e0150(void);
+int thunk_selCopyLocalConstants(void);
+int thunk_nlObjPutMvInit(void);
+int thunk_nlSprPut(void);
+int thunk_buIsExistFile(void);
 int thunk_fmMngCopyBytes(void);
 int vmsfs_c_getstate(int);
 
@@ -3448,7 +3448,7 @@ int shadowMulShear(void)
     return t6;
 }
 
-int thunk_FUN_8c0f2210(void)
+int thunk_nlObjPutMvInit(void)
 {
     return nlObjPutMvInit();
 }
@@ -3472,7 +3472,7 @@ int sceneObjPutInit(void)
     int t1;
 
     nlObjPutSetVtxColorMode(0x1);
-    t1 = thunk_FUN_8c0f2210();
+    t1 = thunk_nlObjPutMvInit();
     *(unsigned int *)0x8C30196C = 0x0;
     return t1;
 }
@@ -3772,7 +3772,7 @@ int panelSprInit(void)
 }
 
 
-void selConstStub(void)
+void selCopyLocalConstants(void)
 {
     int t0;
     int t1;
@@ -3839,7 +3839,7 @@ int standBgDraw(void)
 
     t0 = 0x8C33F1D0;
     do {
-        t1 = thunk_FUN_8c0f41f0();
+        t1 = thunk_nlSprPut();
         t0 = (t0 + 0x50);
     } while ((unsigned int)t0 < (unsigned int)0x8C33F3B0);
     return t1;
@@ -5635,7 +5635,7 @@ int sprWtcLoad(void)
         } while ((unsigned int)t1 < (unsigned int)0xD);
         *(unsigned int *)0x8C1AED10 = 0x1;
     }
-    return thunk_FUN_8c09e55a();
+    return thunk_selCopyLocalConstants();
 }
 
 int sprWtcFree(void)
@@ -8482,7 +8482,7 @@ int BupRequestLoad(int a4, int a5, int a6, int a7)
     int t2;
     int t3;
 
-    t0 = thunk_FUN_8c1e0150();
+    t0 = thunk_buIsExistFile();
     if (t0 == 0) {
         t1 = *(int *)0x8C40C6A4;
         if (t1 == 0) {

@@ -23,7 +23,7 @@ void angDiff(int a4, int a5)
     
 }
 
-void thunk_FUN_8c0bcda0(void)
+void thunk_fadeScreenDraw(void)
 {
     fadeScreenDraw();
 }

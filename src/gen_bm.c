@@ -41,7 +41,7 @@ int selInitB(void);
 int sprStartLoad(void);
 int stageFreeAll(void);
 int stageTexSetGarbagedAll(void);
-int thunk_FUN_8c1e0150(int, int);
+int thunk_buIsExistFile(int, int);
 int uniformTexRestore(int);
 int vecMake(int, int, int, int, int, float, float, float);
 int stageSelMarkDraw(Stk4 s);

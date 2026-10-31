@@ -8,7 +8,6 @@ int SJUNI_Lock(void);
 int SJUNI_Unlock(int, int);
 int SJ_SplitChunk(int, int, int, int);
 extern float _builtin_sqrtf(float);
-int adxf_purge_all(int, int, int, int);
 int buIsFormat(int);
 extern int camViewToWorld();
 int fadeScreenDraw(float, float);
@@ -59,7 +58,6 @@ void SJUNI_GetChunk(int a4, int a5, int a6, int a7);
 int ADX_DecodeInfoSpsd(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14);
 int primRectIncGradX(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
 int trigger(int a4, int a5);
-int FUN_8c1f1906(int a4, int a5, int a6, int a7);
 float camMoveBegin(float f4, float f5);
 int ndbBuildIndex(int a4, int a5, int a6, int a7);
 int stageLoadSelectSprites(float f4);
@@ -673,16 +671,6 @@ int trigger(int a4, int a5)
     return (t6 + 0x1);
 }
 
-int FUN_8c1f1906(int a4, int a5, int a6, int a7)
-{
-    int t1;
-
-    adxf_purge_all(a4, a5, a6, a7);
-    *(unsigned int *)0xFF00001C = ((a4 & 0xFFFFF7FF) | 0x800);
-    t1 = *(int *)0xFF00001C;
-    *(unsigned int *)0xFF00001C = ((t1 & 0xFFFFFFF7) | 0x8);
-    return ((t1 & 0xFFFFFFF7) | 0x8);
-}
 
 float camMoveBegin(float f4, float f5)
 {
