@@ -3,7 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 int BupRequestSave(int, int, int, int);
-int FUN_8c0f0860(int);
+int nlUnitVector(int);
 int arcadePickRival(int);
 int cameraCalcPoint(int, int, int, int, int);
 int cameraCalcPointInv(int, int, int, int, int, float, float);

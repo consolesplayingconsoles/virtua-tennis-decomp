@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int FUN_8c0eaf00(int, int, int, float);
+int nlResetBackColorZ(int, int, int, float);
 int camExec(int, int, int, int, int, int, int, int, int, int, int, int);
 int camSetupView(void);
 int entryAllReady(void);
@@ -240,7 +240,7 @@ int selExec(int a4, int a5)
     R6 = (0x8C1852A0);
     L_8C0A8A84:;
     if (((unsigned int)R4 < (unsigned int)R6)) goto L_8C0A8A60;
-    FUN_8c0eaf00(0x0, 0x0, 0x0, F4);
+    nlResetBackColorZ(0x0, 0x0, 0x0, F4);
     R4 = (0x8C185408);
     if (((*(int *)0x8C287ADC) != 4)) goto L_8C0A8A9E;
     *(unsigned int *)((R4 + 0x0)) = R11;

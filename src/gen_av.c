@@ -14,7 +14,7 @@ int ADXRNA_SetPlaySw(int, int);
 int ADXSJD_GetBlkSmpl(int);
 int ADXSJD_GetStat(int);
 int ADXT_GetNumChan(int);
-int FUN_8c0eaf00(int, int, int, Stk16, float);
+int nlResetBackColorZ(int, int, int, Stk16, float);
 int SJRBF_Lock(void);
 int SJRBF_Unlock(int, int);
 int SJUNI_Lock(void);
@@ -302,7 +302,7 @@ int entryDrawStripes(float f4)
     int stk[25];
 
     { struct mv16 { int w[16]; }; *(struct mv16 *)(((int)stk + 4)) = *(struct mv16 *)(0x8C110E70); }
-    FUN_8c0eaf00(0xFF000000, 0xFFFFDC00, 0xFF000000, *(Stk16 *)(0x8C110E70), f4);
+    nlResetBackColorZ(0xFF000000, 0xFFFFDC00, 0xFF000000, *(Stk16 *)(0x8C110E70), f4);
     t1 = 0x0;
     for (;;) {
         t2 = (int)((int)t1 / (int)0x3);
@@ -567,72 +567,72 @@ int fileLoadStartSlot(int a4, int a5, int a6, int a7)
     return 0x0;
 }
 
-int gdFsReqRdPio(int a4, int a5, int a6)
+int gdFsReqRdPio(int handleAddress, int requestedSectorCount, int destinationAddress)
 {
-    int t56;
-    int t48;
-    int t16;
-    int t17;
-    int t18;
-    int t19;
-    int t21;
-    int t25;
-    int t30;
-    int t33;
-    int t0;
-    int t41;
-    int t35;
+    int requestResult;
+    int idleDriveResult;
+    int sectorPosition;
+    int startFad;
+    int sectorCount;
+    int clampedSectorCount;
+    int savedInterruptMask;
+    int commandRequestId;
+    int driverExecuteResult;
+    int acceptedSectorCount;
+    int handleAllocated;
+    int fileRangeResult;
+    int readSubmissionResult;
 
-    t56 = 0xFFFFFFF6;
-    if ((a4 != 0) && (t0 = *(short *)((a4 + 0x4C)), t0 != 0)) {
-        t48 = 0x0;
-        if ((*(int *)(((*(int *)((a4 + 0x0))) + 0x1C))) == 0) {
-            t16 = *(int *)((a4 + 0x14));
-            t17 = *(int *)((a4 + 0x8));
-            t18 = *(int *)((a4 + 0x10));
-            if ((int)(t16 + t17) < (int)(t17 + t18)) {
-                t19 = a5;
-                if ((int)(a5 + (t16 + t17)) > (int)(t17 + t18)) {
-                    t19 = ((t17 + t18) - (t16 + t17));
+    requestResult = 0xFFFFFFF6;
+    if ((handleAddress != 0) && (handleAllocated = *(short *)((handleAddress + 0x4C)), handleAllocated != 0)) {
+        idleDriveResult = 0x0;
+        if ((*(int *)(((*(int *)((handleAddress + 0x0))) + 0x1C))) == 0) {
+            sectorPosition = *(int *)((handleAddress + 0x14));
+            startFad = *(int *)((handleAddress + 0x8));
+            sectorCount = *(int *)((handleAddress + 0x10));
+            if ((int)(sectorPosition + startFad) < (int)(startFad + sectorCount)) {
+                clampedSectorCount = requestedSectorCount;
+                if ((int)(requestedSectorCount + (sectorPosition + startFad)) > (int)(startFad + sectorCount)) {
+                    clampedSectorCount = ((startFad + sectorCount) - (sectorPosition + startFad));
                 }
-                if (t19 == 0) {
-                    *(unsigned int *)((a4 + 0x18)) = 0x0;
-                    *(unsigned short *)((a4 + 0x50)) = 0x1;
-                    t35 = 0x0;
+                if (clampedSectorCount == 0) {
+                    *(unsigned int *)((handleAddress + 0x18)) = 0x0;
+                    *(unsigned short *)((handleAddress + 0x50)) = 0x1;
+                    readSubmissionResult = 0x0;
                 } else {
-                    t21 = _builtin_get_imask();
+                    savedInterruptMask = _builtin_get_imask();
                     _builtin_set_imask(0xF);
-                    t25 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)(((*(int *)((a4 + 0x0))) + 0xC))) + 0x4)))))((t16 + t17), t19, a6, 0x0);
-                    if (t25 != 0) {
-                        *(unsigned int *)((a4 + 0x3C)) = t25;
-                        *(unsigned int *)((a4 + 0x1C)) = t19;
-                        *(unsigned short *)((a4 + 0x50)) = 0x2;
-                        *(unsigned short *)((a4 + 0x4A)) = 0x1;
-                        *(unsigned short *)((a4 + 0x48)) = 0x1;
-                        *(unsigned int *)((a4 + 0x18)) = 0x0;
-                        *(unsigned int *)(((*(int *)((a4 + 0x0))) + 0x1C)) = a4;
-                        t30 = ((int (*)(void))((*(int *)(((*(int *)(((*(int *)((a4 + 0x0))) + 0xC))) + 0x40)))))();
+                    commandRequestId = ((int (*)(int, int, int, int))((*(int *)(((*(int *)(((*(int *)((handleAddress + 0x0))) + 0xC))) + 0x4)))))((sectorPosition + startFad), clampedSectorCount, destinationAddress, 0x0);
+                    if (commandRequestId != 0) {
+                        *(unsigned int *)((handleAddress + 0x3C)) = commandRequestId;
+                        *(unsigned int *)((handleAddress + 0x1C)) = clampedSectorCount;
+                        *(unsigned short *)((handleAddress + 0x50)) = 0x2;
+                        *(unsigned short *)((handleAddress + 0x4A)) = 0x1;
+                        *(unsigned short *)((handleAddress + 0x48)) = 0x1;
+                        *(unsigned int *)((handleAddress + 0x18)) = 0x0;
+                        *(unsigned int *)(((*(int *)((handleAddress + 0x0))) + 0x1C)) = handleAddress;
+                        driverExecuteResult = ((int (*)(void))((*(int *)(((*(int *)(((*(int *)((handleAddress + 0x0))) + 0xC))) + 0x40)))))();
                     } else {
-                        *(unsigned short *)((a4 + 0x50)) = 0x1;
+                        *(unsigned short *)((handleAddress + 0x50)) = 0x1;
                     }
-                    _builtin_set_imask(((unsigned int)(((t21 & 0xF) << 2) << 2) >> 4));
-                    t33 = 0x0;
-                    if (t25 != 0) {
-                        t33 = t19;
+                    _builtin_set_imask(((unsigned int)(((savedInterruptMask & 0xF) << 2) << 2) >> 4));
+                    acceptedSectorCount = 0x0;
+                    if (commandRequestId != 0) {
+                        acceptedSectorCount = clampedSectorCount;
                     }
-                    t35 = t33;
+                    readSubmissionResult = acceptedSectorCount;
                 }
-                t41 = t35;
+                fileRangeResult = readSubmissionResult;
             } else {
-                *(unsigned int *)((a4 + 0x18)) = 0x0;
-                *(unsigned short *)((a4 + 0x50)) = 0x1;
-                t41 = 0x0;
+                *(unsigned int *)((handleAddress + 0x18)) = 0x0;
+                *(unsigned short *)((handleAddress + 0x50)) = 0x1;
+                fileRangeResult = 0x0;
             }
-            t48 = t41;
+            idleDriveResult = fileRangeResult;
         }
-        t56 = t48;
+        requestResult = idleDriveResult;
     }
-    return t56;
+    return requestResult;
 }
 
 
@@ -992,70 +992,70 @@ int adxt_stat_prep(int a4)
     return R0;
 }
 
-int SJRBF_GetChunk(int a4, int a5, int a6, int a7)
+int SJRBF_GetChunk(int ringAddress, int queueId, int requestedBytes, int chunkAddress)
 {
-    int t0;
-    int t9;
-    int t10;
-    int t11;
-    int t12;
-    int t13;
-    int t15;
-    int t29;
-    int t30;
-    int t31;
-    int t32;
-    int t33;
-    int t35;
-    int t48;
+    int interruptMask;
+    int freeQueueBufferBytes;
+    int writePosition;
+    int freeQueueWrapMargin;
+    int freeBytes;
+    int contiguousFreeBytes;
+    int grantedFreeBytes;
+    int filledQueueBufferBytes;
+    int readPosition;
+    int filledQueueWrapMargin;
+    int filledBytes;
+    int contiguousDataBytes;
+    int grantedDataBytes;
+    int callbackResult;
 
-    t0 = SJRBF_Lock();
-    if (a5 == 0) {
-        t9 = *(int *)((a4 + 0x20));
-        t10 = *(int *)((a4 + 0x14));
-        t11 = *(int *)((a4 + 0x24));
-        t12 = *(int *)((a4 + 0x10));
-        t13 = ((t9 - t10) + t11);
-        if ((int)t12 < (int)((t9 - t10) + t11)) {
-            t13 = t12;
+    interruptMask = SJRBF_Lock();
+    if (queueId == 0) {
+        freeQueueBufferBytes = *(int *)((ringAddress + 0x20));
+        writePosition = *(int *)((ringAddress + 0x14));
+        freeQueueWrapMargin = *(int *)((ringAddress + 0x24));
+        freeBytes = *(int *)((ringAddress + 0x10));
+        contiguousFreeBytes = ((freeQueueBufferBytes - writePosition) + freeQueueWrapMargin);
+        if ((int)freeBytes < (int)((freeQueueBufferBytes - writePosition) + freeQueueWrapMargin)) {
+            contiguousFreeBytes = freeBytes;
         }
-        *(unsigned int *)((a7 + 0x4)) = t13;
-        t15 = a6;
-        if ((int)t13 < (int)a6) {
-            t15 = t13;
+        *(unsigned int *)((chunkAddress + 0x4)) = contiguousFreeBytes;
+        grantedFreeBytes = requestedBytes;
+        if ((int)contiguousFreeBytes < (int)requestedBytes) {
+            grantedFreeBytes = contiguousFreeBytes;
         }
-        *(unsigned int *)((a7 + 0x4)) = t15;
-        *(unsigned int *)((a7 + 0x0)) = ((*(int *)((a4 + 0x1C))) + (*(int *)((a4 + 0x14))));
-        *(unsigned int *)((a4 + 0x14)) = ((int)((int)((*(int *)((a4 + 0x14))) + (*(int *)((a7 + 0x4)))) % (int)(*(int *)((a4 + 0x20)))));
-        *(unsigned int *)((a4 + 0x10)) = ((*(int *)((a4 + 0x10))) - (*(int *)((a7 + 0x4))));
+        *(unsigned int *)((chunkAddress + 0x4)) = grantedFreeBytes;
+        *(unsigned int *)((chunkAddress + 0x0)) = ((*(int *)((ringAddress + 0x1C))) + (*(int *)((ringAddress + 0x14))));
+        *(unsigned int *)((ringAddress + 0x14)) = ((int)((int)((*(int *)((ringAddress + 0x14))) + (*(int *)((chunkAddress + 0x4)))) % (int)(*(int *)((ringAddress + 0x20)))));
+        *(unsigned int *)((ringAddress + 0x10)) = ((*(int *)((ringAddress + 0x10))) - (*(int *)((chunkAddress + 0x4))));
     } else {
-        if (a5 == 1) {
-            t29 = *(int *)((a4 + 0x20));
-            t30 = *(int *)((a4 + 0x18));
-            t31 = *(int *)((a4 + 0x24));
-            t32 = *(int *)((a4 + 0xC));
-            t33 = ((t29 - t30) + t31);
-            if ((int)t32 < (int)((t29 - t30) + t31)) {
-                t33 = t32;
+        if (queueId == 1) {
+            filledQueueBufferBytes = *(int *)((ringAddress + 0x20));
+            readPosition = *(int *)((ringAddress + 0x18));
+            filledQueueWrapMargin = *(int *)((ringAddress + 0x24));
+            filledBytes = *(int *)((ringAddress + 0xC));
+            contiguousDataBytes = ((filledQueueBufferBytes - readPosition) + filledQueueWrapMargin);
+            if ((int)filledBytes < (int)((filledQueueBufferBytes - readPosition) + filledQueueWrapMargin)) {
+                contiguousDataBytes = filledBytes;
             }
-            *(unsigned int *)((a7 + 0x4)) = t33;
-            t35 = a6;
-            if ((int)t33 < (int)a6) {
-                t35 = t33;
+            *(unsigned int *)((chunkAddress + 0x4)) = contiguousDataBytes;
+            grantedDataBytes = requestedBytes;
+            if ((int)contiguousDataBytes < (int)requestedBytes) {
+                grantedDataBytes = contiguousDataBytes;
             }
-            *(unsigned int *)((a7 + 0x4)) = t35;
-            *(unsigned int *)((a7 + 0x0)) = ((*(int *)((a4 + 0x1C))) + (*(int *)((a4 + 0x18))));
-            *(unsigned int *)((a4 + 0x18)) = ((int)((int)((*(int *)((a4 + 0x18))) + (*(int *)((a7 + 0x4)))) % (int)(*(int *)((a4 + 0x20)))));
-            *(unsigned int *)((a4 + 0xC)) = ((*(int *)((a4 + 0xC))) - (*(int *)((a7 + 0x4))));
+            *(unsigned int *)((chunkAddress + 0x4)) = grantedDataBytes;
+            *(unsigned int *)((chunkAddress + 0x0)) = ((*(int *)((ringAddress + 0x1C))) + (*(int *)((ringAddress + 0x18))));
+            *(unsigned int *)((ringAddress + 0x18)) = ((int)((int)((*(int *)((ringAddress + 0x18))) + (*(int *)((chunkAddress + 0x4)))) % (int)(*(int *)((ringAddress + 0x20)))));
+            *(unsigned int *)((ringAddress + 0xC)) = ((*(int *)((ringAddress + 0xC))) - (*(int *)((chunkAddress + 0x4))));
         } else {
-            *(unsigned int *)((a7 + 0x4)) = 0x0;
-            *(unsigned int *)((a7 + 0x0)) = 0x0;
-            if ((*(int *)((a4 + 0x28))) != 0) {
-                t48 = ((int (*)(int, int))((*(int *)((a4 + 0x28)))))((*(int *)((a4 + 0x2C))), 0xFFFFFFFD);
+            *(unsigned int *)((chunkAddress + 0x4)) = 0x0;
+            *(unsigned int *)((chunkAddress + 0x0)) = 0x0;
+            if ((*(int *)((ringAddress + 0x28))) != 0) {
+                callbackResult = ((int (*)(int, int))((*(int *)((ringAddress + 0x28)))))((*(int *)((ringAddress + 0x2C))), 0xFFFFFFFD);
             }
         }
     }
-    return SJRBF_Unlock(a4, t0);
+    return SJRBF_Unlock(ringAddress, interruptMask);
 }
 
 int kmySetDisplayFrameBuffer(int a4, int a5)

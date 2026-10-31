@@ -5,7 +5,7 @@ typedef struct { int w[4]; } Stk4;
 int ADXF_GetStat(int);
 int ADXRNA_SetPlaySw(int, int);
 int ADXT_GetStat(int);
-int FUN_8c1e4a80(void);
+int kmCollectTextureGarbage(void);
 extern int _builtin_get_imask(void);
 extern void _builtin_set_imask(int);
 extern int _builtin_tas(char *);
@@ -213,54 +213,54 @@ int nlsndG2DmaRequest(int a4, int a5, int a6, int a7)
     return 0x0;
 }
 
-int nlsndPackFreeInit(int a4, int a5, int a6)
+int nlsndPackFreeInit(int packIndex, int releasedBytes, int movedBytesAddress)
 {
-    int t17;
-    int t23;
-    int t2;
+    int movedBytes;
+    int firstMovedAddress;
+    int accumulatedBytes;
     int t3;
     int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t8;
+    int packCursor;
+    int packAddressCursor;
+    int firstAddressCursor;
+    int firstAddress;
 
-    *(unsigned int *)0x8C454CBC = ((*(int *)0x8C454CBC) - a5);
-    *(unsigned int *)(((((a4 << 1) + a4) << 2) + 0x8C454DD4)) = 0xFFFFFFFF;
-    nlsndG2Write(0xFFFFFFFF, ((a4 << 2) + 0xA0800060));
-    t17 = 0x0;
-    t23 = 0x0;
-    if ((unsigned int)(((((a4 + 0x1) << 1) + (a4 + 0x1)) << 2) + 0x8C454DD4) < (unsigned int)0x8C454E34) {
-        t2 = 0x0;
+    *(unsigned int *)0x8C454CBC = ((*(int *)0x8C454CBC) - releasedBytes);
+    *(unsigned int *)(((((packIndex << 1) + packIndex) << 2) + 0x8C454DD4)) = 0xFFFFFFFF;
+    nlsndG2Write(0xFFFFFFFF, ((packIndex << 2) + 0xA0800060));
+    movedBytes = 0x0;
+    firstMovedAddress = 0x0;
+    if ((unsigned int)(((((packIndex + 0x1) << 1) + (packIndex + 0x1)) << 2) + 0x8C454DD4) < (unsigned int)0x8C454E34) {
+        accumulatedBytes = 0x0;
         t3 = 0x8C454DD4;
-        t4 = (a4 + 0x1);
-        t5 = (((((a4 + 0x1) << 1) + (a4 + 0x1)) << 2) + 0x8C454DD4);
-        t6 = (((((a4 + 0x1) << 1) + (a4 + 0x1)) << 2) + 0x8C454DD4);
-        t7 = (((((a4 + 0x1) << 1) + (a4 + 0x1)) << 2) + 0x8C454DD4);
-        t8 = 0x0;
+        t4 = (packIndex + 0x1);
+        packCursor = (((((packIndex + 0x1) << 1) + (packIndex + 0x1)) << 2) + 0x8C454DD4);
+        packAddressCursor = (((((packIndex + 0x1) << 1) + (packIndex + 0x1)) << 2) + 0x8C454DD4);
+        firstAddressCursor = (((((packIndex + 0x1) << 1) + (packIndex + 0x1)) << 2) + 0x8C454DD4);
+        firstAddress = 0x0;
         for (;;) {
-            if ((*(int *)((t5 + 0x0))) != -1) {
-                t3 = (*(int *)((t6 + 0x8)));
-                if (t8 == 0) {
-                    t8 = (*(int *)((t7 + 0x4)));
+            if ((*(int *)((packCursor + 0x0))) != -1) {
+                t3 = (*(int *)((packAddressCursor + 0x8)));
+                if (firstAddress == 0) {
+                    firstAddress = (*(int *)((firstAddressCursor + 0x4)));
                 }
-                t4 = (*(int *)((t6 + 0x4)));
-                t2 = (t2 + t3);
-                t4 = (t4 - a5);
-                *(unsigned int *)((t6 + 0x4)) = t4;
+                t4 = (*(int *)((packAddressCursor + 0x4)));
+                accumulatedBytes = (accumulatedBytes + t3);
+                t4 = (t4 - releasedBytes);
+                *(unsigned int *)((packAddressCursor + 0x4)) = t4;
             }
-            t5 = (t5 + 0xC);
-            t6 = (t6 + 0xC);
-            t7 = (t7 + 0xC);
-            if ((unsigned int)t5 >= (unsigned int)0x8C454E34) {
+            packCursor = (packCursor + 0xC);
+            packAddressCursor = (packAddressCursor + 0xC);
+            firstAddressCursor = (firstAddressCursor + 0xC);
+            if ((unsigned int)packCursor >= (unsigned int)0x8C454E34) {
                 break;
             }
         }
-        t17 = t2;
-        t23 = t8;
+        movedBytes = accumulatedBytes;
+        firstMovedAddress = firstAddress;
     }
-    *(unsigned int *)((a6 + 0x0)) = t17;
-    return t23;
+    *(unsigned int *)((movedBytesAddress + 0x0)) = movedBytes;
+    return firstMovedAddress;
 }
 
 int nlInitEvent(void)
@@ -907,7 +907,7 @@ int nlCommonTextureGarbageCollection(void)
     int t4;
 
     t1 = *(int *)0x8C458608;
-    t2 = (FUN_8c1e4a80());
+    t2 = (kmCollectTextureGarbage());
     t3 = 0x0;
     t4 = t1;
     for (;;) {

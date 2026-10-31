@@ -15,17 +15,17 @@ extern int mwRnaErrCallFunc(int a, int b, int c, int d, int e);
 extern void kmyMemCopy(int a, int b, int c);
 extern void kmiWriteRegister(int reg, int val);
 
-extern int g_8c454cbc;
-extern int *g_8c20c204;
-extern char g_8c464598[];
-extern char g_8c46ad24[];
-extern int g_8c20c89c;
-extern int g_8c20c8a0;
-extern char g_8c20ac30[];
-extern unsigned int g_8c45ee4c;
-extern int g_8c45eee4;
-extern int g_8c45eee8;
-extern char *g_8c47317c;
+extern int gNlSoundPackUsedBytes;
+extern int *gGdFsGlobalState;
+extern char gVmsVolumeStates[];
+extern char gAdxErrorMessageBuffer[];
+extern int gAdxErrorCallback;
+extern int gAdxErrorCallbackArgument;
+extern char strMwRnaNullHandleError[];
+extern unsigned int gFrameBufferReadControl;
+extern int gStripBufferEnabled;
+extern int gStripBufferSizeBytes;
+extern char *gMapleDriver;
 
 
 int nlsndG2WriteN(int *a, int *b, int n)
@@ -40,19 +40,19 @@ int nlsndG2WriteN(int *a, int *b, int n)
 
 int nlsndRemainMem(void)
 {
-    return nlsndG2Read(0xa0800088) - g_8c454cbc;
+    return nlsndG2Read(0xa0800088) - gNlSoundPackUsedBytes;
 }
 
 
-unsigned int gdFsGetLE4(unsigned char *p)
+unsigned int gdFsGetLE4(unsigned char *bytes)
 {
-    return p[0] | (p[1] << 8) | (p[2] << 16) | (p[3] << 24);
+    return bytes[0] | (bytes[1] << 8) | (bytes[2] << 16) | (bytes[3] << 24);
 }
 
 
-int gdFsSetGlobalErrG(int e)
+int gdFsSetGlobalErrG(int errorCode)
 {
-    g_8c20c204[12] = e;
+    gGdFsGlobalState[12] = errorCode;
     return 1;
 }
 
@@ -78,7 +78,7 @@ int ADXT_DiscardSmpl(char *adxt)
 
 int vmsfs_exit(void)
 {
-    memset(g_8c464598, 0, 2624);
+    memset(gVmsVolumeStates, 0, 2624);
     vmsio_exit();
     return 0;
 }
@@ -99,9 +99,9 @@ int str_len(char *s)
 
 void ADXERR_Init(void)
 {
-    memset(g_8c46ad24, 0, 256);
-    g_8c20c89c = 0;
-    g_8c20c8a0 = 0;
+    memset(gAdxErrorMessageBuffer, 0, 256);
+    gAdxErrorCallback = 0;
+    gAdxErrorCallbackArgument = 0;
 }
 
 
@@ -120,7 +120,7 @@ void ADXSJD_Destroy(int *p)
 int mwRnaGetAutoSw(unsigned char *p)
 {
     if (p == 0) {
-        mwRnaErrCallFunc(0, 0, 0, 0, (int)g_8c20ac30);
+        mwRnaErrCallFunc(0, 0, 0, 0, (int)strMwRnaNullHandleError);
         return -1;
     }
     return (p[1] & 4) >> 2;
@@ -139,30 +139,30 @@ int SJUNI_GetNumChainPool(int *p)
 }
 
 
-int kmySetStripBuffer(int a, int b)
+int kmySetStripBuffer(int enabled, int sizeBytes)
 {
-    g_8c45ee4c = (g_8c45ee4c & 0xffa0ffff) | ((a & 1) << 22) | (((b / 32) & 31) << 16);
-    g_8c45eee4 = a;
-    g_8c45eee8 = b;
+    gFrameBufferReadControl = (gFrameBufferReadControl & 0xffa0ffff) | ((enabled & 1) << 22) | (((sizeBytes / 32) & 31) << 16);
+    gStripBufferEnabled = enabled;
+    gStripBufferSizeBytes = sizeBytes;
     return 0;
 }
 
 
-void mpdrv_speed(int v)
+void mpdrv_speed(int speed)
 {
-    *(int *)(g_8c47317c + 4304) = v;
+    *(int *)(gMapleDriver + 4304) = speed;
 }
 
 
-void mpdrv_gunmode(int v)
+void mpdrv_gunmode(int mode)
 {
-    *(int *)(g_8c47317c + 4012) = v;
+    *(int *)(gMapleDriver + 4012) = mode;
 }
 
 
 int mpdrv_get_gunmode(void)
 {
-    return *(int *)(g_8c47317c + 4016);
+    return *(int *)(gMapleDriver + 4016);
 }
 
 
@@ -175,29 +175,29 @@ int kmyCopyFromTexture(int a, int b, int c)
 }
 
 
-int kmSetCullingRegister(float f)
+int kmSetCullingRegister(float threshold)
 {
-    union { float f; unsigned int u; } x;
-    x.f = f;
-    kmiWriteRegister(120, x.u & 0x7fffffff);
+    union { float threshold; unsigned int u; } bits;
+    bits.threshold = threshold;
+    kmiWriteRegister(120, bits.u & 0x7fffffff);
     return 0;
 }
 
 
-void buFbrWakeupFiber(char *base, int idx)
+void buFbrWakeupFiber(char *scheduler, int fiberIndex)
 {
-    char *p = base + 528 + idx * 292;
-    if (*(int *)(p + 12) != 0)
-        *(int *)(p + 20) = *(int *)(base + 516);
+    char *fiber = scheduler + 528 + fiberIndex * 292;
+    if (*(int *)(fiber + 12) != 0)
+        *(int *)(fiber + 20) = *(int *)(scheduler + 516);
 }
 
 
-unsigned int kmyConvertAddress64to32(unsigned int a)
+unsigned int kmyConvertAddress64to32(unsigned int address)
 {
-    unsigned int r = ((a & 0xfffffff8) >> 1) + (a & 3);
-    if (a & 4)
-        r += 0x400000;
-    if (a >= 0x800000)
-        r += 0x400000;
-    return r;
+    unsigned int convertedAddress = ((address & 0xfffffff8) >> 1) + (address & 3);
+    if (address & 4)
+        convertedAddress += 0x400000;
+    if (address >= 0x800000)
+        convertedAddress += 0x400000;
+    return convertedAddress;
 }

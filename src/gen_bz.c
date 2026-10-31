@@ -112,37 +112,37 @@ int mpdrv_p2v(int a4);
 void vmsio_exit(void);
 int buFbrSleepVFiber(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11);
 
-int gdFsGetFileSize(int a4, int a5)
+int gdFsGetFileSize(int handleAddress, int fileByteCountAddress)
 {
-    if (a4 != 0) {
-        if ((*(short *)((a4 + 0x4C))) == 0) {
+    if (handleAddress != 0) {
+        if ((*(short *)((handleAddress + 0x4C))) == 0) {
             return 0x0;
         }
-        *(unsigned int *)((a5 + 0x0)) = (*(int *)((a4 + 0xC)));
+        *(unsigned int *)((fileByteCountAddress + 0x0)) = (*(int *)((handleAddress + 0xC)));
         return 0x1;
     }
     return 0x0;
 }
 
-int gdFsGetFileSctSize(int a4, int a5)
+int gdFsGetFileSctSize(int handleAddress, int sectorCountAddress)
 {
-    if (a4 != 0) {
-        if ((*(short *)((a4 + 0x4C))) == 0) {
+    if (handleAddress != 0) {
+        if ((*(short *)((handleAddress + 0x4C))) == 0) {
             return 0x0;
         }
-        *(unsigned int *)((a5 + 0x0)) = (*(int *)((a4 + 0x10)));
+        *(unsigned int *)((sectorCountAddress + 0x0)) = (*(int *)((handleAddress + 0x10)));
         return 0x1;
     }
     return 0x0;
 }
 
-int gdFsGetFileFad(int a4, int a5)
+int gdFsGetFileFad(int handleAddress, int startFadAddress)
 {
-    if (a4 != 0) {
-        if ((*(short *)((a4 + 0x4C))) == 0) {
+    if (handleAddress != 0) {
+        if ((*(short *)((handleAddress + 0x4C))) == 0) {
             return 0x0;
         }
-        *(unsigned int *)((a5 + 0x0)) = (*(int *)((a4 + 0x8)));
+        *(unsigned int *)((startFadAddress + 0x0)) = (*(int *)((handleAddress + 0x8)));
         return 0x1;
     }
     return 0x0;
@@ -228,13 +228,13 @@ void gdFsMemcpy(int a4, int a5, int a6)
     }
 }
 
-int gdFsGetStat(int a4)
+int gdFsGetStat(int handleAddress)
 {
-    if (a4 != 0) {
-        if ((*(short *)((a4 + 0x4C))) == 0) {
+    if (handleAddress != 0) {
+        if ((*(short *)((handleAddress + 0x4C))) == 0) {
             return 0xFFFFFFF6;
         }
-        return (*(short *)((a4 + 0x50)));
+        return (*(short *)((handleAddress + 0x50)));
     }
     return 0xFFFFFFF6;
 }
@@ -367,24 +367,24 @@ void gdFsEntryErrFuncAll(void)
     }
 }
 
-int gdFsTell(int a4)
+int gdFsTell(int handleAddress)
 {
-    if (a4 != 0) {
-        if ((*(short *)((a4 + 0x4C))) == 0) {
+    if (handleAddress != 0) {
+        if ((*(short *)((handleAddress + 0x4C))) == 0) {
             return 0x0;
         }
-        return (*(int *)((a4 + 0x14)));
+        return (*(int *)((handleAddress + 0x14)));
     }
     return 0x0;
 }
 
-int gdFsGetNumRd(int a4)
+int gdFsGetNumRd(int handleAddress)
 {
-    if (a4 != 0) {
-        if ((*(short *)((a4 + 0x4C))) == 0) {
+    if (handleAddress != 0) {
+        if ((*(short *)((handleAddress + 0x4C))) == 0) {
             return 0x0;
         }
-        return (*(int *)((a4 + 0x18)));
+        return (*(int *)((handleAddress + 0x18)));
     }
     return 0x0;
 }

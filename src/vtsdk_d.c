@@ -11,7 +11,7 @@ extern void gdFsStopRd(int *p);
 extern int kmyUnregisterCallback(int idx);
 extern int mpdrv_setcmd(int a, int b, int *p, int c, int d, int e);
 
-struct gdfs_ops {
+struct GdFsOperations {
     char pad0[60];
     int (*open)(int a, int b, int c, int d);
     char pad1[4];
@@ -20,20 +20,20 @@ struct gdfs_ops {
     int (*get_drv_stat)(int a, int b, int c, int d);
 };
 
-struct kmy_cb {
-    int fn;
-    int arg;
+struct RenderCallbackSlot {
+    int callback;
+    int callbackArgument;
 };
 
-extern int g_8c1dc8d4;
-extern struct gdfs_ops *g_8c20c210;
-extern int g_8c20c8a8;
-extern char g_8c209be4[];
-extern char g_8c20ac30[];
-extern char g_8c45eef4[];
-extern struct kmy_cb g_8c470a20[];
-extern char *g_8c47317c;
-extern char *g_8c1feb48;
+extern int gNlFontTextureAddress;
+extern struct GdFsOperations *gGdFsOperations;
+extern int gAdxStreamInternalErrorCount;
+extern char strAdxtPanChannelRangeError[];
+extern char strMwRnaNullHandleError[];
+extern char gFrameBufferControlRecords[];
+extern struct RenderCallbackSlot gRenderCallbacks[];
+extern char *gMapleDriver;
+extern char *gMapleTransferLockAddress;
 
 
 float nlCosh(unsigned short x)
@@ -42,9 +42,9 @@ float nlCosh(unsigned short x)
     return (e + 1.0f / e) / 2.0f;
 }
 
-void nlInitFont(int a)
+void nlInitFont(int textureAddress)
 {
-    g_8c1dc8d4 = a;
+    gNlFontTextureAddress = textureAddress;
 }
 
 unsigned int nlsndG2Read(unsigned int *p)
@@ -56,26 +56,26 @@ unsigned int nlsndG2Read(unsigned int *p)
 
 int gdFsOpen(int a, int b, int c, int d)
 {
-    struct gdfs_ops *o = g_8c20c210;
-    if (o == 0)
+    struct GdFsOperations *operations = gGdFsOperations;
+    if (operations == 0)
         return 0;
-    return o->open(a, b, c, d);
+    return operations->open(a, b, c, d);
 }
 
 int gdFsOpenRange(int a, int b, int c, int d)
 {
-    struct gdfs_ops *o = g_8c20c210;
-    if (o == 0)
+    struct GdFsOperations *operations = gGdFsOperations;
+    if (operations == 0)
         return 0;
-    return o->open_range(a, b, c, d);
+    return operations->open_range(a, b, c, d);
 }
 
 int gdFsGetDrvStat(int a, int b, int c, int d)
 {
-    struct gdfs_ops *o = g_8c20c210;
-    if (o == 0)
+    struct GdFsOperations *operations = gGdFsOperations;
+    if (operations == 0)
         return 0;
-    return o->get_drv_stat(a, b, c, d);
+    return operations->get_drv_stat(a, b, c, d);
 }
 
 int buFindFirstFile(int a, int b)
@@ -96,19 +96,19 @@ void ADXT_SetOutPan(char *adxt, int ch, short pan)
 {
     *(short *)(adxt + 66 + ch * 2) = pan;
     if (ch >= adxt[3]) {
-        ADXERR_CallErrFunc(g_8c209be4);
+        ADXERR_CallErrFunc(strAdxtPanChannelRangeError);
         return;
     }
     ADXRNA_SetOutPan(*(int *)(adxt + 12), ch, pan);
 }
 
-void gdFsClose(char *p)
+void gdFsClose(char *handle)
 {
-    if (p != 0 && *(short *)(p + 76) != 0) {
-        short st = *(short *)(p + 80);
-        if (st == 2 || st == 3 || st == 4)
-            gdFsStopRd((int *)p);
-        *(short *)(p + 76) = 0;
+    if (handle != 0 && *(short *)(handle + 76) != 0) {
+        short driveStatus = *(short *)(handle + 80);
+        if (driveStatus == 2 || driveStatus == 3 || driveStatus == 4)
+            gdFsStopRd((int *)handle);
+        *(short *)(handle + 76) = 0;
     }
 }
 
@@ -124,13 +124,13 @@ void syTmrInit(void)
 
 void adxstm_sj_internal_error(void)
 {
-    g_8c20c8a8 = g_8c20c8a8 + 1;
+    gAdxStreamInternalErrorCount = gAdxStreamInternalErrorCount + 1;
 }
 
 int mwRnaGetTransSw(char *p)
 {
     if (p == 0) {
-        mwRnaErrCallFunc(g_8c20ac30);
+        mwRnaErrCallFunc(strMwRnaNullHandleError);
         return -1;
     }
     return p[1] & 1;
@@ -138,24 +138,24 @@ int mwRnaGetTransSw(char *p)
 
 void kmiInitFBControl(void)
 {
-    char *p;
-    for (p = g_8c45eef4; p < g_8c45eef4 + 208; p += 52)
-        *(int *)(p + 40) = 0;
+    char *frameBuffer;
+    for (frameBuffer = gFrameBufferControlRecords; frameBuffer < gFrameBufferControlRecords + 208; frameBuffer += 52)
+        *(int *)(frameBuffer + 40) = 0;
 }
 
-int kmyRegisterCallback(int idx, int fn, int arg)
+int kmyRegisterCallback(int callbackIndex, int callback, int callbackArgument)
 {
-    if (fn == 0)
-        return kmyUnregisterCallback(idx);
-    g_8c470a20[idx].fn = fn;
-    g_8c470a20[idx].arg = arg;
+    if (callback == 0)
+        return kmyUnregisterCallback(callbackIndex);
+    gRenderCallbacks[callbackIndex].callback = callback;
+    gRenderCallbacks[callbackIndex].callbackArgument = callbackArgument;
     return 0;
 }
 
 int mpdrv_frame_recv_post(void)
 {
-    *(int *)(g_8c47317c + 4032) = 1;
-    *g_8c1feb48 = 0;
+    *(int *)(gMapleDriver + 4032) = 1;
+    *gMapleTransferLockAddress = 0;
     return 0;
 }
 

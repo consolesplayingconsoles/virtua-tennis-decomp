@@ -1,0 +1,9 @@
+# address	old_identifier	new_identifier
+8c017c58	thunk_FUN_8c0eee50	thunk_nlGetMatrix
+8c031464	thunk_FUN_8c0bcda0	thunk_fadeScreenDraw
+8c032abe	thunk_FUN_8c032f6c	thunk_circuitTaskRun
+8c08cb90	thunk_FUN_8c0f2210	thunk_nlObjPutMvInit
+8c08e83a	thunk_FUN_8c0f41f0	thunk_nlSprPut
+8c09e55a	selConstStub	selCopyLocalConstants
+8c0c4bf4	thunk_FUN_8c09e55a	thunk_selCopyLocalConstants
+8c0e00ba	thunk_FUN_8c1e0150	thunk_buIsExistFile

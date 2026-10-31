@@ -410,62 +410,62 @@ int SJRBF_UngetChunk(int a4, int a5, int a6)
     return SJRBF_Unlock(a4, t0);
 }
 
-int SJRBF_PutChunk(int a4, int a5, int a6)
+int SJRBF_PutChunk(int ringAddress, int queueId, int chunkAddress)
 {
-    int t0;
-    int t3;
-    int t4;
-    int t8;
-    int t9;
-    int t10;
-    int t20;
-    int t21;
-    int t22;
-    int t26;
-    int t27;
-    int t28;
-    int t30;
-    int t43;
+    int interruptMask;
+    int chunkDataAddress;
+    int bufferBaseAddress;
+    int wrapMarginBytes;
+    int chunkBytes;
+    int prefixMirrorBytes;
+    int completedChunkAddress;
+    int ringBufferAddress;
+    int completedChunkBytes;
+    int bufferBytes;
+    int completedBytes;
+    int wrappedBytes;
+    int bufferStartAddress;
+    int callbackResult;
 
-    t0 = SJRBF_Lock();
-    if (a5 == 1) {
-        *(unsigned int *)((a4 + 0xC)) = ((*(int *)((a4 + 0xC))) + (*(int *)((a6 + 0x4))));
-        t3 = *(int *)((a6 + 0x0));
-        t4 = *(int *)((a4 + 0x1C));
-        if ((int)(t3 - t4) < (int)(*(int *)((a4 + 0x24)))) {
-            t8 = *(int *)((a4 + 0x24));
-            t9 = *(int *)((a6 + 0x4));
-            t10 = (t8 - (t3 - t4));
-            if ((int)t9 < (int)(t8 - (t3 - t4))) {
-                t10 = t9;
+    interruptMask = SJRBF_Lock();
+    if (queueId == 1) {
+        *(unsigned int *)((ringAddress + 0xC)) = ((*(int *)((ringAddress + 0xC))) + (*(int *)((chunkAddress + 0x4))));
+        chunkDataAddress = *(int *)((chunkAddress + 0x0));
+        bufferBaseAddress = *(int *)((ringAddress + 0x1C));
+        if ((int)(chunkDataAddress - bufferBaseAddress) < (int)(*(int *)((ringAddress + 0x24)))) {
+            wrapMarginBytes = *(int *)((ringAddress + 0x24));
+            chunkBytes = *(int *)((chunkAddress + 0x4));
+            prefixMirrorBytes = (wrapMarginBytes - (chunkDataAddress - bufferBaseAddress));
+            if ((int)chunkBytes < (int)(wrapMarginBytes - (chunkDataAddress - bufferBaseAddress))) {
+                prefixMirrorBytes = chunkBytes;
             }
-            memmove((((*(int *)((a4 + 0x20))) + (t3 - t4)) + (*(int *)((a4 + 0x1C)))), (*(int *)((a6 + 0x0))), t10);
+            memmove((((*(int *)((ringAddress + 0x20))) + (chunkDataAddress - bufferBaseAddress)) + (*(int *)((ringAddress + 0x1C)))), (*(int *)((chunkAddress + 0x0))), prefixMirrorBytes);
         }
-        t20 = *(int *)((a6 + 0x0));
-        t21 = *(int *)((a4 + 0x1C));
-        t22 = *(int *)((a6 + 0x4));
-        if ((int)((t20 - t21) + t22) > (int)(*(int *)((a4 + 0x20)))) {
-            t26 = *(int *)((a4 + 0x20));
-            t27 = *(int *)((a6 + 0x4));
-            t28 = (((t20 - t21) + t22) - t26);
-            if ((int)t27 < (int)(((t20 - t21) + t22) - t26)) {
-                t28 = t27;
+        completedChunkAddress = *(int *)((chunkAddress + 0x0));
+        ringBufferAddress = *(int *)((ringAddress + 0x1C));
+        completedChunkBytes = *(int *)((chunkAddress + 0x4));
+        if ((int)((completedChunkAddress - ringBufferAddress) + completedChunkBytes) > (int)(*(int *)((ringAddress + 0x20)))) {
+            bufferBytes = *(int *)((ringAddress + 0x20));
+            completedBytes = *(int *)((chunkAddress + 0x4));
+            wrappedBytes = (((completedChunkAddress - ringBufferAddress) + completedChunkBytes) - bufferBytes);
+            if ((int)completedBytes < (int)(((completedChunkAddress - ringBufferAddress) + completedChunkBytes) - bufferBytes)) {
+                wrappedBytes = completedBytes;
             }
-            t30 = *(int *)((a4 + 0x1C));
-            memmove(t30, (t30 + (((t20 - t21) + t22) - t28)), t28);
+            bufferStartAddress = *(int *)((ringAddress + 0x1C));
+            memmove(bufferStartAddress, (bufferStartAddress + (((completedChunkAddress - ringBufferAddress) + completedChunkBytes) - wrappedBytes)), wrappedBytes);
         }
     } else {
-        if (a5 == 0) {
-            *(unsigned int *)((a4 + 0x10)) = ((*(int *)((a4 + 0x10))) + (*(int *)((a6 + 0x4))));
+        if (queueId == 0) {
+            *(unsigned int *)((ringAddress + 0x10)) = ((*(int *)((ringAddress + 0x10))) + (*(int *)((chunkAddress + 0x4))));
         } else {
-            *(unsigned int *)((a6 + 0x4)) = 0x0;
-            *(unsigned int *)((a6 + 0x0)) = 0x0;
-            if ((*(int *)((a4 + 0x28))) != 0) {
-                t43 = ((int (*)(int, int))((*(int *)((a4 + 0x28)))))((*(int *)((a4 + 0x2C))), 0xFFFFFFFD);
+            *(unsigned int *)((chunkAddress + 0x4)) = 0x0;
+            *(unsigned int *)((chunkAddress + 0x0)) = 0x0;
+            if ((*(int *)((ringAddress + 0x28))) != 0) {
+                callbackResult = ((int (*)(int, int))((*(int *)((ringAddress + 0x28)))))((*(int *)((ringAddress + 0x2C))), 0xFFFFFFFD);
             }
         }
     }
-    return SJRBF_Unlock(a4, t0);
+    return SJRBF_Unlock(ringAddress, interruptMask);
 }
 
 int hudNumberDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)

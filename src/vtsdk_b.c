@@ -1,20 +1,20 @@
 /* Small SDK functions (batch b): nl fraction, sound wait/pan, backup-unit file wrappers, ADX/mw error
    checks, GD filesystem accessors, FAT helpers, mpdrv, kmy/kmi helpers. */
 
-extern char g_8c20a1e0[];
-extern char g_8c20a218[];
-extern char g_8c20ac30[];
-extern char g_8c20ca48[];
-extern char g_8c20ca4c[];
-extern int g_8c20b040;
-extern int g_8c20b044;
-extern int *g_8c46c264[];
-extern char g_8c464598[];
-extern int (**g_8c464594)(int a, int b);
-extern int g_8c4607e8;
-extern char g_8c45f964[];
-extern char *g_8c47317c;
-extern char g_8c473758[];
+extern char strAdxfPartitionIdRangeError[];
+extern char strAdxfFileIdRangeError[];
+extern char strMwRnaNullHandleError[];
+extern char gMwRnaErrorCallback[];
+extern char gMwRnaErrorCallbackArgument[];
+extern int gMapleDriverVersionWord0;
+extern int gMapleDriverVersionWord1;
+extern int *gAdxfPartitionInfoTable[];
+extern char gVmsVolumeStates[];
+extern int (**gVmsIoInterface)(int a, int b);
+extern int gRenderPacketVBlankWaitPending;
+extern char gRenderPacketQueues[];
+extern char *gMapleDriver;
+extern char gMwRnaErrorMessageBuffer[];
 
 extern int nlsndG2Write(int v, int addr);
 extern int nlsndG2Read(int addr);
@@ -32,20 +32,20 @@ extern void ADXB_ExecOneWav8(char *o);
 extern void ADXB_ExecOneWav16(char *o);
 extern void *memset(void *dst, int val, unsigned int n);
 
-float nlFraction(float x)
+float nlFraction(float value)
 {
-    float a;
-    int i;
-    float f;
+    float magnitude;
+    int wholePart;
+    float fraction;
 
-    a = x < 0.0f ? -x : x;
-    if (!(8388608.0f > a))
+    magnitude = value < 0.0f ? -value : value;
+    if (!(8388608.0f > magnitude))
         return 0.0f;
-    i = (int)a;
-    f = a - (float)i;
-    if (x < 0.0f)
-        return -f;
-    return f;
+    wholePart = (int)magnitude;
+    fraction = magnitude - (float)wholePart;
+    if (value < 0.0f)
+        return -fraction;
+    return fraction;
 }
 
 int nlsnd_PL_WaitAica2andGo(void)
@@ -63,9 +63,9 @@ int nlsnd_PL_WaitAica2andGo(void)
     return -256;
 }
 
-void nlsndStreamSetHdPan(char *p, short i, char v)
+void nlsndStreamSetHdPan(char *streamHeader, short channelIndex, char pan)
 {
-    p[50 + i * 4] = v;
+    streamHeader[50 + channelIndex * 4] = pan;
 }
 
 int buFindNextFile(int a, int b)
@@ -82,17 +82,17 @@ int buGetFileSize(int a, int b)
     return vmsfs_fgetsize(a, b);
 }
 
-int adxf_ChkPrmGfr(int a, int b)
+int adxf_ChkPrmGfr(int partitionId, int fileId)
 {
-    char *p;
+    char *partitionInfo;
 
-    if (a < 0 || a >= 256) {
-        ADXERR_CallErrFunc(g_8c20a1e0);
+    if (partitionId < 0 || partitionId >= 256) {
+        ADXERR_CallErrFunc(strAdxfPartitionIdRangeError);
         return -3;
     }
-    p = (char *)g_8c46c264[a];
-    if (b < 0 || b >= *(int *)(p + 12)) {
-        ADXERR_CallErrFunc(g_8c20a218);
+    partitionInfo = (char *)gAdxfPartitionInfoTable[partitionId];
+    if (fileId < 0 || fileId >= *(int *)(partitionInfo + 12)) {
+        ADXERR_CallErrFunc(strAdxfFileIdRangeError);
         return -3;
     }
     return 0;
@@ -110,80 +110,80 @@ int kmyFreeArea(int a)
     return FBfree(*(short *)buf, r);
 }
 
-int gdFsSetTmode(char *p, short v)
+int gdFsSetTmode(char *handle, short transferMode)
 {
-    if (p == 0 || *(short *)(p + 76) == 0)
+    if (handle == 0 || *(short *)(handle + 76) == 0)
         return -10;
-    *(short *)(p + 78) = v;
+    *(short *)(handle + 78) = transferMode;
     return 0;
 }
 
-int gdFsGetTransStat(char *p)
+int gdFsGetTransStat(char *handle)
 {
-    if (p == 0 || *(short *)(p + 76) == 0)
+    if (handle == 0 || *(short *)(handle + 76) == 0)
         return -10;
-    return *(short *)(p + 74);
+    return *(short *)(handle + 74);
 }
 
 void set_fat(int a, int b)
 {
     char *e;
 
-    e = g_8c464598 + a * 328;
+    e = gVmsVolumeStates + a * 328;
     if (b > **(int **)(e + 28))
         return;
-    g_8c464594[4](*(int *)(e + 36), b << 1);
+    gVmsIoInterface[4](*(int *)(e + 36), b << 1);
 }
 
 char *direntry(int a, int b)
 {
-    return *(char **)(g_8c464598 + a * 328 + 40) + b * 32;
+    return *(char **)(gVmsVolumeStates + a * 328 + 40) + b * 32;
 }
 
-int BCDtoDEC(unsigned int x)
+int BCDtoDEC(unsigned int packedBcd)
 {
-    return (x >> 4) * 10 + (x & 15);
+    return (packedBcd >> 4) * 10 + (packedBcd & 15);
 }
 
 
 int kmiQueryFinishAllPacket(void)
 {
-    unsigned int i;
+    unsigned int queueOffset;
 
-    if (g_8c4607e8) {
+    if (gRenderPacketVBlankWaitPending) {
         kmWaitVBlank();
-        g_8c4607e8 = 0;
+        gRenderPacketVBlankWaitPending = 0;
     }
-    for (i = 0; i < 3616; i += 452) {
-        if (*(int *)(g_8c45f964 + i))
+    for (queueOffset = 0; queueOffset < 3616; queueOffset += 452) {
+        if (*(int *)(gRenderPacketQueues + queueOffset))
             return 0xeeee;
     }
     return 0;
 }
 
-void mpdrv_nopcount(int x)
+void mpdrv_nopcount(int count)
 {
-    *(int *)(g_8c47317c + 4300) = x;
+    *(int *)(gMapleDriver + 4300) = count;
 }
 
-void mpdrv_get_version(int *a, int *b)
+void mpdrv_get_version(int *versionWord0, int *versionWord1)
 {
-    if (a)
-        *a = g_8c20b040;
-    if (b)
-        *b = g_8c20b044;
+    if (versionWord0)
+        *versionWord0 = gMapleDriverVersionWord0;
+    if (versionWord1)
+        *versionWord1 = gMapleDriverVersionWord1;
 }
 
-void mwRnaErrEntryFunc(int a, int b)
+void mwRnaErrEntryFunc(int callback, int callbackArgument)
 {
-    if (a == 0) {
-        *(int *)g_8c20ca48 = 0;
-        *(int *)g_8c20ca4c = 0;
+    if (callback == 0) {
+        *(int *)gMwRnaErrorCallback = 0;
+        *(int *)gMwRnaErrorCallbackArgument = 0;
     } else {
-        *(int *)g_8c20ca48 = a;
-        *(int *)g_8c20ca4c = b;
+        *(int *)gMwRnaErrorCallback = callback;
+        *(int *)gMwRnaErrorCallbackArgument = callbackArgument;
     }
-    memset(g_8c473758, 0, 256);
+    memset(gMwRnaErrorMessageBuffer, 0, 256);
 }
 
 void kmyResetTA(void)

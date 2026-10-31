@@ -3,11 +3,8 @@
 
 int kmiWriteRegister(int off, int v);
 int kmiRegisterCallback(int dev, int kind, void *f, void *p);
-void FUN_0c16dd00(int v);
 int kmiVQFBfree(int *s);
 int kmiFBfree(int a);
-void FUN_0c15888e(void *p);
-void FUN_0c15887e(int *d, int *s, unsigned int n);
 int kmiPurgeMemory(char *p, int n);
 int kmiCopyToPVRMemory(int off, int *src, unsigned int n);
 int vmsfs_c_getstate(int drive);
@@ -26,11 +23,11 @@ int gdFsTell(int h);
 int gdFsGetDirInfo(int h, int *info);
 int ADXSTM_Tell(int *h);
 int ADXSTM_Seek(int h, int pos);
-int FUN_0c1688b6(int a);
+int ADXSJD_GetLpStartOfst(int a);
 int toupper_(int c);
 int gdFsToUpper(int c);
 
-extern char g_8c464598[];
+extern char gVmsVolumeStates[];
 
 
 int convert_support(unsigned int x)
@@ -154,7 +151,7 @@ int ADXSTM_GetFsizeByte(int h, int *out)
 int adxt_eos_entry(int *e)
 {
     int h = e[2];
-    int x = FUN_0c1688b6(e[1]);
+    int x = ADXSJD_GetLpStartOfst(e[1]);
 
     if (x < 0)
         x += 2047;

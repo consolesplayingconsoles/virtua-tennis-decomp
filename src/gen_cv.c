@@ -3,7 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[29]; } Stk29;
-int FUN_8c0eaf00(int, int, int);
+int nlResetBackColorZ(int, int, int);
 int cacheOcbiRange(int, int);
 int cpuDblAim(int, int, int, int);
 int cpuShotAimCheck(int, int, int, int);
@@ -25,7 +25,7 @@ int sndPack1FadeCancel(void);
 int sndStopAll(void);
 int sprInitPos(int, int);
 int strmScoreReset(void);
-int thunk_FUN_8c0f41f0(int, int, int, int);
+int thunk_nlSprPut(int, int, int, int);
 int umpCheerTimed(int);
 int vecMake(int, int, int, int, int, float, float, float);
 int pauseExec(int a4, int a5);

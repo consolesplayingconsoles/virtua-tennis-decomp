@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int FUN_8c0eaf00(int, int, int);
+int nlResetBackColorZ(int, int, int);
 int cacheOcbiRange(int, int);
 int entryFinalCheck(void);
 int entryPortContinue(int, int);
@@ -19,7 +19,7 @@ int sndPack1FadeCancel(void);
 int sndStopAll(void);
 int sprInitPos(int, int);
 int strmScoreReset(void);
-int thunk_FUN_8c0f41f0(int, int, int, int);
+int thunk_nlSprPut(int, int, int, int);
 int umpCheerTimed(int);
 int vecMake(int, int, int, int, int, float, float, float);
 int pauseExec(int a4, int a5);
@@ -310,7 +310,7 @@ int pauseExec(int a4, int a5)
     if (((int)(*(int *)((R14 + 0x0))) > (int)0xFFFFFFFD)) goto L_8C0CEA84;
     goto L_8C0CEA7C;
     L_8C0CEA7C:;
-    thunk_FUN_8c0f41f0(0x8C38B960, R5, R6, R7);
+    thunk_nlSprPut(0x8C38B960, R5, R6, R7);
     goto L_8C0CEA84;
     L_8C0CEA84:;
     if (((int)(*(int *)((R14 + 0x0))) >= (int)0xFFFFFFFC)) goto L_8C0CEAC2;
@@ -327,7 +327,7 @@ int pauseExec(int a4, int a5)
     *(unsigned int *)((R14 + 0x0)) = R12;
     *(unsigned int *)((R13 + 0x0)) = R12;
     *(unsigned int *)((R10 + 0x70)) = ((*(int *)((R10 + 0x70))) & 0xFFFFFFBF);
-    FUN_8c0eaf00(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
+    nlResetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
     pauseQuit();
     goto L_8C0CEAC2;
     L_8C0CEAC2:;

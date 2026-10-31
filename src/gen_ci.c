@@ -1,7 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_ci): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c0eaf00(int, int, int);
+int nlResetBackColorZ(int, int, int);
 int memmove(int, int, int);
 int nlInitEvent(void);
 int padRepeatInit(void);
@@ -100,7 +100,7 @@ int shopInit(void)
     v0_2 = ((v0_2 + 0x4));
     goto L_8C0E65E2;
     L_8C0E65EC:;
-    FUN_8c0eaf00(0xFF000000, 0xFF000000, 0xFF000000);
+    nlResetBackColorZ(0xFF000000, 0xFF000000, 0xFF000000);
     *(unsigned int *)0x8C20D15C = v0_0;
     *(unsigned int *)0x8C4220A8 = v0_0;
     *(unsigned int *)0x8C4220AC = v0_0;

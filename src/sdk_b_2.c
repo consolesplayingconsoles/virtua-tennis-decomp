@@ -1,22 +1,17 @@
 /* Small SDK (nl library) functions: texture surface tables, triangle/object put attributes, matrix helpers,
    sprite and sound stream setup, memset. */
 
-extern int *g_0c2b29c0;
-extern int g_0c2b29c4;
-extern int g_0c2b317c;
-extern int g_0c2b3184;
-extern int g_0c2af364;
-extern int g_0c14a7b8;
-extern char g_0c2b3390[];
-extern float g_0c14a910;
-extern float g_0c2b316c;
-extern void (*g_0c14a9a8[])(int);
-extern float g_0c2b76cc[2];
-extern float g_0c2b76d4[2];
-extern char g_0c0d68d9[];
-extern int g_0c2b783c[];
-extern char g_0c14aadc[];
-extern char *g_0c2b7bd8;
+extern int *gNlTextureSurfaces;
+extern int gNlTextureSurfaceCount;
+extern int gNlTextureLoadAttempts;
+extern int gNlCommonTextureOffset;
+extern float gNlGlobalAmbience;
+extern float gNlObjectGlobalAmbience;
+extern float gNlSpriteInverseScreenSize[2];
+extern float gNlSpriteScreenSize[2];
+extern char gNlSoundStreamHeaderTemplate[];
+extern int gNlG2DmaHandles[];
+extern char *gNlPaletteTable;
 
 extern int nlPushMatrix(void *m);
 extern void nlUnitMatrix();
@@ -24,92 +19,90 @@ extern void nlPopMatrix(int n);
 extern float nlFloor(float x);
 extern float nlLog(float x);
 extern float nlScalor(float *v);
-extern void FUN_0c0771b0(int a, int b);
 extern void nlstripSetVertexContext(void *ctx);
-extern void FUN_0c080ae0(int a, int b, int c);
 extern void kmRender();
 extern void kmFlipFrameBuffer();
 extern void kmSetFogDensity(int w);
 
 
-void nlInitTextureSurface(int *tbl, int n)
+void nlInitTextureSurface(int *surfaceTable, int surfaceCount)
 {
-    int i;
+    int surfaceIndex;
 
-    g_0c2b29c0 = tbl;
-    g_0c2b29c4 = n;
-    g_0c2b317c = 0;
-    g_0c2b3184 = 0;
-    for (i = 0; i < n; i++) {
-        tbl[10] = -1;
-        tbl[11] = 0;
-        tbl[14] = -1;
-        tbl += 15;
+    gNlTextureSurfaces = surfaceTable;
+    gNlTextureSurfaceCount = surfaceCount;
+    gNlTextureLoadAttempts = 0;
+    gNlCommonTextureOffset = 0;
+    for (surfaceIndex = 0; surfaceIndex < surfaceCount; surfaceIndex++) {
+        surfaceTable[10] = -1;
+        surfaceTable[11] = 0;
+        surfaceTable[14] = -1;
+        surfaceTable += 15;
     }
 }
 
 
-int nlGetPaletteID(int id)
+int nlGetPaletteID(int paletteIndex)
 {
-    return *(short *)(g_0c2b7bd8 + id * 8);
+    return *(short *)(gNlPaletteTable + paletteIndex * 8);
 }
 
 
 int nlPushUnitMatrix(void)
 {
-    int m = nlPushMatrix(0);
+    int matrixIndex = nlPushMatrix(0);
 
     nlUnitMatrix();
-    return m;
+    return matrixIndex;
 }
 
 
-void nlScaleUnitVector(float *dst, float *src, float s)
+void nlScaleUnitVector(float *destination, float *source, float scale)
 {
-    float k = s / nlScalor(src);
+    float lengthScale = scale / nlScalor(source);
 
-    dst[0] = src[0] * k;
-    dst[1] = src[1] * k;
-    dst[2] = src[2] * k;
+    destination[0] = source[0] * lengthScale;
+    destination[1] = source[1] * lengthScale;
+    destination[2] = source[2] * lengthScale;
 }
 
 
-void nlObjPutSetGlobalAmbience(float a)
+void nlObjPutSetGlobalAmbience(float ambience)
 {
-    g_0c14a910 = a;
-    g_0c2b316c = a;
+    gNlGlobalAmbience = ambience;
+    gNlObjectGlobalAmbience = ambience;
 }
 
 
-void nlSpriteSetImaginaryScreenSize(float w, float h)
+void nlSpriteSetImaginaryScreenSize(float width, float height)
 {
-    g_0c2b76cc[0] = 1.0f / w;
-    g_0c2b76cc[1] = 1.0f / h;
-    g_0c2b76d4[0] = w;
-    g_0c2b76d4[1] = h;
+    gNlSpriteInverseScreenSize[0] = 1.0f / width;
+    gNlSpriteInverseScreenSize[1] = 1.0f / height;
+    gNlSpriteScreenSize[0] = width;
+    gNlSpriteScreenSize[1] = height;
 }
 
 
-void nlsndStreamGenerateHdInfo(char *dst)
+void nlsndStreamGenerateHdInfo(char *header)
 {
-    int i;
+    int byteIndex;
 
-    for (i = 0; i < 64; i++)
-        dst[i] = g_0c0d68d9[i];
+    for (byteIndex = 0; byteIndex < 64; byteIndex++)
+        header[byteIndex] = gNlSoundStreamHeaderTemplate[byteIndex];
 }
 
 
 int *nlsndG2DmaHandleOpen(void)
 {
-    int i;
-    int *p = g_0c2b783c;
+    int handleIndex;
+    int *handle = gNlG2DmaHandles;
 
-    for (i = 0; i < 16; i++) {
-        if (p[0] == 0) {
-            p[0] = 1;
-            return p;
+    for (handleIndex = 0; handleIndex < 16; handleIndex++) {
+        if (handle[0] == 0) {
+            handle[0] = 1;
+            return handle;
         }
-        p += 4;
+        handle += 4;
     }
     return 0;
 }

@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 int ADXF_GetStat(int);
-int FUN_8c0eaf00(int, int, int);
+int nlResetBackColorZ(int, int, int);
 int charaTexFreeAll(void);
 int entryClearJoined(void);
 int entryInit(void);
@@ -144,7 +144,7 @@ int entrySelectInit(void)
     *(unsigned int *)(((int)stk + 8)) = R14;
     L_8C0B05B8:;
     fileLoadPoll(R4, R5, R6, R7);
-    FUN_8c0eaf00(0x0, 0x0, 0x0);
+    nlResetBackColorZ(0x0, 0x0, 0x0);
     frameHookNop();
     nlWaitVSync();
     goto L_8C0B05D4;
@@ -213,7 +213,7 @@ int entrySelectInit(void)
     *(unsigned int *)(((int)stk + 8)) = R14;
     L_8C0B048E:;
     fileLoadPoll(R4, R5, R6, R7);
-    FUN_8c0eaf00(0x0, 0x0, 0x0);
+    nlResetBackColorZ(0x0, 0x0, 0x0);
     frameHookNop();
     nlWaitVSync();
     goto L_8C0B04AA;

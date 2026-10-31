@@ -3,19 +3,16 @@
 
 float nlCosf(float a);
 float nlSinf(float a);
-void FUN_0c078450(float s, float c);
 void nlTranslate(float x, float y, float z);
-void FUN_0c07d450(int a, int b, int c);
 int kmiQueryFinishDMA(int ch);
 int kmiWriteRegister(int off, int v);
 void kmiUnloadDevice(void);
 void kmiRegisterCallback(int dev, int kind, void *f, void *p);
 int vmsfs_c_getstate(int drive);
 int kbCfgIni(int a);
-int FUN_0c167800(void);
-int FUN_0c16887a(int sjd);
-int FUN_0c16883e(int sjd);
-int FUN_0c16884a(int sjd);
+int kbCfgGetId(void);
+int ADXSJD_GetTotalNumSmpl(int sjd);
+int ADXSJD_GetNumChan(int sjd);
 void ADXERR_CallErrFunc(char *msg);
 
 
@@ -38,7 +35,7 @@ int syCfgGetIDAddress(void)
 {
     if (kbCfgIni(0))
         return 0;
-    return FUN_0c167800();
+    return kbCfgGetId();
 }
 
 

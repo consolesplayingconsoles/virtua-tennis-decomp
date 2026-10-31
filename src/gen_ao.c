@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[4]; } Stk4;
-int FUN_8c0f8590(int, int, int, int);
+int kmyCopySmallVQToTextureRom(int, int, int, int);
 extern void _builtin_ld_ext(float (*)[4]);
 extern float _builtin_sqrtf(float);
 extern void _builtin_st_ext(float (*)[4]);
@@ -49,7 +49,7 @@ int sprInitPos(int, int);
 int sprInitRectF(int, int, int, int, int, int);
 int sprListPut(int, int, int, float, float, float);
 int strmControl(int, int);
-extern int thunk_FUN_8c0f41f0();
+extern int thunk_nlSprPut();
 int vecMake(int, int, int, int, int, float, float, float);
 int vmsfs_read_retry(int, int, int);
 int winPartsPut(int, int, int, int, float, float);
@@ -170,7 +170,7 @@ int kmLoadTextureRom(int a4, int a5)
     int t16;
 
     if ((unsigned short)(*(int *)((a4 + 0x0))) == 3) {
-        FUN_8c0f8590((*(int *)((a4 + 0x1C))), a5, (*(int *)((a4 + 0xC))), (*(int *)((a4 + 0x18))));
+        kmyCopySmallVQToTextureRom((*(int *)((a4 + 0x1C))), a5, (*(int *)((a4 + 0xC))), (*(int *)((a4 + 0x18))));
     } else {
         t6 = *(int *)((a4 + 0x18));
         if (((0x4000000 & t6) == 0) && (((0x80000000 & t6) != 0) && (((0x40000000 & t6) == 0) && ((0x8000 & t6) == 0)))) {
@@ -860,12 +860,12 @@ int bgScreenDraw(int a4, int a5, int a6, int a7)
     int t5;
     int stk[10];
 
-    t0 = ((int (*)(int, int, int, int))(thunk_FUN_8c0f41f0))(0x8C33CF40, a5, a6, a7);
-    t1 = ((int (*)(int))(thunk_FUN_8c0f41f0))(0x8C33CF90);
-    t2 = ((int (*)(int))(thunk_FUN_8c0f41f0))(0x8C33CFE0);
-    t3 = ((int (*)(int))(thunk_FUN_8c0f41f0))(0x8C33D030);
-    t4 = ((int (*)(int))(thunk_FUN_8c0f41f0))(0x8C33D080);
-    t5 = ((int (*)(int))(thunk_FUN_8c0f41f0))(0x8C33D0D0);
+    t0 = ((int (*)(int, int, int, int))(thunk_nlSprPut))(0x8C33CF40, a5, a6, a7);
+    t1 = ((int (*)(int))(thunk_nlSprPut))(0x8C33CF90);
+    t2 = ((int (*)(int))(thunk_nlSprPut))(0x8C33CFE0);
+    t3 = ((int (*)(int))(thunk_nlSprPut))(0x8C33D030);
+    t4 = ((int (*)(int))(thunk_nlSprPut))(0x8C33D080);
+    t5 = ((int (*)(int))(thunk_nlSprPut))(0x8C33D0D0);
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)0x8C098354), (*(float *)0x8C098350), (*(float *)0x8C09834C));
     modeMarkPut(1.0f);
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)0x8C098368), (*(float *)0x8C098364), (*(float *)0x8C098360));
@@ -978,31 +978,31 @@ int btnGuideInitB(void)
     return 0x3E8;
 }
 
-void nlSetPaletteMap(int a4, int a5)
+void nlSetPaletteMap(int firstColor, int colorCount)
 {
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
+    int mapIndexOrWord;
+    int allocationBit;
+    int remainingChunks;
+    int bitmapAddress;
+    int hasMoreChunks;
 
-    t0 = ((int)a4 >> 4);
-    t1 = (((int)(a4 & 0xF) >= 0) ? (0x1 << ((a4 & 0xF) & 31)) : ((-(int)(a4 & 0xF) & 31) ? ((int)0x1 >> (-(int)(a4 & 0xF) & 31)) : ((int)0x1 >> 31)));
-    t2 = ((int)(a5 + 0xF) >> 4);
-    t3 = ((((int)a4 >> 4) << 1) + 0x8C424204);
+    mapIndexOrWord = ((int)firstColor >> 4);
+    allocationBit = (((int)(firstColor & 0xF) >= 0) ? (0x1 << ((firstColor & 0xF) & 31)) : ((-(int)(firstColor & 0xF) & 31) ? ((int)0x1 >> (-(int)(firstColor & 0xF) & 31)) : ((int)0x1 >> 31)));
+    remainingChunks = ((int)(colorCount + 0xF) >> 4);
+    bitmapAddress = ((((int)firstColor >> 4) << 1) + 0x8C424204);
     for (;;) {
-        t4 = ((int)t2 > 0);
-        t2 = (t2 - 1);
-        if (!t4) {
+        hasMoreChunks = ((int)remainingChunks > 0);
+        remainingChunks = (remainingChunks - 1);
+        if (!hasMoreChunks) {
             break;
         }
-        t0 = (*(short *)((t3 + 0x0)));
-        t0 = (t0 | t1);
-        t1 = (t1 + t1);
-        *(unsigned short *)((t3 + 0x0)) = t0;
-        if ((int)t1 >= (int)0x10000) {
-            t1 = 0x1;
-            t3 = (t3 + 0x2);
+        mapIndexOrWord = (*(short *)((bitmapAddress + 0x0)));
+        mapIndexOrWord = (mapIndexOrWord | allocationBit);
+        allocationBit = (allocationBit + allocationBit);
+        *(unsigned short *)((bitmapAddress + 0x0)) = mapIndexOrWord;
+        if ((int)allocationBit >= (int)0x10000) {
+            allocationBit = 0x1;
+            bitmapAddress = (bitmapAddress + 0x2);
         }
     }
 }

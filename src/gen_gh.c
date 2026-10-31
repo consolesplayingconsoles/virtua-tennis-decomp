@@ -19,9 +19,9 @@ int nlRotateAY(int);
 int nlSetCommonTextureOffset(int);
 int nlTranslate(float, float, float);
 int screenSegVisible(int, int, int, int, Stk3, Stk3, float, float, float);
-int FUN_8c0b7fbe(int a4);
+int courtUsaDraw(int a4);
 
-int FUN_8c0b7fbe(int a4)
+int courtUsaDraw(int a4)
 {
     int t11;
     int t48;

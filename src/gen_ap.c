@@ -49,7 +49,7 @@ int resWtcShopSprTexLoad(void);
 int resWtcShopSprTexFree(void);
 int resTitleSprTexFree(void);
 int resTitleSprTexLoad(void);
-float FUN_8c0f0860(int a4);
+float nlUnitVector(int a4);
 int kmSetCheapShadowMode(int a4);
 int endingTexFree(void);
 int stageWtcMainTexFree(void);
@@ -62,7 +62,7 @@ int resWtcShopObjTexFree(void);
 void camGetPos(Stk4 s);
 int sprPutAtAlpha(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
 int resGetTexLoad(int a4);
-int FUN_8c1e6420(float f4);
+int kmSetCullingThreshold(float f4);
 int nlChgObjectPolyAttrOff(int a4);
 int kmSetStrideWidth(int a4);
 int ADXB_EvokeExpandSte(int a4, int a5);
@@ -396,33 +396,33 @@ int resTitleSprTexLoad(void)
     return t6;
 }
 
-float FUN_8c0f0860(int a4)
+float nlUnitVector(int vectorAddress)
 {
-    float u0;
-    float u1;
-    float u2;
-    float u5;
-    float u6;
-    float u3[4];
-    float u4[4];
+    float x;
+    float y;
+    float z;
+    float lengthSquared;
+    float inverseLength;
+    float dotLeft[4];
+    float dotRight[4];
 
-    u0 = *(float *)((a4 + 0x0));
-    u1 = *(float *)(((a4 + 0x4) + 0x0));
-    u2 = *(float *)((((a4 + 0x4) + 0x4) + 0x0));
-    u3[0] = u0;
-    u3[1] = u1;
-    u3[2] = u2;
-    u3[3] = 0.0f;
-    u4[0] = u0;
-    u4[1] = u1;
-    u4[2] = u2;
-    u4[3] = 0.0f;
-    u5 = _builtin_fipr(u3, u4);
-    u6 = iaFsrra(u5);
-    *(float *)((((a4 + 0xC) - 0x4) + 0x0)) = (u2 * u6);
-    *(float *)(((((a4 + 0xC) - 0x4) - 0x4) + 0x0)) = (u1 * u6);
-    *(float *)((((((a4 + 0xC) - 0x4) - 0x4) - 0x4) + 0x0)) = (u0 * u6);
-    return _builtin_sqrtf(u5);
+    x = *(float *)((vectorAddress + 0x0));
+    y = *(float *)(((vectorAddress + 0x4) + 0x0));
+    z = *(float *)((((vectorAddress + 0x4) + 0x4) + 0x0));
+    dotLeft[0] = x;
+    dotLeft[1] = y;
+    dotLeft[2] = z;
+    dotLeft[3] = 0.0f;
+    dotRight[0] = x;
+    dotRight[1] = y;
+    dotRight[2] = z;
+    dotRight[3] = 0.0f;
+    lengthSquared = _builtin_fipr(dotLeft, dotRight);
+    inverseLength = iaFsrra(lengthSquared);
+    *(float *)((((vectorAddress + 0xC) - 0x4) + 0x0)) = (z * inverseLength);
+    *(float *)(((((vectorAddress + 0xC) - 0x4) - 0x4) + 0x0)) = (y * inverseLength);
+    *(float *)((((((vectorAddress + 0xC) - 0x4) - 0x4) - 0x4) + 0x0)) = (x * inverseLength);
+    return _builtin_sqrtf(lengthSquared);
 }
 
 int kmSetCheapShadowMode(int a4)
@@ -690,10 +690,10 @@ int resGetTexLoad(int a4)
     return t9;
 }
 
-int FUN_8c1e6420(float f4)
+int kmSetCullingThreshold(float threshold)
 {
     *(unsigned int *)0x8C471E18 = ((*(int *)0x8C471E18) | 0x2);
-    *(float *)0x8C471E38 = f4;
+    *(float *)0x8C471E38 = threshold;
     *(unsigned int *)0x8C471E1C = ((*(int *)0x8C471E1C) | 0x2);
     *(unsigned int *)0x8C471E18 = ((*(int *)0x8C471E18) & 0xFFFFFFFD);
     return 0x78;

@@ -13,7 +13,7 @@ int msgWinStep(int, int, int, int, int, int);
 int nlWaitVSync(void);
 int pdExecPeripheralServer(void);
 int resCautionReset(int);
-int thunk_FUN_8c1e0150(int, int);
+int thunk_buIsExistFile(int, int);
 int BupCardWarning(int a4);
 
 int BupCardWarning(int a4)
@@ -52,7 +52,7 @@ int BupCardWarning(int a4)
     t4 = buGetFileInfo((*(int *)0x8C40C628), 0x8C126AB0, (((int)stk + 4) + 0x14));
     resCautionReset(0x0);
     t7 = *(short *)(((*(int *)(((int)stk + 4))) + 0x3A));
-    t9 = (thunk_FUN_8c1e0150(0x0, 0x8C126AB0)) == 0;
+    t9 = (thunk_buIsExistFile(0x0, 0x8C126AB0)) == 0;
     R10 = ((unsigned short)t7);
     R11 = (t4);
     R12 = (0x8C126AB0);
@@ -74,7 +74,7 @@ int BupCardWarning(int a4)
     L_8C0E08F2:;
     if ((R11 == 0xFFFFFF03)) goto L_8C0E0918;
     if ((R11 == 0xFFFFFF01)) goto L_8C0E0918;
-    t26 = (thunk_FUN_8c1e0150(0x0, 0x8C126AB0)) == 0xFFFFFF05;
+    t26 = (thunk_buIsExistFile(0x0, 0x8C126AB0)) == 0xFFFFFF05;
     if (t26) goto L_8C0E090E;
     goto L_8C0E0A56;
     L_8C0E090E:;
@@ -97,7 +97,7 @@ int BupCardWarning(int a4)
     R11 = (R13);
     if (((*(int *)(((int)stk + 8))) == 0xFFFFFF03)) goto L_8C0E0982;
     if (!(((*(int *)(((int)stk + 8))) != 0xFFFFFF01))) goto L_8C0E0982;
-    t79 = (thunk_FUN_8c1e0150(0x0, R12)) != 0xFFFFFF05;
+    t79 = (thunk_buIsExistFile(0x0, R12)) != 0xFFFFFF05;
     if (t79) goto L_8C0E099A;
     if (((int)R10 >= (int)0x2)) goto L_8C0E099A;
     R11 = (R14);
@@ -105,9 +105,9 @@ int BupCardWarning(int a4)
     L_8C0E0982:;
     R11 = (R13);
     L_8C0E099A:;
-    t49 = (thunk_FUN_8c1e0150(0x0, R12)) == 0;
+    t49 = (thunk_buIsExistFile(0x0, R12)) == 0;
     if (t49) goto L_8C0E09B6;
-    t51 = (thunk_FUN_8c1e0150(0x0, R12)) != 0xFFFFFF05;
+    t51 = (thunk_buIsExistFile(0x0, R12)) != 0xFFFFFF05;
     if (t51) goto L_8C0E09BA;
     if (((int)R10 < (int)0x2)) goto L_8C0E09BA;
     L_8C0E09B6:;

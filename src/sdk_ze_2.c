@@ -26,7 +26,6 @@ extern int syBtCfgSet(int item, int value);
 extern int kmiFBgetfreemem(int *a, int *b, int *c, int *d);
 
 extern void kmSetFogDensity(int d);
-extern void FUN_0c158860(int a, int *v, int n);
 extern int buSaveFile(int a, int b, int c, int d, void *date, int flags);
 extern void syRtcGetDate(void *date);
 
@@ -34,9 +33,8 @@ typedef struct {
     int w[2];
 } Date8;
 
-extern int FUN_0c156934(int big, int size, int a, int *b, int e, int f);
 
-extern void FUN_0c1717d8(int *cs);
+extern void ovLockCs_8c200114(int *cs);
 extern void mwRnaSetPlaySw(int *h, int on);
 extern void mwRnaSetTransSw(int *h, int on);
 extern void mwlRnaClearBuf(int *h);
@@ -48,7 +46,6 @@ extern int syRtcAicaSetDateLo(int lo);
 extern int syRtcAicaSetDateHi(int hi);
 extern unsigned int syRtcGetCountForce(void);
 extern void kmiFBgetfreememEx(int *a, int *b);
-extern int FUN_0c156e0a(int big, int a, int b);
 extern int vmsfs_c_getstate(int drive);
 extern void vmsfs_c_setfunc(int drive, int func);
 extern void vmsfs_c_setparam(int drive, int a, int b, int c, int d, int e, int f);
@@ -59,14 +56,11 @@ extern int ADXF_Stop(signed char *h);
 extern int syG2Read(unsigned int src, void *dst, int size, int n, int e, int f);
 extern void syRtcDbgWriteLog(int v);
 
-extern int FUN_0c0813e0(void *a, void *b, int n);
+extern int memcmp(void *a, void *b, int n);
 extern void ovLibEntryTbl(void *e);
-extern void thunk_FUN_0c1708b2(void *d, void *s, int n);
 extern unsigned int fmcalccrc(int n, unsigned char *p);
 extern int mwlSbGetStreamParam(void *h, int item, int x);
-extern int FUN_0c1677d8(void);
-extern int FUN_0c170834(int addr, unsigned char *buf, int n);
-extern void FUN_0c14f182(void *p, int n);
+extern int syBtFlRead(int addr, unsigned char *buf, int n);
 
 extern int mpdrv_get_nopcount(int a, int b, int c, int d);
 extern int mpdrv_get_timeout(int a, int b, int c, int d);
@@ -79,8 +73,6 @@ extern int mpdrv_get_rootplay(int a, int b, int c, int d);
 extern int mpdrv_get_gunmode(int a, int b, int c, int d);
 extern int mpdrv_get_autoflash(int a, int b, int c, int d);
 extern int gdFsGetSearchID(char *name);
-extern int thunk_FUN_0c15fa1c(char *name, char *entry);
-extern int FUN_0c15fa32(char *name, char *entry);
 
 extern unsigned char DECtoBCD(int v);
 
@@ -111,21 +103,16 @@ extern void ADXSTM_Stop(int h);
 extern void ADXSTM_GetCurOfst(int h, int *ofs);
 extern void adxf_CloseSjStm(signed char *h);
 
-extern int FUN_0c17085c(int a);
-extern int FUN_0c170848(int a, char *b, int n);
+extern int syBtFlDeleteSct(int a);
+extern int syBtFlWrite(int a, char *b, int n);
 extern void fmMngClearBuf(int a, int b);
-extern int FUN_0c1709a6(char *st);
 
 extern int kmtex_GetTextureLevel(int a, int b);
 extern int kmiCopyFromFrameBuffer(char *dst, int off, int n);
 extern int kmiCopyToFrameBuffer(int off, char *src, int n);
-extern void FUN_0c15888e(void *p);
 
-extern int *FUN_0c157220(int pos, int *out);
 
 extern int kmiCopyFromPVRMemory(int a, int off, int n);
-extern int FUN_0c15ca40(int a, int off, int b, int c);
-extern int FUN_0c15c98a(int a, int off, int b);
 
 
 /* Destroy every live fiber (292-byte records from +528; count at +520), then clear the server. */
@@ -299,7 +286,7 @@ void mwRnaStop(int *h, int b, int c, int d)
         return;
     }
     if (((unsigned char *)h)[1]) {
-        FUN_0c1717d8(&cs);
+        ovLockCs_8c200114(&cs);
         mwRnaSetPlaySw(h, 0);
         mwRnaSetTransSw(h, 0);
         mwlRnaClearBuf(h);

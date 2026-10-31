@@ -3,7 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
-int FUN_8c0f0860(int);
+int nlUnitVector(int);
 int camGetPos(int, ...);
 int camProject(int, int);
 int camWorldToView(Stk4);
@@ -1330,8 +1330,8 @@ int lightCamCalc(int a4, int a5, int a6, int a7, int a8, int a9)
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 32) + 0x6C)) = *(struct mv3 *)((0x108 + ((int)stk + 32))); }
     nlSubVector3op((0xC0 + ((int)stk + 32)), (((int)stk + 32) + 0x6C), (0x9C + ((int)stk + 32)));
     nlSubVector3op((0xB4 + ((int)stk + 32)), (((int)stk + 32) + 0x78), (0x9C + ((int)stk + 32)));
-    FUN_8c0f0860((0xC0 + ((int)stk + 32)));
-    FUN_8c0f0860((0xB4 + ((int)stk + 32)));
+    nlUnitVector((0xC0 + ((int)stk + 32)));
+    nlUnitVector((0xB4 + ((int)stk + 32)));
     t857 = nlInnerProduct((0x120 + ((int)stk + 32)), (0xC0 + ((int)stk + 32)));
     *(unsigned int *)(((int)stk + 40)) = (nlArcCos(t857));
     t859 = nlInnerProduct((0x120 + ((int)stk + 32)), (0xB4 + ((int)stk + 32)));
@@ -1468,7 +1468,7 @@ int lightCamCalc(int a4, int a5, int a6, int a7, int a8, int a9)
                 { struct mv3 { int w[3]; }; *(struct mv3 *)((*(int *)(((int)stk + 68)))) = *(struct mv3 *)((0xF0 + ((int)stk + 32))); }
             } else {
                 nlSubVector3op((0xD8 + ((int)stk + 32)), (0xF0 + ((int)stk + 32)), 0x8C38B8C8);
-                FUN_8c0f0860((0xD8 + ((int)stk + 32)));
+                nlUnitVector((0xD8 + ((int)stk + 32)));
                 nlScaleVector((0xD8 + ((int)stk + 32)), (0xD8 + ((int)stk + 32)), 0.699999988f);
                 nlAddVector3op((0xE4 + ((int)stk + 32)), 0x8C38B8C8, (0xD8 + ((int)stk + 32)));
                 { struct mv3 { int w[3]; }; *(struct mv3 *)((*(int *)(((int)stk + 68)))) = *(struct mv3 *)((0xE4 + ((int)stk + 32))); }

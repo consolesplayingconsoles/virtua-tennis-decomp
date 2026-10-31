@@ -14,11 +14,11 @@ int nlsndSystemControl(int, int, int);
 int scoreInit(void);
 int set_event(int, int);
 int sprSet173FreeAll(void);
-int FUN_8c08535e(int a4, int a5);
-float FUN_8c029f50(Stk7 s);
-float FUN_8c029fe0(float f4, float f5);
+int matchSceneSetup(int a4, int a5);
+float cameraBlendVector240(Stk7 s);
+float cameraBlendFloat240(float f4, float f5);
 
-int FUN_8c08535e(int a4, int a5)
+int matchSceneSetup(int a4, int a5)
 {
     int t1;
     int t2;
@@ -154,51 +154,51 @@ int FUN_8c08535e(int a4, int a5)
     return matchSceneInit();
 }
 
-float FUN_8c029f50(Stk7 s)
+float cameraBlendVector240(Stk7 stackArgs)
 {
-    float u0;
-    int t1;
-    float u4;
-    int t5;
-    float u8;
-    int t9;
-    float u12;
-    int stk[21];
+    float blendDuration;
+    int xWeight;
+    float weightedX;
+    int yWeight;
+    float weightedY;
+    int zWeight;
+    float weightedZ;
+    int stackWords[21];
 
-    stk[6] = s.w[0];
-    stk[7] = s.w[1];
-    stk[8] = s.w[2];
-    stk[9] = s.w[3];
-    stk[10] = s.w[4];
-    stk[11] = s.w[5];
-    stk[12] = s.w[6];
-    u0 = *(float *)0x8C02A00C;
-    t1 = *(int *)0x8C287B4C;
-    *(unsigned int *)(((int)stk + 4)) = t1;
-    u4 = ((*(float *)(((((int)stk + 4) + 0x24) + 0x0))) * (float)((-t1) + 0xF0));
-    u4 = u4 + (float)t1 * (*(float *)(((((int)stk + 4) + 0x18) + 0x0)));
-    *(float *)(((((int)stk + 4) + 0x4) + 0x0)) = (u4 / u0);
-    t5 = *(int *)0x8C287B4C;
-    *(unsigned int *)(((int)stk + 4)) = t5;
-    u8 = ((*(float *)(((((int)stk + 4) + 0x24) + 0x4))) * (float)((-t5) + 0xF0));
-    u8 = u8 + (float)t5 * (*(float *)(((((int)stk + 4) + 0x18) + 0x4)));
-    *(float *)(((((int)stk + 4) + 0x4) + 0x4)) = (u8 / u0);
-    t9 = *(int *)0x8C287B4C;
-    *(unsigned int *)(((int)stk + 4)) = t9;
-    u12 = ((*(float *)(((((int)stk + 4) + 0x24) + 0x8))) * (float)((-t9) + 0xF0));
-    u12 = u12 + (float)t9 * (*(float *)(((((int)stk + 4) + 0x18) + 0x8)));
-    *(float *)(((((int)stk + 4) + 0x4) + 0x8)) = (u12 / u0);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(s.w[0]) = *(struct mv3 *)((((int)stk + 4) + 0x4)); }
-    return (float)t9;
+    stackWords[6] = stackArgs.w[0];
+    stackWords[7] = stackArgs.w[1];
+    stackWords[8] = stackArgs.w[2];
+    stackWords[9] = stackArgs.w[3];
+    stackWords[10] = stackArgs.w[4];
+    stackWords[11] = stackArgs.w[5];
+    stackWords[12] = stackArgs.w[6];
+    blendDuration = *(float *)0x8C02A00C;
+    xWeight = *(int *)0x8C287B4C;
+    *(unsigned int *)(((int)stackWords + 4)) = xWeight;
+    weightedX = ((*(float *)(((((int)stackWords + 4) + 0x24) + 0x0))) * (float)((-xWeight) + 0xF0));
+    weightedX = weightedX + (float)xWeight * (*(float *)(((((int)stackWords + 4) + 0x18) + 0x0)));
+    *(float *)(((((int)stackWords + 4) + 0x4) + 0x0)) = (weightedX / blendDuration);
+    yWeight = *(int *)0x8C287B4C;
+    *(unsigned int *)(((int)stackWords + 4)) = yWeight;
+    weightedY = ((*(float *)(((((int)stackWords + 4) + 0x24) + 0x4))) * (float)((-yWeight) + 0xF0));
+    weightedY = weightedY + (float)yWeight * (*(float *)(((((int)stackWords + 4) + 0x18) + 0x4)));
+    *(float *)(((((int)stackWords + 4) + 0x4) + 0x4)) = (weightedY / blendDuration);
+    zWeight = *(int *)0x8C287B4C;
+    *(unsigned int *)(((int)stackWords + 4)) = zWeight;
+    weightedZ = ((*(float *)(((((int)stackWords + 4) + 0x24) + 0x8))) * (float)((-zWeight) + 0xF0));
+    weightedZ = weightedZ + (float)zWeight * (*(float *)(((((int)stackWords + 4) + 0x18) + 0x8)));
+    *(float *)(((((int)stackWords + 4) + 0x4) + 0x8)) = (weightedZ / blendDuration);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(stackArgs.w[0]) = *(struct mv3 *)((((int)stackWords + 4) + 0x4)); }
+    return (float)zWeight;
 }
 
-float FUN_8c029fe0(float f4, float f5)
+float cameraBlendFloat240(float startValue, float endValue)
 {
-    int t0;
-    float u1;
+    int blendWeight;
+    float weightedSum;
 
-    t0 = *(int *)0x8C287B4C;
-    u1 = (f5 * (float)((-t0) + 0xF0));
-    u1 = u1 + (float)t0 * f4;
-    return (u1 / 240.0f);
+    blendWeight = *(int *)0x8C287B4C;
+    weightedSum = (endValue * (float)((-blendWeight) + 0xF0));
+    weightedSum = weightedSum + (float)blendWeight * startValue;
+    return (weightedSum / 240.0f);
 }

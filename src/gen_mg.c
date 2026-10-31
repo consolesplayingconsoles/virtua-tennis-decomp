@@ -20,9 +20,9 @@ int nlScale(float, float, float);
 int nlSetCommonTextureOffset(int);
 int nlTranslate(float, float, float);
 int screenSegVisible(int, int, int, int, Stk3, Stk3);
-int FUN_8c0b7070(int a4, int a5, int a6, int a7);
+int courtFraDraw(int a4, int a5, int a6, int a7);
 
-int FUN_8c0b7070(int a4, int a5, int a6, int a7)
+int courtFraDraw(int a4, int a5, int a6, int a7)
 {
     int t10;
     int t33;

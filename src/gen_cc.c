@@ -36,7 +36,7 @@ int search_fat_backward(int, int, int, int);
 int set_fat(int, int, int);
 int syChainDeleteHandler(int);
 int syRtcAicaGetCount(int);
-int thunk_FUN_8c1e6b1c(void);
+int thunk_gdFsStringEquals(void);
 int vmsfs_c_getstate(int);
 int vmsfs_c_setfunc(int, int);
 int vmsfs_c_setparam(int, int, int, int, int, int, int);
@@ -263,44 +263,44 @@ int set_file_info(int a4, int a5)
     return t16;
 }
 
-int gdFsOpenG(int a4, int a5)
+int gdFsOpenG(int fileNameAddress, int directoryAddress)
 {
-    int t2;
-    int t5;
-    int t7;
-    int t9;
-    int t10;
-    int t19;
+    int searchDirectoryAddress;
+    int directoryEntryId;
+    int globalStateAddress;
+    int handleIndexOrError;
+    int candidateHandleAddress;
+    int openedHandleAddress;
 
-    t2 = a5;
-    if (a5 == 0) {
-        t2 = (*(int *)(((*(int *)0x8C20C204) + 0x10)));
+    searchDirectoryAddress = directoryAddress;
+    if (directoryAddress == 0) {
+        searchDirectoryAddress = (*(int *)(((*(int *)0x8C20C204) + 0x10)));
     }
-    t5 = gdFsSearchName(a4, t2, 0x0);
-    if (t5 == 0) {
+    directoryEntryId = gdFsSearchName(fileNameAddress, searchDirectoryAddress, 0x0);
+    if (directoryEntryId == 0) {
         gdFsSetGlobalErrG(0xFFFFFFF8);
-        t19 = 0x0;
+        openedHandleAddress = 0x0;
     } else {
-        t7 = *(int *)0x8C20C204;
-        t9 = 0x0;
-        t10 = (*(int *)((t7 + 0x18)));
+        globalStateAddress = *(int *)0x8C20C204;
+        handleIndexOrError = 0x0;
+        candidateHandleAddress = (*(int *)((globalStateAddress + 0x18)));
         for (;;) {
-            if ((int)t9 >= (int)(*(int *)((t7 + 0x0)))) {
-                t9 = 0xFFFFFFF7;
-                gdFsSetGlobalErrG(t9);
+            if ((int)handleIndexOrError >= (int)(*(int *)((globalStateAddress + 0x0)))) {
+                handleIndexOrError = 0xFFFFFFF7;
+                gdFsSetGlobalErrG(handleIndexOrError);
                 return 0x0;
             }
-            if ((*(short *)((t10 + 0x4C))) == 0) {
+            if ((*(short *)((candidateHandleAddress + 0x4C))) == 0) {
                 break;
             }
-            t10 = (t10 + 0x54);
-            t9 = (t9 + 0x1);
+            candidateHandleAddress = (candidateHandleAddress + 0x54);
+            handleIndexOrError = (handleIndexOrError + 0x1);
         }
-        gdFsCreateHnG(t10, t5, ((*(int *)((((t2 + 0x10) + ((t5 - 1) * 0x2C)) + 0x0))) + 0x96), (*(int *)((((t2 + 0x10) + ((t5 - 1) * 0x2C)) + 0x4))));
+        gdFsCreateHnG(candidateHandleAddress, directoryEntryId, ((*(int *)((((searchDirectoryAddress + 0x10) + ((directoryEntryId - 1) * 0x2C)) + 0x0))) + 0x96), (*(int *)((((searchDirectoryAddress + 0x10) + ((directoryEntryId - 1) * 0x2C)) + 0x4))));
         gdFsSetGlobalErrG(0x0);
-        t19 = t10;
+        openedHandleAddress = candidateHandleAddress;
     }
-    return t19;
+    return openedHandleAddress;
 }
 
 int kmiProcessVertex_00(int a4, int a5, int a6, int a7)
@@ -500,7 +500,7 @@ int gdFsSearchName(int a4, int a5, int a6)
         for (;;) {
             if ((unsigned char)(*(signed char *)((t3 + 0x9))) == (unsigned char)t1) {
                 if (a6 == 1) {
-                    t5 = thunk_FUN_8c1e6b1c();
+                    t5 = thunk_gdFsStringEquals();
                     if (t5 != 1) {
                         t2 = (t2 + 0x1);
                         t3 = (t3 + 0x2C);

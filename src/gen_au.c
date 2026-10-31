@@ -948,70 +948,70 @@ int BupExecRequest(void)
     return t5;
 }
 
-int fmMngReadSctAllData(int a4)
+int fmMngReadSctAllData(int managerAddress)
 {
-    int t0;
-    int t1;
-    int t2;
-    int t41;
-    int t3;
-    int t5;
-    int t35;
-    int t7;
-    int t29;
-    int t24;
-    int t10;
-    int t11;
-    int t12;
-    int t15;
-    int t17;
-    int t18;
+    int cacheBufferAddress;
+    int flashBaseAddress;
+    int headerReadResult;
+    int readResult;
+    int recordCapacity;
+    int bitmapReadResult;
+    int bitmapAndRecordsResult;
+    int usedRecordCount;
+    int formatAndRecordsResult;
+    int recordsReadResult;
+    int physicalRecordAddress;
+    int recordsRemaining;
+    int recordReadResult;
+    int computedCrc;
+    int logicalRecordIndex;
+    int logicalRecordCapacity;
 
-    t0 = *(int *)((a4 + 0xC));
-    t1 = *(int *)((a4 + 0x4));
-    t2 = syBtFlRead(t1, t0, 0x40);
-    t41 = 0xFFFFFFFF;
-    if (t2 != -1) {
-        t3 = *(int *)((a4 + 0x14));
-        t5 = syBtFlRead((t1 + ((((t3 + 0x1) << 2) << 2) << 2)), (((((t3 + 0x1) << 2) << 2) << 2) + t0), ((((*(int *)((a4 + 0x18))) << 2) << 2) << 2));
-        t35 = 0xFFFFFFFF;
-        if (t5 != -1) {
-            t7 = fmMngBit2Num((((((t3 + 0x1) << 2) << 2) << 2) + t0), (*(int *)((a4 + 0x18))));
-            *(unsigned int *)((a4 + 0x10)) = t7;
-            t29 = 0xFFFFFFFA;
-            if ((*(short *)((a4 + 0x2))) == 0) {
-                t24 = 0x0;
-                if ((int)t7 > 0) {
-                    t10 = (t1 + 0x40);
-                    t11 = t7;
+    cacheBufferAddress = *(int *)((managerAddress + 0xC));
+    flashBaseAddress = *(int *)((managerAddress + 0x4));
+    headerReadResult = syBtFlRead(flashBaseAddress, cacheBufferAddress, 0x40);
+    readResult = 0xFFFFFFFF;
+    if (headerReadResult != -1) {
+        recordCapacity = *(int *)((managerAddress + 0x14));
+        bitmapReadResult = syBtFlRead((flashBaseAddress + ((((recordCapacity + 0x1) << 2) << 2) << 2)), (((((recordCapacity + 0x1) << 2) << 2) << 2) + cacheBufferAddress), ((((*(int *)((managerAddress + 0x18))) << 2) << 2) << 2));
+        bitmapAndRecordsResult = 0xFFFFFFFF;
+        if (bitmapReadResult != -1) {
+            usedRecordCount = fmMngBit2Num((((((recordCapacity + 0x1) << 2) << 2) << 2) + cacheBufferAddress), (*(int *)((managerAddress + 0x18))));
+            *(unsigned int *)((managerAddress + 0x10)) = usedRecordCount;
+            formatAndRecordsResult = 0xFFFFFFFA;
+            if ((*(short *)((managerAddress + 0x2))) == 0) {
+                recordsReadResult = 0x0;
+                if ((int)usedRecordCount > 0) {
+                    physicalRecordAddress = (flashBaseAddress + 0x40);
+                    recordsRemaining = usedRecordCount;
                     for (;;) {
-                        t12 = syBtFlRead(t10, (a4 + 0x34), 0x40);
-                        if (t12 == -1) {
+                        recordReadResult = syBtFlRead(physicalRecordAddress, (managerAddress + 0x34), 0x40);
+                        if (recordReadResult == -1) {
                             break;
                         }
-                        if ((unsigned short)(*(short *)(((a4 + 0x34) + 0x0))) != 0xFFFF) {
-                            t15 = fmcalccrc(0x3E, (a4 + 0x34));
-                            if (((unsigned short)(*(short *)(((a4 + 0x34) + 0x3E))) == (unsigned short)t15) && (t17 = *(short *)(((a4 + 0x34) + 0x0)), t18 = *(int *)((a4 + 0x14)), (int)(unsigned short)t17 < (int)t18)) {
-                                fmMngMcpy4((a4 + 0x34), ((((((unsigned short)(*(short *)(((a4 + 0x34) + 0x0))) + 0x1) << 2) << 2) << 2) + t0), 0x40);
+                        if ((unsigned short)(*(short *)(((managerAddress + 0x34) + 0x0))) != 0xFFFF) {
+                            computedCrc = fmcalccrc(0x3E, (managerAddress + 0x34));
+                            if (((unsigned short)(*(short *)(((managerAddress + 0x34) + 0x3E))) == (unsigned short)computedCrc) && (logicalRecordIndex = *(short *)(((managerAddress + 0x34) + 0x0)), logicalRecordCapacity = *(int *)((managerAddress + 0x14)), (int)(unsigned short)logicalRecordIndex < (int)logicalRecordCapacity)) {
+                                fmMngMcpy4((managerAddress + 0x34), ((((((unsigned short)(*(short *)(((managerAddress + 0x34) + 0x0))) + 0x1) << 2) << 2) << 2) + cacheBufferAddress), 0x40);
                             }
-                            t11 = (t11 - 1);
-                            t10 = (t10 + 0x40);
-                            if ((int)t11 <= 0) {
+                            recordsRemaining = (recordsRemaining - 1);
+                            physicalRecordAddress = (physicalRecordAddress + 0x40);
+                            if ((int)recordsRemaining <= 0) {
                                 return 0x0;
                             }
                             continue;
                         }
                         return 0x0;
                     }
-                    t24 = 0xFFFFFFFF;
+                    recordsReadResult = 0xFFFFFFFF;
                 }
-                t29 = t24;
+                formatAndRecordsResult = recordsReadResult;
             }
-            t35 = t29;
+            bitmapAndRecordsResult = formatAndRecordsResult;
         }
-        t41 = t35;
+        readResult = bitmapAndRecordsResult;
     }
-    return t41;
+    return readResult;
 }
 
 

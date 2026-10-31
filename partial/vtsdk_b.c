@@ -4,7 +4,7 @@ void mwRnaSetSfreq(char *o, int f)
     int **p;
 
     if (o == 0) {
-        mwRnaErrCallFunc((int)o, g_8c20ac30);
+        mwRnaErrCallFunc((int)o, strMwRnaNullHandleError);
         return;
     }
     p = *(int ***)(o + 56);

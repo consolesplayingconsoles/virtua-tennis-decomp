@@ -12,25 +12,25 @@ extern void mwRnaErrCallFunc(char *fmt, ...);
 extern void ADXPD_Stop(void *pd);
 extern int kmiWriteRegister(int reg, int val);
 
-extern char g_8c20ac30[];
-extern char *g_8c47317c;
-extern unsigned int g_8c45f940[];
-extern int g_8c20ccd0;
+extern char strMwRnaNullHandleError[];
+extern char *gMapleDriver;
+extern unsigned int gVertexBufferLockState[];
+extern int gAdxPcmDecodeErrorFlag;
 
-struct hw_pair { unsigned int *addr; unsigned int val; };
-extern struct hw_pair g_8c20975c[];
+struct HardwareRegisterInit { unsigned int *registerAddress; unsigned int initialValue; };
+extern struct HardwareRegisterInit gHwInitRegisterTable[];
 
-struct chain_node { void (*fn)(int); struct chain_node *next; int arg; };
-extern struct chain_node *g_8c461818[];
+struct InterruptHandlerNode { void (*callback)(int); struct InterruptHandlerNode *next; int callbackArgument; };
+extern struct InterruptHandlerNode *gInterruptHandlerChains[];
 
-struct vmsfs_c { int w0; int flag; int pad[3]; int p[6]; int rest[21]; };
-extern struct vmsfs_c g_8c462180[];
-extern char g_8c461c1c[];
-extern void (*g_8c461b9c[])(void);
+struct VmsFileCommandState { int w0; int commandState; int pad[3]; int parameters[6]; int rest[21]; };
+extern struct VmsFileCommandState gVmsFileCommandStates[];
+extern char gMapleDeviceTable[];
+extern void (*gMapleHandlers[])(void);
 
-struct fbq { int f0; struct fbq *f4; struct fbq *f8; };
-struct dmaent { int f0; int f4; int f8; int f12; int f16; int f20; int f24; short s28; short s30; };
-struct adxb { int f0; int f4; void *f8; };
+struct TextureBlockQueuePrefix { int allocationFlags; struct TextureBlockQueuePrefix *next; struct TextureBlockQueuePrefix *previous; };
+struct TextureDmaRequestPrefix { int requestId; int operationFlags; int transferKind; int byteCount; int sourceAddress; int destinationAddress; int callbackAddress; short textureSetupControlWord; short textureSetupReservedWord; };
+struct AdxBitstreamDecoderPrefix { short slotInUse; short slotUnused; int status; void *pcmDecoder; };
 
 void pdGunSetTrigger(int x)
 {
@@ -47,70 +47,70 @@ void pdGunSetTrigger(int x)
 
 void hwInit(void)
 {
-    struct hw_pair *p;
+    struct HardwareRegisterInit *registerEntry;
 
     *(volatile unsigned short *)0xFFD00000 = 0;
     *(volatile unsigned short *)0xFFD00004 = 0;
     *(volatile unsigned short *)0xFFD00008 = 0;
     *(volatile unsigned short *)0xFFD0000C = 0;
-    for (p = g_8c20975c; p->addr != 0; p++) {
-        *p->addr = p->val;
+    for (registerEntry = gHwInitRegisterTable; registerEntry->registerAddress != 0; registerEntry++) {
+        *registerEntry->registerAddress = registerEntry->initialValue;
     }
 }
 
-void syChainMasterHandler(short x)
+void syChainMasterHandler(short eventCode)
 {
-    struct chain_node *n;
+    struct InterruptHandlerNode *handler;
 
-    for (n = g_8c461818[x >> 4]; n != 0; n = n->next) {
-        n->fn(n->arg);
+    for (handler = gInterruptHandlerChains[eventCode >> 4]; handler != 0; handler = handler->next) {
+        handler->callback(handler->callbackArgument);
     }
 }
 
-char *kdGetDevice(int n)
+char *kdGetDevice(int deviceIndex)
 {
-    return g_8c461c1c + n * 24;
+    return gMapleDeviceTable + deviceIndex * 24;
 }
 
 int kdSetResetPattern(void)
 {
-    int r = mpdrv_set_hreset();
+    int result = mpdrv_set_hreset();
 
-    if (*(int *)(g_8c47317c + 4328) != 0) {
+    if (*(int *)(gMapleDriver + 4328) != 0) {
         kdRecvFrame();
     }
-    return r;
+    return result;
 }
 
-void kdSetHandler(unsigned int n, void (*fn)(void))
+void kdSetHandler(unsigned int handlerIndex, void (*callback)(void))
 {
-    if (n <= 31) {
-        g_8c461b9c[n] = fn;
+    if (handlerIndex <= 31) {
+        gMapleHandlers[handlerIndex] = callback;
     }
 }
 
-void vmsfs_c_setparam(int n, int a, int b, int c, int d, int e, int f)
+void vmsfs_c_setparam(int commandIndex, int a, int b, int c, int d, int e, int f)
 {
-    struct vmsfs_c *s = &g_8c462180[n];
+    struct VmsFileCommandState *command = &gVmsFileCommandStates[commandIndex];
 
-    s->p[0] = a;
-    s->p[1] = b;
-    s->p[2] = c;
-    s->p[3] = d;
-    s->p[4] = e;
-    s->p[5] = f;
-    s->flag = 1;
+    command->parameters[0] = a;
+    command->parameters[1] = b;
+    command->parameters[2] = c;
+    command->parameters[3] = d;
+    command->parameters[4] = e;
+    command->parameters[5] = f;
+    command->commandState = 1;
 }
 
-unsigned int DECtoBCD(unsigned int n)
+unsigned int DECtoBCD(unsigned int decimalValue)
 {
-    return ((n / 10) << 4) + (n % 10);
+    return ((decimalValue / 10) << 4) + (decimalValue % 10);
 }
 
 void mwRnaGetTime(int *rna, int *a, int *b)
 {
     if (rna == 0) {
-        mwRnaErrCallFunc(g_8c20ac30);
+        mwRnaErrCallFunc(strMwRnaNullHandleError);
         return;
     }
     mwlRnaAddRdPos(rna);
@@ -121,68 +121,68 @@ void mwRnaGetTime(int *rna, int *a, int *b)
 int mwRnaGetSfreq(int *rna)
 {
     if (rna == 0) {
-        mwRnaErrCallFunc(g_8c20ac30);
+        mwRnaErrCallFunc(strMwRnaNullHandleError);
         return -1;
     }
     return rna[3];
 }
 
-int kmySetTextureDMA(struct dmaent *p, unsigned int a, int b, int c)
+int kmySetTextureDMA(struct TextureDmaRequestPrefix *request, unsigned int destinationAddress, int sourceAddress, int byteCount)
 {
-    p->f16 = b;
-    p->f20 = a | 0x11000000;
-    p->f12 = c;
-    p->f8 = 0;
-    p->f4 = 8;
-    p->s28 = 0x8000;
-    p->s30 = 0;
+    request->sourceAddress = sourceAddress;
+    request->destinationAddress = destinationAddress | 0x11000000;
+    request->byteCount = byteCount;
+    request->transferKind = 0;
+    request->operationFlags = 8;
+    request->textureSetupControlWord = 0x8000;
+    request->textureSetupReservedWord = 0;
     return 0;
 }
 
-void kmytex_FBEnQueueEntry(struct fbq **list, struct fbq *e, struct fbq *q)
+void kmytex_FBEnQueueEntry(struct TextureBlockQueuePrefix **head, struct TextureBlockQueuePrefix *entry, struct TextureBlockQueuePrefix *before)
 {
-    struct fbq *x;
+    struct TextureBlockQueuePrefix *previous;
 
-    if (q->f8 == 0) {
-        *list = e;
-        e->f4 = q;
-        x = 0;
+    if (before->previous == 0) {
+        *head = entry;
+        entry->next = before;
+        previous = 0;
     } else {
-        q->f8->f4 = e;
-        e->f4 = q;
-        x = q->f8;
+        before->previous->next = entry;
+        entry->next = before;
+        previous = before->previous;
     }
-    e->f8 = x;
-    q->f8 = e;
+    entry->previous = previous;
+    before->previous = entry;
 }
 
-int kmiFLWCTRLGetVBufLockStatus(int n)
+int kmiFLWCTRLGetVBufLockStatus(int bufferIndex)
 {
-    unsigned int a = g_8c45f940[3];
+    unsigned int releasedBuffers = gVertexBufferLockState[3];
 
-    if (a != 0) {
-        g_8c45f940[3] = 0;
-        g_8c45f940[0] &= ~a;
-        g_8c45f940[6] = 0;
+    if (releasedBuffers != 0) {
+        gVertexBufferLockState[3] = 0;
+        gVertexBufferLockState[0] &= ~releasedBuffers;
+        gVertexBufferLockState[6] = 0;
     }
-    return (g_8c45f940[0] >> n) & 1;
+    return (gVertexBufferLockState[0] >> bufferIndex) & 1;
 }
 
 void mpdrv_dreqcount(int x)
 {
-    *(int *)(g_8c47317c + 4312) = x;
+    *(int *)(gMapleDriver + 4312) = x;
 }
 
 int mpdrv_hreset(int x)
 {
-    int *p = (int *)(g_8c47317c + 4044);
+    int *p = (int *)(gMapleDriver + 4044);
     unsigned int *w;
 
     p[0] = p[0] + p[3] * 4;
-    w = *(unsigned int **)(g_8c47317c + 4044);
+    w = *(unsigned int **)(gMapleDriver + 4044);
     *w = ((unsigned int)x << 16) | 768;
-    *(int *)(g_8c47317c + 4056) = 1;
-    *(int *)(g_8c47317c + 4060) = *(int *)(g_8c47317c + 4060) + 4;
+    *(int *)(gMapleDriver + 4056) = 1;
+    *(int *)(gMapleDriver + 4060) = *(int *)(gMapleDriver + 4060) + 4;
     return 0;
 }
 
@@ -205,10 +205,10 @@ void mpdrv_set_setcond_ns(int a, int b, int c, int d)
     mpdrv_setcmd(a, 14, buf, 1, buf[1], buf[2]);
 }
 
-void ADXB_Stop(struct adxb *p)
+void ADXB_Stop(struct AdxBitstreamDecoderPrefix *decoder)
 {
-    ADXPD_Stop(p->f8);
-    p->f4 = 0;
+    ADXPD_Stop(decoder->pcmDecoder);
+    decoder->status = 0;
 }
 
 int kmySetCheapShadowMode(int a, int b)
@@ -219,5 +219,5 @@ int kmySetCheapShadowMode(int a, int b)
 
 void adxpd_error(void)
 {
-    g_8c20ccd0 = 1;
+    gAdxPcmDecodeErrorFlag = 1;
 }

@@ -40,7 +40,7 @@ void ADXSJD_SetOutSj(int a4, int a5, int a6);
 int camResetFov(void);
 float mathLerp(float f4, float f5, float f6);
 int shadowNullCb(void);
-int FUN_8c1ef4a0(int a4, int a5, int a6);
+int kbCfgIni(int a4, int a5, int a6);
 int kbCfgGetId(int a4, int a5, int a6);
 int kmyiCheckTAHandle(int a4);
 int syBtFlGetInfo(int a4, int a5, int a6);
@@ -48,7 +48,7 @@ int syBtFlRead(int a4, int a5, int a6);
 int syBtFlWrite(int a4, int a5, int a6);
 int syBtFlDeleteSct(int a4, int a5, int a6);
 int deformModelRestore(int a4);
-int FUN_8c0eaf00(void);
+int nlResetBackColorZ(void);
 int padVibOff(void);
 int nlSysMetricsDiffTime(int a4, int a5);
 int nlObjPutSetGarbagedTexture(int a4);
@@ -246,12 +246,12 @@ int shadowNullCb(void)
     return 0xFFFFFEC0;
 }
 
-int FUN_8c1ef4a0(int a4, int a5, int a6)
+int kbCfgIni(int a4, int a5, int a6)
 {
-    int t0;
+    int biosConfigEntry;
 
-    t0 = *(int *)0x8C0000B0;
-    return ((int (*)(int, int, int, int))(t0))(a4, a5, a6, 0x0);
+    biosConfigEntry = *(int *)0x8C0000B0;
+    return ((int (*)(int, int, int, int))(biosConfigEntry))(a4, a5, a6, 0x0);
 }
 
 int kbCfgGetId(int a4, int a5, int a6)
@@ -304,12 +304,12 @@ int deformModelRestore(int a4)
     return modelSetVertsInt(a4, 0x8C3311F4);
 }
 
-int FUN_8c0eaf00(void)
+int nlResetBackColorZ(void)
 {
-    float u0;
+    float defaultDepth;
 
-    u0 = *(float *)0x8C0EAF28;
-    return nlSetBackColorZ(u0);
+    defaultDepth = *(float *)0x8C0EAF28;
+    return nlSetBackColorZ(defaultDepth);
 }
 
 int padVibOff(void)
@@ -353,9 +353,9 @@ int ADXRNA_GetNumRoom(void)
     return 0x7FFFFFFF;
 }
 
-int ADXSJD_GetSpsdInfo(int a4)
+int ADXSJD_GetSpsdInfo(int streamDecoderAddress)
 {
-    return (a4 + 0x58);
+    return (streamDecoderAddress + 0x58);
 }
 
 void _kmyiDefaultPALEXTCallbackFunc(int a4)

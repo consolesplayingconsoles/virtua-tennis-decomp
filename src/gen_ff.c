@@ -46,7 +46,7 @@ int strmBgmSetVol(int, int, int, int, int, int, int);
 int strmSetStereo(int);
 int strmVoiceSetVol(int);
 int syCfgGetSoundMode(int);
-int thunk_FUN_8c1e0150(int, int);
+int thunk_buIsExistFile(int, int);
 int unlockApplyW1(void);
 int unlockApplyW2(void);
 Stk3 vecMake(float, float, float);
@@ -489,7 +489,7 @@ int eepromBootLoad(int a4)
     R9 = (0x0);
     goto L_8C0DF31E;
     L_8C0DF31E:;
-    t5 = (thunk_FUN_8c1e0150((*(int *)((R11 + 0x0))), 0x8C126AB0)) != 0;
+    t5 = (thunk_buIsExistFile((*(int *)((R11 + 0x0))), 0x8C126AB0)) != 0;
     *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
     R8 = (0x8C126AB0);
     if (t5) goto L_8C0DF34A;
