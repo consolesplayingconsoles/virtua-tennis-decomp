@@ -4,7 +4,7 @@
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
 int BupDrawWarning(int, int, int);
-int FUN_8c0eaf00(int, int, int, float);
+int nlResetBackColorZ(int, int, int, float);
 int buGetDiskInfo(int, int);
 int buGetFileInfo(int, int, int);
 int cpuAimPointSet(int, int, float, float);
@@ -260,7 +260,7 @@ int stageSoftReset(float f4)
 
     { struct mvb8 { char b[8]; }; *(struct mvb8 *)((((int)stk + 4) + 0x10)) = *(struct mvb8 *)(0x8C1111D2); }
     *(unsigned int *)0x8C185410 = 0x0;
-    FUN_8c0eaf00(0x0, 0x0, 0x0, f4);
+    nlResetBackColorZ(0x0, 0x0, 0x0, f4);
     nlInitEvent();
     fileLoadClose();
     stageFreeAll();

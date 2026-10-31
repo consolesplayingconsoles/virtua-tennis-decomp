@@ -53,7 +53,7 @@ void nlTranslate(float f4, float f5, float f6);
 int nlObjPutSetLightDirectionV(int a4);
 int nlSpriteFreeTextureOnceGI(int a4, int a5, int a6);
 void nlsndStreamContinue(void);
-void FUN_8c1ff1ee(int a4, int a5, int a6);
+void fmMngCopyBytes(int a4, int a5, int a6);
 float lerpf(float f4, float f5, float f6);
 int motionRootBoneRaw(int a4, int a5);
 int motionBoneRaw(int a4);
@@ -319,12 +319,12 @@ void nlsndStreamContinue(void)
     
 }
 
-void FUN_8c1ff1ee(int a4, int a5, int a6)
+void fmMngCopyBytes(int sourceAddress, int destinationAddress, int byteCount)
 {
-    if ((int)a6 <= 0) {
+    if ((int)byteCount <= 0) {
         return;
     }
-    ((int (*)(int, int, int))(0x8C1FF1E8))(a4, a5, (a6 - 1));
+    ((int (*)(int, int, int))(0x8C1FF1E8))(sourceAddress, destinationAddress, (byteCount - 1));
 }
 
 float lerpf(float f4, float f5, float f6)

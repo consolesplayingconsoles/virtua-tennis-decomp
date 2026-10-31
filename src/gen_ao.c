@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[4]; } Stk4;
-int FUN_8c0f8590(int, int, int, int);
+int kmyCopySmallVQToTextureRom(int, int, int, int);
 extern void _builtin_ld_ext(float (*)[4]);
 extern float _builtin_sqrtf(float);
 extern void _builtin_st_ext(float (*)[4]);
@@ -170,7 +170,7 @@ int kmLoadTextureRom(int a4, int a5)
     int t16;
 
     if ((unsigned short)(*(int *)((a4 + 0x0))) == 3) {
-        FUN_8c0f8590((*(int *)((a4 + 0x1C))), a5, (*(int *)((a4 + 0xC))), (*(int *)((a4 + 0x18))));
+        kmyCopySmallVQToTextureRom((*(int *)((a4 + 0x1C))), a5, (*(int *)((a4 + 0xC))), (*(int *)((a4 + 0x18))));
     } else {
         t6 = *(int *)((a4 + 0x18));
         if (((0x4000000 & t6) == 0) && (((0x80000000 & t6) != 0) && (((0x40000000 & t6) == 0) && ((0x8000 & t6) == 0)))) {

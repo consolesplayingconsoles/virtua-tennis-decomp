@@ -394,7 +394,7 @@ int thunk_FUN_8c09e55a(void);
 int thunk_FUN_8c0f2210(void);
 int thunk_FUN_8c0f41f0(void);
 int thunk_FUN_8c1e0150(void);
-int thunk_FUN_8c1ff1ee(void);
+int thunk_fmMngCopyBytes(void);
 int vmsfs_c_getstate(int);
 
 void mainCheckReset(void)
@@ -12051,7 +12051,7 @@ int fmMngReadData(int a4)
         t1 = *(int *)((a4 + 0x28));
         t2 = *(int *)((a4 + 0xC));
         t3 = *(int *)((a4 + 0x30));
-        thunk_FUN_8c1ff1ee();
+        thunk_fmMngCopyBytes();
         t5 = *(short *)(((((((t1 + 0x1) << 2) << 2) << 2) + t2) + 0x0));
         t9 = 0x0;
         if ((unsigned short)t5 != 0xFFFF) {

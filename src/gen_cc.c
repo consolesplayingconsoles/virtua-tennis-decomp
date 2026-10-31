@@ -36,7 +36,7 @@ int search_fat_backward(int, int, int, int);
 int set_fat(int, int, int);
 int syChainDeleteHandler(int);
 int syRtcAicaGetCount(int);
-int thunk_FUN_8c1e6b1c(void);
+int thunk_gdFsStringEquals(void);
 int vmsfs_c_getstate(int);
 int vmsfs_c_setfunc(int, int);
 int vmsfs_c_setparam(int, int, int, int, int, int, int);
@@ -500,7 +500,7 @@ int gdFsSearchName(int a4, int a5, int a6)
         for (;;) {
             if ((unsigned char)(*(signed char *)((t3 + 0x9))) == (unsigned char)t1) {
                 if (a6 == 1) {
-                    t5 = thunk_FUN_8c1e6b1c();
+                    t5 = thunk_gdFsStringEquals();
                     if (t5 != 1) {
                         t2 = (t2 + 0x1);
                         t3 = (t3 + 0x2C);

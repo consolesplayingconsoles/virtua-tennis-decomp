@@ -26,7 +26,7 @@ int gdFsTell(int h);
 int gdFsGetDirInfo(int h, int *info);
 int ADXSTM_Tell(int *h);
 int ADXSTM_Seek(int h, int pos);
-int FUN_0c1688b6(int a);
+int ADXSJD_GetLpStartOfst(int a);
 int toupper_(int c);
 int gdFsToUpper(int c);
 
@@ -154,7 +154,7 @@ int ADXSTM_GetFsizeByte(int h, int *out)
 int adxt_eos_entry(int *e)
 {
     int h = e[2];
-    int x = FUN_0c1688b6(e[1]);
+    int x = ADXSJD_GetLpStartOfst(e[1]);
 
     if (x < 0)
         x += 2047;

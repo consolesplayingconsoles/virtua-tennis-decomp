@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int FUN_8c0eaf00(int, int, int);
+int nlResetBackColorZ(int, int, int);
 int btnGuideDrawB(int, Stk3, float);
 int camExec(int, int, int, int, int, int, int, int, int, int, int, int);
 int camSetupView(void);

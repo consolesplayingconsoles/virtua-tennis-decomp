@@ -3,7 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
-int FUN_8c0f0860(int);
+int nlUnitVector(int);
 int camGetPos(int, ...);
 int nlGetMatrix(int);
 int nlMultiMatrix(int);
@@ -106,7 +106,7 @@ float courtPropsDraw(void)
     *(int *)((int)stk + 28) = (((int)stk + 32) + 0x30);
     *(int *)((int)stk + 28) = (((int)stk + 32) + 0x30);
     vecSub(*(Stk4 *)(((int)stk + 28)), *(Stk3 *)(((int)stk + 44)));
-    FUN_8c0f0860((((int)stk + 28) + 0x34));
+    nlUnitVector((((int)stk + 28) + 0x34));
     nlPushMatrix(0x0);
     nlUnitMatrix();
     nlRotateV((((int)stk + 28) + 0x28), (((int)stk + 28) + 0x34));

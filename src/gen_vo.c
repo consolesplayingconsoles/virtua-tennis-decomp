@@ -1,7 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_vo): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c0eaf00(int, int, int);
+int nlResetBackColorZ(int, int, int);
 int kmSetDisplayMode(int, int, int, int);
 int kmSetPALEXTCallback(int);
 int kmSetSystemConfiguration(int);
@@ -87,7 +87,7 @@ int nlChangeDisplayMode(int a4, int a5)
     *(unsigned int *)(((int)stk + 4)) = (kmSetSystemConfiguration(0x8C42420C));
     nlLoadDummyTexture();
     *(unsigned int *)0x8C424494 = v0_3;
-    FUN_8c0eaf00((*(int *)0x8C1DC894), (*(int *)0x8C1DC898), (*(int *)0x8C1DC89C));
+    nlResetBackColorZ((*(int *)0x8C1DC894), (*(int *)0x8C1DC898), (*(int *)0x8C1DC89C));
     v0_0 = ((*(short *)((v0_2 + 0x6))));
     w0_0 = (0.0f);
     w0_1 = ((float)(*(short *)((v0_2 + 0x4))));

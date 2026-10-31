@@ -16,7 +16,7 @@ extern float g_0c2b76d4[2];
 extern char g_0c0d68d9[];
 extern int g_0c2b783c[];
 extern char g_0c14aadc[];
-extern char *g_0c2b7bd8;
+extern char *gNlPaletteTable;
 
 extern int nlPushMatrix(void *m);
 extern void nlUnitMatrix();
@@ -51,7 +51,7 @@ void nlInitTextureSurface(int *tbl, int n)
 
 int nlGetPaletteID(int id)
 {
-    return *(short *)(g_0c2b7bd8 + id * 8);
+    return *(short *)(gNlPaletteTable + id * 8);
 }
 
 

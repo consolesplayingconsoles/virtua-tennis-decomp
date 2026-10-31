@@ -36,7 +36,7 @@ typedef struct {
 
 extern int FUN_0c156934(int big, int size, int a, int *b, int e, int f);
 
-extern void FUN_0c1717d8(int *cs);
+extern void ovLockCs_8c200114(int *cs);
 extern void mwRnaSetPlaySw(int *h, int on);
 extern void mwRnaSetTransSw(int *h, int on);
 extern void mwlRnaClearBuf(int *h);
@@ -59,13 +59,13 @@ extern int ADXF_Stop(signed char *h);
 extern int syG2Read(unsigned int src, void *dst, int size, int n, int e, int f);
 extern void syRtcDbgWriteLog(int v);
 
-extern int FUN_0c0813e0(void *a, void *b, int n);
+extern int memcmp(void *a, void *b, int n);
 extern void ovLibEntryTbl(void *e);
 extern void thunk_FUN_0c1708b2(void *d, void *s, int n);
 extern unsigned int fmcalccrc(int n, unsigned char *p);
 extern int mwlSbGetStreamParam(void *h, int item, int x);
 extern int FUN_0c1677d8(void);
-extern int FUN_0c170834(int addr, unsigned char *buf, int n);
+extern int syBtFlRead(int addr, unsigned char *buf, int n);
 extern void FUN_0c14f182(void *p, int n);
 
 extern int mpdrv_get_nopcount(int a, int b, int c, int d);
@@ -111,8 +111,8 @@ extern void ADXSTM_Stop(int h);
 extern void ADXSTM_GetCurOfst(int h, int *ofs);
 extern void adxf_CloseSjStm(signed char *h);
 
-extern int FUN_0c17085c(int a);
-extern int FUN_0c170848(int a, char *b, int n);
+extern int syBtFlDeleteSct(int a);
+extern int syBtFlWrite(int a, char *b, int n);
 extern void fmMngClearBuf(int a, int b);
 extern int FUN_0c1709a6(char *st);
 
@@ -299,7 +299,7 @@ void mwRnaStop(int *h, int b, int c, int d)
         return;
     }
     if (((unsigned char *)h)[1]) {
-        FUN_0c1717d8(&cs);
+        ovLockCs_8c200114(&cs);
         mwRnaSetPlaySw(h, 0);
         mwRnaSetTransSw(h, 0);
         mwlRnaClearBuf(h);

@@ -147,7 +147,7 @@ int ovMdlDeleteTbl(int);
 int ADXT_Create(int, int, int);
 int kmyMemCopy(int, int, int);
 int kmSetPixelClipping(int, int, int, int);
-int FUN_8c1e6b1c(void);
+int gdFsStringEquals(void);
 int gdGdcReqCmd(int, int);
 int gdGdcExecServer(void);
 int gdGdcCheckDmaTrans(void);
@@ -160,8 +160,8 @@ int kmyGetInterruptLevel(int);
 int kmyGetLastTextureDMAID(void);
 int kmiUnregisterInterruptHandler(void);
 int kmiFBControl(int, int);
-int FUN_8c1ff1bc(void);
-int FUN_8c1ff1ee(void);
+int fmMngBufferEquals(void);
+int fmMngCopyBytes(void);
 int ADXB_Init(void);
 int ADXPD_Init(void);
 int SJMEM_Finish(void);
@@ -2672,12 +2672,12 @@ int kmFreeTexture(int a4)
     return t6;
 }
 
-int FUN_8c1e4a80(void)
+int kmCollectTextureGarbage(void)
 {
-    int t0;
+    int result;
 
-    t0 = kmyGarbageCollection();
-    return t0;
+    result = kmyGarbageCollection();
+    return result;
 }
 
 int kmGetFreeTextureMem(void)
@@ -2741,9 +2741,9 @@ int gdFsToUpper(int a4)
     return t1;
 }
 
-int thunk_FUN_8c1e6b1c(void)
+int thunk_gdFsStringEquals(void)
 {
-    return FUN_8c1e6b1c();
+    return gdFsStringEquals();
 }
 
 int syTmrGetCount(void)
@@ -3313,14 +3313,14 @@ void vmsio_init(void)
     *(unsigned int *)0x8C20CA40 = 0x0;
 }
 
-int thunk_FUN_8c1ff1bc(void)
+int thunk_fmMngBufferEquals(void)
 {
-    return FUN_8c1ff1bc();
+    return fmMngBufferEquals();
 }
 
-int thunk_FUN_8c1ff1ee(void)
+int thunk_fmMngCopyBytes(void)
 {
-    return FUN_8c1ff1ee();
+    return fmMngCopyBytes();
 }
 
 int ADXB_Init(void)

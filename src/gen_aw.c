@@ -3,7 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[12]; } Stk12;
-int FUN_8c0eaf00(int, int, int, float);
+int nlResetBackColorZ(int, int, int, float);
 int SJUNI_Lock(void);
 int SJUNI_Unlock(int, int);
 int SJ_SplitChunk(int, int, int, int);
@@ -782,7 +782,7 @@ int stageLoadSelectSprites(float f4)
     float u8;
     int t9;
 
-    FUN_8c0eaf00(0x0, 0x0, 0x0, f4);
+    nlResetBackColorZ(0x0, 0x0, 0x0, f4);
     u1 = 1.0f;
     for (;;) {
         t2 = plPic2SeleLoad();

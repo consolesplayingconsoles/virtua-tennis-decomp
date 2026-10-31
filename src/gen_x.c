@@ -18,7 +18,7 @@ int ADXSJD_Stop(int);
 int ADXSTMF_Create(int, int, int, int);
 int ADXSTM_Close(int);
 int ADXSTM_Stop(int);
-float FUN_8c0f0860(int);
+float nlUnitVector(int);
 int SJMEM_Lock(void);
 int SJMEM_Unlock(int, int);
 extern int _builtin_get_imask(void);
@@ -328,7 +328,7 @@ void nlRotateV(int a4, int a5)
 
     *(unsigned int *)(((int)stk + 4)) = a5;
     nlOuterProduct(a4, a5, (((int)stk + 4) + 0x4));
-    t1 = FUN_8c0f0860((((int)stk + 4) + 0x4));
+    t1 = nlUnitVector((((int)stk + 4) + 0x4));
     t3 = nlInnerProduct(a4, (*(int *)(((int)stk + 4))));
     if (t1 != 0.0f) {
         nlRotateAxeSC((((int)stk + 4) + 0x4), t1, t3);

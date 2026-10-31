@@ -7,7 +7,8 @@
 Lines starting with # are skipped. Without --apply it checks the map and prints what would change.
 
 Checks: every address is a function in functions.txt; the names it gives are unique and are C identifiers; no new name
-is already a global or symbol. Then every whole-word use in the repo's tracked and untracked text files changes in one
+is already a global or symbol at a different address (an existing name at the same address is a canonical alias).
+Then every whole-word use in the repo's tracked and untracked text files changes in one
 pass (chains and swaps such as a->b, b->a come out right), and tests/<file>/<old>.json and state/kept/<old>.json move
 to the new name. Afterwards the asm pieces carry old labels: run setup.sh's split (tools/1-2-baseline/split_asm.py) and build.sh.
 """
@@ -54,14 +55,21 @@ def main(argv):
     if dup:
         sys.exit('duplicate final names: %s' % dup[:20])
     other = set()
+    addresses = {n: int(a, 16) for a, n in byaddr.items()}
     for f in ('globals.txt', 'symbols.txt'):
         if os.path.exists(f):
             for l in open(f):
                 p = l.split()
                 if len(p) >= 2 and not l.startswith('#'):
                     other.add(p[1])
-    clash = sorted(set(ren.values()) & other - set(ren))
-    clash += sorted(n for n in extra.values() if n in other or n in final.values())
+                    addresses[p[1]] = int(p[0], 16)
+    # An existing name at the SAME address is a canonical alias, not a collision.
+    # This also lets an unnamed function adopt its already documented symbol name.
+    def same_address(old, new):
+        return old in addresses and new in addresses and addresses[old] == addresses[new]
+
+    clash = sorted(n for o, n in ren.items() if n in other - set(ren) and not same_address(o, n))
+    clash += sorted(n for o, n in extra.items() if (n in other or n in final.values()) and not same_address(o, n))
     if clash:
         sys.exit('new names already used as globals/symbols/functions: %s' % clash)
     ren.update(extra)

@@ -1,15 +1,15 @@
 /* Small library functions (batch m): matrix setup sequences, model parameter walks, a 24-byte entry table, byte and
    halfword splitting, memcmp, palette and print-state setup. */
 
-void FUN_0c077470(void *m);
-void FUN_0c077f60(void);
+void nlGetMatrix8(void *m);
+void nlMultiPushedMatrix(void);
 void nlPushMatrix(void *m);
 void nlMultiMatrix(void *m);
 void nlMultiMatrix8(void *m);
 void nlGetMatrix(void *m);
 void nlPopMatrix(int n);
-void FUN_0c079ed0(void *m);
-void FUN_0c077b50(void *m);
+void nlLoadRechangeMatrix(void *m);
+void nlLoadMatrix8(void *m);
 void FUN_0c0781a0(int n);
 void nlPrintSetGarbagedTexture(void);
 int kmiWriteRegister(int off, int v);

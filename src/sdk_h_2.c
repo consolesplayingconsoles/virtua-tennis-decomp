@@ -5,8 +5,8 @@ extern int *g_8c46c264[];
 
 int FUN_0c07ba90(int a, int b, int c, int d);
 int FUN_0c07bc00(int a, int b);
-void FUN_0c14ceee(int a);
-void FUN_0c14cf46(int a);
+void ovMdlEntryTbl(int a);
+void ovMdlDeleteTbl(int a);
 int buExecServer(void);
 int buMount(int drive);
 int vmsfs_c_setcompletecallback(void *f);

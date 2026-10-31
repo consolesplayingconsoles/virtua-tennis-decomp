@@ -55,17 +55,17 @@ int FUN_0c07284e(int, int);
 int FUN_0c074200(int, int);
 int FUN_0c074690(void);
 int FUN_0c074f10(void);
-int FUN_0c0770f0(int, int, int);
-int FUN_0c0813e0(int, int, int);
-int FUN_0c08160a(int, int, int, int, float);
+int nlSetPaletteData(int, int, int);
+int memcmp(int, int, int);
+int prefetch(int, int, int, int, float);
 int FUN_0c156c32(int, int, int, int);
 int FUN_0c1583c4(int);
 int FUN_0c158860(int, int, int);
-int FUN_0c16884a(int);
+int ADXSJD_GetNumChan(int);
 int FUN_0c168c7c(int);
 int FUN_0c16c634(int);
-int FUN_0c170848(int, int, int);
-int FUN_0c17085c(int);
+int syBtFlWrite(int, int, int);
+int syBtFlDeleteSct(int);
 int fmMngMcpy4(int, int, int);
 int fmMngNum2Bit(int, int, int);
 int fmMngChkEmptyData(int, int);
@@ -622,7 +622,7 @@ int fmMngSctRefresh(int a4)
     t39 = 0xFFFFFFFA;
     if (t0 == 0) {
         t2 = *(int *)((a4 + 0xC));
-        t3 = FUN_0c170848(t1, t2, 0x40);
+        t3 = syBtFlWrite(t1, t2, 0x40);
         t35 = 0xFFFFFFFE;
         if (t3 == 64) {
             t4 = *(int *)((a4 + 0x14));
@@ -638,7 +638,7 @@ int fmMngSctRefresh(int a4)
                         t11 = fmMngChkEmptyData(a4, t9);
                         t5 = t11;
                         if (t5 == 0) {
-                            t12 = FUN_0c170848(t8, t9, 0x40);
+                            t12 = syBtFlWrite(t8, t9, 0x40);
                             t5 = t12;
                             if (t5 == 64) {
                                 t7 = (t7 + 0x1);
@@ -664,7 +664,7 @@ int fmMngSctRefresh(int a4)
                 t15 = *(int *)((a4 + 0x18));
                 fmMngNum2Bit(t7, t9, t15);
                 t17 = *(int *)((a4 + 0x18));
-                t18 = FUN_0c170848((((((t14 + 0x1) << 2) << 2) << 2) + t1), t9, (((t17 << 2) << 2) << 2));
+                t18 = syBtFlWrite((((((t14 + 0x1) << 2) << 2) << 2) + t1), t9, (((t17 << 2) << 2) << 2));
                 t19 = *(int *)((a4 + 0x18));
                 t20 = 0xFFFFFFFE;
                 if (t18 == (((t19 << 2) << 2) << 2)) {
@@ -677,7 +677,7 @@ int fmMngSctRefresh(int a4)
                 t22 = *(int *)((a4 + 0x18));
                 fmMngNum2Bit(0x0, (t2 + 0x40), t22);
                 t24 = *(int *)((a4 + 0x18));
-                t25 = FUN_0c170848((((((t21 + 0x1) << 2) << 2) << 2) + t1), (t2 + 0x40), (((t24 << 2) << 2) << 2));
+                t25 = syBtFlWrite((((((t21 + 0x1) << 2) << 2) << 2) + t1), (t2 + 0x40), (((t24 << 2) << 2) << 2));
                 t26 = *(int *)((a4 + 0x18));
                 t27 = 0xFFFFFFFE;
                 if (t25 == (((t26 << 2) << 2) << 2)) {

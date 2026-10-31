@@ -1,8 +1,8 @@
 /* Straight-line functions with calls and guards (batch gen_fw): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c041fd0(void);
-int FUN_8c056aaa(int, int, int, int);
+int cpuSglPointInit(void);
+int cpuDblPointInit(int, int, int, int);
 int eepromGetDiff(void);
 int nlRand(void);
 int cpuDblInit(int a4, int a5, int a6, float f4, float f5, float f6);
@@ -222,7 +222,7 @@ int cpuDblInit(int a4, int a5, int a6, float f4, float f5, float f6)
         t56 = (t56 + t54);
         t57 = (t57 + t55);
     }
-    return FUN_8c056aaa(t56, t57, t58, t59);
+    return cpuDblPointInit(t56, t57, t58, t59);
 }
 
 int cpuSglInit(int a4, int a5, int a6, float f4, float f5, float f6, float f7)
@@ -351,5 +351,5 @@ int cpuSglInit(int a4, int a5, int a6, float f4, float f5, float f6, float f7)
         t64 = (t64 - 1);
         t65 = (t65 + t63);
     }
-    return FUN_8c041fd0();
+    return cpuSglPointInit();
 }

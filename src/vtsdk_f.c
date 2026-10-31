@@ -14,7 +14,7 @@ extern void ADXB_ExecOneAu16(char *p);
 extern int memcmp(char *a, char *b, int n);
 extern int kmiReadRegister(int a);
 
-extern unsigned int g_0c2af0bc;
+extern unsigned int gNlPrintFlags;
 extern int g_8c4620f8[];
 extern char *g_8c20c204;
 extern char g_8c46b2e4[];
@@ -41,7 +41,7 @@ float nlAbsSqrt(float x)
 
 void nlPrnIndentOff(void)
 {
-    g_0c2af0bc &= 0xfffffffe;
+    gNlPrintFlags &= 0xfffffffe;
 }
 
 int nlFogDensity(int v)

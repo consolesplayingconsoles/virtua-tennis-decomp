@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int FUN_8c0f0860(int);
+int nlUnitVector(int);
 int crowdInitAlt(void);
 int eepromGetDeuceMode(void);
 int entryAnyAtRound5(void);
@@ -1055,7 +1055,7 @@ int endingPlayerExec(void)
                                     *(float *)0x8C402CEC = 0.0f;
                                     vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 16) + 0x8), (*(float *)0x8C0D4308), 0.5f, (*(float *)0x8C0D4304));
                                     nlSubVector3op(0x8C402CE0, (((int)stk + 20) + 0x4), 0x8C402CD4);
-                                    FUN_8c0f0860(0x8C402CE0);
+                                    nlUnitVector(0x8C402CE0);
                                     *(float *)0x8C287A04 = (*(float *)0x8C0D4314);
                                     u139 = *(float *)0x8C0D4318;
                                     *(float *)0x8C402D48 = u139;

@@ -45,18 +45,18 @@ int FUN_0c05ce38(void);
 int FUN_0c05fd70(int);
 int nlPrintInitFontTexture(void);
 int FUN_0c077590(int, int, int);
-int FUN_0c077df0(int);
+int nlMatrixMode(int);
 int FUN_0c07e820(int, int, int);
 int FUN_0c07e880(int);
 int FUN_0c07e8a0(int, int);
 int FUN_0c07e960(int, int, int, int);
 int FUN_0c07f5c0(int);
-int FUN_0c07ff20(int, int, int);
-int FUN_0c080190(int, int, int);
-int FUN_0c080270(int, int, int);
-int FUN_0c0802b0(int, int);
-int FUN_0c0813e0(int, int, int);
-int FUN_0c085dfc(int, int, int);
+int nlsndStreamSetHdVol(int, int, int);
+int nlsndStreamChgVol(int, int, int);
+int nlsndStreamTranspose(int, int, int);
+int nlsndStreamDetune(int, int);
+int memcmp(int, int, int);
+int vsprintf(int, int, int);
 int FUN_0c1534a0(int, int, int);
 int FUN_0c1534ca(int);
 int FUN_0c1534e8(int, int, int);
@@ -69,10 +69,10 @@ int FUN_0c159ae0(void);
 int FUN_0c15c3c8(int, int, int, int);
 int FUN_0c16883e(int);
 int FUN_0c168856(int);
-int FUN_0c16887a(int, int, int);
-int FUN_0c168e10(int);
-int FUN_0c170820(int, int);
-int FUN_0c170834(int, int, int);
+int ADXSJD_GetTotalNumSmpl(int, int, int);
+int ADXSTM_GetStat(int);
+int syBtFlGetInfo(int, int);
+int syBtFlRead(int, int, int);
 int fmMngClearBuf(int, int);
 int FUN_0c1709a6(int);
 int FUN_0c172c3c(int, int, int, int, int);
@@ -298,7 +298,7 @@ int adxf_ExecOne(int a4)
     t15 = t0;
     if (t0 == 2) {
         t1 = *(int *)((a4 + 0x4));
-        t2 = FUN_0c168e10(t1);
+        t2 = ADXSTM_GetStat(t1);
         *(unsigned char *)((a4 + 0x1)) = t2;
         t3 = *(int *)((a4 + 0x4));
         ADXSTM_GetCurOfst(t3, ((int)stk + 4));
@@ -633,15 +633,15 @@ int mwSbSetVol(int a4, int a5)
     if (t8 == 0) {
         t9 = *(int *)((a4 + 0x1C));
         t10 = *(int *)((t9 + 0x4));
-        FUN_0c07ff20(t10, 0x0, t5);
+        nlsndStreamSetHdVol(t10, 0x0, t5);
         t12 = *(int *)((a4 + 0x1C));
         t13 = *(int *)((t12 + 0x4));
-        return FUN_0c07ff20(t13, 0x1, t5);
+        return nlsndStreamSetHdVol(t13, 0x1, t5);
     }
     t14 = *(short *)((a4 + 0x6));
-    FUN_0c080190(t14, 0x0, t5);
+    nlsndStreamChgVol(t14, 0x0, t5);
     t16 = *(short *)((a4 + 0x6));
-    return FUN_0c080190(t16, 0x1, t5);
+    return nlsndStreamChgVol(t16, 0x1, t5);
 }
 
 
@@ -707,9 +707,9 @@ int mwlSbSetPitch(int a4, int a5, int a6)
     *(unsigned int *)((a4 + 0x54)) = t3;
     t4 = (int)((int)(((t3 << 2) << 2) << 2) / (int)0x64);
     t5 = *(short *)((a4 + 0x6));
-    FUN_0c080270(t5, t1, t3);
+    nlsndStreamTranspose(t5, t1, t3);
     t7 = *(short *)((a4 + 0x6));
-    return FUN_0c0802b0(t7, t4);
+    return nlsndStreamDetune(t7, t4);
 }
 
 

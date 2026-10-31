@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int FUN_8c0eaf00(int, int, int, float);
+int nlResetBackColorZ(int, int, int, float);
 int resCautionShow(int);
 int sprPutAt(int, Stk3);
 int msgWinPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4);
@@ -20,7 +20,7 @@ int msgWinPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4)
     stk[8] = a9;
     stk[9] = a10;
     *(unsigned int *)(((int)stk + 16)) = a5;
-    FUN_8c0eaf00(0x0, 0x0, 0x0, f4);
+    nlResetBackColorZ(0x0, 0x0, 0x0, f4);
     if ((*(int *)(((a4 << 2) + 0x8C1DC590))) == 0) {
         t16 = (resCautionShow(a4));
     } else {

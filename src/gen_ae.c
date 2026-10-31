@@ -5,7 +5,7 @@ typedef struct { int w[4]; } Stk4;
 int ADXF_GetStat(int);
 int ADXRNA_SetPlaySw(int, int);
 int ADXT_GetStat(int);
-int FUN_8c1e4a80(void);
+int kmCollectTextureGarbage(void);
 extern int _builtin_get_imask(void);
 extern void _builtin_set_imask(int);
 extern int _builtin_tas(char *);
@@ -907,7 +907,7 @@ int nlCommonTextureGarbageCollection(void)
     int t4;
 
     t1 = *(int *)0x8C458608;
-    t2 = (FUN_8c1e4a80());
+    t2 = (kmCollectTextureGarbage());
     t3 = 0x0;
     t4 = t1;
     for (;;) {

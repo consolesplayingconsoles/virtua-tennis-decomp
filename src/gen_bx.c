@@ -3,7 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 int ADXF_GetStat(int);
-int FUN_8c0eaf00(int, int, int);
+int nlResetBackColorZ(int, int, int);
 int charaTexFreeAll(void);
 int courtFraDrawNumber(int);
 int entryClearJoined(void);

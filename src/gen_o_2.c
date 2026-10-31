@@ -12,7 +12,7 @@ int FUN_0c03b698(int);
 int FUN_0c066bf0(int, int, float);
 int FUN_0c07eca0(int, int);
 int FUN_0c07f0b0(int);
-int FUN_0c167800(void);
+int kbCfgGetId(void);
 int gdc_FileLoad(int, int, int);
 int gdc_StopStreamSongAll(int);
 int kbCfgIni(int);
@@ -32,7 +32,7 @@ int syCfgGetIndividualID(int a4)
         return 0x0;
         }
     kbCfgIni(0x0);
-    t1 = FUN_0c167800();
+    t1 = kbCfgGetId();
     memmove(a4, (t1 + 0x2), 0x6);
     t3 = syCfgIIDCheckSum(t1);
     

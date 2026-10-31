@@ -35,7 +35,7 @@ int kmSetUserClipping(int a4, int a5, int a6, int a7);
 int syG2Write(int a4, int a5, int a6, int a7, int a8, int a9);
 int _pd_peripheral_set_data(int a4, int a5, int a6);
 int kmtex_ConvertSmallVQToMem(int a4, int a5, int a6, int a7);
-int FUN_8c0f8590(int a4, int a5, int a6, int a7);
+int kmyCopySmallVQToTextureRom(int a4, int a5, int a6, int a7);
 int cpuDblIsMyBall(int a4);
 
 int selCursorInputB(int a4, int a5, int a6, int a7)
@@ -968,21 +968,21 @@ int kmtex_ConvertSmallVQToMem(int a4, int a5, int a6, int a7)
     return kmyCopyToTexture((a4 + 0x800), (a5 + t7), t6, 0x0);
 }
 
-int FUN_8c0f8590(int a4, int a5, int a6, int a7)
+int kmyCopySmallVQToTextureRom(int textureAddress, int sourceAddress, int textureSize, int textureFlags)
 {
-    int t0;
-    int t6;
-    int t7;
+    int textureLevel;
+    int indexBytes;
+    int codebookBytes;
 
-    t0 = kmtex_GetTextureLevel(a6, a6);
-    if ((a7 & 0x80000000) != 0) {
-        t6 = ((*(int *)(((t0 << 2) + 0x8C20AF34))) + 0xA);
-        t7 = (*(int *)(((t0 << 2) + 0x8C20AEC0)));
+    textureLevel = kmtex_GetTextureLevel(textureSize, textureSize);
+    if ((textureFlags & 0x80000000) != 0) {
+        indexBytes = ((*(int *)(((textureLevel << 2) + 0x8C20AF34))) + 0xA);
+        codebookBytes = (*(int *)(((textureLevel << 2) + 0x8C20AEC0)));
     } else {
-        t6 = (*(int *)(((t0 << 2) + 0x8C20AF08)));
-        t7 = (*(int *)(((t0 << 2) + 0x8C20AEA4)));
+        indexBytes = (*(int *)(((textureLevel << 2) + 0x8C20AF08)));
+        codebookBytes = (*(int *)(((textureLevel << 2) + 0x8C20AEA4)));
     }
-    kmyCopyToTextureRom(a4, a5, t7, 0x0);
-    return kmyCopyToTextureRom((a4 + 0x800), (a5 + t7), t6, 0x0);
+    kmyCopyToTextureRom(textureAddress, sourceAddress, codebookBytes, 0x0);
+    return kmyCopyToTextureRom((textureAddress + 0x800), (sourceAddress + codebookBytes), indexBytes, 0x0);
 }
 

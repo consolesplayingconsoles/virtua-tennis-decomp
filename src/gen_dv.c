@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int FUN_8c0eaf00(int, int, int);
+int nlResetBackColorZ(int, int, int);
 int cacheOcbiRange(int, int);
 int entryFinalCheck(void);
 int entryPortContinue(int, int);
@@ -327,7 +327,7 @@ int pauseExec(int a4, int a5)
     *(unsigned int *)((R14 + 0x0)) = R12;
     *(unsigned int *)((R13 + 0x0)) = R12;
     *(unsigned int *)((R10 + 0x70)) = ((*(int *)((R10 + 0x70))) & 0xFFFFFFBF);
-    FUN_8c0eaf00(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
+    nlResetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
     pauseQuit();
     goto L_8C0CEAC2;
     L_8C0CEAC2:;

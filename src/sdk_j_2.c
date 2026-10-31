@@ -12,10 +12,10 @@ void kmiUnloadDevice(void);
 void kmiRegisterCallback(int dev, int kind, void *f, void *p);
 int vmsfs_c_getstate(int drive);
 int kbCfgIni(int a);
-int FUN_0c167800(void);
-int FUN_0c16887a(int sjd);
+int kbCfgGetId(void);
+int ADXSJD_GetTotalNumSmpl(int sjd);
 int FUN_0c16883e(int sjd);
-int FUN_0c16884a(int sjd);
+int ADXSJD_GetNumChan(int sjd);
 void ADXERR_CallErrFunc(char *msg);
 
 
@@ -38,7 +38,7 @@ int syCfgGetIDAddress(void)
 {
     if (kbCfgIni(0))
         return 0;
-    return FUN_0c167800();
+    return kbCfgGetId();
 }
 
 

@@ -24,7 +24,7 @@ int buFbrCreateServer(int n);
 int buFbrCreateFiber(int server, int a, int b, int c);
 void memcpy2(short *d, short *s, int n);
 int nlsndStreamGetParam(int a, int b, int c);
-int FUN_0c0813e0(void *a, void *b, int n);
+int memcmp(void *a, void *b, int n);
 void ADX_GetCoefficient(int a, int b, void *c, void *d);
 void ADXRNA_SetOutVol(int rna, int vol);
 

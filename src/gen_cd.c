@@ -31,7 +31,7 @@ int syBtFlDeleteSct(int, int, int);
 int syBtFlWrite(int, int, int);
 int syTmrDiffCount(int, int);
 int syTmrGetCount(void);
-int thunk_FUN_8c1ff1ee(void);
+int thunk_fmMngCopyBytes(void);
 int vmsfs_c_getstate(int);
 int vmsfs_c_setfunc(int, int);
 int vmsfs_c_setparam(int, int, int, int, int, int, int);
@@ -716,7 +716,7 @@ int fmMngFormat(int a4, int a5, int a6)
             if (t2 != 0) {
             } else {
                 t3 = *(int *)0x8C20CA44;
-                thunk_FUN_8c1ff1ee();
+                thunk_fmMngCopyBytes();
                 *(unsigned short *)(((*(int *)0x8C20CA44) + 0x2)) = a4;
                 *(unsigned char *)(((t3 + 0x34) + 0x11)) = a4;
                 *(unsigned char *)(((t3 + 0x34) + 0x10)) = (*(signed char *)(((*(int *)0x8C20CA44) + 0x0)));

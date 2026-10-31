@@ -5,16 +5,16 @@ extern float _builtin_sqrtf(float);
 /* the 12-byte struct copy in nlObjPutSetFadeColor compiles to a call of this runtime helper */
 extern void _quick_odd_mvn(void);
 
-typedef struct { float x, y, z; } Vec3;
-typedef struct { short w, h; int data; int pal; } DummyTex;
+typedef struct { float x, y, z; } Vector3f;
+typedef struct { short w, h; int data; int pal; } NlTextureDescriptor;
 
-extern DummyTex g_0c0d6264;
+extern NlTextureDescriptor g_0c0d6264;
 extern char g_0c2aec8c[];
-extern char *g_0c2b7bd8;
-extern unsigned int g_0c2af0bc;
+extern char *gNlPaletteTable;
+extern unsigned int gNlPrintFlags;
 extern int g_0c2b31bc[3];
-extern Vec3 g_0c14a948;
-extern Vec3 g_0c14a958;
+extern Vector3f gNlObjectFadeColor;
+extern Vector3f gNlObjectFadeColorCopy;
 extern signed char g_0c14a9c0[][4];
 extern float g_0c2b76d4[2];
 extern char g_0c14aaf0[];
@@ -25,9 +25,9 @@ void nlCreateTextureParamA(void *s);
 void kmSetBorderColor(unsigned int c);
 float nlSin(int a);
 float nlLog(float x);
-void FUN_0c0770f0(int a, int b, int c);
+void nlSetPaletteData(int a, int b, int c);
 void nlUnitVector(float *v);
-void FUN_0c078480(float *v, int a);
+void nlRotateAxe(float *v, int a);
 int nlObjPutLoadTextureOnce_Sub(int a, int b, int i, int *pi, int z);
 void kmSetCheapShadowMode(void);
 void nlObjPutMvSetMode(int mode);
@@ -36,12 +36,12 @@ void nlstripSetVertexContext(void *a);
 void FUN_0c080ae0(int a, int b, int c);
 
 
-void nlReloadPalette(int idx, int b)
+void nlReloadPalette(int paletteIndex, int paletteData)
 {
-    char *e = g_0c2b7bd8 + idx * 8;
+    char *paletteEntry = gNlPaletteTable + paletteIndex * 8;
 
-    if (*(short *)(e + 4)) {
-        FUN_0c0770f0(*(short *)e << 4, b, *(unsigned char *)(e + 3) << 4);
+    if (*(short *)(paletteEntry + 4)) {
+        nlSetPaletteData(*(short *)paletteEntry << 4, paletteData, *(unsigned char *)(paletteEntry + 3) << 4);
     }
 }
 
@@ -63,35 +63,35 @@ float nlCosec(int a)
 
 void nlPrnIndentOn(void)
 {
-    g_0c2af0bc |= 1;
+    gNlPrintFlags |= 1;
 }
 
 
-void nlRotate(float *v, int ang)
+void nlRotate(float *axis, int angle)
 {
-    struct { int a; float v[3]; } t;
+    struct { int a; float axis[3]; } rotationArgs;
 
-    t.a = ang;
-    t.v[0] = v[0];
-    t.v[1] = v[1];
-    t.v[2] = v[2];
-    nlUnitVector(t.v);
-    FUN_0c078480(t.v, t.a);
+    rotationArgs.a = angle;
+    rotationArgs.axis[0] = axis[0];
+    rotationArgs.axis[1] = axis[1];
+    rotationArgs.axis[2] = axis[2];
+    nlUnitVector(rotationArgs.axis);
+    nlRotateAxe(rotationArgs.axis, rotationArgs.a);
 }
 
 
-float nlScalor(float *v)
+float nlScalor(float *vector)
 {
-    return _builtin_sqrtf(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
+    return _builtin_sqrtf(vector[0] * vector[0] + vector[1] * vector[1] + vector[2] * vector[2]);
 }
 
 
-void nlObjPutSetFadeColor(float r, float g, float b)
+void nlObjPutSetFadeColor(float red, float green, float blue)
 {
-    g_0c14a948.x = r;
-    g_0c14a948.y = g;
-    g_0c14a948.z = b;
-    g_0c14a958 = g_0c14a948;
+    gNlObjectFadeColor.x = red;
+    gNlObjectFadeColor.y = green;
+    gNlObjectFadeColor.z = blue;
+    gNlObjectFadeColorCopy = gNlObjectFadeColor;
 }
 
 

@@ -3,7 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 int ADXPD_GetStat(int);
-int FUN_8c0eaf00(int, int, int, float);
+int nlResetBackColorZ(int, int, int, float);
 extern void _builtin_ftrv(float *, float *);
 extern int _builtin_get_imask(void);
 extern void _builtin_prefetch(void *);
@@ -1154,7 +1154,7 @@ int initSprLoad(float f4)
     float u4;
     float u5;
 
-    FUN_8c0eaf00(0xFFFFFF, 0xFFFFFF, 0xFFFFFF, f4);
+    nlResetBackColorZ(0xFFFFFF, 0xFFFFFF, 0xFFFFFF, f4);
     fileLoadSync(0x8CA80000, 0x8C124DFC, 0x0);
     nlSetCommonTextureOffset(0x0);
     nlSpriteLoadTextureOnce(0x8C18281C, 0x0, 0x8A);

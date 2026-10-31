@@ -29,7 +29,7 @@ int FUN_0c06047c(void);
 int FUN_0c060616(int);
 int FUN_0c0713d8(int);
 int FUN_0c072e36(void);
-int FUN_8c0eaf00(int, int, int);
+int nlResetBackColorZ(int, int, int);
 int FUN_0c156c32(int, int, int, int);
 int FcvPlayBuffer(int, int);
 int FcvStoreBuffer(int, int, float);

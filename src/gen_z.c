@@ -121,7 +121,7 @@ int dbgMenuExec(int a4, int a5);
 int mtxGetWorldPos(int a4, int a5, int a6, int a7, int a8);
 void netVecSubXZ(Stk5 s);
 int resGetModelLoad(int a4);
-int FUN_8c0f0860(int a4);
+int nlUnitVector(int a4);
 int nlSpriteF2C(float f4);
 int nlsnd_PL_WaitRequest(void);
 int nlsndStreamSetHdChs(int a4, int a5);
@@ -213,7 +213,7 @@ float cpuLineXAtZ(Stk6 s, float f4);
 int nlsndStreamGetFreq(int a4);
 int nlsndStreamGetBitSize(int a4);
 int nl_objput_mv_send_p0(int a4, int a5, int a6, float f4, float f5, float f6, float f7);
-int FUN_8c1e6b1c(int a4, int a5);
+int gdFsStringEquals(int a4, int a5);
 int SJUNI_GetNumChunk(int a4, int a5);
 void vecTableGet(int a4, int a5, int a6, int a7, int a8);
 float cpuDistXZ(int a4, int a5);
@@ -240,7 +240,7 @@ void nlCalcVector(int a4, int a5);
 int SJMEM_Lock(void);
 int SJRBF_Lock(void);
 int SJUNI_Lock(void);
-int FUN_8c1ff1bc(int a4, int a5, int a6);
+int fmMngBufferEquals(int a4, int a5, int a6);
 void ovLockCs_8c200114(int a4);
 int kmyAllocateAreaWithAddress(int a4, int a5, int a6);
 
@@ -866,7 +866,7 @@ int nlLightDir(int a4, float f4, float f5, float f6)
     *(float *)(((((a4 * 0xB0) + 0x8C44FC08) + 0x40) + 0x0)) = f4;
     *(float *)((((a4 * 0xB0) + 0x8C44FC08) + 0x44)) = f5;
     *(float *)((((a4 * 0xB0) + 0x8C44FC08) + 0x48)) = f6;
-    return FUN_8c0f0860((((a4 * 0xB0) + 0x8C44FC08) + 0x40));
+    return nlUnitVector((((a4 * 0xB0) + 0x8C44FC08) + 0x40));
 }
 
 int nlLightDiffuse(int a4, int a5)
@@ -1207,8 +1207,8 @@ int cpuVecCos(Stk4 s)
     stk[3] = s.w[1];
     stk[4] = s.w[2];
     stk[5] = s.w[3];
-    FUN_8c0f0860((((int)stk + 4) + 0x4));
-    FUN_8c0f0860((((int)stk + 4) + 0x10));
+    nlUnitVector((((int)stk + 4) + 0x4));
+    nlUnitVector((((int)stk + 4) + 0x10));
     return (nlInnerProduct((((int)stk + 4) + 0x4), (((int)stk + 4) + 0x10)));
 }
 
@@ -1602,15 +1602,15 @@ int nl_objput_mv_send_p0(int a4, int a5, int a6, float f4, float f5, float f6, f
     return ((((a6 - 4) - 0x4) - 0x4) - 0x4);
 }
 
-int FUN_8c1e6b1c(int a4, int a5)
+int gdFsStringEquals(int leftString, int rightString)
 {
-    if ((*(signed char *)((a4 + 0x0))) == 0) {
-        if ((*(signed char *)((a5 + 0x0))) != 0) {
+    if ((*(signed char *)((leftString + 0x0))) == 0) {
+        if ((*(signed char *)((rightString + 0x0))) != 0) {
             return 0x0;
         }
         return 0x1;
     }
-    return ((int (*)(int))(0x8C1E6B14))(a4);
+    return ((int (*)(int))(0x8C1E6B14))(leftString);
 }
 
 int SJUNI_GetNumChunk(int a4, int a5)
@@ -1914,12 +1914,12 @@ int SJUNI_Lock(void)
     return t0;
 }
 
-int FUN_8c1ff1bc(int a4, int a5, int a6)
+int fmMngBufferEquals(int leftBuffer, int rightBuffer, int byteCount)
 {
-    if ((int)a6 <= 0) {
+    if ((int)byteCount <= 0) {
         return 0x1;
     }
-    return ((int (*)(int, int, int))(0x8C1FF1B0))(a4, a5, (a6 - 1));
+    return ((int (*)(int, int, int))(0x8C1FF1B0))(leftBuffer, rightBuffer, (byteCount - 1));
 }
 
 void ovLockCs_8c200114(int a4)

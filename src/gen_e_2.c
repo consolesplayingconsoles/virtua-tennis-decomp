@@ -50,7 +50,7 @@ int ADXT_SetAutoRcvr(int, int);
 int FUN_0c15fa1c(void);
 int FUN_0c167c4c(void);
 int FUN_0c16800c(void);
-int FUN_0c169710(int);
+int adxf_purge_all(int);
 int FUN_0c16c634(int);
 int FUN_0c170880(void);
 int FUN_0c1708b2(void);
@@ -220,7 +220,7 @@ int ADXF_InitCache_P2_(int a4)
 {
     int t1;
 
-    FUN_0c169710(a4);
+    adxf_purge_all(a4);
     *(unsigned int *)0xFF00001C = ((a4 & 0xFFFFF7FF) | 0x800);
     t1 = *(int *)0xFF00001C;
     *(unsigned int *)0xFF00001C = ((t1 & 0xFFFFFFF7) | 0x8);

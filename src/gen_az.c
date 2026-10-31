@@ -4,7 +4,7 @@
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[16]; } Stk16;
 int ADXF_LoadPartition(int, int, int, int);
-int FUN_8c0eaf00(int, int, int);
+int nlResetBackColorZ(int, int, int);
 int VQAllocEntry(void);
 int VQEnQueueTop(int, int);
 extern float _builtin_sqrtf(float);

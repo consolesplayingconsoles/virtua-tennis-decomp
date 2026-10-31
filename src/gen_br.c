@@ -1,7 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_br): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c0eaf00(int, int, int, float);
+int nlResetBackColorZ(int, int, int, float);
 int entryAnyAtRound5(void);
 int entryCountJoined(void);
 int entryFirstPortFlag(void);
@@ -339,7 +339,7 @@ int selInitB(void)
     return R0;
     L_8C0A73D2:;
     *(unsigned int *)((R14 + 0x0)) = R10;
-    R0 = ((FUN_8c0eaf00(0x0, 0x0, 0x0, F4)));
+    R0 = ((nlResetBackColorZ(0x0, 0x0, 0x0, F4)));
     goto L_8C0A73DE;
     L_8C0A70DC:;
     R4 = (R14);

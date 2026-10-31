@@ -49,7 +49,7 @@ int resWtcShopSprTexLoad(void);
 int resWtcShopSprTexFree(void);
 int resTitleSprTexFree(void);
 int resTitleSprTexLoad(void);
-float FUN_8c0f0860(int a4);
+float nlUnitVector(int a4);
 int kmSetCheapShadowMode(int a4);
 int endingTexFree(void);
 int stageWtcMainTexFree(void);
@@ -396,33 +396,33 @@ int resTitleSprTexLoad(void)
     return t6;
 }
 
-float FUN_8c0f0860(int a4)
+float nlUnitVector(int vectorAddress)
 {
-    float u0;
-    float u1;
-    float u2;
-    float u5;
-    float u6;
-    float u3[4];
-    float u4[4];
+    float x;
+    float y;
+    float z;
+    float lengthSquared;
+    float inverseLength;
+    float dotLeft[4];
+    float dotRight[4];
 
-    u0 = *(float *)((a4 + 0x0));
-    u1 = *(float *)(((a4 + 0x4) + 0x0));
-    u2 = *(float *)((((a4 + 0x4) + 0x4) + 0x0));
-    u3[0] = u0;
-    u3[1] = u1;
-    u3[2] = u2;
-    u3[3] = 0.0f;
-    u4[0] = u0;
-    u4[1] = u1;
-    u4[2] = u2;
-    u4[3] = 0.0f;
-    u5 = _builtin_fipr(u3, u4);
-    u6 = iaFsrra(u5);
-    *(float *)((((a4 + 0xC) - 0x4) + 0x0)) = (u2 * u6);
-    *(float *)(((((a4 + 0xC) - 0x4) - 0x4) + 0x0)) = (u1 * u6);
-    *(float *)((((((a4 + 0xC) - 0x4) - 0x4) - 0x4) + 0x0)) = (u0 * u6);
-    return _builtin_sqrtf(u5);
+    x = *(float *)((vectorAddress + 0x0));
+    y = *(float *)(((vectorAddress + 0x4) + 0x0));
+    z = *(float *)((((vectorAddress + 0x4) + 0x4) + 0x0));
+    dotLeft[0] = x;
+    dotLeft[1] = y;
+    dotLeft[2] = z;
+    dotLeft[3] = 0.0f;
+    dotRight[0] = x;
+    dotRight[1] = y;
+    dotRight[2] = z;
+    dotRight[3] = 0.0f;
+    lengthSquared = _builtin_fipr(dotLeft, dotRight);
+    inverseLength = iaFsrra(lengthSquared);
+    *(float *)((((vectorAddress + 0xC) - 0x4) + 0x0)) = (z * inverseLength);
+    *(float *)(((((vectorAddress + 0xC) - 0x4) - 0x4) + 0x0)) = (y * inverseLength);
+    *(float *)((((((vectorAddress + 0xC) - 0x4) - 0x4) - 0x4) + 0x0)) = (x * inverseLength);
+    return _builtin_sqrtf(lengthSquared);
 }
 
 int kmSetCheapShadowMode(int a4)

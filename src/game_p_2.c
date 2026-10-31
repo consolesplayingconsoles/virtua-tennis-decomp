@@ -50,7 +50,7 @@ extern int pdGetPeripheral(int port);
 extern void FUN_0c039434(int mode);
 extern void FUN_0c076f70(void);
 
-extern void FUN_8c0eaf00(int a, int b, int c);
+extern void nlResetBackColorZ(int a, int b, int c);
 extern void FUN_0c05c8e8(void);
 extern void FUN_0c05ca3e(void);
 extern void FUN_0c05c81c(void);
@@ -70,7 +70,7 @@ typedef struct {
     short x;
     short y;
     short z;
-} Short3;
+} Vector3s16;
 
 extern void nlRenderTextureBegin(int n);
 extern void FUN_0c028908(float scale);
@@ -157,7 +157,7 @@ extern int volumeToDb(int level);
 extern void ADXT_SetOutVol(int h, int db);
 extern void nlPushUnitMatrix(void);
 extern void FUN_0c077f70(void);
-extern void FUN_0c077210(void *a, void *b);
+extern void nlCalcVector(void *a, void *b);
 extern void nlGetPushedMatrix(int n);
 extern void FUN_0c07c740(int obj, void *m);
 extern void nlPopMatrix(int n);
@@ -170,7 +170,7 @@ extern void nlUnitVector(float *v);
 
 typedef struct {
     int w[3];
-} Mat12;
+} Sh4StackWords3;
 
 extern void nlRotateAY(unsigned int a);
 extern void nlRotateAX(unsigned int a);
@@ -269,13 +269,13 @@ void FUN_0c051a3a(void);
         p = *(Vec3f *)(base);                                       \
         q = *(Vec3f *)(other);                                      \
         nlAddVector((float *)&p, (float *)(offset));                \
-        FUN_0c077df0(2);                                            \
+        nlMatrixMode(2);                                            \
         nlUnitMatrix();                                             \
         nlRotateAZ(-(int)a[2]);                                     \
         nlRotateAX(-(int)a[0]);                                     \
         nlRotateAY(-(int)a[1]);                                     \
         nlTranslateNV(&p);                                           \
-        FUN_0c077df0(1);                                            \
+        nlMatrixMode(1);                                            \
         FUN_0c078ff0();                                             \
     }
 

@@ -7,9 +7,9 @@ extern void nlInitPalette(int a, int b);
 extern void kmSetPaletteMode(int m);
 extern void nlFogTableSet(float *t);   /* the NAOMI library's stub that jumps to kmSetFogTable */
 extern void nlPushMatrix(int a);
-extern void FUN_0c07b220(int a);
-extern void FUN_0c077ee0(void *a);
-extern void FUN_0c07b340(void *a);
+extern void nlInvLightVector(int a);
+extern void nlMultiMatrixRevOrder8(void *a);
+extern void nlobjput_sub(void *a);
 extern int FUN_0c07dcf0(void *a, int b, int c, int d);
 extern void nlstripSetVertexContext(void *a);
 extern void FUN_0c080ae0(void *a, int b, void *c);
@@ -19,7 +19,7 @@ extern void FUN_0c080d70(void *a, void *b);
 extern char gPaletteMode;
 extern int gPaletteModeTable[];
 extern short g_0c2b7bc4;
-extern int g_0c2b7bd8;
+extern int gNlPaletteTable;
 extern unsigned int g_0c2af118;
 extern char g_0c2b34a8[];
 extern int g_0c2b75b8[];
@@ -29,7 +29,7 @@ extern char g_0c14ab2c[];
 
 void nlFreePaletteAll(void)
 {
-    nlInitPalette(g_0c2b7bd8, g_0c2b7bc4);
+    nlInitPalette(gNlPaletteTable, g_0c2b7bc4);
 }
 
 
@@ -69,10 +69,10 @@ void nlOuterProduct(float *a, float *b, float *out)
 void nlObjPut(int *obj)
 {
     if (!(obj[1] & 2))
-        FUN_0c07b220(obj[1]);
+        nlInvLightVector(obj[1]);
     nlPushMatrix(0);
-    FUN_0c077ee0(g_0c2b34a8);
-    FUN_0c07b340(obj);
+    nlMultiMatrixRevOrder8(g_0c2b34a8);
+    nlobjput_sub(obj);
 }
 
 

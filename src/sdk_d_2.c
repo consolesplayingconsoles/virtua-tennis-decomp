@@ -4,7 +4,7 @@ extern int g_0c2aec8c[];
 extern int g_0c14a7c0;
 extern int g_0c2af0c8;
 extern int g_0c2af0cc;
-extern float g_0c14a948[];
+extern float gNlObjectFadeColor[];
 extern unsigned int g_0c14aa70;
 extern unsigned int *g_0c2b76c4;
 extern int g_0c14a834[];
