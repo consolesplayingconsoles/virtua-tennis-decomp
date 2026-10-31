@@ -487,50 +487,50 @@ int kmiFLWCTRLStartPass(int a4)
     return kmyContinueTA((*(int *)((t1 + 0x3C))));
 }
 
-int nlLoadTextureMem(int a4, int a5, int a6)
+int nlLoadTextureMem(int textureHeaderAddress, int textureIndex, int sourceAddress)
 {
-    int t1;
-    int t5;
-    int t27;
-    int t7;
-    int t12;
-    int t8;
-    int t9;
-    int t24;
+    int surfaceTableAddress;
+    int createResult;
+    int result;
+    int dataTransformCallback;
+    int loadDataAddress;
+    int transformedDataAddress;
+    int candidateDataAddress;
+    int dmaBusy;
     int t17;
 
-    t1 = *(int *)0x8C458608;
+    surfaceTableAddress = *(int *)0x8C458608;
     *(unsigned int *)0x8C458DC4 = ((*(int *)0x8C458DC4) + 0x1);
-    t5 = kmCreateTextureSurface((t1 + (a5 * 0x3C)), (*(short *)((a4 + 0x0))), (*(short *)((a4 + 0x2))), (*(int *)((a4 + 0x4))));
-    *(unsigned int *)(((t1 + (a5 * 0x3C)) + 0x28)) = t5;
-    t27 = 0x1;
-    if (t5 == 0) {
-        t7 = *(int *)0x8C1DC884;
-        t12 = a6;
-        if (t7 != 0) {
-            t8 = ((int (*)(int))(t7))(a4);
-            t9 = a6;
-            if (t8 != 0) {
-                t9 = t8;
+    createResult = kmCreateTextureSurface((surfaceTableAddress + (textureIndex * 0x3C)), (*(short *)((textureHeaderAddress + 0x0))), (*(short *)((textureHeaderAddress + 0x2))), (*(int *)((textureHeaderAddress + 0x4))));
+    *(unsigned int *)(((surfaceTableAddress + (textureIndex * 0x3C)) + 0x28)) = createResult;
+    result = 0x1;
+    if (createResult == 0) {
+        dataTransformCallback = *(int *)0x8C1DC884;
+        loadDataAddress = sourceAddress;
+        if (dataTransformCallback != 0) {
+            transformedDataAddress = ((int (*)(int))(dataTransformCallback))(textureHeaderAddress);
+            candidateDataAddress = sourceAddress;
+            if (transformedDataAddress != 0) {
+                candidateDataAddress = transformedDataAddress;
             }
-            t12 = t9;
+            loadDataAddress = candidateDataAddress;
         }
         if (((*(int *)0x8C424460) != 0) && (t17 = *(int *)0x8C424464, t17 != 1)) {
-            kmLoadTextureRom(((*(int *)0x8C458608) + (a5 * 0x3C)), t12);
+            kmLoadTextureRom(((*(int *)0x8C458608) + (textureIndex * 0x3C)), loadDataAddress);
         } else {
             kmyEnableASyncCopy(0x1);
-            kmLoadTextureRom(((*(int *)0x8C458608) + (a5 * 0x3C)), t12);
+            kmLoadTextureRom(((*(int *)0x8C458608) + (textureIndex * 0x3C)), loadDataAddress);
             kmyEnableASyncCopy(0x0);
             for (;;) {
-                t24 = kmQueryFinishLastTextureDMA();
-                if (t24 == 0) {
+                dmaBusy = kmQueryFinishLastTextureDMA();
+                if (dmaBusy == 0) {
                     break;
                 }
             }
         }
-        t27 = 0x0;
+        result = 0x0;
     }
-    return t27;
+    return result;
 }
 
 int mainSoftReset(int a4)
@@ -774,51 +774,51 @@ int rankDispLoad(void)
     return 0x8C0E38BC;
 }
 
-int nlInitCommonTexture(int a4, int a5, int a6)
+int nlInitCommonTexture(int workspaceAddress, int textureCount, int commonTextureCount)
 {
-    int t1;
-    int t3;
-    int t4;
-    int t5;
-    int t10;
-    int t11;
-    int t12;
+    int roundedBitmapBits;
+    int bitmapWordsOrEntryAddress;
+    int entryOffset;
+    int entryIndex;
+    int bitmapOrConfigurationAddress;
+    int bitmapByteOffset;
+    int bitmapWordIndex;
 
-    nlInitTextureSurface(a4, (a5 + 0x1));
-    *(unsigned int *)0x8C4241C0 = ((((a5 + 0x1) * 0x3C) + a4) + 0x8);
-    *(unsigned int *)0x8C4241C4 = ((((a6 + 0x1) << 2) << 1) + ((((a5 + 0x1) * 0x3C) + a4) + 0x8));
-    t1 = ((a6 + 0x1) + 0x1F);
-    if ((int)((a6 + 0x1) + 0x1F) < 0) {
-        t1 = (((a6 + 0x1) + 0x1F) + 0x1F);
+    nlInitTextureSurface(workspaceAddress, (textureCount + 0x1));
+    *(unsigned int *)0x8C4241C0 = ((((textureCount + 0x1) * 0x3C) + workspaceAddress) + 0x8);
+    *(unsigned int *)0x8C4241C4 = ((((commonTextureCount + 0x1) << 2) << 1) + ((((textureCount + 0x1) * 0x3C) + workspaceAddress) + 0x8));
+    roundedBitmapBits = ((commonTextureCount + 0x1) + 0x1F);
+    if ((int)((commonTextureCount + 0x1) + 0x1F) < 0) {
+        roundedBitmapBits = (((commonTextureCount + 0x1) + 0x1F) + 0x1F);
     }
-    *(unsigned int *)0x8C1DC880 = ((int)t1 >> 5);
-    *(unsigned int *)0x8C1DC87C = ((a6 + 0x1) - 1);
-    t3 = ((int)t1 >> 5);
-    t4 = 0xFFFFFFF8;
-    t5 = 0xFFFFFFFF;
+    *(unsigned int *)0x8C1DC880 = ((int)roundedBitmapBits >> 5);
+    *(unsigned int *)0x8C1DC87C = ((commonTextureCount + 0x1) - 1);
+    bitmapWordsOrEntryAddress = ((int)roundedBitmapBits >> 5);
+    entryOffset = 0xFFFFFFF8;
+    entryIndex = 0xFFFFFFFF;
     for (;;) {
-        if ((int)t5 >= (int)(*(int *)0x8C1DC87C)) {
+        if ((int)entryIndex >= (int)(*(int *)0x8C1DC87C)) {
             break;
         }
-        t5 = (t5 + 0x1);
-        *(unsigned int *)((((*(int *)0x8C4241C0) + t4) + 0x0)) = 0x0;
-        t3 = (*(int *)0x8C4241C0);
-        t3 = (t3 + t4);
-        t4 = (t4 + 0x8);
-        *(unsigned int *)((t3 + 0x4)) = 0xFFFFFFFF;
+        entryIndex = (entryIndex + 0x1);
+        *(unsigned int *)((((*(int *)0x8C4241C0) + entryOffset) + 0x0)) = 0x0;
+        bitmapWordsOrEntryAddress = (*(int *)0x8C4241C0);
+        bitmapWordsOrEntryAddress = (bitmapWordsOrEntryAddress + entryOffset);
+        entryOffset = (entryOffset + 0x8);
+        *(unsigned int *)((bitmapWordsOrEntryAddress + 0x4)) = 0xFFFFFFFF;
     }
-    t10 = 0x8C1DC87C;
-    t11 = 0x0;
-    t12 = 0x0;
+    bitmapOrConfigurationAddress = 0x8C1DC87C;
+    bitmapByteOffset = 0x0;
+    bitmapWordIndex = 0x0;
     for (;;) {
-        if ((int)t12 >= (int)(*(int *)0x8C1DC880)) {
+        if ((int)bitmapWordIndex >= (int)(*(int *)0x8C1DC880)) {
             break;
         }
-        t10 = (*(int *)0x8C4241C4);
-        t12 = (t12 + 0x1);
-        *(unsigned int *)((t11 + t10)) = 0x0;
-        t11 = (t11 + 0x4);
+        bitmapOrConfigurationAddress = (*(int *)0x8C4241C4);
+        bitmapWordIndex = (bitmapWordIndex + 0x1);
+        *(unsigned int *)((bitmapByteOffset + bitmapOrConfigurationAddress)) = 0x0;
+        bitmapByteOffset = (bitmapByteOffset + 0x4);
     }
     *(unsigned int *)0x8C458DCC = 0x0;
-    return t10;
+    return bitmapOrConfigurationAddress;
 }

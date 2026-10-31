@@ -15,13 +15,13 @@ extern int kmiWriteRegister(int reg, int val);
 extern int setjmp(void *jb);
 extern void longjmp(void *jb, int v);
 
-typedef struct { char used; char busy; char pad[14]; int handle; char rest[8]; } SndStream;
-extern SndStream gNlSoundStreams[];
+typedef struct { char used; char busy; char pad[14]; int positionAddress; char rest[8]; } NlSoundStreamState;
+extern NlSoundStreamState gNlSoundStreams[];
 extern char *gMapleDriver;
 extern void (*gPalExtensionRatioCallback)(void *s);
 extern char *gBuFiberScheduler;
-typedef struct { char pad[36]; int (*fn)(int a); } GdFsObj;
-extern GdFsObj *gGdFsOperations;
+typedef struct { char pad[36]; int (*loadDirectoryFast)(int a); } GdFsDirectoryOperationsPrefix;
+extern GdFsDirectoryOperationsPrefix *gGdFsOperations;
 
 void nlArcCot(float x)
 {
@@ -32,18 +32,18 @@ void nlArcCot(float x)
 
 int nlsndStreamGetPlayPos(int streamIndex)
 {
-    SndStream *stream = &gNlSoundStreams[(short)streamIndex];
+    NlSoundStreamState *stream = &gNlSoundStreams[(short)streamIndex];
     if (stream->used == 1 && stream->busy != 0)
-        return nlsndG2Read(stream->handle);
+        return nlsndG2Read(stream->positionAddress);
     return 0;
 }
 
-int gdFsLoadDirFast(int a)
+int gdFsLoadDirFast(int directory)
 {
-    GdFsObj *o = gGdFsOperations;
-    if (o == 0)
+    GdFsDirectoryOperationsPrefix *operations = gGdFsOperations;
+    if (operations == 0)
         return 0;
-    return o->fn(a);
+    return operations->loadDirectoryFast(directory);
 }
 
 int pdGetPeripheralInfo(int dev)
@@ -138,10 +138,10 @@ int mpdrv_get_lastsendaddr(void)
     return *(int *)(gMapleDriver + 4272);
 }
 
-void ADXB_Start(char *p)
+void ADXB_Start(char *decoder)
 {
-    if (*(int *)(p + 4) == 0)
-        *(int *)(p + 4) = 1;
+    if (*(int *)(decoder + 4) == 0)
+        *(int *)(decoder + 4) = 1;
 }
 
 int kmyConnectRenderPacket(void)

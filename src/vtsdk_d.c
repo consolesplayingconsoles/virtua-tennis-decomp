@@ -27,13 +27,13 @@ struct RenderCallbackSlot {
 
 extern int gNlFontTextureAddress;
 extern struct GdFsOperations *gGdFsOperations;
-extern int g_8c20c8a8;
-extern char g_8c209be4[];
+extern int gAdxStreamInternalErrorCount;
+extern char strAdxtPanChannelRangeError[];
 extern char strMwRnaNullHandleError[];
 extern char gFrameBufferControlRecords[];
 extern struct RenderCallbackSlot gRenderCallbacks[];
 extern char *gMapleDriver;
-extern char *g_8c1feb48;
+extern char *gMapleTransferLockAddress;
 
 
 float nlCosh(unsigned short x)
@@ -96,7 +96,7 @@ void ADXT_SetOutPan(char *adxt, int ch, short pan)
 {
     *(short *)(adxt + 66 + ch * 2) = pan;
     if (ch >= adxt[3]) {
-        ADXERR_CallErrFunc(g_8c209be4);
+        ADXERR_CallErrFunc(strAdxtPanChannelRangeError);
         return;
     }
     ADXRNA_SetOutPan(*(int *)(adxt + 12), ch, pan);
@@ -124,7 +124,7 @@ void syTmrInit(void)
 
 void adxstm_sj_internal_error(void)
 {
-    g_8c20c8a8 = g_8c20c8a8 + 1;
+    gAdxStreamInternalErrorCount = gAdxStreamInternalErrorCount + 1;
 }
 
 int mwRnaGetTransSw(char *p)
@@ -155,7 +155,7 @@ int kmyRegisterCallback(int callbackIndex, int callback, int callbackArgument)
 int mpdrv_frame_recv_post(void)
 {
     *(int *)(gMapleDriver + 4032) = 1;
-    *g_8c1feb48 = 0;
+    *gMapleTransferLockAddress = 0;
     return 0;
 }
 

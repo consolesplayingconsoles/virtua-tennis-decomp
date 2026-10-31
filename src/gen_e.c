@@ -9680,41 +9680,41 @@ void syCfgGetSoundMode(int a4)
     }
 }
 
-int ADXT_GetNumSmpl(int a4)
+int ADXT_GetNumSmpl(int playerAddress)
 {
-    int t0;
-    int t1;
+    int status;
+    int streamDecoderAddress;
 
-    t0 = *(signed char *)((a4 + 0x1));
-    if ((int)t0 >= (int)0x2) {
-        t1 = *(int *)((a4 + 0x4));
-        return ADXSJD_GetTotalNumSmpl(t1);
+    status = *(signed char *)((playerAddress + 0x1));
+    if ((int)status >= (int)0x2) {
+        streamDecoderAddress = *(int *)((playerAddress + 0x4));
+        return ADXSJD_GetTotalNumSmpl(streamDecoderAddress);
     }
     return 0x0;
 }
 
-int ADXT_GetSfreq(int a4)
+int ADXT_GetSfreq(int playerAddress)
 {
-    int t0;
-    int t1;
+    int status;
+    int streamDecoderAddress;
 
-    t0 = *(signed char *)((a4 + 0x1));
-    if ((int)t0 >= (int)0x2) {
-        t1 = *(int *)((a4 + 0x4));
-        return ADXSJD_GetSfreq(t1);
+    status = *(signed char *)((playerAddress + 0x1));
+    if ((int)status >= (int)0x2) {
+        streamDecoderAddress = *(int *)((playerAddress + 0x4));
+        return ADXSJD_GetSfreq(streamDecoderAddress);
     }
     return 0x0;
 }
 
-int ADXT_GetNumChan(int a4)
+int ADXT_GetNumChan(int playerAddress)
 {
-    int t0;
-    int t1;
+    int status;
+    int streamDecoderAddress;
 
-    t0 = *(signed char *)((a4 + 0x1));
-    if ((int)t0 >= (int)0x2) {
-        t1 = *(int *)((a4 + 0x4));
-        return ADXSJD_GetNumChan(t1);
+    status = *(signed char *)((playerAddress + 0x1));
+    if ((int)status >= (int)0x2) {
+        streamDecoderAddress = *(int *)((playerAddress + 0x4));
+        return ADXSJD_GetNumChan(streamDecoderAddress);
     }
     return 0x0;
 }
@@ -10721,40 +10721,40 @@ int SJMEM_Create(int a4, int a5)
 
 void SJRBF_Finish(void)
 {
-    int t0;
+    int initCount;
 
-    t0 = *(int *)0x8C20C928;
-    *(unsigned int *)0x8C20C928 = (t0 - 1);
+    initCount = *(int *)0x8C20C928;
+    *(unsigned int *)0x8C20C928 = (initCount - 1);
 }
 
-int SJRBF_Create(int a4, int a5, int a6)
+int SJRBF_Create(int bufferAddress, int bufferBytes, int wrapMarginBytes)
 {
-    int t0;
-    int t1;
+    int handleIndex;
+    int allocated;
 
-    t0 = 0x0;
+    handleIndex = 0x0;
     for (;;) {
-        t1 = *(int *)(((((((t0 << 1) + t0) << 2) << 2) + 0x8C46EFD4) + 0x4));
-        if (t1 != 0) {
-            t0 = (t0 + 0x1);
-            if ((int)t0 >= (int)0x40) break;
+        allocated = *(int *)(((((((handleIndex << 1) + handleIndex) << 2) << 2) + 0x8C46EFD4) + 0x4));
+        if (allocated != 0) {
+            handleIndex = (handleIndex + 0x1);
+            if ((int)handleIndex >= (int)0x40) break;
             continue;
         }
         break;
     }
-    if (t0 == 64) {
+    if (handleIndex == 64) {
         return 0x0;
     }
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x4)) = 0x1;
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x0)) = 0x8C20C8F8;
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x1C)) = a4;
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x20)) = a5;
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x24)) = a6;
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x8)) = 0x8C20AD70;
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x28)) = 0x8C1F3416;
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x2C)) = (0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2));
-    SJRBF_Reset((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)));
-    return (0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2));
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x4)) = 0x1;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x0)) = 0x8C20C8F8;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x1C)) = bufferAddress;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x20)) = bufferBytes;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x24)) = wrapMarginBytes;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x8)) = 0x8C20AD70;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x28)) = 0x8C1F3416;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x2C)) = (0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2));
+    SJRBF_Reset((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)));
+    return (0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2));
 }
 
 int SJUNI_Init(void)

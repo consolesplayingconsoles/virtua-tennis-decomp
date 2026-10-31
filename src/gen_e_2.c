@@ -178,12 +178,12 @@ void ADXSJD_Stop(int a4)
 }
 
 
-int ADXSJD_GetLpEndOfst(int a4)
+int ADXSJD_GetLpEndOfst(int streamDecoderAddress)
 {
-    int t0;
+    int decoderAddress;
 
-    t0 = *(int *)((a4 + 0x4));
-    return ADXB_GetLpEndOfst(t0);
+    decoderAddress = *(int *)((streamDecoderAddress + 0x4));
+    return ADXB_GetLpEndOfst(decoderAddress);
 }
 
 

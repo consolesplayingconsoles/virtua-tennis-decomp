@@ -978,31 +978,31 @@ int btnGuideInitB(void)
     return 0x3E8;
 }
 
-void nlSetPaletteMap(int a4, int a5)
+void nlSetPaletteMap(int firstColor, int colorCount)
 {
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
+    int mapIndexOrWord;
+    int allocationBit;
+    int remainingChunks;
+    int bitmapAddress;
+    int hasMoreChunks;
 
-    t0 = ((int)a4 >> 4);
-    t1 = (((int)(a4 & 0xF) >= 0) ? (0x1 << ((a4 & 0xF) & 31)) : ((-(int)(a4 & 0xF) & 31) ? ((int)0x1 >> (-(int)(a4 & 0xF) & 31)) : ((int)0x1 >> 31)));
-    t2 = ((int)(a5 + 0xF) >> 4);
-    t3 = ((((int)a4 >> 4) << 1) + 0x8C424204);
+    mapIndexOrWord = ((int)firstColor >> 4);
+    allocationBit = (((int)(firstColor & 0xF) >= 0) ? (0x1 << ((firstColor & 0xF) & 31)) : ((-(int)(firstColor & 0xF) & 31) ? ((int)0x1 >> (-(int)(firstColor & 0xF) & 31)) : ((int)0x1 >> 31)));
+    remainingChunks = ((int)(colorCount + 0xF) >> 4);
+    bitmapAddress = ((((int)firstColor >> 4) << 1) + 0x8C424204);
     for (;;) {
-        t4 = ((int)t2 > 0);
-        t2 = (t2 - 1);
-        if (!t4) {
+        hasMoreChunks = ((int)remainingChunks > 0);
+        remainingChunks = (remainingChunks - 1);
+        if (!hasMoreChunks) {
             break;
         }
-        t0 = (*(short *)((t3 + 0x0)));
-        t0 = (t0 | t1);
-        t1 = (t1 + t1);
-        *(unsigned short *)((t3 + 0x0)) = t0;
-        if ((int)t1 >= (int)0x10000) {
-            t1 = 0x1;
-            t3 = (t3 + 0x2);
+        mapIndexOrWord = (*(short *)((bitmapAddress + 0x0)));
+        mapIndexOrWord = (mapIndexOrWord | allocationBit);
+        allocationBit = (allocationBit + allocationBit);
+        *(unsigned short *)((bitmapAddress + 0x0)) = mapIndexOrWord;
+        if ((int)allocationBit >= (int)0x10000) {
+            allocationBit = 0x1;
+            bitmapAddress = (bitmapAddress + 0x2);
         }
     }
 }

@@ -3,11 +3,10 @@
 
 extern int *gNlTextureSurfaces;
 extern int gNlTextureSurfaceCount;
-extern int g_0c2b317c;
-extern int g_0c2b3184;
+extern int gNlTextureLoadAttempts;
+extern int gNlCommonTextureOffset;
 extern float gNlGlobalAmbience;
 extern float gNlObjectGlobalAmbience;
-extern void (*g_0c14a9a8[])(int);
 extern float gNlSpriteInverseScreenSize[2];
 extern float gNlSpriteScreenSize[2];
 extern char gNlSoundStreamHeaderTemplate[];
@@ -32,8 +31,8 @@ void nlInitTextureSurface(int *surfaceTable, int surfaceCount)
 
     gNlTextureSurfaces = surfaceTable;
     gNlTextureSurfaceCount = surfaceCount;
-    g_0c2b317c = 0;
-    g_0c2b3184 = 0;
+    gNlTextureLoadAttempts = 0;
+    gNlCommonTextureOffset = 0;
     for (surfaceIndex = 0; surfaceIndex < surfaceCount; surfaceIndex++) {
         surfaceTable[10] = -1;
         surfaceTable[11] = 0;

@@ -10,9 +10,9 @@ extern int kmDiscardVertexBuffer(void *p);
 
 extern char gPaletteDirty[];
 extern char gPaletteData[];
-extern short g_0c2aecc8[];
+extern short gNlPaletteAllocationBitmap[];
 extern float gNlObjectFadeColorCopy[];
-extern int g_0c2b356c;
+extern int gNlObjectModifierModeBits;
 
 
 void nlInitPalette(char *paletteTable, int paletteCount)
@@ -34,7 +34,7 @@ void nlInitPalette(char *paletteTable, int paletteCount)
         paletteEntry += 8;
         remainingEntries--;
     }
-    for (counter = g_0c2aecc8; counter < g_0c2aecc8 + 4; counter++)
+    for (counter = gNlPaletteAllocationBitmap; counter < gNlPaletteAllocationBitmap + 4; counter++)
         *counter = 0;
 }
 
@@ -64,7 +64,7 @@ void nlObjPutMvSetMode(int modifierMode)
 {
     if (modifierMode != 2)
         modifierMode = 1;
-    g_0c2b356c = modifierMode << 29;
+    gNlObjectModifierModeBits = modifierMode << 29;
 }
 
 

@@ -15,22 +15,22 @@ extern int kmiWriteRegister(int reg, int val);
 extern char strMwRnaNullHandleError[];
 extern char *gMapleDriver;
 extern unsigned int gVertexBufferLockState[];
-extern int g_8c20ccd0;
+extern int gAdxPcmDecodeErrorFlag;
 
-struct HardwareRegisterInit { unsigned int *addr; unsigned int val; };
+struct HardwareRegisterInit { unsigned int *registerAddress; unsigned int initialValue; };
 extern struct HardwareRegisterInit gHwInitRegisterTable[];
 
-struct InterruptHandlerNode { void (*fn)(int); struct InterruptHandlerNode *next; int arg; };
+struct InterruptHandlerNode { void (*callback)(int); struct InterruptHandlerNode *next; int callbackArgument; };
 extern struct InterruptHandlerNode *gInterruptHandlerChains[];
 
-struct VmsFileCommandState { int w0; int flag; int pad[3]; int p[6]; int rest[21]; };
+struct VmsFileCommandState { int w0; int commandState; int pad[3]; int parameters[6]; int rest[21]; };
 extern struct VmsFileCommandState gVmsFileCommandStates[];
 extern char gMapleDeviceTable[];
 extern void (*gMapleHandlers[])(void);
 
-struct fbq { int f0; struct fbq *f4; struct fbq *f8; };
-struct dmaent { int f0; int f4; int f8; int f12; int f16; int f20; int f24; short s28; short s30; };
-struct adxb { int f0; int f4; void *f8; };
+struct TextureBlockQueuePrefix { int allocationFlags; struct TextureBlockQueuePrefix *next; struct TextureBlockQueuePrefix *previous; };
+struct TextureDmaRequestPrefix { int f0; int operation; int f8; int byteCount; int sourceAddress; int destinationAddress; int f24; short s28; short s30; };
+struct AdxBitstreamDecoderPrefix { int f0; int status; void *pcmDecoder; };
 
 void pdGunSetTrigger(int x)
 {
@@ -53,8 +53,8 @@ void hwInit(void)
     *(volatile unsigned short *)0xFFD00004 = 0;
     *(volatile unsigned short *)0xFFD00008 = 0;
     *(volatile unsigned short *)0xFFD0000C = 0;
-    for (registerEntry = gHwInitRegisterTable; registerEntry->addr != 0; registerEntry++) {
-        *registerEntry->addr = registerEntry->val;
+    for (registerEntry = gHwInitRegisterTable; registerEntry->registerAddress != 0; registerEntry++) {
+        *registerEntry->registerAddress = registerEntry->initialValue;
     }
 }
 
@@ -63,7 +63,7 @@ void syChainMasterHandler(short eventCode)
     struct InterruptHandlerNode *handler;
 
     for (handler = gInterruptHandlerChains[eventCode >> 4]; handler != 0; handler = handler->next) {
-        handler->fn(handler->arg);
+        handler->callback(handler->callbackArgument);
     }
 }
 
@@ -89,17 +89,17 @@ void kdSetHandler(unsigned int handlerIndex, void (*callback)(void))
     }
 }
 
-void vmsfs_c_setparam(int n, int a, int b, int c, int d, int e, int f)
+void vmsfs_c_setparam(int commandIndex, int a, int b, int c, int d, int e, int f)
 {
-    struct VmsFileCommandState *s = &gVmsFileCommandStates[n];
+    struct VmsFileCommandState *command = &gVmsFileCommandStates[commandIndex];
 
-    s->p[0] = a;
-    s->p[1] = b;
-    s->p[2] = c;
-    s->p[3] = d;
-    s->p[4] = e;
-    s->p[5] = f;
-    s->flag = 1;
+    command->parameters[0] = a;
+    command->parameters[1] = b;
+    command->parameters[2] = c;
+    command->parameters[3] = d;
+    command->parameters[4] = e;
+    command->parameters[5] = f;
+    command->commandState = 1;
 }
 
 unsigned int DECtoBCD(unsigned int decimalValue)
@@ -127,33 +127,33 @@ int mwRnaGetSfreq(int *rna)
     return rna[3];
 }
 
-int kmySetTextureDMA(struct dmaent *p, unsigned int a, int b, int c)
+int kmySetTextureDMA(struct TextureDmaRequestPrefix *request, unsigned int destinationAddress, int sourceAddress, int byteCount)
 {
-    p->f16 = b;
-    p->f20 = a | 0x11000000;
-    p->f12 = c;
-    p->f8 = 0;
-    p->f4 = 8;
-    p->s28 = 0x8000;
-    p->s30 = 0;
+    request->sourceAddress = sourceAddress;
+    request->destinationAddress = destinationAddress | 0x11000000;
+    request->byteCount = byteCount;
+    request->f8 = 0;
+    request->operation = 8;
+    request->s28 = 0x8000;
+    request->s30 = 0;
     return 0;
 }
 
-void kmytex_FBEnQueueEntry(struct fbq **list, struct fbq *e, struct fbq *q)
+void kmytex_FBEnQueueEntry(struct TextureBlockQueuePrefix **head, struct TextureBlockQueuePrefix *entry, struct TextureBlockQueuePrefix *before)
 {
-    struct fbq *x;
+    struct TextureBlockQueuePrefix *previous;
 
-    if (q->f8 == 0) {
-        *list = e;
-        e->f4 = q;
-        x = 0;
+    if (before->previous == 0) {
+        *head = entry;
+        entry->next = before;
+        previous = 0;
     } else {
-        q->f8->f4 = e;
-        e->f4 = q;
-        x = q->f8;
+        before->previous->next = entry;
+        entry->next = before;
+        previous = before->previous;
     }
-    e->f8 = x;
-    q->f8 = e;
+    entry->previous = previous;
+    before->previous = entry;
 }
 
 int kmiFLWCTRLGetVBufLockStatus(int bufferIndex)
@@ -205,10 +205,10 @@ void mpdrv_set_setcond_ns(int a, int b, int c, int d)
     mpdrv_setcmd(a, 14, buf, 1, buf[1], buf[2]);
 }
 
-void ADXB_Stop(struct adxb *p)
+void ADXB_Stop(struct AdxBitstreamDecoderPrefix *decoder)
 {
-    ADXPD_Stop(p->f8);
-    p->f4 = 0;
+    ADXPD_Stop(decoder->pcmDecoder);
+    decoder->status = 0;
 }
 
 int kmySetCheapShadowMode(int a, int b)
@@ -219,5 +219,5 @@ int kmySetCheapShadowMode(int a, int b)
 
 void adxpd_error(void)
 {
-    g_8c20ccd0 = 1;
+    gAdxPcmDecodeErrorFlag = 1;
 }

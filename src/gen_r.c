@@ -353,9 +353,9 @@ int ADXRNA_GetNumRoom(void)
     return 0x7FFFFFFF;
 }
 
-int ADXSJD_GetSpsdInfo(int a4)
+int ADXSJD_GetSpsdInfo(int streamDecoderAddress)
 {
-    return (a4 + 0x58);
+    return (streamDecoderAddress + 0x58);
 }
 
 void _kmyiDefaultPALEXTCallbackFunc(int a4)

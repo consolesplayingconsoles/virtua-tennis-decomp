@@ -15,16 +15,16 @@ extern int mwRnaErrCallFunc(int a, int b, int c, int d, int e);
 extern void kmyMemCopy(int a, int b, int c);
 extern void kmiWriteRegister(int reg, int val);
 
-extern int g_8c454cbc;
+extern int gNlSoundPackUsedBytes;
 extern int *gGdFsGlobalState;
 extern char gVmsVolumeStates[];
 extern char gAdxErrorMessageBuffer[];
 extern int gAdxErrorCallback;
 extern int gAdxErrorCallbackArgument;
 extern char strMwRnaNullHandleError[];
-extern unsigned int g_8c45ee4c;
-extern int g_8c45eee4;
-extern int g_8c45eee8;
+extern unsigned int gFrameBufferReadControl;
+extern int gStripBufferEnabled;
+extern int gStripBufferSizeBytes;
 extern char *gMapleDriver;
 
 
@@ -40,7 +40,7 @@ int nlsndG2WriteN(int *a, int *b, int n)
 
 int nlsndRemainMem(void)
 {
-    return nlsndG2Read(0xa0800088) - g_8c454cbc;
+    return nlsndG2Read(0xa0800088) - gNlSoundPackUsedBytes;
 }
 
 
@@ -139,11 +139,11 @@ int SJUNI_GetNumChainPool(int *p)
 }
 
 
-int kmySetStripBuffer(int a, int b)
+int kmySetStripBuffer(int enabled, int sizeBytes)
 {
-    g_8c45ee4c = (g_8c45ee4c & 0xffa0ffff) | ((a & 1) << 22) | (((b / 32) & 31) << 16);
-    g_8c45eee4 = a;
-    g_8c45eee8 = b;
+    gFrameBufferReadControl = (gFrameBufferReadControl & 0xffa0ffff) | ((enabled & 1) << 22) | (((sizeBytes / 32) & 31) << 16);
+    gStripBufferEnabled = enabled;
+    gStripBufferSizeBytes = sizeBytes;
     return 0;
 }
 

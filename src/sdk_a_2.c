@@ -17,7 +17,7 @@ extern int gPaletteModeTable[];
 extern short gNlPaletteCount;
 extern int gNlPaletteTable;
 extern unsigned int gNlPrintTileClipFlags;
-extern char g_0c2b34a8[];
+extern char gNlObjectMatrix[];
 
 
 void nlFreePaletteAll(void)
@@ -64,7 +64,7 @@ void nlObjPut(int *obj)
     if (!(obj[1] & 2))
         nlInvLightVector(obj[1]);
     nlPushMatrix(0);
-    nlMultiMatrixRevOrder8(g_0c2b34a8);
+    nlMultiMatrixRevOrder8(gNlObjectMatrix);
     nlobjput_sub(obj);
 }
 
