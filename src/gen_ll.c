@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_ll): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 typedef struct { int w[1]; } Stk1;
 typedef struct { int w[3]; } Stk3;
@@ -135,7 +136,7 @@ int resultTeamsDraw(int a4, int a5, int a6, int a7, float f4)
     *(int *)((int)stk + 108) = ((((int)stk + 124) + 0x28) + 0xC);
     *(Stk3 *)(((((int)stk + 124) + 0x28) + 0xC)) = vecMake(462.0f, 165.0f, 0.100000001f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 96)) = *(struct mv3 *)((((int)stk + 124) + 0x28)); }
-    *(unsigned int *)(((int)stk + 140)) = 0x8C287D84;
+    *(unsigned int *)(((int)stk + 140)) = (int)Player;
     iconSlotPut((*(int *)0x8C2889DC), *(Stk3 *)(((int)stk + 96)), 0.65234375f, F4);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 84)) = *(struct mv3 *)((*(int *)(((int)stk + 124)))); }
     *(unsigned int *)(((int)stk + 144)) = 0x8C289874;

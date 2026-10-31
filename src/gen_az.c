@@ -1,5 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_az): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
+extern char motFileAddr[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[16]; } Stk16;
@@ -134,11 +136,11 @@ void shotAim(int a4)
             u18 = (u18 + (*(float *)((t16 + 0x0))));
         }
         t16 = 0x20;
-        u22 = *(float *)((0x8C291F24 + t16));
+        u22 = *(float *)(((int)Ball + t16));
         t16 = 0x4;
         u23 = *(float *)((((int)stk + 8) + t16));
         t16 = 0x18;
-        u24 = *(float *)((0x8C291F24 + t16));
+        u24 = *(float *)(((int)Ball + t16));
         t16 = 0x8;
         t16 = (nlArcTan2(((*(float *)((((int)stk + 8) + t16))) - u24), (u23 - u22)));
         t16 = (vecFromYaw(t16, 0x0, 0x0, 0x0, 0x8C291F48));
@@ -147,16 +149,16 @@ void shotAim(int a4)
         t16 = 0x8;
         u29 = *(float *)((((int)stk + 8) + t16));
         t16 = 0x20;
-        u30 = *(float *)((0x8C291F24 + t16));
+        u30 = *(float *)(((int)Ball + t16));
         t16 = 0x18;
-        t32 = vecDistXZf((*(float *)((0x8C291F24 + t16))), u30, u29, u28);
+        t32 = vecDistXZf((*(float *)(((int)Ball + t16))), u30, u29, u28);
         t16 = 0xC;
         *(float *)((((int)stk + 8) + t16)) = t32;
         t16 = 0x1C;
-        u33 = *(float *)((0x8C291F24 + t16));
+        u33 = *(float *)(((int)Ball + t16));
         t16 = 0x70;
-        u35 = *(float *)((0x8C291F24 + t16));
-        u37 = ((((*(float *)((0x8C291F24 + t16))) * u33)) * (1.0f + 1.0f));
+        u35 = *(float *)(((int)Ball + t16));
+        u37 = ((((*(float *)(((int)Ball + t16))) * u33)) * (1.0f + 1.0f));
         u37 = u37 + u18 * u18;
         *(float *)(((int)stk + 8)) = (((-u18) - _builtin_sqrtf(u37)) / (-(u35 * 1.0f)));
         t17 = 0x1;
@@ -181,7 +183,7 @@ void shotAim(int a4)
         t16 = 0xC;
         t16 = (nlScaleVector(0x8C291F48, 0x8C291F48, ((*(float *)((((int)stk + 8) + t16))) / u44)));
         t17 = 0x1;
-        t16 = (shotCheckNet(a4, 0x8C291F24));
+        t16 = (shotCheckNet(a4, (int)Ball));
         if (t16 == 0) {
             break;
         }
@@ -238,7 +240,7 @@ int cpuSglChase(int a4, int a5, int a6, int a7)
     R0 = (0xB60);
     R11 = (0x1);
     R12 = (R4);
-    R13 = (0x8C291F24);
+    R13 = ((int)Ball);
     R14 = (((t0 * 0x160) + 0x8C2FC69C));
     R4 = (0x0);
     if (t2) goto L_8C046450;
@@ -578,7 +580,7 @@ void netJudgeUpdate(int a4)
     motionBackup(0x8C38A25C);
     t7 = *(int *)0x8C38A814;
     R0 = (t7);
-    R10 = (0x8C2873CC);
+    R10 = ((int)motFileAddr);
     R11 = (0x0);
     R12 = (0x8C014C4A);
     R13 = (0x1);

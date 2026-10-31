@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_lk): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 int cpuAimPointSet(int, int, float, float);
 int serveGetServer(void);
@@ -75,7 +76,7 @@ int cpuDblAimAddCourt(int a4, int a5)
     *(float *)(((int)stk + 12)) = F13;
     *(float *)(((int)stk + 8)) = F12;
     t5 = *(int *)((R4 + 0xB5C));
-    t8 = (*(int *)(((0xB5C + ((((t5 + 0x3) & 0x3) * 0xD78) + 0x8C287D84)) + 0x0))) != (serveGetServer());
+    t8 = (*(int *)(((0xB5C + ((((t5 + 0x3) & 0x3) * 0xD78) + (int)Player)) + 0x0))) != (serveGetServer());
     *(unsigned int *)(((int)stk + 36)) = t0;
     *(unsigned int *)(((int)stk + 32)) = t1;
     *(unsigned int *)(((int)stk + 28)) = t2;
@@ -85,12 +86,12 @@ int cpuDblAimAddCourt(int a4, int a5)
     *(float *)(((int)stk + 12)) = F14;
     *(float *)(((int)stk + 8)) = F13;
     *(float *)(((int)stk + 4)) = F12;
-    R10 = (((((t5 + 0x3) & 0x3) * 0xD78) + 0x8C287D84));
+    R10 = (((((t5 + 0x3) & 0x3) * 0xD78) + (int)Player));
     R11 = (((t5 * 0x160) + 0x8C2FC69C));
     R12 = (0x8C041C58);
     R13 = (R5);
     R14 = (R4);
-    R9 = (((((t5 + 0x1) & 0x3) * 0xD78) + 0x8C287D84));
+    R9 = (((((t5 + 0x1) & 0x3) * 0xD78) + (int)Player));
     if (t8) goto L_8C071CC8;
     *(unsigned int *)(((int)stk + 36)) = *(int *)((int)stk + 36);
     *(unsigned int *)(((int)stk + 32)) = *(int *)((int)stk + 32);

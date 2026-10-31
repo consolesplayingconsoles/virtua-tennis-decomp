@@ -1,5 +1,12 @@
 /* Straight-line functions with calls and guards (batch gen_z): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
+extern char fileLoadState[];
+extern char gNlSoundStreams[];
+extern char gRenderCallbacks[];
+extern char g_0c2aec88[];
+extern char motionCur[];
+extern char motionSkelOfs[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -273,8 +280,8 @@ int motionBoneOffset(int a4)
     int t1;
     float u2;
 
-    t1 = *(int *)0x8C2873B8;
-    u2 = *(float *)(((*(int *)0x8C2871D4) + 0x4C));
+    t1 = *(int *)(int)motionSkelOfs;
+    u2 = *(float *)(((*(int *)(int)motionCur) + 0x4C));
     return nlTranslate(((*(float *)((((((a4 << 1) + a4) << 2) + t1) + 0x0))) * u2), ((*(float *)((((((a4 << 1) + a4) << 2) + t1) + 0x4))) * u2), (-((*(float *)((((((a4 << 1) + a4) << 2) + t1) + 0x8))) * u2)));
 }
 
@@ -609,8 +616,8 @@ int matchPlayersXInside(void)
     int t1;
 
     u0 = *(float *)0x8C0BA774;
-    if ((unsigned int)0x8C287D84 < (unsigned int)0x8C289874) {
-        t1 = 0x8C287D84;
+    if ((unsigned int)(int)Player < (unsigned int)0x8C289874) {
+        t1 = (int)Player;
         for (;;) {
             if (u0 > (*(float *)((t1 + 0xAE8)))) {
                 break;
@@ -798,8 +805,8 @@ int playerSetup(int a4, int a5, int a6, int a7)
 
 int resEndUniRead(int a4)
 {
-    if ((*(int *)0x8C34A1EC) == 0) {
-        *(unsigned int *)0x8C34A1EC = 0x1;
+    if ((*(int *)(int)fileLoadState) == 0) {
+        *(unsigned int *)(int)fileLoadState = 0x1;
         fileLoadStartAfs(0x8CA80000, 0x4, (*(int *)(((a4 << 2) + 0x8C127340))));
     }
     return fileLoadPollAfs();
@@ -809,11 +816,11 @@ int resSpRead(int a4)
 {
     int t5;
 
-    if ((*(int *)0x8C34A1EC) == 0) {
-        *(unsigned int *)0x8C34A1EC = 0x1;
+    if ((*(int *)(int)fileLoadState) == 0) {
+        *(unsigned int *)(int)fileLoadState = 0x1;
         fileLoadStart(0x8CA80000, (*(int *)(((a4 << 2) + 0x8C1DC674))), 0x0);
     } else {
-        t5 = 0x8C34A1EC;
+        t5 = (int)fileLoadState;
     }
     return fileLoadPoll(t5);
 }
@@ -1072,8 +1079,8 @@ int entryPortContinue(int a4, int a5)
 
 int afsPartition1Load(int a4)
 {
-    if ((*(int *)0x8C34A1EC) == 0) {
-        *(unsigned int *)0x8C34A1EC = 0x1;
+    if ((*(int *)(int)fileLoadState) == 0) {
+        *(unsigned int *)(int)fileLoadState = 0x1;
         fileLoadStartAfs(0x8CA80000, 0x1, (*(int *)(((a4 << 2) + 0x8C11FC70))));
     }
     return fileLoadPollAfs();
@@ -1083,11 +1090,11 @@ int plPicLoad(int a4)
 {
     int t5;
 
-    if ((*(int *)0x8C34A1EC) == 0) {
-        *(unsigned int *)0x8C34A1EC = 0x1;
+    if ((*(int *)(int)fileLoadState) == 0) {
+        *(unsigned int *)(int)fileLoadState = 0x1;
         fileLoadStart(0x8CA80000, (*(int *)(((a4 << 2) + 0x8C1890B4))), 0x0);
     } else {
-        t5 = 0x8C34A1EC;
+        t5 = (int)fileLoadState;
     }
     return fileLoadPoll(t5);
 }
@@ -1096,19 +1103,19 @@ int trainingSpriteLoad(int a4)
 {
     int t5;
 
-    if ((*(int *)0x8C34A1EC) == 0) {
-        *(unsigned int *)0x8C34A1EC = 0x1;
+    if ((*(int *)(int)fileLoadState) == 0) {
+        *(unsigned int *)(int)fileLoadState = 0x1;
         fileLoadStart(0x8CA80000, (*(int *)(((a4 << 2) + 0x8C1890FC))), 0x0);
     } else {
-        t5 = 0x8C34A1EC;
+        t5 = (int)fileLoadState;
     }
     return fileLoadPoll(t5);
 }
 
 int afsPartition7Load(int a4)
 {
-    if ((*(int *)0x8C34A1EC) == 0) {
-        *(unsigned int *)0x8C34A1EC = 0x1;
+    if ((*(int *)(int)fileLoadState) == 0) {
+        *(unsigned int *)(int)fileLoadState = 0x1;
         fileLoadStartAfs(0x8CA80000, 0x7, (*(int *)(((a4 << 2) + 0x8C11FD3C))));
     }
     return fileLoadPollAfs();
@@ -1287,7 +1294,7 @@ int nlCommonTextureClearTextureIndex(int a4, int a5)
     int t2;
 
     if ((int)a4 >= 0) {
-        t0 = *(int *)0x8C4241C4;
+        t0 = *(int *)(int)g_0c2aec88;
         *(unsigned int *)(((((int)a4 >> 5) << 2) + t0)) = ((*(int *)(((((int)a4 >> 5) << 2) + t0))) & (~(((int)(0x1F & a4) >= 0) ? (0x1 << ((0x1F & a4) & 31)) : ((-(int)(0x1F & a4) & 31) ? ((int)0x1 >> (-(int)(0x1F & a4) & 31)) : ((int)0x1 >> 31)))));
         t2 = t0;
     }
@@ -1437,7 +1444,7 @@ int kmyRequestCallback(int a4)
 {
     int t2;
 
-    t2 = ((int (*)(int))((*(int *)(((((a4 << 2) << 1) + 0x8C470A20) + 0x0)))))((*(int *)(((((a4 << 2) << 1) + 0x8C470A20) + 0x4))));
+    t2 = ((int (*)(int))((*(int *)(((((a4 << 2) << 1) + (int)gRenderCallbacks) + 0x0)))))((*(int *)(((((a4 << 2) << 1) + (int)gRenderCallbacks) + 0x4))));
     return 0x0;
 }
 
@@ -1498,12 +1505,12 @@ int nlsndStreamClose(int a4)
     int t5;
     int t2;
 
-    t0 = *(signed char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x0));
+    t0 = *(signed char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x0));
     t5 = t0;
     if (t0 == 1) {
-        t2 = *(signed char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x1));
+        t2 = *(signed char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x1));
         if (t2 == 0) {
-            *(unsigned char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x0)) = 0x0;
+            *(unsigned char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x0)) = 0x0;
         }
         t5 = t2;
     }
@@ -1553,8 +1560,8 @@ int kmyDisnnectRenderPacket(void)
 
 int kmyUnregisterCallback(int a4)
 {
-    *(unsigned int *)(((0x8C470A20 + ((a4 << 2) << 1)) + 0x0)) = (*(int *)0x8C470A1C);
-    *(unsigned int *)(((((a4 << 2) << 1) + 0x8C470A20) + 0x4)) = 0x0;
+    *(unsigned int *)((((int)gRenderCallbacks + ((a4 << 2) << 1)) + 0x0)) = (*(int *)0x8C470A1C);
+    *(unsigned int *)(((((a4 << 2) << 1) + (int)gRenderCallbacks) + 0x4)) = 0x0;
     return 0x0;
 }
 
@@ -1737,11 +1744,11 @@ int minigamePolyLoad(void)
 {
     int t4;
 
-    if ((*(int *)0x8C34A1EC) == 0) {
-        *(unsigned int *)0x8C34A1EC = 0x1;
+    if ((*(int *)(int)fileLoadState) == 0) {
+        *(unsigned int *)(int)fileLoadState = 0x1;
         fileLoadStart(0x8CB40000, 0x8C11FBE8, 0x0);
     } else {
-        t4 = 0x8C34A1EC;
+        t4 = (int)fileLoadState;
     }
     return fileLoadPoll(t4);
 }
@@ -1750,11 +1757,11 @@ int invitationSpriteLoad(void)
 {
     int t4;
 
-    if ((*(int *)0x8C34A1EC) == 0) {
-        *(unsigned int *)0x8C34A1EC = 0x1;
+    if ((*(int *)(int)fileLoadState) == 0) {
+        *(unsigned int *)(int)fileLoadState = 0x1;
         fileLoadStart(0x8CA80000, 0x8C11FE08, 0x0);
     } else {
-        t4 = 0x8C34A1EC;
+        t4 = (int)fileLoadState;
     }
     return fileLoadPoll(t4);
 }
@@ -1763,11 +1770,11 @@ int trialLoadSpriteLoad(void)
 {
     int t4;
 
-    if ((*(int *)0x8C34A1EC) == 0) {
-        *(unsigned int *)0x8C34A1EC = 0x1;
+    if ((*(int *)(int)fileLoadState) == 0) {
+        *(unsigned int *)(int)fileLoadState = 0x1;
         fileLoadStart(0x8CA80000, 0x8C11FE24, 0x0);
     } else {
-        t4 = 0x8C34A1EC;
+        t4 = (int)fileLoadState;
     }
     return fileLoadPoll(t4);
 }
@@ -1776,11 +1783,11 @@ int plPic2SeleLoad(void)
 {
     int t4;
 
-    if ((*(int *)0x8C34A1EC) == 0) {
-        *(unsigned int *)0x8C34A1EC = 0x1;
+    if ((*(int *)(int)fileLoadState) == 0) {
+        *(unsigned int *)(int)fileLoadState = 0x1;
         fileLoadStart(0x8CA80000, 0x8C11FE40, 0x0);
     } else {
-        t4 = 0x8C34A1EC;
+        t4 = (int)fileLoadState;
     }
     return fileLoadPoll(t4);
 }

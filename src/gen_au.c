@@ -1,5 +1,8 @@
 /* Straight-line functions with calls and guards (batch gen_au): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gVmsVolumeStates[];
+extern char g_0c2ee998[];
+extern char stageNo[];
 
 typedef struct { int w[3]; } Stk3;
 int ADXPD_GetStat(int);
@@ -218,7 +221,7 @@ void vmsfs_fread1(int a4, int a5)
     if (t9) goto L_8C1ECA1C;
     goto L_8C1ECA0C;
     L_8C1ECA0C:;
-    if (((*(signed char *)((((*(int *)((R14 + 0x28))) * 0x148) + 0x8C4645A0))) != 0)) goto L_8C1ECA4C;
+    if (((*(signed char *)((((*(int *)((R14 + 0x28))) * 0x148) + (int)g_0c2ee998))) != 0)) goto L_8C1ECA4C;
     goto L_8C1ECA1C;
     L_8C1ECA4C:;
     t15 = (int)(buIsFormat((*(int *)((R14 + 0x28))))) >= 0;
@@ -352,14 +355,14 @@ int umpireInit(void)
         t19 = 0x8C1D0DF0;
         if ((*(int *)(((t3 << 2) + 0x8C1D0DF0))) != 0) {
             motionSet(0x8C38A898, (*(int *)0x8C124E60), 0x0, 0x2F720, ((*(int *)(((*(int *)(((t3 << 2) + 0x8C1D0DF0))) + 0x0)))), ((*(int *)0x8C2873D4)), 0.0f);
-            *(float *)0x8C38AE38 = (float)(*(int *)((((((*(int *)0x8C1891F0) << 2) << 1) + (((((t1 << 2) + t1) << 2) << 2) + 0x8C124E90)) + 0x0)));
-            *(float *)0x8C38AE3C = (float)(*(int *)((((((*(int *)0x8C1891F0) << 2) << 1) + (((((t1 << 2) + t1) << 2) << 2) + 0x8C124E90)) + 0x4)));
+            *(float *)0x8C38AE38 = (float)(*(int *)((((((*(int *)(int)stageNo) << 2) << 1) + (((((t1 << 2) + t1) << 2) << 2) + 0x8C124E90)) + 0x0)));
+            *(float *)0x8C38AE3C = (float)(*(int *)((((((*(int *)(int)stageNo) << 2) << 1) + (((((t1 << 2) + t1) << 2) << 2) + 0x8C124E90)) + 0x4)));
             *(float *)0x8C38AE40 = 0.0f;
             *(unsigned short *)0x8C38AE44 = 0x4000;
             *(unsigned int *)0x8C38AE50 = 0x0;
             *(unsigned int *)0x8C38AE48 = 0x1;
             *(unsigned int *)0x8C38A894 = 0x0;
-            colliObjInit(0x8C38AE38, 0x8C1891F0, 0x0, 0x0, 0x8C38AE58, 10.0f);
+            colliObjInit(0x8C38AE38, (int)stageNo, 0x0, 0x0, 0x8C38AE58, 10.0f);
             t18 = *(int *)0x8C38AE90;
             *(unsigned int *)0x8C38AE90 = (t18 | 0x2);
             t19 = (t18 | 0x2);
@@ -423,9 +426,9 @@ int vmsfs_fgetinfo(int a4, int a5, int a6)
 
     *(unsigned int *)(((int)stk + 8)) = a5;
     *(unsigned int *)(((int)stk + 12)) = (a4 * 0x148);
-    *(unsigned int *)(((int)stk + 4)) = ((a4 * 0x148) + 0x8C464598);
+    *(unsigned int *)(((int)stk + 4)) = ((a4 * 0x148) + (int)gVmsVolumeStates);
     t34 = 0xFFFFFF01;
-    if ((*(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x2))) != 0) {
+    if ((*(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x2))) != 0) {
         t1 = vmsio_isready(a4);
         if (t1 == 0) {
             vmsfs_unmount(a4);
@@ -433,7 +436,7 @@ int vmsfs_fgetinfo(int a4, int a5, int a6)
         } else {
             t3 = vmsio_ismount(a4);
             t27 = 0xFFFFFF01;
-            if ((t3 != 0) && (t4 = *(int *)(((int)stk + 12)), t5 = *(signed char *)(((t4 + 0x8C464598) + 0x8)), t5 != 0)) {
+            if ((t3 != 0) && (t4 = *(int *)(((int)stk + 12)), t5 = *(signed char *)(((t4 + (int)gVmsVolumeStates) + 0x8)), t5 != 0)) {
                 t6 = buIsFormat(a4);
                 t23 = 0xFFFFFF03;
                 if ((int)t6 < 0) {

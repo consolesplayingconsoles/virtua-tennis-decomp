@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_ch): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 int cpuAimPointSet(int, int, float, float);
 float cpuDistXZ(int, int);
@@ -21,7 +22,7 @@ int cpuSglAimAddLv21(int a4, int a5)
     float u2;
 
     t0 = *(int *)((a4 + 0xB5C));
-    t1 = *(int *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB5C));
+    t1 = *(int *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB5C));
     if (((*(int *)0x8C291F78) & 4) == 0) {
         if (((*(int *)((a4 + 0xB60))) & 4) != 0) {
             u0 = cpuDistXZ((0xAE8 + a4), (0xBA8 + a4));
@@ -32,7 +33,7 @@ int cpuSglAimAddLv21(int a4, int a5)
                 cpuAimPointSet((a5 + 0x1), 0x1, ((float)(-((u0 > 0.0f) - (0.0f > u0))) * 41.1500015f), ((*(float *)((a4 + 0xB00))) * 118.849998f));
                 t2 = ((a5 + 0x1) + 0x1);
             } else {
-                u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAF0));
+                u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAF0));
                 u1 = (-u0);
                 if (!(0.0f > u0)) {
                     u1 = u0;
@@ -68,7 +69,7 @@ int cpuSglAimAddLv21(int a4, int a5)
                             u1 = u0;
                         }
                         if (!(16.460001f > u1)) {
-                            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8));
+                            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAE8));
                             u1 = (-u0);
                             if (!(0.0f > u0)) {
                                 u1 = u0;
@@ -79,13 +80,13 @@ int cpuSglAimAddLv21(int a4, int a5)
                                 t4 = (a5 + 0x1);
                             } else {
                                 u0 = *(float *)((a4 + 0xB9C));
-                                u1 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8));
+                                u1 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAE8));
                                 if (((u0 > 0.0f) - (0.0f > u0)) != ((u1 > 0.0f) - (0.0f > u1))) {
                                     u0 = *(float *)((a4 + 0xB9C));
                                     cpuAimPointSet(a5, 0x1, ((float)((u0 > 0.0f) - (0.0f > u0)) * 41.1500015f), ((*(float *)((a4 + 0xB00))) * 118.849998f));
                                     t5 = (a5 + 0x1);
                                 } else {
-                                    u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAF0));
+                                    u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAF0));
                                     u1 = (-u0);
                                     if (!(0.0f > u0)) {
                                         u1 = u0;
@@ -122,27 +123,27 @@ int cpuSglAimAddLv21(int a4, int a5)
                             }
                             t5 = t4;
                         } else {
-                            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8));
+                            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAE8));
                             u1 = (-u0);
                             if (!(0.0f > u0)) {
                                 u1 = u0;
                             }
                             if (!(16.460001f > u1)) {
-                                u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB9C));
+                                u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB9C));
                                 cpuAimPointSet(a5, 0x1, ((float)(-((u0 > 0.0f) - (0.0f > u0))) * 41.1500015f), ((*(float *)((a4 + 0xB00))) * 118.849998f));
-                                u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB9C));
+                                u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB9C));
                                 cpuAimPointSet((a5 + 0x1), 0x1, ((float)(-((u0 > 0.0f) - (0.0f > u0))) * 41.1500015f), ((*(float *)((a4 + 0xB00))) * 117.661499f));
-                                u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB9C));
+                                u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB9C));
                                 cpuAimPointSet(((a5 + 0x1) + 0x1), 0x1, ((float)(-((u0 > 0.0f) - (0.0f > u0))) * 41.1500015f), ((*(float *)((a4 + 0xB00))) * 118.849998f));
-                                u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB9C));
+                                u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB9C));
                                 cpuAimPointSet((((a5 + 0x1) + 0x1) + 0x1), 0x1, ((float)(-((u0 > 0.0f) - (0.0f > u0))) * 41.1500015f), ((*(float *)((a4 + 0xB00))) * 117.661499f));
-                                u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB9C));
+                                u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB9C));
                                 cpuAimPointSet(((((a5 + 0x1) + 0x1) + 0x1) + 0x1), 0x1, ((float)((u0 > 0.0f) - (0.0f > u0)) * 41.1500015f), ((*(float *)((a4 + 0xB00))) * 118.849998f));
                                 t4 = (((((a5 + 0x1) + 0x1) + 0x1) + 0x1) + 0x1);
                             } else {
                                 u0 = *(float *)((a4 + 0xAE8));
                                 u1 = *(float *)((a4 + 0xB9C));
-                                u2 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8));
+                                u2 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAE8));
                                 if ((((u1 - u0) > 0.0f) - (0.0f > (u1 - u0))) != ((u2 > 0.0f) - (0.0f > u2))) {
                                     u0 = *(float *)((a4 + 0xAE8));
                                     u1 = *(float *)((a4 + 0xB9C));
@@ -186,7 +187,7 @@ int cpuSglAimAddLv21(int a4, int a5)
             }
             t3 = t2;
         } else {
-            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAF0));
+            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAF0));
             u1 = (-u0);
             if (!(0.0f > u0)) {
                 u1 = u0;
@@ -222,7 +223,7 @@ int cpuSglAimAddLv21(int a4, int a5)
                         u1 = u0;
                     }
                     if (!(16.460001f > u1)) {
-                        u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8));
+                        u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAE8));
                         u1 = (-u0);
                         if (!(0.0f > u0)) {
                             u1 = u0;
@@ -233,13 +234,13 @@ int cpuSglAimAddLv21(int a4, int a5)
                             t2 = (a5 + 0x1);
                         } else {
                             u0 = *(float *)((a4 + 0xB9C));
-                            u1 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8));
+                            u1 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAE8));
                             if (((u0 > 0.0f) - (0.0f > u0)) != ((u1 > 0.0f) - (0.0f > u1))) {
                                 u0 = *(float *)((a4 + 0xB9C));
                                 cpuAimPointSet(a5, 0x1, ((float)((u0 > 0.0f) - (0.0f > u0)) * 41.1500015f), ((*(float *)((a4 + 0xB00))) * 118.849998f));
                                 t4 = (a5 + 0x1);
                             } else {
-                                u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAF0));
+                                u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAF0));
                                 u1 = (-u0);
                                 if (!(0.0f > u0)) {
                                     u1 = u0;
@@ -276,27 +277,27 @@ int cpuSglAimAddLv21(int a4, int a5)
                         }
                         t4 = t2;
                     } else {
-                        u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8));
+                        u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAE8));
                         u1 = (-u0);
                         if (!(0.0f > u0)) {
                             u1 = u0;
                         }
                         if (!(16.460001f > u1)) {
-                            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB9C));
+                            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB9C));
                             cpuAimPointSet(a5, 0x1, ((float)(-((u0 > 0.0f) - (0.0f > u0))) * 41.1500015f), ((*(float *)((a4 + 0xB00))) * 118.849998f));
-                            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB9C));
+                            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB9C));
                             cpuAimPointSet((a5 + 0x1), 0x1, ((float)(-((u0 > 0.0f) - (0.0f > u0))) * 41.1500015f), ((*(float *)((a4 + 0xB00))) * 117.661499f));
-                            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB9C));
+                            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB9C));
                             cpuAimPointSet(((a5 + 0x1) + 0x1), 0x1, ((float)(-((u0 > 0.0f) - (0.0f > u0))) * 41.1500015f), ((*(float *)((a4 + 0xB00))) * 118.849998f));
-                            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB9C));
+                            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB9C));
                             cpuAimPointSet((((a5 + 0x1) + 0x1) + 0x1), 0x1, ((float)(-((u0 > 0.0f) - (0.0f > u0))) * 41.1500015f), ((*(float *)((a4 + 0xB00))) * 117.661499f));
-                            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB9C));
+                            u0 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB9C));
                             cpuAimPointSet(((((a5 + 0x1) + 0x1) + 0x1) + 0x1), 0x1, ((float)((u0 > 0.0f) - (0.0f > u0)) * 41.1500015f), ((*(float *)((a4 + 0xB00))) * 118.849998f));
                             t2 = (((((a5 + 0x1) + 0x1) + 0x1) + 0x1) + 0x1);
                         } else {
                             u0 = *(float *)((a4 + 0xAE8));
                             u1 = *(float *)((a4 + 0xB9C));
-                            u2 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8));
+                            u2 = *(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAE8));
                             if ((((u1 - u0) > 0.0f) - (0.0f > (u1 - u0))) != ((u2 > 0.0f) - (0.0f > u2))) {
                                 u0 = *(float *)((a4 + 0xAE8));
                                 u1 = *(float *)((a4 + 0xB9C));

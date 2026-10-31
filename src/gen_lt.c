@@ -1,5 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_lt): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
+extern char Player[];
 
 int nlRand(void);
 void cpuDblMoodUpdate(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7, float f8, float f9, float f10);
@@ -65,11 +67,11 @@ void cpuDblMoodUpdate(int a4, int a5, int a6, int a7, float f4, float f5, float 
     *(unsigned int *)0x8C38B934 = 0x0;
     *(unsigned int *)(((int)stk + 4)) = 0x3;
     R10 = (0x3);
-    R11 = (0x8C291F24);
+    R11 = ((int)Ball);
     R12 = (0x4);
     R13 = (0x0);
     R14 = (0x8C2FC69C);
-    R9 = (0x8C287D84);
+    R9 = ((int)Player);
     L_8C05731A:;
     R8 = (0x8C2FCC1C);
     if (((int)(*(int *)(((int)stk + 4))) < 0)) goto L_8C057326;
@@ -281,7 +283,7 @@ void cpuDblMoodUpdate(int a4, int a5, int a6, int a7, float f4, float f5, float 
     L_8C057326:;
     *(unsigned int *)(((int)stk + 12)) = 0x8C2FC69C;
     *(unsigned int *)(((int)stk + 4)) = R10;
-    R14 = (0x8C287D84);
+    R14 = ((int)Player);
     L_8C0573B6:;
     if (((int)(*(int *)(((int)stk + 4))) >= 0)) goto L_8C057330;
     return;

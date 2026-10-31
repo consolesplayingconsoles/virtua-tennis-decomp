@@ -1,5 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_bs): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
+extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 extern float _builtin_sqrtf(float);
@@ -409,12 +411,12 @@ void cpuSglMoodUpdate(void)
     *(unsigned int *)0x8C2FCC60 = ((*(int *)0x8C2FCC60) + 0x1);
     R0 = (0x8C0422B8);
     R10 = (0x100);
-    R11 = (0x8C287D84);
+    R11 = ((int)Player);
     R12 = (0x4);
     R13 = (0x0);
     R14 = (0x8C2FC69C);
     R8 = (0x1);
-    R9 = (0x8C291F24);
+    R9 = ((int)Ball);
     F14 = (0.100000001f);
     F15 = (32768.0f);
     goto L_8C04262A;

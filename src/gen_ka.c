@@ -1,5 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_ka): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
+extern char charaTbl[];
 
 typedef struct { int w[3]; } Stk3;
 int motionSet(int, int, int, int, int, int, float);
@@ -71,8 +73,8 @@ int selModelSpawn(int a4, int a5)
     *(unsigned short *)((v0_2 + 0x48)) = v0_6;
     L_8C0A9620:;
     *(unsigned int *)((v0_2 + 0x18)) = v0_3;
-    *(unsigned int *)((v0_2 + 0x5C)) = ((v0_3 * 0xD78) + 0x8C287D84);
-    *(unsigned int *)((((v0_3 * 0xD78) + 0x8C287D84) + 0xB5C)) = v0_3;
+    *(unsigned int *)((v0_2 + 0x5C)) = ((v0_3 * 0xD78) + (int)Player);
+    *(unsigned int *)((((v0_3 * 0xD78) + (int)Player) + 0xB5C)) = v0_3;
     *(unsigned int *)(((*(int *)((v0_2 + 0x5C))) + 0xC58)) = v0_5;
     if ((v0_4 != 1)) goto L_8C0A9656;
     *(unsigned int *)(((*(int *)((v0_2 + 0x5C))) + 0xC58)) = (*(int *)((((v0_0 + 0xC) + v0_1) + 0x0)));
@@ -102,7 +104,7 @@ int selModelSpawn(int a4, int a5)
     *(int *)((int)stk + 8) = v0_0;
     v0_1 = *(int *)((v0_2 + 0x5C));
     *(unsigned int *)(((int)stk + 20)) = v0_1;
-    v0_1 = (*(int *)((((*(int *)((v0_1 + 0xC58))) * 0x6C) + 0x8C102424)));
+    v0_1 = (*(int *)((((*(int *)((v0_1 + 0xC58))) * 0x6C) + (int)charaTbl)));
     *(int *)((int)stk + 4) = v0_1;
     v0_0 = ((motionSet((*(int *)(((int)stk + 20))), 0x10D2D8, 0x1, 0x12755C, v0_1, v0_0, (*(float *)0x8C23D204))));
     L_8C0A9706:;

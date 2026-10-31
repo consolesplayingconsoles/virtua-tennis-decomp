@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_vp): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
 
 typedef struct { int w[3]; } Stk3;
 int cpuChasePlan(int, int, int, int, int, int, int, int, int, int, int, int);
@@ -32,7 +33,7 @@ int cpuDblChase(int a4, int a5, int a6, int a7)
     v0_6 = ((*(int *)((v0_2 + 0xB60))) & 0x1) != 0;
     v0_7 = (0xB60);
     v0_3 = (0x1);
-    v0_0 = (0x8C291F24);
+    v0_0 = ((int)Ball);
     v0_1 = (v0_2);
     v0_4 = (((v0_4 * 0x160) + 0x8C2FC69C));
     v0_2 = (0x0);

@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_lo): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 int padLcdBlit(int, int, int);
@@ -176,7 +177,7 @@ int padLcdDraw(int a4)
     *(float *)(((int)stk + 80)) = ((*(float *)(((int)stk + 92))) + 1.0f);
     padLcdLine(v0_1, (((int)stk + 80) + 0xC), ((int)stk + 80), 0x1, *(Stk3 *)(((int)stk + 80)));
     v0_3 = (0x8C02F958);
-    v0_4 = (0x8C287D84);
+    v0_4 = ((int)Player);
     w0_0 = (7.0f);
     v0_5 = (v0_2);
     v0_2 = (0xD78);

@@ -1,5 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_ut): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
+extern char Player[];
 
 int ballBoyExec(int);
 int ballExec(int, int, int, int, int, int, int, int, int, int, int, int);
@@ -73,7 +75,7 @@ int matchFrame(int a4, int a5, int a6, int a7)
         }
     }
     t61 = (netHitNop());
-    t63 = 0x8C287D84;
+    t63 = (int)Player;
     t64 = 0x0;
     for (;;) {
         if ((int)t64 >= (int)(*(int *)0x8C287ADC)) {
@@ -96,15 +98,15 @@ int matchFrame(int a4, int a5, int a6, int a7)
         t64 = (t64 + 0x1);
         t63 = (t63 + t62);
     }
-    ballExec(0x8C291F24, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24), *(int *)((int)stk + 4 + 28));
-    sndCrowdBallReact(0x8C291F24);
-    ballWallStop(0x8C291F24);
+    ballExec((int)Ball, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24), *(int *)((int)stk + 4 + 28));
+    sndCrowdBallReact((int)Ball);
+    ballWallStop((int)Ball);
     matchExec();
     perfMark(0x8C10232C);
     if ((*(int *)0x8C34B148) != 7) {
-        ballBoyExec(0x8C291F24);
-        lineJudgeExec(0x8C291F24);
-        netJudgeExec(0x8C291F24);
+        ballBoyExec((int)Ball);
+        lineJudgeExec((int)Ball);
+        netJudgeExec((int)Ball);
         umpireExec();
     }
     if ((*(int *)0x8C287B2C) == 0) {

@@ -1,5 +1,11 @@
 /* Straight-line functions with calls and guards (batch gen_as): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gVmsVolumeStates[];
+extern char g_0c2b7624[];
+extern char g_0c2b7628[];
+extern char g_0c2b8cbc[];
+extern char g_0c2ee992[];
+extern char g_0c2ee998[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -239,7 +245,7 @@ int vmsfs_diskfree(int a4, int a5)
     int t34;
 
     t67 = 0xFFFFFF01;
-    if ((*(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x2))) != 0) {
+    if ((*(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x2))) != 0) {
         t1 = vmsio_isready(a4);
         if (t1 == 0) {
             vmsfs_unmount(a4);
@@ -247,7 +253,7 @@ int vmsfs_diskfree(int a4, int a5)
         } else {
             t3 = vmsio_ismount(a4);
             t52 = 0xFFFFFF01;
-            if ((t3 != 0) && (t4 = *(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x8)), t4 != 0)) {
+            if ((t3 != 0) && (t4 = *(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x8)), t4 != 0)) {
                 t5 = buIsFormat(a4);
                 t44 = 0xFFFFFF03;
                 if ((int)t5 < 0) {
@@ -256,7 +262,7 @@ int vmsfs_diskfree(int a4, int a5)
                         t8 = a5;
                         t9 = 0x0;
                         for (;;) {
-                            if ((int)t9 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x38)))) {
+                            if ((int)t9 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x38)))) {
                                 break;
                             }
                             t8 = (get_fat(a4, t9));
@@ -274,7 +280,7 @@ int vmsfs_diskfree(int a4, int a5)
                             t18 = 0x0;
                             t19 = 0x0;
                             for (;;) {
-                                if ((int)t19 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30)))) {
+                                if ((int)t19 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x30)))) {
                                     break;
                                 }
                                 t17 = (get_fat(a4, t19));
@@ -293,7 +299,7 @@ int vmsfs_diskfree(int a4, int a5)
                             t27 = 0x0;
                             t28 = 0x0;
                             for (;;) {
-                                if ((int)t28 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30)))) {
+                                if ((int)t28 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x30)))) {
                                     break;
                                 }
                                 t26 = (get_fat(a4, t28));
@@ -343,11 +349,11 @@ int vmsfs_fsettime(int a4, int a5, int a6)
     *(unsigned int *)(((int)stk + 4)) = a5;
     *(unsigned int *)(((int)stk + 8)) = a6;
     *(unsigned int *)(((int)stk + 12)) = (a4 * 0x148);
-    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x30)) = 0x1;
-    t0 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x4));
-    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x34)) = (*(int *)((((((t0 << 2) + t0) << 2) << 2) + 0x8C20C774)));
+    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x30)) = 0x1;
+    t0 = *(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x4));
+    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x34)) = (*(int *)((((((t0 << 2) + t0) << 2) << 2) + 0x8C20C774)));
     t36 = 0xFFFFFF01;
-    if ((*(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x2))) != 0) {
+    if ((*(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x2))) != 0) {
         t3 = vmsio_isready(a4);
         if (t3 == 0) {
             vmsfs_unmount(a4);
@@ -355,7 +361,7 @@ int vmsfs_fsettime(int a4, int a5, int a6)
         } else {
             t5 = vmsio_ismount(a4);
             t30 = 0xFFFFFF01;
-            if ((t5 != 0) && (t6 = *(int *)(((int)stk + 12)), t7 = *(signed char *)(((t6 + 0x8C464598) + 0x8)), t7 != 0)) {
+            if ((t5 != 0) && (t6 = *(int *)(((int)stk + 12)), t7 = *(signed char *)(((t6 + (int)gVmsVolumeStates) + 0x8)), t7 != 0)) {
                 t8 = buIsFormat(a4);
                 t27 = 0xFFFFFF03;
                 if ((int)t8 >= 0) {
@@ -752,7 +758,7 @@ int vmsfs_fopen(int a4, int a5, int a6)
     R11 = (R5);
     R12 = (0x0);
     R13 = (R4);
-    if (((*(signed char *)(((R4 * 0x148) + 0x8C46459A))) == 0)) goto L_8C1EC0F8;
+    if (((*(signed char *)(((R4 * 0x148) + (int)g_0c2ee992))) == 0)) goto L_8C1EC0F8;
     goto L_8C1EC0CE;
     L_8C1EC0CE:;
     t6 = (vmsio_isready(R13)) != 0;
@@ -771,7 +777,7 @@ int vmsfs_fopen(int a4, int a5, int a6)
     if (t10) goto L_8C1EC0F8;
     goto L_8C1EC0EA;
     L_8C1EC0EA:;
-    if (((*(signed char *)(((R13 * 0x148) + 0x8C4645A0))) != 0)) goto L_8C1EC0FE;
+    if (((*(signed char *)(((R13 * 0x148) + (int)g_0c2ee998))) != 0)) goto L_8C1EC0FE;
     goto L_8C1EC0F8;
     L_8C1EC0FE:;
     t14 = (int)(buIsFormat(R13)) >= 0;
@@ -1096,21 +1102,21 @@ int nlSingleLineSub(int a4, int a5, int a6, int a7)
             return 0x0;
         }
         u17 = *(float *)(((int)stk + 40));
-        u20 = (*(float *)0x8C454C48);
+        u20 = (*(float *)(int)g_0c2b7624);
         u20 = u20 + (1.0f / u17) * (*(float *)(((int)stk + 32)));
         *(float *)(((int)stk + 32)) = u20;
-        u23 = (*(float *)0x8C454C4C);
+        u23 = (*(float *)(int)g_0c2b7628);
         u23 = u23 + (1.0f / u17) * (*(float *)(((int)stk + 36)));
         *(float *)(((int)stk + 36)) = u23;
         u24 = *(float *)(((int)stk + 24));
-        u27 = (*(float *)0x8C454C48);
+        u27 = (*(float *)(int)g_0c2b7624);
         u27 = u27 + (1.0f / u24) * (*(float *)(((int)stk + 16)));
         *(float *)(((int)stk + 16)) = u27;
-        u30 = (*(float *)0x8C454C4C);
+        u30 = (*(float *)(int)g_0c2b7628);
         u30 = u30 + (1.0f / u24) * (*(float *)(((int)stk + 20)));
         *(float *)(((int)stk + 20)) = u30;
         t32 = nlLineDrawThick((*(int *)(((int)stk + 12))), (((int)stk + 4) + 0x1C), (((int)stk + 4) + 0xC), (((int)stk + 4) + 0x2C));
-        t33 = *(int *)0x8C42445C;
+        t33 = *(int *)(int)g_0c2b8cbc;
         t34 = t33;
         if ((a7 & 0x1) != 0) {
             t34 = (t33 + 0x8);
@@ -1401,7 +1407,7 @@ int vmsfs_xwrite1(int a4, int a5)
         t54 = 0xFFFFFF01;
         if (t5 != 0) {
             t45 = 0xFFFFFF01;
-            if ((*(signed char *)((((*(int *)((a4 + 0x28))) * 0x148) + 0x8C4645A0))) == 0) {
+            if ((*(signed char *)((((*(int *)((a4 + 0x28))) * 0x148) + (int)g_0c2ee998))) == 0) {
             } else {
                 t9 = buIsFormat((*(int *)((a4 + 0x28))));
                 t37 = 0xFFFFFF03;
@@ -1411,7 +1417,7 @@ int vmsfs_xwrite1(int a4, int a5)
                     t11 = *(int *)((a4 + 0x28));
                     t12 = get_fat(t11, t10);
                     t32 = 0xFFFFFF04;
-                    if (((unsigned short)t12 == 0xFFFC) && (t13 = *(int *)((a4 + 0x30)), t14 = *(int *)((((t0 * 0x148) + 0x8C464598) + 0x1C)), t15 = *(int *)((t14 + 0x38)), (int)t13 < (int)t15)) {
+                    if (((unsigned short)t12 == 0xFFFC) && (t13 = *(int *)((a4 + 0x30)), t14 = *(int *)((((t0 * 0x148) + (int)gVmsVolumeStates) + 0x1C)), t15 = *(int *)((t14 + 0x38)), (int)t13 < (int)t15)) {
                         t16 = vmsfs_write_retry(t11, t10, a5);
                         t26 = t16;
                         if ((int)t16 < 0) {

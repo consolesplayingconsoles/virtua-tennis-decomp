@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_sj): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -59,7 +60,7 @@ void playerStartSwing(int a4, int a5, int a6, int a7, int a8, float f4, float f5
     v0_3 = (v0_8);
     v0_9 = (0x0);
     v0_8 = (t1);
-    v0_4 = (0x8C291F24);
+    v0_4 = ((int)Ball);
     if (((0x10 & t1) != 0)) goto L_8C028568;
     v0_6 = (0x1);
     L_8C028568:;

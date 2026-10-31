@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_fd): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char ballColliObj[];
 
 typedef struct { int w[3]; } Stk3;
 int VQFBfree(int, int, int, int, int, int, int, int, int);
@@ -321,7 +322,7 @@ int ballColliInit(int a4, int a5, int a6, int a7)
 {
     int t1;
 
-    colliObjInit(0x8C291F30, a5, a6, a7, 0x8C2FBFE0, (1.0f + 1.0f));
+    colliObjInit(0x8C291F30, a5, a6, a7, (int)ballColliObj, (1.0f + 1.0f));
     *(unsigned int *)0x8C2FC010 = 0x1;
     t1 = *(int *)0x8C2FC018;
     *(unsigned int *)0x8C2FC018 = (t1 | 0x4);

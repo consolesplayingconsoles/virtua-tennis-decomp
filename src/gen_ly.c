@@ -1,5 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_ly): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
+extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 int cpuReachPoint(int, int, int, Stk3);
@@ -36,7 +38,7 @@ int cpuPadHistory(void)
     *(unsigned int *)(((int)stk + 28)) = 0x8C287ACC;
     v0_2 = *(int *)0x8C20D19C;
     v0_5 = (v0_2);
-    v0_0 = (0x8C287D84);
+    v0_0 = ((int)Player);
     v0_1 = (0x8C2FC69C);
     R4 = (v0_2);
     if (((int)v0_2 < 0)) goto L_8C03E1D6;
@@ -287,7 +289,7 @@ int cpuPadHistory(void)
     goto L_8C03E4AA;
     L_8C03E282:;
     v0_3 = *(int *)(((int)stk + 16));
-    v0_4 = *(int *)((((*(int *)((v0_0 + 0xB64))) << 2) + 0x8C29B898));
+    v0_4 = *(int *)((((*(int *)((v0_0 + 0xB64))) << 2) + (int)padPeri));
     v0_5 = *(short *)((v0_4 + 0x1C));
     v0_6 = *(short *)(((0x1E + v0_4) + 0x0));
     *(unsigned char *)((((0x147 + v0_1) + v0_3) + 0x0)) = ((((((((((((int)v0_5 >= (int)0xFFFFFFC0)) ? 1 : 0) ^ 0x1) << 2) << 2) << 2) | (*(int *)((v0_4 + 0x8)))) | ((((((((int)v0_5 > (int)0x40)) ? 1 : 0) << 2) << 2) << 2) << 1)) | (((-(((((int)v0_6 >= (int)0xFFFFFFC0)) ? 1 : 0) - 1)) << 2) << 2)) | (((((((int)v0_6 > (int)0x40)) ? 1 : 0) << 2) << 2) << 1));
@@ -330,7 +332,7 @@ int cpuPadHistory(void)
     v0_4 = ((v0_4 + 0x1));
     if (v0_5) goto L_8C03E3C4;
     L_8C03E42A:;
-    v0_3 = *(int *)((((*(int *)((v0_0 + 0xB64))) << 2) + 0x8C29B898));
+    v0_3 = *(int *)((((*(int *)((v0_0 + 0xB64))) << 2) + (int)padPeri));
     *(unsigned int *)(((int)stk + 44)) = v0_3;
     t209 = *(int *)((v0_3 + 0x10));
     R4 = (t209);

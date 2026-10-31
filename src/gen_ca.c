@@ -1,5 +1,19 @@
 /* Straight-line functions with calls and guards (batch gen_ca): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gGdFsGlobalState[];
+extern char gGdFsOperations[];
+extern char gMapleDriver[];
+extern char gMapleTransferLockAddress[];
+extern char gVmsFileCommandStates[];
+extern char gVmsIoInterface[];
+extern char gVmsVolumeStates[];
+extern char g_0c2b8da4[];
+extern char g_0c2b9378[];
+extern char g_0c2b937c[];
+extern char g_0c2ec558[];
+extern char g_0c2ec978[];
+extern char syRtcFlags[];
+extern char syRtcLastCount[];
 
 typedef struct { int w[4]; } Stk4;
 extern int _builtin_tas(char *);
@@ -179,7 +193,7 @@ int vmsfs_ismount(int a4)
     int t1;
 
     t0 = vmsio_ismount(a4);
-    if ((t0 != 0) && (t1 = *(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x8)), t1 != 0)) {
+    if ((t0 != 0) && (t1 = *(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x8)), t1 != 0)) {
         return 0x1;
     }
     return 0x0;
@@ -189,12 +203,12 @@ int mpdrv_set_bread(int a4, int a5, int a6, int a7, int a8)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20AFF0);
         return 0xFFFFFFFE;
     }
     t2 = mpdrv_set_bread_ns(a4, a5, a6, a7, a8);
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
     return t2;
 }
 
@@ -240,15 +254,15 @@ int vmsfs_setdevicetype(int a4)
     int t1;
     int t4;
 
-    *(unsigned int *)(((*(int *)0x8C464594) + 0x0)) = (a4 & 0x1);
-    t1 = *(int *)0x8C464594;
+    *(unsigned int *)(((*(int *)(int)gVmsIoInterface) + 0x0)) = (a4 & 0x1);
+    t1 = *(int *)(int)gVmsIoInterface;
     if ((a4 & 0x1) == 1) {
         *(unsigned int *)((t1 + 0xC)) = 0x8C1FEB60;
-        *(unsigned int *)(((*(int *)0x8C464594) + 0x10)) = 0x8C1FEB72;
+        *(unsigned int *)(((*(int *)(int)gVmsIoInterface) + 0x10)) = 0x8C1FEB72;
         t4 = (a4 & 0x1);
     } else {
         *(unsigned int *)((t1 + 0xC)) = 0x8C1FEB6A;
-        *(unsigned int *)(((*(int *)0x8C464594) + 0x10)) = 0x8C1FEB7A;
+        *(unsigned int *)(((*(int *)(int)gVmsIoInterface) + 0x10)) = 0x8C1FEB7A;
         t4 = 0x8C1FEB6A;
     }
     return t4;
@@ -260,9 +274,9 @@ int search_free_dir(int a4)
     int t2;
 
     t1 = 0x0;
-    t2 = (*(int *)((((a4 * 0x148) + 0x8C464598) + 0x28)));
+    t2 = (*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x28)));
     for (;;) {
-        if ((int)t1 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30)))) {
+        if ((int)t1 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x30)))) {
             return 0xFFFFFFFF;
         }
         if ((unsigned char)(*(signed char *)((t2 + 0x0))) == 0) {
@@ -279,12 +293,12 @@ int mpdrv_set_dreq(int a4)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20AFF0);
         return 0xFFFFFFFE;
     }
     t2 = mpdrv_set_dreq_ns(a4);
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
     return t2;
 }
 
@@ -292,12 +306,12 @@ int mpdrv_set_getcond(int a4, int a5)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20AFF0);
         return 0xFFFFFFFE;
     }
     t2 = mpdrv_set_getcond_ns(a4, a5);
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
     return t2;
 }
 
@@ -305,12 +319,12 @@ int mpdrv_set_dreset(int a4)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20AFF0);
         return 0xFFFFFFFE;
     }
     t2 = mpdrv_set_dreset_ns(a4);
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
     return t2;
 }
 
@@ -318,12 +332,12 @@ int mpdrv_set_dkill(int a4)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20AFF0);
         return 0xFFFFFFFE;
     }
     t2 = mpdrv_set_dkill_ns(a4);
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
     return t2;
 }
 
@@ -331,12 +345,12 @@ int mpdrv_set_allstatreq(int a4)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20AFF0);
         return 0xFFFFFFFE;
     }
     t2 = mpdrv_set_allstatreq_ns(a4);
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
     return t2;
 }
 
@@ -344,12 +358,12 @@ int mpdrv_set_getminfo(int a4, int a5, int a6)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20AFF0);
         return 0xFFFFFFFE;
     }
     t2 = mpdrv_set_getminfo_ns(a4, a5, a6);
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
     return t2;
 }
 
@@ -357,12 +371,12 @@ int mpdrv_set_arctrl(int a4, int a5)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20AFF0);
         return 0xFFFFFFFE;
     }
     t2 = mpdrv_set_arctrl_ns(a4, a5);
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
     return t2;
 }
 
@@ -370,12 +384,12 @@ int mpdrv_set_ft4ctrl(int a4, int a5)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20AFF0);
         return 0xFFFFFFFE;
     }
     t2 = mpdrv_set_ft4ctrl_ns(a4, a5);
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
     return t2;
 }
 
@@ -383,12 +397,12 @@ int mpdrv_set_transagain(int a4)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20AFF0);
         return 0xFFFFFFFE;
     }
     t2 = mpdrv_set_transagain_ns(a4);
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
     return t2;
 }
 
@@ -396,12 +410,12 @@ int mpdrv_set_setcond(int a4, int a5, int a6, int a7)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20AFF0);
         return 0xFFFFFFFE;
     }
     t2 = mpdrv_set_setcond_ns(a4, a5, a6, a7);
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
     return t2;
 }
 
@@ -409,19 +423,19 @@ int mpdrv_set_end(void)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20AFF0);
         return 0xFFFFFFFE;
     }
     t2 = mpdrv_set_end_ns();
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
     return t2;
 }
 
 int syRtcInit(void)
 {
-    *(unsigned int *)0x8C45A6E4 = (syRtcGetCountForce());
-    *(unsigned int *)0x8C45A6E8 = 0x0;
+    *(unsigned int *)(int)syRtcLastCount = (syRtcGetCountForce());
+    *(unsigned int *)(int)syRtcFlags = 0x0;
     syRtcExecServer();
     *(unsigned int *)0x8C45A6EC = (syChainAddHandler(0x900, 0x8C1DF04C, 0x5C, 0x0));
     return 0x0;
@@ -433,14 +447,14 @@ int syRtcExecServer(void)
     int t8;
     int t7;
 
-    if (((*(int *)0x8C45A6E8) & 1) == 0) {
-        *(unsigned int *)0x8C45A6E4 = (syRtcGetAndCheckCount((*(int *)0x8C45A6E4)));
+    if (((*(int *)(int)syRtcFlags) & 1) == 0) {
+        *(unsigned int *)(int)syRtcLastCount = (syRtcGetAndCheckCount((*(int *)(int)syRtcLastCount)));
     }
-    t6 = *(int *)0x8C45A6E8;
+    t6 = *(int *)(int)syRtcFlags;
     t8 = t6;
     if ((t6 & 2) != 0) {
         t7 = syRtcGetCountForce();
-        *(unsigned int *)0x8C45A6E4 = t7;
+        *(unsigned int *)(int)syRtcLastCount = t7;
         t8 = t7;
     }
     return t8;
@@ -471,15 +485,15 @@ int pdVmsLcdBlt(int a4, int a5, int a6)
 
 int vmsfs_unmount(int a4)
 {
-    if ((*(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x2))) == 0) {
+    if ((*(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x2))) == 0) {
         return 0xFFFFFF01;
     }
-    *(unsigned char *)((((a4 * 0x148) + 0x8C464598) + 0x9)) = 0x0;
-    *(unsigned char *)((((a4 * 0x148) + 0x8C464598) + 0x8)) = 0x0;
-    *(unsigned char *)((((a4 * 0x148) + 0x8C464598) + 0xA)) = 0x0;
-    *(unsigned char *)((((a4 * 0x148) + 0x8C464598) + 0xB)) = 0x0;
-    *(unsigned char *)((((a4 * 0x148) + 0x8C464598) + 0xC)) = 0x0;
-    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x4)) = 0x0;
+    *(unsigned char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x9)) = 0x0;
+    *(unsigned char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x8)) = 0x0;
+    *(unsigned char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0xA)) = 0x0;
+    *(unsigned char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0xB)) = 0x0;
+    *(unsigned char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0xC)) = 0x0;
+    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x4)) = 0x0;
     return 0x0;
 }
 
@@ -488,7 +502,7 @@ int gdFsGetDrvStatG(void)
     int t3;
     int stk[4];
 
-    t3 = ((int (*)(int))((*(int *)(((*(int *)(((*(int *)0x8C20C204) + 0xC))) + 0x20)))))(((int)stk + 4));
+    t3 = ((int (*)(int))((*(int *)(((*(int *)(((*(int *)(int)gGdFsGlobalState) + 0xC))) + 0x20)))))(((int)stk + 4));
     if (t3 == 0) {
         return 0xFFFFFFFF;
     }
@@ -514,7 +528,7 @@ int pdGunLeave(void)
     kdSetDriverMode(0x8, 0x0);
     kdSetDriverMode(0x9, 0x0);
     t3 = kdSetHandler((*(int *)0x8C209674), 0x0);
-    *(unsigned int *)0x8C45A168 = 0x0;
+    *(unsigned int *)(int)g_0c2b8da4 = 0x0;
     return t3;
 }
 
@@ -535,7 +549,7 @@ int buGetLastError(int a4)
     if (t0 != 0) {
         return 0xFFFFFFFF;
     }
-    return (*(int *)((0x8C462160 + (a4 << 2))));
+    return (*(int *)(((int)g_0c2ec558 + (a4 << 2))));
 }
 
 int pdVibMxStart(int a4, int a5)
@@ -554,9 +568,9 @@ int vmsfs_c_execcallback(int a4, int a5, int a6)
     int t1;
     int t2;
 
-    if ((*(int *)(((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x74))) != 0) {
-        t1 = *(int *)(((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x74));
-        t2 = *(int *)(((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x7C));
+    if ((*(int *)(((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x74))) != 0) {
+        t1 = *(int *)(((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x74));
+        t2 = *(int *)(((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x7C));
         return ((int (*)(int, int, int, int))(t1))(a4, a5, a6, t2);
     }
     return 0x74;
@@ -574,8 +588,8 @@ int gdFsExecServerG(void)
 {
     int t3;
 
-    t3 = ((int (*)(void))((*(int *)(((*(int *)(((*(int *)0x8C20C204) + 0xC))) + 0x40)))))();
-    if ((*(int *)(((*(int *)0x8C20C204) + 0x1C))) != 0) {
+    t3 = ((int (*)(void))((*(int *)(((*(int *)(((*(int *)(int)gGdFsGlobalState) + 0xC))) + 0x40)))))();
+    if ((*(int *)(((*(int *)(int)gGdFsGlobalState) + 0x1C))) != 0) {
         return gdFsGetStatG();
     }
     return t3;
@@ -589,7 +603,7 @@ int pdGunEnter(int a4)
     if (a4 != 0) {
         kdSetDriverMode(0x8, a4);
         t1 = kdSetDriverMode(0x9, 0xFFFFFFFF);
-        *(unsigned int *)0x8C45A168 = a4;
+        *(unsigned int *)(int)g_0c2b8da4 = a4;
         t2 = t1;
     }
     return t2;
@@ -599,7 +613,7 @@ int kdSetCallback(int a4, int a5, int a6)
 {
     int t1;
 
-    t1 = *(int *)(((*(int *)0x8C47317C) + 0xFC0));
+    t1 = *(int *)(((*(int *)(int)gMapleDriver) + 0xFC0));
     *(unsigned int *)((((((((a4 << 1) + t1) << 1) + ((a4 << 1) + t1)) << 2) + 0x8C461E9C) + 0x8)) = a5;
     *(unsigned int *)((((((((a4 << 1) + t1) << 1) + ((a4 << 1) + t1)) << 2) + 0x8C461E9C) + 0x4)) = a6;
     *(unsigned int *)((((((((a4 << 1) + t1) << 1) + ((a4 << 1) + t1)) << 2) + 0x8C461E9C) + 0x0)) = a4;
@@ -612,14 +626,14 @@ void vmsfs_c_setvolume(int a4, int a5)
     int t1;
     int t2;
 
-    t0 = ((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x4C);
+    t0 = ((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x4C);
     t1 = a5;
     for (;;) {
         t2 = *(signed char *)((t1 + 0x0));
         t1 = (t1 + 0x1);
         *(unsigned char *)((t0 + 0x0)) = t2;
         t0 = (t0 + 0x1);
-        if ((unsigned int)t0 >= (unsigned int)((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x6C)) {
+        if ((unsigned int)t0 >= (unsigned int)((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x6C)) {
             break;
         }
     }
@@ -658,8 +672,8 @@ int vmsfs_c_progress(int a4)
 {
     int t1;
 
-    if ((*(int *)(((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x78))) != 0) {
-        t1 = *(int *)(((((((a4 << 2) << 2) << 2) << 1) + 0x8C462180) + 0x78));
+    if ((*(int *)(((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x78))) != 0) {
+        t1 = *(int *)(((((((a4 << 2) << 2) << 2) << 1) + (int)gVmsFileCommandStates) + 0x78));
         return ((int (*)(int))(t1))(a4);
     }
     return 0x78;
@@ -683,10 +697,10 @@ int syRtcDbgWriteLog(int a4, int a5, int a6)
     int t1;
     int t2;
 
-    t0 = *(int *)0x8C45A6E8;
-    if (((t0 & 8) != 0) && (t1 = *(int *)0x8C45A6F8, t2 = *(int *)0x8C45A6F4, (unsigned int)t2 < (unsigned int)t1)) {
+    t0 = *(int *)(int)syRtcFlags;
+    if (((t0 & 8) != 0) && (t1 = *(int *)(int)g_0c2b937c, t2 = *(int *)(int)g_0c2b9378, (unsigned int)t2 < (unsigned int)t1)) {
         *(unsigned int *)((t2 + 0x0)) = a4;
-        *(unsigned int *)0x8C45A6F4 = ((*(int *)0x8C45A6F4) + 0x4);
+        *(unsigned int *)(int)g_0c2b9378 = ((*(int *)(int)g_0c2b9378) + 0x4);
     }
     return t0;
 }
@@ -696,8 +710,8 @@ int get_fat(int a4, int a5)
     int t1;
     int t2;
 
-    t1 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x24));
-    t2 = *(int *)(((*(int *)0x8C464594) + 0xC));
+    t1 = *(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x24));
+    t2 = *(int *)(((*(int *)(int)gVmsIoInterface) + 0xC));
     return ((int (*)(int, int))(t2))(t1, (a5 << 1));
 }
 
@@ -732,10 +746,10 @@ int gdFsFinish(void)
     int t2;
     int t3;
 
-    t0 = *(int *)0x8C20C210;
+    t0 = *(int *)(int)gGdFsOperations;
     if (t0 != 0) {
         t2 = ((int (*)(void))((*(int *)((t0 + 0x14)))))();
-        *(unsigned int *)0x8C20C210 = 0x0;
+        *(unsigned int *)(int)gGdFsOperations = 0x0;
         t3 = t2;
     }
     return t3;
@@ -758,11 +772,11 @@ int vmsfs_c_setcompletecallback(int a4)
 {
     int t0;
 
-    t0 = 0x8C462180;
+    t0 = (int)gVmsFileCommandStates;
     for (;;) {
         *(unsigned int *)((t0 + 0x74)) = a4;
         t0 = (t0 + 0x80);
-        if ((unsigned int)t0 >= (unsigned int)0x8C462580) {
+        if ((unsigned int)t0 >= (unsigned int)(int)g_0c2ec978) {
             break;
         }
     }
@@ -773,11 +787,11 @@ int vmsfs_c_setprogresscallback(int a4)
 {
     int t0;
 
-    t0 = 0x8C462180;
+    t0 = (int)gVmsFileCommandStates;
     for (;;) {
         *(unsigned int *)((t0 + 0x78)) = a4;
         t0 = (t0 + 0x80);
-        if ((unsigned int)t0 >= (unsigned int)0x8C462580) {
+        if ((unsigned int)t0 >= (unsigned int)(int)g_0c2ec978) {
             break;
         }
     }
@@ -788,11 +802,11 @@ int vmsfs_c_setcallbackparam(int a4)
 {
     int t0;
 
-    t0 = 0x8C462180;
+    t0 = (int)gVmsFileCommandStates;
     for (;;) {
         *(unsigned int *)((t0 + 0x7C)) = a4;
         t0 = (t0 + 0x80);
-        if ((unsigned int)t0 >= (unsigned int)0x8C462580) {
+        if ((unsigned int)t0 >= (unsigned int)(int)g_0c2ec978) {
             break;
         }
     }

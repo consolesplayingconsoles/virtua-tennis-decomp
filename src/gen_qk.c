@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_qk): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char padPeri[];
 
 int pdGetPeripheralInfo(int);
 int pdVibMxStart(int, int);
@@ -50,7 +51,7 @@ int padVibExec(void)
     R8 = (0x8C158BE0);
     R9 = (0x0);
     L_8C02F3DE:;
-    t6 = *(int *)((0x8C29B898 + (R9 << 2)));
+    t6 = *(int *)(((int)padPeri + (R9 << 2)));
     t7 = *(int *)((R8 + (R9 << 2)));
     *(unsigned int *)(((int)stk + 28)) = t6;
     t8 = *(int *)((t6 + 0x4));
@@ -72,7 +73,7 @@ int padVibExec(void)
     R0 = (0x8C2FBBE8);
     if (((t19 - 1) != 0)) goto L_8C02F4B6;
     t22 = *(int *)((R8 + R10));
-    t23 = *(int *)((0x8C29B898 + R10));
+    t23 = *(int *)(((int)padPeri + R10));
     *(unsigned int *)(((int)stk + 24)) = t23;
     t24 = *(int *)((t23 + 0x4));
     *(unsigned int *)(((int)stk + 32)) = t24;
@@ -108,7 +109,7 @@ int padVibExec(void)
     *(unsigned char *)(((((int)stk + 4) + 0x23) + 0x0)) = (*(signed char *)(((t46 + R11) + 0x1)));
     *(unsigned char *)(((((int)stk + 4) + 0x24) + 0x0)) = (*(signed char *)(((t46 + R11) + 0x2)));
     t50 = *(int *)(((int)stk + 12));
-    t51 = *(int *)((0x8C29B898 + t50));
+    t51 = *(int *)(((int)padPeri + t50));
     t52 = *(int *)((R8 + t50));
     *(unsigned int *)(((int)stk + 20)) = t51;
     t53 = *(int *)((t51 + 0x4));

@@ -1,5 +1,11 @@
 /* Straight-line functions with calls and guards (batch gen_nx): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gNlCommonTextureOffset[];
+extern char gNlPaletteCount[];
+extern char gNlTextureSurfaces[];
+extern char gPaletteDirty[];
+extern char g_0c2aec84[];
+extern char g_0c2b3568[];
 
 int nlCommonTextureGetNextTextureIndex(void);
 int nlCreateTextureParam(int);
@@ -81,10 +87,10 @@ int nlObjPutLoadTextureOnce_Sub(int a4, int a5, int a6, int a7, int a8)
     if ((a8 != 1)) goto L_8C0F1C30;
     R13 = ((*(int *)(((((R13 << 2) << 2) + (*(int *)(((int)stk + 16)))) + 0xC))));
     L_8C0F1C30:;
-    t19 = *(int *)0x8C458DCC;
+    t19 = *(int *)(int)gNlCommonTextureOffset;
     *(unsigned int *)(((int)stk + 8)) = (((R13 + t19) << 2) << 1);
-    R11 = (0x8C4241C0);
-    if (((*(int *)((((((R13 + t19) << 2) << 1) + (*(int *)0x8C4241C0)) + 0x0))) != 0)) goto L_8C0F1C5E;
+    R11 = ((int)g_0c2aec84);
+    if (((*(int *)((((((R13 + t19) << 2) << 1) + (*(int *)(int)g_0c2aec84)) + 0x0))) != 0)) goto L_8C0F1C5E;
     t24 = *(int *)(((int)stk + 8));
     t25 = *(int *)((R11 + 0x0));
     *(int *)((int)stk + 4) = (0x4 + (t24 + t25));
@@ -94,7 +100,7 @@ int nlObjPutLoadTextureOnce_Sub(int a4, int a5, int a6, int a7, int a8)
     t28 = *(int *)((R11 + 0x0));
     *(unsigned int *)(((t27 + t28) + 0x0)) = ((*(int *)(((t27 + t28) + 0x0))) + 0x1);
     t32 = *(int *)((((*(int *)(((int)stk + 8))) + (*(int *)((R11 + 0x0)))) + 0x4));
-    t33 = *(int *)0x8C458608;
+    t33 = *(int *)(int)gNlTextureSurfaces;
     R11 = (((t32 * 0x3C) + t33));
     R13 = (t32);
     if (((*(int *)((((t32 * 0x3C) + t33) + 0x2C))) != 0)) goto L_8C0F1CAC;
@@ -142,7 +148,7 @@ int nlObjPutLoadTextureOnce_Sub(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((R8 + 0x0)) = R12;
     goto L_8C0F1E5C;
     L_8C0F1D04:;
-    t71 = *(int *)0x8C450BF8;
+    t71 = *(int *)(int)g_0c2b3568;
     R4 = ((R4 & ((unsigned int)(*(int *)((R14 + 0xC))) >> 27)));
     R5 = (t71);
     if ((t71 != 0)) goto L_8C0F1D18;
@@ -154,8 +160,8 @@ int nlObjPutLoadTextureOnce_Sub(int a4, int a5, int a6, int a7, int a8)
     L_8C0F1D28:;
     t77 = *(int *)((R14 + 0x3C));
     R4 = (t77);
-    R6 = (0x8C458E20);
-    if (((int)t77 < (int)(*(short *)0x8C458E24))) goto L_8C0F1D36;
+    R6 = ((int)gPaletteDirty);
+    if (((int)t77 < (int)(*(short *)(int)gNlPaletteCount))) goto L_8C0F1D36;
     goto L_8C0F1E34;
     L_8C0F1D36:;
     t82 = *(int *)((R6 + 0x18));

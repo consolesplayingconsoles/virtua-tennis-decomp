@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_ay): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 extern int _builtin_get_imask(void);
@@ -243,7 +244,7 @@ int ndbEditFields(int a4)
             }
         }
     }
-    if (((*(int *)(((*(int *)0x8C29B898) + 0x10))) & 2) != 0) {
+    if (((*(int *)(((*(int *)(int)padPeri) + 0x10))) & 2) != 0) {
         *(unsigned char *)((a4 + 0x7)) = ((-(*(signed char *)((a4 + 0x7)))) + 0x1);
     } else {
         t94 = padDirRepeat(0x0, 0x20);

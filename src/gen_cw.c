@@ -1,5 +1,10 @@
 /* Straight-line functions with calls and guards (batch gen_cw): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gNlObjectFadeColor[];
+extern char gNlSpriteInverseScreenSize[];
+extern char g_0c2b76bc[];
+extern char g_0c2b7948[];
+extern char g_0c2b8cbc[];
 
 extern void _builtin_prefetch(void *);
 float lerpf(float, float, float);
@@ -63,7 +68,7 @@ int nlSprPut(int a4, int a5)
     int stk[28];
 
     t207 = 0xFFFFFFFF;
-    if ((int)(*(int *)((a4 + 0x0))) >= (int)(*(int *)0x8C454C84)) {
+    if ((int)(*(int *)((a4 + 0x0))) >= (int)(*(int *)(int)g_0c2b76bc)) {
     } else {
         t13 = *(short *)((((*(int *)((a4 + 0x0))) << 1) + (*(int *)0x8C454C80)));
         if (t13 == -1) {
@@ -100,7 +105,7 @@ int nlSprPut(int a4, int a5)
             u60 = *(float *)0x8C1DCA28;
             u61 = *(float *)0x8C454C98;
             u62 = *(float *)0x8C1DCA24;
-            u63 = *(float *)0x8C454C94;
+            u63 = *(float *)(int)gNlSpriteInverseScreenSize;
             t64 = 0x4;
             t65 = 0x0;
             u66 = u60;
@@ -151,7 +156,7 @@ int nlSprPut(int a4, int a5)
                 u109 = 1.0f;
             }
             if ((0x2000 & (*(int *)((a4 + 0x34)))) != 0) {
-                *(unsigned int *)((((((t13 << 2) << 2) << 1) + t21) + 0x10)) = (nlSpriteF2ARGB(u109, (*(float *)0x8C1DCA70), (*(float *)0x8C1DCA74), (*(float *)0x8C1DCA78)));
+                *(unsigned int *)((((((t13 << 2) << 2) << 1) + t21) + 0x10)) = (nlSpriteF2ARGB(u109, (*(float *)(int)gNlObjectFadeColor), (*(float *)0x8C1DCA74), (*(float *)0x8C1DCA78)));
             } else {
                 if (((*(int *)((a4 + 0x34))) & 0x20000) != 0) {
                     t121 = ((((nlSpriteF2C(u109)) << 16) << 8) | (*(int *)((a4 + 0x38))));
@@ -204,13 +209,13 @@ int nlSprPut(int a4, int a5)
                 t157 = t155;
             }
             *(unsigned int *)(((int)stk + 20)) = (t157 << 2);
-            t160 = *(int *)(((t157 << 2) + (*(int *)0x8C42445C)));
+            t160 = *(int *)(((t157 << 2) + (*(int *)(int)g_0c2b8cbc)));
             *(unsigned int *)0xFF000038 = ((unsigned int)((unsigned int)t160 >> 16) >> 8);
             *(unsigned int *)0xFF00003C = ((unsigned int)((unsigned int)t160 >> 16) >> 8);
             if (((*(int *)((a4 + 0x34))) & 0x20000) != 0) {
-                t166 = (((*(int *)((((((t13 << 2) << 2) << 1) + t21) + 0x0))) | (*(int *)0x8C458E04)) | 0x4);
+                t166 = (((*(int *)((((((t13 << 2) << 2) << 1) + t21) + 0x0))) | (*(int *)(int)g_0c2b7948)) | 0x4);
             } else {
-                t166 = ((*(int *)((((((t13 << 2) << 2) << 1) + t21) + 0x0))) | (*(int *)0x8C458E04));
+                t166 = ((*(int *)((((((t13 << 2) << 2) << 1) + t21) + 0x0))) | (*(int *)(int)g_0c2b7948));
             }
             *(unsigned int *)((((0x3FFFFFF & t160) | 0xE0000000) + 0x0)) = t166;
             *(unsigned int *)((((0x3FFFFFF & t160) | 0xE0000000) + 0x4)) = (*(int *)((((((t13 << 2) << 2) << 1) + t21) + 0x4)));
@@ -238,7 +243,7 @@ int nlSprPut(int a4, int a5)
             _builtin_prefetch((void *)(((0x3FFFFFF & t160) | 0xE0000000) + 0x20));
             _builtin_prefetch((void *)((((0x3FFFFFF & t160) | 0xE0000000) + 0x20) + 0x20));
             t188 = *(int *)(((int)stk + 20));
-            t189 = *(int *)0x8C42445C;
+            t189 = *(int *)(int)g_0c2b8cbc;
             *(unsigned int *)(((t188 + t189) + 0x0)) = (((*(int *)(((t188 + t189) + 0x0))) & 0xFC000000) | ((((((0x3FFFFFF & t160) | 0xE0000000) + 0x20) + 0x20) + 0x20) & 0x3FFFFFF));
         }
         t207 = 0x0;

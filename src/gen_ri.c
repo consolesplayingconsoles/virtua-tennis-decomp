@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_ri): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gVertexBufferLockState[];
 
 void kmiFLWCTRLCheckFinishPacket(int a4);
 
@@ -81,7 +82,7 @@ void kmiFLWCTRLCheckFinishPacket(int a4)
     *(unsigned int *)0x8C45F944 = ((*(int *)0x8C45F944) & (~R6));
     goto L_8C1FA96E;
     L_8C1FA932:;
-    *(unsigned int *)0x8C45F940 = ((*(int *)0x8C45F940) & (~R7));
+    *(unsigned int *)(int)gVertexBufferLockState = ((*(int *)(int)gVertexBufferLockState) & (~R7));
     goto L_8C1FA93C;
     L_8C1FA9C4:;
 }

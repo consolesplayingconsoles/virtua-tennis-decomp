@@ -1,5 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_ni): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gVmsIoInterface[];
+extern char gVmsVolumeStates[];
 
 int check_cache(int);
 int check_caps(int);
@@ -69,8 +71,8 @@ int vmsfs_format(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)(((int)stk + 4)) = R7;
     *(unsigned int *)(((int)stk + 8)) = (R4 * 0x148);
     R13 = (R4);
-    R14 = (((R4 * 0x148) + 0x8C464598));
-    if (((*(signed char *)((((R4 * 0x148) + 0x8C464598) + 0x2))) != 0)) goto L_8C1EB9D4;
+    R14 = (((R4 * 0x148) + (int)gVmsVolumeStates));
+    if (((*(signed char *)((((R4 * 0x148) + (int)gVmsVolumeStates) + 0x2))) != 0)) goto L_8C1EB9D4;
     L_8C1EBBEC:;
     R0 = (0xFFFFFF01);
     L_8C1EBCBA:;
@@ -87,7 +89,7 @@ int vmsfs_format(int a4, int a5, int a6, int a7, int a8)
     if (t11) goto L_8C1EBA1C;
     goto L_8C1EBBEC;
     L_8C1EBA1C:;
-    if (((*(signed char *)((((*(int *)(((int)stk + 8))) + 0x8C464598) + 0x8))) != 0)) goto L_8C1EBA2C;
+    if (((*(signed char *)((((*(int *)(((int)stk + 8))) + (int)gVmsVolumeStates) + 0x8))) != 0)) goto L_8C1EBA2C;
     goto L_8C1EBBEC;
     L_8C1EBA2C:;
     memset((*(int *)((R14 + 0x20))), 0x0, 0x200);
@@ -133,19 +135,19 @@ int vmsfs_format(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)(((int)stk + 4)) = t54;
     *(unsigned int *)(((int)stk + 8)) = (*(int *)((t54 + 0xC)));
     *(unsigned int *)(((int)stk + 12)) = (*(int *)(((*(int *)(((int)stk + 4))) + 0x14)));
-    t63 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))((*(int *)((R14 + 0x20))), 0x42, (*(int *)(((*(int *)(((int)stk + 4))) + 0x4))), R7);
+    t63 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))((*(int *)((R14 + 0x20))), 0x42, (*(int *)(((*(int *)(((int)stk + 4))) + 0x4))), R7);
     *(unsigned char *)(((*(int *)((R14 + 0x20))) + 0x4E)) = (*(int *)(((int)stk + 16)));
     *(unsigned char *)(((*(int *)((R14 + 0x20))) + 0x4F)) = R12;
-    t72 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))((*(int *)((R14 + 0x20))), 0x40, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x0))));
-    t77 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))((*(int *)((R14 + 0x20))), 0x4A, (*(int *)(((int)stk + 12))));
-    t82 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))((*(int *)((R14 + 0x20))), 0x46, (*(int *)(((int)stk + 8))));
-    t88 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))((*(int *)((R14 + 0x20))), 0x4C, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x18))));
-    t94 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))((*(int *)((R14 + 0x20))), 0x48, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x10))));
-    t100 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))((*(int *)((R14 + 0x20))), 0x50, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x1C))));
-    t106 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))((*(int *)((R14 + 0x20))), 0x52, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x20))));
-    t112 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))((*(int *)((R14 + 0x20))), 0x54, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x34))));
-    t118 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))((*(int *)((R14 + 0x20))), 0x56, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x38))));
-    t124 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))((*(int *)((R14 + 0x20))), 0x44, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x0))));
+    t72 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))((*(int *)((R14 + 0x20))), 0x40, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x0))));
+    t77 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))((*(int *)((R14 + 0x20))), 0x4A, (*(int *)(((int)stk + 12))));
+    t82 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))((*(int *)((R14 + 0x20))), 0x46, (*(int *)(((int)stk + 8))));
+    t88 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))((*(int *)((R14 + 0x20))), 0x4C, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x18))));
+    t94 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))((*(int *)((R14 + 0x20))), 0x48, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x10))));
+    t100 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))((*(int *)((R14 + 0x20))), 0x50, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x1C))));
+    t106 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))((*(int *)((R14 + 0x20))), 0x52, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x20))));
+    t112 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))((*(int *)((R14 + 0x20))), 0x54, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x34))));
+    t118 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))((*(int *)((R14 + 0x20))), 0x56, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x38))));
+    t124 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))((*(int *)((R14 + 0x20))), 0x44, (*(int *)(((*(int *)((R14 + 0x1C))) + 0x0))));
     memset(R9, 0x0, 0x200);
     R11 = (0x0);
     L_8C1EBC18:;

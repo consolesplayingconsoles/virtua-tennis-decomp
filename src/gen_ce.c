@@ -1,5 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_ce): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gGdFsGlobalState[];
+extern char gNlSoundStreams[];
 
 extern float _builtin_sqrtf(float);
 int check_cache(int);
@@ -423,10 +425,10 @@ int gdFsGetStatG(int a4, int a5, int a6, int a7)
     R6 = a6;
     R7 = a7;
     L_8C1DD3CE:;
-    *(unsigned int *)(((*(int *)0x8C20C204) + 0x20)) = 0x1;
-    currentActiveHandleAddress = *(int *)(((*(int *)0x8C20C204) + 0x1C));
+    *(unsigned int *)(((*(int *)(int)gGdFsGlobalState) + 0x20)) = 0x1;
+    currentActiveHandleAddress = *(int *)(((*(int *)(int)gGdFsGlobalState) + 0x1C));
     zeroValue = (0x0);
-    globalStatePointerAddress = (0x8C20C204);
+    globalStatePointerAddress = ((int)gGdFsGlobalState);
     activeHandleAddress = (currentActiveHandleAddress);
     if ((currentActiveHandleAddress != 0)) goto L_8C1DD3F4;
     goto L_8C1DD3F0;
@@ -939,7 +941,7 @@ int nlsndStreamInit(int a4, int a5, int a6)
     goto L_8C0F6384;
     L_8C0F61D0:;
     R11 = (0x0);
-    R4 = (0x8C454CF4);
+    R4 = ((int)gNlSoundStreams);
     R5 = (0x0);
     goto L_8C0F61D6;
     L_8C0F61D6:;
@@ -998,7 +1000,7 @@ int nlsndStreamInit(int a4, int a5, int a6)
     goto L_8C0F62A6;
     L_8C0F62A6:;
     R10 = (0x1C);
-    R3 = (0x8C454CF4);
+    R3 = ((int)gNlSoundStreams);
     goto L_8C0F62AA;
     L_8C0F62AA:;
     *(unsigned char *)(((((short)R13 * (short)R10) + R3) + 0x1)) = R11;
@@ -1024,17 +1026,17 @@ int nlsndStreamInit(int a4, int a5, int a6)
     if (((int)(short)R13 >= (int)(t55 + t56))) goto L_8C0F6352;
     goto L_8C0F6300;
     L_8C0F6300:;
-    *(unsigned char *)(((((short)R13 * (short)0x1C) + 0x8C454CF4) + 0x1)) = R11;
-    *(unsigned char *)(((((short)R13 * (short)0x1C) + 0x8C454CF4) + 0x0)) = R11;
-    *(unsigned int *)(((((short)R13 * (short)0x1C) + 0x8C454CF4) + 0x18)) = R14;
-    *(unsigned int *)(((((short)R13 * (short)0x1C) + 0x8C454CF4) + 0x8)) = (R12 + R8);
+    *(unsigned char *)(((((short)R13 * (short)0x1C) + (int)gNlSoundStreams) + 0x1)) = R11;
+    *(unsigned char *)(((((short)R13 * (short)0x1C) + (int)gNlSoundStreams) + 0x0)) = R11;
+    *(unsigned int *)(((((short)R13 * (short)0x1C) + (int)gNlSoundStreams) + 0x18)) = R14;
+    *(unsigned int *)(((((short)R13 * (short)0x1C) + (int)gNlSoundStreams) + 0x8)) = (R12 + R8);
     nlsndG2Write(R12, (R14 + 0x10));
     t59 = *(int *)(((int)stk + 4));
-    *(unsigned int *)(((((short)R13 * (short)0x1C) + 0x8C454CF4) + 0x4)) = ((R12 - t59) + R8);
+    *(unsigned int *)(((((short)R13 * (short)0x1C) + (int)gNlSoundStreams) + 0x4)) = ((R12 - t59) + R8);
     nlsndG2Write((R12 - t59), (R14 + 0xC));
     t61 = *(int *)(((int)stk + 4));
-    *(unsigned int *)(((((short)R13 * (short)0x1C) + 0x8C454CF4) + 0x10)) = (R14 + 0x14);
-    *(unsigned int *)(((((short)R13 * (short)0x1C) + 0x8C454CF4) + 0x14)) = (R14 + 0x4);
+    *(unsigned int *)(((((short)R13 * (short)0x1C) + (int)gNlSoundStreams) + 0x10)) = (R14 + 0x14);
+    *(unsigned int *)(((((short)R13 * (short)0x1C) + (int)gNlSoundStreams) + 0x14)) = (R14 + 0x4);
     t63 = (int)(short)(R13 + 0x1) < (int)(*(int *)(((int)stk + 8)));
     R12 = (((R12 - t59) - t61));
     R13 = ((R13 + 0x1));
@@ -1042,7 +1044,7 @@ int nlsndStreamInit(int a4, int a5, int a6)
     if (t63) goto L_8C0F6300;
     goto L_8C0F6352;
     L_8C0F6352:;
-    R4 = ((((short)R13 * (short)0x1C) + 0x8C454CF4));
+    R4 = ((((short)R13 * (short)0x1C) + (int)gNlSoundStreams));
     R5 = (0xFFFFFFFF);
     if (((int)(short)R13 >= (int)R9)) goto L_8C0F637C;
     goto L_8C0F6364;

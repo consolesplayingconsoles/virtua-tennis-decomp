@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_nc): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char fileLoadState[];
 
 int ADXF_GetStat(int);
 int nlResetBackColorZ(int, int, int);
@@ -70,7 +71,7 @@ int entrySelectInit(void)
     t10 = *(int *)0x8C287ADC;
     R10 = (0x8C343258);
     R11 = (0x1);
-    R12 = (0x8C34A1EC);
+    R12 = ((int)fileLoadState);
     R13 = (0x4);
     R5 = (t10);
     R8 = (0x38);

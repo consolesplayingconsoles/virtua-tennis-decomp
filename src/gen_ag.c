@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_ag): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char commonLoadState[];
 
 int commonEtcTexLoad(void);
 int commonSprInitAll(void);
@@ -25,7 +26,7 @@ int commonLoadStep(int a4, int a5, int a6, int a7)
     int t47;
     int t53;
 
-    t0 = *(int *)0x8C40C5D0;
+    t0 = *(int *)(int)commonLoadState;
     if ((unsigned int)t0 >= (unsigned int)0xC) {
     } else {
         switch ((t0 << 1)) {
@@ -33,7 +34,7 @@ int commonLoadStep(int a4, int a5, int a6, int a7)
             {
                 t1 = fileLoadPoll(a4, a5, a6, a7);
                 if (t1 == 1) {
-                    *(unsigned int *)0x8C40C5D0 = ((*(int *)0x8C40C5D0) + 0x1);
+                    *(unsigned int *)(int)commonLoadState = ((*(int *)(int)commonLoadState) + 0x1);
                     fileLoadStart(0x8CA80000, 0x8C1265BC, 0x0);
                 }
             }
@@ -43,14 +44,14 @@ int commonLoadStep(int a4, int a5, int a6, int a7)
                 t6 = fileLoadPoll(a4, a5, a6, a7);
                 if (t6 == 1) {
                     commonEtcTexLoad();
-                    *(unsigned int *)0x8C40C5D0 = ((*(int *)0x8C40C5D0) + 0x1);
+                    *(unsigned int *)(int)commonLoadState = ((*(int *)(int)commonLoadState) + 0x1);
                 }
             }
                 break;
             case 4:
             {
                 fileLoadStart(0x8CA80000, 0x8C1265D4, 0x0);
-                *(unsigned int *)0x8C40C5D0 = ((*(int *)0x8C40C5D0) + 0x1);
+                *(unsigned int *)(int)commonLoadState = ((*(int *)(int)commonLoadState) + 0x1);
             }
                 break;
             case 6:
@@ -58,14 +59,14 @@ int commonLoadStep(int a4, int a5, int a6, int a7)
                 t14 = fileLoadPoll(a4, a5, a6, a7);
                 if (t14 == 1) {
                     sprCommonLoad();
-                    *(unsigned int *)0x8C40C5D0 = ((*(int *)0x8C40C5D0) + 0x1);
+                    *(unsigned int *)(int)commonLoadState = ((*(int *)(int)commonLoadState) + 0x1);
                 }
             }
                 break;
             case 8:
             {
                 fileLoadStart(0x8C680000, 0x8C1265F0, 0x0);
-                *(unsigned int *)0x8C40C5D0 = ((*(int *)0x8C40C5D0) + 0x1);
+                *(unsigned int *)(int)commonLoadState = ((*(int *)(int)commonLoadState) + 0x1);
             }
                 break;
             case 10:
@@ -73,7 +74,7 @@ int commonLoadStep(int a4, int a5, int a6, int a7)
                 t22 = fileLoadPoll(a4, a5, a6, a7);
                 if (t22 == 1) {
                     fileLoadStart(0x8CA30000, 0x8C126608, 0x0);
-                    *(unsigned int *)0x8C40C5D0 = ((*(int *)0x8C40C5D0) + 0x1);
+                    *(unsigned int *)(int)commonLoadState = ((*(int *)(int)commonLoadState) + 0x1);
                 }
             }
                 break;
@@ -82,7 +83,7 @@ int commonLoadStep(int a4, int a5, int a6, int a7)
                 t28 = fileLoadPoll(a4, a5, a6, a7);
                 if (t28 == 1) {
                     fileLoadStart(0x8CA80000, 0x8C126628, 0x0);
-                    *(unsigned int *)0x8C40C5D0 = ((*(int *)0x8C40C5D0) + 0x1);
+                    *(unsigned int *)(int)commonLoadState = ((*(int *)(int)commonLoadState) + 0x1);
                 }
             }
                 break;
@@ -91,21 +92,21 @@ int commonLoadStep(int a4, int a5, int a6, int a7)
                 t34 = fileLoadPoll(a4, a5, a6, a7);
                 if (t34 == 1) {
                     commonSprInitAll();
-                    *(unsigned int *)0x8C40C5D0 = ((*(int *)0x8C40C5D0) + 0x1);
+                    *(unsigned int *)(int)commonLoadState = ((*(int *)(int)commonLoadState) + 0x1);
                 }
             }
                 break;
             case 16:
             {
                 sndLoadStep(0x0);
-                *(unsigned int *)0x8C40C5D0 = ((*(int *)0x8C40C5D0) + 0x1);
+                *(unsigned int *)(int)commonLoadState = ((*(int *)(int)commonLoadState) + 0x1);
             }
                 break;
             case 18:
             {
                 t42 = sndLoadStep(0x1);
                 if (t42 == 99) {
-                    *(unsigned int *)0x8C40C5D0 = ((*(int *)0x8C40C5D0) + 0x1);
+                    *(unsigned int *)(int)commonLoadState = ((*(int *)(int)commonLoadState) + 0x1);
                     motFileLoadBegin();
                 }
             }
@@ -115,7 +116,7 @@ int commonLoadStep(int a4, int a5, int a6, int a7)
                 t47 = motFileLoadStep(a4, a5, a6, a7);
                 if (t47 == -1) {
                     fileLoadStart(0x8CA80000, 0x8C126644, 0x0);
-                    *(unsigned int *)0x8C40C5D0 = ((*(int *)0x8C40C5D0) + 0x1);
+                    *(unsigned int *)(int)commonLoadState = ((*(int *)(int)commonLoadState) + 0x1);
                 }
             }
                 break;
@@ -124,11 +125,11 @@ int commonLoadStep(int a4, int a5, int a6, int a7)
                 t53 = fileLoadPoll(a4, a5, a6, a7);
                 if (t53 == 1) {
                     titleSprTexLoad();
-                    *(unsigned int *)0x8C40C5D0 = 0x63;
+                    *(unsigned int *)(int)commonLoadState = 0x63;
                 }
             }
                 break;
         }
     }
-    return (*(int *)0x8C40C5D0);
+    return (*(int *)(int)commonLoadState);
 }

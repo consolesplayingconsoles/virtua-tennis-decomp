@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_oq): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char stageNo[];
 
 int colliObjInit(int, int, int, int, int, float);
 int motionSet(int, int, int, int, int, int, float);
@@ -73,7 +74,7 @@ int lineJudgeInit(void)
     R12 = (0x0);
     R13 = (0xB4);
     R14 = (0x654);
-    R8 = (0x8C1891F0);
+    R8 = ((int)stageNo);
     R9 = (0x8C124F30);
     F12 = (5.0f);
     F13 = (50.0f);

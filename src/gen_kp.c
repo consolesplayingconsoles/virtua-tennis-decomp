@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_kp): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
 
 extern float _builtin_sqrtf(float);
 float cpuSglMove(int a4);
@@ -40,7 +41,7 @@ float cpuSglMove(int a4)
     v0_7 = *(int *)((v0_1 + 0xA24));
     v0_5 = (v0_7);
     v0_6 = (0x0);
-    v0_3 = (0x8C291F24);
+    v0_3 = ((int)Ball);
     v0_0 = ((((*(int *)((v0_1 + 0xB5C))) * 0x160) + 0x8C2FC69C));
     v0_4 = (((int)stk + 4));
     v0_2 = (0x1);

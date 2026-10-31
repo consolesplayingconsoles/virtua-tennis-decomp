@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_tc): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 int nlsndSeqRequest(int);
 void sndCrowdBallReact(int a4, int a5, int a6, int a7, float f4, float f5);
@@ -102,7 +103,7 @@ void sndCrowdBallReact(int a4, int a5, int a6, int a7, float f4, float f5)
                                     u83 = 0.0f;
                                     u85 = (*(float *)((a4 + t76)));
                                     t81 = (t79 * 0xD78);
-                                    t81 = (t81 + 0x8C287D84);
+                                    t81 = (t81 + (int)Player);
                                     if (u85 > u83) {
                                         t78 = 0x1;
                                     } else {

@@ -1,5 +1,10 @@
 /* Straight-line functions with calls and guards (batch gen_ap): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
+extern char gNlSoundStreams[];
+extern char gNlTextureSurfaces[];
+extern char gPaletteData[];
+extern char gPaletteDirty[];
 
 typedef struct { int w[4]; } Stk4;
 int ADXPD_EntrySte(int, int, int, int, int);
@@ -820,7 +825,7 @@ int nlSysUseLatency2V(void)
 
 int nlsndStreamGetBufInfo(int a4, int a5, int a6)
 {
-    if ((*(signed char *)((((short)a4 * (short)0x1C) + 0x8C454CF4))) != 1) {
+    if ((*(signed char *)((((short)a4 * (short)0x1C) + (int)gNlSoundStreams))) != 1) {
         return 0x0;
     }
     *(unsigned int *)((a6 + 0x0)) = (*(int *)0x8C454CC0);
@@ -887,7 +892,7 @@ void nlCreateTextureParam(int a4)
 {
     int t0;
 
-    t0 = *(int *)0x8C458608;
+    t0 = *(int *)(int)gNlTextureSurfaces;
     if ((*(int *)((((a4 * 0x3C) + t0) + 0x28))) == 0) {
         nlCreateTextureParamA(((a4 * 0x3C) + t0));
     return;
@@ -1058,25 +1063,25 @@ int nlsndBlockMoveStatus(void)
 
 int nlsndStreamGetFreq(int a4)
 {
-    if ((*(signed char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x0))) != 1) {
+    if ((*(signed char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x0))) != 1) {
         return 0x0;
     }
-    return (*(int *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0xC)));
+    return (*(int *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0xC)));
 }
 
 int nlsndStreamGetBitSize(int a4)
 {
-    if ((*(signed char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x0))) != 1) {
+    if ((*(signed char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x0))) != 1) {
         return 0x0;
     }
-    return (*(short *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x2)));
+    return (*(short *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x2)));
 }
 
 void paletteUpload(void)
 {
-    if ((*(signed char *)0x8C458E20) != 0) {
-        *(unsigned char *)0x8C458E20 = 0x0;
-        kmSetPaletteData(0x8C458EA0);
+    if ((*(signed char *)(int)gPaletteDirty) != 0) {
+        *(unsigned char *)(int)gPaletteDirty = 0x0;
+        kmSetPaletteData((int)gPaletteData);
     return;
     }
 }
@@ -1087,9 +1092,9 @@ void miniBallCopySpawn(void)
     int t3;
     int t4;
 
-    t1 = 0x8C291F24;
+    t1 = (int)Ball;
     t3 = ((set_event(0xA0, 0x8C03A068)) + 0x14);
-    for (;;) { t4 = *(int *)t1; t1 = (t1 + 4); if ((unsigned int)((0x8C291F24 + 140)) < (unsigned int)t1) break; *(unsigned int *)t3 = t4; t3 = (t3 + 4); }
+    for (;;) { t4 = *(int *)t1; t1 = (t1 + 4); if ((unsigned int)(((int)Ball + 140)) < (unsigned int)t1) break; *(unsigned int *)t3 = t4; t3 = (t3 + 4); }
 }
 
 int nlSetFatalErrorMode(int a4)

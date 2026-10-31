@@ -1,5 +1,11 @@
 /* Straight-line functions with calls and guards (batch gen_fc): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
+extern char gMapleDriver[];
+extern char gMapleTransferLockAddress[];
+extern char gVmsVolumeStates[];
+extern char stageNo[];
+extern char strMwRnaNullHandleError[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[10]; } Stk10;
@@ -90,7 +96,7 @@ int vmsio_block_read(int a4, int a5, int a6)
         t4 = *(int *)(((int)stk + 8));
         *(unsigned int *)(((int)stk + 8)) = 0x0;
         for (;;) {
-            if ((int)(*(int *)(((int)stk + 8))) >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x3C)))) {
+            if ((int)(*(int *)(((int)stk + 8))) >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x3C)))) {
                 return 0x0;
             }
             t8 = t4;
@@ -128,11 +134,11 @@ int vmsio_block_read(int a4, int a5, int a6)
                         }
                         continue;
                     }
-                    vmsfs_memcpyl(t8, (t27 + 0xC), (*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x44))));
+                    vmsfs_memcpyl(t8, (t27 + 0xC), (*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x44))));
                     t9 = (t9 + 0x1);
-                    t8 = (t8 + (*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x44))));
+                    t8 = (t8 + (*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x44))));
                     *(unsigned int *)(((int)stk + 8)) = ((*(int *)(((int)stk + 8))) + 0x1);
-                    if ((int)(*(int *)(((int)stk + 8))) >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x3C)))) {
+                    if ((int)(*(int *)(((int)stk + 8))) >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x3C)))) {
                         return 0x0;
                     }
                     continue;
@@ -325,7 +331,7 @@ int mwRnaSetPlaySw(int a4, int a5)
 
     *(unsigned int *)(((int)stk + 8)) = a5;
     if (a4 == 0) {
-        return (mwRnaErrCallFunc(0x8C20AC30));
+        return (mwRnaErrCallFunc((int)strMwRnaNullHandleError));
     }
     ovLockCs_8c200114((((int)stk + 8) + 0x4));
     if ((*(int *)(((int)stk + 8))) == 0) {
@@ -354,7 +360,7 @@ int kdSetBlockWriteEx(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20A820);
         return 0xFFFFFFFE;
     }
@@ -362,8 +368,8 @@ int kdSetBlockWriteEx(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
     if ((int)t2 > 0) {
         kdSetCallback(a4, a11, t2);
     }
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
-    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
+    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t2;
@@ -399,8 +405,8 @@ int stageLoadBegin(int a4)
         } else {
             t11 = (*(int *)0x8C287C58);
         }
-        *(unsigned int *)0x8C1891F0 = t11;
-        t17 = 0x8C1891F0;
+        *(unsigned int *)(int)stageNo = t11;
+        t17 = (int)stageNo;
         t18 = 0x1;
         t19 = 0x8C185644;
         t20 = 0x8C343FE8;
@@ -516,9 +522,9 @@ int miniBallObjSpawn(void)
     int t4;
 
     t0 = set_event(0x11C, 0x8C038B24);
-    t1 = 0x8C291F24;
+    t1 = (int)Ball;
     t3 = (t0 + 0x14);
-    for (;;) { t4 = *(int *)t1; t1 = (t1 + 4); if ((unsigned int)((0x8C291F24 + 140)) < (unsigned int)t1) break; *(unsigned int *)t3 = t4; t3 = (t3 + 4); }
+    for (;;) { t4 = *(int *)t1; t1 = (t1 + 4); if ((unsigned int)(((int)Ball + 140)) < (unsigned int)t1) break; *(unsigned int *)t3 = t4; t3 = (t3 + 4); }
     *(unsigned int *)((t0 + 0x118)) = 0x0;
     colliObjInit((t0 + 0x20), 0x0, 0x0, 0x0, (0xA0 + t0), (1.0f + 1.0f));
     *(unsigned int *)((t0 + 0xD0)) = 0x1;

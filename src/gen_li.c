@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_li): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 float cpuDistXZ(int, int);
@@ -84,15 +85,15 @@ int cpuDblAimRateA(int a4, int a5, float f4, float f5)
     F5 = f5;
     t0 = *(int *)((R4 + 0xB5C));
     u1 = *(float *)((R5 + 0x0));
-    t2 = *(int *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xB5C));
+    t2 = *(int *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xB5C));
     u3 = *(float *)((R5 + 0x8));
     *(float *)(((int)stk + 88)) = 0.0f;
     *(float *)(((int)stk + 84)) = (u1 - (*(float *)((R4 + 0xB9C))));
     *(float *)(((int)stk + 92)) = (u3 - (*(float *)((R4 + 0xBA4))));
     t7 = (unsigned char)(*(signed char *)((R5 + 0xC))) == 1;
     t14 = R5;
-    R11 = ((((0x3 & (t2 + 0x2)) * 0xD78) + 0x8C287D84));
-    R12 = ((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84));
+    R11 = ((((0x3 & (t2 + 0x2)) * 0xD78) + (int)Player));
+    R12 = ((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player));
     R13 = (R4);
     R14 = (0x0);
     R5 = (0xD78);

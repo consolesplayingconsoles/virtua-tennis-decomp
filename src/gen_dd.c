@@ -1,5 +1,9 @@
 /* Straight-line functions with calls and guards (batch gen_dd): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gMapleDriver[];
+extern char gMapleTransferLockAddress[];
+extern char g_0c2b3150[];
+extern char g_0c2b3410[];
 
 extern float _builtin_sqrtf(float);
 extern int _builtin_tas(char *);
@@ -90,7 +94,7 @@ int nlSetWindowSize(float f4, float f5, float f6, float f7)
     } else {
         *(float *)0x8C1DC9F4 = (u12 * u13);
     }
-    nlMakeProjConvMat(0x8C450A90);
+    nlMakeProjConvMat((int)g_0c2b3410);
     return nlSetPixelClipping(f4, f5, f6, f7);
 }
 
@@ -222,7 +226,7 @@ int kdSetDeviceRequestEx(int a4, int a5)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20A820);
         return 0xFFFFFFFE;
     }
@@ -230,8 +234,8 @@ int kdSetDeviceRequestEx(int a4, int a5)
     if ((int)t2 > 0) {
         kdSetCallback(a4, a5, t2);
     }
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
-    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
+    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t2;
@@ -241,7 +245,7 @@ int kdSetDeviceKillEx(int a4, int a5)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20A820);
         return 0xFFFFFFFE;
     }
@@ -249,8 +253,8 @@ int kdSetDeviceKillEx(int a4, int a5)
     if ((int)t2 > 0) {
         kdSetCallback(a4, a5, t2);
     }
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
-    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
+    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t2;
@@ -260,7 +264,7 @@ int kdSetAllStatusRequestEx(int a4, int a5)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20A820);
         return 0xFFFFFFFE;
     }
@@ -268,8 +272,8 @@ int kdSetAllStatusRequestEx(int a4, int a5)
     if ((int)t2 > 0) {
         kdSetCallback(a4, a5, t2);
     }
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
-    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
+    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t2;
@@ -279,7 +283,7 @@ int kdSetGetMediaInfoEx(int a4, int a5, int a6, int a7)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20A820);
         return 0xFFFFFFFE;
     }
@@ -287,8 +291,8 @@ int kdSetGetMediaInfoEx(int a4, int a5, int a6, int a7)
     if ((int)t2 > 0) {
         kdSetCallback(a4, a7, t2);
     }
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
-    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
+    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t2;
@@ -298,7 +302,7 @@ int kdSetFT4ControlEx(int a4, int a5, int a6)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20A820);
         return 0xFFFFFFFE;
     }
@@ -306,8 +310,8 @@ int kdSetFT4ControlEx(int a4, int a5, int a6)
     if ((int)t2 > 0) {
         kdSetCallback(a4, a6, t2);
     }
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
-    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
+    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t2;
@@ -317,14 +321,14 @@ int mpdrv_frame_recv_pre(void)
 {
     int t0;
 
-    t0 = *(int *)0x8C47317C;
+    t0 = *(int *)(int)gMapleDriver;
     if ((*(int *)((t0 + 0xFC0))) != 0) {
         return 0xFFFFFFFD;
     }
     if (((*(int *)(((*(int *)((t0 + 0x10F4))) + 0x18))) & 1) != 0) {
         return 0xFFFFFFFF;
     }
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20AFC4);
         return 0xFFFFFFFE;
     }
@@ -335,12 +339,12 @@ int mpdrv_set_bwrite(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
 {
     int t2;
 
-    if (_builtin_tas((char *)(*(int *)0x8C1FEB48)) == 0) {
+    if (_builtin_tas((char *)(*(int *)(int)gMapleTransferLockAddress)) == 0) {
         mpdrv_dpf(0x8C20AFF0);
         return 0xFFFFFFFE;
     }
     t2 = mpdrv_set_bwrite_ns(a4, a5, a6, a7, a8, a9, a10);
-    *(unsigned char *)(((*(int *)0x8C1FEB48) + 0x0)) = 0x0;
+    *(unsigned char *)(((*(int *)(int)gMapleTransferLockAddress) + 0x0)) = 0x0;
     return t2;
 }
 
@@ -348,8 +352,8 @@ int nlInvLightVector(void)
 {
     nlTransposeMatrix();
     nlCalcVector(0x8C1DCA40, 0x8C458DA8);
-    nlCalcVector(0x8C1DCA50, 0x8C458D98);
-    nlScaleUnitVector(0x8C458D98, 0x8C458D98, (*(float *)0x8C0F2BD0));
+    nlCalcVector(0x8C1DCA50, (int)g_0c2b3150);
+    nlScaleUnitVector((int)g_0c2b3150, (int)g_0c2b3150, (*(float *)0x8C0F2BD0));
     return nlTransposeMatrix();
 }
 
@@ -358,7 +362,7 @@ int kdSetGetLastError(int a4, int a5, int a6, int a7, int a8)
     int t0;
 
     t0 = mpdrv_set_getlerr(a4, a5, a6, a7, a8);
-    if ((*(int *)(((*(int *)0x8C47317C) + 0x10E8))) != 0) {
+    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10E8))) != 0) {
         kdRecvFrame();
     }
     return t0;

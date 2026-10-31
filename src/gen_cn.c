@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_cn): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char motFileAddr[];
 
 typedef struct { int w[3]; } Stk3;
 extern int ballBoyRunSteer();
@@ -105,7 +106,7 @@ void ballBoyRunExec(int a4, int a5, int a6, int a7, float f4, float f5, float f6
     F4 = f4;
     F6 = f6;
     R0 = (0x5D0);
-    R10 = (0x8C2873CC);
+    R10 = ((int)motFileAddr);
     R11 = (0x8C38B76C);
     R12 = (((int)stk + 28));
     R13 = (R5);

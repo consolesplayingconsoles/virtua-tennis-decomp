@@ -1,5 +1,9 @@
 /* Straight-line functions with calls and guards (batch gen_s): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gAdxErrorMessageBuffer[];
+extern char gVmsVolumeStates[];
+extern char g_0c2f4c9c[];
+extern char strMwRnaNullHandleError[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[13]; } Stk13;
@@ -319,19 +323,19 @@ int vmsfs_setvolume(int a4, int a5)
 
     *(unsigned int *)(((int)stk + 4)) = a5;
     *(unsigned int *)(((int)stk + 8)) = (a4 * 0x148);
-    if ((*(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x2))) != 0) {
+    if ((*(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x2))) != 0) {
         t1 = vmsio_isready(a4);
         if (t1 == 0) {
             vmsfs_unmount(a4);
             return 0xFFFFFF01;
         }
         t3 = vmsio_ismount(a4);
-        if ((t3 != 0) && (t4 = *(int *)(((int)stk + 8)), t5 = *(signed char *)(((t4 + 0x8C464598) + 0x8)), t5 != 0)) {
+        if ((t3 != 0) && (t4 = *(int *)(((int)stk + 8)), t5 = *(signed char *)(((t4 + (int)gVmsVolumeStates) + 0x8)), t5 != 0)) {
             t6 = buIsFormat(a4);
             if ((int)t6 < 0) {
                 return 0xFFFFFF03;
             }
-            t8 = ((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x20))) + 0x10);
+            t8 = ((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x20))) + 0x10);
             t9 = 0x0;
             for (;;) {
                 if ((int)t9 >= (int)0x20) {
@@ -341,7 +345,7 @@ int vmsfs_setvolume(int a4, int a5)
                 t8 = (t8 + 0x1);
                 t9 = (t9 + 0x1);
             }
-            t13 = ((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x20))) + 0x10);
+            t13 = ((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x20))) + 0x10);
             t14 = 0x0;
             for (;;) {
                 if ((int)t14 >= (int)0x20) {
@@ -547,7 +551,7 @@ int mwRnaAdjustBuf(int a4)
     int stk[7];
 
     if (a4 == 0) {
-        return (mwRnaErrCallFunc(0x8C20AC30));
+        return (mwRnaErrCallFunc((int)strMwRnaNullHandleError));
     }
     ovLockCs_8c200114((((int)stk + 8) + 0x4));
     if ((unsigned char)(*(signed char *)((a4 + 0x5))) == 1) {
@@ -636,7 +640,7 @@ int ADXAMP_ExecServer(void)
     int t1;
     int t3;
 
-    t0 = 0x8C46ABA4;
+    t0 = (int)g_0c2f4c9c;
     for (;;) {
         t1 = *(signed char *)((t0 + 0x0));
         t3 = t1;
@@ -644,7 +648,7 @@ int ADXAMP_ExecServer(void)
             t3 = (ADXAMP_ExecHndl(t0));
         }
         t0 = (t0 + 0x30);
-        if ((unsigned int)t0 >= (unsigned int)0x8C46AD24) {
+        if ((unsigned int)t0 >= (unsigned int)(int)gAdxErrorMessageBuffer) {
             break;
         }
     }

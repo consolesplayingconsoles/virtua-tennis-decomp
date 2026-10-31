@@ -1,5 +1,8 @@
 /* Straight-line functions with calls and guards (batch gen_hr): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gAdxErrorCallback[];
+extern char gAdxErrorCallbackArgument[];
+extern char g_0c2f605c[];
 
 int kmiWriteRegister(int, int);
 int memset(int, int, int);
@@ -87,9 +90,9 @@ int mwRnaFinish(int a4, int a5, int a6, int a7)
     int t15;
     int t16;
 
-    t0 = 0x8C46D68C;
-    t1 = 0x8C46D68C;
-    t2 = 0x8C46D68C;
+    t0 = (int)g_0c2f605c;
+    t1 = (int)g_0c2f605c;
+    t2 = (int)g_0c2f605c;
     for (;;) {
         if ((unsigned char)(*(signed char *)((t2 + 0x0))) == 1) {
             t0 = t1;
@@ -104,10 +107,10 @@ int mwRnaFinish(int a4, int a5, int a6, int a7)
             break;
         }
     }
-    t8 = 0x8C46D68C;
-    t9 = 0x8C46D68C;
-    t10 = 0x8C46D68C;
-    t11 = 0x8C46D68C;
+    t8 = (int)g_0c2f605c;
+    t9 = (int)g_0c2f605c;
+    t10 = (int)g_0c2f605c;
+    t11 = (int)g_0c2f605c;
     for (;;) {
         if ((unsigned char)(*(signed char *)((t11 + 0x0))) == 1) {
             t8 = t10;
@@ -124,7 +127,7 @@ int mwRnaFinish(int a4, int a5, int a6, int a7)
             break;
         }
     }
-    memset(0x8C46D68C, 0x0, 0x480);
+    memset((int)g_0c2f605c, 0x0, 0x480);
     memset(0x8C46DB0C, 0x0, 0x820);
     t20 = 0x0;
     t21 = 0x8C46E32C;
@@ -150,7 +153,7 @@ int mwRnaInit(void)
     int t13;
 
     mwlRnaDummyFunc();
-    memset(0x8C46D68C, 0x0, 0x480);
+    memset((int)g_0c2f605c, 0x0, 0x480);
     memset(0x8C46DB0C, 0x0, 0x820);
     t3 = 0x0;
     t4 = 0x8C46E32C;
@@ -176,8 +179,8 @@ int mwRnaInit(void)
 
 void ADXERR_EntryErrFunc(int a4, int a5)
 {
-    *(unsigned int *)0x8C20C89C = a4;
-    *(unsigned int *)0x8C20C8A0 = a5;
+    *(unsigned int *)(int)gAdxErrorCallback = a4;
+    *(unsigned int *)(int)gAdxErrorCallbackArgument = a5;
 }
 
 int thunk_mwRnaInit(void)

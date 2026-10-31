@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_pu): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char padPeri[];
 
 int BupDrawWarning(int, int, int);
 int buGetDiskInfo(int, int);
@@ -82,7 +83,7 @@ int BupCardWarning(int a4)
     goto L_8C0E0A56;
     L_8C0E0918:;
     *(unsigned int *)(((int)stk + 12)) = 0x8C29B8A8;
-    *(unsigned int *)(((int)stk + 16)) = 0x8C29B898;
+    *(unsigned int *)(((int)stk + 16)) = (int)padPeri;
     L_8C0E0A3E:;
     if (((*(int *)(((int)stk + 20))) == 0)) goto L_8C0E094C;
     pdExecPeripheralServer();

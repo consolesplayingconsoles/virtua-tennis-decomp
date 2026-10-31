@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_in): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char padPeri[];
 
 extern int _builtin_get_imask(void);
 extern void _builtin_prefetch(void *);
@@ -200,13 +201,13 @@ int selCursorInputB(int a4, int a5, int a6, int a7)
     *(unsigned int *)(((int)stk + 12)) = (t83 << 2);
     R10 = (0x8C343258);
     R8 = (((*(int *)(((int)stk + 28))) * 0x38));
-    if ((((*(int *)(((*(int *)(((t83 << 2) + 0x8C29B898))) + 0x10))) & 5) == 0)) goto L_8C0AAD78;
+    if ((((*(int *)(((*(int *)(((t83 << 2) + (int)padPeri))) + 0x10))) & 5) == 0)) goto L_8C0AAD78;
     if (((*(int *)((0x8C1AFA64 + ((*(int *)(((*(int *)(((int)stk + 4))) + 0x8C343ACC))) << 2)))) != 2)) goto L_8C0AAD78;
     t94 = *(int *)(((R14 + R13) + 0x4));
     if (((*(int *)(((((*(int *)(((R14 + R13) + 0x0))) << 2) + (0x8C185330 + ((((t94 << 2) << 1) + t94) << 2))) + 0x0))) != 0)) goto L_8C0AAD4C;
     sndSe05_04();
     L_8C0AAD78:;
-    if ((((*(int *)(((*(int *)(((*(int *)(((int)stk + 12))) + 0x8C29B898))) + 0x10))) & 2) != 0)) goto L_8C0AAD88;
+    if ((((*(int *)(((*(int *)(((*(int *)(((int)stk + 12))) + (int)padPeri))) + 0x10))) & 2) != 0)) goto L_8C0AAD88;
     L_8C0AAED2:;
     t103 = *(int *)(((int)stk + 28));
     t105 = *(int *)(((*(int *)(((int)stk + 4))) + 0x8C343ACC));
@@ -230,7 +231,7 @@ int selCursorInputB(int a4, int a5, int a6, int a7)
     *(unsigned int *)0x8C343AB4 = R11;
     R4 = ((R14 + R13));
     L_8C0AADF6:;
-    if ((((*(int *)(((*(int *)(((*(int *)(((int)stk + 12))) + 0x8C29B898))) + 0x10))) & 2) == 0)) goto L_8C0AAED2;
+    if ((((*(int *)(((*(int *)(((*(int *)(((int)stk + 12))) + (int)padPeri))) + 0x10))) & 2) == 0)) goto L_8C0AAED2;
     if (((*(int *)(((int)stk + 20))) != 1)) goto L_8C0AAED2;
     if (((*(short *)((R8 + 0x8C343278))) != 0)) goto L_8C0AAED2;
     t133 = padDirAny((*(int *)(((int)stk + 8))));
@@ -452,27 +453,27 @@ int selCursorInput(int a4, int a5)
     R13 = (0x8C0300E0);
     R5 = (0x20);
     if (t11) goto L_8C0AA348;
-    if ((((*(int *)(((*(int *)((0x8C29B898 + (R11 << 2)))) + 0x10))) & 16) == 0)) goto L_8C0AA34A;
+    if ((((*(int *)(((*(int *)(((int)padPeri + (R11 << 2)))) + 0x10))) & 16) == 0)) goto L_8C0AA34A;
     L_8C0AA348:;
     *(unsigned int *)(((int)stk + 8)) = R8;
     L_8C0AA34A:;
     t18 = (padDirRepeat(R11, R5)) != 0;
     R5 = (0x40);
     if (t18) goto L_8C0AA362;
-    if ((((*(int *)(((*(int *)((0x8C29B898 + (R11 << 2)))) + 0x10))) & 32) == 0)) goto L_8C0AA364;
+    if ((((*(int *)(((*(int *)(((int)padPeri + (R11 << 2)))) + 0x10))) & 32) == 0)) goto L_8C0AA364;
     L_8C0AA362:;
     *(unsigned int *)(((int)stk + 16)) = R8;
     L_8C0AA364:;
     t24 = (padDirRepeat(R11, R5)) != 0;
     if (t24) goto L_8C0AA37A;
-    if ((((*(int *)(((*(int *)((0x8C29B898 + (R11 << 2)))) + 0x10))) & 64) == 0)) goto L_8C0AA37C;
+    if ((((*(int *)(((*(int *)(((int)padPeri + (R11 << 2)))) + 0x10))) & 64) == 0)) goto L_8C0AA37C;
     L_8C0AA37A:;
     R9 = (R8);
     L_8C0AA37C:;
     t29 = padDirRepeat(R11, 0x80);
     R0 = (t29);
     if ((t29 != 0)) goto L_8C0AA394;
-    t33 = *(int *)(((*(int *)((0x8C29B898 + (R11 << 2)))) + 0x10));
+    t33 = *(int *)(((*(int *)(((int)padPeri + (R11 << 2)))) + 0x10));
     R0 = (t33);
     if (((t33 & 128) == 0)) goto L_8C0AA396;
     L_8C0AA394:;
@@ -534,7 +535,7 @@ int selCursorInput(int a4, int a5)
     L_8C0AA6F0:;
     *(unsigned int *)(((int)stk + 12)) = (R11 << 2);
     R9 = (0x8C343258);
-    if ((((*(int *)(((*(int *)(((R11 << 2) + 0x8C29B898))) + 0x10))) & 5) == 0)) goto L_8C0AA7A0;
+    if ((((*(int *)(((*(int *)(((R11 << 2) + (int)padPeri))) + 0x10))) & 5) == 0)) goto L_8C0AA7A0;
     if (((*(int *)((0x8C1AFA64 + ((*(int *)(((*(int *)(((int)stk + 8))) + 0x8C343ACC))) << 2)))) != 2)) goto L_8C0AA7A0;
     t98 = *(int *)(((R14 + R12) + 0x4));
     if (((*(int *)(((((*(int *)(((R14 + R12) + 0x0))) << 2) + (0x8C185330 + ((((t98 << 2) << 1) + t98) << 2))) + 0x0))) != 0)) goto L_8C0AA764;
@@ -546,7 +547,7 @@ int selCursorInput(int a4, int a5)
     *(unsigned int *)((((((-(selSlot0FlagSet())) + 0x1) * 0x38) + (R9 + 0xC)) + 0x0)) = t106;
     *(unsigned int *)(((0x8C2889DC + (((-t103) + 0x1) * 0xD78)) + 0x0)) = t106;
     *(unsigned int *)0x8C343248 = t106;
-    if ((((*(int *)(((*(int *)(((*(int *)(((int)stk + 12))) + 0x8C29B898))) + 0x10))) & 2) == 0)) goto L_8C0AA8A0;
+    if ((((*(int *)(((*(int *)(((*(int *)(((int)stk + 12))) + (int)padPeri))) + 0x10))) & 2) == 0)) goto L_8C0AA8A0;
     t112 = (padDirAny(R11)) != 0;
     if (t112) goto L_8C0AA8A0;
     *(unsigned int *)(((((*(int *)((((0x56C + R9) + (*(int *)(((int)stk + 12)))) + 0x0))) * 0x38) + (R9 + 0xC)) + 0x30)) = 0xFFFFFFFF;

@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_ff): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gAdxfInvalidateReadCache[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[16]; } Stk16;
@@ -422,7 +423,7 @@ int ADXF_ReadNw32(int a4, int a5, int a6)
                             } else {
                                 *(unsigned int *)((a4 + 0x28)) = a6;
                                 *(unsigned int *)((a4 + 0x2C)) = (*(int *)(((int)stk + 8)));
-                                if ((*(int *)0x8C46C664) == 1) {
+                                if ((*(int *)(int)gAdxfInvalidateReadCache) == 1) {
                                     ADXF_Ocbi((*(int *)((a4 + 0x28))), (*(int *)((a4 + 0x2C))));
                                 }
                                 ADXCRS_Lock();

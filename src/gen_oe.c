@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_oe): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 int cpuBallPredict(int, int, int, int, float, float, float);
 int cpuDblMoodUpdate(float);
@@ -86,7 +87,7 @@ void cpuDblInput(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
             t28 = 0x8C28A5EC;
             t29 = (((int)stk + 4) + 0x24);
             for (;;) {
-                if ((unsigned int)t28 < (unsigned int)0x8C287D84) {
+                if ((unsigned int)t28 < (unsigned int)(int)Player) {
                     break;
                 }
                 t25 = 0xB9C;

@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_qv): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gRenderPacketVBlankWaitPending[];
 
 int kmiFLWCTRLStartRenderEntry(int);
 void kmiGuaranteeFFModeProcessOver(int a4, int a5);
@@ -22,7 +23,7 @@ void kmiGuaranteeFFModeProcessOver(int a4, int a5)
     int T_;
     R4 = a4;
     R5 = a5;
-    if (((*(int *)0x8C4607E8) != 0)) goto L_8C1FAFEC;
+    if (((*(int *)(int)gRenderPacketVBlankWaitPending) != 0)) goto L_8C1FAFEC;
     L_8C1FB0DE:;
     return;
     L_8C1FAFEC:;

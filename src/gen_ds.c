@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_ds): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 float cpuDistXZ(int, int);
@@ -36,12 +37,12 @@ int cpuSglAimRateOpp3(int a4, int a5)
     float u78;
 
     t0 = *(int *)((a4 + 0xB5C));
-    t2 = *(int *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB5C));
+    t2 = *(int *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xB5C));
     *(float *)(((((int)stk + 40) + 0x18) + 0x0)) = ((*(float *)((a5 + 0x0))) - (*(float *)((a4 + 0xB9C))));
     *(float *)(((((int)stk + 40) + 0x18) + 0x4)) = 0.0f;
     *(float *)(((((int)stk + 40) + 0x18) + 0x8)) = ((*(float *)((a5 + 0x8))) - (*(float *)((a4 + 0xBA4))));
     u7 = *(float *)((((t2 * 0x160) + 0x8C2FC69C) + 0x28));
-    u9 = (*(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8)));
+    u9 = (*(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAE8)));
     u9 = u9 + 0.800000012f * (u7 * (float)(*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))));
     u10 = (-u9);
     if (!(0.0f > u9)) {
@@ -52,7 +53,7 @@ int cpuSglAimRateOpp3(int a4, int a5)
         u18 = ((float)((u9 > 0.0f) - (0.0f > u9)) * 34.9775009f);
     }
     u22 = *(float *)((((t2 * 0x160) + 0x8C2FC69C) + 0x30));
-    u24 = (*(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAF0)));
+    u24 = (*(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAF0)));
     u24 = u24 + 0.800000012f * (u22 * (float)(*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))));
     u25 = (-u24);
     if (!(0.0f > u24)) {

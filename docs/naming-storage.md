@@ -152,3 +152,15 @@ fog builder clears and the TA builder takes from its argument (`extraWord`,
 purpose not established). Parameters and the record type are named
 accordingly in `src/vtsdk_d.c`. `ADXT_SetOutPan` still differs in the checker,
 as before this change (one of the three known missing passes).
+
+## Named addresses in generated C
+
+Exact `0x8Cxxxxxx` literals that equal a data symbol in `symbols.txt` or
+`globals.txt` are now written as `(int)<name>` with an `extern char <name>[];`
+declaration (238 files in `src/gen_*.c`, about 750 uses), for example the
+`Player` table, `motionCur`, `gVmsVolumeStates`. Literals inside larger
+expressions are unchanged. Each changed file was rechecked with the equivalence
+runner and reports the same results as before. `src/gen_av.c` was left as it
+was: with the names in place `kmyGetFrameBufferHandle` differs on case 7, so
+that file keeps raw addresses until the cause is understood. More than 11,000
+raw-address accesses remain, mostly to addresses that have no name yet.

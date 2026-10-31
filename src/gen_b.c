@@ -1,5 +1,16 @@
 /* Straight-line functions with calls and guards (batch gen_b): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gFrameBufferReadControl[];
+extern char gNlPrintTileClipFlags[];
+extern char g_0c2af128[];
+extern char g_0c2ea934[];
+extern char g_0c2ea938[];
+extern char g_0c2ea940[];
+extern char g_0c2ea944[];
+extern char g_0c2ea94c[];
+extern char g_0c2ea97c[];
+extern char g_0c2ea980[];
+extern char g_0c2ea984[];
 
 int ADXERR_CallErrFunc(int, int);
 int abs(int, int);
@@ -54,11 +65,11 @@ void sprPutAlpha(int a4, float f4)
 
 void nlPrintInitFontTexture(void)
 {
-    *(unsigned int *)0x8C44F9AC = 0xA2000009;
+    *(unsigned int *)(int)gNlPrintTileClipFlags = 0xA2000009;
     *(unsigned int *)0x8C44F9B0 = 0x80000000;
     *(unsigned int *)0x8C44F9B4 = 0x949004C7;
     nlPrintSetGarbagedTexture();
-    *(unsigned int *)0x8C44F9BC = 0xFFFFFFFF;
+    *(unsigned int *)(int)g_0c2af128 = 0xFFFFFFFF;
     *(unsigned int *)0x8C44F9C0 = 0x0;
 }
 
@@ -123,23 +134,23 @@ void kmiWriteDispModeRegisters(void)
     int t14;
     int t16;
 
-    t0 = *(int *)0x8C45EE38;
+    t0 = *(int *)(int)g_0c2ea934;
     kmiWriteRegister(0x68, t0);
-    t2 = *(int *)0x8C45EE3C;
+    t2 = *(int *)(int)g_0c2ea938;
     kmiWriteRegister(0x6C, t2);
-    t4 = *(int *)0x8C45EE44;
+    t4 = *(int *)(int)g_0c2ea940;
     kmiWriteRegister(0x5C, t4);
-    t6 = *(int *)0x8C45EE48;
+    t6 = *(int *)(int)g_0c2ea944;
     kmiWriteRegister(0x4C, t6);
-    t8 = *(int *)0x8C45EE80;
+    t8 = *(int *)(int)g_0c2ea97c;
     kmiWriteRegister(0x118, t8);
-    t10 = *(int *)0x8C45EE84;
+    t10 = *(int *)(int)g_0c2ea980;
     kmiWriteRegister(0xF4, t10);
-    t12 = *(int *)0x8C45EE50;
+    t12 = *(int *)(int)g_0c2ea94c;
     kmiWriteRegister(0x48, t12);
-    t14 = *(int *)0x8C45EE4C;
+    t14 = *(int *)(int)gFrameBufferReadControl;
     kmiWriteRegister(0x44, (t14 & 0xFFFFFFFE));
-    t16 = *(int *)0x8C45EE88;
+    t16 = *(int *)(int)g_0c2ea984;
     kmiWriteRegister(0xE8, (t16 | 0x8));
 }
 

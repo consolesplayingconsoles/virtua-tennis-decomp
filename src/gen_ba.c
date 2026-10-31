@@ -1,5 +1,16 @@
 /* Straight-line functions with calls and guards (batch gen_ba): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
+extern char fileLoadState[];
+extern char gFrameBufferReadControl[];
+extern char g_0c2ea934[];
+extern char g_0c2ea938[];
+extern char g_0c2ea940[];
+extern char g_0c2ea944[];
+extern char g_0c2ea94c[];
+extern char g_0c2ea97c[];
+extern char g_0c2ea980[];
+extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[29]; } Stk29;
@@ -105,10 +116,10 @@ int ndbEditInput(int a4)
     int T_;
     R4 = a4;
     L_8C081F5C:;
-    t0 = *(int *)0x8C29B898;
+    t0 = *(int *)(int)padPeri;
     *(unsigned int *)(((int)stk + 8)) = t0;
     t1 = *(int *)((t0 + 0x10));
-    R10 = (0x8C29B898);
+    R10 = ((int)padPeri);
     R13 = (R4);
     R4 = (t1);
     if (((0x5 & t1) != 0)) goto L_8C081F84;
@@ -472,7 +483,7 @@ int stageLoadTimedStep(void)
     R13 = (0x8C287C50);
     R14 = (0x8C343FE8);
     R4 = ((0x8C344088 + ((t2 << 2) << 1)));
-    if ((((*(int *)(((*(int *)0x8C29B898) + 0x10))) & 5) == 0)) goto L_8C0B246E;
+    if ((((*(int *)(((*(int *)(int)padPeri) + 0x10))) & 5) == 0)) goto L_8C0B246E;
     goto L_8C0B2466;
     L_8C0B2466:;
     *(unsigned int *)0x8C3449E8 = (*(int *)0x8C20D198);
@@ -484,7 +495,7 @@ int stageLoadTimedStep(void)
     goto L_8C0B2478;
     L_8C0B2478:;
     *(unsigned int *)((R14 + 0xC)) = ((*(int *)((R14 + 0xC))) + 0x1);
-    *(unsigned int *)0x8C34A1EC = R12;
+    *(unsigned int *)(int)fileLoadState = R12;
     if (((*(int *)((R11 + 0x0))) == 0)) goto L_8C0B248C;
     goto L_8C0B2488;
     L_8C0B2488:;
@@ -612,7 +623,7 @@ int staffLookAtBall(int a4, int a5, int a6, int a7)
 
     *(unsigned int *)(((int)stk + 12)) = a4;
     *(unsigned int *)(((int)stk + 16)) = a6;
-    *(unsigned int *)(((int)stk + 8)) = 0x8C291F24;
+    *(unsigned int *)(((int)stk + 8)) = (int)Ball;
     mtxGetWorldPos(a4, a5, a6, a7, (((int)stk + 8) + 0x24));
     nlSubVector3op((((int)stk + 8) + 0x18), ((*(int *)(((int)stk + 8))) + 0xC), (((int)stk + 8) + 0x24));
     *(unsigned int *)(((int)stk + 8)) = (unsigned short)(*(int *)(((int)stk + 12)));
@@ -786,8 +797,8 @@ int kmiWriteFBRegister(Stk29 s)
     stk[29] = s.w[26];
     stk[30] = s.w[27];
     stk[31] = s.w[28];
-    *(unsigned int *)0x8C45EE38 = (((*(int *)(((((int)stk + 4) + 0x8) + 0x58))) & 0x7FF) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x54))) & 0x7FF) << 16));
-    *(unsigned int *)0x8C45EE3C = (((*(int *)(((((int)stk + 4) + 0x8) + 0x60))) & 0x7FF) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x5C))) & 0x7FF) << 16));
+    *(unsigned int *)(int)g_0c2ea934 = (((*(int *)(((((int)stk + 4) + 0x8) + 0x58))) & 0x7FF) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x54))) & 0x7FF) << 16));
+    *(unsigned int *)(int)g_0c2ea938 = (((*(int *)(((((int)stk + 4) + 0x8) + 0x60))) & 0x7FF) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x5C))) & 0x7FF) << 16));
     *(unsigned int *)0x8C45EE40 = ((((*(int *)(((((int)stk + 4) + 0x8) + 0x48))) & 0xF) | ((((*(int *)(((((int)stk + 4) + 0x8) + 0x4C))) & 0x1F) << 2) << 2)) | ((((*(int *)(((((int)stk + 4) + 0x8) + 0x50))) & 0xF) << 8) << 1));
     *(unsigned int *)0x8C45EEAC = (*(int *)(((((int)stk + 4) + 0x8) + 0x0)));
     *(unsigned int *)0x8C45EEB0 = (*(int *)(((((int)stk + 4) + 0x8) + 0x4)));
@@ -795,15 +806,15 @@ int kmiWriteFBRegister(Stk29 s)
     t10 = *(int *)(((((int)stk + 4) + 0x8) + 0x0));
     t11 = *(int *)(((((int)stk + 4) + 0x8) + 0x4));
     if ((int)(*(int *)0x8C45EEA8) > 0) {
-        *(unsigned int *)0x8C45EE44 = (((t10 & 0x3FF) | ((((t11 - (*(int *)0x8C45EEA8)) & 0x3FF) << 8) << 2)) | ((((t9 & 0x3FF) << 16) << 2) << 2));
+        *(unsigned int *)(int)g_0c2ea940 = (((t10 & 0x3FF) | ((((t11 - (*(int *)0x8C45EEA8)) & 0x3FF) << 8) << 2)) | ((((t9 & 0x3FF) << 16) << 2) << 2));
     } else {
-        *(unsigned int *)0x8C45EE44 = (((t10 & 0x3FF) | (((t11 & 0x3FF) << 8) << 2)) | ((((t9 & 0x3FF) << 16) << 2) << 2));
+        *(unsigned int *)(int)g_0c2ea940 = (((t10 & 0x3FF) | (((t11 & 0x3FF) << 8) << 2)) | ((((t9 & 0x3FF) << 16) << 2) << 2));
     }
-    *(unsigned int *)0x8C45EE80 = ((unsigned char)(*(int *)(((((int)stk + 4) + 0x8) + 0x14))) | ((unsigned char)(*(int *)(((((int)stk + 4) + 0x8) + 0x18))) << 8));
-    *(unsigned int *)0x8C45EE84 = (((unsigned short)(*(int *)(((((int)stk + 4) + 0x8) + 0x10))) | (((*(int *)(((((int)stk + 4) + 0x8) + 0xC))) & 0x1) << 16)) | ((((*(int *)(((((int)stk + 4) + 0x8) + 0x1C))) & 0x1) << 16) << 2));
-    *(unsigned int *)0x8C45EE48 = ((*(int *)(((((int)stk + 4) + 0x8) + 0x44))) & 0x1FF);
-    *(unsigned int *)0x8C45EE50 = (((((*(int *)(((((int)stk + 4) + 0x8) + 0x30))) & 0x7) | ((((*(int *)(((((int)stk + 4) + 0x8) + 0x2C))) & 0x1) << 2) << 1)) | ((unsigned char)(*(int *)(((((int)stk + 4) + 0x8) + 0x34))) << 8)) | ((unsigned char)(*(int *)(((((int)stk + 4) + 0x8) + 0x38))) << 16));
-    *(unsigned int *)0x8C45EE4C = (((((((((*(int *)(((((int)stk + 4) + 0x8) + 0x20))) & 0x1) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x28))) & 0x1) << 1)) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x3C))) & 0x3) << 2)) | (((0x7 & (*(int *)(((((int)stk + 4) + 0x8) + 0x40)))) << 2) << 2)) | ((unsigned char)(*(signed char *)(((((int)stk + 4) + 0x8) + 0x70))) << 8)) | ((0x1F & (*(int *)(((((int)stk + 4) + 0x8) + 0x68)))) << 16)) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x64))) & 0x1) << 22)) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x6C))) & 0x1) << 23));
+    *(unsigned int *)(int)g_0c2ea97c = ((unsigned char)(*(int *)(((((int)stk + 4) + 0x8) + 0x14))) | ((unsigned char)(*(int *)(((((int)stk + 4) + 0x8) + 0x18))) << 8));
+    *(unsigned int *)(int)g_0c2ea980 = (((unsigned short)(*(int *)(((((int)stk + 4) + 0x8) + 0x10))) | (((*(int *)(((((int)stk + 4) + 0x8) + 0xC))) & 0x1) << 16)) | ((((*(int *)(((((int)stk + 4) + 0x8) + 0x1C))) & 0x1) << 16) << 2));
+    *(unsigned int *)(int)g_0c2ea944 = ((*(int *)(((((int)stk + 4) + 0x8) + 0x44))) & 0x1FF);
+    *(unsigned int *)(int)g_0c2ea94c = (((((*(int *)(((((int)stk + 4) + 0x8) + 0x30))) & 0x7) | ((((*(int *)(((((int)stk + 4) + 0x8) + 0x2C))) & 0x1) << 2) << 1)) | ((unsigned char)(*(int *)(((((int)stk + 4) + 0x8) + 0x34))) << 8)) | ((unsigned char)(*(int *)(((((int)stk + 4) + 0x8) + 0x38))) << 16));
+    *(unsigned int *)(int)gFrameBufferReadControl = (((((((((*(int *)(((((int)stk + 4) + 0x8) + 0x20))) & 0x1) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x28))) & 0x1) << 1)) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x3C))) & 0x3) << 2)) | (((0x7 & (*(int *)(((((int)stk + 4) + 0x8) + 0x40)))) << 2) << 2)) | ((unsigned char)(*(signed char *)(((((int)stk + 4) + 0x8) + 0x70))) << 8)) | ((0x1F & (*(int *)(((((int)stk + 4) + 0x8) + 0x68)))) << 16)) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x64))) & 0x1) << 22)) | (((*(int *)(((((int)stk + 4) + 0x8) + 0x6C))) & 0x1) << 23));
     return 0x6C;
 }
 

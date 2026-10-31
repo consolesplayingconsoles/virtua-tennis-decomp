@@ -1,5 +1,11 @@
 /* Straight-line functions with calls and guards (batch gen_cy): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gVmsIoInterface[];
+extern char gVmsVolumeStates[];
+extern char motFileAddr[];
+extern char motFileQueue[];
+extern char motLoadAddr[];
+extern char strMwRnaNullHandleError[];
 
 int ADXERR_CallErrFunc(int, ...);
 int ADXSTM_Tell(int);
@@ -652,9 +658,9 @@ int vmsfs_findnext_ex(int a4, int a5, int a6)
     *(unsigned int *)(((int)stk + 4)) = R5;
     *(unsigned int *)(((int)stk + 8)) = (R4 * 0x148);
     R12 = (R4);
-    R13 = (((R4 * 0x148) + 0x8C464598));
+    R13 = (((R4 * 0x148) + (int)gVmsVolumeStates));
     R14 = (R6);
-    if (((*(signed char *)((((R4 * 0x148) + 0x8C464598) + 0x2))) == 0)) goto L_8C1ECEFA;
+    if (((*(signed char *)((((R4 * 0x148) + (int)gVmsVolumeStates) + 0x2))) == 0)) goto L_8C1ECEFA;
     goto L_8C1ECED0;
     L_8C1ECED0:;
     t6 = (vmsio_isready(R12)) != 0;
@@ -673,7 +679,7 @@ int vmsfs_findnext_ex(int a4, int a5, int a6)
     if (t10) goto L_8C1ECEFA;
     goto L_8C1ECEEE;
     L_8C1ECEEE:;
-    if (((*(signed char *)((((*(int *)(((int)stk + 8))) + 0x8C464598) + 0x8))) != 0)) goto L_8C1ECF00;
+    if (((*(signed char *)((((*(int *)(((int)stk + 8))) + (int)gVmsVolumeStates) + 0x8))) != 0)) goto L_8C1ECF00;
     goto L_8C1ECEFA;
     L_8C1ECF00:;
     t15 = (int)(buIsFormat(R12)) >= 0;
@@ -964,7 +970,7 @@ void mwRnaSetStmHdInfo(int a4, int a5, int a6)
     *(unsigned int *)(((int)stk + 36)) = a5;
     *(unsigned int *)(((int)stk + 8)) = a6;
     if (a4 == 0) {
-        mwRnaErrCallFunc(0x8C20AC30);
+        mwRnaErrCallFunc((int)strMwRnaNullHandleError);
     } else {
         t1 = *(int *)((a4 + 0x38));
         *(unsigned int *)(((int)stk + 12)) = t1;
@@ -1057,13 +1063,13 @@ int motFileLoadStep(int a4, int a5, int a6, int a7)
     L_8C015D34:;
     t8 = *(int *)0x8C287590;
     R14 = (0x8C287590);
-    R4 = (0x8C287588);
-    R5 = (0x8C2873F8);
+    R4 = ((int)motLoadAddr);
+    R5 = ((int)motFileQueue);
     R6 = (t8);
     if ((t8 == 0)) goto L_8C015DD8;
     goto L_8C015D40;
     L_8C015D40:;
-    *(unsigned int *)((((*(int *)((((((((R6 - 1) << 2) + (R6 - 1)) << 2) << 1) + R5) + 0x0))) << 2) + 0x8C2873CC)) = (*(int *)((R4 + 0x0)));
+    *(unsigned int *)((((*(int *)((((((((R6 - 1) << 2) + (R6 - 1)) << 2) << 1) + R5) + 0x0))) << 2) + (int)motFileAddr)) = (*(int *)((R4 + 0x0)));
     t16 = *(int *)((R14 + 0x0));
     *(unsigned int *)(((int)stk + 4)) = ((((((t16 - 1) << 2) + (t16 - 1)) << 2) << 1) + R5);
     t17 = *(int *)((((((((t16 - 1) << 2) + (t16 - 1)) << 2) << 1) + R5) + 0x24));
@@ -1099,7 +1105,7 @@ int motFileLoadStep(int a4, int a5, int a6, int a7)
     t34 = *(int *)((R4 + 0x0));
     R12 = (t34);
     R13 = ((((((t33 << 2) + t33) << 2) << 1) + R5));
-    if ((t34 == (*(int *)((((*(int *)(((((((t33 << 2) + t33) << 2) << 1) + R5) + 0x0))) << 2) + 0x8C2873CC))))) goto L_8C015E00;
+    if ((t34 == (*(int *)((((*(int *)(((((((t33 << 2) + t33) << 2) << 1) + R5) + 0x0))) << 2) + (int)motFileAddr))))) goto L_8C015E00;
     goto L_8C015DF4;
     L_8C015DF4:;
     fileLoadStart(R12, (R13 + 0x4), 0x0);
@@ -1142,10 +1148,10 @@ int write_dir_all(int a4, int a5, int a6, int a7)
     R4 = a4;
     R6 = a6;
     L_8C1EDD9A:;
-    t0 = *(int *)((((R4 * 0x148) + 0x8C464598) + 0x1C));
+    t0 = *(int *)((((R4 * 0x148) + (int)gVmsVolumeStates) + 0x1C));
     *(unsigned short *)(((int)stk + 8)) = (*(short *)((t0 + 0x14)));
     t3 = *(int *)((t0 + 0x18));
-    t12 = ((R4 * 0x148) + 0x8C464598);
+    t12 = ((R4 * 0x148) + (int)gVmsVolumeStates);
     R10 = (0xFFFA);
     R11 = (0x0);
     R12 = ((*(short *)(((int)stk + 8))));
@@ -1184,7 +1190,7 @@ int write_dir_all(int a4, int a5, int a6, int a7)
     if (((unsigned short)(*(short *)(((int)stk + 8))) == (*(int *)(((*(int *)((R9 + 0x1C))) + 0x14))))) goto L_8C1EDEA4;
     goto L_8C1EDE8C;
     L_8C1EDE8C:;
-    t33 = ((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0x10)))))((*(int *)((R9 + 0x20))), 0x4A, (*(short *)(((int)stk + 8))));
+    t33 = ((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0x10)))))((*(int *)((R9 + 0x20))), 0x4A, (*(short *)(((int)stk + 8))));
     write_fat(R14);
     write_sys(R14);
     goto L_8C1EDEA4;

@@ -1,5 +1,15 @@
 /* Straight-line functions with calls and guards (batch gen_ak): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char fileLoadSlots[];
+extern char fileLoadState[];
+extern char g_0c2b7624[];
+extern char g_0c2b7628[];
+extern char g_0c2b762c[];
+extern char g_0c2b7630[];
+extern char g_0c2b8cbc[];
+extern char g_0c2ee992[];
+extern char g_0c2ee998[];
+extern char uniformTexNames[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -119,7 +129,7 @@ int vmsfs_fsetparam(int a4, int a5, int a6)
     if (a4 == 0) {
         return 0xFFFFFF00;
     }
-    if ((*(signed char *)((((*(int *)((a4 + 0x28))) * 0x148) + 0x8C46459A))) != 0) {
+    if ((*(signed char *)((((*(int *)((a4 + 0x28))) * 0x148) + (int)g_0c2ee992))) != 0) {
         t3 = vmsio_isready((*(int *)((a4 + 0x28))));
         if (t3 == 0) {
             vmsfs_unmount((*(int *)((a4 + 0x28))));
@@ -127,7 +137,7 @@ int vmsfs_fsetparam(int a4, int a5, int a6)
         }
         t7 = vmsio_ismount((*(int *)((a4 + 0x28))));
         if (t7 != 0) {
-            if ((*(signed char *)((((*(int *)((a4 + 0x28))) * 0x148) + 0x8C4645A0))) == 0) {
+            if ((*(signed char *)((((*(int *)((a4 + 0x28))) * 0x148) + (int)g_0c2ee998))) == 0) {
                 return 0xFFFFFF01;
             }
             t11 = buIsFormat((*(int *)((a4 + 0x28))));
@@ -579,7 +589,7 @@ int fileLoadStart(int a4, int a5, int a6)
         fileLoadClose();
     }
     *(unsigned int *)0x8C34A1F4 = 0x0;
-    *(unsigned int *)0x8C34A1EC = 0x1;
+    *(unsigned int *)(int)fileLoadState = 0x1;
     *(unsigned int *)0x8C34A1F0 = 0x0;
     t8 = 0x0;
     t9 = 0x1;
@@ -613,7 +623,7 @@ int fileLoadStart(int a4, int a5, int a6)
         ADXF_ReadNw32((*(int *)0x8C34A1F8), ((unsigned int)((unsigned int)((unsigned int)a6 >> 8) >> 2) >> 1), a4);
         return 0x1;
     }
-    *(unsigned int *)0x8C34A1EC = 0x0;
+    *(unsigned int *)(int)fileLoadState = 0x0;
     *(unsigned int *)0x8C34A1F4 = 0x0;
     *(unsigned int *)0x8C34A1F0 = 0x1;
     return 0x0;
@@ -667,13 +677,13 @@ int nlLineSendHeader(int a4)
     int t11;
 
     u0 = *(float *)0x8C0F3254;
-    *(float *)0x8C454C48 = ((*(float *)0x8C1DCA24) * u0);
-    *(float *)0x8C454C4C = ((*(float *)0x8C1DCA28) * u0);
-    *(float *)0x8C454C50 = ((-1.0f) - (*(float *)0x8C454C48));
-    *(float *)0x8C454C54 = ((-1.0f) - (*(float *)0x8C454C4C));
-    *(float *)0x8C1DCAB8 = (*(float *)0x8C454C48);
-    *(float *)0x8C1DCACC = (-(*(float *)0x8C454C4C));
-    t7 = *(int *)0x8C42445C;
+    *(float *)(int)g_0c2b7624 = ((*(float *)0x8C1DCA24) * u0);
+    *(float *)(int)g_0c2b7628 = ((*(float *)0x8C1DCA28) * u0);
+    *(float *)(int)g_0c2b762c = ((-1.0f) - (*(float *)(int)g_0c2b7624));
+    *(float *)(int)g_0c2b7630 = ((-1.0f) - (*(float *)(int)g_0c2b7628));
+    *(float *)0x8C1DCAB8 = (*(float *)(int)g_0c2b7624);
+    *(float *)0x8C1DCACC = (-(*(float *)(int)g_0c2b7628));
+    t7 = *(int *)(int)g_0c2b8cbc;
     if ((a4 & 0x1) != 0) {
         t10 = (*(int *)((t7 + 0x8)));
         t11 = 0x8C1DCC40;
@@ -768,16 +778,16 @@ int uniformTexLoad(int a4, int a5, int a6)
     int t26;
 
     if ((*(int *)((0x8C1891D4 + (a6 << 2)))) != a4) {
-        if ((*(int *)(((0x8C34A238 + (a6 * 0x4C)) + 0x0))) != 0) {
+        if ((*(int *)((((int)fileLoadSlots + (a6 * 0x4C)) + 0x0))) != 0) {
             fileLoadCloseSlot(a6);
             *(unsigned int *)((0x8C1891D4 + (a6 << 2))) = 0xFFFFFFFF;
         }
     }
-    if ((*(int *)((((a6 * 0x4C) + 0x8C34A238) + 0x0))) == 0) {
+    if ((*(int *)((((a6 * 0x4C) + (int)fileLoadSlots) + 0x0))) == 0) {
         *(unsigned int *)((0x8C1891D4 + (a6 << 2))) = a4;
-        *(unsigned int *)((((a6 * 0x4C) + 0x8C34A238) + 0x0)) = 0x1;
+        *(unsigned int *)((((a6 * 0x4C) + (int)fileLoadSlots) + 0x0)) = 0x1;
         cacheOcbiRange((a5 + 0x8CA80000), 0x20000);
-        fileLoadStartSlotOfs(0x8CA80000, (*(int *)(((a4 << 2) + 0x8C18911C))), 0x0, a5, a6);
+        fileLoadStartSlotOfs(0x8CA80000, (*(int *)(((a4 << 2) + (int)uniformTexNames))), 0x0, a5, a6);
     }
     t26 = fileLoadPollSlot(a6);
     if (t26 == 1) {

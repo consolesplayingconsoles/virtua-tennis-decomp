@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_fa): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 int cpuDblPositionCalc(int, int);
@@ -55,7 +56,7 @@ int cpuDblPosition(int a4)
     R0 = (0x142);
     R12 = (R4);
     R13 = (((t0 * 0x160) + 0x8C2FC69C));
-    R14 = ((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84));
+    R14 = ((((0x3 & (t0 + 0x2)) * 0xD78) + (int)Player));
     R4 = (t0);
     if (((*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x142))) == 0)) goto L_8C06ABB4;
     goto L_8C06ABAC;

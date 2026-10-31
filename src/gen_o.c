@@ -1,5 +1,19 @@
 /* Straight-line functions with calls and guards (batch gen_o): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gAdxfCommandHistory[];
+extern char gAdxfCommandHistoryWriteIndex[];
+extern char gAdxfCommandSequences[];
+extern char gAdxfInvalidateReadCache[];
+extern char gInterruptHandlerChains[];
+extern char gNlObjectModifierModeBits[];
+extern char gNlSoundStreams[];
+extern char gVmsIoInterface[];
+extern char gVmsVolumeStates[];
+extern char g_0c2b3150[];
+extern char g_0c2b7948[];
+extern char g_0c2b8cbc[];
+extern char padPeri[];
+extern char strMwRnaNullHandleError[];
 
 int ADXERR_CallErrFunc(int, ...);
 int ADXSJD_SetInSj(int, int);
@@ -134,7 +148,7 @@ int mwRnaSetPitch(int a4, int a5, int a6)
     *(unsigned int *)(((int)stk + 20)) = a5;
     *(unsigned int *)(((int)stk + 24)) = a6;
     if (a4 == 0) {
-        t0 = mwRnaErrCallFunc(0x8C20AC30);
+        t0 = mwRnaErrCallFunc((int)strMwRnaNullHandleError);
         return t0;
     }
     t1 = *(int *)((a4 + 0x38));
@@ -336,12 +350,12 @@ int padIdleFrames(void)
 
     t1 = 0x0;
     for (;;) {
-        t2 = *(int *)((0x8C29B898 + (t1 << 2)));
+        t2 = *(int *)(((int)padPeri + (t1 << 2)));
         t3 = *(int *)((t2 + 0x8));
         if (t3 == 0) {
             t4 = *(short *)((t2 + 0x1C));
             if (t4 == 0) {
-                t5 = *(int *)0x8C29B898;
+                t5 = *(int *)(int)padPeri;
                 t0 = t5;
                 t6 = *(short *)((t0 + 0x1E));
                 if (t6 == 0) {
@@ -513,26 +527,26 @@ int adxf_SetCmdHstry(int fileSlot, int command, int argument0, int argument1, in
     int sequenceNumber;
     int indexBeforeAdvance;
 
-    writeIndex = *(int *)0x8C46D688;
+    writeIndex = *(int *)(int)gAdxfCommandHistoryWriteIndex;
     wrappedIndex = ((~(((~writeIndex) + 0x1) & 0xFF)) + 0x1);
     if ((int)writeIndex >= 0) {
         wrappedIndex = (writeIndex & 0xFF);
     }
-    *(unsigned int *)0x8C46D688 = wrappedIndex;
+    *(unsigned int *)(int)gAdxfCommandHistoryWriteIndex = wrappedIndex;
     if (command == 0) {
-        previousSequence = *(short *)(((fileSlot << 1) + 0x8C46D668));
-        *(unsigned short *)(((fileSlot << 1) + 0x8C46D668)) = (previousSequence + 0x1);
+        previousSequence = *(short *)(((fileSlot << 1) + (int)gAdxfCommandSequences));
+        *(unsigned short *)(((fileSlot << 1) + (int)gAdxfCommandSequences)) = (previousSequence + 0x1);
     }
-    *(unsigned char *)(((((wrappedIndex << 2) << 2) + 0x8C46C668) + 0x0)) = fileSlot;
-    *(unsigned char *)(((((wrappedIndex << 2) << 2) + 0x8C46C668) + 0x1)) = command;
-    sequenceNumber = *(short *)(((fileSlot << 1) + 0x8C46D668));
-    *(unsigned short *)(((0x2 + (((wrappedIndex << 2) << 2) + 0x8C46C668)) + 0x0)) = sequenceNumber;
-    *(unsigned int *)(((((wrappedIndex << 2) << 2) + 0x8C46C668) + 0x4)) = argument0;
-    *(unsigned int *)(((((wrappedIndex << 2) << 2) + 0x8C46C668) + 0x8)) = argument1;
-    *(unsigned int *)(((((wrappedIndex << 2) << 2) + 0x8C46C668) + 0xC)) = argument2;
-    indexBeforeAdvance = *(int *)0x8C46D688;
-    *(unsigned int *)0x8C46D688 = (indexBeforeAdvance + 0x1);
-    return 0x8C46D668;
+    *(unsigned char *)(((((wrappedIndex << 2) << 2) + (int)gAdxfCommandHistory) + 0x0)) = fileSlot;
+    *(unsigned char *)(((((wrappedIndex << 2) << 2) + (int)gAdxfCommandHistory) + 0x1)) = command;
+    sequenceNumber = *(short *)(((fileSlot << 1) + (int)gAdxfCommandSequences));
+    *(unsigned short *)(((0x2 + (((wrappedIndex << 2) << 2) + (int)gAdxfCommandHistory)) + 0x0)) = sequenceNumber;
+    *(unsigned int *)(((((wrappedIndex << 2) << 2) + (int)gAdxfCommandHistory) + 0x4)) = argument0;
+    *(unsigned int *)(((((wrappedIndex << 2) << 2) + (int)gAdxfCommandHistory) + 0x8)) = argument1;
+    *(unsigned int *)(((((wrappedIndex << 2) << 2) + (int)gAdxfCommandHistory) + 0xC)) = argument2;
+    indexBeforeAdvance = *(int *)(int)gAdxfCommandHistoryWriteIndex;
+    *(unsigned int *)(int)gAdxfCommandHistoryWriteIndex = (indexBeforeAdvance + 0x1);
+    return (int)gAdxfCommandSequences;
 }
 
 int SJMEM_IsGetChunk(int a4, int a5, int a6, int a7)
@@ -716,17 +730,17 @@ int nlObjPutMvSub(int a4, int a5)
     t1 = *(int *)((a4 + 0x18));
     if ((int)t0 >= 0) {
         if (t1 != 0) {
-            t2 = *(int *)0x8C42445C;
+            t2 = *(int *)(int)g_0c2b8cbc;
             t3 = *(int *)((t2 + 0x4));
             *(unsigned int *)0xFF000038 = ((unsigned int)((unsigned int)t3 >> 16) >> 8);
             *(unsigned int *)0xFF00003C = ((unsigned int)((unsigned int)t3 >> 16) >> 8);
-            t4 = *(int *)0x8C458E04;
-            *(unsigned int *)0x8C458D98 = (((t1 | t4) & 0x30000) | 0x818C0000);
+            t4 = *(int *)(int)g_0c2b7948;
+            *(unsigned int *)(int)g_0c2b3150 = (((t1 | t4) & 0x30000) | 0x818C0000);
             *(unsigned int *)0x8C458D9C = 0x0;
-            t5 = *(int *)0x8C450BFC;
+            t5 = *(int *)(int)gNlObjectModifierModeBits;
             *(unsigned int *)0x8C458DA0 = t5;
             t6 = *(int *)0x8C450C00;
-            nlObjPutMVAsm(a4, 0x8C458D98, a5, t6);
+            nlObjPutMVAsm(a4, (int)g_0c2b3150, a5, t6);
         }
     }
     return nlPopMatrix(0x1);
@@ -746,7 +760,7 @@ int mwRnaSetBitPerSmpl(int a4, int a5)
     int t10;
 
     if (a4 == 0) {
-        t0 = mwRnaErrCallFunc(0x8C20AC30);
+        t0 = mwRnaErrCallFunc((int)strMwRnaNullHandleError);
         t10 = t0;
     } else {
         t1 = *(int *)((a4 + 0x28));
@@ -837,7 +851,7 @@ int mwRnaSetOutPan(int a4, int a5, int a6)
     int t10;
 
     if (a4 == 0) {
-        t0 = mwRnaErrCallFunc(0x8C20AC30);
+        t0 = mwRnaErrCallFunc((int)strMwRnaNullHandleError);
         t10 = t0;
     } else {
         t3 = 0xFFFFFFF1;
@@ -974,9 +988,9 @@ int search_fat_backward(int a4, int a5, int a6, int a7)
     if ((int)a7 >= (int)a6) {
         t0 = a7;
         for (;;) {
-            t1 = *(int *)0x8C464594;
+            t1 = *(int *)(int)gVmsIoInterface;
             t2 = *(int *)((t1 + 0xC));
-            t3 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x24));
+            t3 = *(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x24));
             t4 = ((int (*)(int, int, int, int))(t2))(t3, (t0 << 1), a6, a7);
             t5 = *(short *)(((int)stk + 4));
             if ((unsigned short)t4 == (unsigned short)t5) {
@@ -1101,13 +1115,13 @@ int nlsndStreamIsPlaying(int a4)
     int t6;
     int t4;
 
-    t0 = *(signed char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x0));
+    t0 = *(signed char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x0));
     t12 = 0x0;
     if (t0 == 1) {
-        t1 = *(signed char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x1));
+        t1 = *(signed char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x1));
         t8 = 0x1;
         if (t1 == 0) {
-            t2 = *(int *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x18));
+            t2 = *(int *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x18));
             t3 = nlsndG2Read(t2);
             t6 = 0x2;
             if ((t3 & 64) != 0) {
@@ -1145,11 +1159,11 @@ void syChainInit(void)
     for (;;) {
         *(unsigned int *)((t1 + 0xC)) = 0x0;
         t1 = (t1 + 0x10);
-        if ((unsigned int)t1 >= (unsigned int)0x8C461818) {
+        if ((unsigned int)t1 >= (unsigned int)(int)gInterruptHandlerChains) {
             break;
         }
     }
-    t2 = 0x8C461818;
+    t2 = (int)gInterruptHandlerChains;
     for (;;) {
         *(unsigned int *)((t2 + 0x0)) = 0x0;
         t2 = (t2 + 0x4);
@@ -1173,7 +1187,7 @@ int mwRnaSetDrctLvl(int a4, int a5)
     int t9;
 
     if (a4 == 0) {
-        t0 = mwRnaErrCallFunc(0x8C20AC30);
+        t0 = mwRnaErrCallFunc((int)strMwRnaNullHandleError);
         t9 = t0;
     } else {
         t3 = 0xFFFFFFD3;
@@ -1371,7 +1385,7 @@ int adxf_CloseSjStm(int a4)
         t9 = *(signed char *)((a4 + 0x2));
         t23 = t9;
         if (t9 == 0) {
-            t10 = *(int *)0x8C46C664;
+            t10 = *(int *)(int)gAdxfInvalidateReadCache;
             if (t10 == 1) {
                 t11 = *(int *)((a4 + 0x2C));
                 t12 = *(int *)((a4 + 0x28));

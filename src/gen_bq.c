@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_bq): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 int cpuAimPointSet(int, int, float, float);
 float cpuDistXZ(int, int);
@@ -62,7 +63,7 @@ int cpuSglAimLv09(int a4, int a5, float f4, float f5)
     *(float *)(((int)stk + 8)) = F13;
     v0_10 = *(int *)((v0_1 + 0xC58));
     v0_11 = *(int *)((v0_1 + 0xB5C));
-    v0_3 = *(int *)(((((0x1 & (v0_11 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB5C));
+    v0_3 = *(int *)(((((0x1 & (v0_11 + 0x1)) * 0xD78) + (int)Player) + 0xB5C));
     v0_4 = ((*(int *)((v0_1 + 0xB60))) & 4) == 0;
     *(unsigned int *)(((int)stk + 36)) = v0_0;
     *(unsigned int *)(((int)stk + 32)) = v0_5;
@@ -75,7 +76,7 @@ int cpuSglAimLv09(int a4, int a5, float f4, float f5)
     *(float *)(((int)stk + 4)) = F13;
     R10 = (0x8C041C58);
     R11 = ((((v0_10 << 1) + (v0_10 << 2)) + 0x8C159FA4));
-    R12 = ((((0x1 & (v0_11 + 0x1)) * 0xD78) + 0x8C287D84));
+    R12 = ((((0x1 & (v0_11 + 0x1)) * 0xD78) + (int)Player));
     R13 = (v0_1);
     v0_0 = (v0_2);
     R9 = (((v0_3 * 0x160) + 0x8C2FC69C));

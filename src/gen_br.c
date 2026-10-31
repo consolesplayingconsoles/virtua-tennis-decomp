@@ -1,5 +1,9 @@
 /* Straight-line functions with calls and guards (batch gen_br): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
+extern char Player[];
+extern char charaTbl[];
+extern char replayFrame[];
 
 int nlResetBackColorZ(int, int, int, float);
 int entryAnyAtRound5(void);
@@ -279,15 +283,15 @@ int selInitB(void)
     R11 = (R14);
     goto L_8C0A7246;
     L_8C0A7246:;
-    playerInit(((R11 * 0xD78) + 0x8C287D84), R11, R6, R7);
+    playerInit(((R11 * 0xD78) + (int)Player), R11, R6, R7);
     *(unsigned int *)0x8C29466C = R14;
     *(unsigned int *)0x8C294668 = R14;
-    *(unsigned int *)((((R11 * 0xD78) + 0x8C287D84) + 0xC58)) = R14;
-    motionSet(((R11 * 0xD78) + 0x8C287D84), 0x29DE0, 0x1, 0x12755C, ((*(int *)((0x8C102424 + ((*(int *)((((R11 * 0xD78) + 0x8C287D84) + 0xC58))) * 0x6C))))), ((*(int *)(((*(int *)(((int)stk + 16))) + 0x0)))), (*(float *)0x8C23D204));
-    vecMake(0x0, 0x0, 0x0, 0x0, (0xAF4 + ((R11 * 0xD78) + 0x8C287D84)), F15, F15, F15);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xAE8 + ((R11 * 0xD78) + 0x8C287D84))) = *(struct mv3 *)((0xAF4 + ((R11 * 0xD78) + 0x8C287D84))); }
-    *(float *)((((R11 * 0xD78) + 0x8C287D84) + 0xC90)) = F15;
-    *(float *)((((R11 * 0xD78) + 0x8C287D84) + 0xB18)) = F15;
+    *(unsigned int *)((((R11 * 0xD78) + (int)Player) + 0xC58)) = R14;
+    motionSet(((R11 * 0xD78) + (int)Player), 0x29DE0, 0x1, 0x12755C, ((*(int *)(((int)charaTbl + ((*(int *)((((R11 * 0xD78) + (int)Player) + 0xC58))) * 0x6C))))), ((*(int *)(((*(int *)(((int)stk + 16))) + 0x0)))), (*(float *)0x8C23D204));
+    vecMake(0x0, 0x0, 0x0, 0x0, (0xAF4 + ((R11 * 0xD78) + (int)Player)), F15, F15, F15);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0xAE8 + ((R11 * 0xD78) + (int)Player))) = *(struct mv3 *)((0xAF4 + ((R11 * 0xD78) + (int)Player))); }
+    *(float *)((((R11 * 0xD78) + (int)Player) + 0xC90)) = F15;
+    *(float *)((((R11 * 0xD78) + (int)Player) + 0xB18)) = F15;
     lightOverrideAmbient(R11, 0x64);
     t108 = (int)(R11 + 0x1) < (int)R10;
     R11 = ((R11 + 0x1));
@@ -432,7 +436,7 @@ int replaySnapshot(int a4, int a5)
                 }
                 t17 = 0x8C28B364;
                 t19 = (t18 * 0xD78);
-                t16 = 0x8C287D84;
+                t16 = (int)Player;
                 t22 = (((*(int *)0x8C287C20) * 0x35E0) + t17);
                 t17 = 0x8C0F7CF0;
                 t16 = (t16 + t19);
@@ -443,7 +447,7 @@ int replaySnapshot(int a4, int a5)
             }
             t27 = *(int *)0x8C287C20;
             t28 = ((t27 * 0x8C) + 0x8C291FB0);
-            t30 = 0x8C291F24;
+            t30 = (int)Ball;
             for (;;) { t31 = *(int *)t28; t28 = (t28 + 4); if ((unsigned int)((((t27 * 0x8C) + 0x8C291FB0) + 140)) < (unsigned int)t28) break; *(unsigned int *)t30 = t31; t30 = (t30 + 4); }
             *(unsigned int *)0x8C287D68 = (*(int *)0x8C287AF8);
             *(unsigned int *)0x8C287AF8 = (*(int *)((((*(int *)0x8C287C20) << 2) + 0x8C287D6C)));
@@ -452,8 +456,8 @@ int replaySnapshot(int a4, int a5)
             *(unsigned int *)0x8C287B3C = ((((*(int *)0x8C287B3C) & 0xFFFFFFFB) | 0x1) | 0x8);
             *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFFFFD);
             *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x800);
-            *(unsigned int *)0x8C287C30 = (*(int *)0x8C287C1C);
-            *(unsigned int *)0x8C287C1C = (*(int *)((((*(int *)0x8C287C20) << 2) + 0x8C287C28)));
+            *(unsigned int *)0x8C287C30 = (*(int *)(int)replayFrame);
+            *(unsigned int *)(int)replayFrame = (*(int *)((((*(int *)0x8C287C20) << 2) + 0x8C287C28)));
             *(unsigned int *)0x8C287B44 = 0x2;
             *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x200000);
             *(float *)0x8C287C3C = 1.0f;
@@ -479,19 +483,19 @@ int replaySnapshot(int a4, int a5)
             t54 = (t54 + t55);
             t57 = (t56 * 0xD78);
             t54 = (t54 + t57);
-            t61 = (0x8C287D84 + t57);
+            t61 = ((int)Player + t57);
             t63 = t54;
-            for (;;) { t64 = *(int *)t61; t61 = (t61 + 4); if ((unsigned int)(((0x8C287D84 + t57) + 3448)) < (unsigned int)t61) break; *(unsigned int *)t63 = t64; t63 = (t63 + 4); }
+            for (;;) { t64 = *(int *)t61; t61 = (t61 + 4); if ((unsigned int)((((int)Player + t57) + 3448)) < (unsigned int)t61) break; *(unsigned int *)t63 = t64; t63 = (t63 + 4); }
             t56 = (t56 + 0x1);
         }
-        t67 = 0x8C291F24;
+        t67 = (int)Ball;
         t69 = (((*(int *)0x8C287C20) * 0x8C) + 0x8C291FB0);
-        for (;;) { t70 = *(int *)t67; t67 = (t67 + 4); if ((unsigned int)((0x8C291F24 + 140)) < (unsigned int)t67) break; *(unsigned int *)t69 = t70; t69 = (t69 + 4); }
+        for (;;) { t70 = *(int *)t67; t67 = (t67 + 4); if ((unsigned int)(((int)Ball + 140)) < (unsigned int)t67) break; *(unsigned int *)t69 = t70; t69 = (t69 + 4); }
         *(unsigned int *)((((*(int *)0x8C287C20) << 2) + 0x8C287D6C)) = (*(int *)0x8C287AF8);
         *(unsigned int *)(((0x8C287C34 + ((*(int *)0x8C287C20) << 2)) + 0x0)) = (int)((nlRandom()) * 256.0f);
         t75 = *(int *)0x8C287C20;
         *(unsigned int *)0x8C294650 = (*(int *)(((t75 << 2) + 0x8C287C34)));
-        *(unsigned int *)(((t75 << 2) + 0x8C287C28)) = (*(int *)0x8C287C1C);
+        *(unsigned int *)(((t75 << 2) + 0x8C287C28)) = (*(int *)(int)replayFrame);
         *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFFFFD);
         t79 = *(int *)0x8C287C20;
         *(unsigned int *)0x8C287C20 = (0x1 - t79);
@@ -506,8 +510,8 @@ int replaySnapshot(int a4, int a5)
         if ((t88 & 8) == 0) {
         } else {
             t90 = playerHumanPressed((*(int *)0x8C287AF0));
-            t163 = 0x8C287C1C;
-            if ((t90 == 0) && (t91 = *(int *)0x8C287C1C, t92 = *(int *)0x8C287C30, t91 != t92)) {
+            t163 = (int)replayFrame;
+            if ((t90 == 0) && (t91 = *(int *)(int)replayFrame, t92 = *(int *)0x8C287C30, t91 != t92)) {
             } else {
                 *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFFFFB);
                 *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) & 0xFFFFFFFE);
@@ -568,11 +572,11 @@ int replaySnapshot(int a4, int a5)
         t177 = t169;
     }
     if ((*(int *)0x8C287C60) == 0) {
-        *(unsigned int *)0x8C287C1C = ((*(int *)0x8C287C1C) + 0x1);
+        *(unsigned int *)(int)replayFrame = ((*(int *)(int)replayFrame) + 0x1);
     }
     t190 = t177;
-    if ((*(int *)0x8C287C1C) == 0x258) {
-        *(unsigned int *)0x8C287C1C = 0x0;
+    if ((*(int *)(int)replayFrame) == 0x258) {
+        *(unsigned int *)(int)replayFrame = 0x0;
         t190 = 0x0;
     }
     return t190;

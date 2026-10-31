@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_ku): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char charaTbl[];
 
 int miniPlacePlayers(void);
 int motionSet(int, int, int, int, int, int, float);
@@ -93,7 +94,7 @@ int miniRoundStart(int a4, int a5, int a6, int a7)
                                     *(float *)0x8C28886C = 0.0f;
                                     *(unsigned int *)0x8C287B14 = 0x0;
                                     *(unsigned int *)0x8C287B10 = 0x0;
-                                    motionSet(0x8C288AFC, 0x29DE0, 0x1, 0x12755C, ((*(int *)((((*(int *)0x8C289754) * 0x6C) + 0x8C102424)))), ((*(int *)0x8C2873D0)), 1.0f);
+                                    motionSet(0x8C288AFC, 0x29DE0, 0x1, 0x12755C, ((*(int *)((((*(int *)0x8C289754) * 0x6C) + (int)charaTbl)))), ((*(int *)0x8C2873D0)), 1.0f);
                                     *(unsigned int *)0x8C28983C = 0x8C01DE1A;
                                 }
                             }

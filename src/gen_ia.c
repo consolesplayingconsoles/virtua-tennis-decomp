@@ -1,5 +1,8 @@
 /* Straight-line functions with calls and guards (batch gen_ia): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
+extern char charaTbl[];
+extern char playerMotionTbl[];
 
 typedef struct { int w[3]; } Stk3;
 int colliObjInit(int, int, int, int, int, float);
@@ -117,10 +120,10 @@ void playerInit(int a4, int a5, int a6, int a7)
         *(unsigned int *)((a4 + 0xB58)) = 0x0;
         t25 = (*(int *)0x8C2873D0);
         *(int *)((int)stk + 12) = t25;
-        t28 = (*(int *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x0)));
+        t28 = (*(int *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + (int)charaTbl) + 0x0)));
         *(int *)((int)stk + 8) = t28;
         motionSet(a4, (*(int *)((((*(int *)((a4 + 0xB58))) << 2) + 0x8C102C6C))), 0x1, 0x12755C, t28, t25, (*(float *)0x8C23D204));
-        *(float *)((a4 + 0x4C)) = (*(float *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x4)));
+        *(float *)((a4 + 0x4C)) = (*(float *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + (int)charaTbl) + 0x4)));
         t35 = serveGetReceiver();
         if (t35 == a5) {
             *(unsigned int *)((a4 + 0xB60)) = ((*(int *)((a4 + 0xB60))) | 0x8);
@@ -128,7 +131,7 @@ void playerInit(int a4, int a5, int a6, int a7)
             if (((*(int *)0x8C287B00) == 0) && ((t38 = *(int *)0x8C287B04, t38 == 0) && ((t39 = *(int *)0x8C287B10, t39 == 0) && (t40 = *(int *)0x8C287B14, t40 == 0)))) {
                 *(unsigned int *)((a4 + 0xD50)) = 0x7;
             } else {
-                *(unsigned int *)((a4 + 0xD50)) = (*(int *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x40)));
+                *(unsigned int *)((a4 + 0xD50)) = (*(int *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + (int)charaTbl) + 0x40)));
             }
         }
         t86 = 0xD40;
@@ -139,11 +142,11 @@ void playerInit(int a4, int a5, int a6, int a7)
         t55 = (*(int *)0x8C2873D0);
         *(int *)((int)stk + 12) = t55;
         t56 = *(int *)((a4 + 0xC58));
-        *(unsigned int *)(((int)stk + 16)) = ((t56 * 0x6C) + 0x8C102424);
-        t58 = (*(int *)((((t56 * 0x6C) + 0x8C102424) + 0x0)));
+        *(unsigned int *)(((int)stk + 16)) = ((t56 * 0x6C) + (int)charaTbl);
+        t58 = (*(int *)((((t56 * 0x6C) + (int)charaTbl) + 0x0)));
         *(int *)((int)stk + 8) = t58;
-        motionSet(a4, (*(int *)(((((*(int *)(((*(int *)(((int)stk + 16))) + 0x34))) << 2) << 2) + 0x8C105F1C))), 0x1, 0x12755C, t58, t55, (*(float *)0x8C23D204));
-        *(float *)((a4 + 0x4C)) = (*(float *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x4)));
+        motionSet(a4, (*(int *)(((((*(int *)(((*(int *)(((int)stk + 16))) + 0x34))) << 2) << 2) + (int)playerMotionTbl))), 0x1, 0x12755C, t58, t55, (*(float *)0x8C23D204));
+        *(float *)((a4 + 0x4C)) = (*(float *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + (int)charaTbl) + 0x4)));
         effServeSpeedShow(a5);
         if ((((*(int *)0x8C287B10) + (*(int *)0x8C287B14)) == 0) && (t69 = *(int *)0x8C287B28, t69 == 0)) {
             *(float *)((a4 + 0xD00)) = 0.0f;
@@ -214,7 +217,7 @@ void playerInit(int a4, int a5, int a6, int a7)
     *(unsigned short *)((a4 + 0xD3E)) = 0x3E7;
     *(unsigned short *)((a4 + 0xD3C)) = 0x3E7;
     *(unsigned int *)((a4 + 0xD30)) = 0x63;
-    *(unsigned int *)((a4 + 0xD4C)) = (*(int *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x3C)));
+    *(unsigned int *)((a4 + 0xD4C)) = (*(int *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + (int)charaTbl) + 0x3C)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)((0xD60 + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)((0xD54 + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
     *(unsigned int *)((a4 + 0xD6C)) = 0xFFFFFFFF;
@@ -232,7 +235,7 @@ void playerInit(int a4, int a5, int a6, int a7)
         }
         t108 = (*(int *)0x8C2873E0);
         *(int *)((int)stk + 12) = t108;
-        t111 = (*(int *)(((0x8C102424 + ((*(int *)((a4 + 0xC58))) * 0x6C)) + 0x0)));
+        t111 = (*(int *)((((int)charaTbl + ((*(int *)((a4 + 0xC58))) * 0x6C)) + 0x0)));
         *(int *)((int)stk + 8) = t111;
         motionSet(a4, t105, 0x0, 0x7D204, t111, t108, (*(float *)0x8C23D204));
         *(int *)((int)stk + 4) = (0xAE8 + a4);
@@ -249,7 +252,7 @@ void playerInit(int a4, int a5, int a6, int a7)
         t131 = (t128 + (a5 * 0xD78));
         for (;;) { t132 = *(int *)t129; t129 = (t129 + 4); if ((unsigned int)((a4 + 3448)) < (unsigned int)t129) break; *(unsigned int *)t131 = t132; t131 = (t131 + 4); }
         t128 = (t128 + 0x35E0);
-        if ((unsigned int)t128 >= (unsigned int)0x8C291F24) {
+        if ((unsigned int)t128 >= (unsigned int)(int)Ball) {
             break;
         }
     }

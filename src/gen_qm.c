@@ -1,5 +1,10 @@
 /* Straight-line functions with calls and guards (batch gen_qm): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gKdGunCount[];
+extern char gMapleDriver[];
+extern char g_0c2ec254[];
+extern char g_0c2ec28c[];
+extern char g_0c2ec4d8[];
 
 extern int _builtin_get_imask(void);
 extern void _builtin_set_imask(int);
@@ -49,10 +54,10 @@ int kdRecvFrame(void)
     *(unsigned int *)(((int)stk + 16)) = (_builtin_get_imask());
     _builtin_set_imask(0xF);
     t1 = mpdrv_frame_recv_pre();
-    R10 = (0x8C461E5C);
+    R10 = ((int)g_0c2ec254);
     R13 = (t1);
     R8 = (0x1);
-    R9 = (0x8C47317C);
+    R9 = ((int)gMapleDriver);
     if ((t1 != -2)) goto L_8C1E996C;
     *(unsigned int *)(((*(int *)((R9 + 0x0))) + 0x10E8)) = R8;
     L_8C1E9ABE:;
@@ -60,14 +65,14 @@ int kdRecvFrame(void)
     return R13;
     L_8C1E996C:;
     if (((int)R13 >= 0)) goto L_8C1E9974;
-    t10 = *(int *)0x8C461E94;
+    t10 = *(int *)(int)g_0c2ec28c;
     R14 = (t10);
     if ((t10 == 0)) goto L_8C1E9ABE;
     t14 = ((int (*)(int, int, int, int))(R14))(0x2, 0xFFFFFFF8, (*(int *)((R10 + 0x8))), R13);
     goto L_8C1E9ABE;
     L_8C1E9974:;
     mpdrv_frame_recv_main(R4);
-    t16 = *(int *)0x8C4620E0;
+    t16 = *(int *)(int)g_0c2ec4d8;
     *(int *)((int)stk + 8) = ((R10 + 0x30) + (t16 << 1));
     *(unsigned short *)((((R10 + 0x30) + (t16 << 1)) + 0x0)) = (((*(int *)0xA05F810C) & 0x3FF) + ((unsigned short)(*(short *)((((R10 + 0x34) + (t16 << 1)) + 0x0))) * (unsigned short)((*(int *)0xA05F80DC) & 0x3FF)));
     copy_device();
@@ -80,10 +85,10 @@ int kdRecvFrame(void)
     t28 = (((int (*)(int, int, int, int))(R14))(R4, R5, R6, R7)) == 0;
     if (t28) goto L_8C1E99D2;
     L_8C1E99CA:;
-    *(unsigned int *)0x8C4620EC = (trigger(R4, R5));
+    *(unsigned int *)(int)gKdGunCount = (trigger(R4, R5));
     L_8C1E99D2:;
     if (((*(int *)(((*(int *)((R9 + 0x0))) + 0xFBC))) == 0)) goto L_8C1E9A08;
-    if (((*(int *)0x8C4620EC) == 0)) goto L_8C1E9A08;
+    if (((*(int *)(int)gKdGunCount) == 0)) goto L_8C1E9A08;
     *(unsigned int *)0x8C4620E4 = (*(int *)0xA05F8040);
     *(unsigned int *)0xA05F8040 = (*(int *)((0xFBC + (*(int *)((R9 + 0x0))))));
     *(unsigned int *)0xA05F80E8 = ((*(int *)0xA05F80E8) | 0x8);
@@ -97,7 +102,7 @@ int kdRecvFrame(void)
     L_8C1E9A90:;
     if (((int)R11 < (int)0x30)) goto L_8C1E9A5C;
     *(unsigned int *)(((*(int *)((R9 + 0x0))) + 0x10E8)) = R12;
-    *(unsigned int *)0x8C4620E0 = ((*(int *)0x8C4620E0) ^ R8);
+    *(unsigned int *)(int)g_0c2ec4d8 = ((*(int *)(int)g_0c2ec4d8) ^ R8);
     *(unsigned int *)((R10 + 0x4)) = ((*(int *)((R10 + 0x4))) + 0x1);
     goto L_8C1E9ABE;
     L_8C1E9A5C:;

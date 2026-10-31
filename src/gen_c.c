@@ -1,5 +1,13 @@
 /* Straight-line functions with calls and guards (batch gen_c): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char buFbrServers[];
+extern char gAdxStreamFileHandles[];
+extern char gBuFiberScheduler[];
+extern char gNlCommonTextureOffset[];
+extern char gVmsFileCommandStates[];
+extern char g_0c2af128[];
+extern char g_0c2fd294[];
+extern char g_0c2fd298[];
 
 int kmiReadRegister(int);
 int kmiWriteRegister(int, int);
@@ -46,7 +54,7 @@ void strmScoreReset(void)
 
 void nlSetCommonTextureOffset(int textureOffset)
 {
-    *(unsigned int *)0x8C458DCC = textureOffset;
+    *(unsigned int *)(int)gNlCommonTextureOffset = textureOffset;
 }
 
 void nlPrintSetGarbagedTexture(void)
@@ -63,7 +71,7 @@ void nlPrintSetGarbagedTexture(void)
 
 void nlPrintColor(int a4)
 {
-    *(unsigned int *)0x8C44F9BC = a4;
+    *(unsigned int *)(int)g_0c2af128 = a4;
 }
 
 int abs(int a4)
@@ -107,7 +115,7 @@ void kdSetGunCallback(int a4)
 
 void vmsfs_c_exit(int a4, int a5, int a6, int a7)
 {
-    memset(0x8C462180, 0x0, 0x400, a7);
+    memset((int)gVmsFileCommandStates, 0x0, 0x400, a7);
 }
 
 void ADXCRS_Init(void)
@@ -117,7 +125,7 @@ void ADXCRS_Init(void)
 
 void ADXSTM_Init(int a4, int a5, int a6, int a7)
 {
-    memset(0x8C46B2E4, 0x0, 0xC80, a7);
+    memset((int)gAdxStreamFileHandles, 0x0, 0xC80, a7);
 }
 
 int kmySetupTA(int a4, int a5, int a6, int a7)
@@ -163,8 +171,8 @@ int kmySetupTA(int a4, int a5, int a6, int a7)
 
 void buFbrInit(int a4, int a5, int a6, int a7)
 {
-    memset(0x8C4747D0, 0x0, 0x1AF8, a7);
-    *(unsigned int *)0x8C4762C8 = 0x0;
-    *(unsigned int *)0x8C4762CC = 0x0;
-    *(unsigned int *)0x8C4762D0 = 0x0;
+    memset((int)buFbrServers, 0x0, 0x1AF8, a7);
+    *(unsigned int *)(int)gBuFiberScheduler = 0x0;
+    *(unsigned int *)(int)g_0c2fd294 = 0x0;
+    *(unsigned int *)(int)g_0c2fd298 = 0x0;
 }

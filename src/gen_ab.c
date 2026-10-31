@@ -1,5 +1,11 @@
 /* Straight-line functions with calls and guards (batch gen_ab): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gVmsVolumeStates[];
+extern char g_0c2b7624[];
+extern char g_0c2b7628[];
+extern char g_0c2b762c[];
+extern char g_0c2b7630[];
+extern char strMwRnaNullHandleError[];
 
 int ADXB_DecodeHeader(int, int, int);
 int ADXB_GetFormat(int);
@@ -91,9 +97,9 @@ int vmsfs_save_exec_file(int a4, int a5, int a6, int a7, int a8, int a9)
                 if ((int)t5 >= 0) {
                     *(unsigned char *)(((*(int *)(((int)stk + 12))) + 0x1)) = a9;
                     t7 = *(int *)(((int)stk + 16));
-                    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x30)) = 0x1;
-                    t8 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x4));
-                    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x34)) = ((*(int *)((((((t8 << 2) + t8) << 2) << 2) + 0x8C20C77C))) + a7);
+                    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x30)) = 0x1;
+                    t8 = *(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x4));
+                    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x34)) = ((*(int *)((((((t8 << 2) + t8) << 2) << 2) + 0x8C20C77C))) + a7);
                     if ((unsigned int)0x0 < (unsigned int)a7) {
                         t10 = 0x0;
                         t11 = t7;
@@ -282,16 +288,16 @@ int nlLineCalcColor(int a4, int a5, int a6, int a7, float f4, float f5, float f6
             t0 = a4;
         }
         if ((t3 & 0x1) != 0) {
-            nlLineCalcFogB(a4, a5, t0, (*(float *)0x8C454C50));
+            nlLineCalcFogB(a4, a5, t0, (*(float *)(int)g_0c2b762c));
         } else {
             if ((t3 & 0x2) != 0) {
-                nlLineCalcFogB(a4, a5, t0, (*(float *)0x8C454C48));
+                nlLineCalcFogB(a4, a5, t0, (*(float *)(int)g_0c2b7624));
             } else {
                 if ((t3 & 0x4) != 0) {
-                    nlLineCalcFogC(a4, a5, t0, (*(float *)0x8C454C54));
+                    nlLineCalcFogC(a4, a5, t0, (*(float *)(int)g_0c2b7630));
                 } else {
                     if ((t3 & 0x8) != 0) {
-                        nlLineCalcFogC(a4, a5, t0, (*(float *)0x8C454C4C));
+                        nlLineCalcFogC(a4, a5, t0, (*(float *)(int)g_0c2b7628));
                     }
                 }
             }
@@ -364,7 +370,7 @@ int mwRnaSetTransSw(int a4, int a5, int a6, int a7)
 
     *(unsigned int *)(((int)stk + 12)) = a5;
     if (a4 == 0) {
-        t36 = (mwRnaErrCallFunc(0x8C20AC30));
+        t36 = (mwRnaErrCallFunc((int)strMwRnaNullHandleError));
     } else {
         *(unsigned int *)((a4 + 0x8C)) = 0x1;
         if ((unsigned char)(*(signed char *)((a4 + 0x5))) == 1) {
@@ -677,8 +683,8 @@ int vmsfs_rewrite_exec_file(int a4, int a5, int a6, int a7, int a8)
     int stk[14];
 
     *(unsigned int *)(((int)stk + 4)) = a5;
-    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x30)) = 0x1;
-    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x34)) = a8;
+    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x30)) = 0x1;
+    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x34)) = a8;
     t1 = vmsfs_fgetinfo(a4, (*(int *)(((int)stk + 4))), (((int)stk + 4) + 0x4));
     t41 = t1;
     if ((int)t1 >= 0) {

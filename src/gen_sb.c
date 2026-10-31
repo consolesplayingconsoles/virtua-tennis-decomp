@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_sb): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
 
 int cpuGiveUpCheck(int a4);
 
@@ -21,7 +22,7 @@ int cpuGiveUpCheck(int a4)
     v0_1 = a4;
     v0_2 = (0x8C38B934);
     v0_0 = ((((*(int *)((v0_1 + 0xB5C))) * 0x160) + 0x8C2FC69C));
-    v0_3 = (0x8C291F24);
+    v0_3 = ((int)Ball);
     if (((*(int *)0x8C38B934) == 0)) goto L_8C03DB4C;
     v0_2 = (0xB6);
     if (((*(signed char *)((v0_0 + 0xB6))) != 0)) goto L_8C03DB4C;

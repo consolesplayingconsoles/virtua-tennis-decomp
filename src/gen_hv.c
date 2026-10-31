@@ -1,5 +1,8 @@
 /* Straight-line functions with calls and guards (batch gen_hv): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
+extern char Player[];
+extern char replayFrame[];
 
 int arcadePickRival(int, int);
 int ballBoyInit(void);
@@ -76,7 +79,7 @@ int matchStart(void)
     *(unsigned int *)0x8C287AF4 = 0x0;
     playerCalcMotionSpeeds();
     R10 = (0xFFFFFFFF);
-    R11 = (0x8C287D84);
+    R11 = ((int)Player);
     R12 = (0x8C287ACC);
     R13 = (0xD78);
     R14 = (0x0);
@@ -88,7 +91,7 @@ int matchStart(void)
     F15 = (0.0f);
     L_8C018826:;
     if (((unsigned int)R4 < (unsigned int)R5)) goto L_8C018820;
-    *(unsigned int *)0x8C287C1C = R10;
+    *(unsigned int *)(int)replayFrame = R10;
     *(unsigned int *)0x8C287C20 = R14;
     *(unsigned int *)0x8C287C24 = R14;
     if (((*(int *)((R9 + 0x0))) != 3)) goto L_8C018842;
@@ -171,7 +174,7 @@ int matchStart(void)
     *(float *)0x8C287C3C = F15;
     *(float *)0x8C287C40 = 0.0399999991f;
     *(float *)0x8C287C44 = 0.5f;
-    ballInit(0x8C291F24);
+    ballInit((int)Ball);
     if (((*(int *)((R9 + 0x0))) != 3)) goto L_8C0189C0;
     miniRoundStart(R4, R5, R6, R7);
     if (((*(int *)((R9 + 0x0))) != 3)) goto L_8C0189C0;

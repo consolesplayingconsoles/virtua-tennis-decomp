@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_lq): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 int hudFadeInStart(int, int, int, int, int);
@@ -70,7 +71,7 @@ int matchNextSetup(int a4)
                 if (t39 != 0) {
                     t39 = 0xC58;
                     t38 = (t41 * 0xD78);
-                    t38 = (t38 + 0x8C287D84);
+                    t38 = (t38 + (int)Player);
                     t38 = (*(int *)((t39 + t38)));
                     t38 = (t38 << 2);
                     *(unsigned int *)((0x8C287C74 + t38)) = 0x0;

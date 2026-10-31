@@ -1,5 +1,9 @@
 /* Straight-line functions with calls and guards (batch gen_aw): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gMapleDriver[];
+extern char gNlRenderTextureTableState[];
+extern char gVmsVolumeStates[];
+extern char g_0c2b31d8[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[12]; } Stk12;
@@ -134,7 +138,7 @@ int nlRenderTextureBegin(int a4)
     int t13;
     int t14;
 
-    t1 = *(int *)0x8C44FBEC;
+    t1 = *(int *)(int)gNlRenderTextureTableState;
     if ((int)(*(int *)0x8C44FBF4) >= 0) {
         *(unsigned int *)0x8C44FBF4 = 0xFFFFFFFF;
         nlSetWindowSize((*(float *)0x8C44FBF8), (*(float *)0x8C44FBFC), (*(float *)0x8C44FC00), (*(float *)0x8C44FC04));
@@ -148,7 +152,7 @@ int nlRenderTextureBegin(int a4)
         *(float *)0x8C44FC04 = (*(float *)0x8C450B1C);
         nlSetWindowSize(0.0f, 0.0f, (float)(*(short *)(((t1 + ((a4 << 2) << 2)) + 0xC))), (float)(*(short *)(((t1 + ((a4 << 2) << 2)) + 0xE))));
         nl_cancel_PixelClipping();
-        t23 = *(signed char *)0x8C450858;
+        t23 = *(signed char *)(int)g_0c2b31d8;
         nlMatrixMode(0x3);
         nl_set_cnv_proj_pers();
         return nlMatrixMode(t23);
@@ -174,7 +178,7 @@ int vmsfs_sysdiskfree(int a4)
     int t4;
 
     t42 = 0xFFFFFF01;
-    if ((*(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x2))) != 0) {
+    if ((*(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x2))) != 0) {
         t1 = vmsio_isready(a4);
         if (t1 == 0) {
             vmsfs_unmount(a4);
@@ -182,7 +186,7 @@ int vmsfs_sysdiskfree(int a4)
         } else {
             t3 = vmsio_ismount(a4);
             t25 = 0xFFFFFF01;
-            if ((t3 != 0) && (t4 = *(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x8)), t4 != 0)) {
+            if ((t3 != 0) && (t4 = *(signed char *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x8)), t4 != 0)) {
                 t5 = buIsFormat(a4);
                 t17 = 0xFFFFFF03;
                 if ((int)t5 < 0) {
@@ -191,7 +195,7 @@ int vmsfs_sysdiskfree(int a4)
                     t7 = 0x0;
                     t8 = 0x0;
                     for (;;) {
-                        t9 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C));
+                        t9 = *(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C));
                         t10 = *(int *)((t9 + 0x2C));
                         t11 = *(int *)((t9 + 0x10));
                         if ((int)t8 >= (int)(((int)((unsigned int)((int)((unsigned int)(t11 * (t10 + 0x1)) + (unsigned int)0x0)) + ((((int)0x0 > (int)(t11 * (t10 + 0x1)))) ? 1u : 0u))) >> 1)) {
@@ -622,7 +626,7 @@ int trigger(int a4, int a5)
     int t16;
     int stk[11];
 
-    *(unsigned char *)(((int)stk + 4)) = (*(signed char *)(((*(int *)0x8C47317C) + 0xFB0)));
+    *(unsigned char *)(((int)stk + 4)) = (*(signed char *)(((*(int *)(int)gMapleDriver) + 0xFB0)));
     t2 = 0xFB0;
     t3 = a4;
     t4 = a5;

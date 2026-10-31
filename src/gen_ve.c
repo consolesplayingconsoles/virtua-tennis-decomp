@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_ve): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gVmsIoInterface[];
 
 int kdDevGetStorageInfo(int, int);
 int kdGetDevice(int);
@@ -79,16 +80,16 @@ int vmsio_get_media_info(int a4, int a5)
     if ((v0_2 == 0xFC)) goto L_8C1FEC42;
     goto L_8C1FEDBC;
     L_8C1FECCC:;
-    *(unsigned int *)((v0_0 + 0x0)) = (unsigned short)(((int (*)(int, int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(v0_3, 0x0, R6));
-    *(unsigned int *)((v0_0 + 0x4)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(v0_3, 0x2));
-    *(unsigned int *)((v0_0 + 0x8)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(v0_3, 0x4));
-    *(unsigned int *)((v0_0 + 0xC)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(v0_3, 0x6));
-    *(unsigned int *)((v0_0 + 0x10)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(v0_3, 0x8));
-    *(unsigned int *)((v0_0 + 0x14)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(v0_3, 0xA));
-    *(unsigned int *)((v0_0 + 0x18)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(v0_3, 0xC));
-    *(unsigned int *)((v0_0 + 0x1C)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(v0_3, 0x10));
-    *(unsigned int *)((v0_0 + 0x20)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(v0_3, 0x12));
-    *(unsigned int *)((v0_0 + 0x34)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))(v0_3, 0x14));
+    *(unsigned int *)((v0_0 + 0x0)) = (unsigned short)(((int (*)(int, int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(v0_3, 0x0, R6));
+    *(unsigned int *)((v0_0 + 0x4)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(v0_3, 0x2));
+    *(unsigned int *)((v0_0 + 0x8)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(v0_3, 0x4));
+    *(unsigned int *)((v0_0 + 0xC)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(v0_3, 0x6));
+    *(unsigned int *)((v0_0 + 0x10)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(v0_3, 0x8));
+    *(unsigned int *)((v0_0 + 0x14)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(v0_3, 0xA));
+    *(unsigned int *)((v0_0 + 0x18)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(v0_3, 0xC));
+    *(unsigned int *)((v0_0 + 0x1C)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(v0_3, 0x10));
+    *(unsigned int *)((v0_0 + 0x20)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(v0_3, 0x12));
+    *(unsigned int *)((v0_0 + 0x34)) = (unsigned short)(((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))(v0_3, 0x14));
     *(unsigned int *)((v0_0 + 0x38)) = 0x80;
     *(unsigned int *)((v0_0 + 0x24)) = (unsigned char)(*(signed char *)((v0_3 + 0xE)));
     *(unsigned int *)((v0_0 + 0x28)) = (unsigned char)(*(signed char *)((v0_3 + 0xF)));

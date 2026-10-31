@@ -1,5 +1,9 @@
 /* Straight-line functions with calls and guards (batch gen_ai): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gNlPaletteAllocationBitmap[];
+extern char gNlPaletteTable[];
+extern char g_0c2ee992[];
+extern char g_0c2ee998[];
 
 int buIsFormat(int);
 int search_exec_file(int, int);
@@ -27,7 +31,7 @@ int vmsfs_xfind(int a4, int a5, int a6)
     int stk[15];
 
     t39 = 0xFFFFFF01;
-    if ((*(signed char *)(((a4 * 0x148) + 0x8C46459A))) != 0) {
+    if ((*(signed char *)(((a4 * 0x148) + (int)g_0c2ee992))) != 0) {
         t1 = vmsio_isready(a4);
         if (t1 == 0) {
             vmsfs_unmount(a4);
@@ -37,7 +41,7 @@ int vmsfs_xfind(int a4, int a5, int a6)
             t27 = 0xFFFFFF01;
             if (t3 != 0) {
                 t21 = 0xFFFFFF01;
-                if ((*(signed char *)(((a4 * 0x148) + 0x8C4645A0))) == 0) {
+                if ((*(signed char *)(((a4 * 0x148) + (int)g_0c2ee998))) == 0) {
                 } else {
                     t5 = buIsFormat(a4);
                     t16 = 0xFFFFFF03;
@@ -88,7 +92,7 @@ int nlFreePalette(int a4, int a5, int a6, int a7)
     int t10;
     int t13;
 
-    t0 = *(int *)0x8C458E38;
+    t0 = *(int *)(int)gNlPaletteTable;
     if ((int)(*(short *)(((t0 + ((a4 << 2) << 1)) + 0x4))) > (int)0x1) {
         t2 = *(short *)(((t0 + ((a4 << 2) << 1)) + 0x4));
         *(unsigned short *)(((t0 + ((a4 << 2) << 1)) + 0x4)) = (t2 - 1);
@@ -100,9 +104,9 @@ int nlFreePalette(int a4, int a5, int a6, int a7)
         *(unsigned short *)(((t0 + ((a4 << 2) << 1)) + 0x0)) = 0xFFFFFFFF;
         *(unsigned char *)(((t0 + ((a4 << 2) << 1)) + 0x2)) = 0xFFFFFFFF;
         *(unsigned short *)(((t0 + ((a4 << 2) << 1)) + 0x4)) = 0x0;
-        t5 = 0x8C424204;
-        t6 = 0x8C458E38;
-        t7 = ((((int)t4 >> 4) << 1) + 0x8C424204);
+        t5 = (int)gNlPaletteAllocationBitmap;
+        t6 = (int)gNlPaletteTable;
+        t7 = ((((int)t4 >> 4) << 1) + (int)gNlPaletteAllocationBitmap);
         t8 = (((int)(0xF & t4) >= 0) ? (0x1 << ((0xF & t4) & 31)) : ((-(int)(0xF & t4) & 31) ? ((int)0x1 >> (-(int)(0xF & t4) & 31)) : ((int)0x1 >> 31)));
         t9 = (unsigned char)t3;
         for (;;) {

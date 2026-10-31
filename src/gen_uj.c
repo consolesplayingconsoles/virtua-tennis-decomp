@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_uj): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char padPeri[];
 
 int emotDebugPrint(int);
 int emotGraphDraw(int, int, int, int, int, int, int, int, int, int, int, int);
@@ -139,9 +140,9 @@ int emotEditExec(int a4)
     v0_4 = ((v0_4 + 0x1));
     goto L_8C0BD848;
     L_8C0BD854:;
-    v0_4 = *(int *)(((*(int *)0x8C29B898) + 0x10));
+    v0_4 = *(int *)(((*(int *)(int)padPeri) + 0x10));
     v0_7 = (v0_4);
-    v0_5 = (0x8C29B898);
+    v0_5 = ((int)padPeri);
     if (((v0_4 & 5) == 0)) goto L_8C0BD8C4;
     v0_4 = ((v0_2 + v0_1));
     v0_5 = (v0_0);

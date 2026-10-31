@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_sg): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char g_0c2f605c[];
 
 int mwlRnaExecSvrHndl(int, int, int, int, int, int, int, int);
 int ovLockCs_8c200114(int);
@@ -24,9 +25,9 @@ int mwRnaExecServer(int a4)
     ovLockCs_8c200114(((int)stk + 4));
     v0_0 = (0x8C46DB0C);
     v0_1 = (0x90);
-    v0_2 = (0x8C46D68C);
-    v0_3 = (0x8C46D68C);
-    v0_4 = (0x8C46D68C);
+    v0_2 = ((int)g_0c2f605c);
+    v0_3 = ((int)g_0c2f605c);
+    v0_4 = ((int)g_0c2f605c);
     L_8C1F2800:;
     if (((unsigned char)(*(signed char *)((v0_3 + 0x0))) != 1)) goto L_8C1F280C;
     mwlRnaExecSvrHndl(v0_2, R5, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12));

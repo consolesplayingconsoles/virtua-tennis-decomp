@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_jk): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gAdxfPartitionInfoTable[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -353,8 +354,8 @@ int ADXF_AddPartition(int a4, int a5, int a6, int a7)
     goto L_8C1E1DC2;
     L_8C1E1DCC:;
     t14 = *(int *)(((int)stk + 4));
-    *(unsigned int *)((R14 + 0x0)) = (*(int *)((((t14 << 2) + 0x8C46C264) + 0x0)));
-    *(unsigned int *)((((t14 << 2) + 0x8C46C264) + 0x0)) = R13;
+    *(unsigned int *)((R14 + 0x0)) = (*(int *)((((t14 << 2) + (int)gAdxfPartitionInfoTable) + 0x0)));
+    *(unsigned int *)((((t14 << 2) + (int)gAdxfPartitionInfoTable) + 0x0)) = R13;
     *(unsigned int *)((R14 + 0x8)) = (*(int *)(((int)stk + 8)));
     *(unsigned char *)((R14 + 0x12)) = 0x1;
     *(unsigned int *)(((int)stk + 28)) = (R14 + 0x14);

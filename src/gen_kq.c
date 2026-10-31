@@ -1,5 +1,8 @@
 /* Straight-line functions with calls and guards (batch gen_kq): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
+extern char charaTbl[];
+extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 int camViewToWorld(int, int, int, int, int);
@@ -92,7 +95,7 @@ void shopPreviewExec(int a4, int a5, int a6, int a7)
                 *(unsigned int *)0x8C1D9CD8 = ((*(int *)0x8C1D9CD8) + 0x50);
             } else {
                 if (t12 == 0) {
-                    t21 = *(int *)((((*(int *)0x8C421F70) << 2) + 0x8C29B898));
+                    t21 = *(int *)((((*(int *)0x8C421F70) << 2) + (int)padPeri));
                     *(unsigned int *)(((int)stk + 48)) = t21;
                     t22 = *(int *)((t21 + 0x8));
                     if (((-(((((0x20000 & t22) == 0)) ? 1 : 0) - 1)) != 0) || ((-(((((t22 & 0x10000) == 0)) ? 1 : 0) - 1)) != 0)) {
@@ -120,7 +123,7 @@ void shopPreviewExec(int a4, int a5, int a6, int a7)
                                 *(float *)(((int)stk + 68)) = ((*(float *)(((int)stk + 68))) * (-1.0f));
                             }
                             nlAddVector(0x8C422BC4, (((int)stk + 28) + 0x28));
-                            t50 = *(int *)((((*(int *)0x8C421F70) << 2) + 0x8C29B898));
+                            t50 = *(int *)((((*(int *)0x8C421F70) << 2) + (int)padPeri));
                             *(unsigned int *)(((int)stk + 44)) = t50;
                             t51 = *(int *)((t50 + 0x8));
                             if (((-(((((0x20000 & t51) == 0)) ? 1 : 0) - 1)) != 0) || ((-(((((t51 & 0x10000) == 0)) ? 1 : 0) - 1)) != 0)) {
@@ -211,7 +214,7 @@ void shopPreviewExec(int a4, int a5, int a6, int a7)
                                 }
                             }
                             if ((*(int *)0x8C423BD0) != 0) {
-                                t159 = *(int *)((((*(int *)0x8C421F70) << 2) + 0x8C29B898));
+                                t159 = *(int *)((((*(int *)0x8C421F70) << 2) + (int)padPeri));
                                 *(unsigned int *)(((int)stk + 40)) = t159;
                                 t160 = *(int *)((t159 + 0x8));
                                 if (((-(((((0x20000 & t160) == 0)) ? 1 : 0) - 1)) != 0) || ((-(((((t160 & 0x10000) == 0)) ? 1 : 0) - 1)) != 0)) {
@@ -303,7 +306,7 @@ void shopPreviewExec(int a4, int a5, int a6, int a7)
                                 *(float *)0x8C287A04 = 50.0f;
                                 t276 = (*(int *)0x8C2873D0);
                                 *(int *)((int)stk + 20) = t276;
-                                t279 = (*(int *)((0x8C102424 + (*(int *)(((int)stk + 36))))));
+                                t279 = (*(int *)(((int)charaTbl + (*(int *)(((int)stk + 36))))));
                                 *(int *)((int)stk + 16) = t279;
                                 motionSet(0x8C4220DC, 0x115604, 0x1, 0x12755C, t279, t276, 1.0f);
                                 if ((*(int *)(((*(int *)(((int)stk + 28))) + 0x8C1AFA64))) != 0) {
@@ -315,7 +318,7 @@ void shopPreviewExec(int a4, int a5, int a6, int a7)
                         } else {
                             *(unsigned int *)0x8C423BCC = 0x0;
                             *(float *)0x8C287A04 = 50.0f;
-                            *(unsigned int *)(((int)stk + 32)) = 0x8C287D84;
+                            *(unsigned int *)(((int)stk + 32)) = (int)Player;
                             *(unsigned int *)0x8C422D34 = (*(int *)0x8C2889DC);
                             t298 = ((int (*)(int, int, int, int))(playerInit))(0x8C4220DC, 0x2, a6, a7);
                             *(float *)0x8C422BF4 = 0.0f;
@@ -326,7 +329,7 @@ void shopPreviewExec(int a4, int a5, int a6, int a7)
                             *(unsigned int *)(((int)stk + 52)) = 0x8C2873D0;
                             t300 = (*(int *)0x8C2873D0);
                             *(int *)((int)stk + 20) = t300;
-                            t304 = (*(int *)((((*(int *)(((*(int *)(((int)stk + 32))) + 0xC58))) * 0x6C) + 0x8C102424)));
+                            t304 = (*(int *)((((*(int *)(((*(int *)(((int)stk + 32))) + 0xC58))) * 0x6C) + (int)charaTbl)));
                             *(int *)((int)stk + 16) = t304;
                             motionSet(0x8C4220DC, 0x115604, 0x1, 0x12755C, t304, t300, 1.0f);
                             *(unsigned int *)0x8C423AAC = a5;
@@ -338,7 +341,7 @@ void shopPreviewExec(int a4, int a5, int a6, int a7)
                             *(Stk3 *)(0x8C42393C) = vecMake(0.0f, 0.0f, 0.0f);
                             t309 = (*(int *)(((*(int *)(((int)stk + 52))) + 0x0)));
                             *(int *)((int)stk + 8) = t309;
-                            t312 = (*(int *)((((*(int *)(((int)stk + 36))) + 0x8C102424) + 0x0)));
+                            t312 = (*(int *)((((*(int *)(((int)stk + 36))) + (int)charaTbl) + 0x0)));
                             *(int *)((int)stk + 4) = t312;
                             motionSet(0x8C422E54, 0x115604, 0x1, 0x12755C, t312, t309, 1.0f);
                             if ((*(int *)((((*(int *)(((*(int *)(((int)stk + 32))) + 0xC58))) << 2) + 0x8C1AFA64))) == 0) {

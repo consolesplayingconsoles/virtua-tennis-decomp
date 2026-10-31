@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_kd): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 float cpuLineXAtZ(Stk3, Stk3, float);
@@ -62,14 +63,14 @@ float cpuDblAimRateE(int a4, int a5)
     int t170;
 
     t0 = *(int *)((a4 + 0xB5C));
-    *(unsigned int *)(((int)stk + 52)) = (0x8C287D84 + ((((*(int *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xB5C))) + 0x2) & 0x3) * 0xD78));
+    *(unsigned int *)(((int)stk + 52)) = ((int)Player + ((((*(int *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xB5C))) + 0x2) & 0x3) * 0xD78));
     *(float *)(((((int)stk + 52) + 0x4) + 0x0)) = ((*(float *)((a5 + 0x0))) - (*(float *)((a4 + 0xB9C))));
     *(float *)(((((int)stk + 52) + 0x4) + 0x4)) = 0.0f;
     *(float *)(((((int)stk + 52) + 0x4) + 0x8)) = ((*(float *)((a5 + 0x8))) - (*(float *)((a4 + 0xBA4))));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x4)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((0xB9C + a4)); }
-    t7 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 28)), *(Stk3 *)(((int)stk + 40)), (*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0))));
-    u9 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAE8));
+    t7 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 28)), *(Stk3 *)(((int)stk + 40)), (*(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAF0))));
+    u9 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + (int)Player) + 0xAE8));
     u10 = *(float *)(((*(int *)(((int)stk + 52))) + 0xAE8));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 52) + 0x4)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xB9C + a4)); }

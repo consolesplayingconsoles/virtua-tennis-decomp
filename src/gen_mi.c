@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_mi): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 int menuItemDraw0(int, int, Stk3);
@@ -179,7 +180,7 @@ int entryGridSettingsStep(int a4, int a5, int a6, int a7, float f4, float f5, fl
     goto L_8C0B092E;
     L_8C0B08FC:;
     if (((*(int *)((R12 + 0x0))) != 3)) goto L_8C0B092E;
-    if ((((*(int *)(((*(int *)((0x8C29B898 + (R9 << 2)))) + 0x10))) & 0x5) == 0)) goto L_8C0B092E;
+    if ((((*(int *)(((*(int *)(((int)padPeri + (R9 << 2)))) + 0x10))) & 0x5) == 0)) goto L_8C0B092E;
     sndSeDecide();
     *(unsigned int *)(((int)stk + 72)) = 0x1;
     t84 = *(int *)((R14 + 0x0));

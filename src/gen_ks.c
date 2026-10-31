@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_ks): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char padPeri[];
 
 int entryCountJoined(void);
 int entryPortJoin(int, int, int, int, int, int, int, int);
@@ -67,7 +68,7 @@ int selJoinCheck(void)
     L_8C0A8C14:;
     v0_1 = ((v0_2 << 2));
     v0_3 = ((v0_2 << 2));
-    if ((((*(int *)(((*(int *)((0x8C29B898 + (v0_2 << 2)))) + 0x10))) & 0x8) == 0)) goto L_8C0A8CA0;
+    if ((((*(int *)(((*(int *)(((int)padPeri + (v0_2 << 2)))) + 0x10))) & 0x8) == 0)) goto L_8C0A8CA0;
     v0_5 = *(short *)0x8C343262;
     v0_1 = ((unsigned short)v0_5);
     v0_4 = (0x8C343258);

@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_io): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 int charaTexFreeAll(void);
@@ -129,7 +130,7 @@ int entryCharaSelExec(int a4, int a5, int a6, int a7, float f4, float f5, float 
     if ((v0_4 != -1)) goto L_8C0AE27C;
     *(unsigned int *)(((int)stk + 64)) = 0x1;
     L_8C0AE294:;
-    if ((((*(int *)(((*(int *)((0x8C29B898 + ((*(int *)(((int)stk + 100))) << 2)))) + 0x10))) & 5) == 0)) goto L_8C0AE2FE;
+    if ((((*(int *)(((*(int *)(((int)padPeri + ((*(int *)(((int)stk + 100))) << 2)))) + 0x10))) & 5) == 0)) goto L_8C0AE2FE;
     if (((*(int *)((0x8C343878 + ((*(int *)(((int)stk + 100))) << 2)))) != 1)) goto L_8C0AE2FE;
     if (((*(int *)(((int)stk + 64))) == 0)) goto L_8C0AE2FE;
     *(unsigned int *)((((*(int *)(((int)stk + 100))) << 2) + 0x8C343878)) = 0x2;
@@ -139,7 +140,7 @@ int entryCharaSelExec(int a4, int a5, int a6, int a7, float f4, float f5, float 
     *(unsigned int *)((((*(int *)(((int)stk + 100))) << 2) + 0x8C343888)) = 0x1;
     *(unsigned int *)(((((*(int *)(((int)stk + 100))) << 2) + 0x8C3438A8) + 0x0)) = (*(int *)((((*(int *)(((((int)stk + 32) + 0x44) + 0x0))) << 2) + 0x8C343898)));
     L_8C0AE2FE:;
-    if ((((*(int *)(((*(int *)((0x8C29B898 + ((*(int *)(((int)stk + 100))) << 2)))) + 0x10))) & 11) == 0)) goto L_8C0AE3BA;
+    if ((((*(int *)(((*(int *)(((int)padPeri + ((*(int *)(((int)stk + 100))) << 2)))) + 0x10))) & 11) == 0)) goto L_8C0AE3BA;
     if (((*(int *)((0x8C343878 + ((*(int *)(((int)stk + 100))) << 2)))) == 2)) goto L_8C0AE3BA;
     v0_4 = (padDirAny((*(int *)(((int)stk + 100))))) != 0;
     if (v0_4) goto L_8C0AE3BA;
@@ -256,7 +257,7 @@ int entryCharaSelExec(int a4, int a5, int a6, int a7, float f4, float f5, float 
     goto L_8C0AF086;
     L_8C0AE77C:;
     if (((*(short *)((((*(int *)((((*(int *)(((int)stk + 100))) << 2) + 0x8C3437C4))) * 0x38) + 0x8C343278))) == 0)) goto L_8C0AE798;
-    if ((((*(int *)(((*(int *)((0x8C29B898 + ((*(int *)(((int)stk + 100))) << 2)))) + 0x10))) & 2) != 0)) goto L_8C0AEF88;
+    if ((((*(int *)(((*(int *)(((int)padPeri + ((*(int *)(((int)stk + 100))) << 2)))) + 0x10))) & 2) != 0)) goto L_8C0AEF88;
     goto L_8C0AF086;
     L_8C0AEF88:;
     if (((*(int *)0x8C343BDC) != 0)) goto L_8C0AF086;
@@ -341,7 +342,7 @@ int entryCharaSelExec(int a4, int a5, int a6, int a7, float f4, float f5, float 
     v0_4 = *(int *)((0x8C343B50 + (((*(int *)(((int)stk + 100))) << 2) << 1)));
     *(unsigned int *)(((((*(int *)(((0x8C343B4C + (((*(int *)(((((int)stk + 32) + 0x44) + 0x0))) << 2) << 1)) + 0x0))) << 2) + (((((v0_4 << 2) << 1) + v0_4) << 2) + 0x8C1853C0)) + 0x0)) = 0x2;
     L_8C0AED56:;
-    if (!((((*(int *)(((*(int *)((0x8C29B898 + ((*(int *)(((int)stk + 100))) << 2)))) + 0x10))) & 5) != 0))) goto L_8C0AEE96;
+    if (!((((*(int *)(((*(int *)(((int)padPeri + ((*(int *)(((int)stk + 100))) << 2)))) + 0x10))) & 5) != 0))) goto L_8C0AEE96;
     if (((*(int *)((0x8C1AFA64 + ((*(int *)((0x8C343ACC + ((*(int *)(((int)stk + 100))) << 2)))) << 2)))) == 2)) goto L_8C0AED82;
     goto L_8C0AEE96;
     L_8C0AEE96:;
@@ -596,7 +597,7 @@ int entryCharaSelExec(int a4, int a5, int a6, int a7, float f4, float f5, float 
     L_8C0B0022:;
     v0_4 = (0x44);
     if (((int)(*(int *)(((int)stk + 100))) >= (int)0x4)) goto L_8C0B0030;
-    if (!((((*(int *)(((*(int *)((0x8C29B898 + ((*(int *)(((int)stk + 100))) << 2)))) + 0x10))) & 8) != 0))) goto L_8C0B0018;
+    if (!((((*(int *)(((*(int *)(((int)padPeri + ((*(int *)(((int)stk + 100))) << 2)))) + 0x10))) & 8) != 0))) goto L_8C0B0018;
     if ((((unsigned short)(*(short *)0x8C343262) & (unsigned short)(*(short *)((0x8C185298 + ((*(int *)(((int)stk + 100))) << 1))))) == 0)) goto L_8C0AFF22;
     goto L_8C0B0018;
     L_8C0B0018:;
@@ -795,7 +796,7 @@ int entryCharaSelExec(int a4, int a5, int a6, int a7, float f4, float f5, float 
     goto L_8C0AFA4C;
     L_8C0AFA0C:;
     if ((((unsigned short)(*(short *)0x8C343262) & (unsigned short)(*(short *)((((*(int *)(((int)stk + 68))) << 1) + 0x8C185298)))) == 0)) goto L_8C0AFA3E;
-    if ((((*(int *)(((*(int *)((0x8C29B898 + ((*(int *)(((int)stk + 68))) << 2)))) + 0x10))) & 5) == 0)) goto L_8C0AFA3E;
+    if ((((*(int *)(((*(int *)(((int)padPeri + ((*(int *)(((int)stk + 68))) << 2)))) + 0x10))) & 5) == 0)) goto L_8C0AFA3E;
     if (((int)(*(int *)0x8C343AB4) <= (int)0x3C)) goto L_8C0AFA3E;
     *(unsigned int *)0x8C343AB4 = 0x6E;
     L_8C0AFA3E:;

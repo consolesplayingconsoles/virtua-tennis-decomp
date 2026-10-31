@@ -1,5 +1,15 @@
 /* Straight-line functions with calls and guards (batch gen_cb): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gBuFiberScheduler[];
+extern char gFmMngState[];
+extern char gGdFsGlobalState[];
+extern char gMapleDriver[];
+extern char gMapleTransferLockAddress[];
+extern char gVmsIoInterface[];
+extern char gVmsVolumeStates[];
+extern char g_0c2f489c[];
+extern char g_8c20c728[];
+extern char syRtcLastCount[];
 
 typedef struct { int w[4]; } Stk4;
 extern int _builtin_get_imask(void);
@@ -74,7 +84,7 @@ int kdInitSystemEx(int a4, int a5, int a6, int a7)
 
     t0 = _builtin_get_imask();
     _builtin_set_imask(0xF);
-    *(unsigned int *)0x8C1FEB48 = ((*(int *)0x8C1FEB48) | 0xA0000000);
+    *(unsigned int *)(int)gMapleTransferLockAddress = ((*(int *)(int)gMapleTransferLockAddress) | 0xA0000000);
     init_sub();
     t3 = mpdrv_init_ex(a4, a5, a6, a7);
     copy_device();
@@ -91,7 +101,7 @@ int kdInitSystem(int a4, int a5)
 
     t0 = _builtin_get_imask();
     _builtin_set_imask(0xF);
-    *(unsigned int *)0x8C1FEB48 = ((*(int *)0x8C1FEB48) | 0xA0000000);
+    *(unsigned int *)(int)gMapleTransferLockAddress = ((*(int *)(int)gMapleTransferLockAddress) | 0xA0000000);
     init_sub();
     t3 = mpdrv_init(a5, 0xC000, a4);
     copy_device();
@@ -107,12 +117,12 @@ int read_fat(int a4)
     int t2;
     int t6;
 
-    t1 = *(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x10));
+    t1 = *(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x10));
     t7 = 0x0;
     if ((int)t1 > 0) {
         t2 = 0x0;
         for (;;) {
-            t6 = vmsfs_read_retry(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0xC))) + t2), (((t2 << 8) << 1) + (*(int *)((((a4 * 0x148) + 0x8C464598) + 0x24)))));
+            t6 = vmsfs_read_retry(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0xC))) + t2), (((t2 << 8) << 1) + (*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x24)))));
             if ((int)t6 < 0) {
                 break;
             }
@@ -176,7 +186,7 @@ int syRtcSetDate(void)
                 t11 = 0xFFFFFFFF;
                 if ((t6 != (*(int *)(((int)stk + 4)))) && (t8 = *(int *)(((int)stk + 4)), t6 != (t8 + 0x1))) {
                 } else {
-                    *(unsigned int *)0x8C45A6E4 = t6;
+                    *(unsigned int *)(int)syRtcLastCount = t6;
                     t11 = 0x0;
                 }
                 t15 = t11;
@@ -195,11 +205,11 @@ int search_fat_free(int a4, int a5)
     int t6;
     int t7;
 
-    t1 = *(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30));
+    t1 = *(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x30));
     if ((int)(t1 - 1) >= (int)a5) {
         t2 = (t1 - 1);
         for (;;) {
-            t6 = ((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x24))), (t2 << 1));
+            t6 = ((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x24))), (t2 << 1));
             if ((unsigned short)t6 == 0xFFFC) {
                 break;
             }
@@ -224,11 +234,11 @@ int search_fat(int a4, int a5)
     int stk[6];
 
     *(unsigned short *)(((int)stk + 4)) = a5;
-    t1 = *(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30));
+    t1 = *(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x30));
     if ((int)(t1 - 1) >= 0) {
         t2 = (t1 - 1);
         for (;;) {
-            t6 = ((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x24))), (t2 << 1));
+            t6 = ((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x24))), (t2 << 1));
             if ((unsigned short)t6 == (unsigned short)(*(short *)(((int)stk + 4)))) {
                 break;
             }
@@ -298,10 +308,10 @@ int search_fat_used(int a4)
 
     t0 = 0x0;
     for (;;) {
-        if ((int)t0 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30)))) {
+        if ((int)t0 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x30)))) {
             return 0xFFFFFFFF;
         }
-        t6 = ((int (*)(int, int))((*(int *)(((*(int *)0x8C464594) + 0xC)))))((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x24))), (t0 << 1));
+        t6 = ((int (*)(int, int))((*(int *)(((*(int *)(int)gVmsIoInterface) + 0xC)))))((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x24))), (t0 << 1));
         if (((unsigned short)t6 != 0xFFFC) && ((unsigned short)t6 != 0xFFFF)) {
             break;
         }
@@ -352,11 +362,11 @@ int gdFsGetDirInfoG(int a4, int a5)
     int t2;
     int t4;
 
-    t2 = gdFsSearchName(a4, (*(int *)(((*(int *)0x8C20C204) + 0x10))), 0x0);
+    t2 = gdFsSearchName(a4, (*(int *)(((*(int *)(int)gGdFsGlobalState) + 0x10))), 0x0);
     if (t2 == 0) {
         return 0xFFFFFFF8;
     }
-    t4 = *(int *)(((*(int *)0x8C20C204) + 0x10));
+    t4 = *(int *)(((*(int *)(int)gGdFsGlobalState) + 0x10));
     *(unsigned int *)((a5 + 0x0)) = ((*(int *)((((t4 + 0x10) + ((t2 - 1) * 0x2C)) + 0x0))) + 0x96);
     *(unsigned int *)((a5 + 0x4)) = (*(int *)((((t4 + 0x10) + ((t2 - 1) * 0x2C)) + 0x4)));
     *(unsigned char *)((a5 + 0x8)) = (*(signed char *)((((t4 + 0x10) + ((t2 - 1) * 0x2C)) + 0x8)));
@@ -401,8 +411,8 @@ int kdDevGetGunInfo(int a4, int a5)
 
 int vmsfs_resetwork(int a4)
 {
-    memset(((a4 * 0x148) + 0x8C464598), 0x0, 0x148);
-    *(unsigned int *)((((a4 * 0x148) + 0x8C464598) + 0x1C)) = ((a4 * 0x4C) + 0x8C468FF8);
+    memset(((a4 * 0x148) + (int)gVmsVolumeStates), 0x0, 0x148);
+    *(unsigned int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C)) = ((a4 * 0x4C) + 0x8C468FF8);
     return 0x0;
 }
 
@@ -444,11 +454,11 @@ int mpdrv_sdckbenable(int a4)
     int t0;
     int t6;
 
-    t0 = *(int *)0x8C47317C;
+    t0 = *(int *)(int)gMapleDriver;
     *(unsigned int *)((t0 + 0xFCC)) = ((*(int *)((t0 + 0xFCC))) + ((*(int *)(((0xFD8 + t0) + 0x0))) << 2));
-    *(unsigned int *)(((*(int *)(((*(int *)0x8C47317C) + 0xFCC))) + 0x0)) = ((a4 << 16) | 0x200);
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFD8)) = 0x1;
-    t6 = *(int *)0x8C47317C;
+    *(unsigned int *)(((*(int *)(((*(int *)(int)gMapleDriver) + 0xFCC))) + 0x0)) = ((a4 << 16) | 0x200);
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFD8)) = 0x1;
+    t6 = *(int *)(int)gMapleDriver;
     *(unsigned int *)((t6 + 0xFDC)) = ((*(int *)((t6 + 0xFDC))) + 0x4);
     return 0x0;
 }
@@ -466,7 +476,7 @@ int mpdrv_dpf(Stk4 s)
     stk[5] = s.w[2];
     stk[6] = s.w[3];
     t10 = 0x10C8;
-    if ((*(int *)(((*(int *)0x8C47317C) + 0x10C8))) != 0) {
+    if ((*(int *)(((*(int *)(int)gMapleDriver) + 0x10C8))) != 0) {
         t2 = ((((int)stk + 4) + 0x8) + 0x4);
         if ((0x3 & ((((int)stk + 4) + 0x8) + 0x4)) != 0) {
             t2 = ((((int)stk + 4) + 0x8) + 0x8);
@@ -486,7 +496,7 @@ int fmMngWrite(int recordIndex, int dataBufferAddress)
     int managerAddress;
     int recordCapacity;
 
-    managerAddress = *(int *)0x8C20CA44;
+    managerAddress = *(int *)(int)gFmMngState;
     if (managerAddress == 0) {
         return 0xFFFFFFF5;
     }
@@ -495,10 +505,10 @@ int fmMngWrite(int recordIndex, int dataBufferAddress)
     }
     if (((int)recordIndex >= 0) && (recordCapacity = *(int *)((managerAddress + 0x14)), (int)recordIndex < (int)recordCapacity)) {
         *(unsigned int *)((managerAddress + 0x1C)) = 0x2;
-        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x20)) = 0x2;
-        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x28)) = recordIndex;
-        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x30)) = dataBufferAddress;
-        *(unsigned int *)(((*(int *)0x8C20CA44) + 0x24)) = 0x0;
+        *(unsigned int *)(((*(int *)(int)gFmMngState) + 0x20)) = 0x2;
+        *(unsigned int *)(((*(int *)(int)gFmMngState) + 0x28)) = recordIndex;
+        *(unsigned int *)(((*(int *)(int)gFmMngState) + 0x30)) = dataBufferAddress;
+        *(unsigned int *)(((*(int *)(int)gFmMngState) + 0x24)) = 0x0;
         return 0x0;
     }
     return 0xFFFFFFFB;
@@ -526,10 +536,10 @@ int search_exec_file(int a4, int a5)
     int t2;
     int t6;
 
-    t1 = (*(int *)((((a4 * 0x148) + 0x8C464598) + 0x28)));
+    t1 = (*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x28)));
     t2 = 0x0;
     for (;;) {
-        if ((int)t2 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C))) + 0x30)))) {
+        if ((int)t2 >= (int)(*(int *)(((*(int *)((((a4 * 0x148) + (int)gVmsVolumeStates) + 0x1C))) + 0x30)))) {
             return 0xFFFFFFFF;
         }
         t6 = *(signed char *)((t1 + 0x0));
@@ -539,7 +549,7 @@ int search_exec_file(int a4, int a5)
         t1 = (t1 + 0x20);
         t2 = (t2 + 0x1);
     }
-    set_file_info(t1, a5, ((a4 * 0x148) + 0x8C464598), (unsigned char)t6);
+    set_file_info(t1, a5, ((a4 * 0x148) + (int)gVmsVolumeStates), (unsigned char)t6);
     return t2;
 }
 
@@ -557,7 +567,7 @@ int vmsfs_init_work_new(int a4)
 {
     int t0;
 
-    t0 = *(int *)0x8C464594;
+    t0 = *(int *)(int)gVmsIoInterface;
     if (a4 != 15) {
         if (a4 != 33) {
             if (a4 != 65) {
@@ -592,10 +602,10 @@ int vmsfs_dpf(Stk4 s)
     if ((0x3 & ((((int)stk + 4) + 0x8) + 0x4)) != 0) {
         t0 = ((((int)stk + 4) + 0x8) + 0x8);
     }
-    t3 = *(int *)0x8C20C728;
-    t5 = (vsprintf(0x8C46A4A4, s.w[0], t0));
+    t3 = *(int *)(int)g_8c20c728;
+    t5 = (vsprintf((int)g_0c2f489c, s.w[0], t0));
     if (t3 != 0) {
-        t5 = (((int (*)(int))(t3))(0x8C46A4A4));
+        t5 = (((int (*)(int))(t3))((int)g_0c2f489c));
     }
     return t5;
 }
@@ -666,18 +676,18 @@ int mpdrv_sdckbdisable(int a4)
     int t0;
     int t6;
 
-    t0 = *(int *)0x8C47317C;
+    t0 = *(int *)(int)gMapleDriver;
     *(unsigned int *)((t0 + 0xFCC)) = ((*(int *)((t0 + 0xFCC))) + ((*(int *)(((0xFD8 + t0) + 0x0))) << 2));
-    *(unsigned int *)(((*(int *)(((*(int *)0x8C47317C) + 0xFCC))) + 0x0)) = ((a4 << 16) | 0x400);
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFD8)) = 0x1;
-    t6 = *(int *)0x8C47317C;
+    *(unsigned int *)(((*(int *)(((*(int *)(int)gMapleDriver) + 0xFCC))) + 0x0)) = ((a4 << 16) | 0x400);
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFD8)) = 0x1;
+    t6 = *(int *)(int)gMapleDriver;
     *(unsigned int *)((t6 + 0xFDC)) = ((*(int *)((t6 + 0xFDC))) + 0x4);
     return 0x0;
 }
 
 int buFbrEndFiber(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11)
 {
-    *(unsigned int *)(((*(int *)(((*(int *)0x8C4762C8) + 0xD78))) + 0xC)) = 0x3;
+    *(unsigned int *)(((*(int *)(((*(int *)(int)gBuFiberScheduler) + 0xD78))) + 0xC)) = 0x3;
     return buFbrSleepFiber(0x0, a5, a6, a7, f4, f5, f6, f7, f8, f9, f10, f11);
 }
 

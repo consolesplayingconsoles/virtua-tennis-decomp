@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_sm): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 typedef struct { int w[3]; } Stk3;
 int cpuAimPointSet(int, int, float, float);
@@ -47,10 +48,10 @@ int cpuSglAimAddReach(int a4, int a5, float f4, float f5, float f6)
     cpuShotRange(v0_3, (((int)stk + 36) + 0x2C), (((int)stk + 36) + 0x20), (((int)stk + 36) + 0x14), (((int)stk + 40) + 0x4), w0_4, w0_5, w0_6);
     w0_1 = *(float *)(((int)stk + 80));
     w0_6 = *(float *)(((int)stk + 68));
-    w0_3 = *(float *)(((((0x1 & (v0_2 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8));
+    w0_3 = *(float *)(((((0x1 & (v0_2 + 0x1)) * 0xD78) + (int)Player) + 0xAE8));
     v0_0 = (v0_0);
     v0_1 = (v0_3);
-    v0_2 = ((((0x1 & (v0_2 + 0x1)) * 0xD78) + 0x8C287D84));
+    v0_2 = ((((0x1 & (v0_2 + 0x1)) * 0xD78) + (int)Player));
     w0_2 = (w0_6);
     w0_0 = (w0_1);
     w0_4 = (w0_3);

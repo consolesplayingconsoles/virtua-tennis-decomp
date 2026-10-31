@@ -1,5 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_uq): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
+extern char Player[];
 
 int cpuBallPredict(int, int, int, int, float, float, float);
 int cpuMeterInput(int);
@@ -40,10 +42,10 @@ void cpuSglInput(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     v0_10 = a7;
     w0_0 = f4;
     w0_1 = f5;
-    v0_6 = (0x8C287D84);
+    v0_6 = ((int)Player);
     v0_7 = ((((int)stk + 4) + 0x4));
     v0_8 = (0xFFFFF288);
-    v0_2 = (0x8C291F24);
+    v0_2 = ((int)Ball);
     v0_0 = (v0_1);
     v0_3 = (0x160);
     v0_4 = (0x8C2FC69C);

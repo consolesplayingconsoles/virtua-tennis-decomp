@@ -1,5 +1,11 @@
 /* Straight-line functions with calls and guards (batch gen_af): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gRenderPacketVBlankWaitPending[];
+extern char gStripBufferEnabled[];
+extern char gStripBufferSizeBytes[];
+extern char gVmsVolumeStates[];
+extern char g_0c2b31dc[];
+extern char stageNo[];
 
 extern int _builtin_get_imask(void);
 extern void _builtin_ld_ext(float (*)[4]);
@@ -100,7 +106,7 @@ int stageTexLoad(void)
     int t174;
     int stk[10];
 
-    if ((*(int *)0x8C1891F0) == 2) {
+    if ((*(int *)(int)stageNo) == 2) {
         nlSetCommonTextureOffset(0x900);
         t2 = 0x0;
         t3 = 0x8C136A6C;
@@ -114,7 +120,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 1) {
+    if ((*(int *)(int)stageNo) == 1) {
         nlSetCommonTextureOffset(0x500);
         t12 = 0x0;
         t13 = 0x8C13614C;
@@ -128,7 +134,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 0) {
+    if ((*(int *)(int)stageNo) == 0) {
         nlSetCommonTextureOffset(0x700);
         t22 = 0x0;
         t23 = 0x8C1365C0;
@@ -142,7 +148,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 3) {
+    if ((*(int *)(int)stageNo) == 3) {
         nlSetCommonTextureOffset(0xB00);
         t33 = 0x0;
         t34 = 0x8C136F44;
@@ -156,7 +162,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 4) {
+    if ((*(int *)(int)stageNo) == 4) {
         nlSetCommonTextureOffset(0xD00);
         t44 = 0x0;
         t45 = 0x8C1373A8;
@@ -170,7 +176,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 5) {
+    if ((*(int *)(int)stageNo) == 5) {
         nlSetCommonTextureOffset(0x1600);
         t55 = 0x0;
         t56 = 0x8C1378F8;
@@ -184,7 +190,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 6) {
+    if ((*(int *)(int)stageNo) == 6) {
         nlSetCommonTextureOffset(0x1700);
         t65 = 0x0;
         t66 = 0x8C137C24;
@@ -198,7 +204,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 7) {
+    if ((*(int *)(int)stageNo) == 7) {
         nlSetCommonTextureOffset(0x1900);
         t75 = 0x0;
         t76 = 0x8C137F38;
@@ -212,7 +218,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 8) {
+    if ((*(int *)(int)stageNo) == 8) {
         nlSetCommonTextureOffset(0x1E00);
         t85 = 0x0;
         t86 = 0x8C138264;
@@ -226,7 +232,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 9) {
+    if ((*(int *)(int)stageNo) == 9) {
         nlSetCommonTextureOffset(0x2400);
         t96 = 0x0;
         t97 = 0x8C13858C;
@@ -240,7 +246,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 10) {
+    if ((*(int *)(int)stageNo) == 10) {
         nlSetCommonTextureOffset(0x1080);
         t107 = 0x0;
         t108 = 0x8C13890C;
@@ -254,7 +260,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 11) {
+    if ((*(int *)(int)stageNo) == 11) {
         nlSetCommonTextureOffset(0x1100);
         *(unsigned int *)(((int)stk + 4)) = 0x0;
         t117 = 0x8C13892C;
@@ -269,7 +275,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 12) {
+    if ((*(int *)(int)stageNo) == 12) {
         nlSetCommonTextureOffset(0x1180);
         *(unsigned int *)(((int)stk + 4)) = 0x0;
         t126 = 0x8C138948;
@@ -284,7 +290,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 13) {
+    if ((*(int *)(int)stageNo) == 13) {
         nlSetCommonTextureOffset(0x1200);
         *(unsigned int *)(((int)stk + 4)) = 0x0;
         t135 = 0x8C138964;
@@ -299,7 +305,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 14) {
+    if ((*(int *)(int)stageNo) == 14) {
         nlSetCommonTextureOffset(0x1280);
         *(unsigned int *)(((int)stk + 4)) = 0x0;
         t144 = 0x8C138984;
@@ -314,7 +320,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 15) {
+    if ((*(int *)(int)stageNo) == 15) {
         nlSetCommonTextureOffset(0x1300);
         *(unsigned int *)(((int)stk + 4)) = 0x0;
         t153 = 0x8C1389A0;
@@ -329,7 +335,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 16) {
+    if ((*(int *)(int)stageNo) == 16) {
         nlSetCommonTextureOffset(0x1380);
         t162 = 0x0;
         t163 = 0x8C1389C0;
@@ -343,7 +349,7 @@ int stageTexLoad(void)
             }
         }
     }
-    if ((*(int *)0x8C1891F0) == 17) {
+    if ((*(int *)(int)stageNo) == 17) {
         nlSetCommonTextureOffset(0x1400);
         t172 = 0x0;
         t173 = 0x8C1389DC;
@@ -358,8 +364,8 @@ int stageTexLoad(void)
         }
     }
     *(unsigned int *)0x8C343F40 = 0x1;
-    *(unsigned int *)((((*(int *)0x8C1891F0) << 2) + 0x8C343F98)) = 0x1;
-    *(unsigned int *)0x8C1891F4 = (*(int *)0x8C1891F0);
+    *(unsigned int *)((((*(int *)(int)stageNo) << 2) + 0x8C343F98)) = 0x1;
+    *(unsigned int *)0x8C1891F4 = (*(int *)(int)stageNo);
     return 0x8C343F98;
 }
 
@@ -415,7 +421,7 @@ int kmiFLWCTRLLaunchPacket(int a4, int a5, int a6, int a7)
         if ((unsigned int)(*(int *)0x8C4607D4) >= (unsigned int)(*(int *)0x8C45F93C)) {
             *(unsigned int *)0x8C4607D4 = 0x0;
         }
-        if ((*(int *)0x8C4607E8) != 0) {
+        if ((*(int *)(int)gRenderPacketVBlankWaitPending) != 0) {
             *(unsigned int *)0x8C4607D4 = ((*(int *)0x8C4607D4) & 0x1);
         }
     } else {
@@ -580,7 +586,7 @@ int kmyGetDisplayParametersInfo(int a4, int a5, int a6)
                 if (a5 != 0) {
                     *(unsigned int *)((a6 + 0x0)) = (*(int *)((a5 + 0x10)));
                 } else {
-                    if ((*(int *)0x8C45EEE4) == 0) {
+                    if ((*(int *)(int)gStripBufferEnabled) == 0) {
                         if ((((*(int *)0x8C45EE2C) & 0x1) != 1) && ((t33 = *(int *)0x8C45EE2C, (t33 & 0x2C) == 32) && (0x1 != 0))) {
                             t34 = *(int *)0x8C45EEA0;
                             *(unsigned int *)((a6 + 0x0)) = (((int)((unsigned int)((int)((unsigned int)t34 + (unsigned int)0x0)) + ((((int)0x0 > (int)t34)) ? 1u : 0u))) >> 1);
@@ -588,7 +594,7 @@ int kmyGetDisplayParametersInfo(int a4, int a5, int a6)
                             *(unsigned int *)((a6 + 0x0)) = (*(int *)0x8C45EEA0);
                         }
                     } else {
-                        *(unsigned int *)((a6 + 0x0)) = (*(int *)0x8C45EEE8);
+                        *(unsigned int *)((a6 + 0x0)) = (*(int *)(int)gStripBufferSizeBytes);
                     }
                 }
             }
@@ -1018,8 +1024,8 @@ int vmsfs_findfirst_ex(int a4, int a5, int a6)
     *(unsigned int *)(((int)stk + 8)) = (R4 * 0x148);
     R12 = (R4);
     R13 = (R6);
-    R14 = (((R4 * 0x148) + 0x8C464598));
-    if (((*(signed char *)((((R4 * 0x148) + 0x8C464598) + 0x2))) == 0)) goto L_8C1ECDBA;
+    R14 = (((R4 * 0x148) + (int)gVmsVolumeStates));
+    if (((*(signed char *)((((R4 * 0x148) + (int)gVmsVolumeStates) + 0x2))) == 0)) goto L_8C1ECDBA;
     goto L_8C1ECD90;
     L_8C1ECD90:;
     t6 = (vmsio_isready(R12)) != 0;
@@ -1038,7 +1044,7 @@ int vmsfs_findfirst_ex(int a4, int a5, int a6)
     if (t10) goto L_8C1ECDBA;
     goto L_8C1ECDAE;
     L_8C1ECDAE:;
-    if (((*(signed char *)((((*(int *)(((int)stk + 8))) + 0x8C464598) + 0x8))) != 0)) goto L_8C1ECDC0;
+    if (((*(signed char *)((((*(int *)(((int)stk + 8))) + (int)gVmsVolumeStates) + 0x8))) != 0)) goto L_8C1ECDC0;
     goto L_8C1ECDBA;
     L_8C1ECDC0:;
     t15 = (int)(buIsFormat(R12)) >= 0;
@@ -1161,7 +1167,7 @@ int nlPushMatrix(int a4)
     float u38[16];
 
     t0 = *(int *)0x8C450864;
-    t1 = *(int *)0x8C45085C;
+    t1 = *(int *)(int)g_0c2b31dc;
     _builtin_st_ext((float (*)[4])u2);
     *(float *)((((t0 + 0x40) - 0x8) + 0x0)) = u2[15];
     *(float *)(((((t0 + 0x40) - 0x8) + 0x0) + 4)) = u2[14];
@@ -1181,7 +1187,7 @@ int nlPushMatrix(int a4)
     *(float *)((((((((((((t0 + 0x40) - 0x8) - 0x8) - 0x8) - 0x8) - 0x8) - 0x8) - 0x8) - 0x8) + 0x0) + 4)) = u2[0];
     *(unsigned int *)0x8C450864 = (t0 + 0x40);
     
-    *(unsigned short *)0x8C45085C = ((short)t1 + 0x1);
+    *(unsigned short *)(int)g_0c2b31dc = ((short)t1 + 0x1);
     if (a4 == 0) {
         _builtin_st_ext((float (*)[4])u4);
         u4[0] = u2[0];

@@ -1,5 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_cz): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gVmsVolumeStates[];
+extern char g_0c2ef3d0[];
 
 int kmProcessVertexRenderState(void);
 int kmSetVertexRenderState(int, int, int);
@@ -42,11 +44,11 @@ int check_cache(int a4)
     R4 = a4;
     L_8C1EE574:;
     *(unsigned int *)(((int)stk + 4)) = (R4 << 2);
-    *(unsigned int *)(((R4 << 2) + 0x8C464FD8)) = 0x0;
+    *(unsigned int *)(((R4 << 2) + (int)g_0c2ef3d0)) = 0x0;
     R12 = (0x1);
     R13 = (R4);
-    R14 = (((R4 * 0x148) + 0x8C464598));
-    if (((*(signed char *)((((R4 * 0x148) + 0x8C464598) + 0xA))) != 0)) goto L_8C1EE5A8;
+    R14 = (((R4 * 0x148) + (int)gVmsVolumeStates));
+    if (((*(signed char *)((((R4 * 0x148) + (int)gVmsVolumeStates) + 0xA))) != 0)) goto L_8C1EE5A8;
     goto L_8C1EE59E;
     L_8C1EE59E:;
     t5 = read_sys(R13);
@@ -77,7 +79,7 @@ int check_cache(int a4)
     if ((R4 != 0xFFFF0000)) goto L_8C1EE5DE;
     goto L_8C1EE5D6;
     L_8C1EE5D6:;
-    *(unsigned int *)(((*(int *)(((int)stk + 4))) + 0x8C464FD8)) = R12;
+    *(unsigned int *)(((*(int *)(((int)stk + 4))) + (int)g_0c2ef3d0)) = R12;
     goto L_8C1EE5EA;
     L_8C1EE5EA:;
     R0 = (0x0);

@@ -1,5 +1,11 @@
 /* Straight-line functions with calls and guards (batch gen_pn): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gNlCommonTextureOffset[];
+extern char gNlRenderTextureTableState[];
+extern char gNlTextureSurfaces[];
+extern char gRenderTextureReady[];
+extern char g_0c2aec84[];
+extern char g_0c2b3190[];
 
 int kmCreateTextureSurface(int, int, int, int);
 int kmSetStrideWidth(int);
@@ -46,8 +52,8 @@ int nlRenderTextureSet_Sub(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)(((int)stk + 4)) = R5;
     R13 = (R7);
     R14 = (R6);
-    R6 = ((*(int *)0x8C44FBEC));
-    R9 = (0x8C44FBEC);
+    R6 = ((*(int *)(int)gNlRenderTextureTableState));
+    R9 = ((int)gNlRenderTextureTableState);
     if (((unsigned int)R4 <= (unsigned int)(*(int *)0x8C44FBF0))) goto L_8C0EE0F8;
     L_8C0EE21A:;
     R0 = (0xFFFFFFFF);
@@ -64,25 +70,25 @@ int nlRenderTextureSet_Sub(int a4, int a5, int a6, int a7, int a8)
     if ((a8 != 0)) goto L_8C0EE11C;
     R14 = ((R14 & 0xFFFFFFE0));
     L_8C0EE1D4:;
-    t13 = *(int *)0x8C458DCC;
-    t14 = *(int *)0x8C4241C0;
-    R11 = (0x8C4241C0);
+    t13 = *(int *)(int)gNlCommonTextureOffset;
+    t14 = *(int *)(int)g_0c2aec84;
+    R11 = ((int)g_0c2aec84);
     R12 = ((((R5 + t13) << 2) << 1));
     R4 = (t14);
     if (((*(int *)((((((R5 + t13) << 2) << 1) + t14) + 0x0))) != 0)) goto L_8C0EE21A;
     *(unsigned int *)(((R4 + R12) + 0x0)) = 0x1;
     *(unsigned int *)(((((*(int *)((R11 + 0x0))) + R12) + 0x4) + 0x0)) = (nlCommonTextureGetNextTextureIndex());
     t23 = *(int *)((((*(int *)((R11 + 0x0))) + R12) + 0x4));
-    t24 = *(int *)0x8C458608;
+    t24 = *(int *)(int)gNlTextureSurfaces;
     R11 = (((t23 * 0x3C) + t24));
     R12 = (t23);
     if (((*(int *)((((t23 * 0x3C) + t24) + 0x2C))) == 0)) goto L_8C0EE220;
     goto L_8C0EE21A;
     L_8C0EE220:;
     if ((a8 == 0)) goto L_8C0EE260;
-    R10 = ((kmCreateTextureSurface(R11, R14, R13, ((*(int *)0x8C44FBE8) | 0x900))));
+    R10 = ((kmCreateTextureSurface(R11, R14, R13, ((*(int *)(int)gRenderTextureReady) | 0x900))));
     L_8C0EE270:;
-    *(unsigned int *)((((R12 * 0x3C) + (*(int *)0x8C458608)) + 0x28)) = R10;
+    *(unsigned int *)((((R12 * 0x3C) + (*(int *)(int)gNlTextureSurfaces)) + 0x28)) = R10;
     nlCreateTextureParam(R12);
     *(unsigned int *)((R11 + 0x38)) = R12;
     *(unsigned int *)((R11 + 0x2C)) = 0x1;
@@ -92,7 +98,7 @@ int nlRenderTextureSet_Sub(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)(((t36 + t35) + 0x4)) = R12;
     *(unsigned short *)(((t36 + t35) + 0x8)) = R14;
     *(unsigned short *)(((t36 + t35) + 0xA)) = R13;
-    t38 = *(short *)0x8C458DD8;
+    t38 = *(short *)(int)g_0c2b3190;
     R0 = ((*(short *)0x8C458DDA));
     R4 = ((t36 + t35));
     R5 = (t38);

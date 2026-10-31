@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_sd): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char motionSkelOfs[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -345,7 +346,7 @@ int playerPut(int a4, int a5, int a6, int a7, float f4, float f5, float f6, floa
     w0_5 = *(float *)(((int)stk + 2060));
     w0_6 = *(float *)(((int)stk + 2036));
     *(float *)(((int)stk + 52)) = (w0_6 - w0_5);
-    ikSolve2Bone((((int)stk + 28) + 0xC), (((int)stk + 28) + 0x14), 0x1, (*(float *)(((int)stk + 44))), (w0_6 - w0_5), (*(float *)((((*(int *)0x8C2873B8) + 0xD8) + 0x0))), (*(float *)((((*(int *)0x8C2873B8) + 0xA8) + 0x0))));
+    ikSolve2Bone((((int)stk + 28) + 0xC), (((int)stk + 28) + 0x14), 0x1, (*(float *)(((int)stk + 44))), (w0_6 - w0_5), (*(float *)((((*(int *)(int)motionSkelOfs) + 0xD8) + 0x0))), (*(float *)((((*(int *)(int)motionSkelOfs) + 0xA8) + 0x0))));
     nlLoadMatrix33on44(0x8C287938);
     v0_5 = ((int (*)(int))(nlRotateAY))((unsigned short)(*(short *)(((int)stk + 36))));
     v0_5 = *(short *)(((int)stk + 32));
@@ -484,7 +485,7 @@ int playerPut(int a4, int a5, int a6, int a7, float f4, float f5, float f6, floa
     w0_5 = *(float *)(((int)stk + 2060));
     w0_6 = *(float *)(((int)stk + 2036));
     *(float *)(((int)stk + 52)) = (w0_6 - w0_5);
-    ikSolve2Bone((((int)stk + 28) + 0xC), (((int)stk + 28) + 0x14), 0x1, (*(float *)(((int)stk + 44))), (w0_6 - w0_5), (*(float *)((((*(int *)0x8C2873B8) + 0xC0) + 0x0))), (*(float *)((((*(int *)0x8C2873B8) + 0x9C) + 0x0))));
+    ikSolve2Bone((((int)stk + 28) + 0xC), (((int)stk + 28) + 0x14), 0x1, (*(float *)(((int)stk + 44))), (w0_6 - w0_5), (*(float *)((((*(int *)(int)motionSkelOfs) + 0xC0) + 0x0))), (*(float *)((((*(int *)(int)motionSkelOfs) + 0x9C) + 0x0))));
     nlLoadMatrix33on44(0x8C287938);
     v0_6 = ((int (*)(int))(nlRotateAY))((unsigned short)(*(short *)(((int)stk + 32))));
     v0_6 = *(short *)(((int)stk + 28));

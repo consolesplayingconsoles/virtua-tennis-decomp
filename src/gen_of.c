@@ -1,5 +1,8 @@
 /* Straight-line functions with calls and guards (batch gen_of): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char charaTbl[];
+extern char racketModelTbl[];
+extern char racketModelTbl2[];
 
 typedef struct { int w[3]; } Stk3;
 int lightPlayerApply(int);
@@ -64,11 +67,11 @@ int playerDrawModel(int a4)
     nlLoadMatrix(((*(int *)((t0 + 0x38))) + 0xC0));
     t33 = *(int *)((a4 + 0xD10));
     *(unsigned int *)(((int)stk + 8)) = ((t33 + 0x1) * t28);
-    nlObjPut((*(int *)(((((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x44) + (((t33 + 0x1) * t28) << 2)) + 0x0))));
+    nlObjPut((*(int *)(((((((*(int *)((a4 + 0xC58))) * 0x6C) + (int)charaTbl) + 0x44) + (((t33 + 0x1) * t28) << 2)) + 0x0))));
     nlLoadMatrix(((*(int *)((t0 + 0x3C))) + 0xC0));
     t39 = *(int *)((a4 + 0xD14));
     *(unsigned int *)(((int)stk + 8)) = ((t39 + 0x1) * t28);
-    nlObjPut((*(int *)(((((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x44) + (((t39 + 0x1) * t28) << 2)) + 0x14))));
+    nlObjPut((*(int *)(((((((*(int *)((a4 + 0xC58))) * 0x6C) + (int)charaTbl) + 0x44) + (((t39 + 0x1) * t28) << 2)) + 0x14))));
     if (((*(int *)0x8C287B3C) & 64) == 0) {
         t49 = 0xFFFFFFFF;
         if ((int)(*(int *)(((((*(int *)((a4 + 0xB5C))) * 0x38) + 0x8C343264) + 0x30))) < (int)0x14) {
@@ -85,9 +88,9 @@ int playerDrawModel(int a4)
         }
         if ((*(int *)((a4 + 0xD6C))) == -1) {
             if (t28 != 0) {
-                t75 = (*(int *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x8)));
+                t75 = (*(int *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + (int)charaTbl) + 0x8)));
             } else {
-                t75 = (*(int *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0xC)));
+                t75 = (*(int *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + (int)charaTbl) + 0xC)));
             }
             nlObjPut(t75);
         } else {
@@ -95,10 +98,10 @@ int playerDrawModel(int a4)
                 nlTranslate(0.0f, (*(float *)0x8C01DECC), (*(float *)0x8C01DEC8));
             }
             if (t28 != 0) {
-                t88 = 0x8C157548;
+                t88 = (int)racketModelTbl;
                 t89 = ((*(int *)((a4 + 0xD6C))) << 2);
             } else {
-                t88 = 0x8C157568;
+                t88 = (int)racketModelTbl2;
                 t89 = ((*(int *)((a4 + 0xD6C))) << 2);
             }
             nlObjPut((*(int *)((t89 + t88))));

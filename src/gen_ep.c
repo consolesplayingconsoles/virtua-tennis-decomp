@@ -1,5 +1,16 @@
 /* Straight-line functions with calls and guards (batch gen_ep): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gDisplayFilterUsesSharedFrameBuffer[];
+extern char gMapleDriver[];
+extern char gMapleDriverVersionWord0[];
+extern char gNlCommonTextureOffset[];
+extern char gNlPaletteCount[];
+extern char gNlPaletteTable[];
+extern char gNlTextureSurfaces[];
+extern char gRenderPacketVBlankWaitPending[];
+extern char gVertexBufferLockState[];
+extern char g_0c2aec84[];
+extern char g_0c2b3568[];
 
 typedef struct { int w[3]; } Stk3;
 extern int _builtin_get_imask(void);
@@ -261,11 +272,11 @@ int nlSpriteLoadTextureOnce_Sub(int a4, int a5, int a6, int a7)
     R6 = ((*(int *)((R11 + 0xC))));
     goto L_8C0F3B6A;
     L_8C0F3B6A:;
-    t6 = *(int *)0x8C458DCC;
+    t6 = *(int *)(int)gNlCommonTextureOffset;
     R10 = ((R6 + t6));
     R13 = ((((R6 + t6) << 2) << 1));
-    R14 = (0x8C4241C0);
-    if (((*(int *)((((*(int *)0x8C4241C0) + (((R6 + t6) << 2) << 1)) + 0x0))) != 0)) goto L_8C0F3B96;
+    R14 = ((int)g_0c2aec84);
+    if (((*(int *)((((*(int *)(int)g_0c2aec84) + (((R6 + t6) << 2) << 1)) + 0x0))) != 0)) goto L_8C0F3B96;
     goto L_8C0F3B84;
     L_8C0F3B84:;
     *(unsigned int *)(((0x4 + ((*(int *)((R14 + 0x0))) + R13)) + 0x0)) = (nlCommonTextureGetNextTextureIndex());
@@ -275,7 +286,7 @@ int nlSpriteLoadTextureOnce_Sub(int a4, int a5, int a6, int a7)
     *(unsigned int *)(((t15 + R13) + 0x0)) = ((*(int *)(((t15 + R13) + 0x0))) + 0x1);
     t18 = *(int *)0x8C454C80;
     t19 = *(int *)((((*(int *)((R14 + 0x0))) + R13) + 0x4));
-    R12 = (((t19 * 0x3C) + (*(int *)0x8C458608)));
+    R12 = (((t19 * 0x3C) + (*(int *)(int)gNlTextureSurfaces)));
     R13 = (t19);
     R4 = (((R10 << 1) + t18));
     if (((*(short *)((((R10 << 1) + t18) + 0x0))) != -1)) goto L_8C0F3BF0;
@@ -331,8 +342,8 @@ int nlSpriteLoadTextureOnce_Sub(int a4, int a5, int a6, int a7)
     *(unsigned int *)((R13 + 0xC)) = (((*(int *)((R13 + 0xC))) & 0xF81FFFFF) | (R12 << 21));
     goto L_8C0F3D9C;
     L_8C0F3C5E:;
-    R5 = (0x8C450BF8);
-    if (((*(int *)0x8C450BF8) != 0)) goto L_8C0F3C6A;
+    R5 = ((int)g_0c2b3568);
+    if (((*(int *)(int)g_0c2b3568) != 0)) goto L_8C0F3C6A;
     goto L_8C0F3C66;
     L_8C0F3C66:;
     goto L_8C0F3D9C;
@@ -345,13 +356,13 @@ int nlSpriteLoadTextureOnce_Sub(int a4, int a5, int a6, int a7)
     L_8C0F3C76:;
     goto L_8C0F3D9C;
     L_8C0F3C7A:;
-    if (((int)R12 < (int)(*(short *)0x8C458E24))) goto L_8C0F3C86;
+    if (((int)R12 < (int)(*(short *)(int)gNlPaletteCount))) goto L_8C0F3C86;
     goto L_8C0F3C82;
     L_8C0F3C82:;
     goto L_8C0F3D9C;
     L_8C0F3C86:;
     *(unsigned short *)((R13 + 0x16)) = R12;
-    t61 = *(int *)0x8C458E38;
+    t61 = *(int *)(int)gNlPaletteTable;
     R11 = (((((R12 << 1) + R12) << 2) + (*(int *)((R5 + 0x0)))));
     R14 = ((t61 + ((R12 << 2) << 1)));
     if (((*(short *)(((t61 + ((R12 << 2) << 1)) + 0x4))) == 0)) goto L_8C0F3D10;
@@ -414,15 +425,15 @@ int mpdrv_init_globals(void)
     int t39;
     int stk[11];
 
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10B4)) = 0x0;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10B8)) = 0x0;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10B4)) = 0x0;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10B8)) = 0x0;
     t2 = 0x0;
     t3 = 0x6000;
     t4 = 0x0;
     for (;;) {
-        t5 = *(int *)0x8C47317C;
+        t5 = *(int *)(int)gMapleDriver;
         *(unsigned int *)((((0xFE8 + t5) + t2) + 0x0)) = ((*(int *)((t5 + 0xFC8))) + t4);
-        t7 = *(int *)0x8C47317C;
+        t7 = *(int *)(int)gMapleDriver;
         t9 = ((0xFE8 + t7) + t2);
         t2 = (t2 + 0x4);
         *(unsigned int *)(((t9 + 0x60) + 0x0)) = ((*(int *)((t7 + 0xFC8))) + t3);
@@ -432,17 +443,17 @@ int mpdrv_init_globals(void)
             break;
         }
     }
-    t11 = *(int *)0x8C47317C;
+    t11 = *(int *)(int)gMapleDriver;
     *(unsigned int *)((t11 + 0x10A8)) = (*(int *)((t11 + 0xFC4)));
-    t13 = *(int *)0x8C47317C;
+    t13 = *(int *)(int)gMapleDriver;
     *(unsigned int *)((t13 + 0x10AC)) = ((*(int *)((t13 + 0xFC4))) + 0x3000);
-    t15 = *(int *)0x8C47317C;
+    t15 = *(int *)(int)gMapleDriver;
     *(unsigned int *)((t15 + 0xFCC)) = (*(int *)((t15 + 0x10A8)));
-    mpdrv_memset_l(((*(int *)0x8C47317C) + 0x4), 0x0, 0x8);
-    mpdrv_memset_l(((*(int *)0x8C47317C) + 0x28), 0x0, 0x108);
+    mpdrv_memset_l(((*(int *)(int)gMapleDriver) + 0x4), 0x0, 0x8);
+    mpdrv_memset_l(((*(int *)(int)gMapleDriver) + 0x28), 0x0, 0x108);
     t21 = 0x0;
     for (;;) {
-        mpdrv_clear_deviceinfo((((*(int *)0x8C47317C) + 0x44C) + t21));
+        mpdrv_clear_deviceinfo((((*(int *)(int)gMapleDriver) + 0x44C) + t21));
         t21 = (t21 + 0x78);
         if ((unsigned int)t21 >= (unsigned int)0xB40) {
             break;
@@ -450,7 +461,7 @@ int mpdrv_init_globals(void)
     }
     t24 = 0x0;
     for (;;) {
-        t26 = ((0xF90 + (*(int *)0x8C47317C)) + t24);
+        t26 = ((0xF90 + (*(int *)(int)gMapleDriver)) + t24);
         t24 = (t24 + 0x1);
         *(unsigned char *)((t26 + 0x0)) = 0x0;
         if ((int)t24 >= (int)0x18) {
@@ -475,13 +486,13 @@ int mpdrv_init_globals(void)
     for (;;) {
         if (((*(signed char *)((t36 + 0x0))) & (signed char)t32) != 0) {
             t35 = t38;
-            t34 = (*(int *)0x8C47317C);
+            t34 = (*(int *)(int)gMapleDriver);
             t35 = (t35 + 0x1);
             t39 = 0x0;
             *(unsigned char *)((((0xF90 + t34) + t37) + 0x0)) = 0x52;
             for (;;) {
                 t39 = (t39 + 0x1);
-                t34 = (*(int *)0x8C47317C);
+                t34 = (*(int *)(int)gMapleDriver);
                 *(unsigned char *)((((0xF90 + t34) + t35) + 0x0)) = 0x45;
                 t35 = (t35 + 0x1);
                 if ((int)t39 >= (int)0x5) {
@@ -496,32 +507,32 @@ int mpdrv_init_globals(void)
             break;
         }
     }
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10C0)) = 0xC3500000;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFDC)) = 0x0;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFD8)) = 0x0;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFE0)) = 0x1;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10C8)) = 0x0;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10EC)) = 0x0;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10E8)) = 0x0;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10CC)) = 0x5;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10D0)) = 0x0;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10D8)) = 0xA;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10DC)) = 0x5;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10E0)) = 0x0;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10E4)) = 0x0;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFAC)) = 0x0;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFB0)) = 0x0;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFBC)) = 0x0;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x0)) = 0x54524F50;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x24)) = 0x20564544;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x448)) = 0x4F464E49;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0xF8C)) = 0x4C424E45;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFA8)) = 0x54415453;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFE4)) = 0x52444152;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10BC)) = 0x54554F54;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10D4)) = 0x43515244;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10F0)) = 0x434E5546;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0x10F8)) = 0x20444E45;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10C0)) = 0xC3500000;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFDC)) = 0x0;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFD8)) = 0x0;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFE0)) = 0x1;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10C8)) = 0x0;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10EC)) = 0x0;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10E8)) = 0x0;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10CC)) = 0x5;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10D0)) = 0x0;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10D8)) = 0xA;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10DC)) = 0x5;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10E0)) = 0x0;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10E4)) = 0x0;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFAC)) = 0x0;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFB0)) = 0x0;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFBC)) = 0x0;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x0)) = 0x54524F50;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x24)) = 0x20564544;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x448)) = 0x4F464E49;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xF8C)) = 0x4C424E45;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFA8)) = 0x54415453;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFE4)) = 0x52444152;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10BC)) = 0x54554F54;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10D4)) = 0x43515244;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10F0)) = 0x434E5546;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0x10F8)) = 0x20444E45;
     mpdrv_swapmode(0x0);
     return (mpdrv_init_memory());
 }
@@ -548,8 +559,8 @@ int kmiFLWCTRLGetRenderPacket(int a4, int a5)
     register int t6;
     register int t7;
 
-    if (((*(int *)0x8C45F93C) == 4) && (t1 = *(int *)0x8C45EFEC, t1 != 0)) {
-        *(unsigned int *)0x8C4607E8 = 0x1;
+    if (((*(int *)0x8C45F93C) == 4) && (t1 = *(int *)(int)gDisplayFilterUsesSharedFrameBuffer, t1 != 0)) {
+        *(unsigned int *)(int)gRenderPacketVBlankWaitPending = 0x1;
         for (;;) {
             t2 = kmiFLWCTRLFindVacantQueue();
             if (t2 != 0) {
@@ -560,7 +571,7 @@ int kmiFLWCTRLGetRenderPacket(int a4, int a5)
         t6 = t2;
         t7 = t2;
     } else {
-        *(unsigned int *)0x8C4607E8 = 0x0;
+        *(unsigned int *)(int)gRenderPacketVBlankWaitPending = 0x0;
         for (;;) {
             t4 = kmiFLWCTRLFindVacantQueue();
             if (t4 != 0) {
@@ -583,19 +594,19 @@ int kmiFLWCTRLGetRenderPacket(int a4, int a5)
             if (t12 != 0) {
                 *(unsigned int *)0x8C45F94C = 0x0;
                 *(unsigned int *)0x8C45F958 = 0x1;
-                t11 = (*(int *)0x8C45F940);
+                t11 = (*(int *)(int)gVertexBufferLockState);
                 t11 = (t11 & (~t12));
-                *(unsigned int *)0x8C45F940 = t11;
+                *(unsigned int *)(int)gVertexBufferLockState = t11;
                 *(unsigned int *)0x8C45F958 = 0x0;
             }
-            t19 = *(int *)0x8C45F940;
+            t19 = *(int *)(int)gVertexBufferLockState;
             if (((((int)(-t9) >= 0) ? (t19 << ((-t9) & 31)) : ((-(int)(-t9) & 31) ? ((unsigned int)t19 >> (-(int)(-t9) & 31)) : 0)) & 0x1) == 0) {
                 break;
             }
             t11 = (kmyRequestCallback(0x7));
         }
         *(unsigned int *)0x8C45F958 = 0x1;
-        *(unsigned int *)0x8C45F940 = ((*(int *)0x8C45F940) | (((int)t9 >= 0) ? (0x1 << (t9 & 31)) : ((-(int)t9 & 31) ? ((int)0x1 >> (-(int)t9 & 31)) : ((int)0x1 >> 31))));
+        *(unsigned int *)(int)gVertexBufferLockState = ((*(int *)(int)gVertexBufferLockState) | (((int)t9 >= 0) ? (0x1 << (t9 & 31)) : ((-(int)t9 & 31) ? ((int)0x1 >> (-(int)t9 & 31)) : ((int)0x1 >> 31))));
         *(unsigned int *)0x8C45F958 = 0x0;
         *(unsigned int *)((t7 + 0x14)) = 0x1;
         *(unsigned int *)((t7 + 0x1C)) = t9;
@@ -610,12 +621,12 @@ int kmiFLWCTRLGetRenderPacket(int a4, int a5)
                 if (t26 != 0) {
                     *(unsigned int *)0x8C45F94C = 0x0;
                     *(unsigned int *)0x8C45F958 = 0x1;
-                    t25 = (*(int *)0x8C45F940);
+                    t25 = (*(int *)(int)gVertexBufferLockState);
                     t25 = (t25 & (~t26));
-                    *(unsigned int *)0x8C45F940 = t25;
+                    *(unsigned int *)(int)gVertexBufferLockState = t25;
                     *(unsigned int *)0x8C45F958 = 0x0;
                 }
-                t33 = *(int *)0x8C45F940;
+                t33 = *(int *)(int)gVertexBufferLockState;
                 if (((((int)(-t9) >= 0) ? (t33 << ((-t9) & 31)) : ((-(int)(-t9) & 31) ? ((unsigned int)t33 >> (-(int)(-t9) & 31)) : 0)) & 0x1) == 0) {
                     break;
                 }
@@ -628,12 +639,12 @@ int kmiFLWCTRLGetRenderPacket(int a4, int a5)
                 if (t36 != 0) {
                     *(unsigned int *)0x8C45F94C = 0x0;
                     *(unsigned int *)0x8C45F958 = 0x1;
-                    t35 = (*(int *)0x8C45F940);
+                    t35 = (*(int *)(int)gVertexBufferLockState);
                     t35 = (t35 & (~t36));
-                    *(unsigned int *)0x8C45F940 = t35;
+                    *(unsigned int *)(int)gVertexBufferLockState = t35;
                     *(unsigned int *)0x8C45F958 = 0x0;
                 }
-                t43 = *(int *)0x8C45F940;
+                t43 = *(int *)(int)gVertexBufferLockState;
                 if (((((int)(-t9) >= 0) ? (t43 << ((-t9) & 31)) : ((-(int)(-t9) & 31) ? ((unsigned int)t43 >> (-(int)(-t9) & 31)) : 0)) & 0x1) == 0) {
                     break;
                 }
@@ -641,7 +652,7 @@ int kmiFLWCTRLGetRenderPacket(int a4, int a5)
             }
         }
         *(unsigned int *)0x8C45F958 = 0x1;
-        *(unsigned int *)0x8C45F940 = ((*(int *)0x8C45F940) | (((int)t9 >= 0) ? (0x1 << (t9 & 31)) : ((-(int)t9 & 31) ? ((int)0x1 >> (-(int)t9 & 31)) : ((int)0x1 >> 31))));
+        *(unsigned int *)(int)gVertexBufferLockState = ((*(int *)(int)gVertexBufferLockState) | (((int)t9 >= 0) ? (0x1 << (t9 & 31)) : ((-(int)t9 & 31) ? ((int)0x1 >> (-(int)t9 & 31)) : ((int)0x1 >> 31))));
         *(unsigned int *)0x8C45F958 = 0x0;
         *(unsigned int *)((t7 + 0x1C)) = t9;
         for (;;) {
@@ -715,30 +726,30 @@ int mpdrv_init_ex(int a4, int a5, int a6, int a7)
 
     *(unsigned int *)(((int)stk + 12)) = a4;
     *(unsigned int *)(((int)stk + 4)) = a5;
-    *(unsigned int *)0x8C47317C = 0x8C472080;
+    *(unsigned int *)(int)gMapleDriver = 0x8C472080;
     *(unsigned int *)0x8C473044 = a6;
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFC8)) = (*(int *)(((int)stk + 4)));
-    if (((*(int *)(((*(int *)0x8C47317C) + 0xFC4))) & 0x1F) != 0) {
-        t4 = *(int *)0x8C47317C;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFC8)) = (*(int *)(((int)stk + 4)));
+    if (((*(int *)(((*(int *)(int)gMapleDriver) + 0xFC4))) & 0x1F) != 0) {
+        t4 = *(int *)(int)gMapleDriver;
         *(unsigned int *)((t4 + 0xFC4)) = ((*(int *)((t4 + 0xFC4))) + 0x20);
-        t6 = *(int *)0x8C47317C;
+        t6 = *(int *)(int)gMapleDriver;
         *(unsigned int *)((t6 + 0xFC4)) = ((*(int *)((t6 + 0xFC4))) & 0xFFFFFFE0);
     }
-    t12 = *(int *)0x8C47317C;
+    t12 = *(int *)(int)gMapleDriver;
     if (((*(int *)((t12 + 0xFC8))) & 0x1F) != 0) {
         *(unsigned int *)((t12 + 0xFC8)) = ((*(int *)((t12 + 0xFC8))) + 0x20);
-        t15 = *(int *)0x8C47317C;
+        t15 = *(int *)(int)gMapleDriver;
         *(unsigned int *)((t15 + 0xFC8)) = ((*(int *)((t15 + 0xFC8))) & 0xFFFFFFE0);
     }
-    t20 = *(int *)0x8C47317C;
+    t20 = *(int *)(int)gMapleDriver;
     *(unsigned int *)((t20 + 0xFC4)) = ((*(int *)((t20 + 0xFC4))) | 0xA0000000);
-    t22 = *(int *)0x8C47317C;
+    t22 = *(int *)(int)gMapleDriver;
     *(unsigned int *)((t22 + 0xFC8)) = ((*(int *)((t22 + 0xFC8))) | 0xA0000000);
     mpdrv_init_globals();
     t25 = 0x0;
     for (;;) {
-        *(unsigned int *)((((0xFE8 + (*(int *)0x8C47317C)) + t25) + 0x0)) = 0x0;
-        t28 = ((0xFE8 + (*(int *)0x8C47317C)) + t25);
+        *(unsigned int *)((((0xFE8 + (*(int *)(int)gMapleDriver)) + t25) + 0x0)) = 0x0;
+        t28 = ((0xFE8 + (*(int *)(int)gMapleDriver)) + t25);
         t25 = (t25 + 0x4);
         *(unsigned int *)(((t28 + 0x60) + 0x0)) = 0x0;
         if ((unsigned int)t25 >= (unsigned int)0x60) {
@@ -760,22 +771,22 @@ int mpdrv_init_ex(int a4, int a5, int a6, int a7)
             t30 = (t30 + 0x1);
             *(unsigned int *)(((int)stk + 8)) = (t35 + 0x4);
             t36 = *(int *)((((t35 + 0x4) - 4) + 0x0));
-            *(unsigned int *)((((0xFE8 + (*(int *)0x8C47317C)) + (t36 << 2)) + 0x0)) = (t33 | 0xA0000000);
-            *(unsigned int *)(((((t36 << 2) + (0xFE8 + (*(int *)0x8C47317C))) + 0x60) + 0x0)) = ((t33 | 0xA0000000) + 0x400);
+            *(unsigned int *)((((0xFE8 + (*(int *)(int)gMapleDriver)) + (t36 << 2)) + 0x0)) = (t33 | 0xA0000000);
+            *(unsigned int *)(((((t36 << 2) + (0xFE8 + (*(int *)(int)gMapleDriver))) + 0x60) + 0x0)) = ((t33 | 0xA0000000) + 0x400);
             if ((int)t30 >= (int)a7) {
                 break;
             }
         }
     }
-    t45 = *(int *)0x8C47317C;
+    t45 = *(int *)(int)gMapleDriver;
     *(unsigned int *)((t45 + 0x10A8)) = (*(int *)((t45 + 0xFC4)));
-    t47 = *(int *)0x8C47317C;
+    t47 = *(int *)(int)gMapleDriver;
     *(unsigned int *)((t47 + 0x10AC)) = (((a7 << 8) << 2) + (*(int *)((t47 + 0xFC4))));
-    t49 = *(int *)0x8C47317C;
+    t49 = *(int *)(int)gMapleDriver;
     *(unsigned int *)((t49 + 0xFCC)) = (*(int *)((t49 + 0x10A8)));
     t51 = 0x0;
     for (;;) {
-        t53 = ((0xF90 + (*(int *)0x8C47317C)) + t51);
+        t53 = ((0xF90 + (*(int *)(int)gMapleDriver)) + t51);
         t51 = (t51 + 0x1);
         *(unsigned char *)((t53 + 0x0)) = 0x0;
         if ((int)t51 >= (int)0x18) {
@@ -791,12 +802,12 @@ int mpdrv_init_ex(int a4, int a5, int a6, int a7)
             t57 = (t57 + 0x4);
             if (t58 != 0) {
                 if ((t58 != 6) && ((t58 != 12) && (t58 != 18))) {
-                    *(unsigned char *)(((t58 + (0xF90 + (*(int *)0x8C47317C))) + 0x0)) = 0x65;
+                    *(unsigned char *)(((t58 + (0xF90 + (*(int *)(int)gMapleDriver))) + 0x0)) = 0x65;
                 } else {
-                    *(unsigned char *)(((t58 + (0xF90 + (*(int *)0x8C47317C))) + 0x0)) = 0x72;
+                    *(unsigned char *)(((t58 + (0xF90 + (*(int *)(int)gMapleDriver))) + 0x0)) = 0x72;
                 }
             } else {
-                *(unsigned char *)(((t58 + (0xF90 + (*(int *)0x8C47317C))) + 0x0)) = 0x72;
+                *(unsigned char *)(((t58 + (0xF90 + (*(int *)(int)gMapleDriver))) + 0x0)) = 0x72;
             }
             t56 = (t56 + 0x1);
             if ((int)t56 >= (int)a7) {
@@ -811,7 +822,7 @@ int mpdrv_init_ex(int a4, int a5, int a6, int a7)
     t77 = 0x8C20B030;
     t78 = 0x8C20B030;
     for (;;) {
-        if ((*(signed char *)((((0xF90 + (*(int *)0x8C47317C)) + (*(int *)((t78 + 0x0)))) + 0x0))) != 0) {
+        if ((*(signed char *)((((0xF90 + (*(int *)(int)gMapleDriver)) + (*(int *)((t78 + 0x0)))) + 0x0))) != 0) {
             t73 = (*(int *)((t77 + 0x0)));
             mpdrv_set_dreq_ns(t73);
         } else {
@@ -826,17 +837,17 @@ int mpdrv_init_ex(int a4, int a5, int a6, int a7)
         t75 = t90;
         t76 = t91;
         t77 = (t77 + 0x4);
-        if ((unsigned int)t78 >= (unsigned int)0x8C20B040) {
+        if ((unsigned int)t78 >= (unsigned int)(int)gMapleDriverVersionWord0) {
             break;
         }
     }
     mpdrv_set_end_ns();
-    *(unsigned int *)(((*(int *)0x8C47317C) + 0xFC0)) = 0x1;
-    *(unsigned int *)(((*(int *)(((*(int *)0x8C47317C) + 0x10F4))) + 0x8C)) = 0x6155404F;
-    *(unsigned int *)(((*(int *)(((*(int *)0x8C47317C) + 0x10F4))) + 0x10)) = 0x0;
-    t99 = *(int *)0x8C47317C;
+    *(unsigned int *)(((*(int *)(int)gMapleDriver) + 0xFC0)) = 0x1;
+    *(unsigned int *)(((*(int *)(((*(int *)(int)gMapleDriver) + 0x10F4))) + 0x8C)) = 0x6155404F;
+    *(unsigned int *)(((*(int *)(((*(int *)(int)gMapleDriver) + 0x10F4))) + 0x10)) = 0x0;
+    t99 = *(int *)(int)gMapleDriver;
     *(unsigned int *)(((*(int *)((t99 + 0x10F4))) + 0x80)) = ((*(int *)((t99 + 0x10C0))) | (*(int *)((t99 + 0x10D0))));
-    *(unsigned int *)(((*(int *)(((*(int *)0x8C47317C) + 0x10F4))) + 0x14)) = 0x1;
+    *(unsigned int *)(((*(int *)(((*(int *)(int)gMapleDriver) + 0x10F4))) + 0x14)) = 0x1;
     return 0x0;
 }
 

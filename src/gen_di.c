@@ -1,5 +1,8 @@
 /* Straight-line functions with calls and guards (batch gen_di): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char gMwRnaErrorCallback[];
+extern char gMwRnaErrorCallbackArgument[];
+extern char gMwRnaErrorMessageBuffer[];
 
 typedef struct { int w[3]; } Stk3;
 int vsprintf(int, int, int);
@@ -19,10 +22,10 @@ int mwRnaErrCallFunc(Stk3 s)
     if ((0x3 & ((((int)stk + 4) + 0x8) + 0x4)) != 0) {
         t0 = ((((int)stk + 4) + 0x8) + 0x8);
     }
-    t3 = *(int *)0x8C20CA48;
-    t6 = (vsprintf(0x8C473758, s.w[0], t0));
+    t3 = *(int *)(int)gMwRnaErrorCallback;
+    t6 = (vsprintf((int)gMwRnaErrorMessageBuffer, s.w[0], t0));
     if (t3 != 0) {
-        t6 = (((int (*)(int, int))(t3))((*(int *)0x8C20CA4C), 0x8C473758));
+        t6 = (((int (*)(int, int))(t3))((*(int *)(int)gMwRnaErrorCallbackArgument), (int)gMwRnaErrorMessageBuffer));
     }
     return t6;
 }

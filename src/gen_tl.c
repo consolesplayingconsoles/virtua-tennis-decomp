@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_tl): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 int cpuAimPointSet(int, int, float, float);
 int cpuDblAimAddDeep(int a4, int a5);
@@ -22,26 +23,26 @@ int cpuDblAimAddDeep(int a4, int a5)
     float u3;
 
     t0 = *(int *)((a4 + 0xB5C));
-    t1 = *(int *)((((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C));
-    t2 = *(int *)(((0x8C287D84 + (((t0 + 0x3) & 0x3) * 0xD78)) + 0xB5C));
-    u0 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xAF0));
+    t1 = *(int *)((((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xB5C));
+    t2 = *(int *)((((int)Player + (((t0 + 0x3) & 0x3) * 0xD78)) + 0xB5C));
+    u0 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xAF0));
     u1 = (-u0);
     if (!(0.0f > u0)) {
         u1 = u0;
     }
     if (47.5400009f > u1) {
-        u0 = *(float *)(((0x8C287D84 + (((t0 + 0x3) & 0x3) * 0xD78)) + 0xAF0));
+        u0 = *(float *)((((int)Player + (((t0 + 0x3) & 0x3) * 0xD78)) + 0xAF0));
         u1 = (-u0);
         if (!(0.0f > u0)) {
-            u1 = (*(float *)(((0x8C287D84 + (((t0 + 0x3) & 0x3) * 0xD78)) + 0xAF0)));
+            u1 = (*(float *)((((int)Player + (((t0 + 0x3) & 0x3) * 0xD78)) + 0xAF0)));
         }
         if (47.5400009f > u1) {
             u0 = *(float *)((a4 + 0xB9C));
             cpuAimPointSet(a5, 0x2, ((float)((u0 > 0.0f) - (0.0f > u0)) * 54.8499985f), ((*(float *)((a4 + 0xB00))) * 118.849998f));
             t3 = (a5 + 0x1);
         } else {
-            u0 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xAF0));
-            u1 = *(float *)(((0x8C287D84 + (((t0 + 0x3) & 0x3) * 0xD78)) + 0xAF0));
+            u0 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xAF0));
+            u1 = *(float *)((((int)Player + (((t0 + 0x3) & 0x3) * 0xD78)) + 0xAF0));
             u2 = (-u0);
             if (!(0.0f > u0)) {
                 u2 = u0;
@@ -51,12 +52,12 @@ int cpuDblAimAddDeep(int a4, int a5)
                 u0 = u1;
             }
             t4 = ((t1 * 0x160) + 0x8C2FC69C);
-            t5 = ((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84);
-            t6 = (0x8C287D84 + (((t0 + 0x3) & 0x3) * 0xD78));
+            t5 = ((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player);
+            t6 = ((int)Player + (((t0 + 0x3) & 0x3) * 0xD78));
             if (u2 > u0) {
                 t4 = ((t2 * 0x160) + 0x8C2FC69C);
-                t5 = (0x8C287D84 + (((t0 + 0x3) & 0x3) * 0xD78));
-                t6 = ((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84);
+                t5 = ((int)Player + (((t0 + 0x3) & 0x3) * 0xD78));
+                t6 = ((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player);
             }
             u0 = *(float *)((t5 + 0xAF0));
             u1 = (-u0);
@@ -200,8 +201,8 @@ int cpuDblAimAddDeep(int a4, int a5)
         }
         t4 = t3;
     } else {
-        u0 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84) + 0xAF0));
-        u1 = *(float *)(((0x8C287D84 + (((t0 + 0x3) & 0x3) * 0xD78)) + 0xAF0));
+        u0 = *(float *)((((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player) + 0xAF0));
+        u1 = *(float *)((((int)Player + (((t0 + 0x3) & 0x3) * 0xD78)) + 0xAF0));
         u2 = (-u0);
         if (!(0.0f > u0)) {
             u2 = u0;
@@ -211,12 +212,12 @@ int cpuDblAimAddDeep(int a4, int a5)
             u0 = u1;
         }
         t3 = ((t1 * 0x160) + 0x8C2FC69C);
-        t1 = ((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84);
-        t5 = (0x8C287D84 + (((t0 + 0x3) & 0x3) * 0xD78));
+        t1 = ((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player);
+        t5 = ((int)Player + (((t0 + 0x3) & 0x3) * 0xD78));
         if (u2 > u0) {
             t3 = ((t2 * 0x160) + 0x8C2FC69C);
-            t1 = (0x8C287D84 + (((t0 + 0x3) & 0x3) * 0xD78));
-            t5 = ((((t0 + 0x1) & 0x3) * 0xD78) + 0x8C287D84);
+            t1 = ((int)Player + (((t0 + 0x3) & 0x3) * 0xD78));
+            t5 = ((((t0 + 0x1) & 0x3) * 0xD78) + (int)Player);
         }
         u0 = *(float *)((t1 + 0xAF0));
         u1 = (-u0);

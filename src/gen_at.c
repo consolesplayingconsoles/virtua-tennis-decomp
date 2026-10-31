@@ -1,5 +1,12 @@
 /* Straight-line functions with calls and guards (batch gen_at): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
+extern char gMapleDriver[];
+extern char gRenderPacketVBlankWaitPending[];
+extern char gVertexBufferLockState[];
+extern char g_0c2b2fc8[];
+extern char g_0c2b3190[];
+extern char g_0c2b8cbc[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[10]; } Stk10;
@@ -337,7 +344,7 @@ int frame_make(void)
     int t42;
     int t43;
 
-    t0 = *(int *)0x8C47317C;
+    t0 = *(int *)(int)gMapleDriver;
     t1 = *(int *)((t0 + 0x10E4));
     t4 = 0x10E4;
     if ((int)t1 > 0) {
@@ -355,7 +362,7 @@ int frame_make(void)
             break;
         }
         t10 = 0xF90;
-        t7 = (*(int *)0x8C47317C);
+        t7 = (*(int *)(int)gMapleDriver);
         t10 = (t10 + t7);
         t10 = (t10 + t13);
         t9 = (*(signed char *)((t10 + 0x0)));
@@ -629,7 +636,7 @@ int arcadeNextStage(void)
         t3 = (*(int *)((0x8C287AE0 + t3)));
         if (t3 == 1) {
             t3 = (t5 * 0xD78);
-            t3 = (t3 + 0x8C287D84);
+            t3 = (t3 + (int)Player);
             t3 = (*(int *)(((0xC58) + t3)));
             t3 = (t3 << 2);
             *(unsigned int *)((0x8C287C74 + t3)) = 0x0;
@@ -895,7 +902,7 @@ int kmiFLWCTRLEORCallBackFunc(int a4, int a5)
         *(unsigned int *)0x8C45F8FC = ((*(int *)0x8C45F8FC) & 0x7);
         *(unsigned int *)0x8C4607B4 = 0x0;
         *(unsigned int *)(((*(int *)0x8C4607B8) + 0x14)) = 0x6;
-        if ((*(int *)0x8C4607E8) == 0) {
+        if ((*(int *)(int)gRenderPacketVBlankWaitPending) == 0) {
             t11 = *(int *)(((*(int *)0x8C4607B8) + 0x20));
             if ((unsigned int)t11 < (unsigned int)(*(int *)0x8C45F938)) {
                 if ((*(int *)0x8C45F95C) != 0) {
@@ -929,10 +936,10 @@ int nlCreateVertexBuffer(int a4, int a5, int a6, int a7)
     }
     nlSysInitStripContextBG(0x8C454FE0);
     nlSysInitStripContextVtx(0x8C458610);
-    *(unsigned int *)0x8C458C10 = 0x8C458610;
+    *(unsigned int *)(int)g_0c2b2fc8 = 0x8C458610;
     *(unsigned int *)0x8C458C14 = 0x0;
     t7 = *(short *)0x8C458DDA;
-    t8 = *(short *)0x8C458DD8;
+    t8 = *(short *)(int)g_0c2b3190;
     if (0x0 != 0) {
         t13 = (short)t7;
         if ((*(short *)0x8C458DDE) == 1) {
@@ -953,7 +960,7 @@ int nlCreateVertexBuffer(int a4, int a5, int a6, int a7)
     if ((*(int *)0x8C424460) == 0) {
         kmBeginScene(0x8C42420C);
         kmBeginPass(0x8C454FC0);
-        *(unsigned int *)0x8C42445C = (*(int *)0x8C454FC0);
+        *(unsigned int *)(int)g_0c2b8cbc = (*(int *)0x8C454FC0);
     }
     return t3;
 }
@@ -1295,7 +1302,7 @@ int kmiFLWCTRLEOVCallBackFunc(int a4)
             if ((*(int *)0x8C45F958) != 0) {
                 *(unsigned int *)0x8C45F94C = ((*(int *)0x8C45F94C) | (((int)t14 >= 0) ? (0x1 << (t14 & 31)) : ((-(int)t14 & 31) ? ((int)0x1 >> (-(int)t14 & 31)) : ((int)0x1 >> 31))));
             } else {
-                *(unsigned int *)0x8C45F940 = ((*(int *)0x8C45F940) & (~(((int)t14 >= 0) ? (0x1 << (t14 & 31)) : ((-(int)t14 & 31) ? ((int)0x1 >> (-(int)t14 & 31)) : ((int)0x1 >> 31)))));
+                *(unsigned int *)(int)gVertexBufferLockState = ((*(int *)(int)gVertexBufferLockState) & (~(((int)t14 >= 0) ? (0x1 << (t14 & 31)) : ((-(int)t14 & 31) ? ((int)0x1 >> (-(int)t14 & 31)) : ((int)0x1 >> 31)))));
             }
         }
         *(unsigned int *)((t6 + 0x1C)) = 0xFFFFFFFF;

@@ -1,5 +1,14 @@
 /* Straight-line functions with calls and guards (batch gen_p): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
+extern char gNlSoundStreams[];
+extern char g_0c2aedbc[];
+extern char g_0c2b31dc[];
+extern char g_0c2b7bdc[];
+extern char g_0c2b92e8[];
+extern char g_0c2fd440[];
+extern char g_0c2fd444[];
+extern char padPeri[];
 
 int ADXPD_EntrySte(int, int, int, int);
 int ADXPD_Start(int);
@@ -196,7 +205,7 @@ int nlSysMetricsInit(void)
     *(unsigned int *)0xFFD8000C = 0xFFFFFFFF;
     *(unsigned char *)0xFFD80004 = (t0 | 0x1);
     u1 = *(float *)0x8C0EBD2C;
-    *(float *)0x8C424490 = u1;
+    *(float *)(int)g_0c2aedbc = u1;
     _builtin_set_imask(0x0);
     *(unsigned int *)0x8C44F4AC = 0x1E;
     return 0x1E;
@@ -236,7 +245,7 @@ int padDirAny(int a4)
     int t4;
     int t5;
 
-    t0 = *(int *)(((a4 << 2) + 0x8C29B898));
+    t0 = *(int *)(((a4 << 2) + (int)padPeri));
     t1 = *(int *)((t0 + 0x8));
     if ((t1 & 0x10) == 0) {
         if ((0x20 & t1) == 0) {
@@ -277,11 +286,11 @@ int strmCallName(int a4)
     int t3;
     int t4;
 
-    t0 = *(int *)((((a4 * 0xD78) + 0x8C287D84) + 0xC58));
+    t0 = *(int *)((((a4 * 0xD78) + (int)Player) + 0xC58));
     if ((int)t0 <= (int)0x11) {
         t1 = *(int *)0x8C1891E8;
         t2 = *(int *)((0x8C1D4770 + (t1 << 2)));
-        t3 = *(int *)(((0xC58 + ((a4 * 0xD78) + 0x8C287D84)) + 0x0));
+        t3 = *(int *)(((0xC58 + ((a4 * 0xD78) + (int)Player)) + 0x0));
         t4 = *(int *)((((t3 << 2) + (0x8C125FB8 + (((((t2 << 2) << 1) + t2) << 2) << 1))) + 0x0));
         return strmVoicePlay(0x9, t4);
     }
@@ -547,14 +556,14 @@ int nlPopMatrix(int a4)
     if ((int)a4 <= 0) {
         t0 = 0x1;
     }
-    t2 = *(short *)0x8C45085C;
+    t2 = *(short *)(int)g_0c2b31dc;
     t3 = *(short *)0x8C45085E;
     t4 = (t2 - t0);
     if ((int)t2 < (int)t0) {
         t4 = 0x0;
     }
     t6 = *(int *)0x8C450860;
-    *(unsigned short *)0x8C45085C = t4;
+    *(unsigned short *)(int)g_0c2b31dc = t4;
     if ((int)t4 < (int)t3) {
         *(unsigned int *)0x8C450864 = (t6 + ((unsigned int)(t4 << 8) >> 2));
     }
@@ -616,14 +625,14 @@ int nlsndStreamStart(int a4)
     int t1;
     int t3;
 
-    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
+    t0 = *(signed char *)(((int)gNlSoundStreams + ((short)a4 * (short)0x1C)));
     t8 = t0;
     if (t0 == 1) {
-        t1 = *(signed char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x1));
+        t1 = *(signed char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x1));
         t3 = t1;
         if (t1 == 0) {
             nlsndSeqRequest((((((short)a4 << 8) << 2) << 2) + 0x1A1));
-            *(unsigned char *)(((((short)a4 * (short)0x1C) + 0x8C454CF4) + 0x1)) = 0x1;
+            *(unsigned char *)(((((short)a4 * (short)0x1C) + (int)gNlSoundStreams) + 0x1)) = 0x1;
             t3 = 0x1;
         }
         t8 = t3;
@@ -738,7 +747,7 @@ int _pd_peripheral_set_null(int a4)
 
     *(unsigned int *)((a4 + 0x0)) = 0x0;
     *(unsigned int *)((a4 + 0x4)) = 0x0;
-    t0 = *(int *)0x8C45A6AC;
+    t0 = *(int *)(int)g_0c2b92e8;
     if (t0 == 0) {
         *(unsigned int *)((a4 + 0x8)) = 0x0;
         *(unsigned int *)((a4 + 0xC)) = 0xFFFFFFFF;
@@ -779,7 +788,7 @@ int syIntAdrChk_getchar(void)
     int t7;
     int t3;
 
-    t0 = *(int *)0x8C47647C;
+    t0 = *(int *)(int)g_0c2fd444;
     if (t0 != 0) {
         if (t0 != 1) {
         } else {
@@ -792,7 +801,7 @@ int syIntAdrChk_getchar(void)
         }
         t16 = t7;
     } else {
-        t9 = *(int *)0x8C476478;
+        t9 = *(int *)(int)g_0c2fd440;
         for (;;) {
             t10 = *(short *)((t9 + 0x1C));
             if ((unsigned char)t10 != 0) {
@@ -1172,7 +1181,7 @@ float nlLineClipPoint(int a4, int a5, int a6)
     float u6;
 
     u0 = *(float *)((a4 + 0x8));
-    u1 = *(float *)0x8C458E3C;
+    u1 = *(float *)(int)g_0c2b7bdc;
     u2 = *(float *)((a5 + 0x8));
     *(float *)((a6 + 0x8)) = u1;
     u3 = *(float *)((a4 + 0x0));

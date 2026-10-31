@@ -1,5 +1,8 @@
 /* Straight-line functions with calls and guards (batch gen_bm): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
+extern char fileLoadState[];
+extern char padPeri[];
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
@@ -140,9 +143,9 @@ int playerHumanPressed(int a4)
     if ((int)a4 < 0) {
         t3 = 0x0;
         t4 = 0x0;
-        t5 = 0x8C287D84;
+        t5 = (int)Player;
         for (;;) {
-            if (((*(int *)(((0x8C287AE0 + t3) + 0x0))) == 0) && (t1 = 0xB64, t7 = *(int *)((t5 + t1)), t1 = 0x8C29B898, t8 = *(int *)(((t7 << 2) + t1)), t9 = *(int *)((t8 + 0x10)), t2 = t9, (t2 & 0x607) != 0)) {
+            if (((*(int *)(((0x8C287AE0 + t3) + 0x0))) == 0) && (t1 = 0xB64, t7 = *(int *)((t5 + t1)), t1 = (int)padPeri, t8 = *(int *)(((t7 << 2) + t1)), t9 = *(int *)((t8 + 0x10)), t2 = t9, (t2 & 0x607) != 0)) {
                 t4 = 0x1;
             }
             t3 = (t3 + 0x4);
@@ -156,7 +159,7 @@ int playerHumanPressed(int a4)
         t22 = 0x0;
         if ((*(int *)(((0x8C287AE0 + (a4 << 2)) + 0x0))) == 0) {
             t16 = 0x0;
-            if (((*(int *)(((*(int *)((((*(int *)((((a4 * 0xD78) + 0x8C287D84) + 0xB64))) << 2) + 0x8C29B898))) + 0x10))) & 0x607) != 0) {
+            if (((*(int *)(((*(int *)((((*(int *)((((a4 * 0xD78) + (int)Player) + 0xB64))) << 2) + (int)padPeri))) + 0x10))) & 0x607) != 0) {
                 t16 = 0x1;
             }
             t22 = t16;
@@ -174,7 +177,7 @@ int playerHumanPressed(int a4)
                     t28 = ((a4 + 0x2) & 0x3);
                 }
                 t33 = t22;
-                if (((*(int *)(((*(int *)((((*(int *)((0xB64 + ((t28 * 0xD78) + 0x8C287D84)))) << 2) + 0x8C29B898))) + 0x10))) & 0x607) != 0) {
+                if (((*(int *)(((*(int *)((((*(int *)((0xB64 + ((t28 * 0xD78) + (int)Player)))) << 2) + (int)padPeri))) + 0x10))) & 0x607) != 0) {
                     t33 = 0x1;
                 }
                 t39 = t33;
@@ -201,7 +204,7 @@ int playerHumanPressed(int a4)
                         t54 = ((a4 + 0x1) & 0x3);
                     }
                     t59 = t45;
-                    if (((*(int *)(((*(int *)(((0x8C29B898 + ((*(int *)((0xB64 + ((t54 * 0xD78) + 0x8C287D84)))) << 2)) + 0x0))) + 0x10))) & 0x607) != 0) {
+                    if (((*(int *)(((*(int *)((((int)padPeri + ((*(int *)((0xB64 + ((t54 * 0xD78) + (int)Player)))) << 2)) + 0x0))) + 0x10))) & 0x607) != 0) {
                         t59 = 0x1;
                     }
                     t64 = t59;
@@ -227,7 +230,7 @@ int playerHumanPressed(int a4)
                             t78 = ((a4 + 0x3) & 0x3);
                         }
                         t83 = t69;
-                        if (((*(int *)(((*(int *)(((0x8C29B898 + ((*(int *)((0xB64 + ((t78 * 0xD78) + 0x8C287D84)))) << 2)) + 0x0))) + 0x10))) & 0x607) != 0) {
+                        if (((*(int *)(((*(int *)((((int)padPeri + ((*(int *)((0xB64 + ((t78 * 0xD78) + (int)Player)))) << 2)) + 0x0))) + 0x10))) & 0x607) != 0) {
                             t83 = 0x1;
                         }
                         t88 = t83;
@@ -325,7 +328,7 @@ int stageSoftReset(float f4)
         t42 = *(int *)0x8C20D14C;
         t52 = t42;
         if ((t42 != 6) && (t43 = *(int *)0x8C188EAC, t43 != 0)) {
-            *(unsigned int *)0x8C34A1EC = 0x0;
+            *(unsigned int *)(int)fileLoadState = 0x0;
             fileLoadStart(0x8CA80000, 0x8C1111EC, 0x0);
             for (;;) {
                 if ((*(int *)0x8C34A1F0) == 1) {

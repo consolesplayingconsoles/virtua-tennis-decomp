@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_fp): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
 
 int ballBoyDrawIdle(int);
 int ballBoyDrawRun(int);
@@ -128,7 +129,7 @@ int ballBoyExec(int a4)
     if (((*(int *)((R13 + 0x5DC))) == 0)) goto L_8C0C8B94;
     goto L_8C0C8B8E;
     L_8C0C8B8E:;
-    ballBoyRecall(0x8C291F24);
+    ballBoyRecall((int)Ball);
     goto L_8C0C8B94;
     L_8C0C8B94:;
     R0 = (0x600);

@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_gt): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char strMwRnaNullHandleError[];
 
 int mwRnaErrCallFunc(int, ...);
 int mwRnaSetFx(int a4, int a5, int a6);
@@ -14,7 +15,7 @@ int mwRnaSetFx(int a4, int a5, int a6)
     int t10;
 
     if (a4 == 0) {
-        t12 = (mwRnaErrCallFunc(0x8C20AC30));
+        t12 = (mwRnaErrCallFunc((int)strMwRnaNullHandleError));
     } else {
         if (((int)a5 >= 0) && ((int)a5 <= (int)0x10)) {
             t3 = 0xFFFFFFD3;

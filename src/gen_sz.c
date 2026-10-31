@@ -1,5 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_sz): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
 
 float cpuOppLineX(int a4);
 
@@ -26,20 +27,20 @@ float cpuOppLineX(int a4)
     float u17;
 
     t0 = *(int *)((a4 + 0xB5C));
-    u0 = *(float *)(((((0x3 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8));
+    u0 = *(float *)(((((0x3 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAE8));
     u1 = (-u0);
     if (!(0.0f > u0)) {
         u1 = u0;
     }
     if (u1 > (*(float *)0x8C287B40)) {
-        u0 = *(float *)(((((0x3 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8));
+        u0 = *(float *)(((((0x3 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAE8));
         u1 = ((float)((u0 > 0.0f) - (0.0f > u0)) * (*(float *)0x8C287B40));
     } else {
-        u1 = (*(float *)(((((0x3 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8)));
+        u1 = (*(float *)(((((0x3 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAE8)));
     }
     u0 = *(float *)((a4 + 0xAE8));
     u2 = *(float *)((a4 + 0xAF0));
-    u3 = *(float *)(((((0x3 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAF0));
+    u3 = *(float *)(((((0x3 & (t0 + 0x1)) * 0xD78) + (int)Player) + 0xAF0));
     u4 = *(float *)((a4 + 0xAF0));
     u5 = *(float *)((a4 + 0xAE8));
     u6 = (u5 - (((u0 - u1) / (u2 - u3)) * u4));
@@ -53,20 +54,20 @@ float cpuOppLineX(int a4)
         u8 = ((((float)((u6 > 0.0f) - (0.0f > u6)) * (*(float *)0x8C287B40)) - (u5 - (((u0 - u1) / (u2 - u3)) * u4))) / ((u0 - u1) / (u2 - u3)));
     }
     t0 = *(int *)((a4 + 0xB5C));
-    u7 = *(float *)(((((0x3 & (t0 + 0x3)) * 0xD78) + 0x8C287D84) + 0xAE8));
+    u7 = *(float *)(((((0x3 & (t0 + 0x3)) * 0xD78) + (int)Player) + 0xAE8));
     u9 = (-u7);
     if (!(0.0f > u7)) {
         u9 = u7;
     }
     if (u9 > (*(float *)0x8C287B40)) {
-        u7 = *(float *)(((((0x3 & (t0 + 0x3)) * 0xD78) + 0x8C287D84) + 0xAE8));
+        u7 = *(float *)(((((0x3 & (t0 + 0x3)) * 0xD78) + (int)Player) + 0xAE8));
         u9 = ((float)((u7 > 0.0f) - (0.0f > u7)) * (*(float *)0x8C287B40));
     } else {
-        u9 = (*(float *)(((((0x3 & (t0 + 0x3)) * 0xD78) + 0x8C287D84) + 0xAE8)));
+        u9 = (*(float *)(((((0x3 & (t0 + 0x3)) * 0xD78) + (int)Player) + 0xAE8)));
     }
     u7 = *(float *)((a4 + 0xAE8));
     u10 = *(float *)((a4 + 0xAF0));
-    u11 = *(float *)(((((0x3 & (t0 + 0x3)) * 0xD78) + 0x8C287D84) + 0xAF0));
+    u11 = *(float *)(((((0x3 & (t0 + 0x3)) * 0xD78) + (int)Player) + 0xAF0));
     u12 = *(float *)((a4 + 0xAF0));
     u13 = *(float *)((a4 + 0xAE8));
     u14 = (u13 - (((u7 - u9) / (u10 - u11)) * u12));

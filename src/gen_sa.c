@@ -1,5 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_sa): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Ball[];
+extern char Player[];
 
 int BupRequestSave(int, int, int, int);
 int arcadeNextMatch(void);
@@ -76,7 +78,7 @@ int matchExec(int a4, int a5, int a6, int a7, float f4)
     v0_0 = (0x0);
     v0_3 = (0x8C287ACC);
     R12 = (0x1);
-    v0_4 = (0x8C291F24);
+    v0_4 = ((int)Ball);
     v0_1 = (0x8C287ACC);
     v0_5 = (0xD78);
     v0_6 = (0x8C287D5C);
@@ -153,7 +155,7 @@ int matchExec(int a4, int a5, int a6, int a7, float f4)
     L_8C01A024:;
     if (((*(int *)((v0_6 + 0x0))) != 3)) goto L_8C01A054;
     if ((((*(int *)((v0_4 + 0x54))) & 1) == 0)) goto L_8C01A054;
-    v0_8 = ((((*(int *)((v0_3 + 0x2C))) * v0_5) + 0x8C287D84));
+    v0_8 = ((((*(int *)((v0_3 + 0x2C))) * v0_5) + (int)Player));
     if (((*(int *)((v0_4 + 0x4C))) != 1)) goto L_8C01A04E;
     v0_2 = ((int (*)(int, int, int, int, float))(miniOnEvent))(0x0, v0_8, v0_7, v0_2, w0_0);
     L_8C01A054:;
@@ -203,8 +205,8 @@ int matchExec(int a4, int a5, int a6, int a7, float f4)
     goto L_8C01A024;
     L_8C019EF8:;
     v0_10 = *(int *)((v0_1 + 0x2C));
-    *(unsigned int *)(((int)stk + 12)) = ((v0_10 * v0_5) + 0x8C287D84);
-    w0_1 = *(float *)((((v0_10 * v0_5) + 0x8C287D84) + 0xAF0));
+    *(unsigned int *)(((int)stk + 12)) = ((v0_10 * v0_5) + (int)Player);
+    w0_1 = *(float *)((((v0_10 * v0_5) + (int)Player) + 0xAF0));
     w0_2 = (0.0f);
     w0_0 = (w0_1);
     if ((!(w0_1 > 0.0f))) goto L_8C019F12;
@@ -302,8 +304,8 @@ int matchExec(int a4, int a5, int a6, int a7, float f4)
     v0_11 = (0x1);
     L_8C019B2E:;
     v0_10 = *(int *)((v0_1 + 0x2C));
-    *(unsigned int *)(((int)stk + 16)) = ((v0_10 * v0_5) + 0x8C287D84);
-    w0_3 = *(float *)((((v0_10 * v0_5) + 0x8C287D84) + 0xAF0));
+    *(unsigned int *)(((int)stk + 16)) = ((v0_10 * v0_5) + (int)Player);
+    w0_3 = *(float *)((((v0_10 * v0_5) + (int)Player) + 0xAF0));
     w0_2 = (0.0f);
     w0_0 = (w0_3);
     if ((!(w0_3 > 0.0f))) goto L_8C019B48;
@@ -499,7 +501,7 @@ int matchExec(int a4, int a5, int a6, int a7, float f4)
     L_8C019A1A:;
     if (((int)(*(int *)(((int)stk + 8))) < (int)(*(int *)((v0_1 + 0x10))))) goto L_8C019A04;
     ballBoyReset(v0_9, v0_8, v0_7, v0_2, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16));
-    ballInit(0x8C291F24);
+    ballInit((int)Ball);
     if (((*(int *)((v0_6 + 0x0))) != 3)) goto L_8C019A3C;
     miniRoundStart(v0_9, v0_8, v0_7, v0_2);
     L_8C019A3C:;
@@ -513,7 +515,7 @@ int matchExec(int a4, int a5, int a6, int a7, float f4)
     goto L_8C019A64;
     L_8C019A04:;
     v0_10 = *(int *)(((int)stk + 8));
-    playerInit(((v0_10 * v0_5) + 0x8C287D84), v0_10, v0_7, v0_2);
+    playerInit(((v0_10 * v0_5) + (int)Player), v0_10, v0_7, v0_2);
     *(unsigned int *)(((int)stk + 8)) = ((*(int *)(((int)stk + 8))) + 0x1);
     goto L_8C019A1A;
     L_8C0199E0:;

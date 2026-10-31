@@ -1,5 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_bl): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+extern char Player[];
+extern char stageNo[];
 
 extern float _builtin_sqrtf(float);
 int btnGuideDraw(int, int, float);
@@ -188,7 +190,7 @@ int stageLoadEnding(void)
     *(unsigned int *)0x8C188E98 = 0xFFFFFFFF;
     *(unsigned int *)0x8C188E94 = 0xFFFFFFFF;
     t2 = 0x0;
-    t3 = 0x8C287D84;
+    t3 = (int)Player;
     for (;;) {
         if ((*(int *)((t2 + 0x8C287AE0))) != 1) {
             t5 = *(int *)0x8C188EA4;
@@ -207,7 +209,7 @@ int stageLoadEnding(void)
     *(unsigned int *)0x8C188EA4 = 0x0;
     t9 = t1;
     t10 = 0x0;
-    t11 = 0x8C287D84;
+    t11 = (int)Player;
     for (;;) {
         if ((*(int *)((t10 + 0x8C287AE0))) == 1) {
             t13 = *(int *)0x8C188EA4;
@@ -255,7 +257,7 @@ int stageLoadEnding(void)
     if ((*(int *)0x8C1891E8) != 4) {
         stageTexFree();
         *(unsigned int *)0x8C287ACC = 0x4;
-        *(unsigned int *)0x8C1891F0 = 0x4;
+        *(unsigned int *)(int)stageNo = 0x4;
         *(unsigned int *)0x8C1891E8 = 0x4;
         fileLoadStart(0x8C880000, 0x8C111128, 0x0);
         for (;;) {
