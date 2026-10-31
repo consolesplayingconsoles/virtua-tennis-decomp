@@ -1,7 +1,10 @@
 /* Shinobi library, KAEDE (the Maple bus driver): our own C, written from the disassembly. */
 
 typedef struct {
-    char head[0xfcc];
+    char head[0xfc0];
+    int initialized;                    /* 0xfc0: set to 1 when mpdrv_init finishes */
+    void *halfBufferedWorkArea;         /* 0xfc4: two 0x3000-byte halves */
+    void *frameSlotArea;                /* 0xfc8: 24 slots of 0x400 bytes, second table at +0x6000 */
     int *commandWriteCursor;            /* 0xfcc: write cursor */
     int pad0;
     int pad1;

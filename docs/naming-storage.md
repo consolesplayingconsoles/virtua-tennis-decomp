@@ -127,3 +127,14 @@ global state, not to the handle.
 - Maple driver +0xfd0/+0xfd4 (`pad0`/`pad1`): no access in the driver code was
   found; left unnamed. +0xfc4/+0xfc8 are 32-byte-aligned buffer pointers set in
   `mpdrv_init`, not yet named.
+
+## Maple driver +0xfc0..+0xfc8
+
+`mpdrv_init` stores its first argument at +0xfc4 and third at +0xfc8, and sets
++0xfc0 to 1 last. `mpdrv_init_globals` fills a 24-entry table at +0xfe8 with
+`frameSlotArea + i*0x400` and a second 24-entry table with
+`frameSlotArea + 0x6000 + i*0x400`; it stores +0xfc4 and +0xfc4+0x3000 as two
+halves at +0x10a8/+0x10ac. The frame send/receive routines test +0xfc0. The
+fields are `initialized`, `halfBufferedWorkArea` and `frameSlotArea`; the
+send/receive roles of the two tables are not established. +0xfd0/+0xfd4 remain
+unaccessed.
