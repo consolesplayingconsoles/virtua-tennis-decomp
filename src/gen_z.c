@@ -192,7 +192,7 @@ int syCachePurgeAll(void);
 int adxf_purge_all(void);
 void miniEffectSpawn(Stk4 s);
 int sprPutAt(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
-int kmSetCullingThreshold(float f4);
+int setCullingThreshold(float f4);
 int kmyEnableInterrupt(void);
 int kmyRequestCallback(int a4);
 int _destructFiber(int a4, int a5);
@@ -213,7 +213,7 @@ float cpuLineXAtZ(Stk6 s, float f4);
 int nlsndStreamGetFreq(int a4);
 int nlsndStreamGetBitSize(int a4);
 int nl_objput_mv_send_p0(int a4, int a5, int a6, float f4, float f5, float f6, float f7);
-int gdFsStringEquals(int a4, int a5);
+int stringEquals(int a4, int a5);
 int SJUNI_GetNumChunk(int a4, int a5);
 void vecTableGet(int a4, int a5, int a6, int a7, int a8);
 float cpuDistXZ(int a4, int a5);
@@ -240,7 +240,7 @@ void nlCalcVector(int a4, int a5);
 int SJMEM_Lock(void);
 int SJRBF_Lock(void);
 int SJUNI_Lock(void);
-int fmMngBufferEquals(int a4, int a5, int a6);
+int bufferEquals(int a4, int a5, int a6);
 void ovLockCs_8c200114(int a4);
 int kmyAllocateAreaWithAddress(int a4, int a5, int a6);
 
@@ -1591,7 +1591,7 @@ int nl_objput_mv_send_p0(int a4, int a5, int a6, float f4, float f5, float f6, f
     return ((((a6 - 4) - 0x4) - 0x4) - 0x4);
 }
 
-int gdFsStringEquals(int leftString, int rightString)
+int stringEquals(int leftString, int rightString)
 {
     if ((*(signed char *)((leftString + 0x0))) == 0) {
         if ((*(signed char *)((rightString + 0x0))) != 0) {
@@ -1903,7 +1903,7 @@ int SJUNI_Lock(void)
     return t0;
 }
 
-int fmMngBufferEquals(int leftBuffer, int rightBuffer, int byteCount)
+int bufferEquals(int leftBuffer, int rightBuffer, int byteCount)
 {
     if ((int)byteCount <= 0) {
         return 0x1;

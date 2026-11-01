@@ -40,7 +40,7 @@ extern void Put_GearBox(void);
 extern void frameFlip(void);
 extern int pdGetPeripheral(int port);
 
-extern void nlResetBackColorZ(int a, int b, int c);
+extern void resetBackColorZ(int a, int b, int c);
 
 extern void camSave(void);
 extern char *GetCollision2D(float *pos, float h);

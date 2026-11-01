@@ -31,7 +31,7 @@ int syBtFlDeleteSct(int, int, int);
 int syBtFlWrite(int, int, int);
 int syTmrDiffCount(int, int);
 int syTmrGetCount(void);
-int thunk_fmMngCopyBytes(void);
+int thunk_copyBytes(void);
 int vmsfs_c_getstate(int);
 int vmsfs_c_setfunc(int, int);
 int vmsfs_c_setparam(int, int, int, int, int, int, int);
@@ -723,7 +723,7 @@ int fmMngFormat(int formatMode, int a5, int a6)
             if (eraseResult != 0) {
             } else {
                 headerManagerAddress = *(int *)0x8C20CA44;
-                thunk_fmMngCopyBytes();
+                thunk_copyBytes();
                 *(unsigned short *)(((*(int *)0x8C20CA44) + 0x2)) = formatMode;
                 *(unsigned char *)(((headerManagerAddress + 0x34) + 0x11)) = formatMode;
                 *(unsigned char *)(((headerManagerAddress + 0x34) + 0x10)) = (*(signed char *)(((*(int *)0x8C20CA44) + 0x0)));

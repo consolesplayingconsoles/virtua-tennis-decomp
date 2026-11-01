@@ -14,7 +14,7 @@ int ADXRNA_SetPlaySw(int, int);
 int ADXSJD_GetBlkSmpl(int);
 int ADXSJD_GetStat(int);
 int ADXT_GetNumChan(int);
-int nlResetBackColorZ(int, int, int, Stk16, float);
+int resetBackColorZ(int, int, int, Stk16, float);
 int SJRBF_Lock(void);
 int SJRBF_Unlock(int, int);
 int SJUNI_Lock(void);
@@ -302,7 +302,7 @@ int entryDrawStripes(float f4)
     int stk[25];
 
     { struct mv16 { int w[16]; }; *(struct mv16 *)(((int)stk + 4)) = *(struct mv16 *)(0x8C110E70); }
-    nlResetBackColorZ(0xFF000000, 0xFFFFDC00, 0xFF000000, *(Stk16 *)(0x8C110E70), f4);
+    resetBackColorZ(0xFF000000, 0xFFFFDC00, 0xFF000000, *(Stk16 *)(0x8C110E70), f4);
     t1 = 0x0;
     for (;;) {
         t2 = (int)((int)t1 / (int)0x3);

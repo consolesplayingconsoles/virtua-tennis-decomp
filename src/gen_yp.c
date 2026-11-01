@@ -6,7 +6,7 @@ typedef struct { int w[3]; } Stk3;
 int ADXT_ExecServer(void);
 int ADXT_SetOutVol(int, int);
 int ADXT_StartAfs(int, int, int);
-int nlResetBackColorZ(int, int, int, float);
+int resetBackColorZ(int, int, int, float);
 int buSetCompleteCallback(int);
 int buSetProgressCallback(int);
 int camInit(void);
@@ -222,7 +222,7 @@ int FUN_8c0d6d54(int a4, int a5)
 
 int FUN_8c08d520(float f4)
 {
-    nlResetBackColorZ(0xFFFFFF, 0xFFFFFF, 0xFFFFFF, f4);
+    resetBackColorZ(0xFFFFFF, 0xFFFFFF, 0xFFFFFF, f4);
     camInit();
     nlInitEvent();
     sndFadeFlagsClear();

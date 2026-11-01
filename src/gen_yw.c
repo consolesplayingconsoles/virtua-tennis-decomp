@@ -1,14 +1,14 @@
 /* Straight-line functions with calls and guards (batch gen_yw): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int nlResetBackColorZ(int, int, int, float);
+int resetBackColorZ(int, int, int, float);
 int resCautionShow(int);
 int thunk_nlSprPut(int);
 int FUN_8c0d10a8(int a4, float f4);
 
 int FUN_8c0d10a8(int a4, float f4)
 {
-    nlResetBackColorZ(0x0, 0x0, 0x0, f4);
+    resetBackColorZ(0x0, 0x0, 0x0, f4);
     if ((*(int *)(((a4 << 2) + 0x8C1DC590))) == 0) {
         return resCautionShow(a4);
     }

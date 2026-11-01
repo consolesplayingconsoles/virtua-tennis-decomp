@@ -16,14 +16,14 @@ not recovered original source names.
 | `courtFraDraw`, `courtUsaDraw`, `courtWinDraw` | Call the corresponding country's scoreboard and court helpers, cull and render sections, animate crowd models, and draw court details. |
 | `stageSweDraw`, `stageGerDraw`, `stageJpnDraw`, `stageRusDraw`, `stageEspDraw` | Call the corresponding stage's court and scoreboard helpers, draw visible sections and crowd models. These are the complete stage passes; existing `stage*CourtDraw` routines are their callees. |
 | `stage10Draw` through `stage17Draw` | `matchSceneExec` dispatches these for stage IDs 10 through 17 (`stage14Draw` is at `8c0c486c`, before `stage13Draw` in address order). They render stage-specific model lists and common court geometry. Numeric stage IDs are intentional: the routines alone do not establish the venue or training activity. |
-| `nlResetBackColorZ` | Loads the depth constant at `8c0eaf28` and tail-calls `nlSetBackColorZ`. |
+| `resetBackColorZ` | Loads the depth constant at `8c0eaf28` and tail-calls `nlSetBackColorZ`. |
 | `nlUnitVector` | Scales a three-component vector by reciprocal square root of its squared length and returns its length. This name already existed at the same address in `symbols.txt`. The generated declaration's return type is retained. |
-| `kmyCopySmallVQToTextureRom` | Called by `kmLoadTextureRom` for surface type 3. Copies a level-dependent codebook, then index data to texture address + `0x800`; the high flag bit selects alternate tables. |
-| `kmCollectTextureGarbage` | Returns `kmyGarbageCollection()`. This is a descriptive name, not a claim about the SDK's original exported spelling. |
-| `gdFsStringEquals` | Compares bytes until mismatch or a null terminator; returns 1 for equality and 0 otherwise. Retains its existing interior-address continuation call. |
+| `copySmallVQToTextureRom` | Called by `kmLoadTextureRom` for surface type 3. Copies a level-dependent codebook, then index data to texture address + `0x800`; the high flag bit selects alternate tables. |
+| `collectTextureGarbage` | Returns `kmyGarbageCollection()`. This is a descriptive name, not a claim about the SDK's original exported spelling. |
+| `stringEquals` | Compares bytes until mismatch or a null terminator; returns 1 for equality and 0 otherwise. Retains its existing interior-address continuation call. |
 | `kbCfgIni` | Dispatches through the BIOS configuration vector at `8c0000b0`, operation 0. This name already existed at the same address in `symbols.txt`. BIOS argument meanings remain unresolved. |
-| `fmMngBufferEquals` | Compares the requested byte count and returns 1 for equality, 0 on the first mismatch; nonpositive counts compare equal. Retains its interior-address continuation call. |
-| `fmMngCopyBytes` | Copies bytes from the first pointer to the second while count is positive. Retains its interior-address continuation call. |
+| `bufferEquals` | Compares the requested byte count and returns 1 for equality, 0 on the first mismatch; nonpositive counts compare equal. Retains its interior-address continuation call. |
+| `copyBytes` | Copies bytes from the first pointer to the second while count is positive. Retains its interior-address continuation call. |
 
 The three wrappers of the string and buffer helpers keep their distinct entries
 and receive the corresponding `thunk_` names. Forty-four generic function aliases
@@ -53,6 +53,12 @@ Registers with multiple roles retain that fact in their names, for example
 `courtModeOrSectionIndex` and `difficultyOrPlayerAddress`.
 
 ## Follow-up
+
+The distinction between inferred labels and existing upstream SDK names is
+documented in [naming-provenance.md](naming-provenance.md). Seven inferred
+function labels now omit SDK-style prefixes; the earlier TSV ledgers retain
+their intermediate names and [naming-prefixes.tsv](naming-prefixes.tsv) records
+the follow-up mapping.
 
 The SDK naming follow-up is documented in [naming-sdk.md](naming-sdk.md).
 GD filesystem, flash-manager and DMA record names are documented in

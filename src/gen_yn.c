@@ -7,7 +7,7 @@ typedef struct { int w[6]; } Stk6;
 int ADXT_SetOutVol(int, int);
 int ADXT_Stop(int);
 int BupRequestSave(int, int, int, int);
-int nlResetBackColorZ(int, int, int);
+int resetBackColorZ(int, int, int);
 int btnGuideDrawB(int, int, int, int, Stk3, float);
 int buGetDiskInfo(int, int);
 int camWorldToView(Stk4);
@@ -415,7 +415,7 @@ int FUN_8c0d6684(void)
     if ((int)(*(int *)0x8C20D15C) > (int)0xA) {
         hudPanelDraw(0x1, 0x0, (*(float *)0x8C0D67A8));
     }
-    t17 = nlResetBackColorZ(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
+    t17 = resetBackColorZ(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
     if ((*(int *)0x8C20D15C) == 0xBE) {
         fadeScreenStart(0x3, 0x0, 0x1E, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4));
         hudPanelDraw(0x2, 0x0, 0.0f);
@@ -576,7 +576,7 @@ int FUN_8c0e1d7c(void)
         rankSprTexFree();
         stageFreeAll();
         stageTexSetGarbagedAll();
-        nlResetBackColorZ(0x4D4D4D, 0x4D4D4D, 0x4D4D4D);
+        resetBackColorZ(0x4D4D4D, 0x4D4D4D, 0x4D4D4D);
     }
     t9 = resSprTitleRead();
     if (t9 == 1) {

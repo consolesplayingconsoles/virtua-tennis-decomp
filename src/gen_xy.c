@@ -6,7 +6,7 @@ typedef struct { int w[3]; } Stk3;
 int BupRequestLoad(int, int, int, int);
 int BupRequestSave(int, int, int, int);
 int FUN_8c0a048c(int, int, int, int, float);
-int nlResetBackColorZ(int, int, int, float);
+int resetBackColorZ(int, int, int, float);
 int abs(int);
 int countryStagePut(Stk3, Stk1, float);
 int cpuAimAngleRate(int, int, int, int, int);
@@ -865,7 +865,7 @@ float FUN_8c0ab450(void)
         *(float *)0x8C1855E8 = 0.0f;
         u14 = 0.0f;
     }
-    nlResetBackColorZ(0x0, 0x0, 0x0, u14);
+    resetBackColorZ(0x0, 0x0, 0x0, u14);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C343DB4) = *(struct mv3 *)(0x8C110DDC); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C343DC0) = *(struct mv3 *)(0x8C110DE8); }
     if ((*(int *)0x8C343844) == 2) {

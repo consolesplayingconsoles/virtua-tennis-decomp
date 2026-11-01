@@ -761,7 +761,7 @@ FUN_8c0ea550
 FUN_8c0eaaf0
 FUN_8c0eab20
 FUN_8c0eab40
-nlResetBackColorZ
+resetBackColorZ
 FUN_8c0eaf30
 FUN_8c0ec0d0
 FUN_8c0ec0e0
@@ -841,7 +841,7 @@ FUN_8c0f8290
 FUN_8c0f8360
 FUN_8c0f8370
 FUN_8c0f8380
-kmyCopySmallVQToTextureRom
+copySmallVQToTextureRom
 FUN_8c1dd692
 FUN_8c1dd6e4
 FUN_8c1e0c2c
@@ -858,7 +858,7 @@ FUN_8c1e3260
 FUN_8c1e326e
 FUN_8c1e3272
 FUN_8c1e3278
-kmCollectTextureGarbage
+collectTextureGarbage
 FUN_8c1e5280
 FUN_8c1e53a0
 FUN_8c1e55c0
@@ -871,7 +871,7 @@ FUN_8c1e5e80
 FUN_8c1e5fc0
 FUN_8c1e6120
 FUN_8c1e629a
-kmSetCullingThreshold
+setCullingThreshold
 FUN_8c1e6738
 FUN_8c1e6746
 FUN_8c1e67c6
@@ -888,7 +888,7 @@ FUN_8c1e6a04
 FUN_8c1e6a34
 FUN_8c1e6a3a
 FUN_8c1e6a5a
-gdFsStringEquals
+stringEquals
 FUN_8c1e7978
 FUN_8c1e797e
 FUN_8c1e7e96
@@ -919,8 +919,8 @@ FUN_8c1feb60
 FUN_8c1feb6a
 FUN_8c1feb72
 FUN_8c1feb7a
-fmMngBufferEquals
-fmMngCopyBytes
+bufferEquals
+copyBytes
 FUN_8c200110
 FUN_8c2001b8
 FUN_8c2001dc
@@ -3699,9 +3699,9 @@ thunk_nlGetMatrix
 thunk_nlObjPutMvInit
 thunk_nlSprPut
 thunk_buIsExistFile
-thunk_gdFsStringEquals
-thunk_fmMngBufferEquals
-thunk_fmMngCopyBytes
+thunk_stringEquals
+thunk_bufferEquals
+thunk_copyBytes
 thunk_kmSetHSyncLine
 thunk_mwRnaErrEntryFunc
 thunk_mwRnaFinish

@@ -48,7 +48,7 @@ int syBtFlRead(int a4, int a5, int a6);
 int syBtFlWrite(int a4, int a5, int a6);
 int syBtFlDeleteSct(int a4, int a5, int a6);
 int deformModelRestore(int a4);
-int nlResetBackColorZ(void);
+int resetBackColorZ(void);
 int padVibOff(void);
 int nlSysMetricsDiffTime(int a4, int a5);
 int nlObjPutSetGarbagedTexture(int a4);
@@ -304,7 +304,7 @@ int deformModelRestore(int a4)
     return modelSetVertsInt(a4, 0x8C3311F4);
 }
 
-int nlResetBackColorZ(void)
+int resetBackColorZ(void)
 {
     float defaultDepth;
 

@@ -2003,7 +2003,7 @@ F 8c0eaba0 98 nlWaitVSync
 F 8c0eac50 116 nlSetVertexMode
 F 8c0eadc0 154 nlSysInitStripContextVtx
 F 8c0eae60 150 nlSysInitStripContextBG
-F 8c0eaf00 8 nlResetBackColorZ
+F 8c0eaf00 8 resetBackColorZ
 F 8c0eaf10 4 nlCreateVertexBuffer_clx16
 F 8c0eaf30 428 FUN_8c0eaf30
 F 8c0eb0f0 32 nlInitLibraryDC
@@ -2468,7 +2468,7 @@ F 8c0f83f0 84 nlSetIntrPriority
 F 8c0f8490 32 nlSynchFunction
 F 8c0f84c0 6 thunk_kmSetHSyncLine
 F 8c0f8500 136 kmLoadTextureRom
-F 8c0f8590 142 kmyCopySmallVQToTextureRom
+F 8c0f8590 142 copySmallVQToTextureRom
 F 8c0f861e 458 kmyCopyToTextureRom
 F 8c0f88f0 44 nlSetPaletteData
 F 8c0f8930 4 nlObjPutLoadTextureCallBack
@@ -2938,7 +2938,7 @@ F 8c1e40c0 1670 kmProcessVertexRenderState
 F 8c1e4780 430 kmSetVertexRenderState
 F 8c1e4960 142 kmCreateTextureSurface
 F 8c1e4a20 44 kmFreeTexture
-F 8c1e4a80 14 kmCollectTextureGarbage
+F 8c1e4a80 14 collectTextureGarbage
 F 8c1e4ac0 14 kmGetFreeTextureMem
 F 8c1e4b00 116 kmLoadTexture
 F 8c1e4b74 192 kmtex_ConvertSmallVQToMem
@@ -2968,7 +2968,7 @@ F 8c1e629a 4 FUN_8c1e629a
 F 8c1e62c0 14 kmSetBorderColor
 F 8c1e6300 68 kmSetCheapShadowMode
 F 8c1e6380 106 kmSetColorClampValue
-F 8c1e6420 56 kmSetCullingThreshold
+F 8c1e6420 56 setCullingThreshold
 F 8c1e6480 22 kmSetPixelClipping
 F 8c1e64c0 22 kmSetRegionClipping
 F 8c1e6500 54 kmSetStrideWidth
@@ -3001,8 +3001,8 @@ F 8c1e6a78 6 gdFsGetGdDcf
 F 8c1e6a98 20 gdFsToUpper
 F 8c1e6aac 24 gdFsMemcpy
 F 8c1e6ac4 76 gdFsStrncmpi
-F 8c1e6b10 4 thunk_gdFsStringEquals
-F 8c1e6b1c 30 gdFsStringEquals
+F 8c1e6b10 4 thunk_stringEquals
+F 8c1e6b1c 30 stringEquals
 F 8c1e6b32 58 gdFsStrcmpi
 F 8c1e6b6c 38 gdFsGetTokenSize
 F 8c1e6b92 38 gdFsGetSearchID
@@ -3818,11 +3818,11 @@ F 8c1fef02 478 vmsio_block_write
 F 8c1ff0e0 32 vmsfs_memcmp
 F 8c1ff100 64 vmsio_isready
 F 8c1ff140 106 vmsio_ismount
-F 8c1ff1ac 4 thunk_fmMngBufferEquals
-F 8c1ff1bc 24 fmMngBufferEquals
+F 8c1ff1ac 4 thunk_bufferEquals
+F 8c1ff1bc 24 bufferEquals
 F 8c1ff1c8 28 fmMngMcpy4
-F 8c1ff1e4 4 thunk_fmMngCopyBytes
-F 8c1ff1ee 16 fmMngCopyBytes
+F 8c1ff1e4 4 thunk_copyBytes
+F 8c1ff1ee 16 copyBytes
 F 8c1ff1f8 20 fmMngClearBuf
 F 8c1ff20c 56 fmMngBit2Num
 F 8c1ff244 78 fmMngNum2Bit

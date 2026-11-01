@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int nlResetBackColorZ(int, int, int, float);
+int resetBackColorZ(int, int, int, float);
 int advSpriteLoad(void);
 int cacheOcbiRange(int, int);
 int camExec(int, int, int, int, int, int, int, int, int, int, int, int);
@@ -453,7 +453,7 @@ int FUN_8c0d49f4(void)
             u227 = u200;
         }
         if ((int)(*(int *)0x8C402CA0) >= (int)((*(int *)((0x8C1D34F4 + ((*(int *)0x8C402CAC) << 2)))) * 0x3C)) {
-            nlResetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, u227);
+            resetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, u227);
             cacheOcbiRange(0xCA00000, 0x200000);
             if ((*(int *)0x8C402CB0) != 2) {
                 *(unsigned int *)0x8C20D150 = 0x3;
@@ -477,7 +477,7 @@ int FUN_8c0d49f4(void)
             *(unsigned int *)0x8C402CA8 = ((*(int *)0x8C402CA8) - 1);
         }
         if ((*(int *)0x8C402CA8) == 0) {
-            nlResetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, u227);
+            resetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, u227);
             *(unsigned int *)0x8C407FCC = 0x1;
             cacheOcbiRange(0xCA00000, 0x200000);
             if (((*(int *)0x8C402CB0) == 2) && (t257 = *(int *)0x8C40C30C, (t257 & 0x10000) == 0)) {
@@ -536,7 +536,7 @@ int FUN_8c0d49f4(void)
         *(unsigned int *)0x8C402CA8 = ((*(int *)0x8C402CA8) - 1);
     }
     if ((*(int *)0x8C402CA8) == 0) {
-        nlResetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, u298);
+        resetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, u298);
         *(unsigned int *)0x8C407FCC = 0x1;
         cacheOcbiRange(0xCA00000, 0x200000);
         if (((*(int *)0x8C402CB0) == 2) && (t307 = *(int *)0x8C40C30C, (t307 & 0x10000) == 0)) {

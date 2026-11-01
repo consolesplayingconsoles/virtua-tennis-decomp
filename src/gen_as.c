@@ -16,7 +16,7 @@ int ADX_DecodeInfo(int, int, int, int, int, int, int, int, int, int);
 int ADX_DecodeInfoExADPCM2(int, int, int);
 int ADX_DecodeInfoExLoop(int, int, int, int, int, int, int, int, int);
 int BupLoadFile(int, int, int, int);
-int nlResetBackColorZ(int, int, int);
+int resetBackColorZ(int, int, int);
 int SJ_SplitChunk(int, int, int, int);
 extern void _builtin_prefetch(void *);
 int _rsfts(int, int, int);
@@ -1165,7 +1165,7 @@ int sysInitGraphics(void)
     nlDispStripInit();
     emotKeysDefault();
     entryInit();
-    nlResetBackColorZ(0xE0E0E0E0, 0xE0E0E0E0, 0xE0E0E0E0);
+    resetBackColorZ(0xE0E0E0E0, 0xE0E0E0E0, 0xE0E0E0E0);
     nlWaitVSync();
     nlWaitVSync();
     return setBorderColor(0x0);

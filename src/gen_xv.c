@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int nlResetBackColorZ(int, int, int, float);
+int resetBackColorZ(int, int, int, float);
 int cpuAimAngleRate(int, int, int, int, int);
 int cpuAimPointSet(int, int, float, float);
 int cpuDblAimArc(int, int, int, int, int, int, int, int, int, int, int, int);
@@ -566,7 +566,7 @@ int FUN_8c0e9c58(float f4)
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 12) + 0x8)) = *(struct mv3 *)(0x8C127848); }
     t3 = 0x8C127848;
     if ((*(int *)0x8C20D15C) == 0) {
-        nlResetBackColorZ(0x0, 0x0, 0x0, f4);
+        resetBackColorZ(0x0, 0x0, 0x0, f4);
         *(unsigned int *)0x8C287D5C = 0x0;
         t3 = 0x8C287D5C;
     }
@@ -723,7 +723,7 @@ int FUN_8c0e18b4(float f4)
     t0 = 0x8C126C68;
     t2 = ((int)stk + 112);
     for (;;) { t3 = *(int *)t0; t0 = (t0 + 4); if ((unsigned int)((0x8C126C68 + 96)) < (unsigned int)t0) break; *(unsigned int *)t2 = t3; t2 = (t2 + 4); }
-    nlResetBackColorZ(0x0, 0x0, 0x0, f4);
+    resetBackColorZ(0x0, 0x0, 0x0, f4);
     screenQuadPut((((int)stk + 112) + 0x60), 200.0f);
     logoWaveDraw(80.0f);
     uiScanlinesPut(75.0f);

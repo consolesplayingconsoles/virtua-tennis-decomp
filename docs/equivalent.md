@@ -17672,8 +17672,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 91
 - the cases run 4 of 4 instructions
 
-### nlResetBackColorZ (`8C0EAF00`, 8 bytes, `src/gen_r.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_r/nlResetBackColorZ.json`
+### resetBackColorZ (`8C0EAF00`, 8 bytes, `src/gen_r.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_r/resetBackColorZ.json`
 - case 0
 - case 1
 - case 2
@@ -19481,8 +19481,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 79
 - the cases run 4 of 4 instructions
 
-### kmyCopySmallVQToTextureRom (`8C0F8590`, 142 bytes, `src/gen_in.c`)
-- equivalent on 18 development and 11 holdout cases, in `tests/gen_in/kmyCopySmallVQToTextureRom.json`
+### copySmallVQToTextureRom (`8C0F8590`, 142 bytes, `src/gen_in.c`)
+- equivalent on 18 development and 11 holdout cases, in `tests/gen_in/copySmallVQToTextureRom.json`
 - case 1
 - case 0
 - case 2
@@ -19984,8 +19984,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 80
 - the cases run 4 of 4 instructions
 
-### kmCollectTextureGarbage (`8C1E4A80`, 14 bytes, `src/gen_a.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/kmCollectTextureGarbage.json`
+### collectTextureGarbage (`8C1E4A80`, 14 bytes, `src/gen_a.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/collectTextureGarbage.json`
 - case 0
 - case 1
 - case 2
@@ -20490,8 +20490,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 36
 - the cases run 2 of 2 instructions
 
-### kmSetCullingThreshold (`8C1E6420`, 56 bytes, `src/gen_ap.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ap/kmSetCullingThreshold.json`
+### setCullingThreshold (`8C1E6420`, 56 bytes, `src/gen_ap.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ap/setCullingThreshold.json`
 - case 0
 - case 1
 - case 2
@@ -21170,8 +21170,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 73
 - the cases run 15 of 15 instructions
 
-### gdFsStringEquals (`8C1E6B1C`, 30 bytes, `src/gen_z.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_z/gdFsStringEquals.json`
+### stringEquals (`8C1E6B1C`, 30 bytes, `src/gen_z.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_z/stringEquals.json`
 - case 0
 - case 14
 - case 1
@@ -22278,8 +22278,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 94
 - the cases run 3 of 3 instructions
 
-### fmMngBufferEquals (`8C1FF1BC`, 24 bytes, `src/gen_z.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_z/fmMngBufferEquals.json`
+### bufferEquals (`8C1FF1BC`, 24 bytes, `src/gen_z.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_z/bufferEquals.json`
 - case 3
 - case 0
 - case 1
@@ -22318,8 +22318,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 57
 - the cases run 6 of 6 instructions
 
-### fmMngCopyBytes (`8C1FF1EE`, 16 bytes, `src/gen_aa.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_aa/fmMngCopyBytes.json`
+### copyBytes (`8C1FF1EE`, 16 bytes, `src/gen_aa.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_aa/copyBytes.json`
 - case 2
 - case 0
 - case 1
@@ -108065,8 +108065,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 98
 - the cases run 3 of 3 instructions
 
-### thunk_gdFsStringEquals (`8C1E6B10`, 4 bytes, `src/gen_a.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_gdFsStringEquals.json`
+### thunk_stringEquals (`8C1E6B10`, 4 bytes, `src/gen_a.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_stringEquals.json`
 - case 0
 - case 1
 - case 2
@@ -108091,8 +108091,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 2 of 2 instructions
 
-### thunk_fmMngBufferEquals (`8C1FF1AC`, 4 bytes, `src/gen_a.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_fmMngBufferEquals.json`
+### thunk_bufferEquals (`8C1FF1AC`, 4 bytes, `src/gen_a.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_bufferEquals.json`
 - case 0
 - case 1
 - case 2
@@ -108117,8 +108117,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 21
 - the cases run 2 of 2 instructions
 
-### thunk_fmMngCopyBytes (`8C1FF1E4`, 4 bytes, `src/gen_a.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_fmMngCopyBytes.json`
+### thunk_copyBytes (`8C1FF1E4`, 4 bytes, `src/gen_a.c`)
+- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/thunk_copyBytes.json`
 - case 0
 - case 1
 - case 2

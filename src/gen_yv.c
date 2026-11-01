@@ -10,7 +10,7 @@ int ADXERR_CallErrFunc(int, ...);
 int ADXSTM_OpenFname(int, int);
 int ADXT_Stop(int);
 int ADX_DecodeInfo(int, int, int, int, int, int, int, int, int, int);
-int nlResetBackColorZ(int, int, int);
+int resetBackColorZ(int, int, int);
 int FUN_8c1e7ef2(int, int, int, int);
 int SJMEM_Create(int, int);
 extern void _builtin_ftrv(float *, float *);
@@ -1822,7 +1822,7 @@ int nlChangeDisplayFilterMode(int a4)
         *(unsigned short *)0x8C458DDE = 0x1;
     }
     kmChangeDisplayFilterMode((*(short *)0x8C458DDC), (*(short *)0x8C458DDE));
-    nlResetBackColorZ((*(int *)0x8C1DC894), (*(int *)0x8C1DC898), (*(int *)0x8C1DC89C));
+    resetBackColorZ((*(int *)0x8C1DC894), (*(int *)0x8C1DC898), (*(int *)0x8C1DC89C));
     return nlSetWindowSize((*(float *)0x8C450B20), (*(float *)0x8C450B24), (*(float *)0x8C450B18), (*(float *)0x8C450B1C));
 }
 

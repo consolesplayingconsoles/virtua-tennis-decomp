@@ -1,0 +1,11 @@
+# address	previous_inferred_name	neutral_name
+8c0eaf00	nlResetBackColorZ	resetBackColorZ
+8c0f8590	kmyCopySmallVQToTextureRom	copySmallVQToTextureRom
+8c1e4a80	kmCollectTextureGarbage	collectTextureGarbage
+8c1e6420	kmSetCullingThreshold	setCullingThreshold
+8c1e6b1c	gdFsStringEquals	stringEquals
+8c1ff1bc	fmMngBufferEquals	bufferEquals
+8c1ff1ee	fmMngCopyBytes	copyBytes
+8c1e6b10	thunk_gdFsStringEquals	thunk_stringEquals
+8c1ff1ac	thunk_fmMngBufferEquals	thunk_bufferEquals
+8c1ff1e4	thunk_fmMngCopyBytes	thunk_copyBytes

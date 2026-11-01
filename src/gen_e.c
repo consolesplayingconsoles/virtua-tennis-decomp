@@ -394,7 +394,7 @@ int thunk_selCopyLocalConstants(void);
 int thunk_nlObjPutMvInit(int);
 int thunk_nlSprPut(int);
 int thunk_buIsExistFile(void);
-int thunk_fmMngCopyBytes(void);
+int thunk_copyBytes(void);
 int vmsfs_c_getstate(int);
 
 void mainCheckReset(void)
@@ -10434,7 +10434,7 @@ int fmMngReadData(int managerAddress)
         recordIndex = *(int *)((managerAddress + 0x28));
         cacheBufferAddress = *(int *)((managerAddress + 0xC));
         dataBufferAddress = *(int *)((managerAddress + 0x30));
-        thunk_fmMngCopyBytes();
+        thunk_copyBytes();
         cachedRecordIndex = *(short *)(((((((recordIndex + 0x1) << 2) << 2) << 2) + cacheBufferAddress) + 0x0));
         recordReadResult = 0x0;
         if ((unsigned short)cachedRecordIndex != 0xFFFF) {

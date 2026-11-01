@@ -8,7 +8,7 @@ int ADXT_GetStat(int);
 int ADXT_StartAfs(int, int, int);
 int ADXT_Stop(int);
 int BupRequestSave(int, int, int, int);
-int nlResetBackColorZ(int, int, int);
+int resetBackColorZ(int, int, int);
 int cursorBoxPut(int, Stk3, float, float, float);
 int logoWaveDraw(float);
 float mathLerp(float, float, float);
@@ -255,7 +255,7 @@ int FUN_8c0da9d0(int a4)
         *(unsigned int *)0x8C40C5BC = 0x0;
         *(unsigned int *)0x8C29BBBC = 0x1;
     }
-    nlResetBackColorZ(0xFF000000, 0xFF000000, 0xFF000000);
+    resetBackColorZ(0xFF000000, 0xFF000000, 0xFF000000);
     nlLocate(0x32, 0x34);
     if ((*(int *)0x8C40C470) == 9) {
         t26 = (*(int *)0x8C40C478);

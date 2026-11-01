@@ -5,7 +5,7 @@ int ADXSJD_GetDecNumSmpl(int);
 int ADXSJD_GetStat(int);
 int ADXSTM_GetStat(int);
 int ADXT_Stop(int);
-int kmSetCullingThreshold(float);
+int setCullingThreshold(float);
 extern int _builtin_get_imask(void);
 extern void _builtin_set_imask(int);
 int adxt_RcvrReplay(int);
@@ -1387,7 +1387,7 @@ int FUN_8c0ec6a0(int a4, int a5, int a6, int a7, int a8, int a9)
         } else {
             nlSetWindowSize(0.0f, 0.0f, (float)t3, (float)(short)t2);
         }
-        kmSetCullingThreshold(0.0199999996f);
+        setCullingThreshold(0.0199999996f);
         *(unsigned int *)0xFF000038 = 0xC;
         *(unsigned int *)0xFF00003C = 0xC;
         kmSetWaitVsyncCount((*(int *)0x8C424474));

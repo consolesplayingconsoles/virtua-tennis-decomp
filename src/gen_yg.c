@@ -1,7 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_yg): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int nlResetBackColorZ(int, int, int);
+int resetBackColorZ(int, int, int);
 int endSprCharaTexLoad(int);
 int endSprStageTexSet(void);
 int endSprTexLoad(void);
@@ -73,7 +73,7 @@ int FUN_8c0d63ec(int a4, int a5, int a6, int a7, float f4)
     *(unsigned int *)0x8C20D150 = ((*(int *)0x8C20D150) + 0x1);
     strmCrowdLoop(0x0);
     fadeStart(0x78);
-    v0_0 = nlResetBackColorZ(0x0, 0x0, 0x0);
+    v0_0 = resetBackColorZ(0x0, 0x0, 0x0);
     *(unsigned int *)0x8C20D15C = 0x0;
     v0_1 = (v0_0);
     goto L_8C0D655A;

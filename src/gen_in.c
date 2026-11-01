@@ -35,7 +35,7 @@ int kmSetUserClipping(int a4, int a5, int a6, int a7);
 int syG2Write(int a4, int a5, int a6, int a7, int a8, int a9);
 int _pd_peripheral_set_data(int a4, int a5, int a6);
 int kmtex_ConvertSmallVQToMem(int a4, int a5, int a6, int a7);
-int kmyCopySmallVQToTextureRom(int a4, int a5, int a6, int a7);
+int copySmallVQToTextureRom(int a4, int a5, int a6, int a7);
 int cpuDblIsMyBall(int a4);
 
 int selCursorInputB(int a4, int a5, int a6, int a7)
@@ -1003,7 +1003,7 @@ int kmtex_ConvertSmallVQToMem(int a4, int a5, int a6, int a7)
     return kmyCopyToTexture((a4 + 0x800), (a5 + t7), t6, 0x0);
 }
 
-int kmyCopySmallVQToTextureRom(int textureAddress, int sourceAddress, int textureSize, int textureFlags)
+int copySmallVQToTextureRom(int textureAddress, int sourceAddress, int textureSize, int textureFlags)
 {
     int textureLevel;
     int indexBytes;

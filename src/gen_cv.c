@@ -3,7 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[29]; } Stk29;
-int nlResetBackColorZ(int, int, int);
+int resetBackColorZ(int, int, int);
 int cacheOcbiRange(int, int);
 int cpuDblAim(int, int, int, int);
 int cpuShotAimCheck(int, int, int, int);

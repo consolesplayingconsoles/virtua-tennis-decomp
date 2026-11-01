@@ -63,7 +63,7 @@ int resWtcShopObjTexFree(void);
 void camGetPos(Stk1 s);
 int sprPutAtAlpha(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
 int resGetTexLoad(int a4);
-int kmSetCullingThreshold(float f4);
+int setCullingThreshold(float f4);
 int nlChgObjectPolyAttrOff(int a4);
 int kmSetStrideWidth(int a4);
 int ADXB_EvokeExpandSte(int a4, int a5);
@@ -691,7 +691,7 @@ int resGetTexLoad(int a4)
     return t9;
 }
 
-int kmSetCullingThreshold(float threshold)
+int setCullingThreshold(float threshold)
 {
     *(unsigned int *)0x8C471E18 = ((*(int *)0x8C471E18) | 0x2);
     *(float *)0x8C471E38 = threshold;

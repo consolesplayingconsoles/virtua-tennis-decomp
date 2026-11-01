@@ -13,7 +13,7 @@ and do not claim to recover the SDK author's spelling.
 |---|---|---|
 | `8c1e3080` | `kmSetHSyncCallback` | Registers callback slot 2. `syChainAddHandler` installs `syChainMasterHandlerPVR_H` through this entry for event `0x920`. |
 | `8c1e3180` | `kmSetVSyncCallback` | Registers callback slot 1. `syChainAddHandler` installs `syChainMasterHandlerPVR_V` through this entry for event `0x900`. |
-| `8c1e6420` | `kmSetCullingThreshold` | Stores the float at `8c471e38` and marks update bit 1. `kmiSetupRender` consumes that bit and passes the float to `kmSetCullingRegister`, which writes its absolute-value bits to hardware register offset 120. |
+| `8c1e6420` | `setCullingThreshold` | Stores the float at `8c471e38` and marks update bit 1. `kmiSetupRender` consumes that bit and passes the float to `kmSetCullingRegister`, which writes its absolute-value bits to hardware register offset 120. |
 
 ## Global evidence
 

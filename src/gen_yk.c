@@ -3,7 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[8]; } Stk8;
-int nlResetBackColorZ(int, int, int, Stk8, float);
+int resetBackColorZ(int, int, int, Stk8, float);
 int commonLoadStep(void);
 int dbgMenuInit(void);
 int entryFinalCheck(void);
@@ -70,7 +70,7 @@ int FUN_8c0d372a(float f4)
 
     { struct mv8 { int w[8]; }; *(struct mv8 *)((((int)stk + 4) + 0x20)) = *(struct mv8 *)(0x8C125CFC); }
     { struct mv8 { int w[8]; }; *(struct mv8 *)(((int)stk + 4)) = *(struct mv8 *)(0x8C125D1C); }
-    nlResetBackColorZ(0x0, 0x0, 0x0, *(Stk8 *)(((int)stk + 4)), f4);
+    resetBackColorZ(0x0, 0x0, 0x0, *(Stk8 *)(((int)stk + 4)), f4);
     nlInitEvent();
     *(unsigned int *)0x8C287B44 = 0x2;
     *(unsigned int *)0x8C29466C = 0x0;

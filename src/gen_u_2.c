@@ -11,7 +11,7 @@ int ADXSTM_OpenRange(int, int, int);
 int ADXSTM_Start(int);
 int Act_Init(void);
 int Drv_StartAction(int, int, int);
-int nlResetBackColorZ(int, int, int);
+int resetBackColorZ(int, int, int);
 int FcvPlayBuffer(int, int);
 int FcvStoreBuffer(int, int, float);
 int GetMenuMode(int);

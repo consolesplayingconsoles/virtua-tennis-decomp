@@ -4,7 +4,7 @@
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
 int BupRequestSave(int, int, int, int);
-extern int nlResetBackColorZ();
+extern int resetBackColorZ();
 int ballWallStop(int);
 int colliObjEntry(int);
 int cpuAimAngleRate(int, int, int, int, int);
@@ -360,7 +360,7 @@ void FUN_8c0e149a(float f4)
     register int t112;
     register int t113;
 
-    t0 = ((int (*)(int, int, int, float))(nlResetBackColorZ))(0xFFFFFF, 0xFFFFFF, 0xFFFFFF, f4);
+    t0 = ((int (*)(int, int, int, float))(resetBackColorZ))(0xFFFFFF, 0xFFFFFF, 0xFFFFFF, f4);
     *(unsigned int *)0x8C1D793C = 0x0;
     if (((*(int *)0x8C1D3514) != 1) && (t2 = *(int *)0x8C1D351C, t2 != 1)) {
         if (((*(int *)0x8C1D3518) != 1) && (t14 = *(int *)0x8C1D3520, t14 != 1)) {
@@ -602,7 +602,7 @@ void FUN_8c0e149a(float f4)
         if ((*(int *)0x8C34A1F0) == 1) {
             break;
         }
-        t198 = ((int (*)(int, int, int))(nlResetBackColorZ))(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
+        t198 = ((int (*)(int, int, int))(resetBackColorZ))(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
         fileLoadPoll();
         nlWaitVSync();
     }

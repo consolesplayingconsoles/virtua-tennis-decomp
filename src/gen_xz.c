@@ -1,7 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_xz): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int nlResetBackColorZ(int, int, int);
+int resetBackColorZ(int, int, int);
 int advPeriOff(void);
 int commonViewInit(void);
 int fadeScreenStart(int, int, int, int, int, int);
@@ -78,7 +78,7 @@ int FUN_8c0e426a(int a4)
             t10 = 0xF;
         }
         if ((*(int *)0x8C20D15C) == 14) {
-            nlResetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
+            resetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
         } else {
             t15 = t10;
         }
@@ -118,7 +118,7 @@ int FUN_8c0e426a(int a4)
         t59 = t56;
     }
     if ((float)(*(int *)0x8C20D15C) == 329.0f) {
-        nlResetBackColorZ(0xFF000000, 0xFF000000, 0xFF000000);
+        resetBackColorZ(0xFF000000, 0xFF000000, 0xFF000000);
     } else {
         t69 = t59;
     }

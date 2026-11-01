@@ -7,7 +7,7 @@ int BupDrawWarning(int, int, int);
 int BupFailDialog(int);
 int BupLoadFile(int, int, int, int);
 int BupRequestSave(int, int, int, int);
-int nlResetBackColorZ(int, int, int);
+int resetBackColorZ(int, int, int);
 int bodyGroundFriction(int, int, int, int, int, float);
 int bodyLinePerp(Stk4, Stk3, Stk3);
 int buGetDiskInfo(int, int);
@@ -617,7 +617,7 @@ int pauseExec(int a4, int a5)
     *(unsigned int *)((v0_5 + 0x0)) = v0_2;
     *(unsigned int *)((v0_4 + 0x0)) = v0_2;
     *(unsigned int *)((v0_1 + 0x70)) = ((*(int *)((v0_1 + 0x70))) & 0xFFFFFFBF);
-    nlResetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
+    resetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
     pauseQuit();
     L_8C0CEAC2:;
     if (((int)(*(int *)((v0_5 + 0x0))) < (int)0xFFFFFFFF)) goto L_8C0CEB08;
