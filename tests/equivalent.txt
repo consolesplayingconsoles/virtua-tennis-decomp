@@ -3409,7 +3409,6 @@ sprCommonRestore
 sprInitPos
 sprInitRect
 sprInitRectF
-sprListPut
 sprListPutEx
 sprListPutGrad
 sprListPutScaleY

@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 int ADXT_Pause(int, int);
-int ADXT_Stop(void);
+int ADXT_Stop(int);
 int motionBackup(void);
 int motionSetSpeed(int, float);
 int sprTexFree(int);
@@ -320,11 +320,11 @@ void strmControl(int a4, int a5)
                 if (a5 != 4) {
                     if (a4 == 2) {
                         if (a5 == 1) {
-                            ADXT_Stop();
+                            ADXT_Stop(t0);
                         }
                         if (a5 == 3) {
                             t3 = *(int *)0x8C38BA98;
-                            ADXT_Stop();
+                            ADXT_Stop(t3);
                         }
                     }
                     if (a4 == 3) {
@@ -349,9 +349,9 @@ void strmControl(int a4, int a5)
                     }
                 } else {
                     if (a4 == 2) {
-                        ADXT_Stop();
+                        ADXT_Stop(t0);
                         t22 = *(int *)0x8C38BA98;
-                        ADXT_Stop();
+                        ADXT_Stop(t22);
                     }
                     if (a4 == 3) {
                         t25 = *(int *)0x8C38BA94;

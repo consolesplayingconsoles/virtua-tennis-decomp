@@ -100,9 +100,16 @@ int FUN_8c03aa92(int a4, int a5, int a6)
     register float u160;
     register int t171;
     register int t177;
+    float R1016;
+    int R1020;
+    int R1024;
+
+    R1016 = *(float *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
 
     t0 = *(int *)((a4 + 0x44));
-    *(unsigned int *)(((int)stk + 20)) = (t0 - 2);
+    R1020 = (t0 - 2);
     if ((*(int *)0x8C287C60) == 0) {
         if (((*(int *)(((a4 + 0x14) + 0x38))) & 0x1) == 0) {
             if (((*(int *)(((a4 + 0x14) + 0xB0))) & 0x1) != 0) {
@@ -144,7 +151,7 @@ int FUN_8c03aa92(int a4, int a5, int a6)
     *(float *)(((int)stk + 12)) = ((-u62) + 118.849998f);
     t64 = nlCos((unsigned short)(*(short *)((a4 + 0x110))));
     *(unsigned short *)(((0x112 + a4) + 0x0)) = (nlArcTan2(((t64 * 41.1500015f) - (*(float *)((a4 + 0x104)))), ((-u62) + 118.849998f)));
-    *(unsigned short *)((((*(int *)(((int)stk + 20))) << 1) + 0x8C2FC094)) = (*(short *)(((0x112 + a4) + 0x0)));
+    *(unsigned short *)((((R1020) << 1) + 0x8C2FC094)) = (*(short *)(((0x112 + a4) + 0x0)));
     *(float *)((a4 + 0x108)) = 0.200000003f;
     nlPushMatrix(0x0);
     nlTranslate((*(float *)((a4 + 0x104))), (*(float *)((a4 + 0x108))), (*(float *)((a4 + 0x10C))));
@@ -164,14 +171,14 @@ int FUN_8c03aa92(int a4, int a5, int a6)
     nlObjPut(0xCB5E690);
     nlPushMatrix(0x0);
     nlTranslate(-1.29999995f, 0.0f, 0.0f);
-    *(unsigned int *)(((int)stk + 24)) = (((t0 - 2) << 2) + 0x8C2FBF54);
+    R1024 = (((t0 - 2) << 2) + 0x8C2FBF54);
     t97 = (((t0 - 2) << 2) + 0x8C2FBF54);
     t98 = 0x0;
     for (;;) {
         u107 = 0.0f;
         u108 = 0.25f;
         u109 = 1.0f;
-        if ((*(int *)(((*(int *)(((int)stk + 24))) + 0x0))) == 1) {
+        if ((*(int *)(((R1024) + 0x0))) == 1) {
             t105 = t97;
         } else {
             t97 = 0x8C20D19C;
@@ -204,7 +211,7 @@ int FUN_8c03aa92(int a4, int a5, int a6)
         t122 = nlSin(((*(int *)0x8C20D19C) * 0x888));
         u123 = 0.5f;
         u123 = u123 + 0.5f * t122;
-        *(float *)(((int)stk + 16)) = u123;
+        R1016 = u123;
         nlObjPutSetFadeColor(u123, u123, u123);
         nlObjPut(0xCB652A8);
         nlRotateAY(((*(int *)0x8C20D19C) * 0x888));
@@ -254,306 +261,12 @@ int FUN_8c03aa92(int a4, int a5, int a6)
     nlObjPut(0xCB62BC8);
     nlObjPutSetFadeColor(1.0f, 1.0f, 1.0f);
     nlTranslate(0.0f, (*(float *)0x8C03B0E4), (*(float *)0x8C03B0E0));
-    t191 = *(int *)(((int)stk + 20));
+    t191 = R1020;
     *(int *)((int)stk + 12) = (0x8C2FC058 + (((t191 << 1) + t191) << 2));
     mtxGetWorldPos(0x0, 0x0, 0x0, 0x0, (0x8C2FC058 + (((t191 << 1) + t191) << 2)));
     return (nlPopMatrix(0x1));
 }
 
-int FUN_8c0d49f4(void)
-{
-    int stk[11];
-    register int t1;
-    register int t60;
-    register int t173;
-    register int t167;
-    register int t161;
-    register int t95;
-    register int t109;
-    register int t122;
-    register int t138;
-    register int t141;
-    register float u182;
-    register float u207;
-    register float u208;
-    register int t215;
-    register int t259;
-    register int t267;
-    register int t268;
-    register int t266;
-    register int t270;
-    register int t271;
-    register int t272;
-    register int t273;
-    register int t274;
-    register int t309;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t5;
-    register int t155;
-    register int t107;
-    register int t108;
-    register int t129;
-    register int t120;
-    register int t121;
-    register int t149;
-    register int t139;
-    register int t140;
-    register int t195;
-    register float u200;
-    register int t187;
-    register float u192;
-    register int t204;
-    register int t205;
-    register int t210;
-    register int t224;
-    register float u227;
-    register int t244;
-    register int t239;
-    register int t257;
-    register int t260;
-    register int t281;
-    register int t282;
-    register int t283;
-    register int t284;
-    register int t285;
-    register int t292;
-    register int t293;
-    register int t294;
-    register int t295;
-    register float u298;
-    register int t307;
-    register int t310;
-
-    *(unsigned int *)0x8C407FC0 = 0x3E7;
-    *(unsigned int *)0x8C407FC4 = 0x3E7;
-    endingCameraSet(0x3E7);
-    t1 = *(int *)0x8C402CAC;
-    if (((t1 != 3) && (t1 != 7)) || ((t2 = *(int *)0x8C402CAC, t3 = *(int *)0x8C407FC0, t2 == t3) && (t4 = *(int *)0x8C402CA0, t5 = *(int *)0x8C407FC4, t4 == t5))) {
-    } else {
-        camExec(t1, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), *(int *)((int)stk + 8 + 24), *(int *)((int)stk + 8 + 28));
-    }
-    camSetupView();
-    *(unsigned int *)0x8C38B824 = ((*(int *)((((*(int *)0x8C402CAC) << 2) + 0x8C40C17C))) << 8);
-    *(unsigned int *)0x8C38B828 = ((*(int *)((((*(int *)0x8C402CAC) << 2) + 0x8C40C19C))) << 8);
-    lightUpdate(0x0);
-    if ((*(int *)0x8C402CAC) == 0) {
-        if ((*(int *)0x8C402CA0) != (((*(int *)((0x8C1D34F4 + ((*(int *)0x8C402CAC) << 2)))) * 0x3C) - 2)) {
-        } else {
-            *(unsigned int *)0x8C407FB4 = 0x1;
-            *(float *)0x8C407FB8 = 1.0f;
-            *(float *)0x8C407FBC = 0.0399999991f;
-        }
-    } else {
-        if ((int)(*(int *)0x8C402CA0) >= (int)(((*(int *)((0x8C1D34F4 + ((*(int *)0x8C402CAC) << 2)))) * 0x3C) - 1)) {
-            *(unsigned int *)0x8C407FB4 = 0x1;
-            *(float *)0x8C407FB8 = 1.0f;
-            *(float *)0x8C407FBC = 0.0399999991f;
-        }
-    }
-    motionBackup((*(int *)0x8C402CB4));
-    if ((*(int *)0x8C287ADC) == 4) {
-        motionBackup((*(int *)0x8C402CB8));
-    }
-    if ((*(int *)0x8C402CA0) == 0) {
-        endingPlayerExec();
-    }
-    if ((*(int *)0x8C407FB4) != 0) {
-        nlRenderTextureBegin(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16));
-    }
-    t60 = *(int *)0x8C402CAC;
-    t173 = t60;
-    if (t60 != 2) {
-        t167 = t60;
-        if (t60 != 3) {
-            t161 = t60;
-            if (t60 != 7) {
-                t95 = *(int *)0x8C402CB4;
-                if ((*(int *)0x8C287ADC) == 2) {
-                    if (((*(int *)0x8C402CAC) == (*(int *)0x8C407FC0)) && (t107 = *(int *)0x8C407FC4, t108 = *(int *)0x8C402CA0, t108 == t107)) {
-                        t109 = *(int *)((t95 + 0x48));
-                        *(int *)((int)stk + 4) = (((((t109 << 1) + t109) << 2) << 2) + (t95 + 0x60));
-                        *(Stk3 *)((((((t109 << 1) + t109) << 2) << 2) + (t95 + 0x60))) = vecMake(0.0f, 0.0f, 0.0f);
-                    } else {
-                        motionAdvance(t95);
-                    }
-                    endPlayerPut((*(int *)0x8C402CB4), 0x0);
-                } else {
-                    if ((*(int *)0x8C402CAC) != 1) {
-                        if (((*(int *)0x8C402CAC) == (*(int *)0x8C407FC0)) && (t120 = *(int *)0x8C407FC4, t121 = *(int *)0x8C402CA0, t121 == t120)) {
-                            t122 = *(int *)((t95 + 0x48));
-                            *(int *)((int)stk + 4) = (((((t122 << 1) + t122) << 2) << 2) + (t95 + 0x60));
-                            *(Stk3 *)((((((t122 << 1) + t122) << 2) << 2) + (t95 + 0x60))) = vecMake(0.0f, 0.0f, 0.0f);
-                        } else {
-                            motionAdvance(t95);
-                        }
-                        endPlayerPut((*(int *)0x8C402CB4), 0x0);
-                    } else {
-                        t129 = t60;
-                    }
-                    if ((*(int *)0x8C402CAC) != 0) {
-                        t138 = *(int *)0x8C402CB8;
-                        if (((*(int *)0x8C402CAC) == (*(int *)0x8C407FC0)) && (t139 = *(int *)0x8C402CA0, t140 = *(int *)0x8C407FC4, t139 == t140)) {
-                            t141 = *(int *)((t138 + 0x48));
-                            *(int *)((int)stk + 4) = (((((t141 << 1) + t141) << 2) << 2) + (t138 + 0x60));
-                            *(Stk3 *)((((((t141 << 1) + t141) << 2) << 2) + (t138 + 0x60))) = vecMake(0.0f, 0.0f, 0.0f);
-                        } else {
-                            motionAdvance(t138);
-                        }
-                        endPlayerPut((*(int *)0x8C402CB8), 0x1);
-                    } else {
-                        t149 = t129;
-                    }
-                    t155 = t149;
-                }
-                t161 = t155;
-            }
-            t167 = t161;
-        }
-        t173 = t167;
-    }
-    matchSceneExec(t173);
-    endingDraw();
-    nlExecuteEvent();
-    if ((*(int *)0x8C407FB4) != 0) {
-        nlRenderTextureEnd(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16));
-        endingScreenObjPut();
-        *(unsigned int *)0x8C407FB4 = 0x0;
-    } else {
-        u182 = *(float *)0x8C407FB8;
-        if (u182 > 0.0f) {
-            endingScreenObjPutTrnsl(u182);
-            *(float *)0x8C407FB8 = ((*(float *)0x8C407FB8) - (*(float *)0x8C407FBC));
-        } else {
-            t187 = 0x8C407FB4;
-            u192 = u182;
-        }
-        t195 = t187;
-        u200 = u192;
-    }
-    if (((*(int *)0x8C402CAC) == (*(int *)0x8C407FC0)) && (t204 = *(int *)0x8C402CA0, t205 = *(int *)0x8C407FC4, t204 == t205)) {
-        *(unsigned int *)0x8C402CA0 = (*(int *)0x8C407FC4);
-        *(unsigned int *)0x8C1D2BE4 = 0x1;
-        t210 = t204;
-    } else {
-        u207 = *(float *)0x8C402CA4;
-        u208 = *(float *)0x8C23D204;
-        *(float *)0x8C402CA4 = (u207 + u208);
-        *(unsigned int *)0x8C402CA0 = (int)(u207 + u208);
-        *(unsigned int *)0x8C1D2BE4 = 0x0;
-        t210 = t195;
-    }
-    t215 = *(int *)0x8C402CAC;
-    if (t215 == 7) {
-        if ((*(int *)0x8C402CA0) == (((*(int *)((0x8C1D34F4 + ((*(int *)0x8C402CAC) << 2)))) - 1) * 0x3C)) {
-            fadeScreenStart(0x3, 0x0, 0x3C, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4));
-        } else {
-            t224 = 0x8C1D2BE4;
-            u227 = u200;
-        }
-        if ((int)(*(int *)0x8C402CA0) >= (int)((*(int *)((0x8C1D34F4 + ((*(int *)0x8C402CAC) << 2)))) * 0x3C)) {
-            resetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, u227);
-            cacheOcbiRange(0xCA00000, 0x200000);
-            if ((*(int *)0x8C402CB0) != 2) {
-                *(unsigned int *)0x8C20D150 = 0x3;
-                t244 = 0x3;
-            } else {
-                if (((*(int *)0x8C40C30C) & 0x10000) != 0) {
-                    *(unsigned int *)0x8C20D150 = 0x3;
-                    t239 = 0x3;
-                } else {
-                    *(unsigned int *)0x8C20D150 = 0x8;
-                    *(unsigned int *)0x8C40C30C = ((*(int *)0x8C40C30C) | 0x10000);
-                    t239 = (unlockApplyW1());
-                }
-                t244 = t239;
-            }
-            *(unsigned int *)0x8C20D15C = 0x0;
-            *(unsigned int *)0x8C301970 = 0x0;
-            return t244;
-        }
-        if ((int)(*(int *)0x8C402CA8) > 0) {
-            *(unsigned int *)0x8C402CA8 = ((*(int *)0x8C402CA8) - 1);
-        }
-        if ((*(int *)0x8C402CA8) == 0) {
-            resetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, u227);
-            *(unsigned int *)0x8C407FCC = 0x1;
-            cacheOcbiRange(0xCA00000, 0x200000);
-            if (((*(int *)0x8C402CB0) == 2) && (t257 = *(int *)0x8C40C30C, (t257 & 0x10000) == 0)) {
-                *(unsigned int *)0x8C40C30C = ((*(int *)0x8C40C30C) | 0x10000);
-                t259 = unlockApplyW1();
-                *(unsigned int *)0x8C20D150 = 0x8;
-                t260 = t259;
-            } else {
-                *(unsigned int *)0x8C20D150 = 0x3;
-                t260 = 0x3;
-            }
-            *(unsigned int *)0x8C20D15C = 0x0;
-            *(unsigned int *)0x8C301970 = 0x0;
-            return t260;
-        }
-        return ((int (*)(int))(nlExecuteEvent2))(t224);
-    }
-    t267 = (t215 << 2);
-    t268 = t210;
-    if ((int)(*(int *)0x8C402CA0) >= (int)((*(int *)((0x8C1D34F4 + (t215 << 2)))) * 0x3C)) {
-        t266 = *(int *)0x8C402CAC;
-        *(unsigned int *)0x8C402CAC = (t266 + 0x1);
-        *(unsigned int *)0x8C402CA0 = 0x0;
-        *(float *)0x8C402CA4 = 0.0f;
-        t267 = 0x4;
-        t268 = (t266 + 0x1);
-    }
-    t270 = t267;
-    t271 = t268;
-    t272 = 0x8C1D3514;
-    t273 = 0x8C287D84;
-    t274 = 0x0;
-    for (;;) {
-        if ((unsigned int)t272 >= (unsigned int)0x8C1D3524) {
-            break;
-        }
-        t270 = (*(int *)((t272 + 0x0)));
-        if ((t270 == 1) && (t281 = (t270 == 1), t270 = 0xB64, t271 = 0x8C29B898, t282 = *(int *)((t273 + t270)), t270 = t282, t270 = (t270 << 2), t283 = *(int *)((t271 + t270)), t270 = t283, t284 = *(int *)((t270 + 0x10)), t270 = t284, (t270 & 8) != 0)) {
-            t274 = 0x1;
-        }
-        t272 = (t272 + 0x4);
-        t273 = (t273 + 0xD78);
-    }
-    if ((t274 != 0) && (t285 = *(int *)0x8C402CA8, t285 == -1)) {
-        *(unsigned int *)0x8C402CA8 = 0x3C;
-        fadeScreenStart(0x3, 0x0, 0x3C, t274, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4));
-        strmBgmFadeOut(0x2, 0x0);
-    } else {
-        t292 = t272;
-        t293 = t273;
-        t294 = 0xD78;
-        t295 = t274;
-        u298 = u200;
-    }
-    if ((int)(*(int *)0x8C402CA8) > 0) {
-        *(unsigned int *)0x8C402CA8 = ((*(int *)0x8C402CA8) - 1);
-    }
-    if ((*(int *)0x8C402CA8) == 0) {
-        resetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, u298);
-        *(unsigned int *)0x8C407FCC = 0x1;
-        cacheOcbiRange(0xCA00000, 0x200000);
-        if (((*(int *)0x8C402CB0) == 2) && (t307 = *(int *)0x8C40C30C, (t307 & 0x10000) == 0)) {
-            *(unsigned int *)0x8C40C30C = ((*(int *)0x8C40C30C) | 0x10000);
-            t309 = unlockApplyW1();
-            *(unsigned int *)0x8C20D150 = 0x8;
-            t310 = t309;
-        } else {
-            *(unsigned int *)0x8C20D150 = 0x3;
-            t310 = 0x3;
-        }
-        *(unsigned int *)0x8C20D15C = 0x0;
-        *(unsigned int *)0x8C301970 = 0x0;
-        return t310;
-    }
-    return ((int (*)(int, int, int, int))(nlExecuteEvent2))(t292, t293, t294, t295);
-}
 
 float FUN_8c0457dc(int a4)
 {

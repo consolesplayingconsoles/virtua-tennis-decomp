@@ -147,13 +147,6 @@ int vecDot(Stk4 s)
     return (nlInnerProduct((((int)stk + 4) + 0x4), (((int)stk + 4) + 0x10)));
 }
 
-int cpuInitPoint(void)
-{
-    if ((*(int *)0x8C287ADC) == 2) {
-        return ((int (*)(void))(0x8C041FD0))();
-    }
-    return ((int (*)(void))(0x8C056AAA))();
-}
 
 
 int kmyInitializeCallback(void)

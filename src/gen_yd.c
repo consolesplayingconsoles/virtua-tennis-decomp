@@ -747,6 +747,9 @@ int FUN_8c04e424(int a4, int a5, float f4, float f5)
     register int t35;
     register int t36;
     register float u38;
+    int R1004;
+
+    R1004 = *(int *)((int)stk + 4);
 
     t0 = *(int *)((a4 + 0xB5C));
     u1 = *(float *)0x8C291F7C;
@@ -776,7 +779,7 @@ int FUN_8c04e424(int a4, int a5, float f4, float f5)
             if (18.0f > t9) {
                 u10 = 18.0f;
             }
-            *(unsigned int *)(((int)stk + 4)) = 0x0;
+            R1004 = 0x0;
             t12 = nlRandom();
             u13 = (u10 / (1.0f + 1.0f));
             u13 = u13 + (u10 / (1.0f + 1.0f)) * t12;
@@ -808,7 +811,7 @@ int FUN_8c04e424(int a4, int a5, float f4, float f5)
                         t23 = 0x8C0F7BAC;
                         t31 = (int)((int)(nlRand()) % (int)t16);
                         if (t31 == 0) {
-                            *(unsigned int *)(((int)stk + 4)) = t27;
+                            R1004 = t27;
                         }
                         t34 = 0x8C0F7BAC;
                     } else {
@@ -827,7 +830,7 @@ int FUN_8c04e424(int a4, int a5, float f4, float f5)
                     }
                 }
             }
-            t48 = *(int *)(((int)stk + 4));
+            t48 = R1004;
             *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((((((t48 << 2) << 2) << 1) + 0x8C2FCC6C) + 0x0)));
             *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = (*(float *)((((((t48 << 2) << 2) << 1) + 0x8C2FCC6C) + 0x8)));
             *(unsigned char *)(((0x13C + ((t0 * 0x160) + 0x8C2FC69C)) + 0x0)) = (*(signed char *)((((((t48 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC)));
@@ -949,85 +952,6 @@ float FUN_8c0553b0(int a4, int a5, float f4, float f5, float f6)
     return u1;
 }
 
-int FUN_8c0b5f78(int a4)
-{
-    register int t0;
-    register int t1;
-
-    t0 = dbgMenuGetValue((*(int *)((a4 + 0x14))), 0x0);
-    if (t0 == 1) {
-        *(unsigned int *)0x8C1891EC = (*(int *)0x8C1891E8);
-        *(unsigned int *)0x8C1891F4 = (*(int *)0x8C1891F0);
-        *(unsigned int *)0x8C1891F0 = 0x0;
-        *(unsigned short *)0x8C287A38 = 0xDC00;
-        *(unsigned short *)0x8C287A3C = 0xDC00;
-        *(unsigned short *)0x8C287A3A = 0xDC00;
-        *(unsigned short *)0x8C287A3E = 0xDC00;
-        *(unsigned int *)0x8C287A40 = 0x1;
-        thunk_nlObjPutMvInit(0x80);
-        t0 = dbgMenuGetSelect();
-        dbgMenuSetValue((*(int *)((a4 + 0x14))), t0, 0x0);
-        restart_t404();
-    }
-    t0 = dbgMenuGetValue((*(int *)((a4 + 0x14))), 0x1);
-    if (t0 == 1) {
-        *(unsigned int *)0x8C1891EC = (*(int *)0x8C1891E8);
-        *(unsigned int *)0x8C1891F4 = (*(int *)0x8C1891F0);
-        *(unsigned int *)0x8C1891F0 = 0x1;
-        *(unsigned short *)0x8C287A38 = 0x9C00;
-        *(unsigned short *)0x8C287A3C = 0x9C00;
-        *(unsigned short *)0x8C287A3A = 0x9600;
-        *(unsigned short *)0x8C287A3E = 0x9600;
-        *(unsigned int *)0x8C287A40 = 0x1;
-        thunk_nlObjPutMvInit(0xE6);
-        t0 = dbgMenuGetSelect();
-        dbgMenuSetValue((*(int *)((a4 + 0x14))), t0, 0x0);
-        restart_t404();
-    }
-    t0 = dbgMenuGetValue((*(int *)((a4 + 0x14))), 0x2);
-    if (t0 == 1) {
-        *(unsigned int *)0x8C1891EC = (*(int *)0x8C1891E8);
-        *(unsigned int *)0x8C1891F4 = (*(int *)0x8C1891F0);
-        *(unsigned int *)0x8C1891F0 = 0x2;
-        *(unsigned short *)0x8C287A38 = 0x9C00;
-        *(unsigned short *)0x8C287A3C = 0x9C00;
-        *(unsigned short *)0x8C287A3A = 0x9600;
-        *(unsigned short *)0x8C287A3E = 0x9600;
-        *(unsigned int *)0x8C287A40 = 0x1;
-        t0 = dbgMenuGetSelect();
-        dbgMenuSetValue((*(int *)((a4 + 0x14))), t0, 0x0);
-        restart_t404();
-    }
-    t0 = dbgMenuGetValue((*(int *)((a4 + 0x14))), 0x3);
-    if (t0 == 1) {
-        *(unsigned int *)0x8C1891EC = (*(int *)0x8C1891E8);
-        *(unsigned int *)0x8C1891F4 = (*(int *)0x8C1891F0);
-        *(unsigned int *)0x8C1891F0 = 0x3;
-        *(unsigned short *)0x8C287A38 = 0x9C00;
-        *(unsigned short *)0x8C287A3C = 0x9C00;
-        *(unsigned short *)0x8C287A3A = 0x9600;
-        *(unsigned short *)0x8C287A3E = 0x9600;
-        *(unsigned int *)0x8C287A40 = 0x1;
-        t0 = dbgMenuGetSelect();
-        dbgMenuSetValue((*(int *)((a4 + 0x14))), t0, 0x0);
-        restart_t404();
-    }
-    t0 = dbgMenuGetValue((*(int *)((a4 + 0x14))), 0x4);
-    if (t0 == 1) {
-        *(unsigned int *)0x8C1891EC = (*(int *)0x8C1891E8);
-        *(unsigned int *)0x8C1891F4 = (*(int *)0x8C1891F0);
-        *(unsigned int *)0x8C1891F0 = 0x4;
-        *(unsigned short *)0x8C287A38 = 0x9C00;
-        *(unsigned short *)0x8C287A3C = 0x9C00;
-        *(unsigned short *)0x8C287A3A = 0x9600;
-        *(unsigned short *)0x8C287A3E = 0x9600;
-        *(unsigned int *)0x8C287A40 = 0x1;
-        t1 = dbgMenuGetSelect();
-        dbgMenuSetValue((*(int *)((a4 + 0x14))), t1, 0x0);
-        return restart_t404();
-    }
-    return t0;
-}
 
 float FUN_8c0551a8(int a4, int a5, float f4, float f5, float f6, float f7)
 {

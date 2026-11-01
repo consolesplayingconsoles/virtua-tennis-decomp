@@ -364,7 +364,3 @@ int kdSetGetLastError(int a4, int a5, int a6, int a7, int a8)
     return t0;
 }
 
-int gdFsChangeDir(void)
-{
-    return gdFsLoadDir();
-}

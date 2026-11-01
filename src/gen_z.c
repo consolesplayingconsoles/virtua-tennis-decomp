@@ -1775,17 +1775,6 @@ int plPic2SeleLoad(void)
 }
 
 
-int nlObjPut_vtxcolbridge(void)
-{
-    int t0;
-    int stk[5];
-
-    t0 = *(int *)0x8C1DCA98;
-    if (t0 != 0) {
-        return ((int (*)(void))(t0))();
-    }
-    return ((int (*)(void))(0x8C0FDAEA))();
-}
 
 int _pow5(int a4, int a5)
 {

@@ -154,8 +154,41 @@ int FUN_8c01219e(int a4, int a5)
     register int t364;
     register int t353;
     register int t346;
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1016;
+    int R1020;
+    int R1028;
+    int R1032;
+    int R1036;
+    int R1040;
+    int R1044;
+    int R1048;
+    int R1052;
+    int R1056;
+    int R1060;
+    int R1064;
+    int R1068;
 
-    *(int *)((int)stk + 40) = a4;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
+    R1036 = *(int *)((int)stk + 36);
+    R1040 = *(int *)((int)stk + 40);
+    R1044 = *(int *)((int)stk + 44);
+    R1048 = *(int *)((int)stk + 48);
+    R1052 = *(int *)((int)stk + 52);
+    R1056 = *(int *)((int)stk + 56);
+    R1060 = *(int *)((int)stk + 60);
+    R1064 = *(int *)((int)stk + 64);
+    R1068 = *(int *)((int)stk + 68);
+
+    R1040 = a4;
     *(unsigned int *)0x8C287B3C = 0x0;
     t0 = ((int (*)(int))(entryIsVersus))(a4);
     if (t0 == 0) {
@@ -267,7 +300,7 @@ int FUN_8c01219e(int a4, int a5)
     *(unsigned int *)0x8C287CB8 = 0x0;
     *(unsigned int *)0x8C287CB4 = 0x0;
     if ((*(int *)0x8C421F60) != 0) {
-        advInit(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 40), *(int *)((int)stk + 40 + 4), *(int *)((int)stk + 40 + 8), *(int *)((int)stk + 40 + 12), *(int *)((int)stk + 40 + 16), *(int *)((int)stk + 40 + 20));
+        advInit(0x0, 0x0, 0x0, 0x0, R1040, R1044, R1048, R1052, R1056, R1060);
     } else {
         *(unsigned int *)0x8C295DDC = 0x0;
         if ((*(int *)0x8C287D5C) == 0) {
@@ -279,7 +312,7 @@ int FUN_8c01219e(int a4, int a5)
     *(unsigned int *)0x8C38BA70 = 0x1;
     *(unsigned int *)0x8C38BA74 = 0x1;
     *(unsigned int *)0x8C38BA78 = 0x1;
-    *(int *)((int)stk + 64) = a4;
+    R1064 = a4;
     nlInitMatrix(0x8C285A04, 0x10);
     nlObjPutInit();
     nlMatrixMode(0x3);
@@ -291,7 +324,7 @@ int FUN_8c01219e(int a4, int a5)
     sndFadeFlagsClear();
     t77 = ((int (*)(void))(entryIsVersus))();
     if ((t77 != 0) && (t78 = *(int *)0x8C421F60, t78 == 0)) {
-        fadeScreenStart(0x2, 0x1, 0xF, 0x0, *(int *)((int)stk + 64), *(int *)((int)stk + 64 + 4));
+        fadeScreenStart(0x2, 0x1, 0xF, 0x0, R1064, R1068);
     }
     dbgMenuInit();
     matchStart();
@@ -303,12 +336,12 @@ int FUN_8c01219e(int a4, int a5)
         *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x8000);
     }
     *(unsigned int *)0x8C20D150 = 0x1;
-    *(int *)((int)stk + 68) = 0x0;
+    R1068 = 0x0;
     t89 = t36;
-    *(int *)((int)stk + 64) = t89;
-    *(int *)((int)stk + 60) = 0x1;
-    *(int *)((int)stk + 56) = 0x8C287ACC;
-    *(int *)((int)stk + 52) = 0x8C287C74;
+    R1064 = t89;
+    R1060 = 0x1;
+    R1056 = 0x8C287ACC;
+    R1052 = 0x8C287C74;
     *(unsigned int *)0x8C38BA14 = 0x0;
     t90 = *(int *)0x8C287B3C;
     if ((0x80000 & t90) != 0) {
@@ -404,7 +437,7 @@ int FUN_8c01219e(int a4, int a5)
     perfPrint();
     matchFrame();
     nlExecuteEvent();
-    colliObjResolve(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 36), *(int *)((int)stk + 36 + 4), *(int *)((int)stk + 36 + 8), *(int *)((int)stk + 36 + 12), *(int *)((int)stk + 36 + 16), *(int *)((int)stk + 36 + 20), *(int *)((int)stk + 36 + 24), *(int *)((int)stk + 36 + 28));
+    colliObjResolve(0x0, 0x0, 0x0, 0x0, R1036, R1040, R1044, R1048, R1052, R1056, R1060, R1064);
     if ((*(int *)0x8C421F60) != 0) {
         advExec();
     }
@@ -413,14 +446,14 @@ int FUN_8c01219e(int a4, int a5)
             screenFramePut(0x0, 0x0, u99);
         }
         if (t95 != 0) {
-            nlRenderTextureEnd(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 36), *(int *)((int)stk + 36 + 4), *(int *)((int)stk + 36 + 8), *(int *)((int)stk + 36 + 12), *(int *)((int)stk + 36 + 16));
+            nlRenderTextureEnd(0x0, 0x0, 0x0, 0x0, R1036, R1040, R1044, R1048, R1052);
             screenPlanePut();
         }
     }
     fadeCaptureEnd(0x0);
     dbgMenuExec();
     nlExecuteEvent2();
-    hudMatchDraw(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 36), *(int *)((int)stk + 36 + 4), *(int *)((int)stk + 36 + 8), *(int *)((int)stk + 36 + 12), *(int *)((int)stk + 36 + 16), *(int *)((int)stk + 36 + 20), *(int *)((int)stk + 36 + 24), *(int *)((int)stk + 36 + 28));
+    hudMatchDraw(0x0, 0x0, 0x0, 0x0, R1036, R1040, R1044, R1048, R1052, R1056, R1060, R1064);
     t203 = (hudWordFlagDraw());
     if ((t95 == 0) && (u99 != 0.0f)) {
         *(float *)0x8C287C48 = 1.0f;
@@ -430,13 +463,13 @@ int FUN_8c01219e(int a4, int a5)
         }
         t203 = (screenFramePut(0x1, 0x0, u200));
     }
-    *(int *)((int)stk + 68) = 0x8C287ACC;
-    *(int *)((int)stk + 64) = (t95);
-    *(int *)((int)stk + 60) = 0x8C287C50;
-    *(int *)((int)stk + 56) = 0x8C287ACC;
-    *(int *)((int)stk + 52) = 0x0;
-    *(int *)((int)stk + 48) = 0x12;
-    *(unsigned int *)(((int)stk + 4)) = 0x8C287ACC;
+    R1068 = 0x8C287ACC;
+    R1064 = (t95);
+    R1060 = 0x8C287C50;
+    R1056 = 0x8C287ACC;
+    R1052 = 0x0;
+    R1048 = 0x12;
+    R1004 = 0x8C287ACC;
     t390 = t203;
     if ((*(int *)0x8C181758) == 0) {
         t207 = *(int *)0x8C287B3C;
@@ -473,7 +506,7 @@ int FUN_8c01219e(int a4, int a5)
                 t212 = (t212 + 0x1);
             }
             t220 = padPauseOnUnplug((((int)stk + 4) + 0x14));
-            *(unsigned int *)(((int)stk + 8)) = t220;
+            R1008 = t220;
             if (t220 != (*(int *)0x8C285E44)) {
                 *(unsigned int *)0x8C12CBE8 = 0x0;
             }
@@ -527,9 +560,9 @@ int FUN_8c01219e(int a4, int a5)
             t373 = t258;
             if (t258 != -1) {
                 if ((*(int *)0x8C287D5C) == 1) {
-                    *(unsigned int *)(((int)stk + 4)) = 0x2;
+                    R1004 = 0x2;
                 } else {
-                    *(unsigned int *)(((int)stk + 4)) = 0x1;
+                    R1004 = 0x1;
                 }
                 if (0x0 == 2) {
                     t263 = padUnplugCheck();
@@ -539,9 +572,9 @@ int FUN_8c01219e(int a4, int a5)
                         *(unsigned int *)0x8C12CBE8 = 0xFFFFFFFF;
                     }
                 }
-                *(unsigned int *)(((int)stk + 16)) = (padDirRepeat((*(int *)((((*(int *)0x8C285A00) * 0xD78) + 0x8C2888E8))), 0x10));
-                *(unsigned int *)(((int)stk + 12)) = (padDirRepeat((*(int *)((((*(int *)0x8C285A00) * 0xD78) + 0x8C2888E8))), 0x20));
-                menuListExec((*(int *)((((*(int *)0x8C285A00) * 0xD78) + 0x8C2888E8))), (*(int *)0x8C12CBE8), 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24), *(int *)((int)stk + 4 + 28));
+                R1016 = (padDirRepeat((*(int *)((((*(int *)0x8C285A00) * 0xD78) + 0x8C2888E8))), 0x10));
+                R1012 = (padDirRepeat((*(int *)((((*(int *)0x8C285A00) * 0xD78) + 0x8C2888E8))), 0x20));
+                menuListExec((*(int *)((((*(int *)0x8C285A00) * 0xD78) + 0x8C2888E8))), (*(int *)0x8C12CBE8), 0x0, 0x0, R1004, R1008, R1012, R1016, R1020, *(int *)((int)stk + 4 + 20), R1028, R1032);
                 if (0x0 == 2) {
                     t282 = padUnplugCheck();
                     t291 = t282;
@@ -581,7 +614,7 @@ int FUN_8c01219e(int a4, int a5)
                     }
                     *(unsigned int *)0x8C12CBE8 = ((*(int *)0x8C12CBE8) + (t301 - t305));
                     t309 = *(int *)((((*(int *)((((*(int *)0x8C285A00) * 0xD78) + 0x8C2888E8))) << 2) + 0x8C29B898));
-                    *(unsigned int *)(((int)stk + 20)) = t309;
+                    R1020 = t309;
                     t310 = *(int *)((t309 + 0x10));
                     t358 = 0x5;
                     if (((0x8 & t310) != 0) || ((0x5 & t310) != 0)) {

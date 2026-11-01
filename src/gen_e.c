@@ -42,7 +42,7 @@ int gdFsToUpper(int);
 int syTmrGetCount(void);
 int fmMngMcpy4(int, int, int);
 int fmMngNum2Bit(int, int, int);
-int mainSoftReset(void);
+int mainSoftReset(int);
 int mainExitToBios(void);
 int nlMalloc2(int);
 int nlInitEvent(void);
@@ -180,7 +180,7 @@ int staffMorphInit(void);
 int lineJudgeShadowPart(int);
 int lightSet(int, int, int, int);
 int staffMorphCapture(int, int);
-int gameModeSet(int, int);
+int gameModeSet(int, int, int);
 int frameHookNop(void);
 int hudPanelDraw(int, int, float);
 int msgWinStep(void);
@@ -278,9 +278,9 @@ int buAnalyzeBackupFileImage(int, int);
 int buExitForce(void);
 int buGetDiskInfo(int, int);
 int buGetFileSize(int, int);
-int buGetLastError(void);
+int buGetLastError(int);
 int buLoadFile(int, int, int, int);
-int buStat(void);
+int buStat(int);
 int colliObjEntry(int);
 int fileLoadStart(int);
 int fmcalccrc(int, int);
@@ -424,10 +424,10 @@ void mainCheckReset(void)
                                     if (t5 != 0) {
                                         mainExitToBios();
                                     } else {
-                                        mainSoftReset();
+                                        mainSoftReset(0x1);
                                     }
                                 } else {
-                                    mainSoftReset();
+                                    mainSoftReset(0x1);
                                 }
                             } else {
                                 mainExitToBios();
@@ -440,32 +440,6 @@ void mainCheckReset(void)
     } while ((unsigned int)t0 < (unsigned int)0x8C29B8A8);
 }
 
-int mainCheckDrive(void)
-{
-    int t0;
-    int t5;
-    int t6;
-    int t7;
-
-    t0 = gdFsGetDrvStat();
-    if (t0 != 6) {
-        if (t0 == 0) {
-            gdFsReqDrvStat();
-        }
-    } else {
-        gdFsReqDrvStat();
-    }
-    t5 = *(int *)0x8C12C5A0;
-    if ((int)t5 > 0) {
-        t6 = *(int *)0x8C12C5A0;
-        *(unsigned int *)0x8C12C5A0 = (t6 - 1);
-    }
-    t7 = *(int *)0x8C12C5A0;
-    if (t7 == 1) {
-        return mainExitToBios();
-    }
-    return t7;
-}
 
 int nlMalloc2(int a4)
 {
@@ -3647,36 +3621,6 @@ void selCopyLocalConstants(void)
     R1004 = t11;
 }
 
-int infoPlayerDrawWrap(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int stk[5];
-    int R1004;
-    int R1008;
-    int R1012;
-    int R1020;
-    int R1024;
-    int R1028;
-
-    R1004 = *(int *)((int)stk + 4);
-    R1008 = *(int *)((int)stk + 8);
-    R1012 = *(int *)((int)stk + 12);
-    R1020 = *(int *)((int)stk + 20);
-    R1024 = *(int *)((int)stk + 24);
-    R1028 = *(int *)((int)stk + 28);
-
-    t0 = R1028;
-    R1012 = t0;
-    t1 = R1024;
-    R1008 = t1;
-    t2 = R1020;
-    R1004 = t2;
-    t3 = infoPlayerDraw();
-    return t3;
-}
 
 /* manual: the call passes the argument the original sets (r4, the record being drawn); the callee is a trampoline into the NAOMI library, which reads none
    itself, so the generated call passed none and the proof never compared it (as gdFsInit in sysInit). */
@@ -5011,28 +4955,6 @@ int stageSegaScoreDigits(int a4)
     return nlObjPut(t4);
 }
 
-int matchSceneInit(void)
-{
-    int t0;
-    int t3;
-    int t7;
-
-    *(unsigned int *)0x8C18D2B8 = 0x0;
-    t0 = *(int *)0x8C1891E8;
-    if (t0 == 2) {
-        staffMorphInit();
-    }
-    t3 = *(int *)0x8C1891E8;
-    if (t3 == 4) {
-        matchPropStart();
-    }
-    resultFlagsClear();
-    t7 = *(int *)0x8C1891E8;
-    crowdSetup();
-    crowdInit();
-    courtPropsInit();
-    return ambLevelReset();
-}
 
 void matchStageSlot(void)
 {
@@ -6322,7 +6244,7 @@ int pauseQuit(void)
 
     *(unsigned int *)0x8C421F64 = 0x0;
     *(unsigned int *)0x8C1D1278 = 0x1;
-    gameModeSet(0x0, 0x2);
+    gameModeSet(0x0, 0x2, 0x0);
     for (;;) {
         t1 = resSprTitleRead();
         if (t1 == 1) break;
@@ -6902,9 +6824,9 @@ int eepromVmuLoad(int a4)
     t11 = t1;
     if (t1 == 0) {
         do {
-            t2 = buStat();
+            t2 = buStat(a4);
         } while (t2 == -1);
-        t3 = buGetLastError();
+        t3 = buGetLastError(a4);
         t9 = t3;
         if (t3 == 0) {
             t4 = buAnalyzeBackupFileImage((((int)stk + 4) + 0x4), 0x8C41BE14);
@@ -8002,66 +7924,7 @@ int buExit(void)
     return 0xFFFFFFFF;
 }
 
-void syCfgSetSoundMode(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
 
-    t0 = *(int *)0x8C20C240;
-    if (t0 != 0) {
-        if (a4 != 0) {
-            if (a4 == 1) {
-                *(unsigned char *)0x8C00007E = a4;
-                t1 = *(int *)0x8C20C240;
-                t2 = syBtCfgSet(0x2);
-                if (t2 == -1) {
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        *(unsigned char *)0x8C00007E = a4;
-        t3 = *(int *)0x8C20C240;
-        t4 = syBtCfgSet(0x2);
-        if (t4 == -1) {
-            return;
-        }
-        return;
-    }
-}
-
-void syCfgGetSoundMode(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-
-    if (a4 != 0) {
-        *(unsigned int *)((a4 + 0x0)) = 0x0;
-        t0 = *(int *)0x8C20C240;
-        if (t0 != 0) {
-            t1 = syBtCfgSet(0x0);
-            if (t1 != -1) {
-                t2 = *(signed char *)0x8C00007E;
-                if ((signed char)t2 == 0) {
-                    *(unsigned int *)((a4 + 0x0)) = 0x0;
-                    return;
-                }
-                if ((signed char)t2 == 1) {
-                    *(unsigned int *)((a4 + 0x0)) = 0x1;
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        return;
-    }
-}
 
 int ADXT_GetNumSmpl(int playerAddress)
 {
@@ -9162,36 +9025,6 @@ void SJUNI_Finish(void)
     *(unsigned int *)0x8C20C95C = (t0 - 1);
 }
 
-int SJUNI_Create(int a4, int a5, int a6)
-{
-    int t0;
-    int t1;
-
-    t0 = 0x0;
-    for (;;) {
-        t1 = *(signed char *)(((((((t0 << 1) + t0) << 2) << 2) + 0x8C46FBD4) + 0x4));
-        if (t1 != 0) {
-            t0 = (t0 + 0x1);
-            if ((int)t0 >= (int)0x40) break;
-            continue;
-        }
-        break;
-    }
-    if (t0 == 64) {
-        return 0x0;
-    }
-    *(unsigned char *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x4)) = 0x1;
-    *(unsigned char *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x5)) = a4;
-    *(unsigned int *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x0)) = 0x8C20C92C;
-    *(unsigned char *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x5)) = a4;
-    *(unsigned int *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x8)) = 0x8C20ADAC;
-    *(unsigned int *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0xC)) = a5;
-    *(unsigned int *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x10)) = ((unsigned int)((unsigned int)a6 >> 2) >> 2);
-    *(unsigned int *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x28)) = 0x8C1F383A;
-    *(unsigned int *)(((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x2C)) = (0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2));
-    SJUNI_Reset((0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2)));
-    return (0x8C46FBD4 + ((((t0 << 1) + t0) << 2) << 2));
-}
 
 int VQAllocEntry(void)
 {
@@ -10127,41 +9960,6 @@ int kmiFLWCTRLFindFreeNBuf(void)
     return 0xFFFFFFFF;
 }
 
-void kmiFLWCTRLCheckTimeOut(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t6;
-    int t7;
-    int t8;
-    int t11;
-
-    t0 = *(int *)0x8C4607B4;
-    if (t0 != 0) {
-        t1 = *(int *)0x8C4607DC;
-        *(unsigned int *)0x8C4607DC = (t1 - 1);
-        t2 = *(int *)0x8C4607DC;
-        if (t2 == 0) {
-            t3 = *(int *)0x8C45F7F4;
-            *(unsigned int *)0x8C45F7F4 = (t3 + 0x1);
-            kmiFLWCTRLEORCallBackFunc();
-            kmyResetRenderer();
-            t6 = *(int *)0x8C45F7F0;
-            if (t6 != 1) {
-                t7 = 0x0;
-                do {
-                    t8 = *(int *)(((0x8C45F79C + t7) + 0x0));
-                    kmyCreateRegionArray();
-                    t7 = (t7 + 0x4);
-                } while ((unsigned int)t7 < (unsigned int)0x8);
-            }
-            t11 = *(int *)0x8C45F7F0;
-            *(unsigned int *)0x8C4607DC = t11;
-        }
-    }
-}
 
 
 

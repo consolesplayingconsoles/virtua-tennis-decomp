@@ -138,10 +138,6 @@ int thunk_kmSetHSyncLine(void)
     return kmSetHSyncLine();
 }
 
-int thunk_ADXERR_EntryErrFunc(void)
-{
-    return ADXERR_EntryErrFunc();
-}
 
 int thunk_mwRnaFinish(void)
 {

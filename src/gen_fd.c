@@ -352,16 +352,6 @@ int ballColliInit(int a4, int a5, int a6, int a7)
     return (t1 | 0x4);
 }
 
-int panelLogoPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4)
-{
-    int stk[16];
-
-    stk[5] = a8;
-    stk[6] = a9;
-    stk[7] = a10;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x4)); }
-    return (sprPutAtAlpha(0x8C337C50, a5, a6, a7, *(Stk3 *)(((int)stk + 4)), f4));
-}
 
 int hudBannerSubPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4)
 {
@@ -374,16 +364,6 @@ int hudBannerSubPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, flo
     return (sprPutAtAlpha(0x8C33D7E0, a5, a6, a7, *(Stk3 *)(((int)stk + 4)), f4));
 }
 
-int hudSignLastPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4)
-{
-    int stk[16];
-
-    stk[5] = a8;
-    stk[6] = a9;
-    stk[7] = a10;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x4)); }
-    return (sprPutAtAlpha(0x8C33FA90, a5, a6, a7, *(Stk3 *)(((int)stk + 4)), f4));
-}
 
 int nlRenderTextureSet(int a4, int a5, int a6, int a7)
 {

@@ -113,6 +113,11 @@ int FUN_8c0704ce(int a4, int a5)
     register float u168;
     register int t169;
     register float u173;
+    float R1004;
+    float R1008;
+
+    R1004 = *(float *)((int)stk + 4);
+    R1008 = *(float *)((int)stk + 8);
 
     t0 = *(int *)((a4 + 0xB5C));
     t1 = *(int *)(((((0x3 & (t0 + 0x2)) * 0xD78) + 0x8C287D84) + 0xB5C));
@@ -129,9 +134,9 @@ int FUN_8c0704ce(int a4, int a5)
                     t19 = (int)((int)(nlRand()) % (int)0x14);
                     if (t19 != 0) {
                         u20 = *(float *)((a4 + 0xB00));
-                        *(float *)(((int)stk + 8)) = (u20 * 118.849998f);
+                        R1008 = (u20 * 118.849998f);
                         t21 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D));
-                        *(float *)(((int)stk + 4)) = (float)t21;
+                        R1004 = (float)t21;
                         t23 = t17;
                         t17 = (t17 + 0x1);
                         u24 = ((float)t21 * (nlRandom()));
@@ -140,7 +145,7 @@ int FUN_8c0704ce(int a4, int a5)
                         t27 = (int)((int)(nlRand()) % (int)0x14);
                         if (t27 != 0) {
                             u28 = *(float *)((a4 + 0xB00));
-                            *(float *)(((int)stk + 8)) = (u28 * 118.849998f);
+                            R1008 = (u28 * 118.849998f);
                             u30 = (-1.0f);
                             u30 = u30 + (1.0f + 1.0f) * (nlRandom());
                             u35 = (u28 * 118.849998f);
@@ -148,9 +153,9 @@ int FUN_8c0704ce(int a4, int a5)
                             u40 = (u30 * 54.8499985f);
                         } else {
                             u31 = *(float *)((a4 + 0xB00));
-                            *(float *)(((int)stk + 8)) = (u31 * 118.849998f);
+                            R1008 = (u31 * 118.849998f);
                             t32 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D));
-                            *(float *)(((int)stk + 4)) = (float)(-t32);
+                            R1004 = (float)(-t32);
                             u34 = ((float)(-t32) * (nlRandom()));
                             u35 = (u31 * 118.849998f);
                             t36 = 0x1;
@@ -176,16 +181,16 @@ int FUN_8c0704ce(int a4, int a5)
                     t53 = (int)((int)(nlRand()) % (int)0xA);
                     if (t53 != 0) {
                         u54 = *(float *)((a4 + 0xB00));
-                        *(float *)(((int)stk + 8)) = (u54 * 11.8850002f);
+                        R1008 = (u54 * 11.8850002f);
                         t55 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D));
-                        *(float *)(((int)stk + 4)) = (float)t55;
+                        R1004 = (float)t55;
                         u60 = (u54 * 11.8850002f);
                         u64 = ((float)t55 * (nlRandom()));
                     } else {
                         u57 = *(float *)((a4 + 0xB00));
-                        *(float *)(((int)stk + 8)) = (u57 * 11.8850002f);
+                        R1008 = (u57 * 11.8850002f);
                         t58 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D));
-                        *(float *)(((int)stk + 4)) = (float)(-t58);
+                        R1004 = (float)(-t58);
                         u60 = (u57 * 11.8850002f);
                         u64 = ((float)(-t58) * (nlRandom()));
                     }
@@ -215,9 +220,9 @@ int FUN_8c0704ce(int a4, int a5)
                         t89 = (int)((int)(nlRand()) % (int)0x14);
                         if (t89 != 0) {
                             u90 = *(float *)((a4 + 0xB00));
-                            *(float *)(((int)stk + 8)) = (u90 * 118.849998f);
+                            R1008 = (u90 * 118.849998f);
                             t91 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D));
-                            *(float *)(((int)stk + 4)) = (float)t91;
+                            R1004 = (float)t91;
                             t93 = t87;
                             t87 = (t87 + 0x1);
                             u94 = ((float)t91 * (nlRandom()));
@@ -226,7 +231,7 @@ int FUN_8c0704ce(int a4, int a5)
                             t97 = (int)((int)(nlRand()) % (int)0x14);
                             if (t97 != 0) {
                                 u98 = *(float *)((a4 + 0xB00));
-                                *(float *)(((int)stk + 8)) = (u98 * 118.849998f);
+                                R1008 = (u98 * 118.849998f);
                                 u100 = (-1.0f);
                                 u100 = u100 + (1.0f + 1.0f) * (nlRandom());
                                 u105 = (u98 * 118.849998f);
@@ -234,9 +239,9 @@ int FUN_8c0704ce(int a4, int a5)
                                 u110 = (u100 * 54.8499985f);
                             } else {
                                 u101 = *(float *)((a4 + 0xB00));
-                                *(float *)(((int)stk + 8)) = (u101 * 118.849998f);
+                                R1008 = (u101 * 118.849998f);
                                 t102 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D));
-                                *(float *)(((int)stk + 4)) = (float)(-t102);
+                                R1004 = (float)(-t102);
                                 u104 = ((float)(-t102) * (nlRandom()));
                                 u105 = (u101 * 118.849998f);
                                 t106 = 0x1;
@@ -262,16 +267,16 @@ int FUN_8c0704ce(int a4, int a5)
                         t123 = (int)((int)(nlRand()) % (int)0xA);
                         if (t123 != 0) {
                             u124 = *(float *)((a4 + 0xB00));
-                            *(float *)(((int)stk + 8)) = (u124 * 11.8850002f);
+                            R1008 = (u124 * 11.8850002f);
                             t125 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D));
-                            *(float *)(((int)stk + 4)) = (float)t125;
+                            R1004 = (float)t125;
                             u130 = (u124 * 11.8850002f);
                             u134 = ((float)t125 * (nlRandom()));
                         } else {
                             u127 = *(float *)((a4 + 0xB00));
-                            *(float *)(((int)stk + 8)) = (u127 * 11.8850002f);
+                            R1008 = (u127 * 11.8850002f);
                             t128 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D));
-                            *(float *)(((int)stk + 4)) = (float)(-t128);
+                            R1004 = (float)(-t128);
                             u130 = (u127 * 11.8850002f);
                             u134 = ((float)(-t128) * (nlRandom()));
                         }
@@ -299,9 +304,9 @@ int FUN_8c0704ce(int a4, int a5)
                         t152 = (int)((int)(nlRand()) % (int)0x14);
                         if (t152 != 0) {
                             u153 = *(float *)((a4 + 0xB00));
-                            *(float *)(((int)stk + 8)) = (u153 * 118.849998f);
+                            R1008 = (u153 * 118.849998f);
                             t154 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D));
-                            *(float *)(((int)stk + 4)) = (float)(-t154);
+                            R1004 = (float)(-t154);
                             t156 = t150;
                             t150 = (t150 + 0x1);
                             u157 = ((float)(-t154) * (nlRandom()));
@@ -310,7 +315,7 @@ int FUN_8c0704ce(int a4, int a5)
                             t160 = (int)((int)(nlRand()) % (int)0x46);
                             if (t160 != 0) {
                                 u161 = *(float *)((a4 + 0xB00));
-                                *(float *)(((int)stk + 8)) = (u161 * 118.849998f);
+                                R1008 = (u161 * 118.849998f);
                                 u163 = (-1.0f);
                                 u163 = u163 + (1.0f + 1.0f) * (nlRandom());
                                 u168 = (u161 * 118.849998f);
@@ -318,9 +323,9 @@ int FUN_8c0704ce(int a4, int a5)
                                 u173 = (u163 * 54.8499985f);
                             } else {
                                 u164 = *(float *)((a4 + 0xB00));
-                                *(float *)(((int)stk + 8)) = (u164 * 118.849998f);
+                                R1008 = (u164 * 118.849998f);
                                 t165 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D));
-                                *(float *)(((int)stk + 4)) = (float)t165;
+                                R1004 = (float)t165;
                                 u167 = ((float)t165 * (nlRandom()));
                                 u168 = (u164 * 118.849998f);
                                 t169 = 0x1;
@@ -345,9 +350,9 @@ int FUN_8c0704ce(int a4, int a5)
                     for (;;) {
                         nlRand();
                         u187 = *(float *)((a4 + 0xB00));
-                        *(float *)(((int)stk + 8)) = (u187 * 11.8850002f);
+                        R1008 = (u187 * 11.8850002f);
                         t188 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x13D));
-                        *(float *)(((int)stk + 4)) = (float)t188;
+                        R1004 = (float)t188;
                         t190 = t184;
                         t184 = (t184 + 0x1);
                         u191 = ((float)t188 * (nlRandom()));
@@ -572,777 +577,8 @@ float FUN_8c06b404(int a4, float f4)
     return u175;
 }
 
-int FUN_8c07e8f8(int a4, int a5)
-{
-    int stk[31];
-    register int t0;
-    register float u1;
-    register float u2;
-    register float u5;
-    register float u7;
-    register int t10;
-    register int t11;
-    register float u12;
-    register float u13;
-    register float u14;
-    register int t31;
-    register int t32;
-    register int t33;
-    register int t38;
-    register int t39;
-    register int t66;
-    register float u70;
-    register float u71;
-    register float u73;
-    register float u76;
-    register int t85;
-    register int t80;
-    register int t81;
-    register int t87;
-    register float u88;
-    register float u89;
-    register float u96;
-    register int t100;
-    register int t102;
-    register int t103;
-    register float u106;
-    register float u107;
-    register float u109;
-    register float u112;
-    register float u126;
-    register float u127;
-    register float u129;
-    register float u132;
-    register int t141;
-    register int t142;
-    register float u145;
-    register float u146;
-    register float u148;
-    register float u151;
-    register float u203;
-    register int t222;
-    register int t205;
-    register float u17;
-    register float u18;
-    register float u19;
-    register int t55;
-    register int t48;
-    register int t93;
 
-    t0 = *(int *)((a4 + 0xB5C));
-    u1 = *(float *)0x8C291F7C;
-    u2 = (-u1);
-    if (!(0.0f > u1)) {
-        u2 = u1;
-    }
-    if (!(60.8849983f > u2)) {
-        *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
-        *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-        t222 = 0x4;
-    } else {
-        u5 = *(float *)0x8C291F84;
-        u7 = (-u5);
-        if (!(0.0f > u5)) {
-            u7 = (*(float *)0x8C291F84);
-        }
-        if (!(137.252502f > u7)) {
-            *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-            t205 = 0x4;
-        } else {
-            *(int *)((int)stk + 4) = (((int)stk + 8) + 0x14);
-            cpuShotRange(a4, (((int)stk + 4) + 0x3C), (((int)stk + 4) + 0x30), (((int)stk + 4) + 0x24), (((int)stk + 8) + 0x14), u1);
-            if ((int)a5 > 0) {
-                t10 = 0x0;
-                t11 = 0x8C2FCC6C;
-                for (;;) {
-                    u12 = *(float *)((t11 + 0x8));
-                    u13 = *(float *)((t11 + 0x0));
-                    u14 = u12;
-                    if (0.0f > u12) {
-                        u14 = (-u12);
-                    }
-                    if ((u13 > (*(float *)(((int)stk + 64)))) && ((u17 = *(float *)(((int)stk + 52)), u17 > u13) && ((u18 = *(float *)(((int)stk + 72)), u14 > u18) && (u19 = *(float *)(((int)stk + 60)), u19 > u14)))) {
-                    } else {
-                        *(int *)((int)stk + 4) = (((int)stk + 8) + 0x8);
-                        cpuAimAngleRate((0xB9C + a4), t11, (((int)stk + 4) + 0x3C), (((int)stk + 4) + 0x30), (((int)stk + 8) + 0x8));
-                        *(float *)((t11 + 0x0)) = (*(float *)(((int)stk + 16)));
-                        *(float *)((t11 + 0x8)) = (*(float *)(((int)stk + 24)));
-                    }
-                    cpuDblAimRateB(a4, t11, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), *(int *)((int)stk + 8 + 24), *(int *)((int)stk + 8 + 28));
-                    t10 = (t10 + 0x1);
-                    t11 = (t11 + 0x20);
-                    if ((int)t10 >= (int)a5) {
-                        break;
-                    }
-                }
-            }
-            *(unsigned int *)(((int)stk + 12)) = 0x0;
-            *(unsigned int *)(((int)stk + 8)) = 0xFFFFD8F0;
-            if ((int)a5 > 0) {
-                t31 = 0xFFFFD8F0;
-                t32 = 0x0;
-                t33 = 0x8C2FCC6C;
-                for (;;) {
-                    if (!((*(float *)((t33 + 0x1C))) > (float)(*(int *)(((int)stk + 8))))) {
-                        if ((*(float *)((t33 + 0x1C))) == (float)(*(int *)(((int)stk + 8)))) {
-                            t38 = nlRand();
-                            t39 = ((~(((~t38) + 0x1) & 0x1)) + 0x1);
-                            if ((int)t38 >= 0) {
-                                t39 = (t38 & 0x1);
-                            }
-                            if (t39 != 0) {
-                                *(unsigned int *)(((int)stk + 8)) = (int)(*(float *)((t33 + 0x1C)));
-                                *(unsigned int *)(((int)stk + 12)) = t32;
-                            }
-                        } else {
-                            t48 = t31;
-                        }
-                        t55 = t48;
-                    } else {
-                        *(unsigned int *)(((int)stk + 8)) = (int)(*(float *)((t33 + 0x1C)));
-                        *(unsigned int *)(((int)stk + 12)) = t32;
-                        t55 = t31;
-                    }
-                    t31 = t55;
-                    t32 = (t32 + 0x1);
-                    t33 = (t33 + 0x20);
-                    if ((int)t32 >= (int)a5) {
-                        break;
-                    }
-                }
-            }
-            t66 = *(int *)(((int)stk + 12));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((((((t66 << 2) << 2) << 1) + 0x8C2FCC6C) + 0x0)));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = (*(float *)((((((t66 << 2) << 2) << 1) + 0x8C2FCC6C) + 0x8)));
-            *(unsigned char *)(((0x13C + ((t0 * 0x160) + 0x8C2FC69C)) + 0x0)) = (*(signed char *)((((((t66 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC)));
-            u70 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138));
-            u71 = (-u70);
-            if (!(0.0f > u70)) {
-                u71 = u70;
-            }
-            u73 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130));
-            u76 = (-1.0f);
-            u76 = u76 + (1.0f + 1.0f) * (u71 / 118.849998f);
-            cpuShotTargetSet(a4, (((*(float *)((a4 + 0xB00))) * u73) / (*(float *)0x8C287B40)), u76);
-            *(unsigned char *)(((0x1D + ((t0 * 0x160) + 0x8C2FC69C)) + 0x0)) = (*(signed char *)((((((t66 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC)));
-            t85 = 0x0;
-            if ((*(int *)0x8C291F74) == 5) {
-                t80 = nlRand();
-                t81 = ((~(((~t80) + 0x1) & 0x1)) + 0x1);
-                if ((int)t80 >= 0) {
-                    t81 = (t80 & 0x1);
-                }
-                t85 = (0x0 + (t81 + 0x6));
-            }
-            t87 = *(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118));
-            u88 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC));
-            u89 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = (u89 - 30.0f);
-            if (-200.0f > (*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)))) {
-                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = -200.0f;
-            }
-            if (((float)(int)((float)t85 + ((float)t87 * ((-(u88 / 100.0f)) + 1.0f))) > (*(float *)0x8C291F54)) && (t93 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB6)), t93 == 0)) {
-                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = ((float)(int)((float)t85 + ((float)t87 * ((-(u88 / 100.0f)) + 1.0f))) - (*(float *)0x8C291F54));
-                u96 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4));
-                if (u96 > (float)((*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))) - 5)) {
-                    if ((*(int *)0x8C291F74) != 5) {
-                        t100 = (int)((int)(nlRand()) % (int)0x28);
-                        if (t100 == 0) {
-                            if ((*(int *)0x8C291F74) == 5) {
-                                t102 = nlRand();
-                                t103 = ((~(((~t102) + 0x1) & 0x7)) + 0x1);
-                                if ((int)t102 >= 0) {
-                                    t103 = (t102 & 0x7);
-                                }
-                                if (t103 == 0) {
-                                    *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((a4 + 0xAE8)));
-                                    *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = 0.0f;
-                                    u106 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138));
-                                    u107 = (-u106);
-                                    if (!(0.0f > u106)) {
-                                        u107 = u106;
-                                    }
-                                    u109 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130));
-                                    u112 = (-1.0f);
-                                    u112 = u112 + (1.0f + 1.0f) * (u107 / 118.849998f);
-                                    cpuShotTargetSet(a4, (((*(float *)((a4 + 0xB00))) * u109) / (*(float *)0x8C287B40)), u112);
-                                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x2;
-                                    *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-                                }
-                            }
-                        } else {
-                            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((a4 + 0xAE8)));
-                            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = 0.0f;
-                            u126 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138));
-                            u127 = (-u126);
-                            if (!(0.0f > u126)) {
-                                u127 = u126;
-                            }
-                            u129 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130));
-                            u132 = (-1.0f);
-                            u132 = u132 + (1.0f + 1.0f) * (u127 / 118.849998f);
-                            cpuShotTargetSet(a4, (((*(float *)((a4 + 0xB00))) * u129) / (*(float *)0x8C287B40)), u132);
-                            *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x2;
-                            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-                        }
-                    } else {
-                        if ((*(int *)0x8C291F74) == 5) {
-                            t141 = nlRand();
-                            t142 = ((~(((~t141) + 0x1) & 0x7)) + 0x1);
-                            if ((int)t141 >= 0) {
-                                t142 = (t141 & 0x7);
-                            }
-                            if (t142 == 0) {
-                                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((a4 + 0xAE8)));
-                                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = 0.0f;
-                                u145 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138));
-                                u146 = (-u145);
-                                if (!(0.0f > u145)) {
-                                    u146 = u145;
-                                }
-                                u148 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130));
-                                u151 = (-1.0f);
-                                u151 = u151 + (1.0f + 1.0f) * (u146 / 118.849998f);
-                                cpuShotTargetSet(a4, (((*(float *)((a4 + 0xB00))) * u148) / (*(float *)0x8C287B40)), u151);
-                                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x2;
-                                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-                            }
-                        }
-                    }
-                }
-            } else {
-                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = (unsigned char)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1D)));
-                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-            }
-            u203 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x10));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x8)) = ((u203 * (*(float *)0x8C07ECF4)) / (*(float *)0x8C07ECF8));
-            *(unsigned int *)((a4 + 0xA24)) = 0x1;
-            t205 = 0xA24;
-        }
-        t222 = t205;
-    }
-    return t222;
-}
 
-int FUN_8c07ec90(int a4, int a5)
-{
-    int stk[31];
-    register int t0;
-    register float u1;
-    register float u2;
-    register float u5;
-    register float u7;
-    register int t10;
-    register int t11;
-    register float u12;
-    register float u13;
-    register float u14;
-    register int t31;
-    register int t32;
-    register int t33;
-    register int t38;
-    register int t39;
-    register int t66;
-    register float u70;
-    register float u71;
-    register float u73;
-    register float u76;
-    register int t85;
-    register int t80;
-    register int t81;
-    register int t87;
-    register float u88;
-    register float u89;
-    register float u96;
-    register int t100;
-    register int t102;
-    register int t103;
-    register float u106;
-    register float u107;
-    register float u109;
-    register float u112;
-    register float u126;
-    register float u127;
-    register float u129;
-    register float u132;
-    register int t141;
-    register int t142;
-    register float u145;
-    register float u146;
-    register float u148;
-    register float u151;
-    register float u202;
-    register int t220;
-    register int t203;
-    register float u17;
-    register float u18;
-    register float u19;
-    register float u25;
-    register float u26;
-    register int t55;
-    register int t48;
-    register int t93;
-
-    t0 = *(int *)((a4 + 0xB5C));
-    u1 = *(float *)0x8C291F7C;
-    u2 = (-u1);
-    if (!(0.0f > u1)) {
-        u2 = u1;
-    }
-    if (!(55.3499985f > u2)) {
-        *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
-        *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-        t220 = 0x4;
-    } else {
-        u5 = *(float *)0x8C291F84;
-        u7 = (-u5);
-        if (!(0.0f > u5)) {
-            u7 = (*(float *)0x8C291F84);
-        }
-        if (!(119.349998f > u7)) {
-            *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-            t203 = 0x4;
-        } else {
-            *(int *)((int)stk + 4) = (((int)stk + 8) + 0x14);
-            cpuShotRange(a4, (((int)stk + 4) + 0x3C), (((int)stk + 4) + 0x30), (((int)stk + 4) + 0x24), (((int)stk + 8) + 0x14), u1);
-            if ((int)a5 > 0) {
-                t10 = 0x0;
-                t11 = 0x8C2FCC6C;
-                for (;;) {
-                    u12 = *(float *)((t11 + 0x8));
-                    u13 = *(float *)((t11 + 0x0));
-                    u14 = u12;
-                    if (0.0f > u12) {
-                        u14 = (-u12);
-                    }
-                    if ((u13 > (*(float *)(((int)stk + 64)))) && ((u17 = *(float *)(((int)stk + 52)), u17 > u13) && ((u18 = *(float *)(((int)stk + 72)), u14 > u18) && (u19 = *(float *)(((int)stk + 60)), u19 > u14)))) {
-                        u25 = u14;
-                        u26 = u13;
-                    } else {
-                        *(int *)((int)stk + 4) = (((int)stk + 8) + 0x8);
-                        cpuAimAngleRate((0xB9C + a4), t11, (((int)stk + 4) + 0x3C), (((int)stk + 4) + 0x30), (((int)stk + 8) + 0x8));
-                        *(float *)((t11 + 0x0)) = (*(float *)(((int)stk + 16)));
-                        *(float *)((t11 + 0x8)) = (*(float *)(((int)stk + 24)));
-                    }
-                    cpuDblAimRateA(a4, t11, u25, u26);
-                    t10 = (t10 + 0x1);
-                    t11 = (t11 + 0x20);
-                    if ((int)t10 >= (int)a5) {
-                        break;
-                    }
-                }
-            }
-            *(unsigned int *)(((int)stk + 12)) = 0x0;
-            *(unsigned int *)(((int)stk + 8)) = 0xFFFFD8F0;
-            if ((int)a5 > 0) {
-                t31 = 0xFFFFD8F0;
-                t32 = 0x0;
-                t33 = 0x8C2FCC6C;
-                for (;;) {
-                    if (!((*(float *)((t33 + 0x1C))) > (float)(*(int *)(((int)stk + 8))))) {
-                        if ((*(float *)((t33 + 0x1C))) == (float)(*(int *)(((int)stk + 8)))) {
-                            t38 = nlRand();
-                            t39 = ((~(((~t38) + 0x1) & 0x1)) + 0x1);
-                            if ((int)t38 >= 0) {
-                                t39 = (t38 & 0x1);
-                            }
-                            if (t39 != 0) {
-                                *(unsigned int *)(((int)stk + 8)) = (int)(*(float *)((t33 + 0x1C)));
-                                *(unsigned int *)(((int)stk + 12)) = t32;
-                            }
-                        } else {
-                            t48 = t31;
-                        }
-                        t55 = t48;
-                    } else {
-                        *(unsigned int *)(((int)stk + 8)) = (int)(*(float *)((t33 + 0x1C)));
-                        *(unsigned int *)(((int)stk + 12)) = t32;
-                        t55 = t31;
-                    }
-                    t31 = t55;
-                    t32 = (t32 + 0x1);
-                    t33 = (t33 + 0x20);
-                    if ((int)t32 >= (int)a5) {
-                        break;
-                    }
-                }
-            }
-            t66 = *(int *)(((int)stk + 12));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((((((t66 << 2) << 2) << 1) + 0x8C2FCC6C) + 0x0)));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = (*(float *)((((((t66 << 2) << 2) << 1) + 0x8C2FCC6C) + 0x8)));
-            *(unsigned char *)(((0x13C + ((t0 * 0x160) + 0x8C2FC69C)) + 0x0)) = (*(signed char *)((((((t66 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC)));
-            u70 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138));
-            u71 = (-u70);
-            if (!(0.0f > u70)) {
-                u71 = u70;
-            }
-            u73 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130));
-            u76 = (-1.0f);
-            u76 = u76 + (1.0f + 1.0f) * (u71 / 118.849998f);
-            cpuShotTargetSet(a4, (((*(float *)((a4 + 0xB00))) * u73) / (*(float *)0x8C287B40)), u76);
-            *(unsigned char *)(((0x1D + ((t0 * 0x160) + 0x8C2FC69C)) + 0x0)) = (*(signed char *)((((((t66 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC)));
-            t85 = 0x0;
-            if ((*(int *)0x8C291F74) == 5) {
-                t80 = nlRand();
-                t81 = ((~(((~t80) + 0x1) & 0x1)) + 0x1);
-                if ((int)t80 >= 0) {
-                    t81 = (t80 & 0x1);
-                }
-                t85 = (0x0 + t81);
-            }
-            t87 = *(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118));
-            u88 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC));
-            u89 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = (u89 - 12.0f);
-            if (-200.0f > (*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)))) {
-                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = -200.0f;
-            }
-            if (((float)(int)((float)t85 + ((float)t87 * ((-(u88 / 100.0f)) + 1.0f))) > (*(float *)0x8C291F54)) && (t93 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB6)), t93 == 0)) {
-                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = ((float)(int)((float)t85 + ((float)t87 * ((-(u88 / 100.0f)) + 1.0f))) - (*(float *)0x8C291F54));
-                u96 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4));
-                if (u96 > (float)((*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))) - 5)) {
-                    if ((*(int *)0x8C291F74) != 5) {
-                        t100 = (int)((int)(nlRand()) % (int)0x28);
-                        if (t100 == 0) {
-                            if ((*(int *)0x8C291F74) == 5) {
-                                t102 = nlRand();
-                                t103 = ((~(((~t102) + 0x1) & 0x7)) + 0x1);
-                                if ((int)t102 >= 0) {
-                                    t103 = (t102 & 0x7);
-                                }
-                                if (t103 == 0) {
-                                    *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((a4 + 0xAE8)));
-                                    *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = 0.0f;
-                                    u106 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138));
-                                    u107 = (-u106);
-                                    if (!(0.0f > u106)) {
-                                        u107 = u106;
-                                    }
-                                    u109 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130));
-                                    u112 = (-1.0f);
-                                    u112 = u112 + (1.0f + 1.0f) * (u107 / 118.849998f);
-                                    cpuShotTargetSet(a4, (((*(float *)((a4 + 0xB00))) * u109) / (*(float *)0x8C287B40)), u112);
-                                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x2;
-                                    *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-                                }
-                            }
-                        } else {
-                            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((a4 + 0xAE8)));
-                            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = 0.0f;
-                            u126 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138));
-                            u127 = (-u126);
-                            if (!(0.0f > u126)) {
-                                u127 = u126;
-                            }
-                            u129 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130));
-                            u132 = (-1.0f);
-                            u132 = u132 + (1.0f + 1.0f) * (u127 / 118.849998f);
-                            cpuShotTargetSet(a4, (((*(float *)((a4 + 0xB00))) * u129) / (*(float *)0x8C287B40)), u132);
-                            *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x2;
-                            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-                        }
-                    } else {
-                        if ((*(int *)0x8C291F74) == 5) {
-                            t141 = nlRand();
-                            t142 = ((~(((~t141) + 0x1) & 0x7)) + 0x1);
-                            if ((int)t141 >= 0) {
-                                t142 = (t141 & 0x7);
-                            }
-                            if (t142 == 0) {
-                                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((a4 + 0xAE8)));
-                                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = 0.0f;
-                                u145 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138));
-                                u146 = (-u145);
-                                if (!(0.0f > u145)) {
-                                    u146 = u145;
-                                }
-                                u148 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130));
-                                u151 = (-1.0f);
-                                u151 = u151 + (1.0f + 1.0f) * (u146 / 118.849998f);
-                                cpuShotTargetSet(a4, (((*(float *)((a4 + 0xB00))) * u148) / (*(float *)0x8C287B40)), u151);
-                                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x2;
-                                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-                            }
-                        }
-                    }
-                }
-            } else {
-                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = (unsigned char)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1D)));
-                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-            }
-            u202 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x10));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x8)) = ((u202 * 5.0f) / 32768.0f);
-            *(unsigned int *)((a4 + 0xA24)) = 0x1;
-            t203 = 0xA24;
-        }
-        t220 = t203;
-    }
-    return t220;
-}
-
-int FUN_8c07e570(int a4, int a5)
-{
-    int stk[30];
-    register int t0;
-    register float u1;
-    register float u2;
-    register float u5;
-    register float u7;
-    register int t10;
-    register int t11;
-    register float u12;
-    register float u13;
-    register float u14;
-    register int t32;
-    register int t33;
-    register int t34;
-    register int t35;
-    register int t38;
-    register int t39;
-    register float u41;
-    register float u50;
-    register int t63;
-    register float u67;
-    register float u68;
-    register float u70;
-    register float u73;
-    register int t82;
-    register int t77;
-    register int t78;
-    register int t84;
-    register float u85;
-    register float u86;
-    register float u93;
-    register int t97;
-    register int t99;
-    register int t100;
-    register float u103;
-    register float u104;
-    register float u106;
-    register float u109;
-    register float u123;
-    register float u124;
-    register float u126;
-    register float u129;
-    register int t138;
-    register int t139;
-    register float u142;
-    register float u143;
-    register float u145;
-    register float u148;
-    register float u200;
-    register int t220;
-    register int t202;
-    register float u17;
-    register float u18;
-    register float u19;
-    register float u25;
-    register float u26;
-    register int t52;
-    register int t46;
-    register int t90;
-
-    t0 = *(int *)((a4 + 0xB5C));
-    u1 = *(float *)0x8C291F7C;
-    u2 = (-u1);
-    if (!(0.0f > u1)) {
-        u2 = u1;
-    }
-    if (!(60.8849983f > u2)) {
-        *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
-        *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-        t220 = 0x4;
-    } else {
-        u5 = *(float *)0x8C291F84;
-        u7 = (-u5);
-        if (!(0.0f > u5)) {
-            u7 = (*(float *)0x8C291F84);
-        }
-        if (!(137.252502f > u7)) {
-            *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x0;
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-            t202 = 0x4;
-        } else {
-            *(int *)((int)stk + 4) = (((int)stk + 8) + 0x10);
-            cpuShotRange(a4, (((int)stk + 4) + 0x38), (((int)stk + 4) + 0x2C), (((int)stk + 4) + 0x20), (((int)stk + 8) + 0x10), u1);
-            if ((int)a5 > 0) {
-                t10 = 0x0;
-                t11 = 0x8C2FCC6C;
-                for (;;) {
-                    u12 = *(float *)((t11 + 0x8));
-                    u13 = *(float *)((t11 + 0x0));
-                    u14 = u12;
-                    if (0.0f > u12) {
-                        u14 = (-u12);
-                    }
-                    if ((u13 > (*(float *)(((int)stk + 60)))) && ((u17 = *(float *)(((int)stk + 48)), u17 > u13) && ((u18 = *(float *)(((int)stk + 68)), u14 > u18) && (u19 = *(float *)(((int)stk + 56)), u19 > u14)))) {
-                        u25 = u13;
-                        u26 = u14;
-                    } else {
-                        *(int *)((int)stk + 4) = (((int)stk + 8) + 0x4);
-                        cpuAimAngleRate((0xB9C + a4), t11, (((int)stk + 4) + 0x38), (((int)stk + 4) + 0x2C), (((int)stk + 8) + 0x4));
-                        *(float *)((t11 + 0x0)) = (*(float *)(((int)stk + 12)));
-                        *(float *)((t11 + 0x8)) = (*(float *)(((int)stk + 20)));
-                    }
-                    cpuDblAimRateA(a4, t11, u25, u26);
-                    t10 = (t10 + 0x1);
-                    t11 = (t11 + 0x20);
-                    if ((int)t10 >= (int)a5) {
-                        break;
-                    }
-                }
-            }
-            *(unsigned int *)(((int)stk + 8)) = 0x0;
-            if ((int)a5 > 0) {
-                t32 = 0x0;
-                t33 = 0x0;
-                t34 = 0xFFFFD8F0;
-                t35 = 0x8C2FCC6C;
-                for (;;) {
-                    if (!((*(float *)((t35 + 0x1C))) > (float)t34)) {
-                        if ((*(float *)((t35 + 0x1C))) == (float)t34) {
-                            t38 = nlRand();
-                            t39 = ((~(((~t38) + 0x1) & 0x1)) + 0x1);
-                            if ((int)t38 >= 0) {
-                                t39 = (t38 & 0x1);
-                            }
-                            if (t39 != 0) {
-                                u41 = *(float *)((t35 + 0x1C));
-                                *(unsigned int *)(((int)stk + 8)) = t33;
-                                t34 = (int)u41;
-                            }
-                        } else {
-                            t46 = t32;
-                        }
-                        t52 = t46;
-                    } else {
-                        u50 = *(float *)((t35 + 0x1C));
-                        *(unsigned int *)(((int)stk + 8)) = t33;
-                        t34 = (int)u50;
-                        t52 = t32;
-                    }
-                    t32 = t52;
-                    t33 = (t33 + 0x1);
-                    t35 = (t35 + 0x20);
-                    if ((int)t33 >= (int)a5) {
-                        break;
-                    }
-                }
-            }
-            t63 = *(int *)(((int)stk + 8));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((((((t63 << 2) << 2) << 1) + 0x8C2FCC6C) + 0x0)));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = (*(float *)((((((t63 << 2) << 2) << 1) + 0x8C2FCC6C) + 0x8)));
-            *(unsigned char *)(((0x13C + ((t0 * 0x160) + 0x8C2FC69C)) + 0x0)) = (*(signed char *)((((((t63 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC)));
-            u67 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138));
-            u68 = (-u67);
-            if (!(0.0f > u67)) {
-                u68 = u67;
-            }
-            u70 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130));
-            u73 = (-1.0f);
-            u73 = u73 + (1.0f + 1.0f) * (u68 / 118.849998f);
-            cpuShotTargetSet(a4, (((*(float *)((a4 + 0xB00))) * u70) / (*(float *)0x8C287B40)), u73);
-            *(unsigned char *)(((0x1D + ((t0 * 0x160) + 0x8C2FC69C)) + 0x0)) = (*(signed char *)((((((t63 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC)));
-            t82 = 0x5;
-            if ((*(int *)0x8C291F74) == 5) {
-                t77 = nlRand();
-                t78 = ((~(((~t77) + 0x1) & 0x1)) + 0x1);
-                if ((int)t77 >= 0) {
-                    t78 = (t77 & 0x1);
-                }
-                t82 = (0x5 + (t78 + 0xA));
-            }
-            t84 = *(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118));
-            u85 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC));
-            u86 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = (u86 - 40.0f);
-            if (-200.0f > (*(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)))) {
-                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0xC)) = -200.0f;
-            }
-            if (((float)(int)((float)t82 + ((float)t84 * ((-(u85 / 100.0f)) + 1.0f))) > (*(float *)0x8C291F54)) && (t90 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0xB6)), t90 == 0)) {
-                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = ((float)(int)((float)t82 + ((float)t84 * ((-(u85 / 100.0f)) + 1.0f))) - (*(float *)0x8C291F54));
-                u93 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4));
-                if (u93 > (float)((*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))) - 5)) {
-                    if ((*(int *)0x8C291F74) != 5) {
-                        t97 = (int)((int)(nlRand()) % (int)0x28);
-                        if (t97 == 0) {
-                            if ((*(int *)0x8C291F74) == 5) {
-                                t99 = nlRand();
-                                t100 = ((~(((~t99) + 0x1) & 0x7)) + 0x1);
-                                if ((int)t99 >= 0) {
-                                    t100 = (t99 & 0x7);
-                                }
-                                if (t100 == 0) {
-                                    *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((a4 + 0xAE8)));
-                                    *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = 0.0f;
-                                    u103 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138));
-                                    u104 = (-u103);
-                                    if (!(0.0f > u103)) {
-                                        u104 = u103;
-                                    }
-                                    u106 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130));
-                                    u109 = (-1.0f);
-                                    u109 = u109 + (1.0f + 1.0f) * (u104 / 118.849998f);
-                                    cpuShotTargetSet(a4, (((*(float *)((a4 + 0xB00))) * u106) / (*(float *)0x8C287B40)), u109);
-                                    *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x2;
-                                    *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-                                }
-                            }
-                        } else {
-                            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((a4 + 0xAE8)));
-                            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = 0.0f;
-                            u123 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138));
-                            u124 = (-u123);
-                            if (!(0.0f > u123)) {
-                                u124 = u123;
-                            }
-                            u126 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130));
-                            u129 = (-1.0f);
-                            u129 = u129 + (1.0f + 1.0f) * (u124 / 118.849998f);
-                            cpuShotTargetSet(a4, (((*(float *)((a4 + 0xB00))) * u126) / (*(float *)0x8C287B40)), u129);
-                            *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x2;
-                            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-                        }
-                    } else {
-                        if ((*(int *)0x8C291F74) == 5) {
-                            t138 = nlRand();
-                            t139 = ((~(((~t138) + 0x1) & 0x7)) + 0x1);
-                            if ((int)t138 >= 0) {
-                                t139 = (t138 & 0x7);
-                            }
-                            if (t139 == 0) {
-                                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130)) = (*(float *)((a4 + 0xAE8)));
-                                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138)) = 0.0f;
-                                u142 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x138));
-                                u143 = (-u142);
-                                if (!(0.0f > u142)) {
-                                    u143 = u142;
-                                }
-                                u145 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x130));
-                                u148 = (-1.0f);
-                                u148 = u148 + (1.0f + 1.0f) * (u143 / 118.849998f);
-                                cpuShotTargetSet(a4, (((*(float *)((a4 + 0xB00))) * u145) / (*(float *)0x8C287B40)), u148);
-                                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = 0x2;
-                                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-                            }
-                        }
-                    }
-                }
-            } else {
-                *(unsigned short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1E)) = (unsigned char)(*(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x1D)));
-                *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x4)) = 0.0f;
-            }
-            u200 = *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x10));
-            *(float *)((((t0 * 0x160) + 0x8C2FC69C) + 0x8)) = ((u200 * (*(float *)0x8C07E95C)) / (*(float *)0x8C07E960));
-            *(unsigned int *)((a4 + 0xA24)) = 0x1;
-            t202 = 0xA24;
-        }
-        t220 = t202;
-    }
-    return t220;
-}
 
 float FUN_8c060480(int a4, float f4, float f5, float f6, float f7, float f8, float f9, float f10)
 {
@@ -1556,10 +792,13 @@ float FUN_8c06b062(int a4, float f4)
     register int t118;
     register int t104;
     register int t151;
+    int R1016;
+
+    R1016 = *(int *)((int)stk + 16);
 
     t0 = *(int *)((a4 + 0xB5C));
     t2 = *(int *)(((((((-t0) + 0x3) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C));
-    *(unsigned int *)(((int)stk + 16)) = (0x8C2FC69C + ((*(int *)((((((t0 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C))) * 0x160));
+    R1016 = (0x8C2FC69C + ((*(int *)((((((t0 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C))) * 0x160));
     if ((*(int *)((a4 + 0xA24))) == 0) {
     } else {
         u6 = *(float *)((a4 + 0xB00));
@@ -1663,7 +902,7 @@ float FUN_8c06b062(int a4, float f4)
         u135 = (*(float *)((a4 + 0xAE8)));
         u135 = u135 + 16.0f * u133;
         u136 = *(float *)((((((t0 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xAE8));
-        t137 = cpuEdgeX((((u135 > (u136 + (*(float *)(((*(int *)(((int)stk + 16))) + 0x28)))))) ? 1 : 0), *(Stk3 *)(((int)stk + 4)), (-(u9 * 118.849998f)));
+        t137 = cpuEdgeX((((u135 > (u136 + (*(float *)(((R1016) + 0x28)))))) ? 1 : 0), *(Stk3 *)(((int)stk + 4)), (-(u9 * 118.849998f)));
         t138 = *(int *)((a4 + 0xC58));
         t139 = ((~(((~t138) + 0x1) & 0x1)) + 0x1);
         if ((int)t138 >= 0) {

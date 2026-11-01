@@ -140,52 +140,10 @@ int mwRnaFinish(int a4, int a5, int a6, int a7)
     return ((int (*)(void))(0x8C200110))();
 }
 
-int mwRnaInit(void)
-{
-    int t3;
-    int t4;
-    int t18;
-    int t11;
-    int t12;
-    int t13;
 
-    mwlRnaDummyFunc();
-    memset(0x8C46D68C, 0x0, 0x480);
-    memset(0x8C46DB0C, 0x0, 0x820);
-    t3 = 0x0;
-    t4 = 0x8C46E32C;
-    for (;;) {
-        t3 = (t3 + 0x1);
-        *(unsigned int *)((t4 + 0x0)) = 0x80808080;
-        t4 = (t4 + 0x4);
-        if ((int)t3 >= (int)0x200) {
-            break;
-        }
-    }
-    if ((*(int *)0x8C20C8B0) == 0) {
-        *(unsigned int *)0x8C20C8B0 = (mwlSbGetWorkTbl());
-    } else {
-        t11 = 0x80808080;
-        t12 = t4;
-        t13 = 0x200;
-    }
-    t18 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)0x8C20C8B0) + 0xC)))))((*(int *)0x8C20C8B4), t11, t12, t13);
-    mwlRnaSetSvrInt();
-    return mwRnaErrEntryFunc(0x0, 0x0);
-}
-
-void ADXERR_EntryErrFunc(int a4, int a5)
-{
-    *(unsigned int *)0x8C20C89C = a4;
-    *(unsigned int *)0x8C20C8A0 = a5;
-}
 
 int thunk_mwRnaInit(void)
 {
     return mwRnaInit();
 }
 
-int thunk_mwRnaErrEntryFunc(int a4, int a5)
-{
-    return mwRnaErrEntryFunc(a4, a5);
-}

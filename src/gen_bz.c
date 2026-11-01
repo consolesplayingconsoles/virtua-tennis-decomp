@@ -191,18 +191,6 @@ int gdFsGetToc(void)
     return 0x0;
 }
 
-int gdFsReqDrvStat(void)
-{
-    int t0;
-    int t1;
-
-    t0 = *(int *)0x8C20C210;
-    if (t0 != 0) {
-        t1 = *(int *)((t0 + 0x58));
-        return ((int (*)(void))(t1))();
-    }
-    return 0x0;
-}
 
 void gdFsMemcpy(int a4, int a5, int a6)
 {
@@ -280,18 +268,6 @@ int gdFsCreateHn(void)
     return 0x0;
 }
 
-int gdFsLoadDir(void)
-{
-    int t0;
-    int t1;
-
-    t0 = *(int *)0x8C20C210;
-    if (t0 != 0) {
-        t1 = *(int *)((t0 + 0x20));
-        return ((int (*)(void))(t1))();
-    }
-    return 0x0;
-}
 
 int gdFsSetDir(void)
 {
@@ -306,18 +282,6 @@ int gdFsSetDir(void)
     return 0x0;
 }
 
-int gdFsGetDirInfo(void)
-{
-    int t0;
-    int t1;
-
-    t0 = *(int *)0x8C20C210;
-    if (t0 != 0) {
-        t1 = *(int *)((t0 + 0x2C));
-        return ((int (*)(void))(t1))();
-    }
-    return 0x0;
-}
 
 int gdFsGetWorkHn(void)
 {
@@ -345,27 +309,7 @@ int gdFsGetSysHn(void)
     return 0x0;
 }
 
-void gdFsExecServer(void)
-{
-    int t0;
 
-    t0 = *(int *)0x8C20C210;
-    if (t0 != 0) {
-        ((int (*)(void))((*(int *)((t0 + 0x48)))))();
-    return;
-    }
-}
-
-void gdFsEntryErrFuncAll(void)
-{
-    int t0;
-
-    t0 = *(int *)0x8C20C210;
-    if (t0 != 0) {
-        ((int (*)(void))((*(int *)((t0 + 0x74)))))();
-    return;
-    }
-}
 
 int gdFsTell(int handleAddress)
 {
@@ -636,10 +580,6 @@ void kdSetGunTrigger(int a4)
     *(unsigned int *)0x8C4620EC = (a4 + 0x1);
 }
 
-int gdFsInit(void)
-{
-    return gdFsInitOvl();
-}
 
 int pdGetMode(int a4, int a5, int a6, int a7)
 {

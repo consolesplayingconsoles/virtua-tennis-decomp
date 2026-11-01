@@ -325,6 +325,11 @@ float FUN_8c0601de(int a4, float f4)
     register float u81;
     register float u84;
     register float u61;
+    float R1040;
+    float R1044;
+
+    R1040 = *(float *)((int)stk + 40);
+    R1044 = *(float *)((int)stk + 44);
 
     t0 = *(int *)((a4 + 0xB5C));
     t1 = *(int *)((((((t0 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xB5C));
@@ -361,13 +366,13 @@ float FUN_8c0601de(int a4, float f4)
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((0xAE8 + t27)); }
             t34 = *(short *)((((t1 * 0x160) + 0x8C2FC69C) + 0x118));
             u35 = *(float *)((((((t0 + 0x2) & 0x3) * 0xD78) + 0x8C287D84) + 0xBA4));
-            *(float *)(((int)stk + 40)) = u35;
+            R1040 = u35;
             u36 = *(float *)((t27 + 0xAF0));
-            *(float *)(((int)stk + 44)) = u36;
+            R1044 = u36;
             u41 = (u35 - u36);
             if (!(0.0f > (u35 - u36))) {
             } else {
-                u41 = ((-(*(float *)(((int)stk + 40)))) + (*(float *)(((int)stk + 44))));
+                u41 = ((-(R1040)) + (R1044));
             }
             cpuReachPoint(t27, (((int)stk + 28) + 0x2C), (int)(((float)t34 + (u41 / 4.0f)) + 10.0f), *(Stk3 *)(((int)stk + 28)));
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0x14)); }

@@ -611,17 +611,6 @@ int FUN_8c08627a(int a4, int a5, int a6, int a7)
     return (sprPutAt((a4 + 0x14), a5, a6, a7, *(Stk3 *)(((int)stk + 4))));
 }
 
-int FUN_8c08b24c(int a4)
-{
-    nlPushMatrix(0x0);
-    *(volatile float *)0x8C287A24;
-    *(volatile float *)0x8C287A20;
-    *(volatile float *)0x8C08B314;
-    *(volatile float *)0x8C287A1C;
-    *(volatile int *)(((a4 << 2) + 0x8C18256C));
-    shadowVolPutDirA();
-    return nlPopMatrix(0x1);
-}
 
 int FUN_8c0d6ddc(int a4)
 {
@@ -676,16 +665,6 @@ int FUN_8c01361a(int a4)
     return mainSoftReset(0x1);
 }
 
-int FUN_8c08b218(int a4)
-{
-    nlPushMatrix(0x0);
-    *(volatile float *)0x8C287A24;
-    *(volatile float *)0x8C287A20;
-    *(volatile float *)0x8C287A1C;
-    *(volatile float *)0x8C08B314;
-    shadowVolPutDirA();
-    return nlPopMatrix(0x1);
-}
 
 void FUN_8c08b430(Stk1 s, float f4)
 {
@@ -858,22 +837,6 @@ void FUN_8c084102(int a4)
     }
 }
 
-void FUN_8c0843e8(int a4)
-{
-    register int t1;
-
-    if ((*(int *)0x8C421F60) == 0) {
-        t1 = *(int *)((a4 + 0x1C));
-        *(unsigned int *)((a4 + 0x1C)) = (t1 - 1);
-        if (t1 == 0) {
-            *(volatile int *)((a4 + 0x14));
-            umpCallSpareB();
-            nlCloseEvent2(a4);
-    return;
-        }
-        return;
-    }
-}
 
 void FUN_8c084b3c(int a4)
 {
@@ -1068,19 +1031,6 @@ void FUN_8c083f24(int a4)
     }
 }
 
-void FUN_8c084302(int a4)
-{
-    register int t0;
-
-    t0 = *(int *)((a4 + 0x1C));
-    *(unsigned int *)((a4 + 0x1C)) = (t0 - 1);
-    if (t0 == 0) {
-        *(volatile int *)((a4 + 0x14));
-        umpCallSpareA();
-        nlCloseEvent2(a4);
-    return;
-    }
-}
 
 int FUN_8c0d0c34(void)
 {
@@ -1114,14 +1064,6 @@ int FUN_8c0da7ae(int a4)
     return t0;
 }
 
-int FUN_8c010da8(void)
-{
-    *(unsigned int *)0x8C20D124 = ((*(int *)0x8C20D124) + 0x1);
-    strmExec();
-    ADXT_ExecServer();
-    mainCheckDrive();
-    return 0x0;
-}
 
 int FUN_8c08df8c(void)
 {

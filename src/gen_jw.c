@@ -1,1399 +1,531 @@
 /* Straight-line functions with calls and guards (batch gen_jw): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int primSprDrawScale(int, int, int, int, float, float);
-int menuTextMsgPutB(int a4, int a5, int a6, int a7, int a8, float f4);
+typedef struct { int w[3]; } Stk3;
+typedef struct { int w[6]; } Stk6;
+int BupRequestSave(int, int, int, int);
+int charaTexFreeAll(void);
+int circuitMenuCursor(int, int);
+float circuitNumDrawSign(int, int, int, float, float, float);
+int circuitTaskAdd(int, int, int);
+int circuitTaskTrim(int);
+int cursorBoxPut(int, Stk3, float, float, float);
+int gameModeSet(int, int, int);
+int memmove(int, int, int);
+int motionAdvance(int);
+int motionIsEnd(int);
+int motionRootAtFrame(int, int, int, int, int);
+int muneSlotLoad(int, int);
+int nlAddVector(int, int);
+int nlCalcPoint(int, int);
+int nlDispStripTrnsl(int, int);
+extern int nlLoadMatrix();
+int nlMatrixMode(int);
+int nlObjPut(int);
+int nlObjPutSetFadeColor(float, float, float);
+int nlObjPutSetFadeColorOffset(float, float, float);
+int nlObjPutSetSaturate(float, float);
+int nlPerspective(int, float, float, float);
+int nlPopMatrix(int);
+int nlPushMatrix(int);
+int nlPushUnitMatrix(void);
+int nlRotateAY(int);
+int nlScale(float, float, float);
+int nlScaleVector(int, int, float);
+float nlSin(int);
+float nlTanf(float);
+int nlTranslate(float, float, float);
+int nlUnitMatrix(void);
+int padDirRepeat(int, int);
+int playerPut(int, int, int, int, int, int, int, int, int, int, int, int);
+int primLineH(int, int, int, int, int, int, int, int, int, int);
+int primLineV(int, int, Stk6);
+int primRectInc(int, int, int, int, int, int, int, int);
+int sndSeCursor(void);
+int sndSeDecide(void);
+extern float sprSheetPut();
+int sprSheetSet(int);
+int uniformSlotLoad(int, int, int, int, int, int);
+int unlockCountW0(void);
+int unlockCountW1(void);
+int unlockCountW2(void);
+int unlockTestW0(int);
+Stk3 vecMake(float, float, float);
+int FUN_8c03504c(int a4);
 
-int menuTextMsgPutB(int a4, int a5, int a6, int a7, int a8, float f4)
+int FUN_8c03504c(int a4)
 {
-    int stk[129];
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t5;
-    register float u10;
-    register int t7;
-    register float u8;
-    register float u9;
-    register float u11;
-    register int t297;
-    register int t298;
-    register int t300;
-    register int t301;
-    register float u302;
-    register int t291;
-    register int t292;
-    register int t294;
-    register int t295;
-    register float u296;
+    int stk[72];
+    int t299;
 
-    stk[120] = a8;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((0x19C + ((int)stk + 16))) = *(struct mv3 *)((0x1D0 + ((int)stk + 16))); }
-    *(unsigned int *)(((int)stk + 20)) = 0x8C33533C;
-    *(unsigned int *)(((int)stk + 40)) = 0x8C1849C8;
-    *(unsigned int *)(((int)stk + 24)) = 0x8C1849D8;
-    *(unsigned int *)(((int)stk + 16)) = 0x8C3353DC;
-    *(unsigned int *)(((int)stk + 28)) = 0x8C1849E8;
-    *(unsigned int *)(((int)stk + 32)) = 0x8C33542C;
-    *(unsigned int *)(((int)stk + 36)) = 0x8C1849F8;
-    *(unsigned int *)(((int)stk + 44)) = 0x8C33547C;
-    *(unsigned int *)(((int)stk + 424)) = 0x8C184A18;
-    *(unsigned int *)(((int)stk + 420)) = 0x8C33551C;
-    *(unsigned int *)(((int)stk + 416)) = 0x8C184A28;
-    *(unsigned int *)(((int)stk + 412)) = 0x8C33556C;
-    *(unsigned int *)(((int)stk + 408)) = 0x8C184A38;
-    *(unsigned int *)(((int)stk + 404)) = 0x8C3355BC;
-    *(unsigned int *)(((int)stk + 400)) = 0x8C184A48;
-    *(unsigned int *)(((int)stk + 396)) = 0x8C33560C;
-    *(unsigned int *)(((int)stk + 392)) = 0x8C184A58;
-    *(unsigned int *)(((int)stk + 388)) = 0x8C33565C;
-    *(unsigned int *)(((int)stk + 384)) = 0x8C184A68;
-    *(unsigned int *)(((int)stk + 380)) = 0x8C3356AC;
-    *(unsigned int *)(((int)stk + 376)) = 0x8C184A78;
-    *(unsigned int *)(((int)stk + 372)) = 0x8C3356FC;
-    *(unsigned int *)(((int)stk + 368)) = 0x8C184A88;
-    *(unsigned int *)(((int)stk + 364)) = 0x8C33574C;
-    *(unsigned int *)(((int)stk + 360)) = 0x8C184A98;
-    *(unsigned int *)(((int)stk + 356)) = 0x8C33579C;
-    *(unsigned int *)(((int)stk + 352)) = 0x8C184AA8;
-    *(unsigned int *)(((int)stk + 348)) = 0x8C3357EC;
-    *(unsigned int *)(((int)stk + 344)) = 0x8C184AB8;
-    *(unsigned int *)(((int)stk + 340)) = 0x8C33583C;
-    *(unsigned int *)(((int)stk + 336)) = 0x8C184AC8;
-    *(unsigned int *)(((int)stk + 332)) = 0x8C33588C;
-    *(unsigned int *)(((int)stk + 328)) = 0x8C184AD8;
-    *(unsigned int *)(((int)stk + 324)) = 0x8C3358DC;
-    *(unsigned int *)(((int)stk + 320)) = 0x8C184AE8;
-    *(unsigned int *)(((int)stk + 316)) = 0x8C33592C;
-    *(unsigned int *)(((int)stk + 312)) = 0x8C184AF8;
-    *(unsigned int *)(((int)stk + 308)) = 0x8C33597C;
-    *(unsigned int *)(((int)stk + 304)) = 0x8C184B08;
-    *(unsigned int *)(((int)stk + 300)) = 0x8C3359CC;
-    *(unsigned int *)(((int)stk + 296)) = 0x8C184B18;
-    *(unsigned int *)(((int)stk + 292)) = 0x8C335A1C;
-    *(unsigned int *)(((int)stk + 288)) = 0x8C184B28;
-    *(unsigned int *)(((int)stk + 284)) = 0x8C335A6C;
-    *(unsigned int *)(((int)stk + 280)) = 0x8C184B38;
-    *(unsigned int *)(((int)stk + 276)) = 0x8C335ABC;
-    *(unsigned int *)(((int)stk + 272)) = 0x8C184B48;
-    *(unsigned int *)(((int)stk + 268)) = 0x8C335B0C;
-    *(unsigned int *)(((int)stk + 264)) = 0x8C184B58;
-    *(unsigned int *)(((int)stk + 260)) = 0x8C335B5C;
-    *(unsigned int *)(((int)stk + 256)) = 0x8C184B68;
-    *(unsigned int *)(((int)stk + 252)) = 0x8C335BAC;
-    *(unsigned int *)(((int)stk + 248)) = 0x8C184B78;
-    *(unsigned int *)(((int)stk + 244)) = 0x8C335BFC;
-    *(unsigned int *)(((int)stk + 240)) = 0x8C184B88;
-    *(unsigned int *)(((int)stk + 236)) = 0x8C335C4C;
-    *(unsigned int *)(((int)stk + 232)) = 0x8C184B98;
-    *(unsigned int *)(((int)stk + 228)) = 0x8C335C9C;
-    *(unsigned int *)(((int)stk + 224)) = 0x8C184BA8;
-    *(unsigned int *)(((int)stk + 220)) = 0x8C335CEC;
-    *(unsigned int *)(((int)stk + 216)) = 0x8C184BB8;
-    *(unsigned int *)(((int)stk + 212)) = 0x8C335D3C;
-    *(unsigned int *)(((int)stk + 208)) = 0x8C184BC8;
-    *(unsigned int *)(((int)stk + 204)) = 0x8C335D8C;
-    *(unsigned int *)(((int)stk + 200)) = 0x8C184BD8;
-    *(unsigned int *)(((int)stk + 196)) = 0x8C335DDC;
-    *(unsigned int *)(((int)stk + 192)) = 0x8C184BE8;
-    *(unsigned int *)(((int)stk + 188)) = 0x8C335E2C;
-    *(unsigned int *)(((int)stk + 184)) = 0x8C184BF8;
-    *(unsigned int *)(((int)stk + 180)) = 0x8C335E7C;
-    *(unsigned int *)(((int)stk + 176)) = 0x8C184C08;
-    *(unsigned int *)(((int)stk + 172)) = 0x8C335ECC;
-    *(unsigned int *)(((int)stk + 168)) = 0x8C184C18;
-    *(unsigned int *)(((int)stk + 164)) = 0x8C335F1C;
-    *(unsigned int *)(((int)stk + 160)) = 0x8C184C28;
-    *(unsigned int *)(((int)stk + 156)) = 0x8C335F6C;
-    *(unsigned int *)(((int)stk + 152)) = 0x8C184C38;
-    *(unsigned int *)(((int)stk + 148)) = 0x8C335FBC;
-    *(unsigned int *)(((int)stk + 144)) = 0x8C184C48;
-    *(unsigned int *)(((int)stk + 140)) = 0x8C33600C;
-    *(unsigned int *)(((int)stk + 136)) = 0x8C184C58;
-    *(unsigned int *)(((int)stk + 132)) = 0x8C33605C;
-    *(unsigned int *)(((int)stk + 128)) = 0x8C184C68;
-    *(unsigned int *)(((int)stk + 124)) = 0x8C3360AC;
-    *(unsigned int *)(((int)stk + 120)) = 0x8C184C78;
-    *(unsigned int *)(((int)stk + 116)) = 0x8C3360FC;
-    *(unsigned int *)(((int)stk + 112)) = 0x8C184C88;
-    *(unsigned int *)(((int)stk + 108)) = 0x8C33614C;
-    *(unsigned int *)(((int)stk + 104)) = 0x8C184C98;
-    *(unsigned int *)(((int)stk + 100)) = 0x8C33619C;
-    *(unsigned int *)(((int)stk + 96)) = 0x8C184CA8;
-    *(unsigned int *)(((int)stk + 92)) = 0x8C3361EC;
-    *(unsigned int *)(((int)stk + 88)) = 0x8C184CB8;
-    *(unsigned int *)(((int)stk + 84)) = 0x8C33623C;
-    *(unsigned int *)(((int)stk + 80)) = 0x8C184CC8;
-    *(unsigned int *)(((int)stk + 76)) = 0x8C33628C;
-    *(unsigned int *)(((int)stk + 72)) = 0x8C184CD8;
-    *(unsigned int *)(((int)stk + 68)) = 0x8C3362DC;
-    *(unsigned int *)(((int)stk + 64)) = 0x8C184CE8;
-    *(unsigned int *)(((int)stk + 60)) = 0x8C33632C;
-    *(unsigned int *)(((int)stk + 56)) = 0x8C184CF8;
-    *(unsigned int *)(((int)stk + 52)) = 0x8C33637C;
-    *(unsigned int *)(((int)stk + 48)) = 0x8C184D08;
-    t0 = 0x40;
-    t1 = 0x1310;
-    t2 = 0x3D8;
-    t3 = 0x8C184D08;
-    t4 = 0x8C33637C;
-    t5 = a4;
-    u10 = f4;
-    for (;;) {
-        if ((*(signed char *)((t5 + 0x0))) != 0) {
-            t7 = 0x100;
-            t0 = (*(signed char *)((t5 + 0x0)));
-            u11 = 1.0f;
-            t0 = (t0 - 46);
-            t1 = 0x4D;
-            if ((unsigned int)t0 >= (unsigned int)t1) {
-                t0 = 0x8C094EF4;
-                u9 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                u10 = (*(float *)((t0 + 0x0)));
-                u9 = (u9 + u10);
-                *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u9;
-                t297 = t1;
-                t298 = t2;
-                t300 = t3;
-                t301 = t4;
-                u302 = u10;
-            } else {
-                t0 = (t0 << 1);
-                t1 = t0;
-                switch (t1) {
-                    case 0:
-                    {
-                        u9 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        t0 = 0xC;
-                        u9 = (u9 + u11);
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u9;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)(((int)stk + 52)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        u9 = (*(float *)(((*(int *)(((int)stk + 48))) + 0x0)));
-                        t2 = (int)u9;
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 2:
-                    case 4:
-                    case 6:
-                    case 8:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 16:
-                    case 18:
-                    case 20:
-                    case 22:
-                    case 24:
-                    case 26:
-                    case 28:
-                    case 30:
-                    case 32:
-                    case 34:
-                    case 36:
-                    case 90:
-                    case 92:
-                    case 94:
-                    case 96:
-                    case 98:
-                    case 100:
-                    {
-                        t0 = 0x8C094EF4;
-                        u9 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u10 = (*(float *)((t0 + 0x0)));
-                        u9 = (u9 + u10);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u9;
-                        t291 = t1;
-                        t292 = t2;
-                        t294 = t3;
-                        t295 = t4;
-                        u296 = u10;
-                    }
-                        break;
-                    case 38:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)(((int)stk + 20)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u9 = (*(float *)(((*(int *)(((int)stk + 40))) + 0x0)));
-                        u10 = 1.0f;
-                        u10 = (u10 + u10);
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (u8 + u9);
-                        u9 = u8;
-                        u9 = (u9 - u10);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u9;
-                        t292 = t2;
-                        u296 = u10;
-                    }
-                        break;
-                    case 40:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = 0x8C33538C;
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t2 = (*(int *)(((int)stk + 24)));
-                        u9 = (*(float *)((t2 + 0x0)));
-                        u9 = (float)((int)u9 - 2);
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 42:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)(((int)stk + 16)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        u9 = (*(float *)(((*(int *)(((int)stk + 28))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 44:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)(((int)stk + 32)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        u9 = (*(float *)(((*(int *)(((int)stk + 36))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 46:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)(((int)stk + 44)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        u9 = (*(float *)0x8C184A08);
-                        u9 = (float)((int)u9 - 2);
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                    }
-                        break;
-                    case 48:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = 0x8C3354CC;
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x198;
-                        t2 = (*(int *)((((int)stk + 16) + t0)));
-                        u9 = (*(float *)((t2 + 0x0)));
-                        u9 = (float)((int)u9 - 2);
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 50:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x1A0;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x190;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 52:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x198;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x188;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 54:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x190;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x180;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 56:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x188;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x178;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 58:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x180;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x170;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 60:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x178;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x168;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 62:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x170;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x160;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 64:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x168;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x158;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 66:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x160;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x150;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 68:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x158;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x148;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 70:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x150;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x140;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 72:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x148;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x138;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 74:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x140;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x130;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 76:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x138;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x128;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 78:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x130;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x120;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 80:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x128;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x118;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 82:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x120;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x110;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 84:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x118;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x108;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 86:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x110;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x100;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 88:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x108;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0xF8;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 102:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x100;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0xF0;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 104:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0xF8;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0xE8;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 106:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0xF0;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0xE0;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 108:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0xE8;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0xD8;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 110:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0xE0;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0xD0;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 112:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0xD8;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0xC8;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 114:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0xD0;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0xC0;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 116:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0xC8;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0xB8;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 118:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0xC0;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0xB0;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 120:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0xB8;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0xA8;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 122:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0xB0;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0xA0;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 124:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0xA8;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x98;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 126:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0xA0;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x90;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 128:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x98;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x88;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 130:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x90;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x80;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 132:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x88;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x78;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 134:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t0 = 0x80;
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x70;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 136:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        t0 = 0x78;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x68;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (u8 + u9);
-                        u9 = u8;
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        u9 = (u9 - u11);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u9;
-                        t292 = t2;
-                    }
-                        break;
-                    case 138:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        t0 = 0x70;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x60;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (u8 + u9);
-                        u9 = u8;
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        u9 = (u9 - u11);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u9;
-                        t292 = t2;
-                    }
-                        break;
-                    case 140:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        t0 = 0x68;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x58;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 142:
-                    {
-                        t0 = 0x4;
-                        u9 = (*(float *)(((0x1D0 + ((int)stk + 16)) + t0)));
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        u9 = (u9 + u11);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + t0)) = u9;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        t0 = 0x60;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x50;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        t0 = 0x4;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u9 = (float)t2;
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        u9 = (*(float *)(((0x1D0 + ((int)stk + 16)) + t0)));
-                        u9 = (u9 - u11);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + t0)) = u9;
-                        t292 = t2;
-                    }
-                        break;
-                    case 144:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        t0 = 0x58;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x48;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 146:
-                    {
-                        t0 = 0x4;
-                        u9 = (*(float *)(((0x1D0 + ((int)stk + 16)) + t0)));
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        u9 = (u9 + u11);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + t0)) = u9;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        t0 = 0x50;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        t0 = 0x40;
-                        u9 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 4);
-                        t0 = 0x4;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u9 = (float)t2;
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        u9 = (*(float *)(((0x1D0 + ((int)stk + 16)) + t0)));
-                        u9 = (u9 - u11);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + t0)) = u9;
-                        t292 = t2;
-                    }
-                        break;
-                    case 148:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        t0 = 0x48;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        u9 = (*(float *)(((*(int *)(((int)stk + 72))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    case 150:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        t0 = 0x40;
-                        u10 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        u9 = (*(float *)(((*(int *)(((int)stk + 64))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                    default:
-                    {
-                        t0 = 0xC;
-                        t2 = (0x1D0 + ((int)stk + 16));
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)(t2); }
-                        t4 = t7;
-                        u10 = f4;
-                        t3 = (*(int *)(((int)stk + 60)));
-                        t0 = (primSprDrawScale(t3, t4, t7, a7, u10, f4));
-                        u9 = (*(float *)(((*(int *)(((int)stk + 56))) + 0x0)));
-                        t2 = (int)u9;
-                        t2 = (t2 - 2);
-                        u9 = (float)t2;
-                        u8 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-                        u8 = (u8 + u9);
-                        *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u8;
-                        t292 = t2;
-                    }
-                        break;
-                }
-                t297 = t291;
-                t298 = t292;
-                t300 = t294;
-                t301 = t295;
-                u302 = u296;
-            }
-            u10 = u302;
-            t0 = 0x8C094EF8;
-            t1 = t297;
-            t2 = t298;
-            t3 = t300;
-            t4 = t301;
-            u9 = (*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)));
-            u10 = (*(float *)((t0 + 0x0)));
-            t5 = (t5 + 0x1);
-            u9 = (u9 - u10);
-            *(float *)(((0x1D0 + ((int)stk + 16)) + 0x0)) = u9;
-            continue;
-        }
-        break;
-    }
-    return (int)((*(float *)(((0x1D0 + ((int)stk + 16)) + 0x0))) - (*(float *)(((int)stk + 428))));
+    register int R3;
+    register int R6;
+    register int R7;
+    register float F2;
+    register float F7;
+    register int T_;
+    register int FPUL_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    register int v0_5;
+    register int v0_6;
+    register int v0_7;
+    register float w0_0;
+    register float w0_1;
+    register float w0_2;
+    register float w0_3;
+    register float w0_4;
+    register float w0_5;
+    register float w0_6;
+    register float w0_7;
+    register float w0_8;
+    v0_6 = a4;
+    *(unsigned int *)(((int)stk + 40)) = v0_6;
+    *(unsigned int *)(((int)stk + 32)) = (((((v0_6 << 1) + v0_6) << 2) << 1) + 0x8C2FBD1C);
+    v0_1 = (0x8C2FBC58);
+    v0_2 = (0x8C287D84);
+    v0_3 = (0x0);
+    if (((*(int *)0x8C2FBE0C) == (*(int *)(((int)stk + 40))))) goto L_8C035090;
+    L_8C0351FE:;
+    sprSheetSet(0x8C10A96C);
+    w0_0 = ((float (*)(int, float, float, float, float))(sprSheetPut))(0x0, 250.0f, 58.0f, 50.2999992f, (*(float *)0x8C2FBE94));
+    *(unsigned int *)(((int)stk + 36)) = v0_3;
+    *(unsigned int *)(((int)stk + 48)) = ((((int)stk + 32) + 0x28) + 0x40);
+    *(unsigned int *)(((int)stk + 56)) = 0x8C2876A8;
+    *(unsigned int *)(((int)stk + 44)) = (((int)stk + 32) + 0x28);
+    *(unsigned int *)(((int)stk + 52)) = ((((int)stk + 32) + 0x28) + 0x10);
+    v0_0 = (0x8C017718);
+    v0_0 = (0x8C01780A);
+    v0_0 = (0x8C2FBE94);
+    v0_4 = ((((int)stk + 32) + 0x28));
+    w0_3 = (255.0f);
+    w0_1 = (50.4000015f);
+    w0_2 = (108.0f);
+    w0_0 = (50.2999992f);
+    L_8C035244:;
+    sprSheetSet(0x8C10A8F0);
+    v0_5 = *(int *)(((int)stk + 56));
+    *(float *)((v0_5 + 0x10)) = ((*(float *)((v0_5 + 0x10))) * 209.0f);
+    w0_4 = ((float (*)(int, float, float, float, float))(sprSheetPut))(0x0, 33.0f, w0_2, w0_1, (*(float *)((v0_0 + 0x0))));
+    sprSheetSet(0x8C10A914);
+    w0_4 = ((float (*)(int, float, float, float, float))(sprSheetPut))(0x0, 256.0f, w0_2, w0_1, (*(float *)((v0_0 + 0x0))));
+    sprSheetSet((*(int *)((((*(int *)(((int)stk + 36))) << 2) + 0x8C159D40))));
+    w0_4 = ((float (*)(int, float, float, float, float))(sprSheetPut))(0x0, 51.0f, (w0_2 + (1.0f + 1.0f)), w0_0, (*(float *)((v0_0 + 0x0))));
+    { struct mv16 { int w[16]; }; *(struct mv16 *)((((int)stk + 32) + 0x28)) = *(struct mv16 *)(0x8C10AA9C); }
+    v0_6 = ((*(int *)(((int)stk + 44))));
+    L_8C0352A8:;
+    *(float *)((v0_6 + 0x4)) = ((*(float *)((v0_6 + 0x4))) + w0_2);
+    v0_5 = (unsigned int)(v0_6 + 0x10) < (unsigned int)(*(int *)(((int)stk + 48)));
+    v0_6 = ((v0_6 + 0x10));
+    if (v0_5) goto L_8C0352A8;
+    *(unsigned int *)(((*(int *)(((int)stk + 44))) + 0xC)) = (((int)((*(float *)((v0_0 + 0x0))) * w0_3) << 16) << 8);
+    *(unsigned int *)(((*(int *)(((int)stk + 52))) + 0xC)) = (((int)((*(float *)((v0_0 + 0x0))) * w0_3) << 16) << 8);
+    nlDispStripTrnsl(0x4, v0_4);
+    w0_2 = ((w0_2 + 25.0f));
+    if (((*(int *)(((int)stk + 36))) != 5)) goto L_8C0352F2;
+    w0_2 = ((w0_2 + 17.0f));
+    L_8C0352F2:;
+    v0_5 = *(int *)(((int)stk + 36));
+    *(unsigned int *)(((int)stk + 36)) = (v0_5 + 0x1);
+    if (((int)(v0_5 + 0x1) < (int)0x9)) goto L_8C035244;
+    *(Stk3 *)(((int)stk + 20)) = vecMake(640.0f, 0.0f, 50.5999985f);
+    v0_4 = (0x8C015EEA);
+    w0_2 = (0.0f);
+    w0_7 = (140.0f);
+    primRectInc(0x280, 0x1E0, ((((int)((*(float *)((v0_0 + 0x0))) * w0_7) << 16) << 8) | v0_3), R7, *(int *)((int)stk + 20), *(int *)((int)stk + 20 + 4), *(int *)((int)stk + 20 + 8), *(int *)((int)stk + 20 + 12));
+    *(Stk3 *)(((int)stk + 20)) = vecMake(616.0f, 50.0f, 50.5f);
+    primRectInc(0x251, 0x2F, ((((int)((*(float *)((v0_0 + 0x0))) * 192.0f) << 16) << 8) | 0xFF2100), 0x0, *(int *)((int)stk + 20), *(int *)((int)stk + 20 + 4), *(int *)((int)stk + 20 + 8), *(int *)((int)stk + 20 + 12));
+    *(Stk3 *)(((int)stk + 20)) = vecMake(616.0f, 97.0f, 50.5f);
+    primRectInc(0x251, 0x109, ((((int)((*(float *)((v0_0 + 0x0))) * 192.0f) << 16) << 8) | 0xFFD400), 0x0, *(int *)((int)stk + 20), *(int *)((int)stk + 20 + 4), *(int *)((int)stk + 20 + 8), *(int *)((int)stk + 20 + 12));
+    *(Stk3 *)(((int)stk + 20)) = vecMake(616.0f, 50.0f, w0_1);
+    *(Stk3 *)(((int)stk + 8)) = vecMake(23.0f, 50.0f, w0_1);
+    primLineH(0x2, ((((int)((*(float *)((v0_0 + 0x0))) * w0_3) << 16) << 8) | 0xFFFFFF), 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20));
+    *(Stk3 *)(((int)stk + 20)) = vecMake(616.0f, 97.0f, w0_1);
+    *(Stk3 *)(((int)stk + 8)) = vecMake(23.0f, 97.0f, w0_1);
+    primLineH(0x2, ((((int)((*(float *)((v0_0 + 0x0))) * w0_3) << 16) << 8) | 0xFFFFFF), 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20));
+    *(Stk3 *)(((int)stk + 20)) = vecMake(616.0f, 362.0f, w0_1);
+    *(Stk3 *)(((int)stk + 8)) = vecMake(23.0f, 362.0f, w0_1);
+    primLineH(0x2, ((((int)((*(float *)((v0_0 + 0x0))) * w0_3) << 16) << 8) | 0xFFFFFF), 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20));
+    *(Stk3 *)(((int)stk + 20)) = vecMake(23.0f, 362.0f, w0_1);
+    *(Stk3 *)(((int)stk + 8)) = vecMake(23.0f, 50.0f, w0_1);
+    primLineV(0x2, ((((int)((*(float *)((v0_0 + 0x0))) * w0_3) << 16) << 8) | 0xFFFFFF), *(Stk6 *)((int)stk + 8));
+    *(Stk3 *)(((int)stk + 20)) = vecMake(616.0f, 362.0f, w0_1);
+    *(Stk3 *)(((int)stk + 8)) = vecMake(616.0f, 50.0f, w0_1);
+    primLineV(0x2, ((((int)((*(float *)((v0_0 + 0x0))) * w0_3) << 16) << 8) | 0xFFFFFF), *(Stk6 *)((int)stk + 8));
+    w0_1 = (0.5f);
+    if (((*(int *)(((*(int *)(((int)stk + 32))) + 0xC))) != 0)) goto L_8C035584;
+    *(unsigned int *)(((int)stk + 36)) = 0x1;
+    *(float *)(((int)stk + 68)) = 1.0f;
+    L_8C035594:;
+    sprSheetSet(0x8C10AA64);
+    w0_3 = ((float (*)(int, float, float, float, float))(sprSheetPut))(0x2000, w0_3, 379.0f, 50.4500008f, (*(float *)((v0_0 + 0x0))));
+    *(Stk3 *)(((int)stk + 20)) = vecMake(238.0f, 377.0f, 50.5f);
+    cursorBoxPut((*(int *)(((int)stk + 36))), *(Stk3 *)((int)stk + 20), (*(float *)((v0_0 + 0x0))), 156.0f, (*(float *)(((int)stk + 68))));
+    w0_3 = (238.0f);
+    if (((*(int *)(((*(int *)(((int)stk + 32))) + 0xC))) != 1)) goto L_8C035614;
+    *(unsigned int *)(((int)stk + 32)) = 0x1;
+    *(float *)(((int)stk + 64)) = 1.0f;
+    w0_6 = (1.0f);
+    w0_4 = (1.0f);
+    w0_5 = (1.0f);
+    L_8C035620:;
+    nlObjPutSetFadeColor(w0_6, w0_4, w0_5);
+    sprSheetSet(0x8C10AA88);
+    w0_7 = ((float (*)(int, float, float, float, float))(sprSheetPut))(0x2000, 268.0f, 411.0f, 50.4500008f, (*(float *)((v0_0 + 0x0))));
+    *(Stk3 *)(((int)stk + 20)) = vecMake(w0_3, 409.0f, 50.5f);
+    cursorBoxPut((*(int *)(((int)stk + 32))), *(Stk3 *)((int)stk + 20), (*(float *)((v0_0 + 0x0))), 156.0f, (*(float *)(((int)stk + 64))));
+    nlObjPutSetFadeColor(1.0f, 1.0f, 1.0f);
+    muneSlotLoad((*(int *)0x8C421F70), (*(int *)((v0_2 + 0xC58))));
+    if (!(((*(int *)((((*(int *)((v0_2 + 0xC58))) << 2) + 0x8C1AFA64))) != 0))) goto L_8C035C68;
+    if (((*(float *)0x8C2FBE94) > 0.899999976f)) goto L_8C03569A;
+    goto L_8C035C68;
+    L_8C035C68:;
+    v0_2 = unlockCountW0();
+    v0_5 = (v0_2);
+    if (!((v0_2 != 0))) goto L_8C035DF6;
+    if (((*(int *)0x8C2FBE0C) != (*(int *)(((int)stk + 40))))) goto L_8C035D4E;
+    *(unsigned int *)(((int)stk + 32)) = (padDirRepeat((*(int *)0x8C421F70), 0x40));
+    *(unsigned int *)(((int)stk + 40)) = (padDirRepeat((*(int *)0x8C421F70), 0x80));
+    if (((*(int *)(((int)stk + 32))) != 0)) goto L_8C035CA4;
+    if (((*(int *)(((int)stk + 40))) == 0)) goto L_8C035CAA;
+    goto L_8C035CA4;
+    L_8C035DF6:;
+    *(unsigned int *)0x8C2FBE50 = v0_3;
+    *(unsigned int *)0x8C2FBE4C = v0_3;
+    v0_6 = (v0_3);
+    v0_7 = (0x8C2FBC50);
+    R6 = (0x8C2FBC54);
+    L_8C035EFA:;
+    if (((int)v0_6 < (int)(*(int *)((R6 + 0x0))))) goto L_8C035E06;
+    sprSheetSet((*(int *)((((unsigned char)(*(signed char *)((v0_1 + 0x24))) << 2) + 0x8C159B78))));
+    v0_2 = *(signed char *)((v0_1 + 0x24));
+    v0_6 = ((unsigned char)v0_2);
+    w0_1 = (4.0f);
+    if (((unsigned char)v0_2 == 4)) goto L_8C035F24;
+    if ((v0_6 != 6)) goto L_8C035F28;
+    L_8C035F24:;
+    *(float *)0x8C2878D8 = w0_1;
+    L_8C035F28:;
+    w0_2 = ((float (*)(int, int, int, int, float, float, float, float))(sprSheetPut))(0x0, v0_7, R6, R7, 283.0f, 109.0f, w0_0, (*(float *)((v0_0 + 0x0))));
+    *(float *)0x8C2FBE14 = (*(float *)((v0_0 + 0x0)));
+    circuitNumDrawSign((*(int *)((((unsigned char)(*(signed char *)((v0_1 + 0x27))) << 2) + 0x8C10817C))), 0x2, 0x8C159C08, 283.0f, 131.0f, w0_0);
+    v0_5 = (0x25);
+    v0_2 = (0x8C2FBE14);
+    v0_4 = (0x8C159C08);
+    w0_2 = (283.0f);
+    if (((unsigned char)(*(signed char *)((v0_1 + 0x25))) == 0xFF)) goto L_8C035FD0;
+    sprSheetSet((*(int *)((((unsigned char)(*(signed char *)((v0_1 + v0_5))) << 2) + 0x8C159B78))));
+    v0_3 = *(signed char *)((v0_1 + 0x25));
+    v0_6 = ((unsigned char)v0_3);
+    if (((unsigned char)v0_3 == 4)) goto L_8C035F88;
+    if ((v0_6 != 6)) goto L_8C035F8C;
+    L_8C035F88:;
+    *(float *)0x8C2878D8 = w0_1;
+    L_8C035F8C:;
+    v0_6 = (0x0);
+    w0_4 = (159.0f);
+    w0_5 = (w0_0);
+    F7 = ((*(float *)((v0_0 + 0x0))));
+    L_8C035FE0:;
+    w0_1 = ((float (*)(int, int, int, int, float, float, float, float))(sprSheetPut))(v0_6, v0_7, R6, R7, w0_2, w0_4, w0_5, F7);
+    *(float *)((v0_2 + 0x0)) = (*(float *)((v0_0 + 0x0)));
+    circuitNumDrawSign((*(int *)0x8C2FBE4C), 0x0, v0_4, w0_2, 181.0f, w0_0);
+    *(float *)((v0_2 + 0x0)) = (*(float *)((v0_0 + 0x0)));
+    circuitNumDrawSign((*(int *)0x8C2FBE50), 0x0, v0_4, w0_2, 206.0f, w0_0);
+    *(float *)((v0_2 + 0x0)) = (*(float *)((v0_0 + 0x0)));
+    circuitNumDrawSign((*(int *)((v0_1 + 0x0))), 0x9, v0_4, w0_2, 231.0f, w0_0);
+    *(float *)((v0_2 + 0x0)) = (*(float *)((v0_0 + 0x0)));
+    v0_1 = unlockCountW1();
+    w0_1 = circuitNumDrawSign(v0_1, 0x0, v0_4, w0_2, 273.0f, w0_0);
+    sprSheetSet(0x8C10AA30);
+    w0_1 = ((float (*)(int, float, float, float, float))(sprSheetPut))(0x0, w0_1, 273.0f, w0_0, (*(float *)((v0_0 + 0x0))));
+    *(float *)((v0_2 + 0x0)) = (*(float *)((v0_0 + 0x0)));
+    circuitNumDrawSign(0x9, 0x0, v0_4, w0_1, 273.0f, w0_0);
+    *(float *)((v0_2 + 0x0)) = (*(float *)((v0_0 + 0x0)));
+    v0_1 = unlockCountW2();
+    w0_1 = circuitNumDrawSign(v0_1, 0x0, v0_4, w0_2, 298.0f, w0_0);
+    sprSheetSet(0x8C10AA30);
+    w0_1 = ((float (*)(int, float, float, float, float))(sprSheetPut))(0x0, w0_1, 298.0f, w0_0, (*(float *)((v0_0 + 0x0))));
+    *(float *)((v0_2 + 0x0)) = (*(float *)((v0_0 + 0x0)));
+    circuitNumDrawSign(0x5, 0x0, v0_4, w0_1, 298.0f, w0_0);
+    *(float *)((v0_2 + 0x0)) = (*(float *)((v0_0 + 0x0)));
+    v0_1 = unlockCountW0();
+    w0_1 = circuitNumDrawSign(v0_1, 0x0, v0_4, w0_2, 323.0f, w0_0);
+    sprSheetSet(0x8C10AA30);
+    w0_1 = ((float (*)(int, float, float, float, float))(sprSheetPut))(0x0, w0_1, 323.0f, w0_0, (*(float *)((v0_0 + 0x0))));
+    *(float *)((v0_2 + 0x0)) = (*(float *)((v0_0 + 0x0)));
+    v0_1 = !(1.0f > (*(float *)((v0_0 + 0x0))));
+    w0_0 = ((circuitNumDrawSign(0x1C, 0x0, v0_4, w0_1, 323.0f, w0_0)));
+    if (v0_1) goto L_8C036102;
+    w0_0 = *(float *)((v0_0 + 0x0));
+    *(float *)((v0_0 + 0x0)) = (w0_0 + 0.100000001f);
+    v0_5 = (0x8C036160);
+    w0_0 = ((w0_0 + 0.100000001f));
+    L_8C036102:;
+    return v0_5;
+    L_8C035FD0:;
+    sprSheetSet(0x8C108A28);
+    v0_6 = (0x0);
+    w0_4 = (156.0f);
+    w0_5 = (w0_0);
+    F7 = ((*(float *)((v0_0 + 0x0))));
+    goto L_8C035FE0;
+    L_8C035E06:;
+    if (((*(int *)(((((((v0_6 << 2) + v0_6) << 2) << 1) + (*(int *)((v0_7 + 0x0)))) + 0x0))) != 0)) goto L_8C035E4A;
+    if (((int)v0_6 >= (int)0x20)) goto L_8C035E32;
+    if (((((int)0x1 << (int)v0_6) & (*(int *)0x8C2FBC64)) == 0)) goto L_8C035E4A;
+    L_8C035E42:;
+    *(unsigned int *)0x8C2FBE4C = ((*(int *)0x8C2FBE4C) + 0x1);
+    L_8C035E4A:;
+    if (((*(int *)(((*(int *)((v0_7 + 0x0))) + ((((v0_6 << 2) + v0_6) << 2) << 1)))) != 1)) goto L_8C035EF8;
+    if (((int)v0_6 >= (int)0x20)) goto L_8C035EE0;
+    if (((((int)0x1 << (int)v0_6) & (*(int *)0x8C2FBC64)) == 0)) goto L_8C035EF8;
+    L_8C035EF0:;
+    *(unsigned int *)0x8C2FBE50 = ((*(int *)0x8C2FBE50) + 0x1);
+    L_8C035EF8:;
+    v0_6 = ((v0_6 + 0x1));
+    goto L_8C035EFA;
+    L_8C035EE0:;
+    if (((((int)0x1 << (int)(v0_6 - 32)) & (*(int *)0x8C2FBC68)) == 0)) goto L_8C035EF8;
+    goto L_8C035EF0;
+    L_8C035E32:;
+    if (((((int)0x1 << (int)(v0_6 - 32)) & (*(int *)0x8C2FBC68)) == 0)) goto L_8C035E4A;
+    goto L_8C035E42;
+    L_8C035CA4:;
+    sndSeCursor();
+    L_8C035CAA:;
+    *(unsigned char *)((v0_1 + 0x2B)) = ((*(signed char *)((v0_1 + 0x2B))) + ((-(((((*(int *)(((int)stk + 40))) == 0)) ? 1 : 0) - 1)) - (-(((((*(int *)(((int)stk + 32))) == 0)) ? 1 : 0) - 1))));
+    v0_5 = (0x2B);
+    v0_2 = (0xFFFFFFFF);
+    v0_4 = (0x1B);
+    if (((int)(*(signed char *)((v0_1 + 0x2B))) >= (int)0xFFFFFFFF)) goto L_8C035CD4;
+    *(unsigned char *)((v0_1 + v0_5)) = v0_4;
+    L_8C035CD4:;
+    if (((int)(*(signed char *)((v0_1 + v0_5))) <= (int)v0_4)) goto L_8C035D42;
+    *(unsigned char *)((v0_1 + v0_5)) = v0_2;
+    L_8C035D42:;
+    v0_6 = unlockTestW0((*(signed char *)((v0_1 + 0x2B))));
+    v0_5 = (v0_6);
+    if (!((v0_6 == 0))) goto L_8C035D4E;
+    if (((*(int *)(((int)stk + 32))) == 0)) goto L_8C035D22;
+    *(unsigned char *)((v0_1 + 0x2B)) = ((*(signed char *)((v0_1 + 0x2B))) - 1);
+    goto L_8C035D22;
+    L_8C035D4E:;
+    v0_2 = (int)((int)(*(int *)0x8C20D19C) % (int)0x1E);
+    sprSheetSet(0x8C10A938);
+    w0_2 = ((float (*)(int, float, float, float, float))(sprSheetPut))(0x0, 446.0f, 268.0f, w0_1, (*(float *)((v0_0 + 0x0))));
+    sprSheetSet(0x8C10A9E8);
+    w0_2 = ((float (*)(int, float, float, float, float))(sprSheetPut))(0x0, 425.0f, 278.0f, w0_1, ((*(float *)((v0_0 + 0x0))) * ((float)(0x1E - v0_2) / 30.0f)));
+    sprSheetSet(0x8C10AA0C);
+    w0_1 = ((float (*)(int, float, float, float, float))(sprSheetPut))(0x0, 566.0f, 278.0f, w0_1, ((*(float *)((v0_0 + 0x0))) * ((float)(0x1E - v0_2) / 30.0f)));
+    sprSheetSet(0x8C10A9A0);
+    *(float *)0x8C2876B8 = ((*(float *)0x8C2876B8) * 173.0f);
+    w0_1 = ((float (*)(int, float, float, float, float))(sprSheetPut))(0x0, 417.0f, 262.0f, 0.600000024f, ((*(float *)((v0_0 + 0x0))) * 0.699999988f));
+    sprSheetSet(0x8C10A9C4);
+    w0_1 = ((float (*)(int, float, float, float, float))(sprSheetPut))(0x0, 591.0f, 262.0f, 0.600000024f, ((*(float *)((v0_0 + 0x0))) * 0.699999988f));
+    goto L_8C035DF6;
+    L_8C035D22:;
+    if (((*(int *)(((int)stk + 40))) == 0)) goto L_8C035D30;
+    *(unsigned char *)((v0_1 + 0x2B)) = ((*(signed char *)((v0_1 + 0x2B))) + 0x1);
+    L_8C035D30:;
+    v0_5 = (0x2B);
+    if (((int)(*(signed char *)((v0_1 + 0x2B))) >= (int)v0_2)) goto L_8C035D3A;
+    *(unsigned char *)((v0_1 + v0_5)) = v0_4;
+    L_8C035D3A:;
+    if (((int)(*(signed char *)((v0_1 + v0_5))) <= (int)v0_4)) goto L_8C035D42;
+    *(unsigned char *)((v0_1 + v0_5)) = v0_2;
+    goto L_8C035D42;
+    L_8C03569A:;
+    uniformSlotLoad((*(int *)0x8C421F70), (*(signed char *)((v0_1 + 0x2B))), (*(int *)((v0_2 + 0xC58))), R7, *(int *)((int)stk + 32), *(int *)((int)stk + 32 + 4));
+    v0_4 = (unlockCountW0()) == 0;
+    if (v0_4) goto L_8C0356E8;
+    if (((*(signed char *)0x8C2FBC83) == -1)) goto L_8C0356E8;
+    if (((int)(*(signed char *)0x8C2FBC83) > (int)0xFFFFFFFF)) goto L_8C0356CA;
+    goto L_8C035C68;
+    L_8C0356CA:;
+    if (((*(int *)((((*(signed char *)0x8C2FBC83) << 2) + (((*(int *)0x8C421F70) * 0x70) + 0x8C1AF8A4)))) != 0)) goto L_8C0356E8;
+    goto L_8C035C68;
+    L_8C0356E8:;
+    nlMatrixMode(0x3);
+    nlUnitMatrix();
+    nlPerspective(0x2000, 1.33333337f, 0.300000012f, 3000.0f);
+    *(float *)0x8C287A10 = (320.0f / (nlTanf(0.522289753f)));
+    nlMatrixMode(0x1);
+    *(float *)((v0_2 + 0x14)) = ((float)(*(int *)0x8C301BF0) * (*(float *)0x8C23D204));
+    motionAdvance(v0_2);
+    w0_7 = ((*(float *)((v0_2 + 0xC))));
+    *(int *)((int)stk + 28) = (0xB8 + ((int)stk + 32));
+    motionRootAtFrame(v0_2, (int)w0_7, R6, R7, (0xB8 + ((int)stk + 32)));
+    if (((*(int *)((v0_2 + 0xD4C))) == 0)) goto L_8C0357E8;
+    *(float *)(((int)stk + 216)) = ((*(float *)(((int)stk + 216))) * (-1.0f));
+    L_8C0357E8:;
+    nlPushUnitMatrix();
+    nlRotateAY((*(short *)((v0_2 + 0xB06))));
+    nlCalcPoint((0xB8 + ((int)stk + 32)), (0xB8 + ((int)stk + 32)));
+    nlPopMatrix(0x1);
+    nlScaleVector((0xB8 + ((int)stk + 32)), (0xB8 + ((int)stk + 32)), (*(float *)((v0_2 + 0x14))));
+    nlAddVector((0xAE8 + v0_2), (0xB8 + ((int)stk + 32)));
+    v0_4 = *(int *)((((*(int *)0x8C421F70) << 2) + 0x8C29B898));
+    *(unsigned int *)(((int)stk + 60)) = v0_4;
+    t299 = *(int *)((v0_4 + 0x8));
+    v0_6 = (0x8C2FBEA0);
+    v0_7 = ((-(((((0x20000 & t299) == 0)) ? 1 : 0) - 1)));
+    R6 = ((-(((((0x10000 & t299) == 0)) ? 1 : 0) - 1)));
+    w0_3 = (-8.0f);
+    if (((-(((((0x20000 & t299) == 0)) ? 1 : 0) - 1)) != 0)) goto L_8C035858;
+    if (!((R6 == 0))) goto L_8C035858;
+    if (((*(int *)((v0_6 + 0x0))) == 0)) goto L_8C03596C;
+    w0_7 = (*(float *)((v0_2 + 0xAE8)));
+    w0_7 = w0_7 + w0_1 * ((-(*(float *)(((0xAE8 + v0_2) + 0x0)))) + 14.0f);
+    *(float *)((v0_2 + 0xAE8)) = w0_7;
+    w0_7 = (*(float *)((v0_2 + 0xAEC)));
+    w0_7 = w0_7 + w0_1 * ((-(*(float *)(((0xAEC + v0_2) + 0x0)))) + w0_3);
+    *(float *)((v0_2 + 0xAEC)) = w0_7;
+    w0_3 = (*(float *)((v0_2 + 0xAF0)));
+    w0_3 = w0_3 + w0_1 * ((-(*(float *)(((0xAF0 + v0_2) + 0x0)))) + -45.0f);
+    *(float *)((v0_2 + 0xAF0)) = w0_3;
+    *(unsigned int *)((v0_6 + 0x0)) = ((*(int *)((v0_6 + 0x0))) - 1);
+    FPUL_ = (0xC2340000);
+    goto L_8C03598A;
+    L_8C035858:;
+    *(unsigned short *)((v0_2 + 0xB06)) = ((*(short *)((v0_2 + 0xB06))) + ((short)(v0_7 - R6) * (short)0x222));
+    w0_7 = (*(float *)((v0_2 + 0xAE8)));
+    w0_7 = w0_7 + 0.100000001f * ((-(*(float *)(((0xAE8 + v0_2) + 0x0)))) + 14.0f);
+    *(float *)((v0_2 + 0xAE8)) = w0_7;
+    w0_7 = (*(float *)((v0_2 + 0xAEC)));
+    w0_7 = w0_7 + 0.100000001f * ((-(*(float *)(((0xAEC + v0_2) + 0x0)))) + w0_3);
+    *(float *)((v0_2 + 0xAEC)) = w0_7;
+    w0_3 = (*(float *)((v0_2 + 0xAF0)));
+    w0_3 = w0_3 + 0.100000001f * ((-(*(float *)(((0xAF0 + v0_2) + 0x0)))) + -45.0f);
+    *(float *)((v0_2 + 0xAF0)) = w0_3;
+    v0_4 = *(int *)((v0_2 + 0x30));
+    w0_3 = *(float *)((v0_2 + 0xC));
+    *(unsigned int *)((v0_6 + 0x0)) = (int)((float)v0_4 - w0_3);
+    FPUL_ = ((int)((float)v0_4 - w0_3));
+    L_8C03598A:;
+    *(float *)((v0_2 + 0xD34)) = w0_2;
+    *(float *)((v0_2 + 0xD38)) = w0_2;
+    nlPushUnitMatrix();
+    nlTranslate((*(float *)((v0_2 + 0xAE8))), (*(float *)((v0_2 + 0xAEC))), (*(float *)((v0_2 + 0xAF0))));
+    nlRotateAY((*(short *)((v0_2 + 0xB06))));
+    playerPut(v0_2, 0x0, 0x0, 0x0, *(int *)((int)stk + 32), *(int *)((int)stk + 32 + 4), *(int *)((int)stk + 32 + 8), *(int *)((int)stk + 32 + 12), *(int *)((int)stk + 32 + 16), *(int *)((int)stk + 32 + 20), *(int *)((int)stk + 32 + 24), *(int *)((int)stk + 32 + 28));
+    nlPopMatrix(0x1);
+    nlPushMatrix(0x0);
+    v0_4 = *(signed char *)((v0_1 + 0x28));
+    w0_3 = (0.25f);
+    if (((*(float *)((v0_1 + 0x1C))) != (*(float *)((((((unsigned char)v0_4 << 1) + (unsigned char)v0_4) << 2) + 0x8C1081DC))))) goto L_8C035A04;
+    nlObjPutSetSaturate(w0_2, 1.0f);
+    w0_7 = nlSin(((*(int *)0x8C20D124) * 0x888));
+    w0_8 = w0_3;
+    w0_8 = w0_8 + w0_3 * w0_7;
+    nlObjPutSetFadeColorOffset(w0_8, w0_2, w0_2);
+    L_8C035A04:;
+    v0_4 = ((int (*)(int, float, float, float, float))(nlLoadMatrix))(((0x1E0 + v0_2) + 0x2C0), w0_6, w0_4, w0_5, F7);
+    v0_4 = (0x8C0F25B0);
+    if (((*(int *)((v0_2 + 0xD6C))) != -1)) goto L_8C035A84;
+    v0_5 = (0x8C10242C);
+    v0_6 = (((*(int *)((v0_2 + 0xC58))) * 0x6C));
+    L_8C035AA2:;
+    nlObjPut((*(int *)((v0_6 + v0_5))));
+    nlObjPutSetSaturate((-1.0f), (-1.0f));
+    nlObjPutSetFadeColorOffset(w0_2, w0_2, w0_2);
+    nlPopMatrix(0x1);
+    v0_4 = *(signed char *)((v0_1 + 0x29));
+    if (((*(float *)((v0_1 + 0x20))) != (*(float *)((((((unsigned char)v0_4 << 1) + (unsigned char)v0_4) << 2) + 0x8C108218))))) goto L_8C035BA2;
+    nlPushMatrix(0x0);
+    *(unsigned int *)(((int)stk + 32)) = (*(int *)((v0_2 + 0x38)));
+    nlObjPutSetSaturate(w0_2, 1.0f);
+    w0_4 = nlSin(((*(int *)0x8C20D124) * 0x888));
+    w0_5 = w0_3;
+    w0_5 = w0_5 + w0_3 * w0_4;
+    nlObjPutSetFadeColorOffset(w0_5, w0_2, w0_2);
+    v0_4 = ((int (*)(int))(nlLoadMatrix))(((0x1E0 + v0_2) + 0x500));
+    nlScale(1.00999999f, 1.00999999f, 1.00999999f);
+    nlObjPut((*(int *)(((*(int *)(((*(int *)(((int)stk + 32))) + 0x50))) + 0x4))));
+    v0_4 = ((int (*)(int))(nlLoadMatrix))(((0x1E0 + v0_2) + 0x540));
+    nlScale(1.00999999f, 1.00999999f, 1.00999999f);
+    nlObjPut((*(int *)(((*(int *)(((*(int *)(((int)stk + 32))) + 0x54))) + 0x4))));
+    v0_4 = ((int (*)(int))(nlLoadMatrix))((0x1E0 + v0_2));
+    nlScale(1.00999999f, 1.00999999f, 1.00999999f);
+    nlObjPut((*(int *)(((*(int *)(((*(int *)(((int)stk + 32))) + 0x0))) + 0x4))));
+    v0_2 = ((int (*)(int))(nlLoadMatrix))(((0x1E0 + v0_2) + 0x40));
+    nlScale(1.00999999f, 1.00999999f, 1.00999999f);
+    nlObjPut((*(int *)(((*(int *)(((*(int *)(((int)stk + 32))) + 0x4))) + 0x4))));
+    nlObjPutSetSaturate((-1.0f), (-1.0f));
+    nlObjPutSetFadeColorOffset(w0_2, w0_2, w0_2);
+    nlPopMatrix(0x1);
+    L_8C035BA2:;
+    nlMatrixMode(0x3);
+    nlUnitMatrix();
+    w0_2 = *(float *)0x8C287A04;
+    v0_6 = (((int)(((w0_2 * 65536.0f) / 360.0f) + w0_1) & 0xFFFF));
+    w0_6 = (1.33333337f);
+    w0_4 = (0.300000012f);
+    w0_5 = (3000.0f);
+    FPUL_ = ((int)(((w0_2 * 65536.0f) / 360.0f) + w0_1));
+    nlPerspective(v0_6, w0_6, w0_4, w0_5);
+    *(float *)0x8C287A10 = (320.0f / (nlTanf((((*(float *)0x8C287A04) * 1.04457951f) / 90.0f))));
+    nlMatrixMode(0x1);
+    goto L_8C035C68;
+    L_8C035A84:;
+    if (((*(int *)((v0_2 + 0xD6C))) != 6)) goto L_8C035A9A;
+    nlTranslate(w0_2, 0.25999999f, -0.709999979f);
+    L_8C035A9A:;
+    v0_5 = (0x8C157548);
+    v0_6 = (((*(int *)((v0_2 + 0xD6C))) << 2));
+    goto L_8C035AA2;
+    L_8C03596C:;
+    v0_4 = (motionIsEnd(v0_2)) == 0;
+    if (v0_4) goto L_8C03598A;
+    *(int *)((int)stk + 28) = (0xAE8 + v0_2);
+    *(Stk3 *)((0xAE8 + v0_2)) = vecMake(14.0f, w0_3, -45.0f);
+    goto L_8C03598A;
+    L_8C035614:;
+    *(unsigned int *)(((int)stk + 32)) = v0_3;
+    *(float *)(((int)stk + 64)) = w0_1;
+    w0_6 = (w0_1);
+    w0_4 = (w0_1);
+    w0_5 = (w0_1);
+    goto L_8C035620;
+    L_8C035584:;
+    *(unsigned int *)(((int)stk + 36)) = v0_3;
+    *(float *)(((int)stk + 68)) = w0_1;
+    nlObjPutSetFadeColor(w0_1, w0_1, w0_1);
+    goto L_8C035594;
+    L_8C035090:;
+    if (((*(int *)(((*(int *)(((int)stk + 32))) + 0x10))) != 1)) goto L_8C035124;
+    *(unsigned int *)0x8C287C60 = v0_3;
+    v0_5 = ((gameModeSet(0x0, 0x3, 0x0)));
+    goto L_8C036102;
+    L_8C035124:;
+    v0_0 = *(int *)(((int)stk + 32));
+    *(int *)((int)stk + 28) = (0xC + v0_0);
+    *(unsigned int *)(((0xC + v0_0) + 0x0)) = (circuitMenuCursor((*(int *)(((*(int *)(((int)stk + 32))) + 0xC))), 0x2));
+    if (((*(int *)0x8C2FBE10) != 0)) goto L_8C0351FE;
+    v0_4 = (0x8C29B898);
+    v0_0 = (0x8C421F70);
+    if ((((*(int *)(((*(int *)((0x8C29B898 + ((*(int *)0x8C421F70) << 2)))) + 0x10))) & 5) != 0)) goto L_8C03515E;
+    if ((((*(int *)(((*(int *)((v0_4 + ((*(int *)((v0_0 + 0x0))) << 2)))) + 0x10))) & 8) == 0)) goto L_8C0351FE;
+    L_8C03515E:;
+    if (((*(int *)(((*(int *)(((int)stk + 32))) + 0xC))) != 0)) goto L_8C0351E8;
+    charaTexFreeAll();
+    *(unsigned int *)0x8C2FBE6C = v0_3;
+    circuitTaskTrim((*(int *)(((int)stk + 40))));
+    *(unsigned int *)0x8C2FBE60 = v0_3;
+    sndSeDecide();
+    v0_5 = (0x2B);
+    v0_0 = (0x8C2FBEA4);
+    if (((*(signed char *)((v0_1 + v0_5))) == (*(int *)((v0_0 + 0x0))))) goto L_8C0351FA;
+    memmove(0x8C40C3DC, 0x8C2FBC58, 0x40);
+    BupRequestSave(0x0, 0x8C108280, 0x8C40C2F4, 0x128);
+    L_8C0351FA:;
+    *(unsigned int *)0x8C287C60 = v0_3;
+    goto L_8C0351FE;
+    L_8C0351E8:;
+    circuitTaskAdd(0x8C036164, 0x1B8, 0x199);
+    sndSeDecide();
+    goto L_8C0351FA;
 }

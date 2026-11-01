@@ -417,37 +417,6 @@ int ADXT_Stop(int a4)
     return ADXCRS_Unlock();
 }
 
-int ADXSTM_OpenFname(int a4, int a5, int a6, int a7)
-{
-    int t0;
-    int t2;
-    int t7;
-    int t14;
-    int t11;
-    int stk[8];
-
-    *(unsigned int *)(((int)stk + 16)) = a5;
-    t0 = gdFsOpen(a4, 0x0, a6, a7);
-    if (t0 == 0) {
-        ADXERR_CallErrFunc(0x8C20AA04, a4);
-        t14 = 0x0;
-    } else {
-        t2 = gdFsGetFileSize(t0, ((int)stk + 12));
-        if (t2 == 0) {
-            ADXERR_CallErrFunc(0x8C20AA34);
-            gdFsClose(t0);
-            t11 = 0x0;
-        } else {
-            t7 = ADXSTMF_Create(t0, 0x0, (*(int *)(((int)stk + 12))), (*(int *)(((int)stk + 16))));
-            if (t7 != 0) {
-                strncpy((t7 + 0x40), a4, 0x20);
-            }
-            t11 = t7;
-        }
-        t14 = t11;
-    }
-    return t14;
-}
 
 int mwRnaDestroy(int a4)
 {

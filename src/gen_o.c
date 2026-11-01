@@ -221,61 +221,7 @@ int _mult64(int a4, int a5, int a6, int a7)
     return t13;
 }
 
-int adxt_start_sj(int a4, int a5)
-{
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t9;
-    int t0;
 
-    t1 = 0x0;
-    for (;;) {
-        t2 = *(signed char *)((a4 + 0x3));
-        if ((int)t1 >= (int)t2) {
-            break;
-        }
-        t0 = t1;
-        t0 = (t0 << 2);
-        t0 = (t0 + (a4 + 0x18));
-        t3 = *(int *)((t0 + 0x0));
-        t0 = t3;
-        t4 = *(int *)((t0 + 0x0));
-        t5 = *(int *)((t4 + 0x14));
-        t6 = ((int (*)(int, int))(t5))(t0, a5);
-        t1 = (t1 + 0x1);
-    }
-    t7 = *(int *)((a4 + 0x4));
-    ADXSJD_SetInSj(t7, a5);
-    *(unsigned int *)((a4 + 0x14)) = a5;
-    t9 = *(int *)((a4 + 0x4));
-    ADXSJD_Start();
-    *(unsigned char *)((a4 + 0x1)) = 0x1;
-    *(unsigned int *)((a4 + 0x4C)) = 0x0;
-    *(unsigned char *)((a4 + 0x71)) = 0x0;
-    return 0x71;
-}
-
-int ADXSTM_OpenRange(int a4, int a5, int a6)
-{
-    int t0;
-    int t2;
-
-    t0 = gdFsOpenRange();
-    if (t0 == 0) {
-        ADXERR_CallErrFunc(0x8C20AA64, a4, a5);
-        return 0x0;
-    }
-    t2 = ADXSTMF_Create(t0, 0x0, (((a5 << 8) << 2) << 1), a6);
-    if (t2 != 0) {
-        strncpy((t2 + 0x40), 0x8C20AA9C, 0x20);
-    }
-    return t2;
-}
 
 int decoGaugeSprInit(void)
 {

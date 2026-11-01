@@ -1,1333 +1,561 @@
 /* Straight-line functions with calls and guards (batch gen_ue): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-typedef struct { int w[3]; } Stk3;
-int sprPutAtAlpha(int, Stk3, float);
-int menuTextMsgPut(int a4, int a5, int a6, int a7, int a8, float f4);
+int menuTextMsgPutB(int a4, int a5, int a6, int a7, int a8, float f4, float f5);
 
-int menuTextMsgPut(int a4, int a5, int a6, int a7, int a8, float f4)
+int menuTextMsgPutB(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
 {
-    int stk[127];
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t5;
-    register float u8;
-    register float u6;
-    register float u7;
-    register float u9;
-    register int t295;
-    register int t297;
-    register int t298;
-    register float u299;
-    register int t290;
-    register int t292;
-    register int t293;
-    register float u294;
+    int stk[129];
 
-    stk[118] = a8;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((0x194 + ((int)stk + 16))) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-    *(unsigned int *)(((int)stk + 20)) = 0x8C1849C8;
-    *(unsigned int *)(((int)stk + 16)) = 0x8C33538C;
+    register int T_;
+    register int FPUL_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    register int v0_5;
+    register int v0_6;
+    register float w0_0;
+    register float w0_1;
+    register float w0_2;
+    register float w0_3;
+    register float w0_4;
+    stk[120] = a8;
+    v0_4 = a4;
+    v0_0 = a6;
+    v0_0 = a7;
+    w0_1 = f4;
+    w0_0 = f5;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((0x19C + ((int)stk + 16))) = *(struct mv3 *)((0x1D0 + ((int)stk + 16))); }
+    *(unsigned int *)(((int)stk + 20)) = 0x8C33533C;
+    *(unsigned int *)(((int)stk + 40)) = 0x8C1849C8;
     *(unsigned int *)(((int)stk + 24)) = 0x8C1849D8;
-    *(unsigned int *)(((int)stk + 28)) = 0x8C3353DC;
-    *(unsigned int *)(((int)stk + 32)) = 0x8C1849E8;
-    *(unsigned int *)(((int)stk + 36)) = 0x8C33542C;
-    *(unsigned int *)(((int)stk + 416)) = 0x8C184A08;
-    *(unsigned int *)(((int)stk + 412)) = 0x8C3354CC;
-    *(unsigned int *)(((int)stk + 408)) = 0x8C184A18;
-    *(unsigned int *)(((int)stk + 404)) = 0x8C33551C;
-    *(unsigned int *)(((int)stk + 400)) = 0x8C184A28;
-    *(unsigned int *)(((int)stk + 396)) = 0x8C33556C;
-    *(unsigned int *)(((int)stk + 392)) = 0x8C184A38;
-    *(unsigned int *)(((int)stk + 388)) = 0x8C3355BC;
-    *(unsigned int *)(((int)stk + 384)) = 0x8C184A48;
-    *(unsigned int *)(((int)stk + 380)) = 0x8C33560C;
-    *(unsigned int *)(((int)stk + 376)) = 0x8C184A58;
-    *(unsigned int *)(((int)stk + 372)) = 0x8C33565C;
-    *(unsigned int *)(((int)stk + 368)) = 0x8C184A68;
-    *(unsigned int *)(((int)stk + 364)) = 0x8C3356AC;
-    *(unsigned int *)(((int)stk + 360)) = 0x8C184A78;
-    *(unsigned int *)(((int)stk + 356)) = 0x8C3356FC;
-    *(unsigned int *)(((int)stk + 352)) = 0x8C184A88;
-    *(unsigned int *)(((int)stk + 348)) = 0x8C33574C;
-    *(unsigned int *)(((int)stk + 344)) = 0x8C184A98;
-    *(unsigned int *)(((int)stk + 340)) = 0x8C33579C;
-    *(unsigned int *)(((int)stk + 336)) = 0x8C184AA8;
-    *(unsigned int *)(((int)stk + 332)) = 0x8C3357EC;
-    *(unsigned int *)(((int)stk + 328)) = 0x8C184AB8;
-    *(unsigned int *)(((int)stk + 324)) = 0x8C33583C;
-    *(unsigned int *)(((int)stk + 320)) = 0x8C184AC8;
-    *(unsigned int *)(((int)stk + 316)) = 0x8C33588C;
-    *(unsigned int *)(((int)stk + 312)) = 0x8C184AD8;
-    *(unsigned int *)(((int)stk + 308)) = 0x8C3358DC;
-    *(unsigned int *)(((int)stk + 304)) = 0x8C184AE8;
-    *(unsigned int *)(((int)stk + 300)) = 0x8C33592C;
-    *(unsigned int *)(((int)stk + 296)) = 0x8C184AF8;
-    *(unsigned int *)(((int)stk + 292)) = 0x8C33597C;
-    *(unsigned int *)(((int)stk + 288)) = 0x8C184B08;
-    *(unsigned int *)(((int)stk + 284)) = 0x8C3359CC;
-    *(unsigned int *)(((int)stk + 280)) = 0x8C184B18;
-    *(unsigned int *)(((int)stk + 276)) = 0x8C335A1C;
-    *(unsigned int *)(((int)stk + 272)) = 0x8C184B28;
-    *(unsigned int *)(((int)stk + 268)) = 0x8C335A6C;
-    *(unsigned int *)(((int)stk + 264)) = 0x8C184B38;
-    *(unsigned int *)(((int)stk + 260)) = 0x8C335ABC;
-    *(unsigned int *)(((int)stk + 256)) = 0x8C184B48;
-    *(unsigned int *)(((int)stk + 252)) = 0x8C335B0C;
-    *(unsigned int *)(((int)stk + 248)) = 0x8C184B58;
-    *(unsigned int *)(((int)stk + 244)) = 0x8C335B5C;
-    *(unsigned int *)(((int)stk + 240)) = 0x8C184B68;
-    *(unsigned int *)(((int)stk + 236)) = 0x8C335BAC;
-    *(unsigned int *)(((int)stk + 232)) = 0x8C184B78;
-    *(unsigned int *)(((int)stk + 228)) = 0x8C335BFC;
-    *(unsigned int *)(((int)stk + 224)) = 0x8C184B88;
-    *(unsigned int *)(((int)stk + 220)) = 0x8C335C4C;
-    *(unsigned int *)(((int)stk + 216)) = 0x8C184B98;
-    *(unsigned int *)(((int)stk + 212)) = 0x8C335C9C;
-    *(unsigned int *)(((int)stk + 208)) = 0x8C184BA8;
-    *(unsigned int *)(((int)stk + 204)) = 0x8C335CEC;
-    *(unsigned int *)(((int)stk + 200)) = 0x8C184BB8;
-    *(unsigned int *)(((int)stk + 196)) = 0x8C335D3C;
-    *(unsigned int *)(((int)stk + 192)) = 0x8C184BC8;
-    *(unsigned int *)(((int)stk + 188)) = 0x8C335D8C;
-    *(unsigned int *)(((int)stk + 184)) = 0x8C184BD8;
-    *(unsigned int *)(((int)stk + 180)) = 0x8C335DDC;
-    *(unsigned int *)(((int)stk + 176)) = 0x8C184BE8;
-    *(unsigned int *)(((int)stk + 172)) = 0x8C335E2C;
-    *(unsigned int *)(((int)stk + 168)) = 0x8C184BF8;
-    *(unsigned int *)(((int)stk + 164)) = 0x8C335E7C;
-    *(unsigned int *)(((int)stk + 160)) = 0x8C184C08;
-    *(unsigned int *)(((int)stk + 156)) = 0x8C335ECC;
-    *(unsigned int *)(((int)stk + 152)) = 0x8C184C18;
-    *(unsigned int *)(((int)stk + 148)) = 0x8C335F1C;
-    *(unsigned int *)(((int)stk + 144)) = 0x8C184C28;
-    *(unsigned int *)(((int)stk + 140)) = 0x8C335F6C;
-    *(unsigned int *)(((int)stk + 136)) = 0x8C184C38;
-    *(unsigned int *)(((int)stk + 132)) = 0x8C335FBC;
-    *(unsigned int *)(((int)stk + 128)) = 0x8C184C48;
-    *(unsigned int *)(((int)stk + 124)) = 0x8C33600C;
-    *(unsigned int *)(((int)stk + 120)) = 0x8C184C58;
-    *(unsigned int *)(((int)stk + 116)) = 0x8C33605C;
-    *(unsigned int *)(((int)stk + 112)) = 0x8C184C68;
-    *(unsigned int *)(((int)stk + 108)) = 0x8C3360AC;
-    *(unsigned int *)(((int)stk + 104)) = 0x8C184C78;
-    *(unsigned int *)(((int)stk + 100)) = 0x8C3360FC;
-    *(unsigned int *)(((int)stk + 96)) = 0x8C184C88;
-    *(unsigned int *)(((int)stk + 92)) = 0x8C33614C;
-    *(unsigned int *)(((int)stk + 88)) = 0x8C184C98;
-    *(unsigned int *)(((int)stk + 84)) = 0x8C33619C;
-    *(unsigned int *)(((int)stk + 80)) = 0x8C184CA8;
-    *(unsigned int *)(((int)stk + 76)) = 0x8C3361EC;
-    *(unsigned int *)(((int)stk + 72)) = 0x8C184CB8;
-    *(unsigned int *)(((int)stk + 68)) = 0x8C33623C;
-    *(unsigned int *)(((int)stk + 64)) = 0x8C184CC8;
-    *(unsigned int *)(((int)stk + 60)) = 0x8C33628C;
-    *(unsigned int *)(((int)stk + 56)) = 0x8C184CD8;
-    *(unsigned int *)(((int)stk + 52)) = 0x8C3362DC;
-    *(unsigned int *)(((int)stk + 48)) = 0x8C184CE8;
-    *(unsigned int *)(((int)stk + 44)) = 0x8C33632C;
-    *(unsigned int *)(((int)stk + 40)) = 0x8C184CF8;
-    t0 = 0x40;
-    t1 = 0x8C184CE8;
-    t2 = 0x8C184CF8;
-    t3 = 0x8C184930;
-    t4 = 0x8C33506C;
-    t5 = a4;
-    u8 = f4;
-    for (;;) {
-        if ((*(signed char *)((t5 + 0x0))) != 0) {
-            t0 = (*(signed char *)((t5 + 0x0)));
-            u9 = 1.0f;
-            t0 = (t0 - 46);
-            t1 = 0x4D;
-            if ((unsigned int)t0 >= (unsigned int)t1) {
-                t0 = 0x8C093F60;
-                u7 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                u8 = (*(float *)((t0 + 0x0)));
-                u7 = (u7 + u8);
-                *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u7;
-                t295 = t1;
-                t297 = t3;
-                t298 = t4;
-                u299 = u8;
-            } else {
-                t0 = (t0 << 1);
-                t1 = t0;
-                switch (t1) {
-                    case 0:
-                    {
-                        u7 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        t0 = 0xC;
-                        t2 = 0x8C0F7DAC;
-                        u7 = (u7 + u9);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u7;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        u8 = f4;
-                        t3 = 0x8C33637C;
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        u7 = (*(float *)0x8C184D08);
-                        t2 = (int)u7;
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 2:
-                    case 4:
-                    case 6:
-                    case 8:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 16:
-                    case 18:
-                    case 20:
-                    case 22:
-                    case 24:
-                    case 26:
-                    case 28:
-                    case 30:
-                    case 32:
-                    case 34:
-                    case 36:
-                    case 90:
-                    case 92:
-                    case 94:
-                    case 96:
-                    case 98:
-                    case 100:
-                    {
-                        t0 = 0x8C093F60;
-                        u7 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u8 = (*(float *)((t0 + 0x0)));
-                        u7 = (u7 + u8);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u7;
-                        t290 = t1;
-                        t292 = t3;
-                        t293 = t4;
-                        u294 = u8;
-                    }
-                        break;
-                    case 38:
-                    {
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        u8 = f4;
-                        t3 = 0x8C33533C;
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t2 = (*(int *)(((int)stk + 20)));
-                        u7 = (*(float *)((t2 + 0x0)));
-                        u7 = (float)((int)u7 - 2);
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                        u7 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u7 = (u7 - u9);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u7;
-                    }
-                        break;
-                    case 40:
-                    {
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        u8 = f4;
-                        t3 = (*(int *)(((int)stk + 16)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        u7 = (*(float *)(((*(int *)(((int)stk + 24))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 42:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        u8 = f4;
-                        t3 = (*(int *)(((int)stk + 28)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        u7 = (*(float *)(((*(int *)(((int)stk + 32))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 44:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        u8 = f4;
-                        t3 = (*(int *)(((int)stk + 36)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        u7 = (*(float *)0x8C1849F8);
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 46:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        u8 = f4;
-                        t3 = 0x8C33547C;
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x190;
-                        t2 = (*(int *)((((int)stk + 16) + t0)));
-                        u7 = (*(float *)((t2 + 0x0)));
-                        u7 = (float)((int)u7 - 2);
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 48:
-                    {
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x198;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x188;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 50:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x190;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x180;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 52:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x188;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x178;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 54:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x180;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x170;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 56:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x178;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x168;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 58:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x170;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x160;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 60:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x168;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x158;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 62:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x160;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x150;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 64:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x158;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x148;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 66:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x150;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x140;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 68:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x148;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x138;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 70:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x140;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x130;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 72:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x138;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x128;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 74:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x130;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x120;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 76:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x128;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x118;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 78:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x120;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x110;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 80:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x118;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x108;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 82:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x110;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x100;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 84:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x108;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0xF8;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 86:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x100;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0xF0;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 88:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0xF8;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0xE8;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 102:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0xF0;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0xE0;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 104:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0xE8;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0xD8;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 106:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0xE0;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0xD0;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 108:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0xD8;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0xC8;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 110:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0xD0;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0xC0;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 112:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0xC8;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0xB8;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 114:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0xC0;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0xB0;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 116:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0xB8;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0xA8;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 118:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0xB0;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0xA0;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 120:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0xA8;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x98;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 122:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0xA0;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x90;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 124:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x98;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x88;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 126:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x90;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x80;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 128:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x88;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x78;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 130:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x80;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x70;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 132:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x78;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x68;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 134:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x70;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x60;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 136:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x68;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x58;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                        u7 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u7 = (u7 - u9);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u7;
-                    }
-                        break;
-                    case 138:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x60;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x50;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                        u7 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u7 = (u7 - u9);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u7;
-                    }
-                        break;
-                    case 140:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x58;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x48;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 142:
-                    {
-                        t0 = 0x4;
-                        t2 = 0x8C0F7DAC;
-                        u7 = (*(float *)(((0x1C8 + ((int)stk + 16)) + t0)));
-                        u7 = (u7 + u9);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + t0)) = u7;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x50;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        t0 = 0x40;
-                        u7 = (*(float *)(((*(int *)((((int)stk + 16) + t0))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                        t0 = 0x4;
-                        u7 = (*(float *)(((0x1C8 + ((int)stk + 16)) + t0)));
-                        u7 = (u7 - u9);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + t0)) = u7;
-                    }
-                        break;
-                    case 144:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x48;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        u7 = (*(float *)(((*(int *)(((int)stk + 72))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 146:
-                    {
-                        t0 = 0x4;
-                        t2 = 0x8C0F7DAC;
-                        u7 = (*(float *)(((0x1C8 + ((int)stk + 16)) + t0)));
-                        u7 = (u7 + u9);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + t0)) = u7;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        t0 = 0x40;
-                        u8 = f4;
-                        t3 = (*(int *)((((int)stk + 4) + t0)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        u7 = (*(float *)(((*(int *)(((int)stk + 64))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 4);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                        t0 = 0x4;
-                        u7 = (*(float *)(((0x1C8 + ((int)stk + 16)) + t0)));
-                        u7 = (u7 - u9);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + t0)) = u7;
-                    }
-                        break;
-                    case 148:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        u8 = f4;
-                        t3 = (*(int *)(((int)stk + 60)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        u7 = (*(float *)(((*(int *)(((int)stk + 56))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    case 150:
-                    {
-                        t2 = 0x8C0F7DAC;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        u8 = f4;
-                        t3 = (*(int *)(((int)stk + 52)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        u7 = (*(float *)(((*(int *)(((int)stk + 48))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                    }
-                        break;
-                    default:
-                    {
-                        t0 = 0x4;
-                        t2 = 0x8C0F7DAC;
-                        u7 = (*(float *)(((0x1C8 + ((int)stk + 16)) + t0)));
-                        u7 = (u7 + u9);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + t0)) = u7;
-                        t0 = 0xC;
-                        t1 = ((int)stk + 4);
-                        { struct mv3 { int w[3]; }; *(struct mv3 *)(t1) = *(struct mv3 *)((0x1C8 + ((int)stk + 16))); }
-                        t2 = 0x8C08E944;
-                        u8 = f4;
-                        t3 = (*(int *)(((int)stk + 44)));
-                        t0 = (sprPutAtAlpha(t3, *(Stk3 *)((int)stk + 4), u8));
-                        u6 = (*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)));
-                        u7 = (*(float *)(((*(int *)(((int)stk + 40))) + 0x0)));
-                        t2 = (int)u7;
-                        t2 = (t2 - 2);
-                        u7 = (float)t2;
-                        u6 = (u6 + u7);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + 0x0)) = u6;
-                        t0 = 0x4;
-                        u7 = (*(float *)(((0x1C8 + ((int)stk + 16)) + t0)));
-                        u7 = (u7 - u9);
-                        *(float *)(((0x1C8 + ((int)stk + 16)) + t0)) = u7;
-                    }
-                        break;
-                }
-                t295 = t290;
-                t297 = t292;
-                t298 = t293;
-                u299 = u294;
-            }
-            u8 = u299;
-            t1 = t295;
-            t5 = (t5 + 0x1);
-            t3 = t297;
-            t4 = t298;
-            continue;
-        }
-        break;
-    }
-    return (int)((*(float *)(((0x1C8 + ((int)stk + 16)) + 0x0))) - (*(float *)(((int)stk + 420))));
+    *(unsigned int *)(((int)stk + 16)) = 0x8C3353DC;
+    *(unsigned int *)(((int)stk + 28)) = 0x8C1849E8;
+    *(unsigned int *)(((int)stk + 32)) = 0x8C33542C;
+    *(unsigned int *)(((int)stk + 36)) = 0x8C1849F8;
+    *(unsigned int *)(((int)stk + 44)) = 0x8C33547C;
+    *(unsigned int *)(((int)stk + 424)) = 0x8C184A18;
+    *(unsigned int *)(((int)stk + 420)) = 0x8C33551C;
+    *(unsigned int *)(((int)stk + 416)) = 0x8C184A28;
+    *(unsigned int *)(((int)stk + 412)) = 0x8C33556C;
+    *(unsigned int *)(((int)stk + 408)) = 0x8C184A38;
+    *(unsigned int *)(((int)stk + 404)) = 0x8C3355BC;
+    *(unsigned int *)(((int)stk + 400)) = 0x8C184A48;
+    *(unsigned int *)(((int)stk + 396)) = 0x8C33560C;
+    *(unsigned int *)(((int)stk + 392)) = 0x8C184A58;
+    *(unsigned int *)(((int)stk + 388)) = 0x8C33565C;
+    *(unsigned int *)(((int)stk + 384)) = 0x8C184A68;
+    *(unsigned int *)(((int)stk + 380)) = 0x8C3356AC;
+    *(unsigned int *)(((int)stk + 376)) = 0x8C184A78;
+    *(unsigned int *)(((int)stk + 372)) = 0x8C3356FC;
+    *(unsigned int *)(((int)stk + 368)) = 0x8C184A88;
+    *(unsigned int *)(((int)stk + 364)) = 0x8C33574C;
+    *(unsigned int *)(((int)stk + 360)) = 0x8C184A98;
+    *(unsigned int *)(((int)stk + 356)) = 0x8C33579C;
+    *(unsigned int *)(((int)stk + 352)) = 0x8C184AA8;
+    *(unsigned int *)(((int)stk + 348)) = 0x8C3357EC;
+    *(unsigned int *)(((int)stk + 344)) = 0x8C184AB8;
+    *(unsigned int *)(((int)stk + 340)) = 0x8C33583C;
+    *(unsigned int *)(((int)stk + 336)) = 0x8C184AC8;
+    *(unsigned int *)(((int)stk + 332)) = 0x8C33588C;
+    *(unsigned int *)(((int)stk + 328)) = 0x8C184AD8;
+    *(unsigned int *)(((int)stk + 324)) = 0x8C3358DC;
+    v0_5 = (0x8C33538C);
+    v0_1 = (v0_4);
+    v0_2 = ((0x1D0 + ((int)stk + 16)));
+    v0_4 = (0x8C184930);
+    v0_6 = (0x8C33506C);
+    v0_5 = (0x8C3354CC);
+    v0_5 = (0x8C184A08);
+    w0_0 = (w0_1);
+    *(unsigned int *)(((int)stk + 320)) = (0x1B8 + v0_4);
+    *(unsigned int *)(((int)stk + 316)) = (0x8C0 + v0_6);
+    *(unsigned int *)(((int)stk + 312)) = (0x1C8 + v0_4);
+    *(unsigned int *)(((int)stk + 308)) = (0x910 + v0_6);
+    *(unsigned int *)(((int)stk + 304)) = (0x1D8 + v0_4);
+    *(unsigned int *)(((int)stk + 300)) = (0x960 + v0_6);
+    *(unsigned int *)(((int)stk + 296)) = (0x1E8 + v0_4);
+    *(unsigned int *)(((int)stk + 292)) = (0x9B0 + v0_6);
+    *(unsigned int *)(((int)stk + 288)) = (0x1F8 + v0_4);
+    *(unsigned int *)(((int)stk + 284)) = (0xA00 + v0_6);
+    *(unsigned int *)(((int)stk + 280)) = (0x208 + v0_4);
+    *(unsigned int *)(((int)stk + 276)) = (0xA50 + v0_6);
+    *(unsigned int *)(((int)stk + 272)) = (0x218 + v0_4);
+    *(unsigned int *)(((int)stk + 268)) = (0xAA0 + v0_6);
+    *(unsigned int *)(((int)stk + 264)) = (0x228 + v0_4);
+    *(unsigned int *)(((int)stk + 260)) = (0xAF0 + v0_6);
+    *(unsigned int *)(((int)stk + 256)) = (0x238 + v0_4);
+    *(unsigned int *)(((int)stk + 252)) = (0xB40 + v0_6);
+    *(unsigned int *)(((int)stk + 248)) = (0x248 + v0_4);
+    *(unsigned int *)(((int)stk + 244)) = (0xB90 + v0_6);
+    *(unsigned int *)(((int)stk + 240)) = (0x258 + v0_4);
+    *(unsigned int *)(((int)stk + 236)) = (0xBE0 + v0_6);
+    *(unsigned int *)(((int)stk + 232)) = (0x268 + v0_4);
+    *(unsigned int *)(((int)stk + 228)) = (0xC30 + v0_6);
+    *(unsigned int *)(((int)stk + 224)) = (0x278 + v0_4);
+    *(unsigned int *)(((int)stk + 220)) = (0xC80 + v0_6);
+    *(unsigned int *)(((int)stk + 216)) = (0x288 + v0_4);
+    *(unsigned int *)(((int)stk + 212)) = (0xCD0 + v0_6);
+    *(unsigned int *)(((int)stk + 208)) = (0x298 + v0_4);
+    *(unsigned int *)(((int)stk + 204)) = (0xD20 + v0_6);
+    *(unsigned int *)(((int)stk + 200)) = (0x2A8 + v0_4);
+    *(unsigned int *)(((int)stk + 196)) = (0xD70 + v0_6);
+    *(unsigned int *)(((int)stk + 192)) = (0x2B8 + v0_4);
+    *(unsigned int *)(((int)stk + 188)) = (0xDC0 + v0_6);
+    *(unsigned int *)(((int)stk + 184)) = (0x2C8 + v0_4);
+    *(unsigned int *)(((int)stk + 180)) = (0xE10 + v0_6);
+    *(unsigned int *)(((int)stk + 176)) = (0x2D8 + v0_4);
+    *(unsigned int *)(((int)stk + 172)) = (0xE60 + v0_6);
+    v0_3 = ((0x2E8 + v0_4));
+    *(unsigned int *)(((int)stk + 168)) = v0_3;
+    *(unsigned int *)(((int)stk + 164)) = (0xEB0 + v0_6);
+    *(unsigned int *)(((int)stk + 160)) = (0x2F8 + v0_4);
+    *(unsigned int *)(((int)stk + 156)) = (0xF00 + v0_6);
+    *(unsigned int *)(((int)stk + 152)) = (0x308 + v0_4);
+    *(unsigned int *)(((int)stk + 148)) = (0xF50 + v0_6);
+    *(unsigned int *)(((int)stk + 144)) = (0x318 + v0_4);
+    *(unsigned int *)(((int)stk + 140)) = (0xFA0 + v0_6);
+    *(unsigned int *)(((int)stk + 136)) = (0x328 + v0_4);
+    *(unsigned int *)(((int)stk + 132)) = (0xFF0 + v0_6);
+    *(unsigned int *)(((int)stk + 128)) = (0x338 + v0_4);
+    *(unsigned int *)(((int)stk + 124)) = (0x1040 + v0_6);
+    *(unsigned int *)(((int)stk + 120)) = (0x348 + v0_4);
+    *(unsigned int *)(((int)stk + 116)) = (0x1090 + v0_6);
+    *(unsigned int *)(((int)stk + 112)) = (0x358 + v0_4);
+    *(unsigned int *)(((int)stk + 108)) = (0x10E0 + v0_6);
+    *(unsigned int *)(((int)stk + 104)) = (0x368 + v0_4);
+    *(unsigned int *)(((int)stk + 100)) = (0x1130 + v0_6);
+    *(unsigned int *)(((int)stk + 96)) = (0x378 + v0_4);
+    *(unsigned int *)(((int)stk + 92)) = (0x1180 + v0_6);
+    *(unsigned int *)(((int)stk + 88)) = (0x388 + v0_4);
+    *(unsigned int *)(((int)stk + 84)) = (0x11D0 + v0_6);
+    *(unsigned int *)(((int)stk + 80)) = (0x398 + v0_4);
+    *(unsigned int *)(((int)stk + 76)) = (0x1220 + v0_6);
+    *(unsigned int *)(((int)stk + 72)) = (0x3A8 + v0_4);
+    *(unsigned int *)(((int)stk + 68)) = (0x1270 + v0_6);
+    *(unsigned int *)(((int)stk + 64)) = (0x3B8 + v0_4);
+    *(unsigned int *)(((int)stk + 60)) = (0x12C0 + v0_6);
+    *(unsigned int *)(((int)stk + 56)) = (0x3C8 + v0_4);
+    *(unsigned int *)(((int)stk + 52)) = (v0_6 + 0x1310);
+    *(unsigned int *)(((int)stk + 48)) = (v0_4 + 0x3D8);
+    v0_3 = (0x3D8);
+    v0_4 = ((v0_4 + 0x3D8));
+    v0_6 = ((v0_6 + 0x1310));
+    L_8C094EBE:;
+    v0_3 = *(signed char *)((v0_1 + 0x0));
+    v0_4 = (v0_3);
+    if ((v0_3 == 0)) goto L_8C094EC8;
+    v0_6 = *(signed char *)((v0_1 + 0x0));
+    v0_5 = ((v0_6 - 46));
+    v0_3 = (0x8C0BAF18);
+    v0_4 = (0x100);
+    w0_1 = (1.0f);
+    if (!(((unsigned int)(v0_6 - 46) < (unsigned int)0x4D))) goto L_8C094EA8;
+    v0_6 = ((v0_5 << 1));
+    switch (((v0_5 << 1))) { case 0: goto L_8C094E6E; case 2: goto L_8C094EA8; case 4: goto L_8C094EA8; case 6: goto L_8C094EA8; case 8: goto L_8C094EA8; case 10: goto L_8C094EA8; case 12: goto L_8C094EA8; case 14: goto L_8C094EA8; case 16: goto L_8C094EA8; case 18: goto L_8C094EA8; case 20: goto L_8C094EA8; case 22: goto L_8C094EA8; case 24: goto L_8C094EA8; case 26: goto L_8C094EA8; case 28: goto L_8C094EA8; case 30: goto L_8C094EA8; case 32: goto L_8C094EA8; case 34: goto L_8C094EA8; case 36: goto L_8C094EA8; case 38: goto L_8C0944EA; case 40: goto L_8C094520; case 42: goto L_8C09454A; case 44: goto L_8C094572; case 46: goto L_8C09459A; case 48: goto L_8C0945C0; case 50: goto L_8C0945EC; case 52: goto L_8C094618; case 54: goto L_8C094650; case 56: goto L_8C09467C; case 58: goto L_8C0946A8; case 60: goto L_8C0946D4; case 62: goto L_8C094700; case 64: goto L_8C09472C; case 66: goto L_8C094758; case 68: goto L_8C09479C; case 70: goto L_8C0947C8; case 72: goto L_8C0947F4; case 74: goto L_8C094820; case 76: goto L_8C09484C; case 78: goto L_8C094878; case 80: goto L_8C0948A4; case 82: goto L_8C0948E8; case 84: goto L_8C094914; case 86: goto L_8C094940; case 88: goto L_8C09496C; case 90: goto L_8C094EA8; case 92: goto L_8C094EA8; case 94: goto L_8C094EA8; case 96: goto L_8C094EA8; case 98: goto L_8C094EA8; case 100: goto L_8C094EA8; case 102: goto L_8C094998; case 104: goto L_8C0949C4; case 106: goto L_8C0949F0; case 108: goto L_8C094A34; case 110: goto L_8C094A60; case 112: goto L_8C094A8C; case 114: goto L_8C094AB8; case 116: goto L_8C094AE4; case 118: goto L_8C094B10; case 120: goto L_8C094B3C; case 122: goto L_8C094B80; case 124: goto L_8C094BAC; case 126: goto L_8C094BD8; case 128: goto L_8C094C04; case 130: goto L_8C094C30; case 132: goto L_8C094C5C; case 134: goto L_8C094C88; case 136: goto L_8C094CB4; case 138: goto L_8C094CEC; case 140: goto L_8C094D24; case 142: goto L_8C094D50; case 144: goto L_8C094D82; case 146: goto L_8C094DAE; case 148: goto L_8C094DF2; case 150: goto L_8C094E1C; case 152: goto L_8C094E46; }
+    goto L_8C094E6E;
+    L_8C094EA8:;
+    w0_3 = (((*(float *)((v0_2 + 0x0))) + 4.0f));
+    L_8C094EB0:;
+    *(float *)((v0_2 + 0x0)) = w0_3;
+    L_8C094EB2:;
+    w0_1 = *(float *)((v0_2 + 0x0));
+    *(float *)((v0_2 + 0x0)) = (w0_1 - 3.0f);
+    v0_1 = ((v0_1 + 0x1));
+    w0_3 = ((w0_1 - 3.0f));
+    w0_1 = (3.0f);
+    goto L_8C094EBE;
+    L_8C094E6E:;
+    *(float *)((v0_2 + 0x0)) = ((*(float *)((v0_2 + 0x0))) + w0_1);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 52))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 48))) + 0x0));
+    v0_3 = ((int)w0_1);
+    FPUL_ = ((int)w0_1);
+    L_8C094E98:;
+    w0_1 = *(float *)((v0_2 + 0x0));
+    *(float *)((v0_2 + 0x0)) = (w0_1 + (float)FPUL_);
+    w0_2 = ((w0_1 + (float)FPUL_));
+    goto L_8C094EB2;
+    L_8C094E46:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 60))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 56))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094E1C:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 68))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 64))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094DF2:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 76))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 72))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094DAE:;
+    *(float *)((v0_2 + 0x4)) = ((*(float *)((v0_2 + 0x4))) + w0_1);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 84))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_2 = *(float *)(((*(int *)(((int)stk + 80))) + 0x0));
+    v0_3 = (((int)w0_2 - 4));
+    FPUL_ = ((int)w0_2);
+    L_8C094DDE:;
+    w0_2 = *(float *)((v0_2 + 0x0));
+    *(float *)((v0_2 + 0x0)) = (w0_2 + (float)v0_3);
+    *(float *)((v0_2 + 0x4)) = ((*(float *)((v0_2 + 0x4))) - w0_1);
+    w0_2 = ((w0_2 + (float)v0_3));
+    FPUL_ = (v0_3);
+    goto L_8C094EB2;
+    L_8C094D82:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 92))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 88))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094D50:;
+    *(float *)((v0_2 + 0x4)) = ((*(float *)((v0_2 + 0x4))) + w0_1);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 100))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_2 = *(float *)(((*(int *)(((int)stk + 96))) + 0x0));
+    v0_3 = (((int)w0_2 - 2));
+    FPUL_ = ((int)w0_2);
+    goto L_8C094DDE;
+    L_8C094D24:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 108))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 104))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094CEC:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 116))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_3 = ((*(float *)(((*(int *)(((int)stk + 112))) + 0x0))));
+    L_8C094D0E:;
+    w0_4 = *(float *)((v0_2 + 0x0));
+    *(float *)((v0_2 + 0x0)) = (w0_4 + (float)((int)w0_3 - 2));
+    v0_4 = ((int)w0_3 - 2);
+    v0_3 = (((int)w0_3 - 2));
+    w0_2 = ((w0_4 + (float)((int)w0_3 - 2)));
+    w0_3 = (((w0_4 + (float)((int)w0_3 - 2)) - w0_1));
+    FPUL_ = v0_4;
+    goto L_8C094EB0;
+    L_8C094CB4:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 124))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_3 = ((*(float *)(((*(int *)(((int)stk + 120))) + 0x0))));
+    goto L_8C094D0E;
+    L_8C094C88:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 132))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 128))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094C5C:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 140))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 136))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094C30:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 148))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 144))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094C04:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 156))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 152))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094BD8:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 164))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 160))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094BAC:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 172))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 168))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094B80:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 180))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 176))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094B3C:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 188))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 184))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094B10:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 196))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 192))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094AE4:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 204))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 200))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094AB8:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 212))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 208))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094A8C:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 220))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 216))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094A60:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 228))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 224))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094A34:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 236))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 232))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C0949F0:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 244))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 240))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C0949C4:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 252))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 248))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094998:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 260))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 256))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C09496C:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 268))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 264))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094940:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 276))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 272))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094914:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 284))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 280))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C0948E8:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 292))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 288))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C0948A4:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 300))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 296))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094878:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 308))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 304))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C09484C:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 316))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 312))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094820:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 324))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 320))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C0947F4:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 332))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 328))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C0947C8:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 340))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 336))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C09479C:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 348))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 344))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094758:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 356))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 352))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C09472C:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 364))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 360))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094700:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 372))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 368))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C0946D4:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 380))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 376))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C0946A8:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 388))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 384))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C09467C:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 396))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 392))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094650:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 404))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 400))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094618:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 412))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 408))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C0945EC:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 420))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 416))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C0945C0:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))(v0_5, v0_4, v0_4, v0_0, w0_0, w0_0);
+    v0_4 = *(int *)(((int)stk + 424));
+    v0_3 = (v0_4);
+    FPUL_ = (((int)(*(float *)((v0_4 + 0x0))) - 2));
+    goto L_8C094E98;
+    L_8C09459A:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 44))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    FPUL_ = (((int)(*(float *)((v0_5 + 0x0))) - 2));
+    goto L_8C094E98;
+    L_8C094572:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 32))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 36))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C09454A:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 16))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_1 = *(float *)(((*(int *)(((int)stk + 28))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094E98;
+    L_8C094520:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))(v0_5, v0_4, v0_4, v0_0, w0_0, w0_0);
+    v0_4 = *(int *)(((int)stk + 24));
+    v0_3 = (v0_4);
+    FPUL_ = (((int)(*(float *)((v0_4 + 0x0))) - 2));
+    goto L_8C094E98;
+    L_8C0944EA:;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_2); }
+    v0_3 = ((int (*)(int, int, int, int, float, float))(v0_3))((*(int *)(((int)stk + 20))), v0_4, v0_4, v0_0, w0_0, w0_0);
+    w0_3 = *(float *)((v0_2 + 0x0));
+    w0_1 = *(float *)(((*(int *)(((int)stk + 40))) + 0x0));
+    v0_3 = (((int)w0_1 - 2));
+    w0_2 = ((w0_3 + (float)((int)w0_1 - 2)));
+    w0_3 = (((w0_3 + (float)((int)w0_1 - 2)) - (1.0f + 1.0f)));
+    FPUL_ = (((int)w0_1 - 2));
+    goto L_8C094EB0;
+    L_8C094EC8:;
+    return (int)((*(float *)((v0_2 + 0x0))) - (*(float *)(((int)stk + 428))));
 }
