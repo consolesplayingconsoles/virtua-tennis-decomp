@@ -102,16 +102,23 @@ int write_dir(int a4, int a5, int a6, int a7)
     int t5;
     int t6;
     int stk[12];
+    int R1004;
+    int R1008;
+    int R1012;
+
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
 
     t0 = *(int *)((((a4 * 0x148) + 0x8C464598) + 0x1C));
     t2 = *(int *)((t0 + 0x14));
-    *(unsigned int *)(((int)stk + 8)) = (*(int *)((t0 + 0x18)));
-    *(unsigned int *)(((int)stk + 12)) = 0x0;
+    R1008 = (*(int *)((t0 + 0x18)));
+    R1012 = 0x0;
     t4 = 0x0;
     t7 = (unsigned short)t2;
     for (;;) {
-        if ((int)t4 >= (int)(*(int *)(((int)stk + 8)))) {
-            if ((*(int *)(((int)stk + 12))) != 0) {
+        if ((int)t4 >= (int)(R1008)) {
+            if ((R1012) != 0) {
                 t12 = write_fat(a4);
                 if ((int)t12 >= 0) {
                     t13 = write_sys(a4);
@@ -125,14 +132,14 @@ int write_dir(int a4, int a5, int a6, int a7)
             return 0x0;
         }
         if ((*(signed char *)((((((a4 * 0x148) + 0x8C464598) + 0x48) + t4) + 0x0))) != 0) {
-            *(unsigned int *)(((int)stk + 4)) = ((t4 << 8) << 1);
+            R1004 = ((t4 << 8) << 1);
             for (;;) {
-                t17 = vmsfs_write_retry(a4, t7, ((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x28))) + (*(int *)(((int)stk + 4)))));
+                t17 = vmsfs_write_retry(a4, t7, ((*(int *)((((a4 * 0x148) + 0x8C464598) + 0x28))) + (R1004)));
                 if (t17 == 0) {
                     break;
                 }
                 if (t17 != 0xFFFFFF01) {
-                    *(unsigned int *)(((int)stk + 12)) = 0x1;
+                    R1012 = 0x1;
                     t5 = (unsigned short)(((int (*)(int, int))(get_fat))(a4, t7));
                     set_fat(a4, t7, 0xFFFF);
                     t6 = (search_fat_dir(a4, 0xFFFC));
@@ -879,6 +886,10 @@ int nlSpriteFreeTextureOnce_Sub(int a4, int a5, int a6, int a7)
     int R13;
     int R14;
     int T_;
+    int R1004;
+    int R1008;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
     R4 = a4;
     R6 = a6;
     R7 = a7;
@@ -892,7 +903,7 @@ int nlSpriteFreeTextureOnce_Sub(int a4, int a5, int a6, int a7)
     goto L_8C0F4002;
     L_8C0F4002:;
     t5 = *(int *)0x8C458DCC;
-    *(unsigned int *)(((int)stk + 4)) = (R6 + t5);
+    R1004 = (R6 + t5);
     R13 = (0x8C4241C0);
     R14 = ((((R6 + t5) << 2) << 1));
     if (((unsigned int)(*(int *)((((*(int *)0x8C4241C0) + (((R6 + t5) << 2) << 1)) + 0x0))) <= (unsigned int)0x0)) goto L_8C0F40EA;
@@ -923,13 +934,13 @@ int nlSpriteFreeTextureOnce_Sub(int a4, int a5, int a6, int a7)
     L_8C0F4070:;
     *(unsigned int *)((((*(int *)((R11 + 0x0))) + R12) + 0x2C)) = 0x0;
     *(unsigned int *)((((*(int *)((R11 + 0x0))) + R12) + 0x38)) = 0xFFFFFFFF;
-    t31 = *(int *)(((int)stk + 4));
-    *(unsigned int *)(((int)stk + 8)) = (t31 << 1);
+    t31 = R1004;
+    R1008 = (t31 << 1);
     t33 = *(short *)(((t31 << 1) + (*(int *)0x8C454C80)));
     t34 = ((int (*)(int, int))(nlCommonTextureClearTextureIndex))(R10, R5);
     nlSpriteClearSpriteIndex(t33);
     *(unsigned int *)((((*(int *)((R13 + 0x0))) + R14) + 0x4)) = 0xFFFFFFFF;
-    *(unsigned short *)(((*(int *)0x8C454C80) + (*(int *)(((int)stk + 8))))) = 0xFFFFFFFF;
+    *(unsigned short *)(((*(int *)0x8C454C80) + (R1008))) = 0xFFFFFFFF;
     R12 = (t33);
     if (((*(int *)0x8C1DC888) != 0)) goto L_8C0F40EA;
     goto L_8C0F40AC;
@@ -1317,8 +1328,11 @@ int vmsfs_getinfo(int a4, int a5)
     int t9;
     int t10;
     int stk[9];
+    int R1004;
 
-    *(unsigned int *)(((int)stk + 4)) = (a4 * 0x148);
+    R1004 = *(int *)((int)stk + 4);
+
+    R1004 = (a4 * 0x148);
     t48 = 0xFFFFFF01;
     if ((*(signed char *)((((a4 * 0x148) + 0x8C464598) + 0x2))) != 0) {
         t1 = vmsio_isready(a4);
@@ -1328,7 +1342,7 @@ int vmsfs_getinfo(int a4, int a5)
         } else {
             t3 = vmsio_ismount(a4);
             t38 = 0xFFFFFF01;
-            if ((t3 != 0) && (t4 = *(int *)(((int)stk + 4)), t5 = *(signed char *)(((t4 + 0x8C464598) + 0x8)), t5 != 0)) {
+            if ((t3 != 0) && (t4 = R1004, t5 = *(signed char *)(((t4 + 0x8C464598) + 0x8)), t5 != 0)) {
                 t6 = buIsFormat(a4);
                 t33 = 0xFFFFFF03;
                 if ((int)t6 >= 0) {

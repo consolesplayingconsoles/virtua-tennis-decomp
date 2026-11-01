@@ -26,11 +26,14 @@ int menuItemDraw1(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
     int t49;
     int t59;
     int stk[35];
+    int R1032;
+
+    R1032 = *(int *)((int)stk + 32);
 
     stk[24] = a8;
     stk[25] = a9;
     stk[26] = a10;
-    *(unsigned int *)(((int)stk + 32)) = a4;
+    R1032 = a4;
     *(unsigned short *)0x8C334D96 = ((*(short *)0x8C334D96) + 0x200);
     t2 = nlCos((unsigned short)(*(short *)0x8C334D96));
     if (!(0.0f > t2)) {
@@ -74,7 +77,7 @@ int menuItemDraw1(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
     }
     *(unsigned short *)0x8C1846B4 = (t40 + t41);
     *(Stk3 *)((((int)stk + 32) + 0x4)) = vecMake(((*(float *)(((((int)stk + 32) + 0x40) + 0x0))) + 39.0f), ((*(float *)(((((int)stk + 32) + 0x40) + 0x4))) + 6.0f), ((*(float *)(((((int)stk + 32) + 0x40) + 0x8))) + -0.00100000005f));
-    if ((*(int *)(((int)stk + 32))) != 0) {
+    if ((R1032) != 0) {
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x4)); }
         t49 = ((((0xFF & (int)(u14 * 255.0f)) << 16) << 8) | 0xFFFF00);
     } else {
@@ -83,7 +86,7 @@ int menuItemDraw1(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
     }
     primSprDraw(0x8C3344D4, 0x80, 0x80, t49, *(Stk3 *)(((int)stk + 20)));
     *(float *)(((((int)stk + 32) + 0x4) + 0x0)) = ((*(float *)(((((int)stk + 32) + 0x4) + 0x0))) + 44.0f);
-    if ((*(int *)(((int)stk + 32))) == 0) {
+    if ((R1032) == 0) {
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x4)); }
         t59 = ((((0xFF & (int)(u14 * 255.0f)) << 16) << 8) | 0xFFFF00);
     } else {

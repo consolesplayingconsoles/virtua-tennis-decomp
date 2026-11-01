@@ -61,6 +61,11 @@ float cpuDblPathCross(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
     float u31;
     float u38;
     int stk[52];
+    int R1088;
+    int R1092;
+
+    R1088 = *(int *)((int)stk + 88);
+    R1092 = *(int *)((int)stk + 92);
 
     stk[38] = a8;
     stk[39] = a9;
@@ -68,7 +73,7 @@ float cpuDblPathCross(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
     stk[41] = a11;
     stk[42] = a12;
     stk[43] = a13;
-    *(unsigned int *)(((int)stk + 88)) = a4;
+    R1088 = a4;
     if (0x1 != 0) {
         t0 = 0x1;
         t1 = a4;
@@ -77,8 +82,8 @@ float cpuDblPathCross(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
             if ((int)t0 >= 0) {
                 t2 = (t0 & 0x7);
             }
-            *(unsigned int *)(((int)stk + 92)) = t2;
-            t4 = *(int *)(((int)stk + 88));
+            R1092 = t2;
+            t4 = R1088;
             *(Stk3 *)(((int)stk + 76)) = vecMake(((*(float *)((t1 + 0x0))) - (*(float *)((((((t2 << 1) + t2) << 2) + t4) + 0x0)))), 0.0f, ((*(float *)((t1 + 0x8))) - (*(float *)((((((t2 << 1) + t2) << 2) + t4) + 0x8)))));
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)(t1); }
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 88) + 0x4C)); }
@@ -94,7 +99,7 @@ float cpuDblPathCross(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
             t0 = (t0 + 0x1);
             t1 = (t1 + 0xC);
             if ((int)t0 >= (int)0x9) {
-                t1 = (*(int *)(((int)stk + 88)));
+                t1 = (R1088);
                 t0 = t1;
                 t0 = (t0 + 0x60);
                 u13 = (*(float *)0x8C05D220);
@@ -123,7 +128,7 @@ float cpuDblPathCross(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
         }
         u38 = 0.0f;
     } else {
-        t22 = *(int *)(((int)stk + 88));
+        t22 = R1088;
         t24 = t22;
         u25 = (*(float *)0x8C05D220);
         for (;;) {

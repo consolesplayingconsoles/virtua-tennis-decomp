@@ -22,11 +22,15 @@ int ADXAMP_Create(int a4, int a5, int a6)
     int v0_5;
     int v0_6;
     float w0_0;
+    int R1004;
+    int R1008;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
     v0_0 = a4;
     v0_1 = a5;
     v0_2 = a6;
-    *(unsigned int *)(((int)stk + 4)) = v0_1;
-    *(unsigned int *)(((int)stk + 8)) = v0_2;
+    R1004 = v0_1;
+    R1008 = v0_2;
     v0_3 = (v0_0);
     v0_5 = (0x8C46ABA4);
     v0_4 = (0x0);
@@ -50,8 +54,8 @@ int ADXAMP_Create(int a4, int a5, int a6)
     v0_1 = (v0_4);
     if (((int)v0_3 <= 0)) goto L_8C1EFB16;
     L_8C1EFAEE:;
-    *(unsigned int *)((((v0_2 + 0x4) + v0_0) + 0x0)) = (*(int *)((v0_0 + (*(int *)(((int)stk + 4))))));
-    *(unsigned int *)((((v0_2 + 0xC) + v0_0) + 0x0)) = (*(int *)((v0_0 + (*(int *)(((int)stk + 8))))));
+    *(unsigned int *)((((v0_2 + 0x4) + v0_0) + 0x0)) = (*(int *)((v0_0 + (R1004))));
+    *(unsigned int *)((((v0_2 + 0xC) + v0_0) + 0x0)) = (*(int *)((v0_0 + (R1008))));
     *(unsigned int *)((((v0_2 + 0x14) + v0_0) + 0x0)) = v0_4;
     v0_5 = (int)(v0_1 + 0x1) < (int)v0_3;
     v0_0 = ((v0_0 + 0x4));

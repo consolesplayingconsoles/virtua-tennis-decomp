@@ -1,14 +1,35 @@
 {
  "dev": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "search: r4 -> scratch, r5 -> scratch2",
+   "regs": {
+    "r4": "8C700000",
+    "r5": "8C704000"
+   },
+   "poke": {}
+  },
+  {
+   "about": "search: 8C343264=0C000000",
+   "regs": {
+    "r4": "8C700000",
+    "r5": "8C704000",
+    "r6": "01000000"
+   },
+   "poke": {
+    "8C343264": "0C000000"
+   },
+   "calls": []
   }
  ],
  "holdout": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "search: r6=00000001",
+   "regs": {
+    "r4": "8C700000",
+    "r5": "8C704000",
+    "r6": "01000000"
+   },
+   "poke": {}
   }
  ]
 }

@@ -1,14 +1,21 @@
 {
  "dev": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "search: r4 -> Player[0]",
+   "regs": {
+    "r4": "8C287D84"
+   },
+   "poke": {}
   }
  ],
  "holdout": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "search: r5=00000001",
+   "regs": {
+    "r4": "8C287D84",
+    "r5": "01000000"
+   },
+   "poke": {}
   }
  ]
 }

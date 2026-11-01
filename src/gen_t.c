@@ -79,6 +79,9 @@ void FBSortQueue(int a4, int a5)
     int t42;
     int t45;
     int stk[10];
+    int R1004;
+
+    R1004 = *(int *)((int)stk + 4);
 
     if ((*(int *)((a4 + 0x0))) != 0) {
         t1 = *(int *)((a4 + 0x0));
@@ -107,7 +110,7 @@ void FBSortQueue(int a4, int a5)
                 t18 = t6;
                 t20 = a5;
             }
-            *(unsigned int *)(((int)stk + 4)) = 0x0;
+            R1004 = 0x0;
             if ((int)(t3 - 2) > 0) {
                 t23 = t16;
                 t24 = t17;
@@ -151,11 +154,11 @@ void FBSortQueue(int a4, int a5)
                     }
                     t23 = t41;
                     t24 = t42;
-                    t25 = (*(int *)(((int)stk + 4)));
+                    t25 = (R1004);
                     t26 = t45;
                     t27 = (t27 - 1);
                     t25 = (t25 + 0x1);
-                    *(unsigned int *)(((int)stk + 4)) = t25;
+                    R1004 = t25;
                     if ((int)t25 >= (int)(t3 - 2)) {
                         break;
                     }
@@ -200,11 +203,14 @@ int logoADraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
     int t4;
     int t6;
     int stk[31];
+    int R1088;
+
+    R1088 = *(int *)((int)stk + 88);
 
     stk[19] = a8;
     stk[20] = a9;
     stk[21] = a10;
-    stk[22] = a11;
+    R1088 = a11;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 64) + 0xC)); }
     t0 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(0x8C334D9C, a5, a6, a7, *(Stk3 *)((((int)stk + 64) + 0xC)));
     *(float *)(((((int)stk + 64) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 64) + 0xC) + 0x0))) + 128.0f);
@@ -400,11 +406,14 @@ int sprRecInit(int a4, int a5, int a6, int a7, int a8)
 int logoBDrawRot(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
 {
     int stk[31];
+    int R1088;
+
+    R1088 = *(int *)((int)stk + 88);
 
     stk[19] = a8;
     stk[20] = a9;
     stk[21] = a10;
-    stk[22] = a11;
+    R1088 = a11;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x18)); }
     primSprDrawOfs(0x8C334F2C, 0x80, 0x80, a4, *(Stk3 *)((((int)stk + 52) + 0x18)));
     *(float *)(((((int)stk + 52) + 0x18) + 0x0)) = ((*(float *)(((((int)stk + 52) + 0x18) + 0x0))) + (*(float *)0x8C08FF44));

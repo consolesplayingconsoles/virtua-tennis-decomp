@@ -49,12 +49,29 @@ void playerInit(int a4, int a5, int a6, int a7)
     int t69;
     int t104;
     int t132;
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1016;
+    int R1020;
+    int R1024;
+    int R1028;
+    int R1032;
+
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
 
     if ((*(int *)((a4 + 0xC58))) == -1) {
         *(unsigned int *)((a4 + 0xC58)) = 0x0;
     }
     *(unsigned int *)((a4 + 0xB5C)) = a5;
-    *(int *)((int)stk + 12) = (0xAE8 + a4);
+    R1012 = (0xAE8 + a4);
     serveGetPos(a5, a5, a6, a7, (0xAE8 + a4));
     { struct mv3 { int w[3]; }; *(struct mv3 *)((0xAF4 + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
     *(unsigned short *)((a4 + 0xB0A)) = 0x0;
@@ -95,7 +112,7 @@ void playerInit(int a4, int a5, int a6, int a7)
     }
     *(unsigned int *)((a4 + 0xB68)) = 0x0;
     { struct mv3 { int w[3]; }; *(struct mv3 *)((0xB6C + a4)) = *(struct mv3 *)((0xAE8 + a4)); }
-    *(int *)((int)stk + 12) = (0xB78 + a4);
+    R1012 = (0xB78 + a4);
     *(Stk3 *)((0xB78 + a4)) = vecMake(0.100000001f, 0.0f, 0.100000001f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)((0xB84 + a4)) = *(struct mv3 *)(0x8C1016D4); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)((0xB90 + a4)) = *(struct mv3 *)(0x8C1016D4); }
@@ -116,9 +133,9 @@ void playerInit(int a4, int a5, int a6, int a7)
     if (t23 != a5) {
         *(unsigned int *)((a4 + 0xB58)) = 0x0;
         t25 = (*(int *)0x8C2873D0);
-        *(int *)((int)stk + 12) = t25;
+        R1012 = t25;
         t28 = (*(int *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x0)));
-        *(int *)((int)stk + 8) = t28;
+        R1008 = t28;
         motionSet(a4, (*(int *)((((*(int *)((a4 + 0xB58))) << 2) + 0x8C102C6C))), 0x1, 0x12755C, t28, t25, (*(float *)0x8C23D204));
         *(float *)((a4 + 0x4C)) = (*(float *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x4)));
         t35 = serveGetReceiver();
@@ -137,12 +154,12 @@ void playerInit(int a4, int a5, int a6, int a7)
         *(unsigned int *)((a4 + 0xB60)) = ((*(int *)((a4 + 0xB60))) | 0x40000);
         *(unsigned int *)((a4 + 0xB58)) = 0x0;
         t55 = (*(int *)0x8C2873D0);
-        *(int *)((int)stk + 12) = t55;
+        R1012 = t55;
         t56 = *(int *)((a4 + 0xC58));
-        *(unsigned int *)(((int)stk + 16)) = ((t56 * 0x6C) + 0x8C102424);
+        R1016 = ((t56 * 0x6C) + 0x8C102424);
         t58 = (*(int *)((((t56 * 0x6C) + 0x8C102424) + 0x0)));
-        *(int *)((int)stk + 8) = t58;
-        motionSet(a4, (*(int *)(((((*(int *)(((*(int *)(((int)stk + 16))) + 0x34))) << 2) << 2) + 0x8C105F1C))), 0x1, 0x12755C, t58, t55, (*(float *)0x8C23D204));
+        R1008 = t58;
+        motionSet(a4, (*(int *)(((((*(int *)(((R1016) + 0x34))) << 2) << 2) + 0x8C105F1C))), 0x1, 0x12755C, t58, t55, (*(float *)0x8C23D204));
         *(float *)((a4 + 0x4C)) = (*(float *)(((((*(int *)((a4 + 0xC58))) * 0x6C) + 0x8C102424) + 0x4)));
         effServeSpeedShow(a5);
         if ((((*(int *)0x8C287B10) + (*(int *)0x8C287B14)) == 0) && (t69 = *(int *)0x8C287B28, t69 == 0)) {
@@ -221,7 +238,7 @@ void playerInit(int a4, int a5, int a6, int a7)
     *(unsigned int *)((a4 + 0xD70)) = 0x0;
     *(unsigned int *)((a4 + 0xD74)) = 0x0;
     playerRecA20Clear((0xA20 + a4));
-    *(int *)((int)stk + 12) = (0xA40 + a4);
+    R1012 = (0xA40 + a4);
     colliObjInit((0xAE8 + a4), 0x0, 0x0, 0x0, (0xA40 + a4), 5.0f);
     *(unsigned int *)((a4 + 0xA70)) = (*(int *)((a4 + 0xB5C)));
     if (((*(int *)0x8C421F60) != 0) && (t104 = *(int *)0x8C295DDC, (t104 & 32) != 0)) {
@@ -231,17 +248,17 @@ void playerInit(int a4, int a5, int a6, int a7)
             t105 = 0x2C4C;
         }
         t108 = (*(int *)0x8C2873E0);
-        *(int *)((int)stk + 12) = t108;
+        R1012 = t108;
         t111 = (*(int *)(((0x8C102424 + ((*(int *)((a4 + 0xC58))) * 0x6C)) + 0x0)));
-        *(int *)((int)stk + 8) = t111;
+        R1008 = t111;
         motionSet(a4, t105, 0x0, 0x7D204, t111, t108, (*(float *)0x8C23D204));
-        *(int *)((int)stk + 4) = (0xAE8 + a4);
+        R1004 = (0xAE8 + a4);
         motionRootFirst(a4, 0x0, 0x0, 0x0, (0xAE8 + a4));
         *(unsigned int *)((a4 + 0xD40)) = 0x8C025500;
     }
     lightOverrideAmbient((*(int *)((a4 + 0xB5C))), 0x0);
     lightOverrideDiffuse((*(int *)((a4 + 0xB5C))), 0x0);
-    seFootstepCheck(a4, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), *(int *)((int)stk + 16 + 4), *(int *)((int)stk + 16 + 8), *(int *)((int)stk + 16 + 12), *(int *)((int)stk + 16 + 16));
+    seFootstepCheck(a4, 0x0, 0x0, 0x0, R1016, R1020, R1024, R1028, R1032);
     evSkidMarkSpawn(a4, 0x0, 0x0);
     t128 = 0x8C28B364;
     for (;;) {

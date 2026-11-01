@@ -162,6 +162,8 @@ def build(name,ret,passthru=False):
     nlines=len(body)+len(decls)
     if nlines>max(400,25*(G.SPANS.get(name,(0,0))[1]//2)): raise Skip('C too large: %d lines for %d bytes'%(nlines,G.SPANS.get(name,(0,0))[1]))      # duplicated arms made a 298-byte function 30,000 lines; the compiler then runs for an hour
     src='%s %s(%s)\n{\n%s\n}\n'%(rt,name,', '.join(params) if params else 'void','\n'.join(['    '+d for d in ([frame_decl] if frame_decl else [])+decls]+(['']if decls or frame_decl else [])+['    '+s for s in body]))
+    import frame
+    if os.environ.get('GEN_FRAME','0')=='1': src=frame.scalarize(src.rstrip('\n'))+'\n'      # scalar frame slots become locals (SHC keeps those in registers)
     import coalesce
     if os.environ.get('GEN_COALESCE','1')!='0': src=coalesce.coalesce(src.rstrip('\n'))+'\n'      # temporaries with disjoint live ranges share a name (fewer frame slots)
     import place, splitflat                       # fewer labels first (a block goes where its only jump is), then, if still over the limit,

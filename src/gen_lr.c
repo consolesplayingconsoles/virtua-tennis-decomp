@@ -124,12 +124,22 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     float F14;
     float F15;
     int T_;
+    int R1004;
+    int R1128;
+    int R1132;
+    int R1136;
+    int R1140;
+    R1004 = *(int *)((int)stk + 4);
+    R1128 = *(int *)((int)stk + 128);
+    R1132 = *(int *)((int)stk + 132);
+    R1136 = *(int *)((int)stk + 136);
+    R1140 = *(int *)((int)stk + 140);
     R4 = a4;
     R5 = a5;
     R6 = a6;
     R7 = a7;
     F4 = f4;
-    *(unsigned int *)(((int)stk + 128)) = 0x82;
+    R1128 = 0x82;
     *(int *)((int)stk + 120) = (((int)stk + 124) + 0x20);
     *(Stk3 *)((((int)stk + 124) + 0x20)) = vecMake(53.0f, 186.0f, 0.100000001f);
     *(int *)((int)stk + 116) = ((((int)stk + 124) + 0x20) + 0x24);
@@ -144,22 +154,22 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     *(int *)((int)stk + 104) = 0x8C3417B8;
     *(unsigned int *)0x8C3417B8 = (((int (*)(int))(entryGetColorId))(0x1));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 96)) = *(struct mv3 *)((((int)stk + 124) + 0x20)); }
-    *(unsigned int *)(((int)stk + 140)) = 0x8C287D84;
+    R1140 = 0x8C287D84;
     iconSlotPut((*(int *)0x8C2889DC), *(Stk3 *)(((int)stk + 96)), 0.65234375f, F4);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 84)) = *(struct mv3 *)((*(int *)(((int)stk + 124)))); }
-    *(unsigned int *)(((int)stk + 132)) = 0x8C289874;
+    R1132 = 0x8C289874;
     iconSlotPut((*(int *)0x8C28A4CC), *(Stk3 *)(((int)stk + 84)), 0.65234375f, F4);
     t7 = ((int (*)(int))(entryGetColorId))(0x0);
-    *(unsigned int *)(((int)stk + 136)) = (getID_Color(t7, F4));
+    R1136 = (getID_Color(t7, F4));
     u9 = *(float *)(((((int)stk + 124) + 0x20) + 0x8));
     u10 = *(float *)(((((int)stk + 124) + 0x20) + 0x4));
     u11 = *(float *)(((((int)stk + 124) + 0x20) + 0x0));
     *(int *)((int)stk + 80) = (((int)stk + 84) + 0x3C);
     *(Stk3 *)((((int)stk + 84) + 0x3C)) = vecMake((u11 + 62.0f), (u10 + -2.0f), u9);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 68)) = *(struct mv3 *)((((int)stk + 84) + 0x3C)); }
-    primRectFrame(0x40, 0x50, 0x1, (*(int *)(((int)stk + 136))), *(Stk3 *)(((int)stk + 68)));
+    primRectFrame(0x40, 0x50, 0x1, (R1136), *(Stk3 *)(((int)stk + 68)));
     t14 = ((int (*)(int))(entryGetColorId))(0x2);
-    *(unsigned int *)(((((int)stk + 68) + 0x44) + 0x0)) = (getID_Color(t14, F4));
+    R1136 = (getID_Color(t14, F4));
     t16 = *(int *)(((int)stk + 124));
     u17 = *(float *)((t16 + 0x8));
     u18 = *(float *)((t16 + 0x4));
@@ -167,7 +177,7 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     *(int *)((int)stk + 64) = (((int)stk + 84) + 0x3C);
     *(Stk3 *)((((int)stk + 84) + 0x3C)) = vecMake((u19 + 62.0f), (u18 + -2.0f), u17);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 84) + 0x3C)); }
-    primRectFrame(0x40, 0x50, 0x1, (*(int *)(((int)stk + 136))), *(Stk3 *)(((int)stk + 52)));
+    primRectFrame(0x40, 0x50, 0x1, (R1136), *(Stk3 *)(((int)stk + 52)));
     u22 = *(float *)(((((int)stk + 124) + 0x20) + 0x0));
     u23 = *(float *)(((((int)stk + 124) + 0x20) + 0x8));
     u24 = *(float *)(((((int)stk + 124) + 0x20) + 0x4));
@@ -204,7 +214,7 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     t49 = R14;
     *(int *)((int)stk + 16) = t49;
     *(Stk3 *)(t49) = vecMake((u46 + F12), (u48 + 8.0f), u47);
-    t51 = *(int *)(((*(int *)(((int)stk + 140))) + 0xC58));
+    t51 = *(int *)(((R1140) + 0xC58));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)(R14); }
     countryNamePutC(t51, *(Stk3 *)(((int)stk + 112)), *(Stk1 *)((int)stk + 112 + 12), F15);
     u53 = *(float *)((R11 + 0x0));
@@ -213,7 +223,7 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     t56 = R14;
     *(int *)((int)stk + 108) = t56;
     *(Stk3 *)(t56) = vecMake((u53 + F12), (u55 + 49.0f), u54);
-    t58 = *(int *)(((*(int *)(((int)stk + 132))) + 0xC58));
+    t58 = *(int *)(((R1132) + 0xC58));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 96)) = *(struct mv3 *)(R14); }
     countryNamePutC(t58, *(Stk3 *)(((int)stk + 96)), *(Stk1 *)((int)stk + 96 + 12), F15);
     u60 = *(float *)((R11 + 0x0));
@@ -225,7 +235,7 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     t64 = ((int (*)(int))(entryGetColorId))(0x0);
     t65 = getID_Color(t64, F15);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 80)) = *(struct mv3 *)(R14); }
-    primRectFrame((*(int *)(((int)stk + 128))), 0x27, 0x1, t65, *(Stk3 *)(((int)stk + 80)));
+    primRectFrame((R1128), 0x27, 0x1, t65, *(Stk3 *)(((int)stk + 80)));
     u68 = *(float *)((R11 + 0x0));
     u69 = *(float *)((R11 + 0x8));
     u70 = *(float *)((R11 + 0x4));
@@ -235,15 +245,15 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     t72 = ((int (*)(int))(entryGetColorId))(0x2);
     t73 = getID_Color(t72, F15);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)(R14); }
-    primRectFrame((*(int *)(((int)stk + 128))), 0x27, 0x1, t73, *(Stk3 *)(((int)stk + 64)));
+    primRectFrame((R1128), 0x27, 0x1, t73, *(Stk3 *)(((int)stk + 64)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)(R13); }
     *(unsigned int *)(((int)stk + 124)) = 0x8C288AFC;
     iconSlotPut((*(int *)0x8C289754), *(Stk3 *)(((int)stk + 52)), 0.65234375f, F15);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)(R9); }
-    *(unsigned int *)(((int)stk + 140)) = 0x8C28A5EC;
+    R1140 = 0x8C28A5EC;
     iconSlotPut((*(int *)0x8C28B244), *(Stk3 *)(((int)stk + 40)), 0.65234375f, F15);
     t80 = ((int (*)(int))(entryGetColorId))(0x1);
-    *(unsigned int *)(((((int)stk + 40) + 0x5C) + 0x0)) = (getID_Color(t80, F15));
+    R1132 = (getID_Color(t80, F15));
     u82 = *(float *)((R13 + 0x8));
     u83 = *(float *)((R13 + 0x4));
     u84 = *(float *)((R13 + 0x0));
@@ -252,9 +262,9 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     *(Stk3 *)(t85) = vecMake((u84 + 62.0f), (u83 + F13), u82);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)(R14); }
     F12 = (39.0f);
-    primRectFrame(0x40, 0x50, 0x1, (*(int *)(((int)stk + 132))), *(Stk3 *)(((int)stk + 24)));
+    primRectFrame(0x40, 0x50, 0x1, (R1132), *(Stk3 *)(((int)stk + 24)));
     t89 = ((int (*)(int))(entryGetColorId))(0x3);
-    *(unsigned int *)(((((int)stk + 24) + 0x6C) + 0x0)) = (getID_Color(t89, F15));
+    R1132 = (getID_Color(t89, F15));
     u91 = *(float *)((R9 + 0x8));
     u92 = *(float *)((R9 + 0x4));
     u93 = *(float *)((R9 + 0x0));
@@ -262,12 +272,12 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     *(int *)((int)stk + 20) = t94;
     *(Stk3 *)(t94) = vecMake((u93 + 62.0f), (u92 + F13), u91);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(R14); }
-    primRectFrame(0x40, 0x50, 0x1, (*(int *)(((int)stk + 132))), *(Stk3 *)(((int)stk + 8)));
+    primRectFrame(0x40, 0x50, 0x1, (R1132), *(Stk3 *)(((int)stk + 8)));
     u97 = *(float *)((R13 + 0x0));
     u98 = *(float *)((R13 + 0x8));
     u99 = *(float *)((R13 + 0x4));
     t100 = R14;
-    *(int *)((int)stk + 4) = t100;
+    R1004 = t100;
     *(Stk3 *)(t100) = vecMake((u97 + 29.0f), (u99 + -23.0f), u98);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)(R14); }
     t101 = ((int (*)(int, Stk3))(entryGetColorId))(0x1, *(Stk3 *)(((int)stk + 112)));
@@ -296,7 +306,7 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     t119 = R14;
     *(int *)((int)stk + 76) = t119;
     *(Stk3 *)(t119) = vecMake((u116 + -73.0f), (u118 + 49.0f), (u117 + F14));
-    t121 = *(int *)(((*(int *)(((int)stk + 140))) + 0xC58));
+    t121 = *(int *)(((R1140) + 0xC58));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)(R14); }
     countryNamePutC(t121, *(Stk3 *)(((int)stk + 64)), *(Stk1 *)((int)stk + 64 + 12), F15);
     u123 = *(float *)((R13 + 0x0));
@@ -308,7 +318,7 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     t127 = ((int (*)(int))(entryGetColorId))(0x1);
     t128 = getID_Color(t127, F15);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 48)) = *(struct mv3 *)(R14); }
-    primRectFrame((*(int *)(((int)stk + 128))), 0x27, 0x1, t128, *(Stk3 *)(((int)stk + 48)));
+    primRectFrame((R1128), 0x27, 0x1, t128, *(Stk3 *)(((int)stk + 48)));
     u131 = *(float *)((R13 + 0x0));
     u132 = *(float *)((R13 + 0x8));
     u133 = *(float *)((R13 + 0x4));
@@ -318,5 +328,5 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     t135 = ((int (*)(int))(entryGetColorId))(0x3);
     t136 = getID_Color(t135, F15);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)(R14); }
-    return (primRectFrame((*(int *)(((int)stk + 128))), 0x27, 0x1, t136, *(Stk3 *)(((int)stk + 32))));
+    return (primRectFrame((R1128), 0x27, 0x1, t136, *(Stk3 *)(((int)stk + 32))));
 }

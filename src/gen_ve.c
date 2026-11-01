@@ -25,11 +25,13 @@ int vmsio_get_media_info(int a4, int a5)
     register int v0_2;
     register int v0_3;
     register int v0_4;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     v0_3 = a4;
     v0_0 = a5;
     v0_3 = *(int *)(((v0_3 << 2) + 0x8C20B048));
-    *(unsigned int *)(((int)stk + 4)) = (kdGetDevice(v0_3));
-    v0_2 = (*(signed char *)(((*(int *)(((int)stk + 4))) + 0x0))) != 0;
+    R1004 = (kdGetDevice(v0_3));
+    v0_2 = (*(signed char *)(((R1004) + 0x0))) != 0;
     v0_1 = (0x8C1E9B4C);
     v0_1 = (0x8C1FEBBE);
     v0_1 = (v0_3);

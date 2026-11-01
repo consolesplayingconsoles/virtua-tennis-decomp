@@ -821,65 +821,6 @@ int ADXB_ExecOneAu8(int a4, int a5, int a6, int a7)
     return t78;
 }
 
-int uniformTexRestore(int a4)
-{
-    int t0;
-    int t7;
-    int t8;
-    int t9;
-    int t39;
-    int t10;
-    int t11;
-    int t13;
-    int t4;
-    int t6;
-    int t12;
-    int stk[11];
-
-    t0 = *(int *)0x8C287D5C;
-    if ((t0 != 2) && (t0 != 3)) {
-        t4 = (*(int *)(((a4 * 0x38) + 0x8C343268)));
-        t6 = a4;
-    } else {
-        t4 = (*(int *)0x8C421F70);
-        t6 = 0x0;
-    }
-    *(unsigned int *)(((int)stk + 8)) = (t6 * 0x38);
-    t7 = *(int *)((((t6 * 0x38) + 0x8C343264) + 0x0));
-    t8 = *(int *)((((t6 * 0x38) + 0x8C343264) + 0x34));
-    t9 = charaTexCount(t7);
-    t39 = t8;
-    if (t8 != -1) {
-        t10 = ((t4 * 0x70) + 0x8C1AF8A4);
-        t11 = 0x0;
-        for (;;) {
-            t11 = (t11 + 0x1);
-            *(unsigned int *)((t10 + 0x0)) = 0x0;
-            t10 = (t10 + 0x4);
-            if ((int)t11 >= (int)0x1C) {
-                break;
-            }
-        }
-        *(unsigned int *)(((int)stk + 4)) = 0x0;
-        for (;;) {
-            t13 = charaModelCount(t7, t11);
-            if ((int)(*(int *)(((int)stk + 4))) >= (int)t13) {
-                break;
-            }
-            t12 = (*(int *)(((int)stk + 4)));
-            t12 = (t12 << 2);
-            modelSwapMaterial((*(int *)((t12 + (*(int *)((((t7 << 2) + 0x8C1AF85C) + 0x0)))))), ((*(int *)(((((t8 << 2) << 2) + 0x8C124C10) + 0x0))) + (t9 - 27)), (*(int *)(((((t7 << 2) << 2) + 0x8C124AF0) + 0x0))));
-            modelSwapMaterial((*(int *)((t12 + (*(int *)((((t7 << 2) + 0x8C1AF85C) + 0x0)))))), ((*(int *)(((((t8 << 2) << 2) + 0x8C124C10) + 0x4))) + (t9 - 27)), (*(int *)(((((t7 << 2) << 2) + 0x8C124AF0) + 0x4))));
-            modelSwapMaterial((*(int *)((t12 + (*(int *)((((t7 << 2) + 0x8C1AF85C) + 0x0)))))), ((*(int *)(((((t8 << 2) << 2) + 0x8C124C10) + 0x8))) + (t9 - 27)), (*(int *)(((((t7 << 2) << 2) + 0x8C124AF0) + 0x8))));
-            modelSwapMaterial((*(int *)((t12 + (*(int *)((((t7 << 2) + 0x8C1AF85C) + 0x0)))))), ((*(int *)(((((t8 << 2) << 2) + 0x8C124C10) + 0xC))) + (t9 - 27)), (*(int *)(((((t7 << 2) << 2) + 0x8C124AF0) + 0xC))));
-            *(unsigned int *)(((int)stk + 4)) = ((*(int *)(((int)stk + 4))) + 0x1);
-        }
-        *(unsigned int *)(((0x8C343264 + (*(int *)(((int)stk + 8)))) + 0x34)) = 0xFFFFFFFF;
-        *(unsigned int *)(((0x8C343264 + (*(int *)(((int)stk + 8)))) + 0x30)) = 0xFFFFFFFF;
-        t39 = t13;
-    }
-    return t39;
-}
 
 
 int kmiFLWCTRLEORCallBackFunc(int a4, int a5)
@@ -1212,6 +1153,10 @@ int adxsjd_decexec_start(int a4, int a5, int a6, int a7, float f4)
     float F4;
     float F12;
     int T_;
+    int R1004;
+    int R1008;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
     R4 = a4;
     R6 = a6;
     R7 = a7;
@@ -1256,12 +1201,12 @@ int adxsjd_decexec_start(int a4, int a5, int a6, int a7, float f4)
     t27 = *(int *)(((*(int *)((R13 + 0x0))) + 0x1C));
     return ((int (*)(int, int, int, int, float))(t27))(R13, 0x1, (R14 + 0x14), R7, F4);
     L_8C1F06DE:;
-    *(unsigned int *)(((int)stk + 8)) = (ADXSJD_GetBlkSmpl(R14));
+    R1008 = (ADXSJD_GetBlkSmpl(R14));
     t29 = *(int *)((R14 + 0xC));
-    *(unsigned int *)(((int)stk + 4)) = t29;
+    R1004 = t29;
     t32 = ((int (*)(int, int))((*(int *)(((*(int *)((t29 + 0x0))) + 0x24)))))(t29, 0x0);
     R4 = (((unsigned int)t32 >> 1));
-    if (((int)((unsigned int)t32 >> 1) >= (int)(*(int *)(((int)stk + 8))))) goto L_8C1F0714;
+    if (((int)((unsigned int)t32 >> 1) >= (int)(R1008))) goto L_8C1F0714;
     goto L_8C1F06FC;
     L_8C1F0714:;
     ADXB_EntryData(R12, (*(int *)((R14 + 0x14))), (*(int *)((R14 + 0x18))));

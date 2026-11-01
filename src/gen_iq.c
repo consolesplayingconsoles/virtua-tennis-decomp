@@ -69,37 +69,53 @@ int titleMenuLayout(int a4, int a5, int a6, int a7, float f4, float f5)
     float F14;
     float F15;
     int T_;
+    int R1016;
+    int R1032;
+    int R1048;
+    int R1052;
+    int R1056;
+    int R1060;
+    int R1064;
+    int R1068;
+    R1016 = *(int *)((int)stk + 16);
+    R1032 = *(int *)((int)stk + 32);
+    R1048 = *(int *)((int)stk + 48);
+    R1052 = *(int *)((int)stk + 52);
+    R1056 = *(int *)((int)stk + 56);
+    R1060 = *(int *)((int)stk + 60);
+    R1064 = *(int *)((int)stk + 64);
+    R1068 = *(int *)((int)stk + 68);
     R4 = a4;
     R5 = a5;
     R6 = a6;
     R7 = a7;
     F5 = f5;
-    *(unsigned int *)(((int)stk + 56)) = R4;
-    *(unsigned int *)(((int)stk + 60)) = R5;
-    *(unsigned int *)(((int)stk + 68)) = (((int)stk + 48) + 0x24);
+    R1056 = R4;
+    R1060 = R5;
+    R1068 = (((int)stk + 48) + 0x24);
     *(int *)((int)stk + 44) = (((int)stk + 48) + 0x24);
     *(Stk3 *)((((int)stk + 48) + 0x24)) = vecMake(0.0f, 0.0f, 0.449999988f);
     *(int *)((int)stk + 40) = (0xC + (((int)stk + 48) + 0x24));
     *(Stk3 *)((0xC + (((int)stk + 48) + 0x24))) = vecMake(256.0f, 0.0f, 0.449999988f);
     *(int *)((int)stk + 36) = (0x18 + (((int)stk + 48) + 0x24));
     *(Stk3 *)((0x18 + (((int)stk + 48) + 0x24))) = vecMake(0.0f, 256.0f, 0.449999988f);
-    *(int *)((int)stk + 32) = (0x24 + (((int)stk + 48) + 0x24));
+    R1032 = (0x24 + (((int)stk + 48) + 0x24));
     *(Stk3 *)((0x24 + (((int)stk + 48) + 0x24))) = vecMake(256.0f, 256.0f, 0.449999988f);
     *(int *)((int)stk + 28) = (0x30 + (((int)stk + 48) + 0x24));
     *(Stk3 *)((0x30 + (((int)stk + 48) + 0x24))) = vecMake(512.0f, 0.0f, 0.449999988f);
-    *(unsigned int *)(((int)stk + 64)) = ((((int)stk + 48) + 0x24) + 0x3C);
+    R1064 = ((((int)stk + 48) + 0x24) + 0x3C);
     *(int *)((int)stk + 24) = ((((int)stk + 48) + 0x24) + 0x3C);
     *(Stk3 *)(((((int)stk + 48) + 0x24) + 0x3C)) = vecMake(410.0f, 20.0f, 0.100000001f);
-    *(unsigned int *)(((int)stk + 52)) = ((((int)stk + 48) + 0x24) + 0x48);
+    R1052 = ((((int)stk + 48) + 0x24) + 0x48);
     *(int *)((int)stk + 20) = ((((int)stk + 48) + 0x24) + 0x48);
     *(Stk3 *)(((((int)stk + 48) + 0x24) + 0x48)) = vecMake(20.0f, 420.0f, 0.100000001f);
-    *(int *)((int)stk + 16) = ((((int)stk + 48) + 0x24) + 0x54);
+    R1016 = ((((int)stk + 48) + 0x24) + 0x54);
     *(Stk3 *)(((((int)stk + 48) + 0x24) + 0x54)) = vecMake(25.0f, 113.0f, 0.200000003f);
     *(int *)((int)stk + 12) = (0x60 + (((int)stk + 48) + 0x24));
     *(Stk3 *)((0x60 + (((int)stk + 48) + 0x24))) = vecMake(20.0f, 173.0f, 0.100000001f);
     *(int *)((int)stk + 8) = ((((int)stk + 48) + 0x24) + 0x6C);
     *(Stk3 *)(((((int)stk + 48) + 0x24) + 0x6C)) = vecMake(20.0f, 173.0f, 0.100000001f);
-    *(unsigned int *)(((int)stk + 48)) = ((((int)stk + 48) + 0x24) + 0x78);
+    R1048 = ((((int)stk + 48) + 0x24) + 0x78);
     *(int *)((int)stk + 4) = ((((int)stk + 48) + 0x24) + 0x78);
     *(Stk3 *)(((((int)stk + 48) + 0x24) + 0x78)) = vecMake(200.0f, 239.0f, 0.100000001f);
     R10 = (((((int)stk + 48) + 0x24) + 0x54));
@@ -122,22 +138,22 @@ int titleMenuLayout(int a4, int a5, int a6, int a7, float f4, float f5)
     R6 = t14;
     if (t11) goto L_8C0E465E;
     R11 = (0x8C37DBCC);
-    R12 = ((*(int *)(((int)stk + 68))));
+    R12 = ((R1068));
     R13 = (0x8C08E944);
     R9 = (0x8C37DC1C);
     L_8C0E46EE:;
-    if (((unsigned int)R12 < (unsigned int)(*(int *)(((int)stk + 64))))) goto L_8C0E46D4;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)((*(int *)(((int)stk + 52)))); }
-    t23 = *(int *)(((int)stk + 60));
+    if (((unsigned int)R12 < (unsigned int)(R1064))) goto L_8C0E46D4;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)((R1052)); }
+    t23 = R1060;
     sprPutAtAlpha((0x3C0 + R11), *(Stk3 *)(((int)stk + 36)), (*(float *)(((t23 + 0x8) + 0x0))));
-    t26 = *(int *)(((int)stk + 52));
+    t26 = R1052;
     u27 = *(float *)((t26 + 0x8));
     u28 = *(float *)((t26 + 0x0));
     u29 = *(float *)((t26 + 0x4));
-    *(int *)((int)stk + 32) = (((int)stk + 36) + 0x24);
+    R1032 = (((int)stk + 36) + 0x24);
     *(Stk3 *)((((int)stk + 36) + 0x24)) = vecMake((u28 + 162.0f), u29, u27);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 36) + 0x24)); }
-    t33 = (*(int *)(((int)stk + 56))) == 0;
+    t33 = (R1056) == 0;
     t35 = (((int)stk + 36) + 0x24);
     R0 = ((sprPutAtAlpha((0x410 + R11), *(Stk3 *)(((int)stk + 20)), (*(float *)(((t23 + 0x8) + 0x0))))));
     R12 = t35;
@@ -149,7 +165,7 @@ int titleMenuLayout(int a4, int a5, int a6, int a7, float f4, float f5)
     u40 = *(float *)((R10 + 0x8));
     u41 = *(float *)((R10 + 0x4));
     t42 = R12;
-    *(int *)((int)stk + 32) = t42;
+    R1032 = t42;
     *(Stk3 *)(t42) = vecMake((u39 + F15), u41, u40);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(R12); }
     sprPutAtAlpha((0x230 + R11), *(Stk3 *)(((int)stk + 20)), (*(float *)((R9 + 0x0))));
@@ -157,33 +173,33 @@ int titleMenuLayout(int a4, int a5, int a6, int a7, float f4, float f5)
     u46 = *(float *)((R10 + 0x8));
     u47 = *(float *)((R10 + 0x4));
     t48 = R12;
-    *(int *)((int)stk + 16) = t48;
+    R1016 = t48;
     *(Stk3 *)(t48) = vecMake((u45 + 512.0f), u47, u46);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(R12); }
-    t52 = (*(int *)(((int)stk + 56))) != 0;
+    t52 = (R1056) != 0;
     R0 = ((sprPutAtAlpha((0x280 + R11), *(Stk3 *)(((int)stk + 4)), (*(float *)((R9 + 0x0))))));
     if (t52) goto L_8C0E48A6;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)((*(int *)(((int)stk + 48)))); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)((R1048)); }
     sprPutAtAlpha((0x2D0 + R11), *(Stk3 *)(((int)stk + 36)), (*(float *)((R9 + 0x0))));
-    t57 = *(int *)(((int)stk + 48));
+    t57 = R1048;
     u58 = *(float *)((t57 + 0x0));
     u59 = *(float *)((t57 + 0x8));
     u60 = *(float *)((t57 + 0x4));
     t61 = R12;
-    *(int *)((int)stk + 32) = t61;
+    R1032 = t61;
     *(Stk3 *)(t61) = vecMake((u58 + F15), u60, u59);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(R12); }
-    t65 = (*(int *)(((int)stk + 56))) != 0;
+    t65 = (R1056) != 0;
     R0 = ((sprPutAtAlpha((0x320 + R11), *(Stk3 *)(((int)stk + 20)), (*(float *)((R9 + 0x0))))));
     if (t65) goto L_8C0E48A6;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)(R8); }
-    t67 = *(int *)(((int)stk + 60));
+    t67 = R1060;
     sprPutAtAlpha((0x550 + R11), *(Stk3 *)(((int)stk + 36)), (*(float *)(((t67 + 0x4) + 0x0))));
     u70 = *(float *)((R8 + 0x0));
     u71 = *(float *)((R8 + 0x8));
     u72 = *(float *)((R8 + 0x4));
     t73 = R12;
-    *(int *)((int)stk + 32) = t73;
+    R1032 = t73;
     *(Stk3 *)(t73) = vecMake((u70 + F15), u72, u71);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(R12); }
     sprPutAtAlpha((0x5A0 + R11), *(Stk3 *)(((int)stk + 20)), (*(float *)(((t67 + 0x4) + 0x0))));
@@ -191,10 +207,10 @@ int titleMenuLayout(int a4, int a5, int a6, int a7, float f4, float f5)
     u77 = *(float *)((R8 + 0x8));
     u78 = *(float *)((R8 + 0x4));
     t79 = R12;
-    *(int *)((int)stk + 16) = t79;
+    R1016 = t79;
     *(Stk3 *)(t79) = vecMake((u76 + 512.0f), u78, u77);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(R12); }
-    t82 = *(int *)(((int)stk + 56));
+    t82 = R1056;
     R0 = ((sprPutAtAlpha((0x5F0 + R11), *(Stk3 *)(((int)stk + 4)), (*(float *)(((t67 + 0x4) + 0x0))))));
     T_ = (((t82 == 0)));
     if ((!T_)) goto L_8C0E48A6;
@@ -205,7 +221,7 @@ int titleMenuLayout(int a4, int a5, int a6, int a7, float f4, float f5)
     return R0;
     L_8C0E46D4:;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)(R12); }
-    sprPutAtAlpha(R9, *(Stk3 *)(((int)stk + 36)), (*(float *)(((*(int *)(((int)stk + 60))) + 0x0))));
+    sprPutAtAlpha(R9, *(Stk3 *)(((int)stk + 36)), (*(float *)(((R1060) + 0x0))));
     R12 = ((R12 + 0xC));
     R9 = ((R9 + 0x50));
     goto L_8C0E46EE;

@@ -28,10 +28,14 @@ int emotFaceReset(int a4)
     int R14;
     float F3;
     int T_;
+    int R1004;
+    int R1008;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
     R4 = a4;
-    *(unsigned int *)(((int)stk + 8)) = (R4 << 2);
-    *(unsigned int *)(((int)stk + 4)) = (*(int *)(((R4 << 2) + 0x8C1AA4BC)));
-    R10 = (((*(int *)(((int)stk + 8))) + 0x8C1AA504));
+    R1008 = (R4 << 2);
+    R1004 = (*(int *)(((R4 << 2) + 0x8C1AA4BC)));
+    R10 = (((R1008) + 0x8C1AA504));
     R11 = (0x0);
     R12 = (R4);
     R13 = (0x0);
@@ -43,7 +47,7 @@ int emotFaceReset(int a4)
     if ((t9 != -1)) goto L_8C0BE25A;
     return R0;
     L_8C0BE25A:;
-    t12 = *(int *)(((int)stk + 4));
+    t12 = R1004;
     t13 = emotFaceVtxGet(R12, R13, 0x1);
     t15 = R9 == (emotFaceVtxGet(R12, R13, 0x0));
     R14 = ((t12 + (t13 << 2)));

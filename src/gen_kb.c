@@ -100,11 +100,16 @@ void windowFrameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
     int t465;
     int t479;
     int stk[41];
+    int R1040;
+    int R1044;
+
+    R1040 = *(int *)((int)stk + 40);
+    R1044 = *(int *)((int)stk + 44);
 
     stk[30] = a8;
     stk[31] = a9;
     stk[32] = a10;
-    *(unsigned int *)(((int)stk + 44)) = a5;
+    R1044 = a5;
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 40) + 0x8)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 40) + 0x14)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
     *(float *)(((((int)stk + 40) + 0x14) + 0x4)) = ((*(float *)(((((int)stk + 40) + 0x14) + 0x4))) - 18.0f);
@@ -154,18 +159,18 @@ void windowFrameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
     if ((*(int *)0x8C287D5C) == 2) {
         t55 = 0x0;
     }
-    *(unsigned int *)(((int)stk + 40)) = 0x8C33C570;
+    R1040 = 0x8C33C570;
     if (a4 != 0) {
         if (a4 == 1) {
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
-            t58 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((*(int *)(((int)stk + 40))) + 0xF0), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
+            t58 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((R1040) + 0xF0), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
             *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 10.0f);
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
             t60 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C6B0, *(Stk3 *)(((int)stk + 16)));
             *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 57.0f);
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
             t62 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C700, *(Stk3 *)(((int)stk + 4)));
-            if ((*(int *)(((int)stk + 44))) != 0) {
+            if ((R1044) != 0) {
                 *(unsigned int *)0x8C33CA98 = 0x0;
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x8)); }
                 t64 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33CC50, *(Stk3 *)(((int)stk + 28)));
@@ -214,14 +219,14 @@ void windowFrameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
         } else {
             if (a4 == 2) {
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
-                t96 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((*(int *)(((int)stk + 40))) + 0x2D0), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
+                t96 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((R1040) + 0x2D0), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
                 *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 10.0f);
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
                 t98 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C890, *(Stk3 *)(((int)stk + 16)));
                 *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 57.0f);
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
                 t100 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C8E0, *(Stk3 *)(((int)stk + 4)));
-                if ((*(int *)(((int)stk + 44))) != 0) {
+                if ((R1044) != 0) {
                     *(unsigned int *)0x8C33CB38 = 0x0;
                     if (t55 == 0) {
                         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x14)); }
@@ -268,14 +273,14 @@ void windowFrameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
             } else {
                 if (a4 == 3) {
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
-                    t136 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((*(int *)(((int)stk + 40))) + 0x3C0), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
+                    t136 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((R1040) + 0x3C0), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
                     *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 10.0f);
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
                     t138 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C980, *(Stk3 *)(((int)stk + 16)));
                     *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 57.0f);
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
                     t140 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C9D0, *(Stk3 *)(((int)stk + 4)));
-                    if ((*(int *)(((int)stk + 44))) != 0) {
+                    if ((R1044) != 0) {
                         *(unsigned int *)0x8C33CB88 = 0x0;
                         if (t55 == 0) {
                             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x14)); }
@@ -322,14 +327,14 @@ void windowFrameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
                 } else {
                     if (a4 == 4) {
                         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
-                        t176 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((*(int *)(((int)stk + 40))) + 0x1E0), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
+                        t176 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((R1040) + 0x1E0), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
                         *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 10.0f);
                         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
                         t178 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C7A0, *(Stk3 *)(((int)stk + 16)));
                         *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 57.0f);
                         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
                         t180 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C7F0, *(Stk3 *)(((int)stk + 4)));
-                        if ((*(int *)(((int)stk + 44))) != 0) {
+                        if ((R1044) != 0) {
                             *(unsigned int *)0x8C33CAE8 = 0x0;
                             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x14)); }
                             t182 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33CAC0, *(Stk3 *)(((int)stk + 28)));
@@ -346,14 +351,14 @@ void windowFrameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
                     } else {
                         if (a4 == 5) {
                             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
-                            t194 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))((*(int *)(((int)stk + 40))), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
+                            t194 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))((R1040), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
                             *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 10.0f);
                             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
                             t196 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C5C0, *(Stk3 *)(((int)stk + 16)));
                             *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 57.0f);
                             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
                             t198 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C610, *(Stk3 *)(((int)stk + 4)));
-                            if ((*(int *)(((int)stk + 44))) != 0) {
+                            if ((R1044) != 0) {
                                 *(unsigned int *)0x8C33CA48 = 0x0;
                                 if (t55 == 0) {
                                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x14)); }
@@ -402,14 +407,14 @@ void windowFrameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
                         } else {
                             if (a4 == 6) {
                                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
-                                t234 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((*(int *)(((int)stk + 40))) + 0xF0), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
+                                t234 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((R1040) + 0xF0), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
                                 *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 10.0f);
                                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
                                 t236 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C6B0, *(Stk3 *)(((int)stk + 16)));
                                 *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 57.0f);
                                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
                                 t238 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C700, *(Stk3 *)(((int)stk + 4)));
-                                if ((*(int *)(((int)stk + 44))) != 0) {
+                                if ((R1044) != 0) {
                                     *(unsigned int *)0x8C33CA98 = 0x0;
                                     if (t55 == 0) {
                                         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x14)); }
@@ -458,14 +463,14 @@ void windowFrameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
                             } else {
                                 if (a4 == 7) {
                                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
-                                    t274 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((*(int *)(((int)stk + 40))) + 0x2D0), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
+                                    t274 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((R1040) + 0x2D0), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
                                     *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 10.0f);
                                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
                                     t276 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C890, *(Stk3 *)(((int)stk + 16)));
                                     *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 57.0f);
                                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
                                     t278 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C8E0, *(Stk3 *)(((int)stk + 4)));
-                                    if ((*(int *)(((int)stk + 44))) != 0) {
+                                    if ((R1044) != 0) {
                                         *(unsigned int *)0x8C33CB38 = 0x0;
                                         if (t55 == 0) {
                                             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x14)); }
@@ -514,14 +519,14 @@ void windowFrameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
                                 } else {
                                     if (a4 == 8) {
                                         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
-                                        t314 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((*(int *)(((int)stk + 40))) + 0x3C0), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
+                                        t314 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((R1040) + 0x3C0), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
                                         *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 10.0f);
                                         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
                                         t316 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C980, *(Stk3 *)(((int)stk + 16)));
                                         *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 57.0f);
                                         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
                                         t318 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C9D0, *(Stk3 *)(((int)stk + 4)));
-                                        if ((*(int *)(((int)stk + 44))) != 0) {
+                                        if ((R1044) != 0) {
                                             *(unsigned int *)0x8C33CB88 = 0x0;
                                             if (t55 == 0) {
                                                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x14)); }
@@ -577,14 +582,14 @@ void windowFrameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
         }
     } else {
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
-        t454 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))((*(int *)(((int)stk + 40))), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
+        t454 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))((R1040), t51, a6, t52, *(Stk3 *)(((int)stk + 28)));
         *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 10.0f);
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
         t456 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C5C0, *(Stk3 *)(((int)stk + 16)));
         *(float *)(((((int)stk + 40) + 0x50) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x50) + 0x0))) + 57.0f);
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0x50)); }
         t458 = ((int (*)(int, Stk3))(sprPutAt))(0x8C33C610, *(Stk3 *)(((int)stk + 4)));
-        if ((*(int *)(((int)stk + 44))) != 0) {
+        if ((R1044) != 0) {
             *(unsigned int *)0x8C33CA48 = 0x0;
             if (t55 == 0) {
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x14)); }

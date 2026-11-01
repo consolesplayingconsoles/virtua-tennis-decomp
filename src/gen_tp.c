@@ -25,10 +25,15 @@ int cpuDblAimAddRange(int a4, int a5)
     float u74;
     int t88;
     int t83;
+    int R1004;
+    float R1040;
 
-    *(int *)((int)stk + 4) = ((int)stk + 8);
+    R1004 = *(int *)((int)stk + 4);
+    R1040 = *(float *)((int)stk + 40);
+
+    R1004 = ((int)stk + 8);
     cpuShotRange(a4, (((int)stk + 4) + 0x28), (((int)stk + 4) + 0x1C), (((int)stk + 4) + 0x10), ((int)stk + 8));
-    u1 = *(float *)(((int)stk + 40));
+    u1 = R1040;
     u2 = *(float *)((a4 + 0xBB0));
     u3 = (-u2);
     if (!(0.0f > u2)) {

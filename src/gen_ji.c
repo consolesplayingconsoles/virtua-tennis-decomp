@@ -75,85 +75,110 @@ int lineJudgeUpdate(int a4)
     int t283;
     int t298;
     int t299;
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1016;
+    int R1020;
+    int R1024;
+    int R1028;
+    int R1032;
+    int R1036;
+    int R1040;
+    int R1044;
+    int R1048;
 
-    *(unsigned int *)(((int)stk + 12)) = a4;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
+    R1036 = *(int *)((int)stk + 36);
+    R1040 = *(int *)((int)stk + 40);
+    R1044 = *(int *)((int)stk + 44);
+    R1048 = *(int *)((int)stk + 48);
+
+    R1012 = a4;
     if (((int)(*(int *)0x8C287B2C) > 0) && (t1 = *(int *)0x8C287B3C, (t1 & 4) == 0)) {
         lineJudgeWakeAll();
     }
-    *(unsigned int *)(((int)stk + 28)) = 0x8C124E20;
-    *(unsigned int *)(((int)stk + 40)) = 0x8C124E1C;
-    *(unsigned int *)(((int)stk + 44)) = 0x8C124E28;
-    *(unsigned int *)(((int)stk + 36)) = 0x8C124E38;
-    *(unsigned int *)(((int)stk + 32)) = 0x8C124E18;
-    *(unsigned int *)(((int)stk + 24)) = 0x8C124E34;
-    *(unsigned int *)(((int)stk + 48)) = 0x8C124E24;
-    *(unsigned int *)(((int)stk + 20)) = 0x8C124E30;
-    *(unsigned int *)(((int)stk + 16)) = 0x8C124E2C;
+    R1028 = 0x8C124E20;
+    R1040 = 0x8C124E1C;
+    R1044 = 0x8C124E28;
+    R1036 = 0x8C124E38;
+    R1032 = 0x8C124E18;
+    R1024 = 0x8C124E34;
+    R1048 = 0x8C124E24;
+    R1020 = 0x8C124E30;
+    R1016 = 0x8C124E2C;
     t6 = 0x0;
     for (;;) {
-        *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+        R1008 = ((t6 * 0x654) + 0x8C37F77C);
         motionBackup((((t6 * 0x654) + 0x8C37F77C) + 0x4));
-        *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x5B4)) = 0x1;
-        t10 = *(int *)((0x5BC + (*(int *)(((int)stk + 8)))));
+        *(unsigned int *)(((R1008) + 0x5B4)) = 0x1;
+        t10 = *(int *)((0x5BC + (R1008)));
         if (t10 != 0) {
             if (t10 != 1) {
                 if (t10 != 2) {
                     if (t10 == 3) {
-                        *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                        R1008 = ((t6 * 0x654) + 0x8C37F77C);
                         *(unsigned int *)((((t6 * 0x654) + 0x8C37F77C) + 0x5B4)) = 0x0;
-                        t12 = motionIsEnd(((*(int *)(((int)stk + 8))) + 0x4));
+                        t12 = motionIsEnd(((R1008) + 0x4));
                         if (t12 == 0) {
                         } else {
                             if ((t6 != 1) && (t6 != 4)) {
                                 if ((*(int *)((0x5C0 + ((t6 * 0x654) + 0x8C37F77C)))) == 3) {
                                     t15 = *(int *)0x8C2873D4;
-                                    t16 = *(int *)(((*(int *)(((int)stk + 32))) + 0x0));
-                                    *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                                    t16 = *(int *)(((R1032) + 0x0));
+                                    R1008 = ((t6 * 0x654) + 0x8C37F77C);
                                     motionSwitch((((t6 * 0x654) + 0x8C37F77C) + 0x4), t16, 0x0, t15, 0.0f);
-                                    motionSetFrame(((*(int *)(((int)stk + 8))) + 0x4), 120.0f);
-                                    *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x5BC)) = 0x1;
-                                    *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x5C0)) = 0x0;
+                                    motionSetFrame(((R1008) + 0x4), 120.0f);
+                                    *(unsigned int *)(((R1008) + 0x5BC)) = 0x1;
+                                    *(unsigned int *)(((R1008) + 0x5C0)) = 0x0;
                                 } else {
-                                    *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                                    R1008 = ((t6 * 0x654) + 0x8C37F77C);
                                     *(unsigned int *)((((t6 * 0x654) + 0x8C37F77C) + 0x5BC)) = 0x5;
-                                    t22 = *(int *)(((int)stk + 8));
-                                    *(int *)((int)stk + 4) = (0x5C4 + t22);
+                                    t22 = R1008;
+                                    R1004 = (0x5C4 + t22);
                                     u24 = 3.0f;
                                     u24 = u24 + 5.0f * (nlRandom());
                                     *(unsigned int *)(((0x5C4 + t22) + 0x0)) = (int)u24;
-                                    *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x5C0)) = 0x0;
+                                    *(unsigned int *)(((R1008) + 0x5C0)) = 0x0;
                                 }
                             } else {
-                                *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                                R1008 = ((t6 * 0x654) + 0x8C37F77C);
                                 *(unsigned int *)((((t6 * 0x654) + 0x8C37F77C) + 0x5BC)) = 0x5;
-                                t32 = *(int *)(((int)stk + 8));
-                                *(int *)((int)stk + 4) = (0x5C4 + t32);
+                                t32 = R1008;
+                                R1004 = (0x5C4 + t32);
                                 u34 = 3.0f;
                                 u34 = u34 + 5.0f * (nlRandom());
                                 *(unsigned int *)(((0x5C4 + t32) + 0x0)) = (int)u34;
-                                *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x5C0)) = 0x0;
+                                *(unsigned int *)(((R1008) + 0x5C0)) = 0x0;
                             }
                         }
                     } else {
                         if (t10 == 4) {
-                            *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                            R1008 = ((t6 * 0x654) + 0x8C37F77C);
                             *(unsigned int *)((((t6 * 0x654) + 0x8C37F77C) + 0x5B4)) = 0x0;
-                            t49 = motionIsEnd(((*(int *)(((int)stk + 8))) + 0x4));
+                            t49 = motionIsEnd(((R1008) + 0x4));
                             if (t49 == 0) {
                             } else {
                                 t51 = *(int *)0x8C2873D4;
-                                t52 = *(int *)(((*(int *)(((int)stk + 24))) + 0x0));
-                                *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                                t52 = *(int *)(((R1024) + 0x0));
+                                R1008 = ((t6 * 0x654) + 0x8C37F77C);
                                 motionSwitch((((t6 * 0x654) + 0x8C37F77C) + 0x4), t52, 0x0, t51, 0.0f);
-                                *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x5BC)) = 0x1;
-                                *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x5C0)) = 0x0;
+                                *(unsigned int *)(((R1008) + 0x5BC)) = 0x1;
+                                *(unsigned int *)(((R1008) + 0x5C0)) = 0x0;
                             }
                         } else {
                             if (t10 == 5) {
                                 t60 = *(int *)((((t6 * 0x654) + 0x8C37F77C) + 0x5C4));
                                 *(unsigned int *)((((t6 * 0x654) + 0x8C37F77C) + 0x5C4)) = (t60 - 1);
                                 if ((t60 - 1) == 0) {
-                                    motionSwitch((((t6 * 0x654) + 0x8C37F77C) + 0x4), (*(int *)(((*(int *)(((int)stk + 48))) + 0x0))), 0x0, (*(int *)0x8C2873D4), 1.0f);
+                                    motionSwitch((((t6 * 0x654) + 0x8C37F77C) + 0x4), (*(int *)(((R1048) + 0x0))), 0x0, (*(int *)0x8C2873D4), 1.0f);
                                 }
                                 t70 = motionIsEnd((((t6 * 0x654) + 0x8C37F77C) + 0x4));
                                 if (t70 != 0) {
@@ -163,14 +188,14 @@ int lineJudgeUpdate(int a4)
                                 if (t10 == 6) {
                                     t74 = motionGetFrame((((t6 * 0x654) + 0x8C37F77C) + 0x4));
                                     if (t74 == 40.0f) {
-                                        *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                                        R1008 = ((t6 * 0x654) + 0x8C37F77C);
                                         motionSetSpeed((((t6 * 0x654) + 0x8C37F77C) + 0x4), 0.0f);
-                                        t78 = nlLength(((*(int *)(((int)stk + 12))) + 0xC), ((*(int *)(((int)stk + 8))) + 0x5A4));
+                                        t78 = nlLength(((R1012) + 0xC), ((R1008) + 0x5A4));
                                         if (!(t78 > 20.0f) && (t79 = *(int *)0x8C287B2C, (int)t79 <= 0)) {
                                         } else {
-                                            *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                                            R1008 = ((t6 * 0x654) + 0x8C37F77C);
                                             *(unsigned int *)(((0x5BC + ((t6 * 0x654) + 0x8C37F77C)) + 0x0)) = 0x7;
-                                            motionSetSpeed(((*(int *)(((int)stk + 8))) + 0x4), 1.0f);
+                                            motionSetSpeed(((R1008) + 0x4), 1.0f);
                                         }
                                     }
                                 } else {
@@ -178,9 +203,9 @@ int lineJudgeUpdate(int a4)
                                         t90 = motionIsEnd((((t6 * 0x654) + 0x8C37F77C) + 0x4));
                                         if (t90 != 0) {
                                             if ((t6 != 1) && (t6 != 4)) {
-                                                *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                                                R1008 = ((t6 * 0x654) + 0x8C37F77C);
                                                 motionSetSpeed((((t6 * 0x654) + 0x8C37F77C) + 0x4), 0.0f);
-                                                *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x5BC)) = 0x1;
+                                                *(unsigned int *)(((R1008) + 0x5BC)) = 0x1;
                                             } else {
                                                 *(unsigned int *)((((t6 * 0x654) + 0x8C37F77C) + 0x5BC)) = 0x5;
                                                 *(unsigned int *)((((t6 * 0x654) + 0x8C37F77C) + 0x5C4)) = 0x2;
@@ -195,33 +220,33 @@ int lineJudgeUpdate(int a4)
             } else {
                 if ((*(int *)((0x5C0 + ((t6 * 0x654) + 0x8C37F77C)))) == 1) {
                     t140 = *(int *)0x8C2873D4;
-                    t141 = *(int *)(((*(int *)(((int)stk + 28))) + 0x0));
-                    *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                    t141 = *(int *)(((R1028) + 0x0));
+                    R1008 = ((t6 * 0x654) + 0x8C37F77C);
                     motionSwitch((((t6 * 0x654) + 0x8C37F77C) + 0x4), t141, 0x0, t140, 1.0f);
-                    *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x5C0)) = 0x0;
-                    *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x5BC)) = 0x3;
+                    *(unsigned int *)(((R1008) + 0x5C0)) = 0x0;
+                    *(unsigned int *)(((R1008) + 0x5BC)) = 0x3;
                 }
                 if ((*(int *)((0x5C0 + ((t6 * 0x654) + 0x8C37F77C)))) == 2) {
                     t152 = *(int *)0x8C2873D4;
-                    t153 = *(int *)(((*(int *)(((int)stk + 40))) + 0x0));
-                    *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                    t153 = *(int *)(((R1040) + 0x0));
+                    R1008 = ((t6 * 0x654) + 0x8C37F77C);
                     motionSwitch((((t6 * 0x654) + 0x8C37F77C) + 0x4), t153, 0x0, t152, 1.0f);
-                    *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x5BC)) = 0x3;
+                    *(unsigned int *)(((R1008) + 0x5BC)) = 0x3;
                 }
                 if ((*(int *)((0x5C0 + ((t6 * 0x654) + 0x8C37F77C)))) == 3) {
                     t163 = *(int *)0x8C2873D4;
-                    t164 = *(int *)(((*(int *)(((int)stk + 44))) + 0x0));
-                    *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                    t164 = *(int *)(((R1044) + 0x0));
+                    R1008 = ((t6 * 0x654) + 0x8C37F77C);
                     motionSwitch((((t6 * 0x654) + 0x8C37F77C) + 0x4), t164, 0x0, t163, 1.0f);
-                    *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x5BC)) = 0x3;
+                    *(unsigned int *)(((R1008) + 0x5BC)) = 0x3;
                 }
                 if ((*(int *)((0x5C0 + ((t6 * 0x654) + 0x8C37F77C)))) != 11) {
                 } else {
                     t174 = *(int *)0x8C2873D4;
-                    t175 = *(int *)(((*(int *)(((int)stk + 36))) + 0x0));
-                    *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                    t175 = *(int *)(((R1036) + 0x0));
+                    R1008 = ((t6 * 0x654) + 0x8C37F77C);
                     motionSwitch((((t6 * 0x654) + 0x8C37F77C) + 0x4), t175, 0x0, t174, 1.0f);
-                    *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x5BC)) = 0x4;
+                    *(unsigned int *)(((R1008) + 0x5BC)) = 0x4;
                 }
             }
         } else {
@@ -234,30 +259,30 @@ int lineJudgeUpdate(int a4)
                 t198 = motionIsEnd((((t6 * 0x654) + 0x8C37F77C) + 0x4));
                 if (t198 == 0) {
                 } else {
-                    *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                    R1008 = ((t6 * 0x654) + 0x8C37F77C);
                     motionSetSpeed((((t6 * 0x654) + 0x8C37F77C) + 0x4), 0.0f);
-                    *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x5BC)) = 0x1;
+                    *(unsigned int *)(((R1008) + 0x5BC)) = 0x1;
                 }
             } else {
-                *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                R1008 = ((t6 * 0x654) + 0x8C37F77C);
                 motionSetFrame((((t6 * 0x654) + 0x8C37F77C) + 0x4), 95.0f);
-                motionSetSpeed(((*(int *)(((int)stk + 8))) + 0x4), 0.0f);
+                motionSetSpeed(((R1008) + 0x4), 0.0f);
             }
         }
-        *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+        R1008 = ((t6 * 0x654) + 0x8C37F77C);
         t218 = *(int *)((((t6 * 0x654) + 0x8C37F77C) + 0x5BC));
         t361 = t218;
         if (t218 == 6) {
         } else {
             t352 = 0x5CC;
-            if ((*(int *)(((*(int *)(((int)stk + 8))) + 0x5CC))) != 0) {
+            if ((*(int *)(((R1008) + 0x5CC))) != 0) {
             } else {
                 t343 = 0x5CC;
                 if ((int)(*(int *)0x8C287B2C) >= 0) {
                 } else {
-                    t226 = *(int *)(((int)stk + 12));
+                    t226 = R1012;
                     u228 = *(float *)(((0x14 + t226) + 0x0));
-                    u229 = *(float *)((0x5AC + (*(int *)(((int)stk + 8)))));
+                    u229 = *(float *)((0x5AC + (R1008)));
                     u230 = *(float *)((t226 + 0x3C));
                     u232 = ((u229 - u228) / u230);
                     if (0.0f > ((u229 - u228) / u230)) {
@@ -265,14 +290,14 @@ int lineJudgeUpdate(int a4)
                         u231 = -u231;
                         u232 = u231;
                     }
-                    nlScaleVector((((int)stk + 8) + 0x2C), ((*(int *)(((int)stk + 12))) + 0x34), u232);
-                    nlAddVector((((int)stk + 8) + 0x2C), ((*(int *)(((int)stk + 12))) + 0xC));
+                    nlScaleVector((((int)stk + 8) + 0x2C), ((R1012) + 0x34), u232);
+                    nlAddVector((((int)stk + 8) + 0x2C), ((R1012) + 0xC));
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((((t6 << 1) + t6) << 2) + 0x8C38B790)) = *(struct mv3 *)((((int)stk + 8) + 0x2C)); }
                     t335 = 0x30;
                     if (!((*(float *)(((int)stk + 56))) > 8.0f)) {
                     } else {
                         t327 = 0x2C;
-                        if (!(((*(float *)(((*(int *)(((int)stk + 8))) + 0x5A4))) + 3.0f) > (*(float *)(((int)stk + 52))))) {
+                        if (!(((*(float *)(((R1008) + 0x5A4))) + 3.0f) > (*(float *)(((int)stk + 52))))) {
                         } else {
                             t249 = 0x1;
                             if ((*(float *)(((int)stk + 60))) > 0.0f) {
@@ -285,9 +310,9 @@ int lineJudgeUpdate(int a4)
                             }
                             t260 = 0x3C;
                             t261 = 0x1;
-                            if ((*(float *)(((*(int *)(((int)stk + 12))) + 0x3C))) > 0.0f) {
+                            if ((*(float *)(((R1012) + 0x3C))) > 0.0f) {
                             } else {
-                                t256 = *(int *)(((int)stk + 12));
+                                t256 = R1012;
                                 t258 = 0x0;
                                 if (0.0f > (*(float *)((0x3C + t256)))) {
                                     t258 = 0xFFFFFFFF;
@@ -298,32 +323,32 @@ int lineJudgeUpdate(int a4)
                             t319 = t260;
                             if (t249 == t261) {
                                 t311 = 0x2C;
-                                if ((*(float *)(((int)stk + 52))) > ((*(float *)(((*(int *)(((int)stk + 8))) + 0x5A4))) + -3.0f)) {
-                                    t269 = nlLength(((*(int *)(((int)stk + 12))) + 0xC), ((*(int *)(((int)stk + 8))) + 0x5A4));
+                                if ((*(float *)(((int)stk + 52))) > ((*(float *)(((R1008) + 0x5A4))) + -3.0f)) {
+                                    t269 = nlLength(((R1012) + 0xC), ((R1008) + 0x5A4));
                                     t306 = 0x8C0C9D20;
                                     if (50.0f > t269) {
-                                        *(unsigned int *)(((int)stk + 8)) = ((t6 * 0x654) + 0x8C37F77C);
+                                        R1008 = ((t6 * 0x654) + 0x8C37F77C);
                                         u270 = *(float *)(((int)stk + 52));
                                         if ((*(short *)((((t6 * 0x654) + 0x8C37F77C) + 0x5B0))) == 0) {
-                                            u273 = *(float *)(((*(int *)(((int)stk + 8))) + 0x5A4));
+                                            u273 = *(float *)(((R1008) + 0x5A4));
                                             if ((int)(((u270 - u273) > 0.0f) - (0.0f > (u270 - u273))) >= 0) {
-                                                t282 = (*(int *)(((int)stk + 20)));
+                                                t282 = (R1020);
                                                 t283 = (*(int *)0x8C2873D4);
                                             } else {
-                                                t282 = (*(int *)(((int)stk + 16)));
+                                                t282 = (R1016);
                                                 t283 = (*(int *)0x8C2873D4);
                                             }
-                                            motionSwitch(((*(int *)(((int)stk + 8))) + 0x4), (*(int *)((t282 + 0x0))), 0x0, t283, 1.0f);
+                                            motionSwitch(((R1008) + 0x4), (*(int *)((t282 + 0x0))), 0x0, t283, 1.0f);
                                         } else {
-                                            u289 = *(float *)(((*(int *)(((int)stk + 8))) + 0x5A4));
+                                            u289 = *(float *)(((R1008) + 0x5A4));
                                             if ((int)(((u270 - u289) > 0.0f) - (0.0f > (u270 - u289))) >= 0) {
-                                                t298 = (*(int *)(((int)stk + 16)));
+                                                t298 = (R1016);
                                                 t299 = (*(int *)0x8C2873D4);
                                             } else {
-                                                t298 = (*(int *)(((int)stk + 20)));
+                                                t298 = (R1020);
                                                 t299 = (*(int *)0x8C2873D4);
                                             }
-                                            motionSwitch(((*(int *)(((int)stk + 8))) + 0x4), (*(int *)((t298 + 0x0))), 0x0, t299, 1.0f);
+                                            motionSwitch(((R1008) + 0x4), (*(int *)((t298 + 0x0))), 0x0, t299, 1.0f);
                                         }
                                         *(unsigned int *)((((t6 * 0x654) + 0x8C37F77C) + 0x5BC)) = 0x6;
                                         t306 = 0x5BC;

@@ -1692,6 +1692,9 @@ void effFootDust(int a4)
     int t35;
     int t72;
     int stk[19];
+    int R1048;
+
+    R1048 = *(int *)((int)stk + 48);
 
     if ((*(int *)0x8C287C60) != 0) {
     } else {
@@ -1723,12 +1726,12 @@ void effFootDust(int a4)
                     }
                     if (0.400000006f > (*(float *)((a4 + 0xAC8)))) {
                         t35 = set_event(0x30, 0x8C082F60);
-                        *(unsigned int *)(((((int)stk + 44) + 0x4) + 0x0)) = t35;
+                        R1048 = t35;
                         { struct mv3 { int w[3]; }; *(struct mv3 *)((t35 + 0x14)) = *(struct mv3 *)((0xAC4 + a4)); }
-                        *(float *)(((*(int *)(((((int)stk + 44) + 0x4) + 0x0))) + 0x20)) = 1.0f;
-                        *(float *)(((*(int *)(((((int)stk + 44) + 0x4) + 0x0))) + 0x24)) = 0.0599999987f;
-                        *(unsigned int *)(((*(int *)(((((int)stk + 44) + 0x4) + 0x0))) + 0x28)) = 0x1E;
-                        *(unsigned int *)(((*(int *)(((((int)stk + 44) + 0x4) + 0x0))) + 0x2C)) = 0x0;
+                        *(float *)(((R1048) + 0x20)) = 1.0f;
+                        *(float *)(((R1048) + 0x24)) = 0.0599999987f;
+                        *(unsigned int *)(((R1048) + 0x28)) = 0x1E;
+                        *(unsigned int *)(((R1048) + 0x2C)) = 0x0;
                         *(unsigned int *)0x8C181610 = ((*(int *)0x8C181610) + 0x1);
                     }
                 }

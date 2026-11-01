@@ -24,6 +24,11 @@ int vecAnglesTo(int a4, int a5, Stk6 s)
     float u13;
     int t14;
     int stk[22];
+    int R1004;
+    int R1008;
+
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
 
     stk[8] = s.w[0];
     stk[9] = s.w[1];
@@ -31,12 +36,12 @@ int vecAnglesTo(int a4, int a5, Stk6 s)
     stk[11] = s.w[3];
     stk[12] = s.w[4];
     stk[13] = s.w[5];
-    *(unsigned int *)(((int)stk + 4)) = a4;
-    *(unsigned int *)(((int)stk + 8)) = a5;
+    R1004 = a4;
+    R1008 = a5;
     u2 = *(float *)(((((int)stk + 4) + 0x28) + 0x4));
     u3 = *(float *)(((((int)stk + 4) + 0x1C) + 0x4));
     *(unsigned short *)((a5 + 0x0)) = (((int (*)(int, int, float, float))(nlArcTan2))(a4, a5, ((*(float *)(((((int)stk + 4) + 0x28) + 0x0))) - (*(float *)(((((int)stk + 4) + 0x1C) + 0x0)))), ((*(float *)(((((int)stk + 4) + 0x28) + 0x8))) - (*(float *)(((((int)stk + 4) + 0x1C) + 0x8))))));
-    t9 = *(int *)(((int)stk + 4));
+    t9 = R1004;
     t12 = vecDistXZf((*(float *)(((((int)stk + 4) + 0x1C) + 0x0))), (*(float *)(((((int)stk + 4) + 0x1C) + 0x8))), (*(float *)(((((int)stk + 4) + 0x28) + 0x0))), (*(float *)(((((int)stk + 4) + 0x28) + 0x8))));
     u13 = (u2 - u3);
     u13 = -u13;

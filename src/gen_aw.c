@@ -78,6 +78,9 @@ void staffMorphBlend(int a4, int a5, int a6, float f4, float f5, float f6, float
     float u21;
     float u4;
     int stk[10];
+    int R1008;
+
+    R1008 = *(int *)((int)stk + 8);
 
     if ((int)a6 > 0) {
         t0 = 0x0;
@@ -85,7 +88,7 @@ void staffMorphBlend(int a4, int a5, int a6, float f4, float f5, float f6, float
         t2 = 0x0;
         t3 = 0x0;
         for (;;) {
-            *(unsigned int *)(((int)stk + 8)) = ((t2 * 0x3C) + 0x8C38AED0);
+            R1008 = ((t2 * 0x3C) + 0x8C38AED0);
             u6 = *(float *)((((t2 * 0x3C) + 0x8C38AED0) + 0x24));
             u7 = u6;
             u7 = u7 + ((*(float *)((((t2 * 0x3C) + 0x8C38B308) + 0x24))) - u6) * f4;
@@ -318,19 +321,26 @@ int primRectInc(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11
     int t5;
     int t11;
     int stk[43];
+    int R1020;
+    int R1024;
+    int R1136;
+
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
+    R1136 = *(int *)((int)stk + 136);
 
     stk[31] = a8;
     stk[32] = a9;
     stk[33] = a10;
-    stk[34] = a11;
-    *(unsigned int *)(((int)stk + 20)) = a4;
-    *(unsigned int *)(((int)stk + 24)) = a5;
+    R1136 = a11;
+    R1020 = a4;
+    R1024 = a5;
     vecMake(a4, a5, a6, a7, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x68) + 0x0))), (*(float *)(((((int)stk + 20) + 0x68) + 0x4))), (*(float *)(((((int)stk + 20) + 0x68) + 0x8))));
     primVertexSet(a6, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x8));
-    t5 = *(int *)(((int)stk + 20));
+    t5 = R1020;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x68) + 0x0))) - (float)t5), (*(float *)(((((int)stk + 20) + 0x68) + 0x4))), (*(float *)(((((int)stk + 20) + 0x68) + 0x8))));
     primVertexSet(a6, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x8)));
-    t11 = *(int *)(((int)stk + 24));
+    t11 = R1024;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x68) + 0x0))), (((*(float *)(((((int)stk + 20) + 0x68) + 0x4))) + (float)t11) + 1.0f), (*(float *)(((((int)stk + 20) + 0x68) + 0x8))));
     primVertexSet(a6, 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x8)));
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x68) + 0x0))) - (float)t5), (((*(float *)(((((int)stk + 20) + 0x68) + 0x4))) + (float)t11) + 1.0f), (*(float *)(((((int)stk + 20) + 0x68) + 0x8))));
@@ -591,25 +601,36 @@ int primRectIncGradX(int a4, int a5, int a6, int a7, int a8, int a9, int a10, in
     int t6;
     int t13;
     int stk[44];
+    int R1020;
+    int R1024;
+    int R1028;
+    int R1032;
+    int R1140;
+
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
+    R1140 = *(int *)((int)stk + 140);
 
     stk[32] = a8;
     stk[33] = a9;
     stk[34] = a10;
-    stk[35] = a11;
-    *(unsigned int *)(((int)stk + 28)) = a4;
-    *(unsigned int *)(((int)stk + 32)) = a5;
-    *(unsigned int *)(((int)stk + 24)) = a6;
-    *(unsigned int *)(((int)stk + 20)) = a7;
+    R1140 = a11;
+    R1028 = a4;
+    R1032 = a5;
+    R1024 = a6;
+    R1020 = a7;
     vecMake(a4, a5, a6, a7, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x6C) + 0x0))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x4))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
-    primVertexSet((*(int *)(((int)stk + 24))), 0x0, 0x0, 0x0, (((int)stk + 20) + 0x10));
-    t6 = *(int *)(((int)stk + 28));
+    primVertexSet((R1024), 0x0, 0x0, 0x0, (((int)stk + 20) + 0x10));
+    t6 = R1028;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x6C) + 0x0))) - (float)t6), (*(float *)(((((int)stk + 20) + 0x6C) + 0x4))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
-    primVertexSet((*(int *)(((int)stk + 20))), 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x10)));
-    t13 = *(int *)(((int)stk + 32));
+    primVertexSet((R1020), 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x10)));
+    t13 = R1032;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x6C) + 0x0))), (((*(float *)(((((int)stk + 20) + 0x6C) + 0x4))) + (float)t13) + 1.0f), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
-    primVertexSet((*(int *)(((int)stk + 24))), 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x10)));
+    primVertexSet((R1024), 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x10)));
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x6C) + 0x0))) - (float)t6), (((*(float *)(((((int)stk + 20) + 0x6C) + 0x4))) + (float)t13) + 1.0f), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
-    primVertexSet((*(int *)(((int)stk + 20))), 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x10)));
+    primVertexSet((R1020), 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x10)));
     return (nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x10)));
 }
 
@@ -623,6 +644,9 @@ int trigger(int a4, int a5)
     int t15;
     int t16;
     int stk[11];
+    int R1008;
+
+    R1008 = *(int *)((int)stk + 8);
 
     *(unsigned char *)(((int)stk + 4)) = (*(signed char *)(((*(int *)0x8C47317C) + 0xFB0)));
     t2 = 0xFB0;
@@ -637,11 +661,11 @@ int trigger(int a4, int a5)
         if (((((int)t6 >= 0) ? (0x1 << (t6 & 31)) : ((-(int)t6 & 31) ? ((int)0x1 >> (-(int)t6 & 31)) : ((int)0x1 >> 31))) & (unsigned char)(*(signed char *)(((int)stk + 4)))) != 0) {
             t3 = 0x8C20A81C;
             t3 = (t3 + t6);
-            *(unsigned int *)(((int)stk + 8)) = t3;
+            R1008 = t3;
             t3 = (*(signed char *)((t3 + 0x0)));
             t3 = (unsigned char)t3;
             t2 = (kdGetDevice(t3));
-            t3 = (*(int *)(((int)stk + 8)));
+            t3 = (R1008);
             t5 = t2;
             t3 = (*(signed char *)((t3 + 0x0)));
             t3 = (unsigned char)t3;
@@ -690,9 +714,14 @@ float camMoveBegin(float f4, float f5)
     float u20;
     float u7;
     int stk[17];
+    float R1052;
+    float R1056;
 
-    *(float *)(((int)stk + 56)) = f4;
-    *(float *)(((int)stk + 52)) = f5;
+    R1052 = *(float *)((int)stk + 52);
+    R1056 = *(float *)((int)stk + 56);
+
+    R1056 = f4;
+    R1052 = f5;
     if ((*(int *)0x8C287640) == 0) {
         if ((*(int *)0x8C287634) != 0) {
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)(0x8C2875CC); }
@@ -709,8 +738,8 @@ float camMoveBegin(float f4, float f5)
         *(unsigned short *)0x8C287644 = (*(short *)0x8C287648);
         *(unsigned short *)0x8C287646 = (*(short *)0x8C28764A);
         *(float *)0x8C287624 = (*(float *)0x8C287628);
-        *(float *)0x8C287614 = (*(float *)(((int)stk + 56)));
-        *(float *)0x8C287618 = (*(float *)(((int)stk + 52)));
+        *(float *)0x8C287614 = (R1056);
+        *(float *)0x8C287618 = (R1052);
         *(unsigned int *)0x8C28763C = 0x0;
         *(unsigned int *)0x8C287638 = 0x0;
         *(float *)0x8C287620 = 0.0f;

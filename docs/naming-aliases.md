@@ -51,4 +51,3 @@ No instructions, operand values or pool contents were excluded from this
 comparison. Existing case payloads follow the eight renamed functions
 unchanged. The final `bash build.sh` through Wibo prints `MATCH` against the original
 executable after both changes.
-

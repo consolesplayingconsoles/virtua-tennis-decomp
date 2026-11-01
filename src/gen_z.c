@@ -282,11 +282,14 @@ void effBounceDustSpawn(int a4, int a5, int a6, int a7, int a8, int a9, int a10,
 {
     int t1;
     int stk[14];
+    int R1020;
+
+    R1020 = *(int *)((int)stk + 20);
 
     stk[2] = a8;
     stk[3] = a9;
     stk[4] = a10;
-    stk[5] = a11;
+    R1020 = a11;
     if ((*(int *)0x8C287C60) == 0) {
         t1 = set_event(0x28, 0x8C082BC0);
         { struct mv3 { int w[3]; }; *(struct mv3 *)((t1 + 0x14)) = *(struct mv3 *)((((int)stk + 4) + 0x4)); }
@@ -296,19 +299,6 @@ void effBounceDustSpawn(int a4, int a5, int a6, int a7, int a8, int a9, int a10,
     }
 }
 
-int sprSet192PutB(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
-{
-    int stk[19];
-
-    stk[7] = a8;
-    stk[8] = a9;
-    stk[9] = a10;
-    stk[10] = a11;
-    *(unsigned int *)(((int)stk + 16)) = (((((a4 << 2) + a4) << 2) << 2) + 0x8C37D4B0);
-    *(float *)(((((((a4 << 2) + a4) << 2) << 2) + 0x8C37D4B0) + 0x2C)) = 1.0f;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0xC)); }
-    return (sprPutAtAlpha((*(int *)(((int)stk + 16))), *(Stk3 *)((((int)stk + 16) + 0xC)), 1.0f));
-}
 
 void _duchek(float f4, float f5)
 {
@@ -1265,12 +1255,17 @@ float pauseDistXZArgs(Stk6 s)
     float u3;
     float u4;
     int stk[15];
+    int R1008;
+    int R1020;
+
+    R1008 = *(int *)((int)stk + 8);
+    R1020 = *(int *)((int)stk + 20);
 
     stk[1] = s.w[0];
-    stk[2] = s.w[1];
+    R1008 = s.w[1];
     stk[3] = s.w[2];
     stk[4] = s.w[3];
-    stk[5] = s.w[4];
+    R1020 = s.w[4];
     stk[6] = s.w[5];
     u0 = *(float *)((((int)stk + 4) + 0x8));
     u1 = *(float *)(((((int)stk + 4) + 0xC) + 0x8));
@@ -1454,17 +1449,6 @@ int _destructFiber(int a4, int a5)
     return 0x118;
 }
 
-void pauseScaleVecArgs(Stk4 s, float f4)
-{
-    int stk[17];
-
-    stk[5] = s.w[0];
-    stk[6] = s.w[1];
-    stk[7] = s.w[2];
-    stk[8] = s.w[3];
-    nlScaleVector(((int)stk + 4), (((int)stk + 4) + 0x14), f4);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(s.w[0]) = *(struct mv3 *)(((int)stk + 4)); }
-}
 
 int nlInitLibraryDC(int a4, int a5, int a6)
 {
@@ -1576,12 +1560,17 @@ float cpuLineXAtZ(Stk6 s, float f4)
     float u1;
     float u4;
     int stk[15];
+    int R1008;
+    int R1020;
+
+    R1008 = *(int *)((int)stk + 8);
+    R1020 = *(int *)((int)stk + 20);
 
     stk[1] = s.w[0];
-    stk[2] = s.w[1];
+    R1008 = s.w[1];
     stk[3] = s.w[2];
     stk[4] = s.w[3];
-    stk[5] = s.w[4];
+    R1020 = s.w[4];
     stk[6] = s.w[5];
     u0 = *(float *)(((((int)stk + 4) + 0xC) + 0x0));
     u1 = *(float *)(((((int)stk + 4) + 0xC) + 0x8));

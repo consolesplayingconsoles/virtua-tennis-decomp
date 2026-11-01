@@ -101,15 +101,18 @@ int buSetFileParam(int a4, int a5, int a6)
 {
     int t2;
     int stk[5];
+    int R1004;
 
-    *(unsigned int *)(((int)stk + 4)) = a4;
+    R1004 = *(int *)((int)stk + 4);
+
+    R1004 = a4;
     *(unsigned short *)(((int)stk + 8)) = a5;
     *(unsigned char *)(((int)stk + 12)) = a6;
-    t2 = vmsfs_c_getstate((*(int *)(((*(int *)(((int)stk + 4))) + 0x28))));
+    t2 = vmsfs_c_getstate((*(int *)(((R1004) + 0x28))));
     if (t2 != 0) {
         return 0xFFFFFFFF;
     }
-    return vmsfs_fsetparam((*(int *)(((int)stk + 4))), (*(short *)(((int)stk + 8))), (*(signed char *)(((int)stk + 12))));
+    return vmsfs_fsetparam((R1004), (*(short *)(((int)stk + 8))), (*(signed char *)(((int)stk + 12))));
 }
 
 
@@ -670,8 +673,11 @@ int pdTmrIsReady(int a4)
     int t0;
     int t1;
     int stk[4];
+    int R1004;
 
-    *(unsigned int *)(((int)stk + 4)) = a4;
+    R1004 = *(int *)((int)stk + 4);
+
+    R1004 = a4;
     t0 = kdGetDeviceInfo(a4);
     t1 = kdDevGetTimerInfo((((int)stk + 4) + 0x4), t0);
     return ((((int)t1 >= 0)) ? 1 : 0);

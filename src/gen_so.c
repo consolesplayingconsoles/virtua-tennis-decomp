@@ -26,10 +26,16 @@ int swingBlurSpawn(int a4)
     float F6;
     float F15;
     int T_;
+    int R1068;
+    int R1072;
+    int R1076;
+    R1068 = *(int *)((int)stk + 68);
+    R1072 = *(int *)((int)stk + 72);
+    R1076 = *(int *)((int)stk + 76);
     R4 = a4;
-    *(unsigned int *)(((int)stk + 72)) = R4;
-    *(unsigned int *)(((int)stk + 76)) = (*(int *)((((*(int *)((((R4 * 0xD78) + 0x8C287D84) + 0xC58))) << 2) + 0x8C10DFD4)));
-    *(int *)((int)stk + 68) = (((int)stk + 72) + 0x48);
+    R1072 = R4;
+    R1076 = (*(int *)((((*(int *)((((R4 * 0xD78) + 0x8C287D84) + 0xC58))) << 2) + 0x8C10DFD4)));
+    R1068 = (((int)stk + 72) + 0x48);
     *(Stk3 *)((((int)stk + 72) + 0x48)) = vecMake(0.0f, 0.0f, 1.0f);
     nlGetMatrix((((int)stk + 68) + 0xC));
     nlPushMatrix(0x0);
@@ -39,6 +45,6 @@ int swingBlurSpawn(int a4)
     nlPopMatrix(0x1);
     nlPushMatrix(0x0);
     { struct mv16 { int w[16]; }; *(struct mv16 *)(((int)stk + 4)) = *(struct mv16 *)((((int)stk + 68) + 0xC)); }
-    hudImpactSpawn((*(int *)(((int)stk + 76))), *(Stk16 *)(((int)stk + 4)), (*(float *)((((*(int *)(((int)stk + 72))) << 2) + 0x8C334384))));
+    hudImpactSpawn((R1076), *(Stk16 *)(((int)stk + 4)), (*(float *)((((R1072) << 2) + 0x8C334384))));
     return (nlPopMatrix(0x1));
 }

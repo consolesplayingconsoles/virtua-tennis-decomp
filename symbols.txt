@@ -269,5 +269,3 @@
 8C4762D4 g_8c4762d4
 8C1E29AA g_0c2fd43c
 8C00007E g_8c00007e
-
-# Named interrupt callback storage and CPU event-to-vector table.

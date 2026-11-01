@@ -1,14 +1,65 @@
 {
  "dev": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "search: r4 -> scratch, r5 -> scratch2",
+   "regs": {
+    "r4": "8C700000",
+    "r5": "8C704000"
+   },
+   "poke": {}
+  },
+  {
+   "about": "search: call 2 fr0=-1.0",
+   "regs": {
+    "r4": "8C700000",
+    "r5": "8C704000"
+   },
+   "poke": {},
+   "calls": [
+    {
+     "fr0": -1.0
+    },
+    {},
+    {
+     "fr0": -1.0
+    }
+   ]
   }
  ],
  "holdout": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "search: call 0 fr0=-1.0",
+   "regs": {
+    "r4": "8C700000",
+    "r5": "8C704000"
+   },
+   "poke": {},
+   "calls": [
+    {
+     "fr0": -1.0
+    }
+   ]
+  },
+  {
+   "about": "search: call 4 fr0=-1.0",
+   "regs": {
+    "r4": "8C700000",
+    "r5": "8C704000"
+   },
+   "poke": {},
+   "calls": [
+    {
+     "fr0": -1.0
+    },
+    {},
+    {
+     "fr0": -1.0
+    },
+    {},
+    {
+     "fr0": -1.0
+    }
+   ]
   }
  ]
 }

@@ -33,9 +33,11 @@ int cpuDblAimAddShort(int a4, int a5)
     register float w0_5;
     register float w0_6;
     register float w0_7;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     v0_8 = a4;
     v0_7 = a5;
-    *(unsigned int *)(((int)stk + 4)) = v0_7;
+    R1004 = v0_7;
     v0_4 = (0x8C0733B4);
     v0_0 = (v0_8);
     v0_1 = (0x8C041C58);
@@ -93,7 +95,7 @@ int cpuDblAimAddShort(int a4, int a5)
     w0_3 = ((*(float *)((v0_6 + v0_4))));
     goto L_8C073622;
     L_8C073718:;
-    return (v0_1 - (*(int *)(((int)stk + 4))));
+    return (v0_1 - (R1004));
     L_8C073622:;
     if ((!(27.4249992f > w0_3))) goto L_8C073718;
     cpuAimPointSet(v0_1, 0x1, ((float)(-v0_3) * w0_0), ((*(float *)((v0_0 + 0xB00))) * w0_1));

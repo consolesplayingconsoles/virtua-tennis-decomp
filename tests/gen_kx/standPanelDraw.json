@@ -1,14 +1,26 @@
 {
  "dev": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "search: empty",
+   "regs": {},
+   "poke": {}
+  },
+  {
+   "about": "search: r7=00000001",
+   "regs": {
+    "r6": "01000000",
+    "r7": "01000000"
+   },
+   "poke": {}
   }
  ],
  "holdout": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "search: r6=00000001",
+   "regs": {
+    "r6": "01000000"
+   },
+   "poke": {}
   }
  ]
 }

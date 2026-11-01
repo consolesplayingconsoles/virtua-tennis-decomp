@@ -29,6 +29,10 @@ void scoreAddPoint(int a4, int a5)
     register float w0_3;
     register float w0_4;
     register float w0_5;
+    int R1004;
+    int R1008;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
     v0_0 = a4;
     v0_6 = a5;
     *(unsigned int *)0x8C181638 = 0x1;
@@ -39,7 +43,7 @@ void scoreAddPoint(int a4, int a5)
     if (v0_1) goto L_8C019226;
     v0_3 = (0x5);
     L_8C019228:;
-    *(unsigned int *)(((int)stk + 4)) = (0x8C287B8C + ((((v0_0 << 2) << 1) + v0_0) << 2));
+    R1004 = (0x8C287B8C + ((((v0_0 << 2) << 1) + v0_0) << 2));
     *(unsigned int *)(((0x8C287B8C + ((((v0_0 << 2) << 1) + v0_0) << 2)) + 0x4)) = (*(int *)(((0x8C287B8C + ((((v0_0 << 2) << 1) + v0_0) << 2)) + 0x0)));
     v0_1 = (((((v0_0 << 2) << 1) + v0_0) << 2));
     v0_0 = (0x8C102334);
@@ -48,7 +52,7 @@ void scoreAddPoint(int a4, int a5)
     *(unsigned int *)((((v0_2 + 0x4) + v0_1) + 0x0)) = ((*(int *)((((v0_2 + 0x4) + v0_1) + 0x0))) + (*(int *)((v0_0 + (v0_3 << 2)))));
     L_8C01925C:;
     v0_7 = (int)((int)(*(int *)((v0_2 + 0x0))) / (int)0x3C);
-    *(unsigned int *)(((int)stk + 4)) = (v0_4 + 0x34);
+    R1004 = (v0_4 + 0x34);
     v0_8 = (((v0_3 << 2) + v0_3));
     w0_0 = (0.5f);
     w0_1 = ((float)v0_7);
@@ -65,7 +69,7 @@ void scoreAddPoint(int a4, int a5)
     *(unsigned int *)((((v0_2 + 0x4) + v0_1) + 0x0)) = (int)((float)(*(int *)((((v0_2 + 0x4) + v0_1) + 0x0))) + ((float)(*(int *)((v0_0 + (v0_3 << 2)))) * w0_3));
     L_8C01934A:;
     v0_7 = *(int *)((((v0_2 + 0x4) + v0_1) + 0x20));
-    *(unsigned int *)(((int)stk + 4)) = (v0_4 + 0x34);
+    R1004 = (v0_4 + 0x34);
     w0_5 = (((float)v0_7 * 0.100000001f) / (float)((*(int *)(((v0_4 + 0x34) + 0x0))) + (*(int *)(((v0_4 + 0x34) + 0x4)))));
     w0_5 = -w0_5;
     w0_3 = ((w0_5 + 0.400000006f));
@@ -88,11 +92,11 @@ void scoreAddPoint(int a4, int a5)
     w0_0 = (0.0500000007f);
     if (((*(int *)((((v0_2 + 0x4) + v0_1) + 0x10))) == 0)) goto L_8C01947A;
     if ((v0_3 == 5)) goto L_8C019422;
-    *(unsigned int *)(((int)stk + 8)) = (v0_4 + 0x34);
+    R1008 = (v0_4 + 0x34);
     v0_6 = *(int *)(((v0_4 + 0x34) + 0x0));
     v0_7 = *(int *)(((v0_4 + 0x34) + 0x4));
-    *(unsigned int *)(((int)stk + 4)) = (v0_6 + v0_7);
-    v0_6 = (((((int)((unsigned int)((int)((unsigned int)(v0_6 + v0_7) + (unsigned int)0x0)) + ((((int)0x0 > (int)(v0_6 + v0_7))) ? 1u : 0u))) >> 1) + (v0_5 & (*(int *)(((int)stk + 4))))));
+    R1004 = (v0_6 + v0_7);
+    v0_6 = (((((int)((unsigned int)((int)((unsigned int)(v0_6 + v0_7) + (unsigned int)0x0)) + ((((int)0x0 > (int)(v0_6 + v0_7))) ? 1u : 0u))) >> 1) + (v0_5 & (R1004))));
     L_8C019438:;
     w0_4 = w0_0;
     w0_4 = w0_4 + w0_0 * ((float)(*(int *)((((v0_2 + 0x4) + v0_1) + 0x10))) / (float)v0_6);
@@ -122,13 +126,13 @@ void scoreAddPoint(int a4, int a5)
     L_8C0194D8:;
     return;
     L_8C019422:;
-    *(unsigned int *)(((int)stk + 4)) = (v0_4 + 0x34);
+    R1004 = (v0_4 + 0x34);
     v0_5 = *(int *)(((v0_4 + 0x34) + 0x0));
     v0_6 = *(int *)(((v0_4 + 0x34) + 0x4));
     v0_6 = ((((int)((unsigned int)((int)((unsigned int)(v0_5 + v0_6) + (unsigned int)0x0)) + ((((int)0x0 > (int)(v0_5 + v0_6))) ? 1u : 0u))) >> 1));
     goto L_8C019438;
     L_8C01929E:;
-    *(unsigned int *)(((int)stk + 4)) = (v0_4 + 0x34);
+    R1004 = (v0_4 + 0x34);
     if ((!((w0_1 / (float)((*(int *)(((v0_4 + 0x34) + 0x0))) + (*(int *)(((v0_4 + 0x34) + 0x4))))) > (float)(v0_8 + 0x28)))) goto L_8C0192E4;
     w0_1 = (0.25f);
     goto L_8C0192E6;

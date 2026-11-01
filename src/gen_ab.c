@@ -361,8 +361,11 @@ int mwRnaSetTransSw(int a4, int a5, int a6, int a7)
     int t23;
     int t36;
     int stk[7];
+    int R1012;
 
-    *(unsigned int *)(((int)stk + 12)) = a5;
+    R1012 = *(int *)((int)stk + 12);
+
+    R1012 = a5;
     if (a4 == 0) {
         t36 = (mwRnaErrCallFunc(0x8C20AC30));
     } else {
@@ -379,7 +382,7 @@ int mwRnaSetTransSw(int a4, int a5, int a6, int a7)
         }
         ovLockCs_8c200114(((int)stk + 8));
         *(unsigned int *)((a4 + 0x8C)) = 0x0;
-        if ((*(int *)(((int)stk + 12))) == 0) {
+        if ((R1012) == 0) {
             t16 = mwRnaGetTransSw(a4);
             if (t16 != 0) {
                 *(unsigned int *)((a4 + 0x50)) = (*(int *)((a4 + 0x2C)));
@@ -388,7 +391,7 @@ int mwRnaSetTransSw(int a4, int a5, int a6, int a7)
                 *(unsigned char *)((a4 + 0x1)) = ((*(signed char *)((a4 + 0x1))) & 0x6);
             }
         } else {
-            if ((*(int *)(((int)stk + 12))) == 1) {
+            if ((R1012) == 1) {
                 t23 = mwRnaGetTransSw(a4);
                 if (t23 != 1) {
                     *(unsigned int *)((a4 + 0x2C)) = 0x0;
@@ -473,9 +476,14 @@ int buFbrCreateFiber(int a4, int a5, int a6, int a7)
     int t4;
     int t5;
     int stk[47];
+    int R1004;
+    int R1008;
 
-    *(unsigned int *)(((int)stk + 8)) = a5;
-    *(unsigned int *)(((int)stk + 4)) = a6;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+
+    R1008 = a5;
+    R1004 = a6;
     memset((((int)stk + 4) + 0x8), 0x0, 0x98);
     t1 = *(int *)((a4 + 0x208));
     t14 = 0xFFFFFFFF;
@@ -494,7 +502,7 @@ int buFbrCreateFiber(int a4, int a5, int a6, int a7)
         *(unsigned int *)((t5 + 0x8)) = 0x0;
         *(unsigned int *)((t5 + 0xC)) = 0x1;
         *(unsigned int *)((t5 + 0x14)) = (*(int *)((a4 + 0x204)));
-        *(unsigned int *)((t5 + 0x0)) = (*(int *)(((int)stk + 4)));
+        *(unsigned int *)((t5 + 0x0)) = (R1004);
         *(unsigned int *)((t5 + 0x4)) = ((unsigned int)a7 >> 2);
         *(unsigned int *)((t5 + 0x118)) = 0x0;
         *(unsigned int *)((t5 + 0x10)) = 0x0;
@@ -502,8 +510,8 @@ int buFbrCreateFiber(int a4, int a5, int a6, int a7)
         memmove((t5 + 0x18), (0x104 + a4), 0x100);
         setjmp((((int)stk + 4) + 0x8));
         memmove((t5 + 0x18), (((int)stk + 4) + 0x8), 0x100);
-        *(unsigned int *)((t5 + 0x18)) = (((((unsigned int)a7 >> 2) - 1) << 2) + (*(int *)(((int)stk + 4))));
-        *(unsigned int *)((t5 + 0x20)) = (*(int *)(((int)stk + 8)));
+        *(unsigned int *)((t5 + 0x18)) = (((((unsigned int)a7 >> 2) - 1) << 2) + (R1004));
+        *(unsigned int *)((t5 + 0x20)) = (R1008);
         t14 = t4;
     }
     return t14;
@@ -729,8 +737,11 @@ int _mult(int a4, int a5, int a6)
     int t2;
     int t13;
     int stk[16];
+    int R1008;
 
-    *(unsigned int *)(((int)stk + 8)) = a4;
+    R1008 = *(int *)((int)stk + 8);
+
+    R1008 = a4;
     memset(a6, 0x0, 0x10);
     t1 = 0x7;
     for (;;) {
@@ -739,7 +750,7 @@ int _mult(int a4, int a5, int a6)
             memset((((int)stk + 4) + 0x8), 0x0, 0x10);
             t2 = 0x7;
             for (;;) {
-                t6 = *(signed char *)(((short)t2 + (*(int *)(((int)stk + 8)))));
+                t6 = *(signed char *)(((short)t2 + (R1008)));
                 t7 = *(signed char *)(((short)t1 + a5));
                 *(unsigned short *)(((int)stk + 4)) = (unsigned char)(*(signed char *)(((((short)t1 + (short)t2) + (((int)stk + 4) + 0x8)) + 0x1)));
                 *(unsigned short *)(((int)stk + 4)) = ((*(short *)(((int)stk + 4))) + ((unsigned short)(unsigned char)t6 * (unsigned short)(unsigned char)t7));

@@ -298,41 +298,56 @@ float circuitNumDraw(int a4, int a5, int a6, float f4, float f5, float f6)
     float u84;
     float u94;
     int stk[20];
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1016;
+    int R1020;
+    int R1024;
+    int R1028;
 
-    *(unsigned int *)(((int)stk + 4)) = a5;
-    *(unsigned int *)(((int)stk + 12)) = a6;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
+    R1028 = *(int *)((int)stk + 28);
+
+    R1004 = a5;
+    R1012 = a6;
     u23 = f4;
-    if (((*(int *)(((int)stk + 4))) & 18) != 0) {
-        *(unsigned int *)(((int)stk + 8)) = ((int)((int)a4 % (int)0xA));
-        if (((*(int *)(((int)stk + 4))) & 16) != 0) {
+    if (((R1004) & 18) != 0) {
+        R1008 = ((int)((int)a4 % (int)0xA));
+        if (((R1004) & 16) != 0) {
             nlObjPutSetFadeColor(0.678431392f, 1.0f, 0.0f);
         }
-        sprSheetSet((*(int *)((((*(int *)(((int)stk + 8))) << 2) + 0x8C159C30))));
+        sprSheetSet((*(int *)((((R1008) << 2) + 0x8C159C30))));
         t17 = sprSheetPut(0x2007, f4, f5, f6, (*(float *)0x8C2FBE14));
         nlObjPutSetFadeColor(1.0f, 1.0f, 1.0f);
         u23 = t17;
     }
-    *(unsigned int *)(((int)stk + 16)) = 0x8C287658;
-    t28 = *(int *)(((int)stk + 4));
-    *(unsigned int *)(((int)stk + 24)) = (0x8 & t28);
-    *(unsigned int *)(((int)stk + 28)) = (0x40 & t28);
-    *(unsigned int *)(((int)stk + 20)) = (0x4 & t28);
+    R1016 = 0x8C287658;
+    t28 = R1004;
+    R1024 = (0x8 & t28);
+    R1028 = (0x40 & t28);
+    R1020 = (0x4 & t28);
     t29 = 0x0;
     t30 = a4;
     u31 = u23;
     for (;;) {
         t32 = (int)((int)t30 % (int)0xA);
-        *(unsigned int *)(((int)stk + 8)) = t32;
-        sprSheetSet((*(int *)(((t32 << 2) + (*(int *)(((int)stk + 12)))))));
+        R1008 = t32;
+        sprSheetSet((*(int *)(((t32 << 2) + (R1012)))));
         if ((*(int *)0x8C2FBE18) != 0) {
-            *(unsigned int *)(((*(int *)(((int)stk + 16))) + 0x0)) = (*(int *)0x8C2FBE18);
+            *(unsigned int *)(((R1016) + 0x0)) = (*(int *)0x8C2FBE18);
         }
         t43 = sprSheetPut(0x2007, u31, f5, f6, (*(float *)0x8C2FBE14));
         u31 = t43;
         t30 = ((int)((int)t30 / (int)0xA));
         t29 = (t29 + 0x1);
         u58 = t43;
-        if (((*(int *)(((int)stk + 24))) != 0) && ((int)t30 >= (int)0x1)) {
+        if (((R1024) != 0) && ((int)t30 >= (int)0x1)) {
             u53 = t43;
             if (((int)((int)t29 % (int)0x3)) == 0) {
                 sprSheetSet(0x8C1097CC);
@@ -343,7 +358,7 @@ float circuitNumDraw(int a4, int a5, int a6, float f4, float f5, float f6)
             u58 = u53;
         }
         u72 = u58;
-        if (((*(int *)(((int)stk + 28))) != 0) && ((int)t30 >= (int)0x1)) {
+        if (((R1028) != 0) && ((int)t30 >= (int)0x1)) {
             u67 = u58;
             if (((int)((int)t29 % (int)0x3)) == 0) {
                 sprSheetSet(0x8C108E00);
@@ -354,16 +369,16 @@ float circuitNumDraw(int a4, int a5, int a6, float f4, float f5, float f6)
             u72 = u67;
         }
         if ((int)t30 >= (int)0x1) continue;
-        if (((*(int *)(((int)stk + 20))) != 0) && ((int)t29 < (int)0x2)) continue;
+        if (((R1020) != 0) && ((int)t29 < (int)0x2)) continue;
         break;
     }
     u84 = u72;
-    if (((*(int *)(((int)stk + 4))) & 1) != 0) {
+    if (((R1004) & 1) != 0) {
         sprSheetSet(0x8C1097A8);
         u84 = (sprSheetPut(0x2007, u31, f5, f6, (*(float *)0x8C2FBE14)));
     }
     u94 = u84;
-    if (((*(int *)(((int)stk + 4))) & 32) != 0) {
+    if (((R1004) & 32) != 0) {
         sprSheetSet(0x8C108DDC);
         u94 = (sprSheetPut(0x2007, u31, f5, f6, (*(float *)0x8C2FBE14)));
     }

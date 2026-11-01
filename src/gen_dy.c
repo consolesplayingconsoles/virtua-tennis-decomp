@@ -39,6 +39,10 @@ int playerDrawNodeFacing(int a4, float f4, float f5, float f6, float f7, float f
     register int v0_7;
     register float w0_0;
     register float w0_1;
+    int R1004;
+    int R1020;
+    R1004 = *(int *)((int)stk + 4);
+    R1020 = *(int *)((int)stk + 20);
     v0_4 = a4;
     w0_0 = f4;
     w0_1 = f5;
@@ -81,7 +85,7 @@ int playerDrawNodeFacing(int a4, float f4, float f5, float f6, float f7, float f
     nlQuickInvertMatrix();
     nlMultiMatrix((0xC0 + v0_1));
     v0_5 = *(int *)((v0_0 + 0x3C));
-    *(unsigned int *)(((int)stk + 20)) = v0_5;
+    R1020 = v0_5;
     v0_1 = (v0_1);
     v0_2 = (0x0);
     v0_3 = (0x0);
@@ -95,7 +99,7 @@ int playerDrawNodeFacing(int a4, float f4, float f5, float f6, float f7, float f
     nlCalcPoint((v0_6 + v0_4), (v0_5 + v0_7));
     nlCalcVector(((v0_6 + v0_4) + 0xC), ((v0_5 + v0_7) + 0xC));
     *(unsigned int *)(((v0_5 + v0_7) + 0x0)) = ((*(int *)(((v0_5 + v0_7) + 0x0))) | 0x1);
-    v0_4 = (int)(v0_2 + 0x1) < (int)(*(int *)(((int)stk + 20)));
+    v0_4 = (int)(v0_2 + 0x1) < (int)(R1020);
     v0_2 = ((v0_2 + 0x1));
     v0_3 = ((v0_3 + 0x4));
     if (v0_4) goto L_8C01BB22;
@@ -112,8 +116,8 @@ int playerDrawNodeFacing(int a4, float f4, float f5, float f6, float f7, float f
     v0_1 = nlArcTan2((*(float *)(((int)stk + 28))), (-(*(float *)(((int)stk + 32)))));
     nlRotateAX((((v0_1 << 2) << 2) << 1));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x4)); }
-    *(int *)((int)stk + 4) = (((int)stk + 8) + 0x10);
-    camViewToWorld(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 4));
+    R1004 = (((int)stk + 8) + 0x10);
+    camViewToWorld(0x0, 0x0, 0x0, 0x0, R1004);
     v0_1 = nlArcTan2((*(float *)(((int)stk + 24))), (-(*(float *)(((int)stk + 32)))));
     v0_1 = ((int (*)(int))(nlRotateAY))((((v0_1 << 2) << 2) << 1));
     v0_1 = nlArcTan2((*(float *)(((int)stk + 28))), (-(*(float *)(((int)stk + 32)))));

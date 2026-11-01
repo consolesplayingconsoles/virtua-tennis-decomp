@@ -23,8 +23,8 @@ int hudFlagPut(int, Stk3, float);
 int hudFontNumPut(int, float);
 int lightOverrideAmbient(int, int);
 int lightUpdate(int);
-int logoADraw(Stk3, Stk1);
-int logoBDraw(Stk3, Stk1);
+int logoADraw(int, int, int, int, Stk3, Stk1);
+int logoBDraw(int, int, int, int, Stk3, Stk1);
 int logoWaveDraw(int, float);
 int markerHitSpawn(int, Stk3);
 float mathLerp(float, float, float);
@@ -382,9 +382,9 @@ int entryGridDraw(int a4, int a5, float f4)
         nlRenderTextureBegin(0x0, f4);
     }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(0x8C343DB4); }
-    logoADraw(*(Stk3 *)(((int)stk + 16)), *(Stk1 *)((int)stk + 16 + 12));
+    logoADraw(a4, a5, 0, 0, *(Stk3 *)(((int)stk + 16)), *(Stk1 *)((int)stk + 16 + 12));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(0x8C343DC0); }
-    logoBDraw(*(Stk3 *)(((int)stk + 4)), *(Stk1 *)((int)stk + 4 + 12));
+    logoBDraw(a4, a5, 0, 0, *(Stk3 *)(((int)stk + 4)), *(Stk1 *)((int)stk + 4 + 12));
     t10 = *(int *)0x8C287D5C;
     if (t10 == 0) {
         *(Stk3 *)(((int)stk + 16)) = vecMake(452.0f, 41.0f, 0.100000001f);

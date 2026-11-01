@@ -24,12 +24,21 @@ int resultDoublesDraw(int a4, int a5, int a6, float f4)
     int t9;
     int t117;
     int stk[63];
+    int R1128;
+    int R1132;
+    int R1136;
+    int R1140;
 
-    *(unsigned int *)(((int)stk + 136)) = a4;
-    *(unsigned int *)(((int)stk + 140)) = a5;
-    *(unsigned int *)(((int)stk + 132)) = a6;
+    R1128 = *(int *)((int)stk + 128);
+    R1132 = *(int *)((int)stk + 132);
+    R1136 = *(int *)((int)stk + 136);
+    R1140 = *(int *)((int)stk + 140);
+
+    R1136 = a4;
+    R1140 = a5;
+    R1132 = a6;
     t1 = getID_Color((*(int *)0x8C3417B4), f4);
-    *(unsigned int *)(((int)stk + 128)) = (getID_Color((*(int *)0x8C3417B8), f4));
+    R1128 = (getID_Color((*(int *)0x8C3417B8), f4));
     t6 = (*(int *)0x8C301B90);
     if ((*(int *)0x8C287D5C) == 1) {
         t6 = 0x1;
@@ -72,7 +81,7 @@ int resultDoublesDraw(int a4, int a5, int a6, float f4)
     menuTextMsgPut(0x8C11070C, *(Stk3 *)(((int)stk + 88)), f4);
     *(Stk3 *)((((int)stk + 116) + 0x4C)) = vecMake(((*(float *)(((((int)stk + 68) + 0x58) + 0x0))) + 281.0f), ((*(float *)(((((int)stk + 68) + 0x58) + 0x4))) + 218.0f), ((*(float *)(((((int)stk + 68) + 0x58) + 0x8))) + -0.100000001f));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 72)) = *(struct mv3 *)((((int)stk + 116) + 0x4C)); }
-    menuTextTimePut((*(int *)(((int)stk + 132))), *(Stk3 *)(((int)stk + 72)), f4);
+    menuTextTimePut((R1132), *(Stk3 *)(((int)stk + 72)), f4);
     *(Stk3 *)((((int)stk + 116) + 0x4C)) = vecMake(((*(float *)(((((int)stk + 68) + 0x58) + 0x0))) + 196.0f), ((*(float *)(((((int)stk + 68) + 0x58) + 0x4))) + 217.0f), ((*(float *)(((((int)stk + 68) + 0x58) + 0x8))) + -0.100000001f));
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 72) + 0x60)) = *(struct mv3 *)((((int)stk + 116) + 0x4C)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)((((int)stk + 116) + 0x4C)); }
@@ -80,7 +89,7 @@ int resultDoublesDraw(int a4, int a5, int a6, float f4)
     *(float *)(((((int)stk + 116) + 0x4C) + 0x4)) = ((*(float *)(((((int)stk + 116) + 0x4C) + 0x4))) + 11.0f);
     *(float *)(((((int)stk + 116) + 0x4C) + 0x0)) = ((*(float *)(((((int)stk + 116) + 0x4C) + 0x0))) + 61.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 44)) = *(struct mv3 *)((((int)stk + 116) + 0x4C)); }
-    resultBoxDraw(t1, (*(int *)(((int)stk + 128))), *(Stk3 *)(((int)stk + 44)));
+    resultBoxDraw(t1, (R1128), *(Stk3 *)(((int)stk + 44)));
     *(float *)(((((int)stk + 72) + 0x60) + 0x4)) = ((*(float *)(((((int)stk + 72) + 0x60) + 0x4))) + 21.0f);
     *(float *)(((((int)stk + 72) + 0x60) + 0x0)) = ((*(float *)(((((int)stk + 72) + 0x60) + 0x0))) - 110.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((((int)stk + 72) + 0x60)); }
@@ -96,7 +105,7 @@ int resultDoublesDraw(int a4, int a5, int a6, float f4)
     *(float *)(((((int)stk + 116) + 0x4C) + 0x4)) = ((*(float *)(((((int)stk + 116) + 0x4C) + 0x4))) + 11.0f);
     *(float *)(((((int)stk + 116) + 0x4C) + 0x0)) = ((*(float *)(((((int)stk + 116) + 0x4C) + 0x0))) - 14.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 116)) = *(struct mv3 *)((((int)stk + 116) + 0x4C)); }
-    resultBoxDraw(t1, (*(int *)(((int)stk + 128))), *(Stk3 *)(((int)stk + 116)));
+    resultBoxDraw(t1, (R1128), *(Stk3 *)(((int)stk + 116)));
     *(float *)(((((int)stk + 72) + 0x60) + 0x4)) = ((*(float *)(((((int)stk + 72) + 0x60) + 0x4))) + 22.0f);
     *(float *)(((((int)stk + 72) + 0x60) + 0x0)) = ((*(float *)(((((int)stk + 72) + 0x60) + 0x0))) - 107.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 104)) = *(struct mv3 *)((((int)stk + 72) + 0x60)); }
@@ -111,7 +120,7 @@ int resultDoublesDraw(int a4, int a5, int a6, float f4)
     *(float *)(((((int)stk + 116) + 0x4C) + 0x4)) = ((*(float *)(((((int)stk + 116) + 0x4C) + 0x4))) + 11.0f);
     *(float *)(((((int)stk + 116) + 0x4C) + 0x0)) = ((*(float *)(((((int)stk + 116) + 0x4C) + 0x0))) + 77.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)((((int)stk + 116) + 0x4C)); }
-    resultBoxDraw(t1, (*(int *)(((int)stk + 128))), *(Stk3 *)(((int)stk + 64)));
+    resultBoxDraw(t1, (R1128), *(Stk3 *)(((int)stk + 64)));
     *(float *)(((((int)stk + 72) + 0x60) + 0x4)) = ((*(float *)(((((int)stk + 72) + 0x60) + 0x4))) + 22.0f);
     *(float *)(((((int)stk + 72) + 0x60) + 0x0)) = ((*(float *)(((((int)stk + 72) + 0x60) + 0x0))) - 95.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 72) + 0x60)); }
@@ -130,13 +139,13 @@ int resultDoublesDraw(int a4, int a5, int a6, float f4)
         sprPutAtAlpha(0x8C33E3C0, *(Stk3 *)(((int)stk + 100)), f4);
         *(Stk3 *)((((int)stk + 116) + 0x4C)) = vecMake(((*(float *)(((((int)stk + 68) + 0x58) + 0x0))) + 462.0f), ((*(float *)(((((int)stk + 68) + 0x58) + 0x4))) + 287.0f), ((*(float *)(((((int)stk + 68) + 0x58) + 0x8))) + -0.100000001f));
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 84)) = *(struct mv3 *)((((int)stk + 116) + 0x4C)); }
-        hudFontNumPut((*(int *)(((int)stk + 140))), *(Stk3 *)(((int)stk + 84)), f4);
+        hudFontNumPut((R1140), *(Stk3 *)(((int)stk + 84)), f4);
         *(Stk3 *)((((int)stk + 116) + 0x4C)) = vecMake(((*(float *)(((((int)stk + 68) + 0x58) + 0x0))) + 119.0f), ((*(float *)(((((int)stk + 68) + 0x58) + 0x4))) + 317.0f), ((*(float *)(((((int)stk + 68) + 0x58) + 0x8))) + -0.100000001f));
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 68)) = *(struct mv3 *)((((int)stk + 116) + 0x4C)); }
         sprPutAtAlpha(0x8C33E460, *(Stk3 *)(((int)stk + 68)), f4);
         *(Stk3 *)((((int)stk + 116) + 0x4C)) = vecMake(((*(float *)(((((int)stk + 68) + 0x58) + 0x0))) + 462.0f), ((*(float *)(((((int)stk + 68) + 0x58) + 0x4))) + 316.0f), ((*(float *)(((((int)stk + 68) + 0x58) + 0x8))) + -0.100000001f));
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 116) + 0x4C)); }
-        t117 = (hudFontNumPut((*(int *)(((int)stk + 136))), *(Stk3 *)(((int)stk + 52)), f4));
+        t117 = (hudFontNumPut((R1136), *(Stk3 *)(((int)stk + 52)), f4));
     }
     return t117;
 }

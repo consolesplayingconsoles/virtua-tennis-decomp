@@ -102,14 +102,22 @@ int standPanelDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     float F14;
     float F15;
     int T_;
-    stk[54] = a8;
+    int R1084;
+    int R1092;
+    int R1096;
+    int R1216;
+    R1084 = *(int *)((int)stk + 84);
+    R1092 = *(int *)((int)stk + 92);
+    R1096 = *(int *)((int)stk + 96);
+    R1216 = *(int *)((int)stk + 216);
+    R1216 = a8;
     R4 = a4;
     R5 = a5;
     R6 = a6;
     R7 = a7;
-    *(unsigned int *)(((int)stk + 84)) = R4;
-    *(unsigned int *)(((int)stk + 96)) = R5;
-    *(unsigned int *)(((int)stk + 92)) = R6;
+    R1084 = R4;
+    R1096 = R5;
+    R1092 = R6;
     R10 = ((((int)stk + 80) + 0x34));
     R12 = (0x8C015EEA);
     R13 = ((((int)stk + 80) + 0x4C));
@@ -186,8 +194,8 @@ int standPanelDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     *(Stk3 *)((((int)stk + 76) + 0x2C)) = vecMake((u53 + -26.0f), (u55 + F13), (u54 + -0.0500000007f));
     F14 = (-26.0f);
     F15 = (-0.0500000007f);
-    if (((*(int *)(((int)stk + 92))) != 0)) goto L_8C0A3730;
-    t63 = *(int *)(((int)stk + 84));
+    if (((R1092) != 0)) goto L_8C0A3730;
+    t63 = R1084;
     R0 = (t63);
     F4 = (((*(float *)((R14 + 0x0))) + F14));
     F5 = (((*(float *)((R14 + 0x4))) + F13));
@@ -205,7 +213,7 @@ int standPanelDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     return R0;
     L_8C0A3CD2:;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 68)) = *(struct mv3 *)(R13); }
-    R0 = ((hudSignPut((*(int *)(((int)stk + 84))), R5, R6, R7, *(Stk3 *)(((int)stk + 68)), *(Stk1 *)((int)stk + 68 + 12), F12)));
+    R0 = ((hudSignPut((R1084), R5, R6, R7, *(Stk3 *)(((int)stk + 68)), *(Stk1 *)((int)stk + 68 + 12), F12)));
     goto L_8C0A3CE8;
     L_8C0A3CC4:;
     t77 = R13;
@@ -228,8 +236,8 @@ int standPanelDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     F14 = (0.5f);
     L_8C0A3748:;
     *(float *)(((int)stk + 88)) = ((*(float *)((R14 + 0x4))) + -15.0f);
-    *(unsigned int *)(((int)stk + 80)) = ((*(int *)(((int)stk + 84))) << 2);
-    t85 = *(int *)(((int)stk + 84));
+    *(unsigned int *)(((int)stk + 80)) = ((R1084) << 2);
+    t85 = R1084;
     R0 = (t85);
     R11 = ((((int)stk + 80) + 0x40));
     F12 = (0.509803951f);
@@ -261,11 +269,11 @@ int standPanelDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 68)) = *(struct mv3 *)((((int)stk + 80) + 0x28)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)(R10); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 44)) = *(struct mv3 *)(R13); }
-    markerShowStart((*(int *)(((int)stk + 84))), R5, R6, R7, *(Stk3 *)(((int)stk + 44)), *(Stk3 *)(((int)stk + 56)), *(Stk3 *)(((int)stk + 68)));
+    markerShowStart((R1084), R5, R6, R7, *(Stk3 *)(((int)stk + 44)), *(Stk3 *)(((int)stk + 56)), *(Stk3 *)(((int)stk + 68)));
     goto L_8C0A3BE4;
     L_8C0A3BE4:;
     *(Stk3 *)(((int)stk + 68)) = vecMake(((*(float *)((R14 + 0x0))) + 220.0f), ((*(float *)((R14 + 0x4))) + -19.0f), 0.0799999982f);
-    R0 = ((standBoxesDraw(0xE9, 0x27, 0x0, 0x0, *(int *)((int)stk + 68), *(int *)((int)stk + 68 + 4), *(int *)((int)stk + 68 + 8), *(int *)((int)stk + 68 + 12), *(int *)((int)stk + 68 + 16), *(int *)((int)stk + 68 + 20), *(int *)((int)stk + 68 + 24), *(int *)((int)stk + 68 + 28))));
+    R0 = ((standBoxesDraw(0xE9, 0x27, 0x0, 0x0, *(int *)((int)stk + 68), *(int *)((int)stk + 68 + 4), *(int *)((int)stk + 68 + 8), *(int *)((int)stk + 68 + 12), R1084, *(int *)((int)stk + 68 + 20), R1092, R1096)));
     goto L_8C0A3CE8;
     L_8C0A377C:;
     if ((R0 != 2)) goto L_8C0A3784;
@@ -317,7 +325,7 @@ int standPanelDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 68)) = *(struct mv3 *)((((int)stk + 80) + 0x28)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)(R10); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 44)) = *(struct mv3 *)(R13); }
-    markerShowStart((*(int *)(((int)stk + 84))), R5, R6, R7, *(Stk3 *)(((int)stk + 44)), *(Stk3 *)(((int)stk + 56)), *(Stk3 *)(((int)stk + 68)));
+    markerShowStart((R1084), R5, R6, R7, *(Stk3 *)(((int)stk + 44)), *(Stk3 *)(((int)stk + 56)), *(Stk3 *)(((int)stk + 68)));
     goto L_8C0A3BE4;
     L_8C0A378C:;
     if ((R0 != 4)) goto L_8C0A3794;
@@ -367,9 +375,9 @@ int standPanelDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 68)) = *(struct mv3 *)((((int)stk + 80) + 0x28)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)(R10); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 44)) = *(struct mv3 *)(R13); }
-    R0 = ((markerShowStart((*(int *)(((int)stk + 84))), R5, R6, R7, *(Stk3 *)(((int)stk + 44)), *(Stk3 *)(((int)stk + 56)), *(Stk3 *)(((int)stk + 68)))));
+    R0 = ((markerShowStart((R1084), R5, R6, R7, *(Stk3 *)(((int)stk + 44)), *(Stk3 *)(((int)stk + 56)), *(Stk3 *)(((int)stk + 68)))));
     L_8C0A3856:;
-    if (((*(int *)(((int)stk + 96))) == 0)) goto L_8C0A3860;
+    if (((R1096) == 0)) goto L_8C0A3860;
     goto L_8C0A3BE4;
     L_8C0A3860:;
     goto L_8C0A3CE8;

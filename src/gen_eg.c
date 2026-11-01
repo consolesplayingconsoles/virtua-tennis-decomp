@@ -28,27 +28,38 @@ int VQFBfree(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, i
     int t3;
     int t6;
     int stk[20];
+    int R1028;
+    int R1032;
+    int R1036;
+    int R1040;
+    int R1044;
 
-    stk[7] = a8;
-    stk[8] = a9;
-    stk[9] = a10;
-    stk[10] = a11;
-    stk[11] = a12;
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
+    R1036 = *(int *)((int)stk + 36);
+    R1040 = *(int *)((int)stk + 40);
+    R1044 = *(int *)((int)stk + 44);
+
+    R1028 = a8;
+    R1032 = a9;
+    R1036 = a10;
+    R1040 = a11;
+    R1044 = a12;
     t0 = *(int *)0x8C20CA0C;
-    t1 = *(int *)(((((int)stk + 4) + 0x18) + 0x10));
+    t1 = R1044;
     t27 = 0x0;
     if (t0 != 0) {
         t4 = t0;
         t5 = a6;
         t7 = 0x0;
         for (;;) {
-            if ((((unsigned short)(*(short *)((t4 + 0x0))) & 0xF000) == (*(int *)(((((int)stk + 4) + 0x18) + 0x0)))) && (t5 = 0x0, (unsigned int)0x0 < (unsigned int)t1)) {
+            if ((((unsigned short)(*(short *)((t4 + 0x0))) & 0xF000) == (R1028)) && (t5 = 0x0, (unsigned int)0x0 < (unsigned int)t1)) {
                 for (;;) {
                     t3 = t5;
                     t3 = (t3 << 2);
                     t3 = (t3 + (t4 + 0xC));
                     if ((*(int *)((t3 + 0x0))) != 0) {
-                        t2 = (*(int *)(((((int)stk + 4) + 0x18) + 0x4)));
+                        t2 = (R1032);
                         t2 = ((unsigned int)t2 >> 2);
                         t2 = (t5 * t2);
                         t2 = (t2 << 2);
@@ -79,7 +90,7 @@ int VQFBfree(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, i
     t60 = 0x7;
     if (t27 != 0) {
         *(unsigned int *)((((t26 << 2) + (t27 + 0xC)) + 0x0)) = 0x0;
-        t33 = *(int *)(((((int)stk + 4) + 0x18) + 0x10));
+        t33 = R1044;
         t40 = 0x0;
         if ((unsigned int)0x0 < (unsigned int)t33) {
             t34 = 0x0;

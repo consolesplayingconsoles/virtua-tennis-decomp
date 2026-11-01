@@ -81,3 +81,27 @@ GD filesystem, flash-manager and DMA record names are documented in
 - The return-register audit reports zero mismatches, and the proof-record
   audit reports no entries lacking C or their test files. A fresh simulator
   equivalence run was not performed; existing proof records were renamed.
+
+## Integration with the expanded upstream baseline
+
+The conflict resolution incorporates upstream `ce72edc` and retains all 4,068
+function entries, including its newly discovered functions, corrected boundaries
+and SDK names. Relative to that baseline, only 41 function labels change; entry
+addresses and sizes agree exactly. Upstream already supplies the two sync
+callback names from the initial PR.
+
+Names follow upstream's replacement trampoline implementations and cases into
+`gen_xh` and `gen_xi`. Removed SDK drafts remain in `partial/`, as upstream
+requires; their old implementations and cases are not restored to `src/`.
+All 3,899 upstream JSON case payloads remain byte-for-byte unchanged, with
+41 filenames following their renamed functions. Proof records retain upstream's
+evidence and change only the corresponding identifiers.
+
+The 137 changed files under `src/` and four partial drafts compile identically
+to current upstream after normalizing renamed exported symbols, internal label
+numbers and comments. Partial drafts use their existing declaration context.
+Instructions, operands and pool data agree. The required Wibo baseline rebuild
+prints `MATCH`. Consistency, proof-record and return-register audits report no
+findings. Fresh equivalence checks also pass for both camera blends, scene setup
+and the four replacement trampolines. This preserves the upstream behaviour
+checks; it does not claim a full byte-matched C build.

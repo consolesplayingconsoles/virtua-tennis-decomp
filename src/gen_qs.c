@@ -47,6 +47,14 @@ int mwlRnaStartTrans(int a4, int a5, int a6, int a7)
     register int R13;
     register int R14;
     register int T_;
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1016;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
     R4 = a4;
     R5 = a5;
     R6 = a6;
@@ -95,7 +103,7 @@ int mwlRnaStartTrans(int a4, int a5, int a6, int a7)
     R13 = ((R12 << 2));
     if (((*(int *)((((R14 + 0x10) + (R12 << 2)) + 0x0))) != 0)) goto L_8C1F2554;
     t41 = R10;
-    *(int *)((int)stk + 4) = t41;
+    R1004 = t41;
     mwRnaErrCallFunc(t41);
     L_8C1F2554:;
     t43 = *(int *)((((R14 + 0x10) + R13) + 0x0));
@@ -117,16 +125,16 @@ int mwlRnaStartTrans(int a4, int a5, int a6, int a7)
     t56 = *(int *)(((((R12 << 2) << 1) + (R14 + 0x18)) + 0x0));
     *(unsigned int *)((R11 + 0x0)) = R13;
     t57 = R9;
-    *(int *)((int)stk + 4) = t57;
+    R1004 = t57;
     t58 = mwlRnaStartCopy(R14, R12, t55, t56, t57);
     *(unsigned int *)((R10 + 0x0)) = R13;
     R12 = ((R12 + 0x1));
     R4 = (t58);
     goto L_8C1F25AE;
     L_8C1F24F0:;
-    *(unsigned int *)(((int)stk + 16)) = (R14 + 0x18);
+    R1016 = (R14 + 0x18);
     t61 = *(int *)(((R14 + 0x18) + 0x4));
-    *(unsigned int *)(((int)stk + 12)) = ((R14 + 0x18) + 0x8);
+    R1012 = ((R14 + 0x18) + 0x8);
     t62 = *(int *)((((R14 + 0x18) + 0x8) + 0x4));
     R6 = (t61);
     R7 = (t62);
@@ -139,11 +147,11 @@ int mwlRnaStartTrans(int a4, int a5, int a6, int a7)
     L_8C1F248E:;
     if (((*(int *)((((R12 << 2) + (R14 + 0x10)) + 0x0))) != 0)) goto L_8C1F24A4;
     t70 = R10;
-    *(int *)((int)stk + 4) = t70;
+    R1004 = t70;
     mwRnaErrCallFunc(t70);
     L_8C1F24A4:;
     t72 = *(int *)((((R12 << 2) + (R14 + 0x10)) + 0x0));
-    *(unsigned int *)(((int)stk + 8)) = t72;
+    R1008 = t72;
     t73 = *(int *)((R14 + 0x8));
     R2 = ((*(int *)(((*(int *)((t72 + 0x0))) + 0x18))));
     R6 = ((R8 * t73));
@@ -151,7 +159,7 @@ int mwlRnaStartTrans(int a4, int a5, int a6, int a7)
     if (((int)(R8 * t73) >= 0)) goto L_8C1F24CE;
     R6 = ((R6 + 0x7));
     L_8C1F24CE:;
-    t82 = ((int (*)(int, int, int, int))(R2))((*(int *)(((int)stk + 8))), 0x1, (((R6 >> 1) >> 1) >> 1), R7);
+    t82 = ((int (*)(int, int, int, int))(R2))((R1008), 0x1, (((R6 >> 1) >> 1) >> 1), R7);
     R12 = ((R12 + 0x1));
     goto L_8C1F24DC;
 }

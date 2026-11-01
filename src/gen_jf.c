@@ -62,6 +62,10 @@ int stageSelNameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
     float F2;
     float F3;
     int T_;
+    int R1028;
+    int R1032;
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
     stk[26] = a8;
     stk[27] = a9;
     stk[28] = a10;
@@ -69,7 +73,7 @@ int stageSelNameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
     R5 = a5;
     R6 = a6;
     R7 = a7;
-    *(unsigned int *)(((int)stk + 32)) = R5;
+    R1032 = R5;
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 28) + 0x20)) = *(struct mv3 *)((((int)stk + 28) + 0x4C)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 28) + 0x14)) = *(struct mv3 *)((((int)stk + 28) + 0x4C)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 28) + 0x8)) = *(struct mv3 *)((((int)stk + 28) + 0x4C)); }
@@ -77,7 +81,7 @@ int stageSelNameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
     *(float *)(((((int)stk + 28) + 0x8) + 0x0)) = ((*(float *)(((((int)stk + 28) + 0x8) + 0x0))) + 62.0f);
     *(float *)(((((int)stk + 28) + 0x8) + 0x4)) = ((*(float *)(((((int)stk + 28) + 0x8) + 0x4))) + 48.0f);
     *(float *)(((((int)stk + 28) + 0x8) + 0x8)) = ((*(float *)(((((int)stk + 28) + 0x8) + 0x8))) - 0.00499999989f);
-    *(unsigned int *)(((int)stk + 28)) = 0x8C340F84;
+    R1028 = 0x8C340F84;
     R0 = (R4);
     R1 = (0x3BA3D70A);
     R10 = (0x8C341254);
@@ -103,7 +107,7 @@ int stageSelNameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
     L_8C09EDFC:;
     t23 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(R4, R5, R6, R7, *(Stk3 *)(((int)stk + 4)));
     L_8C09EE04:;
-    if (((*(int *)(((int)stk + 32))) == 0)) goto L_8C09EE10;
+    if (((R1032) == 0)) goto L_8C09EE10;
     R6 = (0x808000);
     L_8C09EE12:;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 28) + 0x20)); }
@@ -128,7 +132,7 @@ int stageSelNameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
     if ((R0 != 6)) goto L_8C09EBBA;
     if ((R6 == 0)) goto L_8C09EDC8;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(R14); }
-    t39 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((*(int *)(((int)stk + 28))) + 0x50), R5, R6, R7, *(Stk3 *)(((int)stk + 16)));
+    t39 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((R1028) + 0x50), R5, R6, R7, *(Stk3 *)(((int)stk + 16)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(R13); }
     R4 = ((0xA0 + R10));
     L_8C09ED24:;
@@ -138,7 +142,7 @@ int stageSelNameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
     if ((R0 != 7)) goto L_8C09EBC2;
     if ((R6 == 0)) goto L_8C09EDC8;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(R14); }
-    t45 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((*(int *)(((int)stk + 28))) + 0xA0), R5, R6, R7, *(Stk3 *)(((int)stk + 16)));
+    t45 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(((R1028) + 0xA0), R5, R6, R7, *(Stk3 *)(((int)stk + 16)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(R13); }
     R4 = ((0xF0 + R10));
     L_8C09ED58:;
@@ -158,7 +162,7 @@ int stageSelNameDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
     if ((R0 != 9)) goto L_8C09EBD2;
     if ((R6 == 0)) goto L_8C09EDC8;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(R14); }
-    t56 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))((*(int *)(((int)stk + 28))), R5, R6, R7, *(Stk3 *)(((int)stk + 16)));
+    t56 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))((R1028), R5, R6, R7, *(Stk3 *)(((int)stk + 16)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(R13); }
     R4 = ((R10 + 0x50));
     goto L_8C09EDFC;
@@ -223,6 +227,8 @@ int hudScoreIconPut(int a4, Stk3 s, float f4)
     float F4;
     float F15;
     int T_;
+    int R1016;
+    R1016 = *(int *)((int)stk + 16);
     stk[14] = s.w[0];
     stk[15] = s.w[1];
     stk[16] = s.w[2];
@@ -267,11 +273,11 @@ int hudScoreIconPut(int a4, Stk3 s, float f4)
     L_8C0985A8:;
     goto L_8C09870A;
     L_8C098654:;
-    *(unsigned int *)(((int)stk + 16)) = (R5 + 0x10);
+    R1016 = (R5 + 0x10);
     t23 = *(int *)(((R5 + 0x10) + 0x0));
     *(float *)(((((((t23 << 2) + t23) << 2) << 2) + R13) + 0x2C)) = F4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(R14); }
-    t25 = *(int *)(((*(int *)(((int)stk + 16))) + 0x0));
+    t25 = *(int *)(((R1016) + 0x0));
     sprPutAtAlpha((((((t25 << 2) + t25) << 2) << 2) + R12), *(Stk3 *)(((int)stk + 4)), F15);
     L_8C09868E:;
     *(float *)((R11 + 0x0)) = ((*(float *)((R11 + 0x0))) + 14.0f);
@@ -280,30 +286,30 @@ int hudScoreIconPut(int a4, Stk3 s, float f4)
     F4 = (F15);
     goto L_8C098702;
     L_8C098618:;
-    *(unsigned int *)(((int)stk + 16)) = (R5 + 0xC);
+    R1016 = (R5 + 0xC);
     t30 = *(int *)(((R5 + 0xC) + 0x0));
     *(float *)(((((((t30 << 2) + t30) << 2) << 2) + R13) + 0x2C)) = F4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(R14); }
-    t32 = *(int *)(((*(int *)(((int)stk + 16))) + 0x0));
+    t32 = *(int *)(((R1016) + 0x0));
     sprPutAtAlpha((((((t32 << 2) + t32) << 2) << 2) + R12), *(Stk3 *)(((int)stk + 4)), F15);
     goto L_8C09868E;
     L_8C0985DC:;
-    *(unsigned int *)(((int)stk + 16)) = (R5 + 0x8);
+    R1016 = (R5 + 0x8);
     t34 = *(int *)(((R5 + 0x8) + 0x0));
     *(float *)(((((((t34 << 2) + t34) << 2) << 2) + R13) + 0x2C)) = F4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(R14); }
-    t36 = *(int *)(((*(int *)(((int)stk + 16))) + 0x0));
+    t36 = *(int *)(((R1016) + 0x0));
     R4 = (((t36 << 2) + t36));
     F4 = (F15);
     L_8C09860A:;
     sprPutAtAlpha((((R4 << 2) << 2) + R12), *(Stk3 *)(((int)stk + 4)), F4);
     goto L_8C09868E;
     L_8C0985AC:;
-    *(unsigned int *)(((int)stk + 16)) = (R5 + 0x4);
+    R1016 = (R5 + 0x4);
     t40 = *(int *)(((R5 + 0x4) + 0x0));
     *(float *)(((((((t40 << 2) + t40) << 2) << 2) + R13) + 0x2C)) = F4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(R14); }
-    t42 = *(int *)(((*(int *)(((int)stk + 16))) + 0x0));
+    t42 = *(int *)(((R1016) + 0x0));
     R4 = (((t42 << 2) + t42));
     F4 = (F15);
     goto L_8C09860A;

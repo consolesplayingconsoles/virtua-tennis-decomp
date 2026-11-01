@@ -33,9 +33,11 @@ int cpuSglAimPickNet(int a4)
     register int v0_8;
     register float w0_0;
     register float w0_1;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     v0_4 = a4;
     v0_1 = *(int *)((v0_4 + 0xB5C));
-    *(unsigned int *)(((int)stk + 4)) = ((((v0_1 + 0x1) & 0x1) * 0xD78) + 0x8C287D84);
+    R1004 = ((((v0_1 + 0x1) & 0x1) * 0xD78) + 0x8C287D84);
     w0_0 = *(float *)0x8C291F7C;
     v0_0 = (v0_4);
     v0_1 = (((v0_1 * 0x160) + 0x8C2FC69C));
@@ -62,7 +64,7 @@ int cpuSglAimPickNet(int a4)
     if ((119.349998f > w0_0)) goto L_8C04EFAA;
     goto L_8C04F10A;
     L_8C04EFAA:;
-    v0_3 = ((*(int *)(((*(int *)(((int)stk + 4))) + 0xB60))) & 0x100) != 0;
+    v0_3 = ((*(int *)(((R1004) + 0xB60))) & 0x100) != 0;
     v0_6 = (0xB60);
     v0_2 = ((v0_2 + (ndbGetTargets(v0_0, 0x0, 0x1))));
     if (v0_3) goto L_8C04EFCE;
@@ -71,7 +73,7 @@ int cpuSglAimPickNet(int a4)
     v0_2 = ((v0_2 + v0_3));
     L_8C04EFCE:;
     if (!((v0_2 != 0))) goto L_8C04F0E2;
-    *(unsigned int *)(((int)stk + 4)) = v0_5;
+    R1004 = v0_5;
     v0_6 = ((cpuSglAimScore(v0_0, v0_2)));
     v0_7 = (0x8C2FCC6C);
     v0_3 = (v0_5);
@@ -101,14 +103,14 @@ int cpuSglAimPickNet(int a4)
     if (((*(float *)((v0_4 + 0x1C))) != 0.0f)) goto L_8C04F028;
     v0_5 = ((int)((int)(nlRand()) % (int)v0_3)) != 0;
     if (v0_5) goto L_8C04F028;
-    *(unsigned int *)(((int)stk + 4)) = v0_7;
+    R1004 = v0_7;
     L_8C04F028:;
     v0_5 = (int)(v0_7 + 0x1) < (int)v0_2;
     v0_7 = ((v0_7 + 0x1));
     v0_4 = ((v0_4 + 0x20));
     if (v0_5) goto L_8C04F00A;
     L_8C04F030:;
-    v0_5 = *(int *)(((int)stk + 4));
+    v0_5 = R1004;
     *(float *)((v0_1 + 0x130)) = (*(float *)((((((v0_5 << 2) << 2) << 1) + 0x8C2FCC6C) + 0x0)));
     *(float *)((v0_1 + 0x138)) = (*(float *)((((((v0_5 << 2) << 2) << 1) + 0x8C2FCC6C) + 0x8)));
     *(unsigned char *)(((0x13C + v0_1) + 0x0)) = (*(signed char *)((((((v0_5 << 2) << 2) << 1) + 0x8C2FCC6C) + 0xC)));

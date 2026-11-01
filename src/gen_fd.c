@@ -136,8 +136,11 @@ void staffShadowPut(int a4, int a5, int a6, int a7)
 void padLcdLineTo3D(int a4, int a5, int a6, int a7)
 {
     int stk[12];
+    int R1016;
 
-    *(unsigned int *)(((int)stk + 16)) = a4;
+    R1016 = *(int *)((int)stk + 16);
+
+    R1016 = a4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(a4); }
     padLcdProject(0x8C2FBC04, (((int)stk + 4) + 0x10), a6, a7, *(Stk3 *)(((int)stk + 4)));
     padLcdLine((*(int *)0x8C2FBC44), 0x8C2FBBF8, (((int)stk + 4) + 0x10), 0x1);
@@ -201,13 +204,16 @@ int hudLabelPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f
 {
     int t1;
     int stk[17];
+    int R1016;
+
+    R1016 = *(int *)((int)stk + 16);
 
     stk[6] = a8;
     stk[7] = a9;
     stk[8] = a10;
-    *(unsigned int *)(((int)stk + 16)) = a4;
+    R1016 = a4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x8)); }
-    t1 = *(int *)((((*(int *)(((int)stk + 16))) << 2) + 0x8C10FF30));
+    t1 = *(int *)((((R1016) << 2) + 0x8C10FF30));
     return (sprPutAtAlpha((((((t1 << 2) + t1) << 2) << 2) + 0x8C33ECD0), a5, a6, a7, *(Stk3 *)(((int)stk + 4)), f4));
 }
 
@@ -237,13 +243,16 @@ int numPutSprite(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float 
 {
     int t0;
     int stk[17];
+    int R1016;
+
+    R1016 = *(int *)((int)stk + 16);
 
     stk[6] = a8;
     stk[7] = a9;
     stk[8] = a10;
-    *(unsigned int *)(((int)stk + 16)) = a4;
+    R1016 = a4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x8)); }
-    t0 = *(int *)(((int)stk + 16));
+    t0 = R1016;
     return (sprPutAtAlpha((((((t0 << 2) + t0) << 2) << 2) + 0x8C3373BC), a5, a6, a7, *(Stk3 *)(((int)stk + 4)), f4));
 }
 
@@ -251,13 +260,16 @@ int panelWordPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float 
 {
     int t0;
     int stk[17];
+    int R1016;
+
+    R1016 = *(int *)((int)stk + 16);
 
     stk[6] = a8;
     stk[7] = a9;
     stk[8] = a10;
-    *(unsigned int *)(((int)stk + 16)) = a4;
+    R1016 = a4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x8)); }
-    t0 = *(int *)(((int)stk + 16));
+    t0 = R1016;
     return (sprPutAtAlpha((((((t0 << 2) + t0) << 2) << 2) + 0x8C337DE0), a5, a6, a7, *(Stk3 *)(((int)stk + 4)), f4));
 }
 
@@ -265,13 +277,16 @@ int phraseBigWordPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, fl
 {
     int t0;
     int stk[17];
+    int R1016;
+
+    R1016 = *(int *)((int)stk + 16);
 
     stk[6] = a8;
     stk[7] = a9;
     stk[8] = a10;
-    *(unsigned int *)(((int)stk + 16)) = a4;
+    R1016 = a4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x8)); }
-    t0 = *(int *)(((int)stk + 16));
+    t0 = R1016;
     return (sprPutAtAlpha((((((t0 << 2) + t0) << 2) << 2) + 0x8C338240), a5, a6, a7, *(Stk3 *)(((int)stk + 4)), f4));
 }
 
@@ -279,13 +294,16 @@ int sprSet173Put(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float 
 {
     int t0;
     int stk[17];
+    int R1016;
+
+    R1016 = *(int *)((int)stk + 16);
 
     stk[6] = a8;
     stk[7] = a9;
     stk[8] = a10;
-    *(unsigned int *)(((int)stk + 16)) = a4;
+    R1016 = a4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x8)); }
-    t0 = *(int *)(((int)stk + 16));
+    t0 = R1016;
     return (sprPutAtAlpha((((((t0 << 2) + t0) << 2) << 2) + 0x8C37C2BC), a5, a6, a7, *(Stk3 *)(((int)stk + 4)), f4));
 }
 
@@ -293,13 +311,16 @@ int sprSet192PutA(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float
 {
     int t0;
     int stk[17];
+    int R1016;
+
+    R1016 = *(int *)((int)stk + 16);
 
     stk[6] = a8;
     stk[7] = a9;
     stk[8] = a10;
-    *(unsigned int *)(((int)stk + 16)) = a4;
+    R1016 = a4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x8)); }
-    t0 = *(int *)(((int)stk + 16));
+    t0 = R1016;
     return (sprPutAtAlpha((((((t0 << 2) + t0) << 2) << 2) + 0x8C37CF10), a5, a6, a7, *(Stk3 *)(((int)stk + 4)), f4));
 }
 
@@ -307,13 +328,16 @@ int menuIconPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f
 {
     int t0;
     int stk[17];
+    int R1016;
+
+    R1016 = *(int *)((int)stk + 16);
 
     stk[6] = a8;
     stk[7] = a9;
     stk[8] = a10;
-    *(unsigned int *)(((int)stk + 16)) = a4;
+    R1016 = a4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x8)); }
-    t0 = *(int *)(((int)stk + 16));
+    t0 = R1016;
     return (sprPutAtAlpha((((((t0 << 2) + t0) << 2) << 2) + 0x8C334434), a5, a6, a7, *(Stk3 *)(((int)stk + 4)), f4));
 }
 

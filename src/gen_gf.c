@@ -40,6 +40,11 @@ int matchSceneSetup(int a4, int a5)
     int t25;
     int t81;
     int stk[10];
+    int R1004;
+    int R1008;
+
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
 
     ndbLoadWaitStart();
     *(unsigned int *)0x8C181754 = 0x1;
@@ -55,7 +60,7 @@ int matchSceneSetup(int a4, int a5)
             break;
         }
     }
-    *(unsigned int *)(((int)stk + 4)) = 0x8C301BB4;
+    R1004 = 0x8C301BB4;
     t6 = 0x0;
     t7 = 0x8C301BB4;
     t8 = 0x8C301BB4;
@@ -86,7 +91,7 @@ int matchSceneSetup(int a4, int a5)
     *(unsigned int *)0x8C181638 = 0x0;
     if (((*(int *)0x8C1891E8) != 2) && ((t23 = *(int *)0x8C1891E8, t23 != 3) && ((t24 = *(int *)0x8C1891E8, t24 != 9) && (t25 = *(int *)0x8C1891E8, t25 != 5)))) {
     } else {
-        ambEventStart(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4));
+        ambEventStart(0x0, 0x0, 0x0, 0x0, R1004, R1008);
     }
     nlsndSystemControl(0x0, 0x10A0, (*(int *)0x8C38BA64));
     scoreInit();
@@ -148,7 +153,7 @@ int matchSceneSetup(int a4, int a5)
     }
     *(unsigned int *)((t33 + 0x2C)) = (matchStageSlot());
     if (((*(int *)0x8C287D5C) != 2) && (t81 = *(int *)0x8C287D5C, t81 != 3)) {
-        fadeScreenStart(0x2, 0x1, 0xA, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4));
+        fadeScreenStart(0x2, 0x1, 0xA, 0x0, R1004, R1008);
     }
     *(volatile int *)0x8C1891E8;
     return matchSceneInit();
@@ -164,8 +169,13 @@ float cameraBlendVector240(Stk7 stackArgs)
     int zWeight;
     float weightedZ;
     int stackWords[21];
+    int R1004;
+    int R1024;
 
-    stackWords[6] = stackArgs.w[0];
+    R1004 = *(int *)((int)stackWords + 4);
+    R1024 = *(int *)((int)stackWords + 24);
+
+    R1024 = stackArgs.w[0];
     stackWords[7] = stackArgs.w[1];
     stackWords[8] = stackArgs.w[2];
     stackWords[9] = stackArgs.w[3];
@@ -174,17 +184,17 @@ float cameraBlendVector240(Stk7 stackArgs)
     stackWords[12] = stackArgs.w[6];
     blendDuration = *(float *)0x8C02A00C;
     xWeight = *(int *)0x8C287B4C;
-    *(unsigned int *)(((int)stackWords + 4)) = xWeight;
+    R1004 = xWeight;
     weightedX = ((*(float *)(((((int)stackWords + 4) + 0x24) + 0x0))) * (float)((-xWeight) + 0xF0));
     weightedX = weightedX + (float)xWeight * (*(float *)(((((int)stackWords + 4) + 0x18) + 0x0)));
     *(float *)(((((int)stackWords + 4) + 0x4) + 0x0)) = (weightedX / blendDuration);
     yWeight = *(int *)0x8C287B4C;
-    *(unsigned int *)(((int)stackWords + 4)) = yWeight;
+    R1004 = yWeight;
     weightedY = ((*(float *)(((((int)stackWords + 4) + 0x24) + 0x4))) * (float)((-yWeight) + 0xF0));
     weightedY = weightedY + (float)yWeight * (*(float *)(((((int)stackWords + 4) + 0x18) + 0x4)));
     *(float *)(((((int)stackWords + 4) + 0x4) + 0x4)) = (weightedY / blendDuration);
     zWeight = *(int *)0x8C287B4C;
-    *(unsigned int *)(((int)stackWords + 4)) = zWeight;
+    R1004 = zWeight;
     weightedZ = ((*(float *)(((((int)stackWords + 4) + 0x24) + 0x8))) * (float)((-zWeight) + 0xF0));
     weightedZ = weightedZ + (float)zWeight * (*(float *)(((((int)stackWords + 4) + 0x18) + 0x8)));
     *(float *)(((((int)stackWords + 4) + 0x4) + 0x8)) = (weightedZ / blendDuration);

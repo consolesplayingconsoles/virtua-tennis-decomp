@@ -7,6 +7,7 @@ extern int gNlTextureLoadAttempts;
 extern int gNlCommonTextureOffset;
 extern float gNlGlobalAmbience;
 extern float gNlObjectGlobalAmbience;
+extern void (*g_0c14a9a8[])(int);
 extern float gNlSpriteInverseScreenSize[2];
 extern float gNlSpriteScreenSize[2];
 extern char gNlSoundStreamHeaderTemplate[];

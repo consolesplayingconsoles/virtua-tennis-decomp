@@ -191,16 +191,6 @@ int nlObjPutMvOpenedVolume(int a4)
     return nlObjPutMvSub(a4, 0xFFFFFFFF);
 }
 
-int vecLength(Stk4 s)
-{
-    int stk[14];
-
-    stk[2] = s.w[0];
-    stk[3] = s.w[1];
-    stk[4] = s.w[2];
-    stk[5] = s.w[3];
-    return (nlScalor((((int)stk + 4) + 0x4)));
-}
 
 int fadeReset(void)
 {

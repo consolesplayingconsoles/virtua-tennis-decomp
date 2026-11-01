@@ -28,6 +28,10 @@ int sseleGridDraw(int a4, int a5, int a6, int a7)
     int v0_6;
     float w0_0;
     float w0_1;
+    int R1016;
+    int R1020;
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
     v0_0 = a4;
     v0_0 = a5;
     v0_0 = a6;
@@ -38,7 +42,7 @@ int sseleGridDraw(int a4, int a5, int a6, int a7)
     v0_3 = (0x1);
     w0_0 = (5.0f);
     L_8C0C17DA:;
-    *(unsigned int *)(((int)stk + 20)) = (v0_2 << 2);
+    R1020 = (v0_2 << 2);
     v0_4 = (v0_1);
     w0_1 = ((float)((v0_2 * 0x78) + 0x20));
     L_8C0C17F0:;
@@ -47,11 +51,11 @@ int sseleGridDraw(int a4, int a5, int a6, int a7)
     v0_5 = (v0_3);
     L_8C0C18B2:;
     v0_6 = v0_0;
-    *(int *)((int)stk + 16) = v0_6;
+    R1016 = v0_6;
     *(Stk3 *)(v0_6) = vecMake(w0_1, (float)((v0_4 * 0x52) + 0x12B), w0_0);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_0); }
     v0_6 = (int)(v0_4 + 0x1) >= (int)0x2;
-    v0_5 = ((stageSelNameDraw((*(int *)((((((v0_4 << 2) + v0_4) + v0_2) << 2) + 0x8C12333C))), v0_5, (*(int *)(((((((v0_4 << 2) + v0_4) << 2) + 0x8C1AC160) + (*(int *)(((int)stk + 20)))) + 0x0))), *(Stk3 *)(((int)stk + 4)))));
+    v0_5 = ((stageSelNameDraw((*(int *)((((((v0_4 << 2) + v0_4) + v0_2) << 2) + 0x8C12333C))), v0_5, (*(int *)(((((((v0_4 << 2) + v0_4) << 2) + 0x8C1AC160) + (R1020)) + 0x0))), *(Stk3 *)(((int)stk + 4)))));
     v0_4 = ((v0_4 + 0x1));
     if (v0_6) goto L_8C0C1912;
     goto L_8C0C17F0;

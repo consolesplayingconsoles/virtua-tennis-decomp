@@ -47,6 +47,9 @@ int endingSceneDraw(int a4, int a5, int a6, int a7, float f4)
     register float u20;
     register float u21;
     register int t75;
+    int R1024;
+
+    R1024 = *(int *)((int)stk + 24);
 
     t0 = *(int *)0x8C402CAC;
     u40 = 0.0f;
@@ -99,8 +102,8 @@ int endingSceneDraw(int a4, int a5, int a6, int a7, float f4)
     uiBarStretchPut(0x8C1D3978, 0x1DD, (*(float *)(((int)stk + 20))));
     *(Stk3 *)(((int)stk + 8)) = vecMake(135.0f, 360.0f, 0.100000001f);
     t55 = *(int *)(((*(int *)0x8C402CB4) + 0xC58));
-    *(unsigned int *)(((int)stk + 24)) = (((t55 << 1) << 2) + 0x8C125E08);
-    sprListPut((*(int *)(((*(int *)(((int)stk + 24))) + 0x0))), (*(int *)(((((t55 << 1) << 2) + 0x8C125E08) + 0x4))), 0x0, u41, 1.0f, 1.0f);
+    R1024 = (((t55 << 1) << 2) + 0x8C125E08);
+    sprListPut((*(int *)(((R1024) + 0x0))), (*(int *)(((((t55 << 1) << 2) + 0x8C125E08) + 0x4))), 0x0, u41, 1.0f, 1.0f);
     *(Stk3 *)(((int)stk + 8)) = vecMake(33.0f, 320.0f, 1.5f);
     sprListPut(0x8C1D3C00, 0x1, 0x0, u41, 1.0f, 1.0f);
     *(Stk3 *)(((int)stk + 8)) = vecMake(155.0f, 405.0f, 0.100000001f);
@@ -119,7 +122,7 @@ int endingSceneDraw(int a4, int a5, int a6, int a7, float f4)
         t76 = nlRandom();
         if ((int)(t76 * 3.0f) == 1) {
             evFlashStart(100.0f);
-            sndEndingCheer(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 20), *(int *)((int)stk + 20 + 4));
+            sndEndingCheer(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 20), R1024);
         }
         u83 = *(float *)0x8C40C2C8;
         u84 = u83;

@@ -2,16 +2,38 @@
 
 extern void gdc_StopStreamVoiceAll(void);
 
+extern void FUN_0c074990(int color);
+extern void FUN_0c0749b0(int color);
 extern void thunk_kmSetFogTable(float *table);
 extern void kmSetFogDensity(int density);
 extern void njSetRenderWidth(int w);
 
+/* The fog set-ups: white fog, then a 129-entry table (fog/0C1EE360) of base / d, where d starts at
+   1.1 and grows by a step that starts at 0.005 and, past entry 32, by 0.0015 more each entry. */
+#define FOG_TABLE(base, first)                          \
+    do {                                                \
+        float d = 1.0999999f;                           \
+        float step = 0.005f;                            \
+        float *t = (float *)0x0C1EE360;                 \
+        int i;                                          \
+        FUN_0c074990(first);                            \
+        FUN_0c0749b0(0xFFFFFF);                         \
+        for (i = 0; i <= 128; i++) {                    \
+            t[i] = *(float *)(base) / d;                \
+            d += step;                                  \
+            if (i > 32) {                               \
+                step += 0.0014999999f;                  \
+            }                                           \
+        }                                               \
+        thunk_kmSetFogTable(t);                         \
+    }
 
 extern void nlSprPut(void *spr);
 
 extern void PC_RenderSimpleTaxiShadow(void);
 extern void Put_Transporter(void);
 extern void Put_Course_Obj_Dist(void);
+extern void FUN_0c03b698(int v);
 
 extern int GetMenuMode(int which);
 extern void Put_GearBox(void);
@@ -55,6 +77,8 @@ extern void gdc_StopStreamVoice(int ch);
 extern void Sound_Request(int id, int a);
 
 extern void pdVmsLcdWrite1(unsigned int port, void *img, int c, int d);
+extern void FUN_0c03b698(int v);
+extern void FUN_0c03b674(int n);
 extern void PutVM_Message(int a, int b, int c, float x, float y);
 extern float nlLog10(float x);
 extern int gdFsSearchName(char *name, int dir, int c);
@@ -107,6 +131,7 @@ typedef struct {
 
 extern void nlRotateAY(unsigned int a);
 extern void nlRotateAX(unsigned int a);
+extern void FUN_0c0771b0(Vec3f *v, void *light);
 extern void nlObjPutSetGlobalAmbience(float a);
 extern void nlSetFontSize(int w, int h);
 extern void nlLocate(int x, int y);
@@ -114,6 +139,21 @@ extern void nlPrintf(char *fmt, ...);
 extern void nlScaleVector(float *out, float *v, float s);
 extern float nlLength(void *a, float *b);
 
+/* Set a scene's light: the base direction rotated by the light's angles (+18 yaw, +16 pitch) into
+   its direction, then its ambience (+12). */
+#define SET_LIGHT(base, light)                                      \
+    do {                                                            \
+        Vec3f v;                                                    \
+        char *l = (char *)(light);                                  \
+        v = *(Vec3f *)(base);                                       \
+        nlPushUnitMatrix();                                         \
+        nlRotateAY(*(unsigned short *)(l + 18));                    \
+        nlRotateAX(*(unsigned short *)(l + 16));                    \
+        FUN_0c0771b0(&v, l);                                        \
+        nlPopMatrix(1);                                             \
+        nlObjPutSetLightDirectionV((float *)l);                     \
+        nlObjPutSetGlobalAmbience(*(float *)(l + 12));              \
+    }
 
 extern int nlRand(void);
 
@@ -145,9 +185,29 @@ extern void CarSel_Time_Count(void);
 extern void hudDraw(void);
 extern void nlRotateAZ(int a);
 extern void nlTranslateNV(Vec3f *v);
+extern void FUN_0c078ff0(void);
 extern void ADXF_Stop(int h);
 extern void ADXF_Close(int h);
 
+/* Place a scene's camera: position base (0C0CF6B4) plus offset (0C2A72E0), rotated by the angles at
+   0C2A72EC (z, x, y, negated), in matrix slot 2. */
+#define PLACE_VIEW(base, other, offset, angles)                     \
+    do {                                                            \
+        Vec3f p;                                                    \
+        Vec3f q;                                                    \
+        unsigned short *a = (unsigned short *)(angles);             \
+        p = *(Vec3f *)(base);                                       \
+        q = *(Vec3f *)(other);                                      \
+        nlAddVector((float *)&p, (float *)(offset));                \
+        nlMatrixMode(2);                                            \
+        nlUnitMatrix();                                             \
+        nlRotateAZ(-(int)a[2]);                                     \
+        nlRotateAX(-(int)a[0]);                                     \
+        nlRotateAY(-(int)a[1]);                                     \
+        nlTranslateNV(&p);                                           \
+        nlMatrixMode(1);                                            \
+        FUN_0c078ff0();                                             \
+    }
 
 extern void nlObjPutLoadTexture(int tex, void *table);
 extern int IsBoyFriend(int a, int b);
@@ -223,6 +283,7 @@ extern void Init_Standard(void);
 
 extern void sysCfgRead(void);
 extern void saveBufferInit(void *buf);
+extern void FUN_0c03b674(int n);
 
 extern void TOANG(short *a, short *b, float x, float y, float z);
 extern void nlScale(float x, float y, float z);

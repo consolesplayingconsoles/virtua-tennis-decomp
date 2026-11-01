@@ -46,6 +46,14 @@ int decoHeaderDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     float F14;
     float F15;
     int T_;
+    int R1092;
+    int R1096;
+    int R1100;
+    int R1104;
+    R1092 = *(int *)((int)stk + 92);
+    R1096 = *(int *)((int)stk + 96);
+    R1100 = *(int *)((int)stk + 100);
+    R1104 = *(int *)((int)stk + 104);
     stk[50] = a8;
     stk[51] = a9;
     stk[52] = a10;
@@ -54,9 +62,9 @@ int decoHeaderDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     R6 = a6;
     R7 = a7;
     F4 = f4;
-    *(unsigned int *)(((int)stk + 96)) = R5;
-    *(unsigned int *)(((int)stk + 100)) = R6;
-    *(unsigned int *)(((int)stk + 104)) = R7;
+    R1096 = R5;
+    R1100 = R6;
+    R1104 = R7;
     u0 = *(float *)(((((int)stk + 92) + 0x6C) + 0x8));
     u1 = *(float *)(((((int)stk + 92) + 0x6C) + 0x4));
     u2 = *(float *)(((((int)stk + 92) + 0x6C) + 0x0));
@@ -66,22 +74,22 @@ int decoHeaderDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     sprPutAtAlpha(0x8C341E98, *(Stk3 *)(((int)stk + 76)), F4);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)((((int)stk + 92) + 0x6C)); }
     sprPutAtAlpha(0x8C342028, *(Stk3 *)(((int)stk + 64)), (F4 * 0.349999994f));
-    *(unsigned int *)(((int)stk + 92)) = 0x8C342078;
+    R1092 = 0x8C342078;
     primSprSetSize(0x8C342078, 1.0f, 20.0f);
     *(float *)(((((int)stk + 92) + 0x6C) + 0x4)) = ((*(float *)(((((int)stk + 92) + 0x6C) + 0x4))) + 20.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 92) + 0x6C)); }
-    sprPutAtAlpha((*(int *)(((int)stk + 92))), *(Stk3 *)(((int)stk + 52)), (F4 * 0.349999994f));
+    sprPutAtAlpha((R1092), *(Stk3 *)(((int)stk + 52)), (F4 * 0.349999994f));
     *(float *)(((((int)stk + 92) + 0x6C) + 0x4)) = ((*(float *)(((((int)stk + 92) + 0x6C) + 0x4))) + 1.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 92) + 0x6C)); }
     sprPutAtAlpha(0x8C3420C8, *(Stk3 *)(((int)stk + 40)), (F4 * 0.349999994f));
     *(float *)(((((int)stk + 92) + 0x6C) + 0x4)) = ((*(float *)(((((int)stk + 92) + 0x6C) + 0x4))) + 1.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 92) + 0x6C)); }
     sprPutAtAlpha(0x8C342118, *(Stk3 *)(((int)stk + 28)), (F4 * 0.349999994f));
-    *(unsigned int *)(((int)stk + 92)) = 0x8C342168;
+    R1092 = 0x8C342168;
     primSprSetSize(0x8C342168, 1.0f, 89.0f);
     *(float *)(((((int)stk + 92) + 0x6C) + 0x4)) = ((*(float *)(((((int)stk + 92) + 0x6C) + 0x4))) + 89.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 92) + 0x6C)); }
-    sprPutAtAlpha((*(int *)(((int)stk + 92))), *(Stk3 *)(((int)stk + 16)), (F4 * 0.349999994f));
+    sprPutAtAlpha((R1092), *(Stk3 *)(((int)stk + 16)), (F4 * 0.349999994f));
     *(float *)(((((int)stk + 92) + 0x6C) + 0x4)) = ((*(float *)(((((int)stk + 92) + 0x6C) + 0x4))) + 1.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 92) + 0x6C)); }
     sprPutAtAlpha(0x8C3421B8, *(Stk3 *)(((int)stk + 4)), (F4 * 0.349999994f));
@@ -106,9 +114,9 @@ int decoHeaderDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     *(float *)(((((int)stk + 92) + 0x28) + 0x4)) = (u30 + -85.0f);
     *(float *)(((((int)stk + 92) + 0x1C) + 0x0)) = (((*(float *)((R14 + 0x0))) + (float)R4) + -41.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 80)) = *(struct mv3 *)((((int)stk + 92) + 0x1C)); }
-    decoGaugeFramePut(R9, (*(int *)(((int)stk + 96))), R6, R7, *(Stk3 *)(((int)stk + 80)), F13);
+    decoGaugeFramePut(R9, (R1096), R6, R7, *(Stk3 *)(((int)stk + 80)), F13);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 68)) = *(struct mv3 *)(R14); }
-    decoNumDraw(((*(int *)(((int)stk + 96))) + 0x1), 0x1, 0x1, a11, *(Stk3 *)(((int)stk + 68)), F15);
+    decoNumDraw(((R1096) + 0x1), 0x1, 0x1, a11, *(Stk3 *)(((int)stk + 68)), F15);
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 92) + 0x28)) = *(struct mv3 *)((((int)stk + 92) + 0x1C)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 92) + 0x10)) = *(struct mv3 *)((((int)stk + 92) + 0x1C)); }
     *(float *)(((((int)stk + 92) + 0x28) + 0x0)) = ((*(float *)(((((int)stk + 92) + 0x28) + 0x0))) + -68.0f);
@@ -126,11 +134,11 @@ int decoHeaderDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     L_8C0A632A:;
     if (((int)R11 < 0)) goto L_8C0A6348;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 80)) = *(struct mv3 *)(R12); }
-    R0 = ((decoGaugeBarPut(R9, (*(int *)(((int)stk + 100))), 0x1, R7, *(Stk3 *)(((int)stk + 80)), F13, F14)));
+    R0 = ((decoGaugeBarPut(R9, (R1100), 0x1, R7, *(Stk3 *)(((int)stk + 80)), F13, F14)));
     L_8C0A6348:;
     if (((int)R11 > 0)) goto L_8C0A6366;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 80)) = *(struct mv3 *)(R10); }
-    R0 = ((decoGaugeBarPut(R9, (*(int *)(((int)stk + 104))), 0x0, R7, *(Stk3 *)(((int)stk + 80)), F13, F14)));
+    R0 = ((decoGaugeBarPut(R9, (R1104), 0x0, R7, *(Stk3 *)(((int)stk + 80)), F13, F14)));
     L_8C0A6366:;
     return R0;
     L_8C0A6328:;

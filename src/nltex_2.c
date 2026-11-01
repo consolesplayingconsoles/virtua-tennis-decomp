@@ -5,8 +5,11 @@
    (the texture's U and V size) and +52 the texture control word that nlCreateTextureParam works out for it. */
 
 extern int *gNlTextureSurfaces;
+extern int gNlTextureLoadAttempts;
 extern int gNlDummyTextureSurface[];
+extern int (*g_0c14a640)(short *thd);
 extern int gNlTextureSurfaceCount;
+extern int gNlCommonTextureOffset;
 #define LOAD_BITS       (*(unsigned int **)0x0C2AEC88)   /* nl_texture_loadbit: a set bit, a surface index in use */
 #define LOAD_WORDS      (*(int *)0x0C14A63C)             /* its length in words */
 

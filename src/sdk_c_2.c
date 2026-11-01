@@ -14,6 +14,7 @@ extern unsigned int gNlPrintFlags;
 extern int gNlRenderTextureTableState[3];
 extern Vector3f gNlObjectFadeColor;
 extern Vector3f gNlObjectFadeColorCopy;
+extern signed char g_0c14a9c0[][4];
 extern float gNlSpriteScreenSize[2];
 
 void kmCreateTextureSurface(void *s, int w, int h, int fmt);
@@ -41,10 +42,6 @@ void nlReloadPalette(int paletteIndex, int paletteData)
 }
 
 
-void setBorderColor(unsigned int color)
-{
-    kmSetBorderColor(color | 0xFF000000);
-}
 
 
 float nlCosec(int angle)

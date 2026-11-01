@@ -86,8 +86,13 @@ int ballBoyPoseIdle(int a4)
     int t108;
     int t78;
     int stk[14];
+    int R1004;
+    int R1008;
 
-    *(unsigned int *)(((int)stk + 4)) = (*(int *)((((*(int *)0x8C1891E8) << 2) + 0x8C1D0670)));
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+
+    R1004 = (*(int *)((((*(int *)0x8C1891E8) << 2) + 0x8C1D0670)));
     motionSetCurrent((a4 + 0x4));
     motionRootBoneRaw(0x0, 0x2);
     nlGetMatrix(((0x1E4 + a4) + 0x80));
@@ -143,12 +148,12 @@ int ballBoyPoseIdle(int a4)
     t58 = 0x0;
     for (;;) {
         nlLoadMatrix(((((t58 << 2) << 2) << 2) + (0x1E4 + a4)));
-        *(unsigned int *)(((int)stk + 8)) = (t58 << 2);
+        R1008 = (t58 << 2);
         if ((*(int *)0x8C38B768) != 0) {
-            nlGetMatrix(((*(int *)(((t58 << 2) + (*(int *)(((int)stk + 4)))))) + 0xC0));
+            nlGetMatrix(((*(int *)(((t58 << 2) + (R1004)))) + 0xC0));
         }
         if ((*(int *)0x8C38B768) == 0) {
-            nlObjPut((*(int *)(((*(int *)((((*(int *)0x8C1891E8) << 2) + 0x8C1D03F0))) + (*(int *)(((int)stk + 8)))))));
+            nlObjPut((*(int *)(((*(int *)((((*(int *)0x8C1891E8) << 2) + 0x8C1D03F0))) + (R1008)))));
         }
         if ((t58 == 3) && (t78 = *(int *)0x8C1891E8, t78 == 2)) {
             if ((*(int *)0x8C38B768) != 0) {
@@ -172,7 +177,7 @@ int ballBoyPoseIdle(int a4)
     t102 = *(int *)0x8C38B768;
     t109 = (nlPopMatrix(0x1));
     if (t102 != 0) {
-        t103 = *(int *)(((int)stk + 4));
+        t103 = R1004;
         t104 = t103;
         for (;;) {
             nlPushMatrix(0x0);

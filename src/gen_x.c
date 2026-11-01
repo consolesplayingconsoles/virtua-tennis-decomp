@@ -273,6 +273,9 @@ int padVibStopAll(void)
     int t5;
     int t6;
     int stk[10];
+    int R1004;
+
+    R1004 = *(int *)((int)stk + 4);
 
     t0 = 0x8C2FBBC8;
     t1 = 0x0;
@@ -282,7 +285,7 @@ int padVibStopAll(void)
         *(unsigned int *)((t0 + 0x4)) = 0x0;
         t2 = *(int *)((t1 + 0x8C158BE0));
         t3 = *(int *)((t1 + 0x8C29B898));
-        *(unsigned int *)(((int)stk + 4)) = t3;
+        R1004 = t3;
         t4 = *(int *)((t3 + 0x4));
         t5 = 0x0;
         if (((t4 & 0x100000) != 0) && ((0x200000 & t4) != 0)) {
@@ -454,6 +457,9 @@ int mwRnaDestroy(int a4)
     int t6;
     int t7;
     int stk[6];
+    int R1012;
+
+    R1012 = *(int *)((int)stk + 12);
 
     if (a4 == 0) {
         return (mwRnaErrCallFunc(0x8C20AC30));
@@ -477,7 +483,7 @@ int mwRnaDestroy(int a4)
         *(unsigned int *)((t6 + 0x0)) = 0x0;
     }
     t10 = *(int *)((a4 + 0x38));
-    *(unsigned int *)(((int)stk + 12)) = t10;
+    R1012 = t10;
     t13 = ((int (*)(int, int))((*(int *)(((*(int *)((t10 + 0x0))) + 0xC)))))(t10, 0x0);
     memset(a4, 0x0, 0x90);
     return (ovUnlockCs_8c20012c(((int)stk + 8)));

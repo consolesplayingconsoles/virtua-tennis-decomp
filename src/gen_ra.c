@@ -29,22 +29,31 @@ float sprSheetPut(int a4, int a5, int a6, int a7, float f4, float f5, float f6, 
     float u9;
     float u10;
     int stk[17];
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1016;
+
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
 
     if (((a4 & 0x7) != 7) && (((0xB & a4) != 11) && ((0xF & a4) != 15))) {
-        *(unsigned int *)(((int)stk + 4)) = 0x8;
+        R1004 = 0x8;
         t0 = 0x1;
         t1 = 0x0;
         t2 = a5;
     } else {
-        *(unsigned int *)(((int)stk + 4)) = 0xFFFFFFFF;
+        R1004 = 0xFFFFFFFF;
         t0 = 0xFFFFFFFF;
         t1 = 0x7;
         t2 = 0xFFFFFFFF;
     }
-    *(unsigned int *)(((int)stk + 16)) = (t0 << 2);
-    *(unsigned int *)(((int)stk + 12)) = ((((t0 << 2) + t0) << 2) << 2);
-    *(unsigned int *)(((int)stk + 8)) = (t0 << 2);
-    t3 = *(int *)(((int)stk + 4));
+    R1016 = (t0 << 2);
+    R1012 = ((((t0 << 2) + t0) << 2) << 2);
+    R1008 = (t0 << 2);
+    t3 = R1004;
     u0 = f4;
     if (t1 != t3) {
         t4 = t3;
@@ -122,12 +131,12 @@ float sprSheetPut(int a4, int a5, int a6, int a7, float f4, float f5, float f6, 
             t4 = t10;
             t6 = t1;
             t9 = (t9 + t0);
-            t3 = (*(int *)(((int)stk + 12)));
-            t2 = (t2 + (*(int *)(((int)stk + 16))));
-            t4 = (*(int *)(((int)stk + 8)));
+            t3 = (R1012);
+            t2 = (t2 + (R1016));
+            t4 = (R1008);
             t8 = (t8 + t3);
             t7 = (t7 + t4);
-            if (t9 == (*(int *)(((int)stk + 4)))) {
+            if (t9 == (R1004)) {
                 break;
             }
         }

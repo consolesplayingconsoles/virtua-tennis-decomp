@@ -77,8 +77,13 @@ int lineJudgePose(int a4)
     int t74;
     int t76;
     int stk[11];
+    int R1004;
+    int R1008;
 
-    *(unsigned int *)(((int)stk + 8)) = (*(int *)((((*(int *)0x8C1891E8) << 2) + 0x8C1D0B70)));
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+
+    R1008 = (*(int *)((((*(int *)0x8C1891E8) << 2) + 0x8C1D0B70)));
     motionSetCurrent((a4 + 0x4));
     motionRootBoneRaw(0x0, 0x2);
     nlGetMatrix(((0x1E4 + a4) + 0x80));
@@ -124,19 +129,19 @@ int lineJudgePose(int a4)
     nlGetMatrix(((0x1E4 + a4) + 0xC0));
     nlPopMatrix(0x1);
     nlPushMatrix(0x0);
-    *(unsigned int *)(((int)stk + 4)) = (*(int *)(((int)stk + 8)));
+    R1004 = (R1008);
     t50 = 0x0;
     t51 = (0x1E4 + a4);
     for (;;) {
         nlLoadMatrix(t51);
         if ((*(int *)0x8C38B768) != 0) {
-            nlGetMatrix(((*(int *)(((*(int *)(((int)stk + 4))) + 0x0))) + 0xC0));
+            nlGetMatrix(((*(int *)(((R1004) + 0x0))) + 0xC0));
         }
         if ((*(int *)0x8C38B768) == 0) {
             nlObjPut((*(int *)((t50 + (*(int *)((0x8C1D08F0 + ((*(int *)0x8C1891E8) << 2))))))));
         }
         t51 = (t51 + 0x40);
-        *(unsigned int *)(((int)stk + 4)) = ((*(int *)(((int)stk + 4))) + 0x4);
+        R1004 = ((R1004) + 0x4);
         t50 = (t50 + 0x4);
         if ((unsigned int)t51 >= (unsigned int)((0x1E4 + a4) + 0x3C0)) {
             break;
@@ -145,7 +150,7 @@ int lineJudgePose(int a4)
     t70 = *(int *)0x8C38B768;
     t77 = (nlPopMatrix(0x1));
     if (t70 != 0) {
-        t71 = *(int *)(((int)stk + 8));
+        t71 = R1008;
         t72 = t71;
         for (;;) {
             nlPushMatrix(0x0);

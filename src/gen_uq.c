@@ -35,6 +35,8 @@ void cpuSglInput(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     register float w0_2;
     register float w0_3;
     register float w0_4;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     v0_1 = a4;
     v0_9 = a6;
     v0_10 = a7;
@@ -65,13 +67,13 @@ void cpuSglInput(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     v0_11 = (0x40);
     if (((*(float *)((v0_2 + 0x40))) != 0.0f)) goto L_8C04270E;
     L_8C0426A6:;
-    *(unsigned int *)(((int)stk + 4)) = (v0_7 + 0xC);
+    R1004 = (v0_7 + 0xC);
     v0_1 = ((0xD78 + v0_6));
     v0_5 = ((v0_4 + v0_3));
     v0_9 = ((v0_7 + 0x18));
     v0_10 = (0xFFFFFEA0);
     L_8C042708:;
-    if (!(((unsigned int)v0_9 >= (unsigned int)(*(int *)(((int)stk + 4)))))) goto L_8C04270E;
+    if (!(((unsigned int)v0_9 >= (unsigned int)(R1004)))) goto L_8C04270E;
     { struct mv3 { int w[3]; }; *(struct mv3 *)((v0_9 - 12)) = *(struct mv3 *)((0xB9C + v0_1)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)((0xB9C + v0_1)) = *(struct mv3 *)((0x11C + v0_5)); }
     v0_1 = ((v0_1 + v0_8));

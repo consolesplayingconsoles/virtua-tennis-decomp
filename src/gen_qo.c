@@ -25,8 +25,21 @@ void bodyGroundFriction(int a4, int a5, int a6, int a7, int a8, float f4, float 
     float u3;
     float u4;
     int stk[37];
+    int R1004;
+    int R1016;
+    int R1032;
+    int R1036;
+    int R1040;
+    int R1112;
 
-    stk[28] = a8;
+    R1004 = *(int *)((int)stk + 4);
+    R1016 = *(int *)((int)stk + 16);
+    R1032 = *(int *)((int)stk + 32);
+    R1036 = *(int *)((int)stk + 36);
+    R1040 = *(int *)((int)stk + 40);
+    R1112 = *(int *)((int)stk + 112);
+
+    R1112 = a8;
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 32) + 0x18)) = *(struct mv3 *)(0x8C1016D4); }
     t0 = (((int)stk + 32) + 0x18);
     t1 = 0x8C1016D4;
@@ -44,7 +57,7 @@ void bodyGroundFriction(int a4, int a5, int a6, int a7, int a8, float f4, float 
         u1 = f4;
         t0 = (t0 + 0xC);
         u2 = 0.0f;
-        *(unsigned int *)(((int)stk + 36)) = ((((t4 << 1) + t1) << 2) + t0);
+        R1036 = ((((t4 << 1) + t1) << 2) + t0);
         u0 = (*(float *)((((((t4 << 1) + t1) << 2) + t0) + 0x4)));
         u1 = (u1 - u0);
         if (!(u2 > u1)) {
@@ -59,14 +72,14 @@ void bodyGroundFriction(int a4, int a5, int a6, int a7, int a8, float f4, float 
             t5 = (t5 << 1);
             t5 = (t5 + t4);
             t5 = (t5 << 2);
-            *(unsigned int *)(((int)stk + 40)) = t5;
+            R1040 = t5;
             t6 = a4;
             t1 = 0x8C015EEA;
             t5 = (t5 + (0x18C + a4));
             t6 = (t6 + 0xC);
             u0 = (*(float *)((t5 + 0x0)));
             u1 = 0.0f;
-            t6 = (t6 + (*(int *)(((int)stk + 40))));
+            t6 = (t6 + (R1040));
             u2 = (*(float *)((t6 + 0x8)));
             u4 = ((*(float *)((t5 + 0x8))) - u2);
             u2 = (*(float *)((t6 + 0x0)));
@@ -98,8 +111,8 @@ void bodyGroundFriction(int a4, int a5, int a6, int a7, int a8, float f4, float 
     }
     if (t3 != 0) {
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x18)); }
-        *(int *)((int)stk + 16) = (((int)stk + 20) + 0x24);
-        vecDiv(t2, a5, a6, a7, *(int *)((int)stk + 16), (float)t3);
+        R1016 = (((int)stk + 20) + 0x24);
+        vecDiv(t2, a5, a6, a7, R1016, (float)t3);
     }
     nlScaleVector(a4, a4, (*(float *)((a4 + 0x314))));
     nlAddVector((((int)stk + 32) + 0x18), a4);
@@ -117,16 +130,16 @@ void bodyGroundFriction(int a4, int a5, int a6, int a7, int a8, float f4, float 
         t2 = (t2 + a4);
         t0 = (t0 << 2);
         t2 = (t2 + t0);
-        *(unsigned int *)(((int)stk + 32)) = t2;
+        R1032 = t2;
         t2 = ((int)stk + 20);
         { struct mv3 { int w[3]; }; *(struct mv3 *)(t2) = *(struct mv3 *)((((int)stk + 32) + 0x18)); }
         t2 = ((int)stk + 8);
         { struct mv3 { int w[3]; }; *(struct mv3 *)(t2) = *(struct mv3 *)(((a4 + 0xC) + t0)); }
-        t3 = (*(int *)(((int)stk + 32)));
-        *(int *)((int)stk + 4) = t3;
+        t3 = (R1032);
+        R1004 = t3;
         vecAdd(0x0, 0x0, 0x0, 0x0, t3);
-        t2 = (*(int *)(((int)stk + 32)));
+        t2 = (R1032);
         t1 = (t1 + 0x1);
     }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((*(int *)(((((int)stk + 32) + 0x50) + 0x0)))) = *(struct mv3 *)((((int)stk + 32) + 0x18)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((R1112)) = *(struct mv3 *)((((int)stk + 32) + 0x18)); }
 }

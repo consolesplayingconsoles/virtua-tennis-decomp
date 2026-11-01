@@ -134,39 +134,6 @@ int commonSprInit(int a4, int a5)
 }
 
 
-int muneSlotLoad(int a4, int a5)
-{
-    int t19;
-    int t9;
-    int t14;
-    int t12;
-    int t29;
-    int t1;
-
-    if (((*(int *)(((((a4 << 2) << 2) + 0x8C37DAAC) + 0x4))) != a5) && (t1 = *(int *)(((((a4 << 2) << 2) + 0x8C37DAAC) + 0x8)), t1 != -1)) {
-        fileLoadCloseSlot(a4);
-    }
-    t19 = 0x8C1AFA64;
-    if ((*(int *)(((a5 << 2) + 0x8C1AFA64))) == 0) {
-        *(unsigned int *)(((((a4 << 2) << 2) + 0x8C37DAAC) + 0x8)) = a5;
-        t9 = muneTexLoad(a5, (*(int *)(((a4 << 2) + 0x8C124AE0))), a4);
-        t14 = t9;
-        if (t9 == 1) {
-            *(unsigned int *)(((((a4 << 2) << 2) + 0x8C37DAAC) + 0x0)) = (*(int *)(((((a4 << 2) << 2) + 0x8C37DAAC) + 0x8)));
-            t12 = charaTexLoad((*(int *)(((((a4 << 2) << 2) + 0x8C37DAAC) + 0x8))), a4);
-            *(unsigned int *)(((((a4 << 2) << 2) + 0x8C37DAAC) + 0xC)) = ((*(int *)(((((a4 << 2) << 2) + 0x8C37DAAC) + 0xC))) + 0x1);
-            *(unsigned int *)(((((a4 << 2) << 2) + 0x8C37DAAC) + 0x8)) = 0xFFFFFFFF;
-            t14 = t12;
-        }
-        t19 = t14;
-    }
-    t29 = t19;
-    if (a5 != (*(int *)(((((a4 << 2) << 2) + 0x8C37DAAC) + 0x4)))) {
-        t29 = (charaTexFree((*(int *)(((((a4 << 2) << 2) + 0x8C37DAAC) + 0x4)))));
-    }
-    *(unsigned int *)(((((a4 << 2) << 2) + 0x8C37DAAC) + 0x4)) = a5;
-    return t29;
-}
 
 
 int kmiFLWCTRLCheckVBufOverflow(int a4, int a5, int a6, int a7)
@@ -226,14 +193,21 @@ int emotDebugPrint(int a4)
     float u15;
     int t12;
     int stk[15];
+    float R1024;
+    int R1028;
+    int R1032;
 
-    *(unsigned int *)(((int)stk + 32)) = a4;
+    R1024 = *(float *)((int)stk + 24);
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
+
+    R1032 = a4;
     t0 = *(int *)0x8C301C10;
     t21 = t0;
     if (t0 == 77) {
         nlLocate(0xF, 0xA);
-        t2 = *(int *)(((int)stk + 32));
-        *(unsigned int *)(((int)stk + 28)) = (t2 * 0x270);
+        t2 = R1032;
+        R1028 = (t2 * 0x270);
         nlPrintf(0x8C123218, ((*(int *)((((t2 * 0x270) + 0x8C34B4F4) + 0x26C)))));
         nlPrintf(0x8C123228, ((*(int *)((((t2 * 0x270) + 0x8C34B4F4) + 0x264)))));
         nlPrintf(0x8C123234, ((*(int *)((((t2 * 0x270) + 0x8C34B4F4) + 0x264)))));
@@ -248,7 +222,7 @@ int emotDebugPrint(int a4)
             t12 = (t12 << 2);
             t12 = (t12 + ((t2 * 0x270) + 0x8C34B4F4));
             u15 = *(float *)((t12 + 0x8));
-            *(float *)(((int)stk + 24)) = u15;
+            R1024 = u15;
             nlPrintf(0x8C123240, ((*(int *)((t12 + 0x0)))), ((*(int *)((t12 + 0x4)))), u15);
             t13 = (t13 + 0x1);
         }
@@ -354,11 +328,14 @@ int hudFontSprSet(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a
 {
     float u4;
     int stk[13];
+    int R1016;
+
+    R1016 = *(int *)((int)stk + 16);
 
     stk[1] = a8;
     stk[2] = a9;
     stk[3] = a10;
-    stk[4] = a11;
+    R1016 = a11;
     *(unsigned int *)((a4 + 0x0)) = 0x1B;
     *(unsigned int *)((a4 + 0x28)) = 0x0;
     *(float *)((a4 + 0x4)) = (*(float *)((((int)stk + 4) + 0x0)));
@@ -381,11 +358,14 @@ int hudFont2SprSet(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
 {
     float u4;
     int stk[13];
+    int R1016;
+
+    R1016 = *(int *)((int)stk + 16);
 
     stk[1] = a8;
     stk[2] = a9;
     stk[3] = a10;
-    stk[4] = a11;
+    R1016 = a11;
     *(unsigned int *)((a4 + 0x0)) = 0x2;
     *(unsigned int *)((a4 + 0x28)) = 0x0;
     *(float *)((a4 + 0x4)) = (*(float *)((((int)stk + 4) + 0x0)));
@@ -475,11 +455,14 @@ int bgSprInitRect(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a
 {
     float u4;
     int stk[13];
+    int R1016;
+
+    R1016 = *(int *)((int)stk + 16);
 
     stk[1] = a8;
     stk[2] = a9;
     stk[3] = a10;
-    stk[4] = a11;
+    R1016 = a11;
     *(unsigned int *)((a4 + 0x0)) = 0x0;
     *(unsigned int *)((a4 + 0x28)) = 0x0;
     *(float *)((a4 + 0x4)) = (*(float *)((((int)stk + 4) + 0x0)));

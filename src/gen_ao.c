@@ -662,14 +662,17 @@ int nlsndStreamChgFx(int a4, int a5, int a6)
     int t2;
     int t3;
     int stk[8];
+    int R1008;
+
+    R1008 = *(int *)((int)stk + 8);
 
     *(unsigned short *)(((int)stk + 4)) = a5;
     t0 = *(signed char *)((((short)a4 * (short)0x1C) + 0x8C454CF4));
     if (t0 == 1) {
-        *(unsigned int *)(((int)stk + 8)) = ((((short)a4 << 8) << 2) << 2);
+        R1008 = ((((short)a4 << 8) << 2) << 2);
         nlsndSeqRequest(((((((short)a4 << 8) << 2) << 2) | ((short)a6 << 16)) | 0x2A2));
         t2 = *(short *)(((int)stk + 4));
-        t3 = *(int *)(((int)stk + 8));
+        t3 = R1008;
         nlsndSeqRequest((((t2 << 16) | t3) | 0x3A2));
         if ((*(int *)((((short)a4 * (short)0x1C) + 0x8C454CFC))) != 0) {
             nlsndSeqRequest((((((((short)a4 << 8) << 2) << 2) | ((short)a6 << 16)) | 0x2A2) + 0x800));
@@ -936,11 +939,14 @@ float shadowLightMatrixAng(int a4, int a5, float f4, float f5)
     float t3;
     int t11;
     int stk[8];
+    int R1012;
+
+    R1012 = *(int *)((int)stk + 12);
 
     *(unsigned short *)(((int)stk + 8)) = a4;
     *(unsigned short *)(((int)stk + 4)) = a5;
     t0 = *(short *)(((int)stk + 4));
-    *(unsigned int *)(((int)stk + 12)) = (unsigned short)t0;
+    R1012 = (unsigned short)t0;
     t1 = ((int (*)(int, float, float))(nlRotateAY))(((unsigned short)t0 + 0x8000), f4, f5);
     t2 = *(short *)(((int)stk + 8));
     *(unsigned int *)(((int)stk + 4)) = (0xFFFFC000 + (unsigned short)t2);
@@ -949,7 +955,7 @@ float shadowLightMatrixAng(int a4, int a5, float f4, float f5)
     nlScale(1.0f, 0.0f, (1.0f / t3));
     nlLineSetDiv((*(float *)0x8C08B4B4));
     nlRotateAX((*(int *)(((int)stk + 4))));
-    t11 = ((int (*)(int))(nlRotateAY))((0xFFFF8000 - (*(int *)(((int)stk + 12)))));
+    t11 = ((int (*)(int))(nlRotateAY))((0xFFFF8000 - (R1012)));
     return (1.0f / t3);
 }
 

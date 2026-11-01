@@ -39,11 +39,15 @@ int nlRenderTextureSet_Sub(int a4, int a5, int a6, int a7, int a8)
     int R14;
     float F11;
     int T_;
+    int R1004;
+    int R1008;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
     R4 = a4;
     R5 = a5;
     R6 = a6;
     R7 = a7;
-    *(unsigned int *)(((int)stk + 4)) = R5;
+    R1004 = R5;
     R13 = (R7);
     R14 = (R6);
     R6 = ((*(int *)0x8C44FBEC));
@@ -57,7 +61,7 @@ int nlRenderTextureSet_Sub(int a4, int a5, int a6, int a7, int a8)
     if (((int)R5 >= 0)) goto L_8C0EE100;
     goto L_8C0EE21A;
     L_8C0EE100:;
-    *(unsigned int *)(((int)stk + 8)) = ((R4 << 2) << 2);
+    R1008 = ((R4 << 2) << 2);
     if (((int)(*(int *)(((R6 + ((R4 << 2) << 2)) + 0x0))) < 0)) goto L_8C0EE112;
     goto L_8C0EE21A;
     L_8C0EE112:;
@@ -86,9 +90,9 @@ int nlRenderTextureSet_Sub(int a4, int a5, int a6, int a7, int a8)
     nlCreateTextureParam(R12);
     *(unsigned int *)((R11 + 0x38)) = R12;
     *(unsigned int *)((R11 + 0x2C)) = 0x1;
-    t35 = *(int *)(((int)stk + 8));
+    t35 = R1008;
     t36 = *(int *)((R9 + 0x0));
-    *(unsigned int *)(((t36 + t35) + 0x0)) = (*(int *)(((int)stk + 4)));
+    *(unsigned int *)(((t36 + t35) + 0x0)) = (R1004);
     *(unsigned int *)(((t36 + t35) + 0x4)) = R12;
     *(unsigned short *)(((t36 + t35) + 0x8)) = R14;
     *(unsigned short *)(((t36 + t35) + 0xA)) = R13;

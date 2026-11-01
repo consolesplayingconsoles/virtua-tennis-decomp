@@ -72,11 +72,14 @@ float cpuSglAimRateOpp2(int a4, int a5)
     register float u173;
     register float u156;
     register float u160;
+    int R1064;
 
-    *(unsigned int *)(((int)stk + 64)) = a5;
+    R1064 = *(int *)((int)stk + 64);
+
+    R1064 = a5;
     t0 = *(int *)((a4 + 0xB5C));
     t1 = *(int *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xB5C));
-    cpuSglAimScoreAngle(a4, (*(int *)(((int)stk + 64))));
+    cpuSglAimScoreAngle(a4, (R1064));
     u5 = *(float *)((((t1 * 0x160) + 0x8C2FC69C) + 0x28));
     u7 = (*(float *)(((((0x1 & (t0 + 0x1)) * 0xD78) + 0x8C287D84) + 0xAE8)));
     u7 = u7 + 0.800000012f * (u5 * (float)(*(short *)((((t0 * 0x160) + 0x8C2FC69C) + 0x118))));
@@ -118,7 +121,7 @@ float cpuSglAimRateOpp2(int a4, int a5)
     *(float *)(((int)stk + 80)) = u17;
     *(float *)(((int)stk + 84)) = 0.0f;
     *(float *)(((int)stk + 88)) = u52;
-    t55 = *(int *)(((int)stk + 64));
+    t55 = R1064;
     u184 = 0.800000012f;
     if ((int)(t55 - 1) >= 0) {
         t56 = (t55 - 1);

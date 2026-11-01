@@ -25,11 +25,13 @@ int cpuSglReceivePos(int a4)
     register float w0_0;
     register float w0_1;
     register float w0_2;
+    int R1004;
+    R1004 = *(int *)((int)stk + 4);
     v0_0 = a4;
     v0_3 = (0x8C287ACC);
     v0_1 = ((((*(int *)((v0_0 + 0xB5C))) * 0x160) + 0x8C2FC69C));
     if ((((*(int *)0x8C287B3C) & 0x4000) == 0)) goto L_8C0478F4;
-    *(unsigned int *)(((int)stk + 4)) = (v0_3 + 0x44);
+    R1004 = (v0_3 + 0x44);
     v0_2 = (int)((int)(((*(int *)(((v0_3 + 0x44) + 0x0))) + (*(int *)(((v0_3 + 0x44) + 0x4)))) + 0x6) % (int)0x6);
     v0_3 = (int)((unsigned int)((int)((unsigned int)v0_2 + (unsigned int)0x0)) + ((((int)0x0 > (int)v0_2)) ? 1u : 0u));
     v0_2 = (((v0_3 >> 1) + 0x2));
@@ -73,7 +75,7 @@ int cpuSglReceivePos(int a4)
     if (((int)((v0_4 + v0_5) + 0x2) < 0)) goto L_8C047908;
     v0_2 = ((v0_2 & 0x1));
     L_8C047912:;
-    *(unsigned int *)(((int)stk + 4)) = (v0_3 + 0x34);
+    R1004 = (v0_3 + 0x34);
     v0_4 = *(int *)(((v0_3 + 0x34) + 0x0));
     v0_3 = *(int *)(((v0_3 + 0x34) + 0x4));
     v0_4 = (int)((unsigned int)((int)((unsigned int)(v0_4 + v0_3) + (unsigned int)0x0)) + ((((int)0x0 > (int)(v0_4 + v0_3))) ? 1u : 0u));

@@ -25,6 +25,9 @@ int endingFlyObjPut(int a4)
     float u19;
     float u20;
     int stk[11];
+    int R1004;
+
+    R1004 = *(int *)((int)stk + 4);
 
     if ((int)(*(int *)0x8C402CA0) <= (int)0x78) {
         *(float *)((a4 + 0x38)) = 0.0f;
@@ -37,14 +40,14 @@ int endingFlyObjPut(int a4)
         u6 = (u4 * 0.99000001f);
         *(float *)(((int)stk + 16)) = ((u4 * 0.99000001f) - (((float)(*(int *)0x8C402CA0) / 120.0f) * u6));
     } else {
-        *(int *)((int)stk + 4) = ((int)stk + 8);
+        R1004 = ((int)stk + 8);
         *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, 0.0f);
         { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x34)) = *(struct mv3 *)(((int)stk + 8)); }
     }
     nlScaleVector(((int)stk + 8), ((int)stk + 8), (*(float *)0x8C23D204));
     u19 = *(float *)((a4 + 0x24));
     u20 = *(float *)((a4 + 0x2C));
-    *(int *)((int)stk + 4) = (((int)stk + 8) + 0xC);
+    R1004 = (((int)stk + 8) + 0xC);
     *(Stk3 *)((((int)stk + 8) + 0xC)) = vecMake(u20, 0.0f, (-u19));
     *(unsigned short *)((a4 + 0x86)) = ((*(short *)((a4 + 0x86))) + (int)(((nlLength((a4 + 0xC), a4)) / 3.14159274f) * 65536.0f));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(a4) = *(struct mv3 *)((a4 + 0xC)); }

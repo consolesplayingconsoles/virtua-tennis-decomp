@@ -99,6 +99,9 @@ int stageTexLoad(void)
     int t173;
     int t174;
     int stk[10];
+    int R1004;
+
+    R1004 = *(int *)((int)stk + 4);
 
     if ((*(int *)0x8C1891F0) == 2) {
         nlSetCommonTextureOffset(0x900);
@@ -256,14 +259,14 @@ int stageTexLoad(void)
     }
     if ((*(int *)0x8C1891F0) == 11) {
         nlSetCommonTextureOffset(0x1100);
-        *(unsigned int *)(((int)stk + 4)) = 0x0;
+        R1004 = 0x0;
         t117 = 0x8C13892C;
         for (;;) {
             t118 = *(int *)((t117 + 0x0));
             t117 = (t117 + 0x4);
             nlObjPutLoadTexture(t118, 0x8C1316BC);
-            t120 = *(int *)(((int)stk + 4));
-            *(unsigned int *)(((int)stk + 4)) = (t120 + 0x1);
+            t120 = R1004;
+            R1004 = (t120 + 0x1);
             if ((unsigned int)(t120 + 0x1) >= (unsigned int)0x7) {
                 break;
             }
@@ -271,14 +274,14 @@ int stageTexLoad(void)
     }
     if ((*(int *)0x8C1891F0) == 12) {
         nlSetCommonTextureOffset(0x1180);
-        *(unsigned int *)(((int)stk + 4)) = 0x0;
+        R1004 = 0x0;
         t126 = 0x8C138948;
         for (;;) {
             t127 = *(int *)((t126 + 0x0));
             t126 = (t126 + 0x4);
             nlObjPutLoadTexture(t127, 0x8C13194C);
-            t129 = *(int *)(((int)stk + 4));
-            *(unsigned int *)(((int)stk + 4)) = (t129 + 0x1);
+            t129 = R1004;
+            R1004 = (t129 + 0x1);
             if ((unsigned int)(t129 + 0x1) >= (unsigned int)0x7) {
                 break;
             }
@@ -286,14 +289,14 @@ int stageTexLoad(void)
     }
     if ((*(int *)0x8C1891F0) == 13) {
         nlSetCommonTextureOffset(0x1200);
-        *(unsigned int *)(((int)stk + 4)) = 0x0;
+        R1004 = 0x0;
         t135 = 0x8C138964;
         for (;;) {
             t136 = *(int *)((t135 + 0x0));
             t135 = (t135 + 0x4);
             nlObjPutLoadTexture(t136, 0x8C131BAC);
-            t138 = *(int *)(((int)stk + 4));
-            *(unsigned int *)(((int)stk + 4)) = (t138 + 0x1);
+            t138 = R1004;
+            R1004 = (t138 + 0x1);
             if ((unsigned int)(t138 + 0x1) >= (unsigned int)0x8) {
                 break;
             }
@@ -301,14 +304,14 @@ int stageTexLoad(void)
     }
     if ((*(int *)0x8C1891F0) == 14) {
         nlSetCommonTextureOffset(0x1280);
-        *(unsigned int *)(((int)stk + 4)) = 0x0;
+        R1004 = 0x0;
         t144 = 0x8C138984;
         for (;;) {
             t145 = *(int *)((t144 + 0x0));
             t144 = (t144 + 0x4);
             nlObjPutLoadTexture(t145, 0x8C131D9C);
-            t147 = *(int *)(((int)stk + 4));
-            *(unsigned int *)(((int)stk + 4)) = (t147 + 0x1);
+            t147 = R1004;
+            R1004 = (t147 + 0x1);
             if ((unsigned int)(t147 + 0x1) >= (unsigned int)0x7) {
                 break;
             }
@@ -316,14 +319,14 @@ int stageTexLoad(void)
     }
     if ((*(int *)0x8C1891F0) == 15) {
         nlSetCommonTextureOffset(0x1300);
-        *(unsigned int *)(((int)stk + 4)) = 0x0;
+        R1004 = 0x0;
         t153 = 0x8C1389A0;
         for (;;) {
             t154 = *(int *)((t153 + 0x0));
             t153 = (t153 + 0x4);
             nlObjPutLoadTexture(t154, 0x8C131F1C);
-            t156 = *(int *)(((int)stk + 4));
-            *(unsigned int *)(((int)stk + 4)) = (t156 + 0x1);
+            t156 = R1004;
+            R1004 = (t156 + 0x1);
             if ((unsigned int)(t156 + 0x1) >= (unsigned int)0x8) {
                 break;
             }
@@ -386,6 +389,11 @@ int kmiFLWCTRLLaunchPacket(int a4, int a5, int a6, int a7)
     int t74;
     int t75;
     int stk[13];
+    int R1012;
+    int R1016;
+
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
 
     t0 = *(int *)0x8C4607B0;
     if (((*(int *)0x8C45F918) != 0) && (a5 != 0)) {
@@ -450,7 +458,7 @@ int kmiFLWCTRLLaunchPacket(int a4, int a5, int a6, int a7)
                 for (;;) {
                     t40 = 0x0;
                     t48 = kmyGetDMAHANDLE(t40);
-                    *(unsigned int *)(((int)stk + 12)) = t48;
+                    R1012 = t48;
                     if (t48 != 0) {
                         break;
                     }
@@ -460,7 +468,7 @@ int kmiFLWCTRLLaunchPacket(int a4, int a5, int a6, int a7)
                 t50 = *(int *)0x8C4607D0;
                 t43 = t45;
                 t43 = (t43 << 2);
-                *(unsigned int *)(((int)stk + 16)) = t43;
+                R1016 = t43;
                 t43 = (*(int *)((t43 + (((((t50 - 1) << 2) + (t50 - 1)) << 2) + (0xE4 + t0)))));
                 t42 = (*(int *)0x8C4607D0);
                 t42 = (t42 - 1);
@@ -470,18 +478,18 @@ int kmiFLWCTRLLaunchPacket(int a4, int a5, int a6, int a7)
                 t41 = (*(int *)((t0 + 0x3C)));
                 t42 = (t42 << 2);
                 t42 = (t42 + (t0 + 0x44));
-                t42 = (*(int *)((t42 + (*(int *)(((int)stk + 16))))));
-                t40 = (*(int *)(((int)stk + 12)));
+                t42 = (*(int *)((t42 + (R1016))));
+                t40 = (R1012);
                 kmySetTADMA(t40, t41, t42, t43, 0x0, (((int)t45 >= 0) ? (0x1 << (t45 & 31)) : ((-(int)t45 & 31) ? ((int)0x1 >> (-(int)t45 & 31)) : ((int)0x1 >> 31))));
                 if (t45 == t35) {
                     t41 = 0x8C1F9F0E;
-                    t40 = (*(int *)(((int)stk + 12)));
+                    t40 = (R1012);
                     kmySetDMACallback(t40, 0x8C1F9F0E);
                     t41 = (*(int *)0x8C4607D0);
-                    t40 = (*(int *)(((int)stk + 12)));
+                    t40 = (R1012);
                     kmySetDMAValue(t40, t41);
                 }
-                t40 = (*(int *)(((int)stk + 12)));
+                t40 = (R1012);
                 *(unsigned int *)0x8C4607D8 = (kmyRequestDMA(t40));
             } else {
                 t72 = t40;
@@ -862,15 +870,33 @@ int gdFsSearchPath_dds(int a4, int a5, int a6, int a7, int a8)
     int R13;
     int R14;
     int T_;
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1020;
+    int R1024;
+    int R1028;
+    int R1032;
+    int R1036;
+    int R1040;
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
+    R1028 = *(int *)((int)stk + 28);
+    R1032 = *(int *)((int)stk + 32);
+    R1036 = *(int *)((int)stk + 36);
+    R1040 = *(int *)((int)stk + 40);
     R4 = a4;
     R5 = a5;
     R6 = a6;
     R7 = a7;
     L_8C1E6E8E:;
-    *(unsigned int *)(((int)stk + 4)) = R4;
-    *(unsigned int *)(((int)stk + 20)) = R5;
-    *(unsigned int *)(((int)stk + 36)) = R6;
-    *(unsigned int *)(((int)stk + 8)) = 0x0;
+    R1004 = R4;
+    R1020 = R5;
+    R1036 = R6;
+    R1008 = 0x0;
     R10 = (0x1);
     R12 = (R7);
     R4 = (a8);
@@ -883,38 +909,38 @@ int gdFsSearchPath_dds(int a4, int a5, int a6, int a7, int a8)
     if (t6) goto L_8C1E6EC4;
     goto L_8C1E6ED0;
     L_8C1E6ED0:;
-    *(unsigned int *)(((int)stk + 40)) = R8;
-    *(unsigned int *)(((int)stk + 24)) = R9;
-    t8 = *(int *)(((int)stk + 4));
-    *(unsigned int *)(((int)stk + 12)) = (t8 + 0x800);
-    *(unsigned int *)(((int)stk + 28)) = R9;
+    R1040 = R8;
+    R1024 = R9;
+    t8 = R1004;
+    R1012 = (t8 + 0x800);
+    R1028 = R9;
     R11 = (R8);
     R12 = ((R12 + 0x1));
     R14 = ((t8 + 0x800));
     goto L_8C1E6EE2;
     L_8C1E6EE2:;
     R13 = (R14);
-    if (((unsigned int)R14 >= (unsigned int)(*(int *)(((int)stk + 12))))) goto L_8C1E6F00;
+    if (((unsigned int)R14 >= (unsigned int)(R1012))) goto L_8C1E6F00;
     goto L_8C1E6EEA;
     L_8C1E6EEA:;
-    if (((unsigned int)((((unsigned char)(*(signed char *)((R13 + 0x0))) + ((unsigned char)(*(signed char *)((R13 + 0x0))) & 0x1)) + 0x8) + R14) < (unsigned int)(*(int *)(((int)stk + 12))))) goto L_8C1E6F2A;
+    if (((unsigned int)((((unsigned char)(*(signed char *)((R13 + 0x0))) + ((unsigned char)(*(signed char *)((R13 + 0x0))) & 0x1)) + 0x8) + R14) < (unsigned int)(R1012))) goto L_8C1E6F2A;
     goto L_8C1E6F00;
     L_8C1E6F00:;
-    t19 = *(int *)(((int)stk + 4));
-    t20 = *(int *)(((int)stk + 4));
+    t19 = R1004;
+    t20 = R1004;
     gdFsMemcpy(R14, (t20 - ((t19 - R14) + 0x800)), ((t19 - R14) + 0x800));
-    t25 = (gdFsReadWG((*(int *)(((int)stk + 20))), 0x1, (*(int *)(((int)stk + 4))))) != 0;
+    t25 = (gdFsReadWG((R1020), 0x1, (R1004))) != 0;
     R13 = ((t20 - ((t19 - R14) + 0x800)));
     R14 = (0x8C1DD654);
     if (t25) goto L_8C1E6FCE;
     goto L_8C1E6F22;
     L_8C1E6F22:;
-    *(unsigned int *)(((int)stk + 20)) = ((*(int *)(((int)stk + 20))) + 0x1);
+    R1020 = ((R1020) + 0x1);
     R14 = (R13);
     goto L_8C1E6F2A;
     L_8C1E6F2A:;
     gdFsMemcpy((R13 + 0x6), (((int)stk + 4) + 0xC), 0x2);
-    if (((unsigned short)(*(short *)(((int)stk + 16))) != (*(int *)(((int)stk + 40))))) goto L_8C1E6FB2;
+    if (((unsigned short)(*(short *)(((int)stk + 16))) != (R1040))) goto L_8C1E6FB2;
     goto L_8C1E6F40;
     L_8C1E6F40:;
     if ((R11 == 1)) goto L_8C1E6FB0;
@@ -923,21 +949,21 @@ int gdFsSearchPath_dds(int a4, int a5, int a6, int a7, int a8)
     if ((R10 != 1)) goto L_8C1E6F56;
     goto L_8C1E6F4C;
     L_8C1E6F4C:;
-    *(unsigned int *)(((int)stk + 32)) = (*(int *)(((int)stk + 8)));
+    R1032 = (R1008);
     R5 = (a8);
     goto L_8C1E6F5C;
     L_8C1E6F5C:;
-    if (((unsigned char)(*(signed char *)((R13 + 0x0))) != (*(int *)(((int)stk + 32))))) goto L_8C1E6FB2;
+    if (((unsigned char)(*(signed char *)((R13 + 0x0))) != (R1032))) goto L_8C1E6FB2;
     goto L_8C1E6F66;
     L_8C1E6F66:;
-    t43 = (gdFsStrncmpi((R13 + 0x8), R5, (*(int *)(((int)stk + 32))))) == 0;
+    t43 = (gdFsStrncmpi((R13 + 0x8), R5, (R1032))) == 0;
     if (t43) goto L_8C1E6FB2;
     goto L_8C1E6F72;
     L_8C1E6F72:;
     if ((R10 != 0)) goto L_8C1E6F7A;
     goto L_8C1E6F76;
     L_8C1E6F76:;
-    R12 = ((R12 + (*(int *)(((int)stk + 28)))));
+    R12 = ((R12 + (R1028)));
     goto L_8C1E6F7A;
     L_8C1E6F7A:;
     if (((*(signed char *)((R12 + 0x0))) != 0)) goto L_8C1E6F8C;
@@ -955,19 +981,19 @@ int gdFsSearchPath_dds(int a4, int a5, int a6, int a7, int a8)
     R10 = (R9);
     goto L_8C1E6FA8;
     L_8C1E6FA8:;
-    *(unsigned int *)(((int)stk + 28)) = (gdFsGetTokenSize(R12, 0x8C20A700, R6));
+    R1028 = (gdFsGetTokenSize(R12, 0x8C20A700, R6));
     goto L_8C1E6FB0;
     L_8C1E6FB0:;
-    *(unsigned int *)(((int)stk + 40)) = R11;
+    R1040 = R11;
     goto L_8C1E6FB2;
     L_8C1E6FB2:;
     t55 = *(signed char *)((R13 + 0x0));
-    t56 = *(int *)(((int)stk + 24));
-    *(unsigned int *)(((int)stk + 24)) = (t56 + ((((unsigned char)t55 & R8) + (unsigned char)t55) + 0x8));
+    t56 = R1024;
+    R1024 = (t56 + ((((unsigned char)t55 & R8) + (unsigned char)t55) + 0x8));
     R11 = ((R11 + 0x1));
     R14 = ((R14 + ((((unsigned char)t55 & R8) + (unsigned char)t55) + 0x8)));
     R4 = (((((unsigned char)t55 & R8) + (unsigned char)t55) + 0x8));
-    if (((int)(t56 + ((((unsigned char)t55 & R8) + (unsigned char)t55) + 0x8)) < (int)(*(int *)(((int)stk + 36))))) goto L_8C1E6EE2;
+    if (((int)(t56 + ((((unsigned char)t55 & R8) + (unsigned char)t55) + 0x8)) < (int)(R1036))) goto L_8C1E6EE2;
     goto L_8C1E6FCE;
     L_8C1E6FCE:;
     R0 = (0x0);
@@ -979,11 +1005,11 @@ int gdFsSearchPath_dds(int a4, int a5, int a6, int a7, int a8)
     R12 = ((R12 + 0x1));
     goto L_8C1E6FA8;
     L_8C1E6F56:;
-    *(unsigned int *)(((int)stk + 32)) = (*(int *)(((int)stk + 28)));
+    R1032 = (R1028);
     R5 = (R12);
     goto L_8C1E6F5C;
     L_8C1E6EC4:;
-    *(unsigned int *)(((int)stk + 8)) = ((*(int *)(((int)stk + 8))) + 0x1);
+    R1008 = ((R1008) + 0x1);
     goto L_8C1E6ECA;
 }
 

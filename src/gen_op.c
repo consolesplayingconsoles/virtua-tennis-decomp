@@ -20,19 +20,21 @@ void effHitFlashSpawn(int a4, Stk3 s, float f4)
     float F3;
     float F4;
     int T_;
+    float R1004;
+    R1004 = *(float *)((int)stk + 4);
     stk[3] = s.w[0];
     stk[4] = s.w[1];
     stk[5] = s.w[2];
     R4 = a4;
     F4 = f4;
-    *(float *)(((int)stk + 4)) = F4;
+    R1004 = F4;
     if (((*(int *)0x8C287C60) != 0)) goto L_8C082EF4;
     if (((*(int *)0x8C421F60) != 0)) goto L_8C082EF4;
     t4 = set_event(0x2C, 0x8C082DCA);
     { struct mv3 { int w[3]; }; *(struct mv3 *)((t4 + 0x14)) = *(struct mv3 *)((((int)stk + 4) + 0x8)); }
     *(float *)((t4 + 0x20)) = 1.0f;
     *(unsigned int *)((t4 + 0x24)) = 0x0;
-    *(float *)((t4 + 0x28)) = ((*(float *)(((int)stk + 4))) / 1.5f);
+    *(float *)((t4 + 0x28)) = ((R1004) / 1.5f);
     *(unsigned int *)0x8C18160C = ((*(int *)0x8C18160C) + 0x1);
     R0 = (0x28);
     L_8C082EF4:;

@@ -35,9 +35,13 @@ int miniBowlingDraw(void)
     float w0_3;
     float w0_4;
     float w0_5;
+    int R1032;
+    int R1036;
+    R1032 = *(int *)((int)stk + 32);
+    R1036 = *(int *)((int)stk + 36);
     miniBowlingScore();
     *(Stk3 *)(((int)stk + 20)) = vecMake(592.0f, 48.0f, 1.20000005f);
-    primRectInc(0x110, 0x18, 0xFFFFFFFF, 0x0, *(int *)((int)stk + 20), *(int *)((int)stk + 20 + 4), *(int *)((int)stk + 20 + 8), *(int *)((int)stk + 20 + 12));
+    primRectInc(0x110, 0x18, 0xFFFFFFFF, 0x0, *(int *)((int)stk + 20), *(int *)((int)stk + 20 + 4), *(int *)((int)stk + 20 + 8), R1032);
     *(Stk3 *)(((int)stk + 20)) = vecMake(592.0f, 32.0f, 1.0f);
     *(Stk3 *)(((int)stk + 8)) = vecMake(320.0f, 32.0f, 1.0f);
     primLineH(0x1, 0xFF000000, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20));
@@ -110,8 +114,8 @@ int miniBowlingDraw(void)
     if (v0_2) goto L_8C039DB6;
     sprSheetSet(0x8C10CAF8);
     v0_0 = ((int (*)(int, float, float, float, float))(sprSheetPut))(0x0, 504.0f, w0_2, w0_0, w0_0);
-    *(unsigned int *)(((int)stk + 32)) = 0x8C2FC154;
-    *(unsigned int *)(((int)stk + 36)) = 0x8C2FC158;
+    R1032 = 0x8C2FC154;
+    R1036 = 0x8C2FC158;
     v0_0 = (v0_3);
     w0_1 = (51.0f);
     L_8C039E12:;
@@ -140,7 +144,7 @@ int miniBowlingDraw(void)
     v0_3 = ((((*(int *)((0x8C2FC134 + (v0_0 << 2)))) == 10)));
     if ((!v0_3)) goto L_8C039EE0;
     if ((v0_0 != 9)) goto L_8C039EA8;
-    if (((*(int *)(((*(int *)(((int)stk + 32))) + 0x0))) == 0)) goto L_8C039EE0;
+    if (((*(int *)(((R1032) + 0x0))) == 0)) goto L_8C039EE0;
     L_8C039EA8:;
     if (((int)v0_0 >= (int)0x8)) goto L_8C039EC6;
     sprSheetSet(0x8C10CA20);
@@ -168,7 +172,7 @@ int miniBowlingDraw(void)
     if (((*(int *)((0x8C2FC134 + ((v0_0 - 1) << 2)))) == 10)) goto L_8C039F3A;
     if ((((*(int *)(((v0_0 << 2) + 0x8C2FC134))) + (*(int *)((v0_3 + ((v0_0 - 1) << 2))))) != 10)) goto L_8C039F3A;
     if ((v0_0 != 10)) goto L_8C039F24;
-    if ((((*(int *)(((*(int *)(((int)stk + 32))) + 0x0))) + (*(int *)(((*(int *)(((int)stk + 36))) + 0x0)))) == 10)) goto L_8C039F3A;
+    if ((((*(int *)(((R1032) + 0x0))) + (*(int *)(((R1036) + 0x0)))) == 10)) goto L_8C039F3A;
     L_8C039F24:;
     sprSheetSet(0x8C10C9D8);
     v0_2 = ((int (*)(int, float, float, float, float))(sprSheetPut))(0x7, w0_2, w0_3, w0_0, w0_0);

@@ -23,10 +23,6 @@ void angDiff(int a4, int a5)
     
 }
 
-void thunk_fadeScreenDraw(void)
-{
-    fadeScreenDraw();
-}
 
 
 void ambLevelGet(void)

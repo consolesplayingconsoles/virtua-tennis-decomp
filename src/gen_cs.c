@@ -28,6 +28,21 @@ int logoWaveDraw(float f4)
     int t79;
     int t0;
     int stk[50];
+    float R1124;
+    float R1128;
+    int R1132;
+    int R1136;
+    int R1140;
+    int R1144;
+    int R1148;
+
+    R1124 = *(float *)((int)stk + 124);
+    R1128 = *(float *)((int)stk + 128);
+    R1132 = *(int *)((int)stk + 132);
+    R1136 = *(int *)((int)stk + 136);
+    R1140 = *(int *)((int)stk + 140);
+    R1144 = *(int *)((int)stk + 144);
+    R1148 = *(int *)((int)stk + 148);
 
     t1 = 0x0;
     for (;;) {
@@ -79,99 +94,99 @@ int logoWaveDraw(float f4)
     *(unsigned short *)0x8C18477A = ((*(short *)0x8C18477A) + 0xF0);
     *(unsigned short *)0x8C18477C = ((*(short *)0x8C18477C) + 0xA0);
     *(unsigned short *)0x8C18477E = ((*(short *)0x8C18477E) + 0xF0);
-    *(float *)(((int)stk + 128)) = 0.0f;
-    *(float *)(((int)stk + 124)) = 0.0f;
+    R1128 = 0.0f;
+    R1124 = 0.0f;
     t22 = nlSin((unsigned short)(*(short *)0x8C18477C));
     t24 = nlSin((unsigned short)(*(short *)0x8C18477E));
     primSprSetSize(0x8C339AF0, (1.0f + 1.0f), (1.0f + 1.0f));
     primSprSetSize(0x8C339B40, (1.0f + 1.0f), (1.0f + 1.0f));
     primSprSetSize(0x8C339B90, (1.0f + 1.0f), (1.0f + 1.0f));
-    *(unsigned int *)(((int)stk + 132)) = 0x8C339BE0;
+    R1132 = 0x8C339BE0;
     primSprSetSize(0x8C339BE0, (1.0f + 1.0f), (1.0f + 1.0f));
-    *(unsigned int *)(((int)stk + 140)) = 0x8C339C30;
+    R1140 = 0x8C339C30;
     primSprSetSize(0x8C339C30, (1.0f + 1.0f), (1.0f + 1.0f));
-    *(unsigned int *)(((int)stk + 136)) = 0x8C339C80;
+    R1136 = 0x8C339C80;
     primSprSetSize(0x8C339C80, (1.0f + 1.0f), (1.0f + 1.0f));
-    *(unsigned int *)(((int)stk + 144)) = 0x8C184780;
-    *(unsigned int *)(((int)stk + 148)) = 0x8C184780;
+    R1144 = 0x8C184780;
+    R1148 = 0x8C184780;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)(0x8C184780); }
-    primSprDrawScaleFadeY(0x8C339AF0, 0x100, 0x100, *(Stk3 *)(0x8C184780), (1.0f + 1.0f), (1.0f + 1.0f), (*(float *)(((int)stk + 128))), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
-    t33 = *(int *)(((int)stk + 148));
+    primSprDrawScaleFadeY(0x8C339AF0, 0x100, 0x100, *(Stk3 *)(0x8C184780), (1.0f + 1.0f), (1.0f + 1.0f), (R1128), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    t33 = R1148;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 100)) = *(struct mv3 *)((t33 + 0xC)); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 132))), 0x100, 0x100, *(Stk3 *)((t33 + 0xC)), (1.0f + 1.0f), (1.0f + 1.0f), (*(float *)(((int)stk + 128))), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
-    t37 = *(int *)(((int)stk + 148));
+    primSprDrawScaleFadeY((R1132), 0x100, 0x100, *(Stk3 *)((t33 + 0xC)), (1.0f + 1.0f), (1.0f + 1.0f), (R1128), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    t37 = R1148;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)((t37 + 0x18)); }
-    primSprDrawScaleFadeY(0x8C339AF0, 0x100, 0x100, *(Stk3 *)((t37 + 0x18)), (1.0f + 1.0f), (1.0f + 1.0f), (*(float *)(((int)stk + 128))), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
-    t40 = *(int *)(((int)stk + 148));
+    primSprDrawScaleFadeY(0x8C339AF0, 0x100, 0x100, *(Stk3 *)((t37 + 0x18)), (1.0f + 1.0f), (1.0f + 1.0f), (R1128), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    t40 = R1148;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)((t40 + 0x24)); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 132))), 0x100, 0x100, *(Stk3 *)((t40 + 0x24)), (1.0f + 1.0f), (1.0f + 1.0f), (*(float *)(((int)stk + 128))), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
-    t44 = *(int *)(((int)stk + 144));
+    primSprDrawScaleFadeY((R1132), 0x100, 0x100, *(Stk3 *)((t40 + 0x24)), (1.0f + 1.0f), (1.0f + 1.0f), (R1128), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    t44 = R1144;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)((t44 + 0x30)); }
     primSprDrawScaleFadeY(0x8C339B40, 0x100, 0x100, *(Stk3 *)((t44 + 0x30)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)(((t44 + 0x30) + 0xC)); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 140))), 0x100, 0x100, *(Stk3 *)(((t44 + 0x30) + 0xC)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    primSprDrawScaleFadeY((R1140), 0x100, 0x100, *(Stk3 *)(((t44 + 0x30) + 0xC)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)(((t44 + 0x30) + 0x18)); }
     primSprDrawScaleFadeY(0x8C339B40, 0x100, 0x100, *(Stk3 *)(((t44 + 0x30) + 0x18)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)(((t44 + 0x30) + 0x24)); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 140))), 0x100, 0x100, *(Stk3 *)(((t44 + 0x30) + 0x24)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
-    t51 = *(int *)(((int)stk + 144));
+    primSprDrawScaleFadeY((R1140), 0x100, 0x100, *(Stk3 *)(((t44 + 0x30) + 0x24)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    t51 = R1144;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)((t51 + 0x60)); }
-    primSprDrawScaleFadeY(0x8C339B90, 0x100, 0x100, *(Stk3 *)((t51 + 0x60)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (*(float *)(((int)stk + 124))));
+    primSprDrawScaleFadeY(0x8C339B90, 0x100, 0x100, *(Stk3 *)((t51 + 0x60)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (R1124));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 100)) = *(struct mv3 *)(((t51 + 0x60) + 0xC)); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 136))), 0x100, 0x100, *(Stk3 *)(((t51 + 0x60) + 0xC)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (*(float *)(((int)stk + 124))));
+    primSprDrawScaleFadeY((R1136), 0x100, 0x100, *(Stk3 *)(((t51 + 0x60) + 0xC)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (R1124));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)(((t51 + 0x60) + 0x18)); }
-    primSprDrawScaleFadeY(0x8C339B90, 0x100, 0x100, *(Stk3 *)(((t51 + 0x60) + 0x18)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (*(float *)(((int)stk + 124))));
+    primSprDrawScaleFadeY(0x8C339B90, 0x100, 0x100, *(Stk3 *)(((t51 + 0x60) + 0x18)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (R1124));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)(((t51 + 0x60) + 0x24)); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 136))), 0x100, 0x100, *(Stk3 *)(((t51 + 0x60) + 0x24)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (*(float *)(((int)stk + 124))));
-    *(unsigned int *)(((int)stk + 144)) = 0x8C184810;
+    primSprDrawScaleFadeY((R1136), 0x100, 0x100, *(Stk3 *)(((t51 + 0x60) + 0x24)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (R1124));
+    R1144 = 0x8C184810;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)(0x8C184810); }
-    primSprDrawScaleFadeY(0x8C339AF0, 0x100, 0x100, *(Stk3 *)(0x8C184810), (1.0f + 1.0f), (1.0f + 1.0f), (*(float *)(((int)stk + 128))), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    primSprDrawScaleFadeY(0x8C339AF0, 0x100, 0x100, *(Stk3 *)(0x8C184810), (1.0f + 1.0f), (1.0f + 1.0f), (R1128), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)(0x8C18481C); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 132))), 0x100, 0x100, *(Stk3 *)(0x8C18481C), (1.0f + 1.0f), (1.0f + 1.0f), (*(float *)(((int)stk + 128))), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    primSprDrawScaleFadeY((R1132), 0x100, 0x100, *(Stk3 *)(0x8C18481C), (1.0f + 1.0f), (1.0f + 1.0f), (R1128), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)(0x8C184828); }
-    primSprDrawScaleFadeY(0x8C339AF0, 0x100, 0x100, *(Stk3 *)(0x8C184828), (1.0f + 1.0f), (1.0f + 1.0f), (*(float *)(((int)stk + 128))), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    primSprDrawScaleFadeY(0x8C339AF0, 0x100, 0x100, *(Stk3 *)(0x8C184828), (1.0f + 1.0f), (1.0f + 1.0f), (R1128), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)(0x8C184834); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 132))), 0x100, 0x100, *(Stk3 *)(0x8C184834), (1.0f + 1.0f), (1.0f + 1.0f), (*(float *)(((int)stk + 128))), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
-    t72 = *(int *)(((int)stk + 144));
+    primSprDrawScaleFadeY((R1132), 0x100, 0x100, *(Stk3 *)(0x8C184834), (1.0f + 1.0f), (1.0f + 1.0f), (R1128), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    t72 = R1144;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((t72 + 0x30)); }
     primSprDrawScaleFadeY(0x8C339B40, 0x100, 0x100, *(Stk3 *)((t72 + 0x30)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(((t72 + 0x30) + 0xC)); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 140))), 0x100, 0x100, *(Stk3 *)(((t72 + 0x30) + 0xC)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    primSprDrawScaleFadeY((R1140), 0x100, 0x100, *(Stk3 *)(((t72 + 0x30) + 0xC)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)(((t72 + 0x30) + 0x18)); }
     primSprDrawScaleFadeY(0x8C339B40, 0x100, 0x100, *(Stk3 *)(((t72 + 0x30) + 0x18)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 100)) = *(struct mv3 *)(((t72 + 0x30) + 0x24)); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 140))), 0x100, 0x100, *(Stk3 *)(((t72 + 0x30) + 0x24)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
-    t79 = *(int *)(((int)stk + 144));
+    primSprDrawScaleFadeY((R1140), 0x100, 0x100, *(Stk3 *)(((t72 + 0x30) + 0x24)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    t79 = R1144;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)((t79 + 0x60)); }
-    primSprDrawScaleFadeY(0x8C339B90, 0x100, 0x100, *(Stk3 *)((t79 + 0x60)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (*(float *)(((int)stk + 124))));
+    primSprDrawScaleFadeY(0x8C339B90, 0x100, 0x100, *(Stk3 *)((t79 + 0x60)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (R1124));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)(((t79 + 0x60) + 0xC)); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 136))), 0x100, 0x100, *(Stk3 *)(((t79 + 0x60) + 0xC)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (*(float *)(((int)stk + 124))));
+    primSprDrawScaleFadeY((R1136), 0x100, 0x100, *(Stk3 *)(((t79 + 0x60) + 0xC)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (R1124));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)(((t79 + 0x60) + 0x18)); }
-    primSprDrawScaleFadeY(0x8C339B90, 0x100, 0x100, *(Stk3 *)(((t79 + 0x60) + 0x18)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (*(float *)(((int)stk + 124))));
+    primSprDrawScaleFadeY(0x8C339B90, 0x100, 0x100, *(Stk3 *)(((t79 + 0x60) + 0x18)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (R1124));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)(((t79 + 0x60) + 0x24)); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 136))), 0x100, 0x100, *(Stk3 *)(((t79 + 0x60) + 0x24)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (*(float *)(((int)stk + 124))));
+    primSprDrawScaleFadeY((R1136), 0x100, 0x100, *(Stk3 *)(((t79 + 0x60) + 0x24)), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (R1124));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 100)) = *(struct mv3 *)(0x8C1848A0); }
-    primSprDrawScaleFadeY(0x8C339AF0, 0x100, 0x100, *(Stk3 *)(0x8C1848A0), (1.0f + 1.0f), (1.0f + 1.0f), (*(float *)(((int)stk + 128))), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    primSprDrawScaleFadeY(0x8C339AF0, 0x100, 0x100, *(Stk3 *)(0x8C1848A0), (1.0f + 1.0f), (1.0f + 1.0f), (R1128), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)(0x8C1848AC); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 132))), 0x100, 0x100, *(Stk3 *)(0x8C1848AC), (1.0f + 1.0f), (1.0f + 1.0f), (*(float *)(((int)stk + 128))), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    primSprDrawScaleFadeY((R1132), 0x100, 0x100, *(Stk3 *)(0x8C1848AC), (1.0f + 1.0f), (1.0f + 1.0f), (R1128), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)(0x8C1848B8); }
-    primSprDrawScaleFadeY(0x8C339AF0, 0x100, 0x100, *(Stk3 *)(0x8C1848B8), (1.0f + 1.0f), (1.0f + 1.0f), (*(float *)(((int)stk + 128))), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    primSprDrawScaleFadeY(0x8C339AF0, 0x100, 0x100, *(Stk3 *)(0x8C1848B8), (1.0f + 1.0f), (1.0f + 1.0f), (R1128), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)(0x8C1848C4); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 132))), 0x100, 0x100, *(Stk3 *)(0x8C1848C4), (1.0f + 1.0f), (1.0f + 1.0f), (*(float *)(((int)stk + 128))), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    primSprDrawScaleFadeY((R1132), 0x100, 0x100, *(Stk3 *)(0x8C1848C4), (1.0f + 1.0f), (1.0f + 1.0f), (R1128), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)(0x8C1848D0); }
     primSprDrawScaleFadeY(0x8C339B40, 0x100, 0x100, *(Stk3 *)(0x8C1848D0), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)(0x8C1848DC); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 140))), 0x100, 0x100, *(Stk3 *)(0x8C1848DC), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    primSprDrawScaleFadeY((R1140), 0x100, 0x100, *(Stk3 *)(0x8C1848DC), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)(0x8C1848E8); }
     primSprDrawScaleFadeY(0x8C339B40, 0x100, 0x100, *(Stk3 *)(0x8C1848E8), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(0x8C1848F4); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 140))), 0x100, 0x100, *(Stk3 *)(0x8C1848F4), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
+    primSprDrawScaleFadeY((R1140), 0x100, 0x100, *(Stk3 *)(0x8C1848F4), (1.0f + 1.0f), (1.0f + 1.0f), (((((t22 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(0x8C184900); }
-    primSprDrawScaleFadeY(0x8C339B90, 0x100, 0x100, *(Stk3 *)(0x8C184900), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (*(float *)(((int)stk + 124))));
+    primSprDrawScaleFadeY(0x8C339B90, 0x100, 0x100, *(Stk3 *)(0x8C184900), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (R1124));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)(0x8C18490C); }
-    primSprDrawScaleFadeY((*(int *)(((int)stk + 136))), 0x100, 0x100, *(Stk3 *)(0x8C18490C), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (*(float *)(((int)stk + 124))));
+    primSprDrawScaleFadeY((R1136), 0x100, 0x100, *(Stk3 *)(0x8C18490C), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (R1124));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 100)) = *(struct mv3 *)(0x8C184918); }
-    primSprDrawScaleFadeY(0x8C339B90, 0x100, 0x100, *(Stk3 *)(0x8C184918), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (*(float *)(((int)stk + 124))));
+    primSprDrawScaleFadeY(0x8C339B90, 0x100, 0x100, *(Stk3 *)(0x8C184918), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (R1124));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)(0x8C184924); }
-    return (primSprDrawScaleFadeY((*(int *)(((int)stk + 136))), 0x100, 0x100, *(Stk3 *)(0x8C184924), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (*(float *)(((int)stk + 124)))));
+    return (primSprDrawScaleFadeY((R1136), 0x100, 0x100, *(Stk3 *)(0x8C184924), (1.0f + 1.0f), (1.0f + 1.0f), (((((t24 + 1.0f) * 0.349999994f) / (1.0f + 1.0f)) + 0.100000001f) / (1.0f + 1.0f)), (R1124)));
 }

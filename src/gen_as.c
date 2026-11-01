@@ -145,47 +145,62 @@ int _its(int a4, int a5, int a6)
     int t33;
     int t25;
     int stk[20];
+    int R1004;
+    int R1008;
+    int R1012;
+    int R1016;
+    int R1020;
+    int R1024;
+    int R1028;
 
-    *(unsigned int *)(((int)stk + 16)) = a5;
-    *(unsigned int *)(((int)stk + 4)) = a6;
-    *(unsigned int *)(((int)stk + 28)) = 0x1;
-    t0 = *(int *)(((int)stk + 16));
-    t1 = *(int *)(((int)stk + 4));
+    R1004 = *(int *)((int)stk + 4);
+    R1008 = *(int *)((int)stk + 8);
+    R1012 = *(int *)((int)stk + 12);
+    R1016 = *(int *)((int)stk + 16);
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
+    R1028 = *(int *)((int)stk + 28);
+
+    R1016 = a5;
+    R1004 = a6;
+    R1028 = 0x1;
+    t0 = R1016;
+    t1 = R1004;
     *(unsigned char *)(((t1 + t0) + 0x0)) = 0x0;
     t2 = memmove((((int)stk + 4) + 0x24), a4, 0x8);
-    t3 = *(int *)(((int)stk + 4));
-    *(unsigned int *)(((int)stk + 8)) = (t3 - 1);
-    *(unsigned int *)(((int)stk + 24)) = ((((t3 - 1) << 2) << 1) + 0x8C12C320);
-    *(unsigned int *)(((int)stk + 20)) = ((*(int *)(((int)stk + 8))) + 0x1);
+    t3 = R1004;
+    R1008 = (t3 - 1);
+    R1024 = ((((t3 - 1) << 2) << 1) + 0x8C12C320);
+    R1020 = ((R1008) + 0x1);
     t5 = t2;
     t6 = (t1 + t0);
     for (;;) {
-        if ((int)(*(int *)(((int)stk + 8))) < 0) {
+        if ((int)(R1008) < 0) {
             return t5;
         }
         t5 = 0x5;
-        t5 = ((int)((int)(*(int *)(((int)stk + 20))) / (int)t5));
+        t5 = ((int)((int)(R1020) / (int)t5));
         t5 = (t5 + 0x1);
         t5 = (t5 << 1);
         t12 = (0x8 - t5);
         t13 = (0x8 - (0x8 - t5));
-        t5 = (memmove(((0x8 - t5) + (((int)stk + 4) + 0x1C)), ((*(int *)(((int)stk + 24))) + (0x8 - t5)), (0x8 - (0x8 - t5))));
-        *(unsigned int *)(((int)stk + 12)) = 0x0;
-        *(unsigned int *)(((int)stk + 4)) = 0x0;
+        t5 = (memmove(((0x8 - t5) + (((int)stk + 4) + 0x1C)), ((R1024) + (0x8 - t5)), (0x8 - (0x8 - t5))));
+        R1012 = 0x0;
+        R1004 = 0x0;
         t14 = 0x8;
         for (;;) {
             t5 = (_umemcmp((t12 + (((int)stk + 4) + 0x24)), (t12 + (((int)stk + 4) + 0x1C)), t13));
             if ((int)t5 >= 0) {
                 t5 = (_sub(0x0, (t12 + (((int)stk + 4) + 0x24)), (t12 + (((int)stk + 4) + 0x1C)), t13));
-                *(unsigned int *)(((int)stk + 28)) = t5;
-                *(unsigned int *)(((int)stk + 12)) = ((*(int *)(((int)stk + 12))) + t14);
+                R1028 = t5;
+                R1012 = ((R1012) + t14);
             }
             t14 = ((int)((unsigned int)((int)((unsigned int)t14 + (unsigned int)0x0)) + ((((int)0x0 > (int)t14)) ? 1u : 0u)));
             t14 = (t14 >> 1);
             if (t14 != 0) {
                 t5 = (_rsfts((t12 + (((int)stk + 4) + 0x1C)), t13, 0x1));
-                t24 = *(int *)(((int)stk + 4));
-                *(unsigned int *)(((int)stk + 4)) = (t24 + 0x1);
+                t24 = R1004;
+                R1004 = (t24 + 0x1);
                 if ((int)(t24 + 0x1) >= (int)0x4) {
                     t25 = (t24 + 0x1); break;
                 }
@@ -193,22 +208,22 @@ int _its(int a4, int a5, int a6)
             }
             break;
         }
-        t28 = *(int *)(((int)stk + 12));
-        if ((*(int *)(((int)stk + 28))) == 0) {
+        t28 = R1012;
+        if ((R1028) == 0) {
             break;
         }
         *(unsigned char *)(((t6 - 0x1) + 0x0)) = (t28 + 0x30);
         t6 = (t6 - 0x1);
-        *(unsigned int *)(((int)stk + 8)) = ((*(int *)(((int)stk + 8))) - 1);
-        *(unsigned int *)(((int)stk + 24)) = ((*(int *)(((int)stk + 24))) - 8);
-        *(unsigned int *)(((int)stk + 20)) = ((*(int *)(((int)stk + 20))) - 1);
+        R1008 = ((R1008) - 1);
+        R1024 = ((R1024) - 8);
+        R1020 = ((R1020) - 1);
     }
     *(unsigned char *)(((t6 - 0x1) + 0x0)) = (t28 + 0x30);
     t32 = t25;
     t33 = (t6 - 0x1);
     for (;;) {
         t33 = (t33 - 1);
-        if ((unsigned int)t33 < (unsigned int)(*(int *)(((int)stk + 16)))) {
+        if ((unsigned int)t33 < (unsigned int)(R1016)) {
             break;
         }
         t32 = 0x30;
@@ -1159,23 +1174,26 @@ int sysInitGraphics(void)
 int bgTilesInit(int a4, int a5, int a6, int a7)
 {
     int stk[15];
+    int R1020;
+
+    R1020 = *(int *)((int)stk + 20);
 
     vecMake(a4, a5, a6, a7, ((int)stk + 8), 0.0f, 0.0f, 400.0f);
-    *(unsigned int *)(((int)stk + 20)) = 0x8C33CF40;
+    R1020 = 0x8C33CF40;
     sprInitPos(0x8C33CF40, 0x27);
-    *(unsigned int *)(((*(int *)(((int)stk + 20))) + 0x34)) = 0x5;
+    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 256.0f, 0.0f, 400.0f);
-    *(unsigned int *)(((int)stk + 20)) = 0x8C33CF90;
+    R1020 = 0x8C33CF90;
     sprInitPos(0x8C33CF90, 0x28);
-    *(unsigned int *)(((*(int *)(((int)stk + 20))) + 0x34)) = 0x5;
+    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 0.0f, 256.0f, 400.0f);
-    *(unsigned int *)(((int)stk + 20)) = 0x8C33CFE0;
+    R1020 = 0x8C33CFE0;
     sprInitPos(0x8C33CFE0, 0x29);
-    *(unsigned int *)(((*(int *)(((int)stk + 20))) + 0x34)) = 0x5;
+    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 256.0f, 256.0f, 400.0f);
-    *(unsigned int *)(((int)stk + 20)) = 0x8C33D030;
+    R1020 = 0x8C33D030;
     sprInitPos(0x8C33D030, 0x2A);
-    *(unsigned int *)(((*(int *)(((int)stk + 20))) + 0x34)) = 0x5;
+    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 512.0f, 0.0f, 400.0f);
     sprInitPos(0x8C33D080, 0x2B);
     *(unsigned int *)0x8C33D0B4 = 0x5;
@@ -1199,11 +1217,14 @@ int panelBodyPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a1
     int t10;
     int t14;
     int stk[41];
+    int R1128;
+
+    R1128 = *(int *)((int)stk + 128);
 
     stk[29] = a8;
     stk[30] = a9;
     stk[31] = a10;
-    stk[32] = a11;
+    R1128 = a11;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)((((int)stk + 76) + 0x28)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)((((int)stk + 76) + 0x28)); }
     t0 = ((int (*)(int, int, int, int, Stk3, float))(sprPutAtAlpha))(0x8C340210, a5, a6, a7, *(Stk3 *)((((int)stk + 76) + 0x28)), f4);
@@ -1236,11 +1257,14 @@ int panelPartBPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a
     int t8;
     int t12;
     int stk[41];
+    int R1128;
+
+    R1128 = *(int *)((int)stk + 128);
 
     stk[29] = a8;
     stk[30] = a9;
     stk[31] = a10;
-    stk[32] = a11;
+    R1128 = a11;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)((((int)stk + 76) + 0x28)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)((((int)stk + 76) + 0x28)); }
     t0 = ((int (*)(int, int, int, int, Stk3, float))(sprPutAtAlpha))(0x8C33FD10, a5, a6, a7, *(Stk3 *)((((int)stk + 76) + 0x28)), f4);
@@ -1555,25 +1579,28 @@ int hudBgTileInit(int a4, int a5, int a6, int a7)
     float u14;
     float u17;
     int stk[15];
+    int R1020;
+
+    R1020 = *(int *)((int)stk + 20);
 
     u0 = *(float *)0x8C09B24C;
     vecMake(a4, a5, a6, a7, ((int)stk + 8), 0.0f, 0.0f, u0);
-    *(unsigned int *)(((int)stk + 20)) = 0x8C33F1D0;
+    R1020 = 0x8C33F1D0;
     sprInitPos(0x8C33F1D0, 0x10);
-    *(unsigned int *)(((*(int *)(((int)stk + 20))) + 0x34)) = 0x5;
+    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
     u4 = *(float *)0x8C09B254;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), u4, 0.0f, u0);
-    *(unsigned int *)(((int)stk + 20)) = 0x8C33F220;
+    R1020 = 0x8C33F220;
     sprInitPos(0x8C33F220, 0x11);
-    *(unsigned int *)(((*(int *)(((int)stk + 20))) + 0x34)) = 0x5;
+    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 0.0f, u4, u0);
-    *(unsigned int *)(((int)stk + 20)) = 0x8C33F270;
+    R1020 = 0x8C33F270;
     sprInitPos(0x8C33F270, 0x12);
-    *(unsigned int *)(((*(int *)(((int)stk + 20))) + 0x34)) = 0x5;
+    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), u4, u4, u0);
-    *(unsigned int *)(((int)stk + 20)) = 0x8C33F2C0;
+    R1020 = 0x8C33F2C0;
     sprInitPos(0x8C33F2C0, 0x13);
-    *(unsigned int *)(((*(int *)(((int)stk + 20))) + 0x34)) = 0x5;
+    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
     u14 = *(float *)0x8C09B258;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), u14, 0.0f, u0);
     sprInitPos(0x8C33F310, 0x14);
@@ -1597,11 +1624,14 @@ int panelPartCPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a
     int t8;
     int t12;
     int stk[41];
+    int R1128;
+
+    R1128 = *(int *)((int)stk + 128);
 
     stk[29] = a8;
     stk[30] = a9;
     stk[31] = a10;
-    stk[32] = a11;
+    R1128 = a11;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)((((int)stk + 76) + 0x28)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)((((int)stk + 76) + 0x28)); }
     t0 = ((int (*)(int, int, int, int, Stk3, float))(sprPutAtAlpha))(0x8C33FF40, a5, a6, a7, *(Stk3 *)((((int)stk + 76) + 0x28)), f4);

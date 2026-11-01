@@ -135,9 +135,13 @@ int eepromDriveSelect(int a4)
     int R13;
     int R14;
     int T_;
+    int R1020;
+    int R1024;
+    R1020 = *(int *)((int)stk + 20);
+    R1024 = *(int *)((int)stk + 24);
     R4 = a4;
     L_8C0DF69A:;
-    *(unsigned int *)(((int)stk + 20)) = R4;
+    R1020 = R4;
     { struct mvb40 { char b[40]; }; *(struct mvb40 *)((((int)stk + 20) + 0x28)) = *(struct mvb40 *)(0x8C126AFA); }
     R11 = ((((int)stk + 20) + 0x8));
     R12 = (0x63);
@@ -164,9 +168,9 @@ int eepromDriveSelect(int a4)
     if (((*(short *)((t13 + 0x0))) == 0)) goto L_8C0DF748;
     goto L_8C0DF6F2;
     L_8C0DF6F2:;
-    *(unsigned int *)(((int)stk + 24)) = (R4 + 0x14);
+    R1024 = (R4 + 0x14);
     nlPrintColor(0xFFFFFFFF);
-    nlPrintf(0x8C126B24, (((R13 << 2) + R13) + (((int)stk + 16) + 0x2C)), (unsigned short)(*(short *)(((*(int *)(((int)stk + 24))) + 0x26))));
+    nlPrintf(0x8C126B24, (((R13 << 2) + R13) + (((int)stk + 16) + 0x2C)), (unsigned short)(*(short *)(((R1024) + 0x26))));
     nlPrintf(0x8C126B38);
     *(unsigned int *)((R11 + (R13 << 2))) = R13;
     if ((R8 != 99)) goto L_8C0DF734;
@@ -183,7 +187,7 @@ int eepromDriveSelect(int a4)
     *(unsigned int *)((R14 + 0x0)) = R13;
     goto L_8C0DF73C;
     L_8C0DF73C:;
-    if (((*(int *)(((int)stk + 20))) != 0)) goto L_8C0DF772;
+    if (((R1020) != 0)) goto L_8C0DF772;
     goto L_8C0DF742;
     L_8C0DF742:;
     *(unsigned int *)0x8C40C628 = R13;
