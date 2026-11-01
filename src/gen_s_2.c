@@ -10,69 +10,69 @@ int nlSetCommonTextureOffset(int);
 int texLoadIndexed(int, int);
 
 
-void fmMngMcpy4(int a4, int a5, int a6)
+void fmMngMcpy4(int sourceAddress, int destinationAddress, int byteCount)
 {
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
+    int divisionAdjustedByteCount;
+    int sourceCursor;
+    int destinationCursor;
+    int wordsRemaining;
+    int hasMoreWords;
+    int copiedWord;
 
-    t0 = a6;
-    if ((int)a6 < 0) {
-        t0 = (a6 + 0x3);
+    divisionAdjustedByteCount = byteCount;
+    if ((int)byteCount < 0) {
+        divisionAdjustedByteCount = (byteCount + 0x3);
     }
-    t1 = a4;
-    t2 = a5;
-    t3 = ((t0 >> 1) >> 1);
+    sourceCursor = sourceAddress;
+    destinationCursor = destinationAddress;
+    wordsRemaining = ((divisionAdjustedByteCount >> 1) >> 1);
     for (;;) {
-        t4 = ((int)t3 > 0);
-        t3 = (t3 - 1);
-        if (!t4) break;
-        t5 = *(int *)((t1 + 0x0));
-        t1 = (t1 + 0x4);
-        *(unsigned int *)((t2 + 0x0)) = t5;
-        t2 = (t2 + 0x4);
+        hasMoreWords = ((int)wordsRemaining > 0);
+        wordsRemaining = (wordsRemaining - 1);
+        if (!hasMoreWords) break;
+        copiedWord = *(int *)((sourceCursor + 0x0));
+        sourceCursor = (sourceCursor + 0x4);
+        *(unsigned int *)((destinationCursor + 0x0)) = copiedWord;
+        destinationCursor = (destinationCursor + 0x4);
     }
 }
 
 
-void fmMngNum2Bit(int a4, int a5, int a6)
+void fmMngNum2Bit(int usedRecordCount, int bitmapAddress, int bitmapBlockCount)
 {
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
+    int bytesRemaining;
+    int usedBitsRemaining;
+    int bitmapCursor;
+    int bitmapByteAccumulator;
+    int bitsRemaining;
 
-    t0 = (((a6 << 2) << 2) << 2);
-    t1 = a4;
-    t2 = a5;
-    t3 = a6;
-    while ((int)t0 > 0) {
-        if ((int)t1 >= (int)0x8) {
-            *(unsigned char *)((t2 + 0x0)) = 0x0;
-            t2 = (t2 + 0x1);
-            t1 = (t1 - 8);
+    bytesRemaining = (((bitmapBlockCount << 2) << 2) << 2);
+    usedBitsRemaining = usedRecordCount;
+    bitmapCursor = bitmapAddress;
+    bitmapByteAccumulator = bitmapBlockCount;
+    while ((int)bytesRemaining > 0) {
+        if ((int)usedBitsRemaining >= (int)0x8) {
+            *(unsigned char *)((bitmapCursor + 0x0)) = 0x0;
+            bitmapCursor = (bitmapCursor + 0x1);
+            usedBitsRemaining = (usedBitsRemaining - 8);
         } else {
-            if ((int)t1 > 0) {
-                t4 = 0x8;
+            if ((int)usedBitsRemaining > 0) {
+                bitsRemaining = 0x8;
                 do {
-                    t3 = (t3 << 1);
-                    if ((int)t1 > 0) {
-                        t1 = (t1 - 1);
+                    bitmapByteAccumulator = (bitmapByteAccumulator << 1);
+                    if ((int)usedBitsRemaining > 0) {
+                        usedBitsRemaining = (usedBitsRemaining - 1);
                     } else {
-                        t3 = (t3 | 0x1);
+                        bitmapByteAccumulator = (bitmapByteAccumulator | 0x1);
                     }
-                    t4 = (t4 - 0x1);
-                } while (t4 != 0);
-                *(unsigned char *)((t2 + 0x0)) = t3;
+                    bitsRemaining = (bitsRemaining - 0x1);
+                } while (bitsRemaining != 0);
+                *(unsigned char *)((bitmapCursor + 0x0)) = bitmapByteAccumulator;
             } else {
-                *(unsigned char *)((t2 + 0x0)) = 0xFFFFFFFF;
+                *(unsigned char *)((bitmapCursor + 0x0)) = 0xFFFFFFFF;
             }
-            t2 = (t2 + 0x1);
+            bitmapCursor = (bitmapCursor + 0x1);
         }
-        t0 = (t0 - 1);
+        bytesRemaining = (bytesRemaining - 1);
     }
 }

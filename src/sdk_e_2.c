@@ -1,80 +1,70 @@
 /* Small SDK (nl*, km glue, libc) functions, batch e. */
 
 extern float nlAbsSqrt(float x);
-extern int FUN_0c085dfc(void *buf, char *fmt, void *args);
+extern int vsprintf(void *buf, char *fmt, void *args);
 extern int nlPuts(void *buf);
-extern int FUN_0c077b50(void *m);
-extern int FUN_0c077290(int n, void *m);
+extern int nlLoadMatrix8(void *m);
 extern int nlSpriteLoadTextureOnce_Sub(void *p, void *name, int i, int z);
-extern int FUN_0c080990(void *a, int b);
-extern int FUN_0c080c50(int a, int b);
 extern int kmSetPaletteData(void *p);
 extern int kmDiscardVertexBuffer(void *p);
 
 extern char gPaletteDirty[];
 extern char gPaletteData[];
-extern short g_0c2aecc8[];
-extern char g_0c2af368[];
-extern float g_0c14a7bc;
-extern char g_0c2b31dc[];
-extern float g_0c14a958[];
-extern int g_0c2b356c;
-extern int g_0c2b77dc[];
-extern int g_0c2b76fc;
-extern int g_0c2b7940;
-extern char g_0c14ab18[];
+extern short gNlPaletteAllocationBitmap[];
+extern float gNlObjectFadeColorCopy[];
+extern int gNlObjectModifierModeBits;
 
 
-void nlInitPalette(char *table, int count)
+void nlInitPalette(char *paletteTable, int paletteCount)
 {
-    char *p;
-    short *q;
-    unsigned int n;
+    char *paletteEntry;
+    short *counter;
+    unsigned int remainingEntries;
 
-    *(char **)(gPaletteDirty + 24) = table;
-    *(short *)(gPaletteDirty + 4) = count;
-    p = table;
-    n = count;
-    while (n != 0) {
-        *(short *)(p + 6) = -1;
-        *(short *)p = -1;
-        *(char *)(p + 2) = -1;
-        *(short *)(p + 4) = 0;
-        *(char *)(p + 3) = 0;
-        p += 8;
-        n--;
+    *(char **)(gPaletteDirty + 24) = paletteTable;
+    *(short *)(gPaletteDirty + 4) = paletteCount;
+    paletteEntry = paletteTable;
+    remainingEntries = paletteCount;
+    while (remainingEntries != 0) {
+        *(short *)(paletteEntry + 6) = -1;
+        *(short *)paletteEntry = -1;
+        *(char *)(paletteEntry + 2) = -1;
+        *(short *)(paletteEntry + 4) = 0;
+        *(char *)(paletteEntry + 3) = 0;
+        paletteEntry += 8;
+        remainingEntries--;
     }
-    for (q = g_0c2aecc8; q < g_0c2aecc8 + 4; q++)
-        *q = 0;
+    for (counter = gNlPaletteAllocationBitmap; counter < gNlPaletteAllocationBitmap + 4; counter++)
+        *counter = 0;
 }
 
 
-float nlInvertAbsSqrt(float x)
+float nlInvertAbsSqrt(float value)
 {
-    if (x == 0.0f)
+    if (value == 0.0f)
         return 3.4028234663852886e+38f;
-    return 1.0f / nlAbsSqrt(x);
+    return 1.0f / nlAbsSqrt(value);
 }
 
 
-void nlGetAverageVector(float *a, float *b, float *out, float w1, float w2)
+void nlGetAverageVector(float *first, float *second, float *destination, float firstWeight, float secondWeight)
 {
-    float x, y, z;
+    float weightedX, weightedY, weightedZ;
 
-    x = a[0] * w1;
-    y = a[1] * w1;
-    z = a[2] * w1;
-    out[0] = x + w2 * b[0];
-    out[1] = y + w2 * b[1];
-    out[2] = z + w2 * b[2];
+    weightedX = first[0] * firstWeight;
+    weightedY = first[1] * firstWeight;
+    weightedZ = first[2] * firstWeight;
+    destination[0] = weightedX + secondWeight * second[0];
+    destination[1] = weightedY + secondWeight * second[1];
+    destination[2] = weightedZ + secondWeight * second[2];
 }
 
 
-void nlObjPutMvSetMode(int mode)
+void nlObjPutMvSetMode(int modifierMode)
 {
-    if (mode != 2)
-        mode = 1;
-    g_0c2b356c = mode << 29;
+    if (modifierMode != 2)
+        modifierMode = 1;
+    gNlObjectModifierModeBits = modifierMode << 29;
 }
 
 

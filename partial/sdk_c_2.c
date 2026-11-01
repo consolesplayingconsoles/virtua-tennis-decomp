@@ -1,5 +1,5 @@
 
-void setBorderColor(unsigned int c)
+void setBorderColor(unsigned int color)
 {
-    kmSetBorderColor(c | 0xFF000000);
+    kmSetBorderColor(color | 0xFF000000);
 }

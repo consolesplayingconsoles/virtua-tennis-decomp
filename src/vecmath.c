@@ -4,37 +4,37 @@
 /* SHC's own fsqrt intrinsic (what math.h maps sqrtf to with -fpu=single) */
 extern float _builtin_sqrtf(float);
 
-float nlInnerProduct(float *a, float *b)
+float nlInnerProduct(float *left, float *right)
 {
-    return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+    return left[0] * right[0] + left[1] * right[1] + left[2] * right[2];
 }
 
-float nlLength(float *a, float *b)
+float nlLength(float *start, float *end)
 {
-    float x = a[0] - b[0];
-    float y = a[1] - b[1];
-    float z = a[2] - b[2];
+    float deltaX = start[0] - end[0];
+    float deltaY = start[1] - end[1];
+    float deltaZ = start[2] - end[2];
 
-    return _builtin_sqrtf(x * x + y * y + z * z);
+    return _builtin_sqrtf(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
 }
 
-void nlAddVector(float *vd, float *vs)
+void nlAddVector(float *destination, float *source)
 {
-    vd[0] = vd[0] + vs[0];
-    vd[1] = vd[1] + vs[1];
-    vd[2] = vd[2] + vs[2];
+    destination[0] = destination[0] + source[0];
+    destination[1] = destination[1] + source[1];
+    destination[2] = destination[2] + source[2];
 }
 
-void nlScaleVector(float *vd, float *vs, float sc)
+void nlScaleVector(float *destination, float *source, float scale)
 {
-    vd[0] = vs[0] * sc;
-    vd[1] = vs[1] * sc;
-    vd[2] = vs[2] * sc;
+    destination[0] = source[0] * scale;
+    destination[1] = source[1] * scale;
+    destination[2] = source[2] * scale;
 }
 
-void nlSubVector3op(float *vd, float *vs1, float *vs2)
+void nlSubVector3op(float *destination, float *left, float *right)
 {
-    vd[0] = vs1[0] - vs2[0];
-    vd[1] = vs1[1] - vs2[1];
-    vd[2] = vs1[2] - vs2[2];
+    destination[0] = left[0] - right[0];
+    destination[1] = left[1] - right[1];
+    destination[2] = left[2] - right[2];
 }

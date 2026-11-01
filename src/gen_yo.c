@@ -1,7 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_yo): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c0eaf00(int, int, int, float);
+int resetBackColorZ(int, int, int, float);
 int hudPanelDraw(int, int, float);
 int nlCloseEvent(int);
 int resTitleLoadInit(void);
@@ -38,7 +38,7 @@ int FUN_8c0e9394(void)
                 break;
             }
         }
-        t0 = (FUN_8c0eaf00(0x4D4D4D, 0x4D4D4D, 0x4D4D4D, (-1.0f)));
+        t0 = (resetBackColorZ(0x4D4D4D, 0x4D4D4D, 0x4D4D4D, (-1.0f)));
     }
     if ((*(int *)0x8C1DC6C4) == 0) {
         t1 = resTitleLoadStep();

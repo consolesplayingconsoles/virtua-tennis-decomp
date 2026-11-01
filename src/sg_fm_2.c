@@ -1,33 +1,38 @@
 /* Shinobi library, SG_FM (flash memory): our own C, written from the disassembly. */
 
 typedef struct {
-    char p0[20];
-    int count;
-    int p24;
-    int busy;       /* +28 */
-    int mode;       /* +32 */
-    int p36;
-    int index;      /* +40 */
-    int p44;
-    int arg;        /* +48 */
-} FmState;
+    short partitionId;
+    short formatMode;
+    int flashBaseAddress;
+    int partitionByteCount;
+    int cacheBufferAddress;
+    int usedRecordCount;
+    int recordCapacity;
+    int allocationBitmapBlockCount;
+    int pendingOperation;       /* +28 */
+    int status;       /* +32 */
+    int writePhase;
+    int recordIndex;      /* +40 */
+    int lastResult;
+    int dataBufferAddress;        /* +48 */
+} FlashMemoryManagerPrefix;
 
-extern FmState *gFmMngState;
+extern FlashMemoryManagerPrefix *gFmMngState;
 
 
-int fmMngRead(int index, int arg)
+int fmMngRead(int recordIndex, int dataBufferAddress)
 {
-    FmState *s = gFmMngState;
+    FlashMemoryManagerPrefix *manager = gFmMngState;
 
-    if (s == 0)
+    if (manager == 0)
         return -11;
-    if (s->busy != 0)
+    if (manager->pendingOperation != 0)
         return -9;
-    if (index < 0 || index >= s->count)
+    if (recordIndex < 0 || recordIndex >= manager->recordCapacity)
         return -5;
-    s->busy = 1;
-    gFmMngState->mode = 2;
-    gFmMngState->index = index;
-    gFmMngState->arg = arg;
+    manager->pendingOperation = 1;
+    gFmMngState->status = 2;
+    gFmMngState->recordIndex = recordIndex;
+    gFmMngState->dataBufferAddress = dataBufferAddress;
     return 0;
 }

@@ -5,8 +5,8 @@ typedef struct { int w[1]; } Stk1;
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
 typedef struct { int w[6]; } Stk6;
-int FUN_8c0eaf00(int, int, int);
-int FUN_8c0f0860(int);
+int resetBackColorZ(int, int, int);
+int nlUnitVector(int);
 int abs(int);
 int camInit(void);
 int camProject(int, int);
@@ -438,7 +438,7 @@ int FUN_8c0d5844(void)
         t1 = sndPack4Free(0x1);
         if (t1 == 99) {
             *(unsigned int *)0x8C295DDC = ((*(int *)0x8C295DDC) & 0xFFFFFFDF);
-            FUN_8c0eaf00(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
+            resetBackColorZ(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
             *(unsigned int *)0x8C20D14C = 0x4;
             *(unsigned int *)0x8C20D150 = 0x0;
             *(unsigned int *)0x8C421F64 = 0x0;
@@ -467,7 +467,7 @@ int FUN_8c0bdcc4(void)
     dbgMenuInit();
     camInit();
     lightSet(0x8500, 0x9200, 0x64, 0x45);
-    FUN_8c0eaf00(0xFF4444AA, 0xFF444444, 0xFF444444);
+    resetBackColorZ(0xFF4444AA, 0xFF444444, 0xFF444444);
     fileLoadStart(0x8CA80000, 0x8C1232C0, 0x0);
     for (;;) {
         t0 = fileLoadPoll();
@@ -761,13 +761,13 @@ int FUN_8c0ddb36(float f4)
 
     if ((*(int *)0x8C20D15C) == 0) {
         commonLoadStart(f4);
-        FUN_8c0eaf00(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
+        resetBackColorZ(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
         *(unsigned char *)0x8C40C630 = 0x1;
         *(unsigned char *)0x8C40C62F = 0x1;
     }
     t0 = *(int *)0x8C20D15C;
     if (t0 == 0x87) {
-        t1 = FUN_8c0eaf00(0x0, 0x0, 0x0);
+        t1 = resetBackColorZ(0x0, 0x0, 0x0);
         *(unsigned int *)0x8C20D15C = 0x0;
         *(unsigned int *)0x8C20D150 = 0x1;
         t2 = t1;
@@ -1024,7 +1024,7 @@ int FUN_8c082dca(int a4)
     *(float *)(((int)stk + 80)) = ((-(*(float *)0x8C2879F8)) + (*(float *)((a4 + 0x14))));
     *(float *)(((int)stk + 84)) = ((-(*(float *)0x8C2879FC)) + (*(float *)((a4 + 0x18))));
     *(float *)(((int)stk + 88)) = ((-(*(float *)0x8C287A00)) + (*(float *)((a4 + 0x1C))));
-    FUN_8c0f0860((((int)stk + 4) + 0x4C));
+    nlUnitVector((((int)stk + 4) + 0x4C));
     nlPushMatrix(0x0);
     nlUnitMatrix();
     nlRotateV((((int)stk + 4) + 0x40), (((int)stk + 4) + 0x4C));

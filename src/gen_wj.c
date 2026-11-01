@@ -4,7 +4,7 @@
 typedef struct { int w[1]; } Stk1;
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
-extern int FUN_8c0eaf00();
+extern int resetBackColorZ();
 int afsPartition1Load(int);
 int angLerp(int, int, float);
 int bodyPlacePoints(int);
@@ -193,7 +193,7 @@ int FUN_8c0c194c(int a4, float f4)
     register float u356;
     register int t444;
 
-    t0 = ((int (*)(int, int, int, float))(FUN_8c0eaf00))(0x0, 0xFF0800AC, 0x0, f4);
+    t0 = ((int (*)(int, int, int, float))(resetBackColorZ))(0x0, 0xFF0800AC, 0x0, f4);
     camSetOrbit(0x600, 0x8000, 255.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(0.0f, 0.0f, 0.0f);
     camSetEye();
@@ -338,7 +338,7 @@ int FUN_8c0c194c(int a4, float f4)
             u100 = 1.0f;
         }
         fadeScreenDraw(0x8C37B794, u100, 0.100000001f);
-        t103 = ((int (*)(int, int, int))(FUN_8c0eaf00))(0x0, 0x0, 0x0);
+        t103 = ((int (*)(int, int, int))(resetBackColorZ))(0x0, 0x0, 0x0);
         *(unsigned int *)0x8C37B784 = ((*(int *)0x8C37B784) + 0x1);
         if ((*(int *)0x8C37B790) == 0) {
             *(unsigned int *)0x8C37B790 = (stageLoadTexStep());

@@ -1,7 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_wr): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c0eaf00(int, int, int);
+int resetBackColorZ(int, int, int);
 int advExec(void);
 int advInit(int, int, int, int, int, int, int, int, int, int);
 int camSetupView(void);
@@ -286,7 +286,7 @@ int FUN_8c01219e(int a4, int a5)
     nlUnitMatrix();
     nlPerspective(0x1D28, 1.33333337f, 0.300000012f, 300.0f);
     nlMatrixMode(0x1);
-    FUN_8c0eaf00(0x0, 0x0, 0x0);
+    resetBackColorZ(0x0, 0x0, 0x0);
     nlInitEvent();
     sndFadeFlagsClear();
     t77 = ((int (*)(void))(entryIsVersus))();

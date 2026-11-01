@@ -3,9 +3,9 @@
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
-int FUN_8c029f50(Stk4, Stk3);
-float FUN_8c029fe0(float, float);
-int FUN_8c08535e(int, int);
+int cameraBlendVector240(Stk4, Stk3);
+float cameraBlendFloat240(float, float);
+int matchSceneSetup(int, int);
 int angDiff(int, int);
 int camExec(int, int, int, int, int, int, int, int, int, int, int, int);
 extern int camMoveBegin();
@@ -773,7 +773,7 @@ float cameraExec(int a4)
     evCrowdClapStart();
     if (((*(int *)0x8C421F60) != 0)) goto L_8C02BA1C;
     if (((*(int *)0x8C287D5C) == 3)) goto L_8C02BA1C;
-    FUN_8c08535e(v0_0, R5);
+    matchSceneSetup(v0_0, R5);
     L_8C02BA1C:;
     v0_1 = ((int (*)(int, int, int, int))(courtColliInit))(v0_0, R5, R6, R7);
     if (((*(int *)0x8C287D5C) != 3)) goto L_8C02BA30;
@@ -845,13 +845,13 @@ float cameraExec(int a4)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)); }
     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
-    FUN_8c029f50(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
+    cameraBlendVector240(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
     *(Stk3 *)(((int)stk + 20)) = vecMake(-30.0f, 33.0f, 69.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
     L_8C02C152:;
     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x64);
     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x64);
-    FUN_8c029f50(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
+    cameraBlendVector240(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
     *(float *)0x8C287A04 = (*(float *)((0x18 + (*(int *)(((int)stk + 68))))));
     v0_3 = (0x18);
     goto L_8C02C168;
@@ -868,7 +868,7 @@ float cameraExec(int a4)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)); }
     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
-    FUN_8c029f50(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
+    cameraBlendVector240(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
     *(Stk3 *)(((int)stk + 20)) = vecMake(151.0f, 48.0f, 81.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
     goto L_8C02C152;
@@ -881,7 +881,7 @@ float cameraExec(int a4)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)); }
     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
-    FUN_8c029f50(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
+    cameraBlendVector240(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
     *(Stk3 *)(((int)stk + 20)) = vecMake(-30.0f, 41.0f, 72.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
     goto L_8C02C152;
@@ -910,7 +910,7 @@ float cameraExec(int a4)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x88)); }
     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x58);
-    FUN_8c029f50(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
+    cameraBlendVector240(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
     *(Stk3 *)(((int)stk + 20)) = vecMake(19.0f, 44.0f, 189.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
     goto L_8C02C152;
@@ -919,8 +919,8 @@ float cameraExec(int a4)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)(((int)stk + 184))) + 0x94)); }
     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x64);
     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x64);
-    FUN_8c029f50(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
-    *(float *)0x8C287A04 = (FUN_8c029fe0((*(float *)(((*(int *)(((int)stk + 68))) + 0x18))), 30.0f));
+    cameraBlendVector240(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 16));
+    *(float *)0x8C287A04 = (cameraBlendFloat240((*(float *)(((*(int *)(((int)stk + 68))) + 0x18))), 30.0f));
     v0_3 = (0x8C287A04);
     goto L_8C02C168;
     L_8C02BC8E:;

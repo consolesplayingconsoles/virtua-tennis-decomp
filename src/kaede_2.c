@@ -1,24 +1,27 @@
 /* Shinobi library, KAEDE (the Maple bus driver): our own C, written from the disassembly. */
 
 typedef struct {
-    char head[0xfcc];
-    int *wp;            /* 0xfcc: write cursor */
+    char head[0xfc0];
+    int initialized;                    /* 0xfc0: set to 1 when mpdrv_init finishes */
+    void *halfBufferedWorkArea;         /* 0xfc4: two 0x3000-byte halves */
+    void *frameSlotArea;                /* 0xfc8: 24 slots of 0x400 bytes, second table at +0x6000 */
+    int *commandWriteCursor;            /* 0xfcc: write cursor */
     int pad0;
     int pad1;
-    int count;          /* 0xfd8 */
-    unsigned int limit; /* 0xfdc */
+    int previousCommandWords;          /* 0xfd8 */
+    unsigned int commandBytesUsed; /* 0xfdc */
     char mid[0x10f4 - 0xfe0];
-    void *gun;          /* 0x10f4 */
-} MpDrv;
+    void *lightGunState;          /* 0x10f4 */
+} MapleDriverStatePrefix;
 
 typedef struct {
     int w0;
-    unsigned int addr;  /* 4 */
+    unsigned int dmaAddress;  /* 4 */
     int w2, w3, w4, w5;
-    int flag;           /* 24 */
-} MpGun;
+    int transferFlags;           /* 24 */
+} MapleLightGunStatePrefix;
 
-extern MpDrv *g_8c47317c;
+extern MapleDriverStatePrefix *gMapleDriver;
 extern int gKdGunCount;
 extern char gKdGunBuf[];
 extern int gKdGunBusy;
@@ -27,43 +30,43 @@ extern int gKdGunLast;
 int mpdrv_setcmd_force(int a, int b, int *c, int d, int e, int f);
 
 
-int mpdrv_insertnop(int n)
+int mpdrv_insertnop(int nopCount)
 {
-    MpDrv *d = g_8c47317c;
-    int *p;
-    int i;
+    MapleDriverStatePrefix *driver = gMapleDriver;
+    int *writeCursor;
+    int nopIndex;
 
-    d->wp = (int *)((char *)d->wp + d->count * 4);
-    p = g_8c47317c->wp;
-    if (n > 0) {
-        i = 0;
+    driver->commandWriteCursor = (int *)((char *)driver->commandWriteCursor + driver->previousCommandWords * 4);
+    writeCursor = gMapleDriver->commandWriteCursor;
+    if (nopCount > 0) {
+        nopIndex = 0;
         do {
-            i++;
-            *p = 0x700;
-            p++;
-        } while (i < n);
+            nopIndex++;
+            *writeCursor = 0x700;
+            writeCursor++;
+        } while (nopIndex < nopCount);
     }
-    g_8c47317c->count = n;
-    g_8c47317c->limit += n * 4;
+    gMapleDriver->previousCommandWords = nopCount;
+    gMapleDriver->commandBytesUsed += nopCount * 4;
     return 0;
 }
 
 
 void kdExecGun(void)
 {
-    int n = gKdGunCount;
+    int gunCount = gKdGunCount;
 
-    if (n != 0) {
-        unsigned int addr;
-        int one = 1;
-        int m = n - 1;
+    if (gunCount != 0) {
+        unsigned int dmaAddress;
+        int requestWord = 1;
+        int lastGunIndex = gunCount - 1;
 
-        addr = ((unsigned int)gKdGunBuf & 0x1fffffe0) + 32;
-        *(unsigned int *)(addr | 0xa0000000) = ((unsigned int)m << 16) | 0x80000200;
+        dmaAddress = ((unsigned int)gKdGunBuf & 0x1fffffe0) + 32;
+        *(unsigned int *)(dmaAddress | 0xa0000000) = ((unsigned int)lastGunIndex << 16) | 0x80000200;
         gKdGunBusy = 1;
-        ((MpGun *)g_8c47317c->gun)->addr = addr;
-        ((MpGun *)g_8c47317c->gun)->flag = 1;
-        mpdrv_setcmd_force(m * 6, 9, &one, 1, 0, 0);
+        ((MapleLightGunStatePrefix *)gMapleDriver->lightGunState)->dmaAddress = dmaAddress;
+        ((MapleLightGunStatePrefix *)gMapleDriver->lightGunState)->transferFlags = 1;
+        mpdrv_setcmd_force(lastGunIndex * 6, 9, &requestWord, 1, 0, 0);
         gKdGunLast = gKdGunCount;
     }
 }

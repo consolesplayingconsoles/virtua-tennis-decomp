@@ -7,7 +7,7 @@ int BupDrawWarning(int, int, int);
 int BupFailDialog(int);
 int BupLoadFile(int, int, int, int);
 int BupRequestSave(int, int, int, int);
-int FUN_8c0eaf00(int, int, int);
+int resetBackColorZ(int, int, int);
 int bodyGroundFriction(int, int, int, int, int, float);
 int bodyLinePerp(Stk4, Stk3, Stk3);
 int buGetDiskInfo(int, int);
@@ -59,7 +59,7 @@ int strmScoreReset(void);
 int strmSetStereo(int);
 int strmVoiceSetVol(int);
 int syCfgGetSoundMode(int);
-int thunk_FUN_8c0bcda0(float, float);
+int thunk_fadeScreenDraw(float, float);
 int umpCheerTimed(int);
 int unlockApplyW1(void);
 int unlockApplyW2(void);
@@ -73,9 +73,9 @@ int eepromBootLoad(int a4);
 int BupCheckCard(int a4);
 int BupRequestLoad(int a4, int a5, int a6, int a7);
 int fadeCaptureEnd(int a4);
-int thunk_FUN_8c0eee50(int a4);
-int thunk_FUN_8c1e0150(int a4, int a5);
-int thunk_FUN_8c0f41f0(int a4, int a5, int a6, int a7);
+int thunk_nlGetMatrix(int a4);
+int thunk_buIsExistFile(int a4, int a5);
+int thunk_nlSprPut(int a4, int a5, int a6, int a7);
 
 void bodyStep(int a4, int a5, int a6, int a7, int a8, float f4)
 {
@@ -316,17 +316,17 @@ void bodyStep(int a4, int a5, int a6, int a7, int a8, float f4)
     nlPushUnitMatrix();
     nlRotateAX((int)(*(float *)((a4 + 0x330))));
     mtxMultiKeepPos((0x350 + a4));
-    thunk_FUN_8c0eee50((0x350 + a4));
+    thunk_nlGetMatrix((0x350 + a4));
     nlPopMatrix(0x1);
     nlPushUnitMatrix();
     nlRotateAY((int)(*(float *)((a4 + 0x334))));
     mtxMultiKeepPos((0x350 + a4));
-    thunk_FUN_8c0eee50((0x350 + a4));
+    thunk_nlGetMatrix((0x350 + a4));
     nlPopMatrix(0x1);
     nlPushUnitMatrix();
     nlRotateAZ((int)(*(float *)((a4 + 0x338))));
     mtxMultiKeepPos((0x350 + a4));
-    thunk_FUN_8c0eee50((0x350 + a4));
+    thunk_nlGetMatrix((0x350 + a4));
     nlPopMatrix(0x1);
     nlPushUnitMatrix();
     nlRotateAX((int)(*(float *)((a4 + 0x330))));
@@ -335,12 +335,12 @@ void bodyStep(int a4, int a5, int a6, int a7, int a8, float f4)
     nlPushUnitMatrix();
     nlRotateAY((int)(*(float *)((a4 + 0x334))));
     mtxMultiKeepPos((((int)stk + 48) + 0x6C));
-    thunk_FUN_8c0eee50((((int)stk + 48) + 0x6C));
+    thunk_nlGetMatrix((((int)stk + 48) + 0x6C));
     nlPopMatrix(0x1);
     nlPushUnitMatrix();
     nlRotateAZ((int)(*(float *)((a4 + 0x338))));
     mtxMultiKeepPos((((int)stk + 48) + 0x6C));
-    thunk_FUN_8c0eee50((((int)stk + 48) + 0x6C));
+    thunk_nlGetMatrix((((int)stk + 48) + 0x6C));
     nlCalcPoint((0x330 + a4), (0x330 + a4));
     nlPopMatrix(0x1);
     if (u75 > 0.0f) {
@@ -607,7 +607,7 @@ int pauseExec(int a4, int a5)
     *(unsigned int *)0x8C38B9C0 = v0_0;
     L_8C0CEA74:;
     if (((int)(*(int *)((v0_5 + 0x0))) > (int)0xFFFFFFFD)) goto L_8C0CEA84;
-    thunk_FUN_8c0f41f0(0x8C38B960, v0_6, v0_3, v0_9);
+    thunk_nlSprPut(0x8C38B960, v0_6, v0_3, v0_9);
     L_8C0CEA84:;
     if (((int)(*(int *)((v0_5 + 0x0))) >= (int)0xFFFFFFFC)) goto L_8C0CEAC2;
     if (((*(int *)0x8C38B9B0) == 0)) goto L_8C0CEAC2;
@@ -617,7 +617,7 @@ int pauseExec(int a4, int a5)
     *(unsigned int *)((v0_5 + 0x0)) = v0_2;
     *(unsigned int *)((v0_4 + 0x0)) = v0_2;
     *(unsigned int *)((v0_1 + 0x70)) = ((*(int *)((v0_1 + 0x70))) & 0xFFFFFFBF);
-    FUN_8c0eaf00(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
+    resetBackColorZ(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
     pauseQuit();
     L_8C0CEAC2:;
     if (((int)(*(int *)((v0_5 + 0x0))) < (int)0xFFFFFFFF)) goto L_8C0CEB08;
@@ -745,7 +745,7 @@ int BupCardWarning(int a4)
     v0_1 = buGetFileInfo((*(int *)0x8C40C628), 0x8C126AB0, (((int)stk + 4) + 0x14));
     resCautionReset(0x0);
     v0_0 = *(short *)(((*(int *)(((int)stk + 4))) + 0x3A));
-    v0_7 = (thunk_FUN_8c1e0150(0x0, 0x8C126AB0)) == 0;
+    v0_7 = (thunk_buIsExistFile(0x0, 0x8C126AB0)) == 0;
     v0_0 = ((unsigned short)v0_0);
     v0_6 = (v0_1);
     v0_1 = (0x8C126AB0);
@@ -767,7 +767,7 @@ int BupCardWarning(int a4)
     L_8C0E08F2:;
     if ((v0_6 == 0xFFFFFF03)) goto L_8C0E0918;
     if ((v0_6 == 0xFFFFFF01)) goto L_8C0E0918;
-    v0_6 = (thunk_FUN_8c1e0150(0x0, 0x8C126AB0)) == 0xFFFFFF05;
+    v0_6 = (thunk_buIsExistFile(0x0, 0x8C126AB0)) == 0xFFFFFF05;
     if (v0_6) goto L_8C0E090E;
     goto L_8C0E0A56;
     L_8C0E090E:;
@@ -790,7 +790,7 @@ int BupCardWarning(int a4)
     v0_6 = (v0_2);
     if (((*(int *)(((int)stk + 8))) == 0xFFFFFF03)) goto L_8C0E0982;
     if (!(((*(int *)(((int)stk + 8))) != 0xFFFFFF01))) goto L_8C0E0982;
-    v0_7 = (thunk_FUN_8c1e0150(0x0, v0_1)) != 0xFFFFFF05;
+    v0_7 = (thunk_buIsExistFile(0x0, v0_1)) != 0xFFFFFF05;
     if (v0_7) goto L_8C0E099A;
     if (((int)v0_0 >= (int)0x2)) goto L_8C0E099A;
     v0_6 = (v0_3);
@@ -798,9 +798,9 @@ int BupCardWarning(int a4)
     L_8C0E0982:;
     v0_6 = (v0_2);
     L_8C0E099A:;
-    v0_7 = (thunk_FUN_8c1e0150(0x0, v0_1)) == 0;
+    v0_7 = (thunk_buIsExistFile(0x0, v0_1)) == 0;
     if (v0_7) goto L_8C0E09B6;
-    v0_7 = (thunk_FUN_8c1e0150(0x0, v0_1)) != 0xFFFFFF05;
+    v0_7 = (thunk_buIsExistFile(0x0, v0_1)) != 0xFFFFFF05;
     if (v0_7) goto L_8C0E09BA;
     if (((int)v0_0 < (int)0x2)) goto L_8C0E09BA;
     L_8C0E09B6:;
@@ -868,7 +868,7 @@ int eepromBootLoad(int a4)
     v0_0 = (0x8C40C628);
     v0_1 = (0x0);
     L_8C0DF31E:;
-    v0_2 = (thunk_FUN_8c1e0150((*(int *)((v0_0 + 0x0))), 0x8C126AB0)) != 0;
+    v0_2 = (thunk_buIsExistFile((*(int *)((v0_0 + 0x0))), 0x8C126AB0)) != 0;
     *(unsigned int *)(((int)stk + 4)) = *(int *)((int)stk + 4);
     R8 = (0x8C126AB0);
     if (v0_2) goto L_8C0DF34A;
@@ -976,7 +976,7 @@ int BupCheckCard(int a4)
     if ((v0_4 == 0xFFFFFF01)) goto L_8C0E058A;
     if ((v0_4 == -1)) goto L_8C0E058E;
     if (!((v0_4 == 0))) goto L_8C0E05BA;
-    v0_3 = (thunk_FUN_8c1e0150(0x0, 0x8C126AB0)) != 0;
+    v0_3 = (thunk_buIsExistFile(0x0, 0x8C126AB0)) != 0;
     v0_4 = (0x3A);
     v0_0 = (v0_2);
     if (v0_3) goto L_8C0E05A2;
@@ -1012,7 +1012,7 @@ int BupRequestLoad(int a4, int a5, int a6, int a7)
     register int t0;
     register int t1;
 
-    t1 = thunk_FUN_8c1e0150(a4, a5);
+    t1 = thunk_buIsExistFile(a4, a5);
     if ((t1 == 0) && (t0 = *(int *)0x8C40C6A4, t0 == 0)) {
         t0 = 0x0;
         for (;;) {
@@ -1041,7 +1041,7 @@ int fadeCaptureEnd(int a4)
     t1 = t0;
     if (t0 == 1) {
         nlRenderTextureEnd(a4);
-        t0 = thunk_FUN_8c0bcda0(1.0f, (*(float *)0x8C287D64));
+        t0 = thunk_fadeScreenDraw(1.0f, (*(float *)0x8C287D64));
         *(unsigned int *)0x8C287D7C = a4;
         *(float *)0x8C287D80 = (float)(a4 - 2);
         if (a4 == 0) {
@@ -1056,17 +1056,17 @@ int fadeCaptureEnd(int a4)
     return t1;
 }
 
-int thunk_FUN_8c0eee50(int a4)
+int thunk_nlGetMatrix(int a4)
 {
     return nlGetMatrix(a4);
 }
 
-int thunk_FUN_8c1e0150(int a4, int a5)
+int thunk_buIsExistFile(int a4, int a5)
 {
     return buIsExistFile(a4, a5);
 }
 
-int thunk_FUN_8c0f41f0(int a4, int a5, int a6, int a7)
+int thunk_nlSprPut(int a4, int a5, int a6, int a7)
 {
     return nlSprPut(a4, a5, a6, a7);
 }

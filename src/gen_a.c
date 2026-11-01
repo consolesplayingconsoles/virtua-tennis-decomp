@@ -78,7 +78,7 @@ int panelMenuSprInitA(void);
 int panelMenuSprInitB(void);
 int panelMenuSprInitC(void);
 int texPicInit(void);
-int selConstStub(void);
+int selCopyLocalConstants(void);
 int stageSelSprInit(void);
 int stageSelSprInit2(void);
 int stageSelSprInit3(void);
@@ -147,7 +147,7 @@ int ovMdlDeleteTbl(int);
 int ADXT_Create(int, int, int);
 int kmyMemCopy(int, int, int);
 int kmSetPixelClipping(int, int, int, int);
-int FUN_8c1e6b1c(void);
+int stringEquals(void);
 int gdGdcReqCmd(int, int);
 int gdGdcExecServer(void);
 int gdGdcCheckDmaTrans(void);
@@ -160,8 +160,8 @@ int kmyGetInterruptLevel(int);
 int kmyGetLastTextureDMAID(void);
 int kmiUnregisterInterruptHandler(void);
 int kmiFBControl(int, int);
-int FUN_8c1ff1bc(void);
-int FUN_8c1ff1ee(void);
+int bufferEquals(void);
+int copyBytes(void);
 int ADXB_Init(void);
 int ADXPD_Init(void);
 int SJMEM_Finish(void);
@@ -276,7 +276,7 @@ int padLcdModeClear(void);
 int memcmp(int, int, int);
 int syBtCfgSet(int, int);
 int syCfgInit(int);
-int thunk_FUN_8c0bcda0(float, float);
+int thunk_fadeScreenDraw(float, float);
 int vmsfb_exec(void);
 int vmsfs_c_dispatch(int);
 int vmsfs_c_exit(void);
@@ -607,7 +607,7 @@ void padLcdMessage(int a4)
     *(unsigned int *)0x8C29BBC0 = 0x78;
 }
 
-int thunk_FUN_8c032f6c(void)
+int thunk_circuitTaskRun(void)
 {
     return circuitTaskRun();
 }
@@ -1278,9 +1278,9 @@ int sprAdvInit(void)
     return decoSprInit();
 }
 
-int thunk_FUN_8c09e55a(void)
+int thunk_selCopyLocalConstants(void)
 {
-    return selConstStub();
+    return selCopyLocalConstants();
 }
 
 int sprSet109Init(void)
@@ -2389,20 +2389,20 @@ int ADXT_Finish(void)
     return ADXF_Finish();
 }
 
-int ADXT_GetStat(int a4)
+int ADXT_GetStat(int playerAddress)
 {
-    int t0;
+    int status;
 
-    t0 = *(signed char *)((a4 + 0x1));
-    return t0;
+    status = *(signed char *)((playerAddress + 0x1));
+    return status;
 }
 
-int ADXT_GetOutVol(int a4)
+int ADXT_GetOutVol(int playerAddress)
 {
-    int t0;
+    int outputVolume;
 
-    t0 = *(short *)((a4 + 0x40));
-    return t0;
+    outputVolume = *(short *)((playerAddress + 0x40));
+    return outputVolume;
 }
 
 int ADXF_Tell(int a4)
@@ -2539,9 +2539,9 @@ int kmSetFatalErrorCallback(int a4)
     return kmyRegisterCallback(0x8, a4, 0x8C45F920);
 }
 
-int kmSetHSyncCallback(int a4, int a5)
+int kmSetHSyncCallback(int callback, int callbackArgument)
 {
-    return kmyRegisterCallback(0x2, a4, a5);
+    return kmyRegisterCallback(0x2, callback, callbackArgument);
 }
 
 int kmSetPALEXTCallback(int a4)
@@ -2554,9 +2554,9 @@ int kmSetTexOverflowCallback(int a4, int a5)
     return kmyRegisterCallback(0x3, a4, a5);
 }
 
-int kmSetVSyncCallback(int a4, int a5)
+int kmSetVSyncCallback(int callback, int callbackArgument)
 {
-    return kmyRegisterCallback(0x1, a4, a5);
+    return kmyRegisterCallback(0x1, callback, callbackArgument);
 }
 
 int kmSetWaitVsyncCallback(int a4, int a5)
@@ -2589,12 +2589,12 @@ int kmFreeTexture(int a4)
     return t6;
 }
 
-int FUN_8c1e4a80(void)
+int collectTextureGarbage(void)
 {
-    int t0;
+    int result;
 
-    t0 = kmyGarbageCollection();
-    return t0;
+    result = kmyGarbageCollection();
+    return result;
 }
 
 int kmGetFreeTextureMem(void)
@@ -2658,9 +2658,9 @@ int gdFsToUpper(int a4)
     return t1;
 }
 
-int thunk_FUN_8c1e6b1c(void)
+int thunk_stringEquals(void)
 {
-    return FUN_8c1e6b1c();
+    return stringEquals();
 }
 
 int syTmrGetCount(void)
@@ -2811,12 +2811,12 @@ int ADXSJD_Finish(void)
     return memset(0x8C46AE24, 0x0, 0x4C0);
 }
 
-int ADXSJD_GetStat(int a4)
+int ADXSJD_GetStat(int streamDecoderAddress)
 {
-    int t0;
+    int status;
 
-    t0 = *(signed char *)((a4 + 0x1));
-    return t0;
+    status = *(signed char *)((streamDecoderAddress + 0x1));
+    return status;
 }
 
 void ADXSJD_SetInSj(int a4, int a5)
@@ -2830,12 +2830,12 @@ void ADXSJD_Start(int a4)
     *(unsigned char *)((a4 + 0x1)) = 0x1;
 }
 
-int ADXSJD_GetDecNumSmpl(int a4)
+int ADXSJD_GetDecNumSmpl(int streamDecoderAddress)
 {
-    int t0;
+    int decodedSampleCount;
 
-    t0 = *(int *)((a4 + 0x2C));
-    return t0;
+    decodedSampleCount = *(int *)((streamDecoderAddress + 0x2C));
+    return decodedSampleCount;
 }
 
 void ADXSJD_EntryTrapFunc(int a4, int a5, int a6)
@@ -2844,108 +2844,108 @@ void ADXSJD_EntryTrapFunc(int a4, int a5, int a6)
     *(unsigned int *)((a4 + 0x4C)) = a6;
 }
 
-int ADXSJD_GetFormat(int a4)
+int ADXSJD_GetFormat(int streamDecoderAddress)
 {
-    int t0;
+    int decoderAddress;
 
-    t0 = *(int *)((a4 + 0x4));
-    return ADXB_GetFormat(t0);
+    decoderAddress = *(int *)((streamDecoderAddress + 0x4));
+    return ADXB_GetFormat(decoderAddress);
 }
 
-int ADXSJD_GetSfreq(int a4)
+int ADXSJD_GetSfreq(int streamDecoderAddress)
 {
-    int t0;
+    int decoderAddress;
 
-    t0 = *(int *)((a4 + 0x4));
-    return ADXB_GetSfreq(t0);
+    decoderAddress = *(int *)((streamDecoderAddress + 0x4));
+    return ADXB_GetSfreq(decoderAddress);
 }
 
-int ADXSJD_GetNumChan(int a4)
+int ADXSJD_GetNumChan(int streamDecoderAddress)
 {
-    int t0;
+    int decoderAddress;
 
-    t0 = *(int *)((a4 + 0x4));
-    return ADXB_GetNumChan(t0);
+    decoderAddress = *(int *)((streamDecoderAddress + 0x4));
+    return ADXB_GetNumChan(decoderAddress);
 }
 
-int ADXSJD_GetOutBps(int a4)
+int ADXSJD_GetOutBps(int streamDecoderAddress)
 {
-    int t0;
+    int decoderAddress;
 
-    t0 = *(int *)((a4 + 0x4));
-    return ADXB_GetOutBps(t0);
+    decoderAddress = *(int *)((streamDecoderAddress + 0x4));
+    return ADXB_GetOutBps(decoderAddress);
 }
 
-int ADXSJD_GetBlkSmpl(int a4)
+int ADXSJD_GetBlkSmpl(int streamDecoderAddress)
 {
-    int t0;
+    int decoderAddress;
 
-    t0 = *(int *)((a4 + 0x4));
-    return ADXB_GetBlkSmpl(t0);
+    decoderAddress = *(int *)((streamDecoderAddress + 0x4));
+    return ADXB_GetBlkSmpl(decoderAddress);
 }
 
-int ADXSJD_GetTotalNumSmpl(int a4)
+int ADXSJD_GetTotalNumSmpl(int streamDecoderAddress)
 {
-    int t0;
+    int decoderAddress;
 
-    t0 = *(int *)((a4 + 0x4));
-    return ADXB_GetTotalNumSmpl(t0);
+    decoderAddress = *(int *)((streamDecoderAddress + 0x4));
+    return ADXB_GetTotalNumSmpl(decoderAddress);
 }
 
-int ADXSJD_GetNumLoop(int a4)
+int ADXSJD_GetNumLoop(int streamDecoderAddress)
 {
-    int t0;
+    int decoderAddress;
 
-    t0 = *(int *)((a4 + 0x4));
-    return ADXB_GetNumLoop(t0);
+    decoderAddress = *(int *)((streamDecoderAddress + 0x4));
+    return ADXB_GetNumLoop(decoderAddress);
 }
 
-int ADXSJD_GetLpStartPos(int a4)
+int ADXSJD_GetLpStartPos(int streamDecoderAddress)
 {
-    int t0;
+    int decoderAddress;
 
-    t0 = *(int *)((a4 + 0x4));
-    return ADXB_GetLpStartPos(t0);
+    decoderAddress = *(int *)((streamDecoderAddress + 0x4));
+    return ADXB_GetLpStartPos(decoderAddress);
 }
 
-int ADXSJD_GetLpStartOfst(int a4)
+int ADXSJD_GetLpStartOfst(int streamDecoderAddress)
 {
-    int t0;
+    int decoderAddress;
 
-    t0 = *(int *)((a4 + 0x4));
-    return ADXB_GetLpStartOfst(t0);
+    decoderAddress = *(int *)((streamDecoderAddress + 0x4));
+    return ADXB_GetLpStartOfst(decoderAddress);
 }
 
-int ADXSJD_GetLpEndPos(int a4)
+int ADXSJD_GetLpEndPos(int streamDecoderAddress)
 {
-    int t0;
+    int decoderAddress;
 
-    t0 = *(int *)((a4 + 0x4));
-    return ADXB_GetLpEndPos(t0);
+    decoderAddress = *(int *)((streamDecoderAddress + 0x4));
+    return ADXB_GetLpEndPos(decoderAddress);
 }
 
-int ADXSTM_GetStat(int a4)
+int ADXSTM_GetStat(int streamAddress)
 {
-    int t0;
+    int status;
 
-    t0 = *(signed char *)((a4 + 0x1));
-    return t0;
+    status = *(signed char *)((streamAddress + 0x1));
+    return status;
 }
 
-int ADXSTM_GetSj(int a4)
+int ADXSTM_GetSj(int streamAddress)
 {
-    int t0;
+    int streamJointAddress;
 
-    t0 = *(int *)((a4 + 0x4));
-    return t0;
+    streamJointAddress = *(int *)((streamAddress + 0x4));
+    return streamJointAddress;
 }
 
-int ADXSTM_GetFileLen(int a4)
+int ADXSTM_GetFileLen(int streamAddress)
 {
-    int t0;
+    int fileLength;
 
-    t0 = *(int *)((a4 + 0x14));
-    return t0;
+    fileLength = *(int *)((streamAddress + 0x14));
+    return fileLength;
 }
 
 int SJMEM_GetUuid(int a4)
@@ -2995,15 +2995,15 @@ void SJRBF_EntryErrFunc(int a4, int a5, int a6)
     *(unsigned int *)((a4 + 0x2C)) = a6;
 }
 
-void SJRBF_Reset(int a4)
+void SJRBF_Reset(int ringAddress)
 {
-    int t0;
+    int bufferBytes;
 
-    *(unsigned int *)((a4 + 0xC)) = 0x0;
-    t0 = *(int *)((a4 + 0x20));
-    *(unsigned int *)((a4 + 0x10)) = t0;
-    *(unsigned int *)((a4 + 0x14)) = 0x0;
-    *(unsigned int *)((a4 + 0x18)) = 0x0;
+    *(unsigned int *)((ringAddress + 0xC)) = 0x0;
+    bufferBytes = *(int *)((ringAddress + 0x20));
+    *(unsigned int *)((ringAddress + 0x10)) = bufferBytes;
+    *(unsigned int *)((ringAddress + 0x14)) = 0x0;
+    *(unsigned int *)((ringAddress + 0x18)) = 0x0;
 }
 
 int SJRBF_GetBufSize(int a4)
@@ -3122,9 +3122,9 @@ int kmyIsEnabledASyncCopy(void)
     return t0;
 }
 
-void kmySetDMACallback(int a4, int a5)
+void kmySetDMACallback(int requestAddress, int callbackAddress)
 {
-    *(unsigned int *)((a4 + 0x18)) = a5;
+    *(unsigned int *)((requestAddress + 0x18)) = callbackAddress;
 }
 
 void kmySetDisplayBpp(int a4)
@@ -3230,14 +3230,14 @@ void vmsio_init(void)
     *(unsigned int *)0x8C20CA40 = 0x0;
 }
 
-int thunk_FUN_8c1ff1bc(void)
+int thunk_bufferEquals(void)
 {
-    return FUN_8c1ff1bc();
+    return bufferEquals();
 }
 
-int thunk_FUN_8c1ff1ee(void)
+int thunk_copyBytes(void)
 {
-    return FUN_8c1ff1ee();
+    return copyBytes();
 }
 
 int ADXB_Init(void)
@@ -3258,20 +3258,20 @@ void ADXB_EntryAddWrFunc(int a4, int a5, int a6)
     *(unsigned int *)((a4 + 0x94)) = a6;
 }
 
-int ADXB_GetSfreq(int a4)
+int ADXB_GetSfreq(int decoderAddress)
 {
-    int t0;
+    int sampleRate;
 
-    t0 = *(int *)((a4 + 0x14));
-    return t0;
+    sampleRate = *(int *)((decoderAddress + 0x14));
+    return sampleRate;
 }
 
-int ADXB_GetBlkSmpl(int a4)
+int ADXB_GetBlkSmpl(int decoderAddress)
 {
-    int t0;
+    int samplesPerBlock;
 
-    t0 = *(int *)((a4 + 0x10));
-    return t0;
+    samplesPerBlock = *(int *)((decoderAddress + 0x10));
+    return samplesPerBlock;
 }
 
 int ADXB_GetLpInsNsmpl(int a4)
@@ -3282,44 +3282,44 @@ int ADXB_GetLpInsNsmpl(int a4)
     return t0;
 }
 
-int ADXB_GetLpStartOfst(int a4)
+int ADXB_GetLpStartOfst(int decoderAddress)
 {
-    int t0;
+    int loopStartOffset;
 
-    t0 = *(int *)((a4 + 0x2C));
-    return t0;
+    loopStartOffset = *(int *)((decoderAddress + 0x2C));
+    return loopStartOffset;
 }
 
-int ADXB_GetStat(int a4)
+int ADXB_GetStat(int decoderAddress)
 {
-    int t0;
+    int status;
 
-    t0 = *(int *)((a4 + 0x4));
-    return t0;
+    status = *(int *)((decoderAddress + 0x4));
+    return status;
 }
 
-int ADXB_GetDecDtLen(int a4)
+int ADXB_GetDecDtLen(int decoderAddress)
 {
-    int t0;
+    int decodedDataLength;
 
-    t0 = *(int *)((a4 + 0xA4));
-    return t0;
+    decodedDataLength = *(int *)((decoderAddress + 0xA4));
+    return decodedDataLength;
 }
 
-int ADXB_GetDecNumSmpl(int a4)
+int ADXB_GetDecNumSmpl(int decoderAddress)
 {
-    int t0;
+    int decodedSampleCount;
 
-    t0 = *(int *)((a4 + 0xA0));
-    return t0;
+    decodedSampleCount = *(int *)((decoderAddress + 0xA0));
+    return decodedSampleCount;
 }
 
-int ADXB_GetAdxpd(int a4)
+int ADXB_GetAdxpd(int decoderAddress)
 {
-    int t0;
+    int pcmDecoderAddress;
 
-    t0 = *(int *)((a4 + 0x8));
-    return t0;
+    pcmDecoderAddress = *(int *)((decoderAddress + 0x8));
+    return pcmDecoderAddress;
 }
 
 int ADXB_CopyExtraBufMono(int a4, int a5, int a6, int a7)
@@ -3444,17 +3444,17 @@ void kmyiInitializeDriverObject(int a4, int a5)
     *(unsigned int *)((a5 + 0x8)) = 0x8C20B4F8;
 }
 
-void kmySetDMAValue(int a4, int a5)
+void kmySetDMAValue(int requestAddress, int userValue)
 {
-    *(unsigned int *)((a4 + 0x2C)) = a5;
+    *(unsigned int *)((requestAddress + 0x2C)) = userValue;
 }
 
-int kmyGetDMAValue(int a4)
+int kmyGetDMAValue(int requestAddress)
 {
-    int t0;
+    int userValue;
 
-    t0 = *(int *)((a4 + 0x2C));
-    return t0;
+    userValue = *(int *)((requestAddress + 0x2C));
+    return userValue;
 }
 
 void kmySetPunchThroughThreshold(int a4)

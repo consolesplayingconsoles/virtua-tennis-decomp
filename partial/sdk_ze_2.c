@@ -8,7 +8,7 @@ void mwRnaStop(int *h, int b, int c, int d)
         return;
     }
     if (((unsigned char *)h)[1]) {
-        FUN_0c1717d8(&cs);
+        ovLockCs_8c200114(&cs);
         mwRnaSetPlaySw(h, 0);
         mwRnaSetTransSw(h, 0);
         mwlRnaClearBuf(h);

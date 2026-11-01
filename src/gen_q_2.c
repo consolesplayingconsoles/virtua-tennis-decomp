@@ -24,55 +24,17 @@ int ADXPD_Create(void);
 int ADXRNA_SetOutPan(int, int, int);
 int ADXSTM_Tell(int);
 int ADXT_SetOutVol(int, int);
-int FUN_0c02e1ce(int);
-int FUN_0c02e282(int);
-int FUN_0c02e2ca(int);
-int FUN_0c02e31e(int);
-int FUN_0c031036(int, int, int, int);
-int FUN_0c031408(int);
-int FUN_0c03933e(void);
-int FUN_0c03934e(float);
-int FUN_0c03f912(void);
-int FUN_0c040b98(int);
-int FUN_0c04a4d6(int, int);
-int FUN_0c04a52a(int);
-int FUN_0c04a8b6(int);
-int FUN_0c04aac6(int);
-int FUN_0c04af54(int);
-int FUN_0c04bb70(int);
-int FUN_0c04d49e(int, float, float);
-int FUN_0c050fec(void);
-int FUN_0c057728(int, int, int);
-int FUN_0c05778a(int, int, float, float);
-int FUN_0c059310(int, int);
-int FUN_0c059486(int, int);
-int FUN_0c05af6c(void);
-int FUN_0c05af86(void);
-int FUN_0c05bb24(int);
-int FUN_0c05bb76(int);
-int FUN_0c070e8a(int);
-int FUN_0c07284e(int, int);
-int FUN_0c074200(int, int);
-int FUN_0c074690(void);
-int FUN_0c074f10(void);
-int FUN_0c0770f0(int, int, int);
-int FUN_0c0813e0(int, int, int);
-int FUN_0c08160a(int, int, int, int, float);
-int FUN_0c156c32(int, int, int, int);
-int FUN_0c1583c4(int);
-int FUN_0c158860(int, int, int);
-int FUN_0c16884a(int);
-int FUN_0c168c7c(int);
-int FUN_0c16c634(int);
-int FUN_0c170848(int, int, int);
-int FUN_0c17085c(int);
+int nlSetPaletteData(int, int, int);
+int memcmp(int, int, int);
+int prefetch(int, int, int, int, float);
+int ADXSJD_GetNumChan(int);
+int syBtFlWrite(int, int, int);
+int syBtFlDeleteSct(int);
 int fmMngMcpy4(int, int, int);
 int fmMngNum2Bit(int, int, int);
 int fmMngChkEmptyData(int, int);
 int fmMngSctRefresh(int);
 int fmMngAddData(int);
-int FUN_0c172f1e(int);
-int FUN_0c17467c(int);
 int GetMenuMode(int);
 int GetRotVec4Ang(float);
 int KillColliObj(int);
@@ -134,7 +96,6 @@ int set_event(int, int, int, int);
 int setjmp(int);
 int syBtCfgSet(int, int);
 int syCfgSetSoundMode(int);
-int thunk_FUN_0c1708b2(int, int, int);
 int vmsfs_c_getstate(int);
 
 
@@ -511,186 +472,186 @@ void ADXSTM_SetEos(int a4, int a5)
 }
 
 
-int fmMngBit2Num(int a4, int a5, int a6)
+int fmMngBit2Num(int bitmapAddress, int bitmapBlockCount, int a6)
 {
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
+    int bitmapCursor;
+    int bitsRemaining;
+    int shiftedBitmapByte;
+    int usedRecordCount;
+    int bytesRemaining;
+    int bitmapByte;
 
-    t0 = a4;
-    t1 = a5;
-    t2 = a6;
-    t3 = 0x0;
-    t4 = (((a5 << 2) << 2) << 2);
-    while ((int)t4 > 0) {
-        t5 = *(signed char *)((t0 + 0x0));
-        t0 = (t0 + 0x1);
-        t2 = t5;
-        t1 = 0x8;
+    bitmapCursor = bitmapAddress;
+    bitsRemaining = bitmapBlockCount;
+    shiftedBitmapByte = a6;
+    usedRecordCount = 0x0;
+    bytesRemaining = (((bitmapBlockCount << 2) << 2) << 2);
+    while ((int)bytesRemaining > 0) {
+        bitmapByte = *(signed char *)((bitmapCursor + 0x0));
+        bitmapCursor = (bitmapCursor + 0x1);
+        shiftedBitmapByte = bitmapByte;
+        bitsRemaining = 0x8;
         for (;;) {
-            if (((signed char)t2 & 0x80) == 0) {
-                t1 = (t1 - 1);
-                t2 = (t2 << 1);
-                t3 = (t3 + 0x1);
-                if ((int)t1 <= 0) break;
+            if (((signed char)shiftedBitmapByte & 0x80) == 0) {
+                bitsRemaining = (bitsRemaining - 1);
+                shiftedBitmapByte = (shiftedBitmapByte << 1);
+                usedRecordCount = (usedRecordCount + 0x1);
+                if ((int)bitsRemaining <= 0) break;
                 continue;
             }
-            return t3;
+            return usedRecordCount;
         }
-        t4 = (t4 - 1);
+        bytesRemaining = (bytesRemaining - 1);
     }
-    return t3;
+    return usedRecordCount;
 }
 
 
-int fmMngChkEmptyData(int a4, int a5)
+int fmMngChkEmptyData(int a4, int recordAddress)
 {
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t7;
-    int t5;
-    int t6;
+    int payloadBytesRemaining;
+    int payloadCursor;
+    int payloadByte;
+    int computedCrc;
+    int storedCrc;
+    int recordWasCleared;
+    int recordBytesRemaining;
+    int recordCursor;
 
-    t0 = 0x3C;
-    t1 = (a5 + 0x2);
+    payloadBytesRemaining = 0x3C;
+    payloadCursor = (recordAddress + 0x2);
     for (;;) {
-        t2 = *(signed char *)((t1 + 0x0));
-        t1 = (t1 + 0x1);
-        if ((unsigned char)t2 == 0xFF) {
-            t0 = (t0 - 1);
-            if ((int)t0 <= 0) break;
+        payloadByte = *(signed char *)((payloadCursor + 0x0));
+        payloadCursor = (payloadCursor + 0x1);
+        if ((unsigned char)payloadByte == 0xFF) {
+            payloadBytesRemaining = (payloadBytesRemaining - 1);
+            if ((int)payloadBytesRemaining <= 0) break;
             continue;
         }
         return 0x0;
     }
-    t3 = fmcalccrc(0x3E, a5);
-    t4 = *(short *)((a5 + 0x3E));
-    t7 = 0x0;
-    if ((unsigned short)t4 == (unsigned short)t3) {
-        t5 = 0x40;
-        t6 = a5;
-        while (t5 != 0) {
-            *(unsigned char *)((t6 + 0x0)) = 0xFF;
-            t5 = (t5 - 1);
-            t6 = (t6 + 0x1);
+    computedCrc = fmcalccrc(0x3E, recordAddress);
+    storedCrc = *(short *)((recordAddress + 0x3E));
+    recordWasCleared = 0x0;
+    if ((unsigned short)storedCrc == (unsigned short)computedCrc) {
+        recordBytesRemaining = 0x40;
+        recordCursor = recordAddress;
+        while (recordBytesRemaining != 0) {
+            *(unsigned char *)((recordCursor + 0x0)) = 0xFF;
+            recordBytesRemaining = (recordBytesRemaining - 1);
+            recordCursor = (recordCursor + 0x1);
         }
-        t7 = 0x1;
+        recordWasCleared = 0x1;
     }
-    return t7;
+    return recordWasCleared;
 }
 
 
-int fmMngSctRefresh(int a4)
+int fmMngSctRefresh(int managerAddress)
 {
-    int t0;
-    int t1;
-    int t39;
-    int t2;
-    int t3;
-    int t35;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-    int t10;
-    int t11;
-    int t12;
-    int t14;
-    int t15;
-    int t17;
-    int t18;
-    int t19;
-    int t20;
-    int t21;
-    int t22;
-    int t24;
-    int t25;
-    int t26;
-    int t27;
-    int t28;
+    int formatMode;
+    int flashBaseAddress;
+    int refreshResult;
+    int cacheBufferAddress;
+    int headerWriteByteCount;
+    int headerAndRecordsResult;
+    int recordCapacity;
+    int recordScanResult;
+    int recordsRemaining;
+    int compactedRecordCount;
+    int physicalWriteAddress;
+    int cacheScanCursor;
+    int logicalRecordIndex;
+    int recordWasCleared;
+    int recordWriteByteCount;
+    int bitmapRecordCapacity;
+    int bitmapBlockCount;
+    int bitmapWriteBlockCount;
+    int bitmapWriteByteCount;
+    int bitmapCheckBlockCount;
+    int bitmapWriteResult;
+    int emptyCacheRecordCapacity;
+    int emptyBitmapBlockCount;
+    int emptyBitmapWriteBlockCount;
+    int emptyBitmapWriteByteCount;
+    int emptyBitmapCheckBlockCount;
+    int emptyBitmapWriteResult;
+    int recordsAndBitmapResult;
 
-    t0 = *(short *)((a4 + 0x2));
-    t1 = *(int *)((a4 + 0x4));
-    t39 = 0xFFFFFFFA;
-    if (t0 == 0) {
-        t2 = *(int *)((a4 + 0xC));
-        t3 = FUN_0c170848(t1, t2, 0x40);
-        t35 = 0xFFFFFFFE;
-        if (t3 == 64) {
-            t4 = *(int *)((a4 + 0x14));
-            if ((int)t4 > 0) {
-                t5 = t3;
-                t6 = t4;
-                t7 = 0x0;
-                t8 = (t1 + 0x40);
-                t9 = (t2 + 0x40);
+    formatMode = *(short *)((managerAddress + 0x2));
+    flashBaseAddress = *(int *)((managerAddress + 0x4));
+    refreshResult = 0xFFFFFFFA;
+    if (formatMode == 0) {
+        cacheBufferAddress = *(int *)((managerAddress + 0xC));
+        headerWriteByteCount = syBtFlWrite(flashBaseAddress, cacheBufferAddress, 0x40);
+        headerAndRecordsResult = 0xFFFFFFFE;
+        if (headerWriteByteCount == 64) {
+            recordCapacity = *(int *)((managerAddress + 0x14));
+            if ((int)recordCapacity > 0) {
+                recordScanResult = headerWriteByteCount;
+                recordsRemaining = recordCapacity;
+                compactedRecordCount = 0x0;
+                physicalWriteAddress = (flashBaseAddress + 0x40);
+                cacheScanCursor = (cacheBufferAddress + 0x40);
                 for (;;) {
-                    t10 = *(short *)((t9 + 0x0));
-                    if ((unsigned short)t10 != 0xFFFF) {
-                        t11 = fmMngChkEmptyData(a4, t9);
-                        t5 = t11;
-                        if (t5 == 0) {
-                            t12 = FUN_0c170848(t8, t9, 0x40);
-                            t5 = t12;
-                            if (t5 == 64) {
-                                t7 = (t7 + 0x1);
-                                t8 = (t8 + 0x40);
-                                t6 = (t6 - 1);
-                                t9 = (t9 + 0x40);
-                                if ((int)t6 <= 0) break;
+                    logicalRecordIndex = *(short *)((cacheScanCursor + 0x0));
+                    if ((unsigned short)logicalRecordIndex != 0xFFFF) {
+                        recordWasCleared = fmMngChkEmptyData(managerAddress, cacheScanCursor);
+                        recordScanResult = recordWasCleared;
+                        if (recordScanResult == 0) {
+                            recordWriteByteCount = syBtFlWrite(physicalWriteAddress, cacheScanCursor, 0x40);
+                            recordScanResult = recordWriteByteCount;
+                            if (recordScanResult == 64) {
+                                compactedRecordCount = (compactedRecordCount + 0x1);
+                                physicalWriteAddress = (physicalWriteAddress + 0x40);
+                                recordsRemaining = (recordsRemaining - 1);
+                                cacheScanCursor = (cacheScanCursor + 0x40);
+                                if ((int)recordsRemaining <= 0) break;
                                 continue;
                             }
-                            t5 = 0xFFFFFFFE;
-                            return t5;
+                            recordScanResult = 0xFFFFFFFE;
+                            return recordScanResult;
                         }
-                        t6 = (t6 - 1);
-                        t9 = (t9 + 0x40);
-                        if ((int)t6 <= 0) break;
+                        recordsRemaining = (recordsRemaining - 1);
+                        cacheScanCursor = (cacheScanCursor + 0x40);
+                        if ((int)recordsRemaining <= 0) break;
                         continue;
                     }
-                    t6 = (t6 - 1);
-                    t9 = (t9 + 0x40);
-                    if ((int)t6 <= 0) break;
+                    recordsRemaining = (recordsRemaining - 1);
+                    cacheScanCursor = (cacheScanCursor + 0x40);
+                    if ((int)recordsRemaining <= 0) break;
                 }
-                t14 = *(int *)((a4 + 0x14));
-                t15 = *(int *)((a4 + 0x18));
-                fmMngNum2Bit(t7, t9, t15);
-                t17 = *(int *)((a4 + 0x18));
-                t18 = FUN_0c170848((((((t14 + 0x1) << 2) << 2) << 2) + t1), t9, (((t17 << 2) << 2) << 2));
-                t19 = *(int *)((a4 + 0x18));
-                t20 = 0xFFFFFFFE;
-                if (t18 == (((t19 << 2) << 2) << 2)) {
-                    *(unsigned int *)((a4 + 0x10)) = t7;
-                    t20 = 0x0;
+                bitmapRecordCapacity = *(int *)((managerAddress + 0x14));
+                bitmapBlockCount = *(int *)((managerAddress + 0x18));
+                fmMngNum2Bit(compactedRecordCount, cacheScanCursor, bitmapBlockCount);
+                bitmapWriteBlockCount = *(int *)((managerAddress + 0x18));
+                bitmapWriteByteCount = syBtFlWrite((((((bitmapRecordCapacity + 0x1) << 2) << 2) << 2) + flashBaseAddress), cacheScanCursor, (((bitmapWriteBlockCount << 2) << 2) << 2));
+                bitmapCheckBlockCount = *(int *)((managerAddress + 0x18));
+                bitmapWriteResult = 0xFFFFFFFE;
+                if (bitmapWriteByteCount == (((bitmapCheckBlockCount << 2) << 2) << 2)) {
+                    *(unsigned int *)((managerAddress + 0x10)) = compactedRecordCount;
+                    bitmapWriteResult = 0x0;
                 }
-                t28 = t20;
+                recordsAndBitmapResult = bitmapWriteResult;
             } else {
-                t21 = *(int *)((a4 + 0x14));
-                t22 = *(int *)((a4 + 0x18));
-                fmMngNum2Bit(0x0, (t2 + 0x40), t22);
-                t24 = *(int *)((a4 + 0x18));
-                t25 = FUN_0c170848((((((t21 + 0x1) << 2) << 2) << 2) + t1), (t2 + 0x40), (((t24 << 2) << 2) << 2));
-                t26 = *(int *)((a4 + 0x18));
-                t27 = 0xFFFFFFFE;
-                if (t25 == (((t26 << 2) << 2) << 2)) {
-                    *(unsigned int *)((a4 + 0x10)) = 0x0;
-                    t27 = 0x0;
+                emptyCacheRecordCapacity = *(int *)((managerAddress + 0x14));
+                emptyBitmapBlockCount = *(int *)((managerAddress + 0x18));
+                fmMngNum2Bit(0x0, (cacheBufferAddress + 0x40), emptyBitmapBlockCount);
+                emptyBitmapWriteBlockCount = *(int *)((managerAddress + 0x18));
+                emptyBitmapWriteByteCount = syBtFlWrite((((((emptyCacheRecordCapacity + 0x1) << 2) << 2) << 2) + flashBaseAddress), (cacheBufferAddress + 0x40), (((emptyBitmapWriteBlockCount << 2) << 2) << 2));
+                emptyBitmapCheckBlockCount = *(int *)((managerAddress + 0x18));
+                emptyBitmapWriteResult = 0xFFFFFFFE;
+                if (emptyBitmapWriteByteCount == (((emptyBitmapCheckBlockCount << 2) << 2) << 2)) {
+                    *(unsigned int *)((managerAddress + 0x10)) = 0x0;
+                    emptyBitmapWriteResult = 0x0;
                 }
-                t28 = t27;
+                recordsAndBitmapResult = emptyBitmapWriteResult;
             }
-            t35 = t28;
+            headerAndRecordsResult = recordsAndBitmapResult;
         }
-        t39 = t35;
+        refreshResult = headerAndRecordsResult;
     }
-    return t39;
+    return refreshResult;
 }
 
 

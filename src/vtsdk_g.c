@@ -1,24 +1,24 @@
 /* Small SDK functions, batch g: this game's own builds of library functions that differ from the common ones.
    Behaviour-checked only. */
 
-extern int g_0c2b31bc[3];
+extern int gNlRenderTextureTableState[3];
 extern int gRenderTextureReady;
 extern float nlSinf(float x);
 
 /* As the common build, then it also sets the ready flag that sits just before the table. */
-void nlRenderTextureInit(int size, int count)
+void nlRenderTextureInit(int tableAddress, int entryCount)
 {
-    int *p = (int *)((size + 31) & -32);
+    int *entry = (int *)((tableAddress + 31) & -32);
 
-    g_0c2b31bc[0] = (int)p;
-    if (count < 0)
-        count = 0;
-    g_0c2b31bc[1] = count;
-    g_0c2b31bc[2] = -1;
-    for (; count > 0; count--) {
-        p[0] = -1;
-        p[1] = -1;
-        p += 4;
+    gNlRenderTextureTableState[0] = (int)entry;
+    if (entryCount < 0)
+        entryCount = 0;
+    gNlRenderTextureTableState[1] = entryCount;
+    gNlRenderTextureTableState[2] = -1;
+    for (; entryCount > 0; entryCount--) {
+        entry[0] = -1;
+        entry[1] = -1;
+        entry += 4;
     }
     gRenderTextureReady = 1;
 }

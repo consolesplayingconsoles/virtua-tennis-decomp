@@ -15,13 +15,13 @@ extern int kmiWriteRegister(int reg, int val);
 extern int setjmp(void *jb);
 extern void longjmp(void *jb, int v);
 
-typedef struct { char used; char busy; char pad[14]; int handle; char rest[8]; } SndStream;
-extern SndStream g_8c454cf4[];
-extern char *g_8c47317c;
-extern void (*g_8c45eef0)(void *s);
-extern char *g_8c4762c8;
-typedef struct { char pad[36]; int (*fn)(int a); } GdFsObj;
-extern GdFsObj *g_8c20c210;
+typedef struct { char used; char busy; char pad[14]; int positionAddress; char rest[8]; } NlSoundStreamState;
+extern NlSoundStreamState gNlSoundStreams[];
+extern char *gMapleDriver;
+extern void (*gPalExtensionRatioCallback)(void *s);
+extern char *gBuFiberScheduler;
+typedef struct { char pad[36]; int (*loadDirectoryFast)(int a); } GdFsDirectoryOperationsPrefix;
+extern GdFsDirectoryOperationsPrefix *gGdFsOperations;
 
 void nlArcCot(float x)
 {
@@ -30,20 +30,20 @@ void nlArcCot(float x)
     nlArcTan(1.0f / x);
 }
 
-int nlsndStreamGetPlayPos(int i)
+int nlsndStreamGetPlayPos(int streamIndex)
 {
-    SndStream *s = &g_8c454cf4[(short)i];
-    if (s->used == 1 && s->busy != 0)
-        return nlsndG2Read(s->handle);
+    NlSoundStreamState *stream = &gNlSoundStreams[(short)streamIndex];
+    if (stream->used == 1 && stream->busy != 0)
+        return nlsndG2Read(stream->positionAddress);
     return 0;
 }
 
-int gdFsLoadDirFast(int a)
+int gdFsLoadDirFast(int directory)
 {
-    GdFsObj *o = g_8c20c210;
-    if (o == 0)
+    GdFsDirectoryOperationsPrefix *operations = gGdFsOperations;
+    if (operations == 0)
         return 0;
-    return o->fn(a);
+    return operations->loadDirectoryFast(directory);
 }
 
 int pdGetPeripheralInfo(int dev)
@@ -71,21 +71,21 @@ int buGetDiskFree(int a, int b)
     return vmsfs_diskfree(a, b);
 }
 
-int gdFsCheckEof(char *h, int *out)
+int gdFsCheckEof(char *handle, int *atEndOfFile)
 {
-    if (h == 0 || *(short *)(h + 76) == 0)
+    if (handle == 0 || *(short *)(handle + 76) == 0)
         return -10;
-    if (*(int *)(h + 20) >= *(int *)(h + 16))
-        *out = 1;
+    if (*(int *)(handle + 20) >= *(int *)(handle + 16))
+        *atEndOfFile = 1;
     else
-        *out = 0;
+        *atEndOfFile = 0;
     return 0;
 }
 
 int kdSetDeviceRequest(int a)
 {
     int r = mpdrv_set_dreq(a);
-    if (*(int *)(g_8c47317c + 4328) != 0)
+    if (*(int *)(gMapleDriver + 4328) != 0)
         kdRecvFrame();
     return r;
 }
@@ -113,35 +113,35 @@ void ADXSTM_GetGdfsStat(char *p, int *out)
     *out = gdFsGetStat(*(int *)(p + 8));
 }
 
-int kmyiGetPALExtRatio(int mode)
+int kmyiGetPALExtRatio(int displayMode)
 {
-    struct { int mode; int ratio; } s;
-    s.mode = mode;
-    g_8c45eef0(&s);
-    if (s.ratio < 0 || s.ratio > 4)
-        s.ratio = 1;
-    return s.ratio;
+    struct { int displayMode; int ratio; } request;
+    request.displayMode = displayMode;
+    gPalExtensionRatioCallback(&request);
+    if (request.ratio < 0 || request.ratio > 4)
+        request.ratio = 1;
+    return request.ratio;
 }
 
 char *mpdrv_get_device(int n)
 {
-    return g_8c47317c + 40 + n * 44;
+    return gMapleDriver + 40 + n * 44;
 }
 
 int mpdrv_get_debugmode(void)
 {
-    return *(int *)(g_8c47317c + 4296);
+    return *(int *)(gMapleDriver + 4296);
 }
 
 int mpdrv_get_lastsendaddr(void)
 {
-    return *(int *)(g_8c47317c + 4272);
+    return *(int *)(gMapleDriver + 4272);
 }
 
-void ADXB_Start(char *p)
+void ADXB_Start(char *decoder)
 {
-    if (*(int *)(p + 4) == 0)
-        *(int *)(p + 4) = 1;
+    if (*(int *)(decoder + 4) == 0)
+        *(int *)(decoder + 4) = 1;
 }
 
 int kmyConnectRenderPacket(void)
@@ -155,16 +155,16 @@ int kmyResetFatalError(void)
     return kmiWriteRegister(8, 0);
 }
 
-void buFbrSleepFiber(int t)
+void buFbrSleepFiber(int sleepTicks)
 {
-    int wake;
-    char *g = g_8c4762c8;
-    char *cur = *(char **)(g + 3448);
-    if (t >= 0)
-        wake = *(int *)(g + 516) + t;
+    int wakeTick;
+    char *scheduler = gBuFiberScheduler;
+    char *currentFiber = *(char **)(scheduler + 3448);
+    if (sleepTicks >= 0)
+        wakeTick = *(int *)(scheduler + 516) + sleepTicks;
     else
-        wake = 0x7fffffff;
-    *(int *)(cur + 20) = wake;
-    if (setjmp(*(char **)(g_8c4762c8 + 3448) + 24) == 0)
-        longjmp(g_8c4762c8 + 4, 1);
+        wakeTick = 0x7fffffff;
+    *(int *)(currentFiber + 20) = wakeTick;
+    if (setjmp(*(char **)(gBuFiberScheduler + 3448) + 24) == 0)
+        longjmp(gBuFiberScheduler + 4, 1);
 }

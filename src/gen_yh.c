@@ -5,7 +5,7 @@ typedef struct { int w[2]; } Stk2;
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
 int BupRequestSave(int, int, int, int);
-int FUN_8c0eaf00(int, int, int);
+int resetBackColorZ(int, int, int);
 int afsLoadPartitions(void);
 int camExec(int, int, int, int, int, int, int, int, int, int, int, int);
 int camInit(void);
@@ -88,7 +88,7 @@ int strmBgmPlay(int);
 int strmCrowdLoop(int);
 int strmScoreReset(void);
 int strmVoiceQueueReset(void);
-int thunk_FUN_8c1e0150(int, int);
+int thunk_buIsExistFile(int, int);
 int titleSprTexLoad(int, int, int, int, int, int, int, int, int);
 int unlockApplyW1(void);
 int vecAdd(int, int, int, int, int);
@@ -543,7 +543,7 @@ int FUN_8c0dd9f8(void)
     t9 = *(int *)0x8C20D15C;
     if ((int)t9 < (int)0x87) {
         if (t9 == 0) {
-            FUN_8c0eaf00(0x0, 0x0, 0x0);
+            resetBackColorZ(0x0, 0x0, 0x0);
         } else {
             t12 = t9;
             t13 = 0x87;
@@ -561,7 +561,7 @@ int FUN_8c0dd9f8(void)
     } else {
         if (1 && ((t5 != 99) || ((int)t9 < (int)0x10E))) {
             if (t9 == 0x87) {
-                FUN_8c0eaf00(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
+                resetBackColorZ(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
             } else {
                 t33 = t9;
                 t34 = 0x87;
@@ -574,7 +574,7 @@ int FUN_8c0dd9f8(void)
         initSprFree();
         if ((*(int *)0x8C1D710C) == 0) {
             *(unsigned int *)0x8C1D710C = 0x1;
-            t53 = thunk_FUN_8c1e0150((*(int *)0x8C40C628), 0x8C126660);
+            t53 = thunk_buIsExistFile((*(int *)0x8C40C628), 0x8C126660);
             if ((t53 == 0) && (t54 = *(int *)0x8C1D7538, t54 == 0)) {
                 padLcdSetMode(0xB, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4));
             }
@@ -920,7 +920,7 @@ int FUN_8c0c1684(void)
     *(unsigned short *)0x8C37B76E = (-(unsigned short)(*(short *)0x8C123364));
     *(float *)0x8C37B770 = (*(float *)0x8C12338C);
     *(float *)0x8C37B774 = (*(float *)0x8C123390);
-    FUN_8c0eaf00(0x0, 0x0, 0x0);
+    resetBackColorZ(0x0, 0x0, 0x0);
     *(unsigned int *)0x8C37B75C = 0x0;
     camInit();
     lightSet(0x8500, 0x9200, 0x64, 0x45);
@@ -1490,7 +1490,7 @@ int FUN_8c0e1c0c(void)
                 }
             }
         }
-        FUN_8c0eaf00(0x4D4D4D, 0x4D4D4D, 0x4D4D4D);
+        resetBackColorZ(0x4D4D4D, 0x4D4D4D, 0x4D4D4D);
     }
     t21 = resSprTitleRead();
     if (t21 == 1) {

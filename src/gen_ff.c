@@ -46,7 +46,7 @@ int strmBgmSetVol(int, int, int, int, int, int, int);
 int strmSetStereo(int);
 int strmVoiceSetVol(int);
 int syCfgGetSoundMode(int);
-int thunk_FUN_8c1e0150(int, int);
+int thunk_buIsExistFile(int, int);
 int unlockApplyW1(void);
 int unlockApplyW2(void);
 Stk3 vecMake(float, float, float);

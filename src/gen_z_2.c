@@ -1,11 +1,6 @@
 /* Straight-line functions with calls and guards (batch gen_z): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_0c081268(int, int, int);
-int FUN_0c156742(int, int);
-int FUN_0c156934(int, int, int, int, int, int);
-int FUN_0c157160(int, int, int);
-int FUN_0c16d2c0(void);
 int kmiCopyToFrameBuffer(int, int, int, int);
 int vmsfs_c_getstate(int, int, int, int);
 int vmsfs_c_setfname(int, int, int);

@@ -390,11 +390,11 @@ int syChainAddHandler(int, int, int, int);
 int syG2DmaResume(int);
 int syG2DmaSuspend(int);
 int syMmuDeleteEntry(int);
-int thunk_FUN_8c09e55a(void);
-int thunk_FUN_8c0f2210(int);
-int thunk_FUN_8c0f41f0(int);
-int thunk_FUN_8c1e0150(void);
-int thunk_FUN_8c1ff1ee(void);
+int thunk_selCopyLocalConstants(void);
+int thunk_nlObjPutMvInit(int);
+int thunk_nlSprPut(int);
+int thunk_buIsExistFile(void);
+int thunk_copyBytes(void);
 int vmsfs_c_getstate(int);
 
 void mainCheckReset(void)
@@ -3237,7 +3237,7 @@ int shadowMulShear(void)
 }
 
 /* manual: a trampoline: r4 passes through to nlObjPutMvInit (the NAOMI library's own code reads it). */
-int thunk_FUN_8c0f2210(int a4)
+int thunk_nlObjPutMvInit(int a4)
 {
     return nlObjPutMvInit();
 }
@@ -3263,7 +3263,7 @@ int sceneObjPutInit(void)
     int t1;
 
     nlObjPutSetVtxColorMode(0x1);
-    t1 = thunk_FUN_8c0f2210(0xB4);
+    t1 = thunk_nlObjPutMvInit(0xB4);
     *(unsigned int *)0x8C30196C = 0x0;
     return t1;
 }
@@ -3580,7 +3580,7 @@ int panelSprInit(void)
 }
 
 
-void selConstStub(void)
+void selCopyLocalConstants(void)
 {
     int t0;
     int t1;
@@ -3687,7 +3687,7 @@ int standBgDraw(void)
 
     t0 = 0x8C33F1D0;
     do {
-        t1 = thunk_FUN_8c0f41f0(t0);
+        t1 = thunk_nlSprPut(t0);
         t0 = (t0 + 0x50);
     } while ((unsigned int)t0 < (unsigned int)0x8C33F3B0);
     return t1;
@@ -5436,7 +5436,7 @@ int sprWtcLoad(void)
         } while ((unsigned int)t1 < (unsigned int)0xD);
         *(unsigned int *)0x8C1AED10 = 0x1;
     }
-    return thunk_FUN_8c09e55a();
+    return thunk_selCopyLocalConstants();
 }
 
 int sprWtcFree(void)
@@ -8063,41 +8063,41 @@ void syCfgGetSoundMode(int a4)
     }
 }
 
-int ADXT_GetNumSmpl(int a4)
+int ADXT_GetNumSmpl(int playerAddress)
 {
-    int t0;
-    int t1;
+    int status;
+    int streamDecoderAddress;
 
-    t0 = *(signed char *)((a4 + 0x1));
-    if ((int)t0 >= (int)0x2) {
-        t1 = *(int *)((a4 + 0x4));
-        return ADXSJD_GetTotalNumSmpl(t1);
+    status = *(signed char *)((playerAddress + 0x1));
+    if ((int)status >= (int)0x2) {
+        streamDecoderAddress = *(int *)((playerAddress + 0x4));
+        return ADXSJD_GetTotalNumSmpl(streamDecoderAddress);
     }
     return 0x0;
 }
 
-int ADXT_GetSfreq(int a4)
+int ADXT_GetSfreq(int playerAddress)
 {
-    int t0;
-    int t1;
+    int status;
+    int streamDecoderAddress;
 
-    t0 = *(signed char *)((a4 + 0x1));
-    if ((int)t0 >= (int)0x2) {
-        t1 = *(int *)((a4 + 0x4));
-        return ADXSJD_GetSfreq(t1);
+    status = *(signed char *)((playerAddress + 0x1));
+    if ((int)status >= (int)0x2) {
+        streamDecoderAddress = *(int *)((playerAddress + 0x4));
+        return ADXSJD_GetSfreq(streamDecoderAddress);
     }
     return 0x0;
 }
 
-int ADXT_GetNumChan(int a4)
+int ADXT_GetNumChan(int playerAddress)
 {
-    int t0;
-    int t1;
+    int status;
+    int streamDecoderAddress;
 
-    t0 = *(signed char *)((a4 + 0x1));
-    if ((int)t0 >= (int)0x2) {
-        t1 = *(int *)((a4 + 0x4));
-        return ADXSJD_GetNumChan(t1);
+    status = *(signed char *)((playerAddress + 0x1));
+    if ((int)status >= (int)0x2) {
+        streamDecoderAddress = *(int *)((playerAddress + 0x4));
+        return ADXSJD_GetNumChan(streamDecoderAddress);
     }
     return 0x0;
 }
@@ -9104,40 +9104,40 @@ int SJMEM_Create(int a4, int a5)
 
 void SJRBF_Finish(void)
 {
-    int t0;
+    int initCount;
 
-    t0 = *(int *)0x8C20C928;
-    *(unsigned int *)0x8C20C928 = (t0 - 1);
+    initCount = *(int *)0x8C20C928;
+    *(unsigned int *)0x8C20C928 = (initCount - 1);
 }
 
-int SJRBF_Create(int a4, int a5, int a6)
+int SJRBF_Create(int bufferAddress, int bufferBytes, int wrapMarginBytes)
 {
-    int t0;
-    int t1;
+    int handleIndex;
+    int allocated;
 
-    t0 = 0x0;
+    handleIndex = 0x0;
     for (;;) {
-        t1 = *(int *)(((((((t0 << 1) + t0) << 2) << 2) + 0x8C46EFD4) + 0x4));
-        if (t1 != 0) {
-            t0 = (t0 + 0x1);
-            if ((int)t0 >= (int)0x40) break;
+        allocated = *(int *)(((((((handleIndex << 1) + handleIndex) << 2) << 2) + 0x8C46EFD4) + 0x4));
+        if (allocated != 0) {
+            handleIndex = (handleIndex + 0x1);
+            if ((int)handleIndex >= (int)0x40) break;
             continue;
         }
         break;
     }
-    if (t0 == 64) {
+    if (handleIndex == 64) {
         return 0x0;
     }
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x4)) = 0x1;
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x0)) = 0x8C20C8F8;
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x1C)) = a4;
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x20)) = a5;
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x24)) = a6;
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x8)) = 0x8C20AD70;
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x28)) = 0x8C1F3416;
-    *(unsigned int *)(((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)) + 0x2C)) = (0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2));
-    SJRBF_Reset((0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2)));
-    return (0x8C46EFD4 + ((((t0 << 1) + t0) << 2) << 2));
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x4)) = 0x1;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x0)) = 0x8C20C8F8;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x1C)) = bufferAddress;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x20)) = bufferBytes;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x24)) = wrapMarginBytes;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x8)) = 0x8C20AD70;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x28)) = 0x8C1F3416;
+    *(unsigned int *)(((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)) + 0x2C)) = (0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2));
+    SJRBF_Reset((0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2)));
+    return (0x8C46EFD4 + ((((handleIndex << 1) + handleIndex) << 2) << 2));
 }
 
 int SJUNI_Init(void)
@@ -10415,40 +10415,40 @@ void mpdrv_init_memory(void)
 }
 
 
-int fmMngReadData(int a4)
+int fmMngReadData(int managerAddress)
 {
-    int t0;
-    int t11;
-    int t1;
-    int t2;
-    int t3;
-    int t5;
-    int t9;
-    int t6;
-    int t7;
-    int t8;
+    int formatMode;
+    int readResult;
+    int recordIndex;
+    int cacheBufferAddress;
+    int dataBufferAddress;
+    int cachedRecordIndex;
+    int recordReadResult;
+    int computedCrc;
+    int storedCrc;
+    int crcResult;
 
-    t0 = *(short *)((a4 + 0x2));
-    t11 = 0xFFFFFFFA;
-    if (t0 == 0) {
-        t1 = *(int *)((a4 + 0x28));
-        t2 = *(int *)((a4 + 0xC));
-        t3 = *(int *)((a4 + 0x30));
-        thunk_FUN_8c1ff1ee();
-        t5 = *(short *)(((((((t1 + 0x1) << 2) << 2) << 2) + t2) + 0x0));
-        t9 = 0x0;
-        if ((unsigned short)t5 != 0xFFFF) {
-            t6 = fmcalccrc(0x3E, (((((t1 + 0x1) << 2) << 2) << 2) + t2));
-            t7 = *(short *)(((((((t1 + 0x1) << 2) << 2) << 2) + t2) + 0x3E));
-            t8 = 0x0;
-            if ((unsigned short)t7 != (unsigned short)t6) {
-                t8 = 0xFFFFFFFC;
+    formatMode = *(short *)((managerAddress + 0x2));
+    readResult = 0xFFFFFFFA;
+    if (formatMode == 0) {
+        recordIndex = *(int *)((managerAddress + 0x28));
+        cacheBufferAddress = *(int *)((managerAddress + 0xC));
+        dataBufferAddress = *(int *)((managerAddress + 0x30));
+        thunk_copyBytes();
+        cachedRecordIndex = *(short *)(((((((recordIndex + 0x1) << 2) << 2) << 2) + cacheBufferAddress) + 0x0));
+        recordReadResult = 0x0;
+        if ((unsigned short)cachedRecordIndex != 0xFFFF) {
+            computedCrc = fmcalccrc(0x3E, (((((recordIndex + 0x1) << 2) << 2) << 2) + cacheBufferAddress));
+            storedCrc = *(short *)(((((((recordIndex + 0x1) << 2) << 2) << 2) + cacheBufferAddress) + 0x3E));
+            crcResult = 0x0;
+            if ((unsigned short)storedCrc != (unsigned short)computedCrc) {
+                crcResult = 0xFFFFFFFC;
             }
-            t9 = t8;
+            recordReadResult = crcResult;
         }
-        t11 = t9;
+        readResult = recordReadResult;
     }
-    return t11;
+    return readResult;
 }
 
 int ADXB_Create(int a4, int a5, int a6, int a7)

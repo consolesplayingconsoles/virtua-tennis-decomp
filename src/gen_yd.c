@@ -38,7 +38,7 @@ int nlsndSeqRequest(int);
 int nlsndSystemControl(int, int, int);
 int restart_t404(void);
 int serveGetServer(void);
-int thunk_FUN_8c0f2210(int);
+int thunk_nlObjPutMvInit(int);
 int vecAdd(int, int, int, int, int);
 Stk3 vecMake(float, float, float);
 int FUN_8c013714(int a4);
@@ -964,7 +964,7 @@ int FUN_8c0b5f78(int a4)
         *(unsigned short *)0x8C287A3A = 0xDC00;
         *(unsigned short *)0x8C287A3E = 0xDC00;
         *(unsigned int *)0x8C287A40 = 0x1;
-        thunk_FUN_8c0f2210(0x80);
+        thunk_nlObjPutMvInit(0x80);
         t0 = dbgMenuGetSelect();
         dbgMenuSetValue((*(int *)((a4 + 0x14))), t0, 0x0);
         restart_t404();
@@ -979,7 +979,7 @@ int FUN_8c0b5f78(int a4)
         *(unsigned short *)0x8C287A3A = 0x9600;
         *(unsigned short *)0x8C287A3E = 0x9600;
         *(unsigned int *)0x8C287A40 = 0x1;
-        thunk_FUN_8c0f2210(0xE6);
+        thunk_nlObjPutMvInit(0xE6);
         t0 = dbgMenuGetSelect();
         dbgMenuSetValue((*(int *)((a4 + 0x14))), t0, 0x0);
         restart_t404();

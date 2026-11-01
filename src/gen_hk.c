@@ -3,7 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
-int FUN_8c0f0860(int);
+int nlUnitVector(int);
 int abs(int);
 int camWorldToView(Stk4);
 int effBounceDustSpawn(Stk3, float, float);
@@ -140,7 +140,7 @@ int ballMarkCheck(void)
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x24)); }
                     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x48);
                     vecSub(*(Stk4 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 20)));
-                    FUN_8c0f0860((((int)stk + 44) + 0x24));
+                    nlUnitVector((((int)stk + 44) + 0x24));
                     t12 = set_event(0x6C, 0x8C084CBC);
                     { struct mv3 { int w[3]; }; *(struct mv3 *)((t12 + 0x14)) = *(struct mv3 *)(0x8C291F30); }
                     *(unsigned int *)((t12 + 0x24)) = 0x258;

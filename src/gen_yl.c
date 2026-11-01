@@ -82,7 +82,7 @@ extern int sprPutAtAlpha();
 int sprSheetPut(int, float, float, float, float);
 int sprSheetSet(int);
 int standBgDraw(void);
-extern int thunk_FUN_8c0f41f0();
+extern int thunk_nlSprPut();
 Stk3 vecMake(float, float, float);
 void FUN_8c086b90(int a4);
 void FUN_8c086d14(int a4);
@@ -1214,8 +1214,8 @@ int FUN_8c083654(int a4, int a5, int a6, int a7)
     }
     *(float *)((a4 + 0x18)) = (*(float *)((a4 + 0xBC)));
     *(float *)((a4 + 0x68)) = (*(float *)((a4 + 0xC0)));
-    t0 = ((int (*)(int, int, int, int))(thunk_FUN_8c0f41f0))((a4 + 0x14), a5, a6, a7);
-    t0 = ((int (*)(int))(thunk_FUN_8c0f41f0))((a4 + 0x64));
+    t0 = ((int (*)(int, int, int, int))(thunk_nlSprPut))((a4 + 0x14), a5, a6, a7);
+    t0 = ((int (*)(int))(thunk_nlSprPut))((a4 + 0x64));
     t0 = *(int *)((a4 + 0xC8));
     *(unsigned int *)((a4 + 0xC8)) = (t0 + 0x1);
     if (t0 == 0xB4) {

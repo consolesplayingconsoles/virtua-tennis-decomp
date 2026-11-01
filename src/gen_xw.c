@@ -62,8 +62,8 @@ int stageLoadWtcSprites(void);
 int stageTexSetGarbagedAll(void);
 int strmBgmPlay(int);
 int strmVoiceQueueReset(void);
-int thunk_FUN_8c032f6c(void);
-int thunk_FUN_8c1e0150(int, int);
+int thunk_circuitTaskRun(void);
+int thunk_buIsExistFile(int, int);
 int unlockApplyW1(void);
 int unlockApplyW2(void);
 float vecDistXZ(Stk3, Stk3);
@@ -896,7 +896,7 @@ int FUN_8c0e00c0(void)
                     *(unsigned int *)(((int)stk + 24)) = 0x0;
                     *(unsigned int *)0x8C40C69C = 0x1;
                     *(unsigned int *)0x8C40C698 = 0x1;
-                    t27 = thunk_FUN_8c1e0150(0x0, 0x8C126AB0);
+                    t27 = thunk_buIsExistFile(0x0, 0x8C126AB0);
                     if (t27 == 0) {
                         *(unsigned int *)(((int)stk + 24)) = 0x1;
                     }
@@ -1108,7 +1108,7 @@ int FUN_8c0306a4(void)
     unlockApplyW2();
     L_8C030990:;
     *(unsigned int *)((R11 + 0x0)) = R10;
-    thunk_FUN_8c032f6c();
+    thunk_circuitTaskRun();
     strmBgmPlay(0xD);
     return strmVoiceQueueReset();
     L_8C0308D6:;

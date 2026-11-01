@@ -2,12 +2,12 @@
    less) until the frame's substeps are done and the ball has bounced twice, recording for each player (0x8C287D84, 3448 bytes
    each, *0x8C287ADC of them) where the ball crosses their reach. */
 
-typedef struct { float x, y, z; } Vec;
+typedef struct { float x, y, z; } Vector3f;
 
 void nlScaleVector(float *vd, float *vs, float sc);
 void nlAddVector(float *vd, float *vs);
-Vec vecMake(float x, float y, float z);
-Vec vecLineCrossXZ(Vec a, Vec b, Vec c, Vec d);
+Vector3f vecMake(float x, float y, float z);
+Vector3f vecLineCrossXZ(Vector3f a, Vector3f b, Vector3f c, Vector3f d);
 void netHitBall(int *ball);
 int lineJudgeCall(int *ball);
 int seFootSlide(int *ball);
@@ -15,12 +15,12 @@ int seFootSlide(int *ball);
 #define PLAYER(k) ((char *)0x8C287D84 + (k) * 3448)
 #define PI(p, o) (*(int *)((p) + (o)))
 #define PF(p, o) (*(float *)((p) + (o)))
-#define PV(p, o) (*(Vec *)((p) + (o)))
+#define PV(p, o) (*(Vector3f *)((p) + (o)))
 #define BF(o) (*(float *)((char *)ball + (o)))
 #define BI(o) (*(int *)((char *)ball + (o)))
-#define BV(o) (*(Vec *)((char *)ball + (o)))
+#define BV(o) (*(Vector3f *)((char *)ball + (o)))
 #define NPLAYERS (*(int *)0x8C287ADC)
-#define ZERO (*(Vec *)0x8C1016D4)
+#define ZERO (*(Vector3f *)0x8C1016D4)
 #define SGN(x) ((x) > 0.0f ? 1 : (0.0f > (x) ? -1 : 0))
 #define ABSDIFF(a, b) (0.0f > (a) - (b) ? -(a) + (b) : (a) - (b))
 
@@ -28,7 +28,7 @@ int seFootSlide(int *ball);
 void ballMove(int *ball)
 {
     float *dt = (float *)0x8C23D204;
-    Vec pos, vel, spin, tmp, sv, nearA[4], nearB[4];
+    Vector3f pos, vel, spin, tmp, sv, nearA[4], nearB[4];
     int nearAstep[4], nearBstep[4], nearAt[4], nearBt[4], reachHit[4], peak[4], low[4], lastHit[4], hit[4];
     float bestA[4], bestB[4];
     int n = 0, bounces = 0, k;
@@ -104,7 +104,7 @@ void ballMove(int *ball)
             BV(52) = vel;
         }
         if (n < 300) {
-            ((Vec *)0x8C294670)[n] = pos;
+            ((Vector3f *)0x8C294670)[n] = pos;
             *(int *)0x8C295480 = n;
         }
         if (t > BF(48)) {

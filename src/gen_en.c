@@ -30,7 +30,7 @@ int sprListPut(int, int, int, float, float, float);
 int sprPutAtAlpha(int, Stk3, float);
 int stageSelNameDraw(int, int, Stk3);
 int sunMatrixSet(int, int);
-int thunk_FUN_8c0f41f0(int);
+int thunk_nlSprPut(int);
 Stk3 vecMake(float, float, float);
 int resultTeamsDrawAlt(float f4);
 int sseleGridDraw(void);

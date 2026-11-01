@@ -4,8 +4,8 @@
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
 typedef struct { int w[6]; } Stk6;
-int FUN_8c0eaf00(int, int, int);
-int FUN_8c0f0860(int);
+int resetBackColorZ(int, int, int);
+int nlUnitVector(int);
 int charaTexFreeAll(void);
 int circuitTaskSetA(int, int);
 int circuitTaskTrim(int);
@@ -131,7 +131,7 @@ int FUN_8c0d5cf0(void)
         motFileLoadBegin();
         sndPack4Free(0x0);
         *(unsigned int *)0x8C407FD0 = 0x0;
-        FUN_8c0eaf00(0x4D4D4D, 0x4D4D4D, 0x4D4D4D);
+        resetBackColorZ(0x4D4D4D, 0x4D4D4D, 0x4D4D4D);
     }
     t35 = *(int *)0x8C40C1C4;
     if (t35 != 0) {
@@ -1043,7 +1043,7 @@ int FUN_8c082f60(int a4)
     *(float *)(((int)stk + 80)) = ((-(*(float *)0x8C2879F8)) + (*(float *)((a4 + 0x14))));
     *(float *)(((int)stk + 84)) = ((-(*(float *)0x8C2879FC)) + (*(float *)((a4 + 0x18))));
     *(float *)(((int)stk + 88)) = ((-(*(float *)0x8C287A00)) + (*(float *)((a4 + 0x1C))));
-    FUN_8c0f0860((((int)stk + 4) + 0x4C));
+    nlUnitVector((((int)stk + 4) + 0x4C));
     nlPushMatrix(0x0);
     nlUnitMatrix();
     nlRotateV((((int)stk + 4) + 0x40), (((int)stk + 4) + 0x4C));

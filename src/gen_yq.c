@@ -1,7 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_yq): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c0eaf00(int, int, int);
+int resetBackColorZ(int, int, int);
 int fileLoadPoll(int, int);
 int fileLoadStartOfs(int, int, int, int);
 int nlChgModelPolyAttrOn(int);
@@ -18,7 +18,7 @@ int FUN_8c030376(void)
     nlInitEvent();
     nlObjPutMvInit(0x80);
     nlChgModelPolyAttrOn(0xC9B0000);
-    FUN_8c0eaf00(0xFF000000, 0xFF000000, 0xFF000000);
+    resetBackColorZ(0xFF000000, 0xFF000000, 0xFF000000);
     *(unsigned int *)0x8C2FBE1C = 0x0;
     *(unsigned int *)0x8C2FBE58 = 0x0;
     *(unsigned int *)0x8C2FBE54 = 0x0;

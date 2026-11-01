@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int FUN_8c0eaf00(int, int, int, float);
+int resetBackColorZ(int, int, int, float);
 int bgScreenDraw(void);
 int camExec(int, int, int, int, int, int, int, int, int, int, int, int);
 int camMoveBegin(float, float);
@@ -311,7 +311,7 @@ int FUN_8c0a7ed2(int a4, int a5, int a6, int a7, float f4)
     if (t113 != 1) {
         t223 = t113;
     } else {
-        FUN_8c0eaf00(0x0, 0x0, 0x0, f4);
+        resetBackColorZ(0x0, 0x0, 0x0, f4);
         lightUpdate(0x0);
         camSetOrbit(0x600, 0x8000, 255.0f);
         *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 12.0f, 0.0f);

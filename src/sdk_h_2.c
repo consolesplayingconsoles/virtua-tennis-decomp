@@ -1,12 +1,10 @@
 /* Small library functions (batch h): NAOMI library setters and stubs, Kamui's register access and system config flags,
    the backup library's jumps into vmsfs, ADX getters and setters. */
 
-extern int *g_8c46c264[];
+extern int *gAdxfPartitionInfoTable[];
 
-int FUN_0c07ba90(int a, int b, int c, int d);
-int FUN_0c07bc00(int a, int b);
-void FUN_0c14ceee(int a);
-void FUN_0c14cf46(int a);
+void ovMdlEntryTbl(int a);
+void ovMdlDeleteTbl(int a);
 int buExecServer(void);
 int buMount(int drive);
 int vmsfs_c_setcompletecallback(void *f);
@@ -39,5 +37,5 @@ int ADXT_GetOutPan(char *adxt, int ch)
 
 int ADXF_GetPtinfoSize(int ptid)
 {
-    return g_8c46c264[ptid][1];
+    return gAdxfPartitionInfoTable[ptid][1];
 }

@@ -5,7 +5,7 @@ typedef struct { int w[1]; } Stk1;
 typedef struct { int w[3]; } Stk3;
 int BupCheckCard(void);
 int BupGetRequest(void);
-int FUN_8c0eaf00(int, int, int);
+int resetBackColorZ(int, int, int);
 int btnGuideDrawB(int, Stk3, float);
 int camExec(int, int, int, int, int, int, int, int, int, int, int, int);
 int camGetAngles(int, int, int, int);
@@ -274,7 +274,7 @@ int FUN_8c0e48d8(void)
         menuSprInitGroup();
         camInit();
         nlInitEvent();
-        FUN_8c0eaf00(0x0, 0x0, 0x0);
+        resetBackColorZ(0x0, 0x0, 0x0);
         strmBgmPlay(0x2);
         *(unsigned int *)0x8C42202C = 0x63;
         *(unsigned int *)0x8C422030 = 0x63;
@@ -840,7 +840,7 @@ int FUN_8c0e48d8(void)
             t585 = t563;
         }
         if ((*(int *)0x8C1D8640) == 0xE10) {
-            FUN_8c0eaf00(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
+            resetBackColorZ(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
         } else {
             t594 = t585;
         }

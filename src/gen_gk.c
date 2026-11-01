@@ -18,13 +18,13 @@ int nlTranslate(float, float, float);
 int screenSegVisible(int, int, int, Stk3, Stk3, float, float, float);
 int stageGerCourtDraw(int);
 int stageGerScoreboardDraw(void);
-int FUN_8c0c313e(void);
+int stageGerDraw(void);
 
-int FUN_8c0c313e(void)
+int stageGerDraw(void)
 {
     int t8;
     int t32;
-    float u37;
+    float courtScaleZ;
     int t44;
     int t48;
     int t52;
@@ -44,9 +44,9 @@ int FUN_8c0c313e(void)
     int R8;
     int R9;
     int R10;
-    int R11;
+    int sectionEnabledAddress;
     int R12;
-    int R13;
+    int courtModeOrSectionIndex;
     int R14;
     float F4;
     float F5;
@@ -55,7 +55,7 @@ int FUN_8c0c313e(void)
     float F15;
     int T_;
     L_8C0C313E:;
-    R11 = ((((int)stk + 28) + 0x10));
+    sectionEnabledAddress = ((((int)stk + 28) + 0x10));
     R14 = (0x1);
     R5 = (0xC8);
     if (((*(int *)0x8C34B148) != 0)) goto L_8C0C317A;
@@ -65,17 +65,17 @@ int FUN_8c0c313e(void)
     R6 = (0x8C123BB0);
     goto L_8C0C316C;
     L_8C0C316C:;
-    *(unsigned int *)((R11 + R0)) = (*(int *)((R6 + R0)));
+    *(unsigned int *)((sectionEnabledAddress + R0)) = (*(int *)((R6 + R0)));
     t8 = (unsigned int)(R0 + 0x4) < (unsigned int)R5;
     R0 = ((R0 + 0x4));
     if (t8) goto L_8C0C316C;
     goto L_8C0C3176;
     L_8C0C3176:;
-    R13 = (R14);
+    courtModeOrSectionIndex = (R14);
     goto L_8C0C31B0;
     L_8C0C31B0:;
     stageGerScoreboardDraw();
-    stageGerCourtDraw(R13);
+    stageGerCourtDraw(courtModeOrSectionIndex);
     camGetAngles((((int)stk + 28) + 0xC), (((int)stk + 28) + 0x4));
     courtDrawStageModels((*(short *)(((int)stk + 40))), (*(short *)(((int)stk + 32))), 0x0, 0x0, *(int *)((int)stk + 28), *(int *)((int)stk + 28 + 4), *(int *)((int)stk + 28 + 8), *(int *)((int)stk + 28 + 12), *(int *)((int)stk + 28 + 16), *(int *)((int)stk + 28 + 20), *(int *)((int)stk + 28 + 24), *(int *)((int)stk + 28 + 28));
     nlPushMatrix(0x0);
@@ -86,13 +86,13 @@ int FUN_8c0c313e(void)
     nlObjPut((*(int *)0x8C123840));
     nlPopMatrix(0x1);
     R10 = (0x8C0F25B0);
-    R13 = (R14);
+    courtModeOrSectionIndex = (R14);
     R8 = (0x8C0EFD20);
     R9 = (0x8C0EFCD0);
     goto L_8C0C31FC;
     L_8C0C31FC:;
-    R12 = ((R13 << 2));
-    if (((*(int *)((R11 + (R13 << 2)))) != 0)) goto L_8C0C320C;
+    R12 = ((courtModeOrSectionIndex << 2));
+    if (((*(int *)((sectionEnabledAddress + (courtModeOrSectionIndex << 2)))) != 0)) goto L_8C0C320C;
     goto L_8C0C3208;
     L_8C0C3208:;
     goto L_8C0C3330;
@@ -100,8 +100,8 @@ int FUN_8c0c313e(void)
     *(unsigned int *)((R12 + 0x8C37B868)) = 0x0;
     goto L_8C0C3336;
     L_8C0C3336:;
-    t32 = (int)(R13 + 0x1) >= (int)0x2C;
-    R13 = ((R13 + 0x1));
+    t32 = (int)(courtModeOrSectionIndex + 0x1) >= (int)0x2C;
+    courtModeOrSectionIndex = ((courtModeOrSectionIndex + 0x1));
     if (t32) goto L_8C0C3342;
     goto L_8C0C333E;
     L_8C0C333E:;
@@ -109,14 +109,14 @@ int FUN_8c0c313e(void)
     L_8C0C3342:;
     nlPushMatrix(0x0);
     nlTranslate(0.0f, (*(float *)0x8C0C3438), 0.0f);
-    u37 = *(float *)0x8C0C3440;
-    nlScale(1.0f, 1.0f, u37);
-    nlLineSetDiv(u37);
+    courtScaleZ = *(float *)0x8C0C3440;
+    nlScale(1.0f, 1.0f, courtScaleZ);
+    nlLineSetDiv(courtScaleZ);
     nlObjPut(0xC5205D8);
     return (nlPopMatrix(0x1));
     L_8C0C320C:;
-    *(unsigned int *)(((int)stk + 28)) = (((((R13 << 1) + R13) << 2) << 2) + 0x8C1ACA28);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(((((((R13 << 1) + R13) << 2) << 2) + 0x8C1ACA28) + 0xC)); }
+    *(unsigned int *)(((int)stk + 28)) = (((((courtModeOrSectionIndex << 1) + courtModeOrSectionIndex) << 2) << 2) + 0x8C1ACA28);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(((((((courtModeOrSectionIndex << 1) + courtModeOrSectionIndex) << 2) << 2) + 0x8C1ACA28) + 0xC)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((*(int *)(((int)stk + 28)))); }
     t44 = (screenSegVisible(0x0, R5, R6, *(Stk3 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 16)), F4, F5, F6)) != 0;
     if (t44) goto L_8C0C3270;
@@ -134,9 +134,9 @@ int FUN_8c0c313e(void)
     L_8C0C3282:;
     *(unsigned int *)((R12 + 0x8C37B868)) = R14;
     nlPushMatrix(0x0);
-    *(unsigned int *)(((int)stk + 36)) = ((R13 << 2) << 1);
-    nlRotateAY((unsigned short)(*(short *)(((((R13 << 2) << 1) + 0x8C123840) + 0x4))));
-    nlObjPut((*(int *)(((((R13 << 2) << 1) + 0x8C123840) + 0x0))));
+    *(unsigned int *)(((int)stk + 36)) = ((courtModeOrSectionIndex << 2) << 1);
+    nlRotateAY((unsigned short)(*(short *)(((((courtModeOrSectionIndex << 2) << 1) + 0x8C123840) + 0x4))));
+    nlObjPut((*(int *)(((((courtModeOrSectionIndex << 2) << 1) + 0x8C123840) + 0x0))));
     nlPopMatrix(0x1);
     *(unsigned int *)(((int)stk + 28)) = 0x8C1239A0;
     t60 = *(int *)((((*(int *)(((int)stk + 36))) + 0x8C1239A0) + 0x0));
@@ -146,7 +146,7 @@ int FUN_8c0c313e(void)
     L_8C0C32B4:;
     t63 = *(int *)(((int)stk + 36));
     t64 = *(int *)(((int)stk + 28));
-    crowdAnimModel((*(int *)(((t63 + t64) + 0x0))), R13, R6, F4, F5, F6);
+    crowdAnimModel((*(int *)(((t63 + t64) + 0x0))), courtModeOrSectionIndex, R6, F4, F5, F6);
     nlObjPutLoadTexture((*(int *)(((t63 + t64) + 0x0))), 0x8C13293C);
     nlPushMatrix(0x0);
     nlRotateAY((unsigned short)(*(short *)(((t63 + t64) + 0x4))));
@@ -154,8 +154,8 @@ int FUN_8c0c313e(void)
     nlPopMatrix(0x1);
     goto L_8C0C3336;
     L_8C0C317A:;
-    R0 = (R11);
-    R6 = ((R11 + R5));
+    R0 = (sectionEnabledAddress);
+    R6 = ((sectionEnabledAddress + R5));
     goto L_8C0C3180;
     L_8C0C3180:;
     *(unsigned int *)((R0 + 0x0)) = R14;
@@ -164,6 +164,6 @@ int FUN_8c0c313e(void)
     if (t77) goto L_8C0C3180;
     goto L_8C0C3188;
     L_8C0C3188:;
-    R13 = (0x0);
+    courtModeOrSectionIndex = (0x0);
     goto L_8C0C31B0;
 }

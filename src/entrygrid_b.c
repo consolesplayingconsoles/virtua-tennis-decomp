@@ -3,13 +3,13 @@
    (tests/entrygrid_b/). */
 
 typedef struct { int w[1]; } Stk1;
-typedef struct { float x, y, z; } V3;
+typedef struct { float x, y, z; } Vector3f;
 
 float mathLerp(float, float, float);
-int panelMenuSprPutA(V3, Stk1, float);
+int panelMenuSprPutA(Vector3f, Stk1, float);
 extern int primFrameCorners();
-int primLineH(int, int, V3, V3);
-V3 vecMake(float, float, float);
+int primLineH(int, int, Vector3f, Vector3f);
+Vector3f vecMake(float, float, float);
 
 /* the cursor of grid slot a4 in colour a5 (-1 white, 0 orange, 1 cyan, 2 yellow, 3 violet) at the vector the caller passes on the stack
    (a8 is its x; a6 and a7 are whatever the caller left in r6 and r7) */
@@ -18,12 +18,12 @@ int entryGridDrawCursors(int a4, int a5, int a6, int a7, int a8)
     float *t;                   /* the slot's fade, 0..1 */
     float f, g;                 /* the fade used for the colour, and 1 - it */
     int r, gr, b, r7, colour, k, w;
-    V3 *pos, c0, c1, c2, c3, d0, d1, d2, d3, e, l;
+    Vector3f *pos, c0, c1, c2, c3, d0, d1, d2, d3, e, l;
     Stk1 tp;
 
     if (*(int *)0x8C287ADC == 2 && (a4 == 1 || a4 == 2))
         return a4;
-    pos = (V3 *)&a8;            /* the caller's vector, which this moves and flattens */
+    pos = (Vector3f *)&a8;            /* the caller's vector, which this moves and flattens */
     pos->x += *(float *)0x8C18D2DC;
     t = (float *)(0x8C185604 + (a4 << 2));
     if (a5 >= 0) {

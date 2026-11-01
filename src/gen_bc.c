@@ -3,7 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
-int FUN_8c0f0860(int);
+int nlUnitVector(int);
 int _slow_strcmp1(int, int);
 int abs(int);
 int buAnalyzeBackupFileImage(int, int);

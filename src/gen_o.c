@@ -505,33 +505,33 @@ void nlFastInvertMatrix(void)
     _builtin_ld_ext((float (*)[4])u28);
 }
 
-int adxf_SetCmdHstry(int a4, int a5, int a6, int a7, int a8)
+int adxf_SetCmdHstry(int fileSlot, int command, int argument0, int argument1, int argument2)
 {
-    int t0;
-    int t1;
-    int t3;
-    int t7;
-    int t8;
+    int writeIndex;
+    int wrappedIndex;
+    int previousSequence;
+    int sequenceNumber;
+    int indexBeforeAdvance;
 
-    t0 = *(int *)0x8C46D688;
-    t1 = ((~(((~t0) + 0x1) & 0xFF)) + 0x1);
-    if ((int)t0 >= 0) {
-        t1 = (t0 & 0xFF);
+    writeIndex = *(int *)0x8C46D688;
+    wrappedIndex = ((~(((~writeIndex) + 0x1) & 0xFF)) + 0x1);
+    if ((int)writeIndex >= 0) {
+        wrappedIndex = (writeIndex & 0xFF);
     }
-    *(unsigned int *)0x8C46D688 = t1;
-    if (a5 == 0) {
-        t3 = *(short *)(((a4 << 1) + 0x8C46D668));
-        *(unsigned short *)(((a4 << 1) + 0x8C46D668)) = (t3 + 0x1);
+    *(unsigned int *)0x8C46D688 = wrappedIndex;
+    if (command == 0) {
+        previousSequence = *(short *)(((fileSlot << 1) + 0x8C46D668));
+        *(unsigned short *)(((fileSlot << 1) + 0x8C46D668)) = (previousSequence + 0x1);
     }
-    *(unsigned char *)(((((t1 << 2) << 2) + 0x8C46C668) + 0x0)) = a4;
-    *(unsigned char *)(((((t1 << 2) << 2) + 0x8C46C668) + 0x1)) = a5;
-    t7 = *(short *)(((a4 << 1) + 0x8C46D668));
-    *(unsigned short *)(((0x2 + (((t1 << 2) << 2) + 0x8C46C668)) + 0x0)) = t7;
-    *(unsigned int *)(((((t1 << 2) << 2) + 0x8C46C668) + 0x4)) = a6;
-    *(unsigned int *)(((((t1 << 2) << 2) + 0x8C46C668) + 0x8)) = a7;
-    *(unsigned int *)(((((t1 << 2) << 2) + 0x8C46C668) + 0xC)) = a8;
-    t8 = *(int *)0x8C46D688;
-    *(unsigned int *)0x8C46D688 = (t8 + 0x1);
+    *(unsigned char *)(((((wrappedIndex << 2) << 2) + 0x8C46C668) + 0x0)) = fileSlot;
+    *(unsigned char *)(((((wrappedIndex << 2) << 2) + 0x8C46C668) + 0x1)) = command;
+    sequenceNumber = *(short *)(((fileSlot << 1) + 0x8C46D668));
+    *(unsigned short *)(((0x2 + (((wrappedIndex << 2) << 2) + 0x8C46C668)) + 0x0)) = sequenceNumber;
+    *(unsigned int *)(((((wrappedIndex << 2) << 2) + 0x8C46C668) + 0x4)) = argument0;
+    *(unsigned int *)(((((wrappedIndex << 2) << 2) + 0x8C46C668) + 0x8)) = argument1;
+    *(unsigned int *)(((((wrappedIndex << 2) << 2) + 0x8C46C668) + 0xC)) = argument2;
+    indexBeforeAdvance = *(int *)0x8C46D688;
+    *(unsigned int *)0x8C46D688 = (indexBeforeAdvance + 0x1);
     return 0x8C46D668;
 }
 
@@ -858,28 +858,28 @@ int mwRnaSetOutPan(int a4, int a5, int a6)
     return t10;
 }
 
-int SJRBF_GetNumData(int a4, int a5)
+int SJRBF_GetNumData(int ringAddress, int queueId)
 {
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
+    int filledBytes;
+    int freeBytes;
+    int errorCallbackAddress;
+    int errorCallback;
+    int errorCallbackArgument;
+    int callbackResult;
 
-    if (a5 == 1) {
-        t0 = *(int *)((a4 + 0xC));
-        return t0;
+    if (queueId == 1) {
+        filledBytes = *(int *)((ringAddress + 0xC));
+        return filledBytes;
     }
-    if (a5 == 0) {
-        t1 = *(int *)((a4 + 0x10));
-        return t1;
+    if (queueId == 0) {
+        freeBytes = *(int *)((ringAddress + 0x10));
+        return freeBytes;
     }
-    t2 = *(int *)((a4 + 0x28));
-    if (t2 != 0) {
-        t3 = *(int *)((a4 + 0x28));
-        t4 = *(int *)((a4 + 0x2C));
-        t5 = ((int (*)(int, int))(t3))(t4, 0xFFFFFFFD);
+    errorCallbackAddress = *(int *)((ringAddress + 0x28));
+    if (errorCallbackAddress != 0) {
+        errorCallback = *(int *)((ringAddress + 0x28));
+        errorCallbackArgument = *(int *)((ringAddress + 0x2C));
+        callbackResult = ((int (*)(int, int))(errorCallback))(errorCallbackArgument, 0xFFFFFFFD);
     }
     return 0x0;
 }

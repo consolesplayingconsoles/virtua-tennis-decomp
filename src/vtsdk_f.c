@@ -14,23 +14,23 @@ extern void ADXB_ExecOneAu16(char *p);
 extern int memcmp(char *a, char *b, int n);
 extern int kmiReadRegister(int a);
 
-extern unsigned int g_0c2af0bc;
-extern int g_8c4620f8[];
-extern char *g_8c20c204;
-extern char g_8c46b2e4[];
-extern int g_8c46c664;
-extern int g_8c46d688;
-extern char g_8c46d668[];
-extern char g_8c46c668[];
-extern char g_8c46c264[];
-extern char g_8c46bf64[];
-extern int g_8c20c928;
-extern char g_8c46efd4[];
-extern char g_8c45f964[];
-extern char g_8c45f974[];
-extern int g_8c45efec;
-extern char *g_8c47317c;
-extern char g_8c20b990[];
+extern unsigned int gNlPrintFlags;
+extern int gLightGunPosition[];
+extern char *gGdFsGlobalState;
+extern char gAdxStreamFileHandles[];
+extern int gAdxfInvalidateReadCache;
+extern int gAdxfCommandHistoryWriteIndex;
+extern char gAdxfCommandSequences[];
+extern char gAdxfCommandHistory[];
+extern char gAdxfPartitionInfoTable[];
+extern char gAdxfFileHandles[];
+extern int gSjRbfInitCount;
+extern char gSjRbfHandles[];
+extern char gRenderPacketQueues[];
+extern char gRenderPacketQueueNextLinks[];
+extern int gDisplayFilterUsesSharedFrameBuffer;
+extern char *gMapleDriver;
+extern char gAdxSpsdMagic[];
 
 float nlAbsSqrt(float x)
 {
@@ -41,7 +41,7 @@ float nlAbsSqrt(float x)
 
 void nlPrnIndentOff(void)
 {
-    g_0c2af0bc &= 0xfffffffe;
+    gNlPrintFlags &= 0xfffffffe;
 }
 
 int nlFogDensity(int v)
@@ -51,26 +51,26 @@ int nlFogDensity(int v)
 
 int gdFsReadWG(int a, int b, int c)
 {
-    int h = gdFsReopenHn(*(int *)(g_8c20c204 + 20), 0, a, b << 11);
+    int h = gdFsReopenHn(*(int *)(gGdFsGlobalState + 20), 0, a, b << 11);
     if (h == 0)
         return -13;
     return gdFsRead(h, b, c);
 }
 
-void kdGetGunPosition(int *x, int *y)
+void kdGetGunPosition(int *positionX, int *positionY)
 {
-    *x = g_8c4620f8[0];
-    *y = g_8c4620f8[1];
+    *positionX = gLightGunPosition[0];
+    *positionY = gLightGunPosition[1];
 }
 
 void ADXSTM_ExecServer(void)
 {
-    char *p = g_8c46b2e4;
+    char *stream = gAdxStreamFileHandles;
     do {
-        if (*p == 1)
-            ADXSTMF_ExecHndl(p);
-        p += 100;
-    } while (p < g_8c46b2e4 + 3200);
+        if (*stream == 1)
+            ADXSTMF_ExecHndl(stream);
+        stream += 100;
+    } while (stream < gAdxStreamFileHandles + 3200);
 }
 
 int ADXSTM_SetBufSize(int *p, int a, int b)
@@ -82,27 +82,27 @@ int ADXSTM_SetBufSize(int *p, int a, int b)
 
 void ADXF_Finish(void)
 {
-    g_8c46c664 = 0;
-    g_8c46d688 = 0;
-    memset(g_8c46d668, 0, 32);
-    memset(g_8c46c668, 255, 4096);
-    memset(g_8c46c264, 0, 1024);
-    memset(g_8c46bf64, 0, 768);
+    gAdxfInvalidateReadCache = 0;
+    gAdxfCommandHistoryWriteIndex = 0;
+    memset(gAdxfCommandSequences, 0, 32);
+    memset(gAdxfCommandHistory, 255, 4096);
+    memset(gAdxfPartitionInfoTable, 0, 1024);
+    memset(gAdxfFileHandles, 0, 768);
 }
 
 void SJRBF_Init(void)
 {
-    if (g_8c20c928 > 0)
+    if (gSjRbfInitCount > 0)
         return;
-    g_8c20c928 = g_8c20c928 + 1;
-    memset(g_8c46efd4, 0, 3072);
+    gSjRbfInitCount = gSjRbfInitCount + 1;
+    memset(gSjRbfHandles, 0, 3072);
 }
 
-void SJRBF_Destroy(int *p)
+void SJRBF_Destroy(int *ring)
 {
-    if (p) {
-        memset(p, 0, 48);
-        p[1] = 0;
+    if (ring) {
+        memset(ring, 0, 48);
+        ring[1] = 0;
     }
 }
 
@@ -114,17 +114,17 @@ int kmySetBorderColor(int c)
 
 char *kmiFLWCTRLFindTailQueue(void)
 {
-    int i;
-    for (i = 0; i < 3616; i += 452) {
-        if (*(int *)(g_8c45f964 + i) == 1 && *(int *)(g_8c45f974 + i) == 0)
-            return g_8c45f964 + i;
+    int queueOffset;
+    for (queueOffset = 0; queueOffset < 3616; queueOffset += 452) {
+        if (*(int *)(gRenderPacketQueues + queueOffset) == 1 && *(int *)(gRenderPacketQueueNextLinks + queueOffset) == 0)
+            return gRenderPacketQueues + queueOffset;
     }
     return 0;
 }
 
 int kmiCheckSysConfigSetting(int *p)
 {
-    if ((p[1] & 2) == 0 && g_8c45efec == 0)
+    if ((p[1] & 2) == 0 && gDisplayFilterUsesSharedFrameBuffer == 0)
         return 0;
     if (p[3] == 2 && (p[1] & 32) == 0)
         return 0;
@@ -133,7 +133,7 @@ int kmiCheckSysConfigSetting(int *p)
 
 char *mpdrv_get_portstatus(int n)
 {
-    return g_8c47317c + 4 + n * 8;
+    return gMapleDriver + 4 + n * 8;
 }
 
 int kmySetBackGroundDepth(int h, float d)
@@ -161,9 +161,9 @@ void ADXB_ExecOneAu(char *p)
         ADXB_ExecOneAu16(p);
 }
 
-int ADXB_CheckSpsd(char *p)
+int ADXB_CheckSpsd(char *header)
 {
-    return memcmp(p, g_8c20b990, 4) == 0;
+    return memcmp(header, gAdxSpsdMagic, 4) == 0;
 }
 
 void kmiGetITPCurrent(int *p)

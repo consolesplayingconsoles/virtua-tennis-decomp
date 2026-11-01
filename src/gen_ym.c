@@ -1,7 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_ym): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c0eaf00(int, int, int);
+int resetBackColorZ(int, int, int);
 int fadeScreenStart(int, int, int, int, int, int);
 int hudPanelDraw(int, int, float);
 int nlExecuteEvent(int);
@@ -19,7 +19,7 @@ int FUN_8c0d65bc(void)
 
     if ((*(int *)0x8C20D15C) == 0) {
         hudPanelDraw(0x2, 0x0, 0.0f);
-        FUN_8c0eaf00(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
+        resetBackColorZ(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
     }
     if ((*(int *)0x8C20D15C) == 75) {
         strmBgmPlay(0x13);

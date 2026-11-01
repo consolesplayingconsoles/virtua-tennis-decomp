@@ -24,36 +24,9 @@ int ADXSTM_Start(int);
 int CalcShadow2Matrix(int);
 int ConvertSwitch(int);
 int ConvertSwitch2(void);
-int FUN_0c02c094(int, int);
-int FUN_0c02e074(void);
-int FUN_0c02e42a(void);
-int FUN_0c03012c(void);
-int FUN_0c03019a(void);
-int FUN_0c0310a0(int, int, int);
-int FUN_0c03b698(int);
-int FUN_0c0527ec(void);
-int FUN_0c052d28(void);
-int FUN_0c053b76(void);
-int FUN_0c053dec(void);
-int FUN_0c0544a8(void);
-int FUN_0c058ff0(int);
-int FUN_0c05b044(void);
-int FUN_0c072884(void);
-int FUN_0c0728c8(void);
-int FUN_0c072e36(void);
-int FUN_0c072fe8(void);
-int FUN_0c0738bc(void);
-int FUN_0c080ae0(int, int, int);
-int FUN_0c151cac(int, int, int);
 int ADXT_SetReloadSct(int, int);
 int ADXT_SetAutoRcvr(int, int);
-int FUN_0c15fa1c(void);
-int FUN_0c167c4c(void);
-int FUN_0c16800c(void);
-int FUN_0c169710(int);
-int FUN_0c16c634(int);
-int FUN_0c170880(void);
-int FUN_0c1708b2(void);
+int adxf_purge_all(int);
 int mwlSbGetStreamParam(int, int, int);
 int FcvPlay(int, int, float);
 int GetMenuMode(int);
@@ -141,8 +114,6 @@ int pfSize(float, float);
 int rankingInsert(void);
 int syCfgExit(void);
 int syCfgInit(int);
-int thunk_FUN_0c072fe8(void);
-int thunk_FUN_0c169a20(void);
 int thunk_mwRnaErrEntryFunc(int, int);
 int vmsfb_exec(void);
 int vmsfs_c_dispatch(int);
@@ -207,12 +178,12 @@ void ADXSJD_Stop(int a4)
 }
 
 
-int ADXSJD_GetLpEndOfst(int a4)
+int ADXSJD_GetLpEndOfst(int streamDecoderAddress)
 {
-    int t0;
+    int decoderAddress;
 
-    t0 = *(int *)((a4 + 0x4));
-    return ADXB_GetLpEndOfst(t0);
+    decoderAddress = *(int *)((streamDecoderAddress + 0x4));
+    return ADXB_GetLpEndOfst(decoderAddress);
 }
 
 
@@ -220,7 +191,7 @@ int ADXF_InitCache_P2_(int a4)
 {
     int t1;
 
-    FUN_0c169710(a4);
+    adxf_purge_all(a4);
     *(unsigned int *)0xFF00001C = ((a4 & 0xFFFFF7FF) | 0x800);
     t1 = *(int *)0xFF00001C;
     *(unsigned int *)0xFF00001C = ((t1 & 0xFFFFFFF7) | 0x8);

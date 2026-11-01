@@ -1,7 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_nm): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_8c0f0860(int);
+int nlUnitVector(int);
 float cpuDistXZ(int, int);
 float nlInnerProduct(int, int);
 float cpuAimAngleRate(int a4, int a5, int a6, int a7, int a8);
@@ -183,17 +183,17 @@ float cpuAimAngleRate(int a4, int a5, int a6, int a7, int a8)
     *(float *)(((int)stk + 76)) = ((*(float *)((v0_4 + 0x0))) - (*(float *)((v0_3 + 0x0))));
     *(float *)(((int)stk + 80)) = 0.0f;
     *(float *)(((int)stk + 84)) = ((*(float *)((v0_4 + 0x8))) - (*(float *)((v0_3 + 0x8))));
-    FUN_8c0f0860((((int)stk + 4) + 0x48));
+    nlUnitVector((((int)stk + 4) + 0x48));
     *(float *)(((int)stk + 68)) = 0.0f;
     *(float *)(((int)stk + 64)) = ((*(float *)((v0_2 + 0x0))) - (*(float *)((v0_3 + 0x0))));
     *(float *)(((int)stk + 72)) = ((*(float *)((v0_2 + 0x8))) - (*(float *)((v0_3 + 0x8))));
-    FUN_8c0f0860((((int)stk + 4) + 0x3C));
+    nlUnitVector((((int)stk + 4) + 0x3C));
     w0_0 = nlInnerProduct((((int)stk + 4) + 0x48), (((int)stk + 4) + 0x3C));
     *(float *)((v0_0 + 0x0)) = (*(float *)((v0_2 + 0x0)));
     *(float *)((v0_0 + 0x8)) = (*(float *)((v0_2 + 0x8)));
     *(float *)(((int)stk + 64)) = ((*(float *)((v0_2 + 0x0))) - (*(float *)((v0_3 + 0x0))));
     *(float *)(((int)stk + 72)) = ((*(float *)((v0_1 + 0x8))) - (*(float *)((v0_3 + 0x8))));
-    FUN_8c0f0860((((int)stk + 4) + 0x3C));
+    nlUnitVector((((int)stk + 4) + 0x3C));
     v0_6 = !((nlInnerProduct((((int)stk + 4) + 0x48), (((int)stk + 4) + 0x3C))) > w0_0);
     v0_4 = (0x8C0F0860);
     v0_5 = (0x8C0F0590);
@@ -206,7 +206,7 @@ float cpuAimAngleRate(int a4, int a5, int a6, int a7, int a8)
     L_8C07F4C4:;
     *(float *)(((int)stk + 64)) = ((*(float *)((v0_1 + 0x0))) - (*(float *)((v0_3 + 0x0))));
     *(float *)(((int)stk + 72)) = ((*(float *)((v0_2 + 0x8))) - (*(float *)((v0_3 + 0x8))));
-    FUN_8c0f0860((((int)stk + 4) + 0x3C));
+    nlUnitVector((((int)stk + 4) + 0x3C));
     v0_4 = !((nlInnerProduct((((int)stk + 4) + 0x48), (((int)stk + 4) + 0x3C))) > w0_1);
     if (v0_4) goto L_8C07F504;
     w0_0 = nlInnerProduct((((int)stk + 4) + 0x48), (((int)stk + 4) + 0x3C));
@@ -216,7 +216,7 @@ float cpuAimAngleRate(int a4, int a5, int a6, int a7, int a8)
     L_8C07F504:;
     *(float *)(((int)stk + 64)) = ((*(float *)((v0_1 + 0x0))) - (*(float *)((v0_3 + 0x0))));
     *(float *)(((int)stk + 72)) = ((*(float *)((v0_1 + 0x8))) - (*(float *)((v0_3 + 0x8))));
-    FUN_8c0f0860((((int)stk + 4) + 0x3C));
+    nlUnitVector((((int)stk + 4) + 0x3C));
     w0_2 = nlInnerProduct((((int)stk + 4) + 0x48), (((int)stk + 4) + 0x3C));
     w0_0 = (w0_2);
     if ((!(w0_2 > w0_1))) goto L_8C07F538;

@@ -4,11 +4,11 @@
 typedef struct { int w[3]; } Stk3;
 int fadeScreenDraw(int, int, int, int, float, float);
 int sprInitPos(int, int, Stk3);
-int thunk_FUN_8c0f41f0(int);
+int thunk_nlSprPut(int);
 Stk3 vecMake(float, float, float);
 int fadeDraw(int a4, int a5, int a6, int a7, float f4, float f5);
 int texPicPut(float f4);
-int thunk_FUN_8c0bcda0(int a4, int a5, int a6, int a7, float f4, float f5);
+int thunk_fadeScreenDraw(int a4, int a5, int a6, int a7, float f4, float f5);
 
 int fadeDraw(int a4, int a5, int a6, int a7, float f4, float f5)
 {
@@ -33,14 +33,14 @@ int fadeDraw(int a4, int a5, int a6, int a7, float f4, float f5)
                 if ((float)t1 > u1) {
                     t3 = (int)u1;
                 }
-                thunk_FUN_8c0bcda0(t1, 0x8C1389FC, a6, a7, ((float)t3 / u1), u0);
+                thunk_fadeScreenDraw(t1, 0x8C1389FC, a6, a7, ((float)t3 / u1), u0);
                 t1 = *(int *)0x8C287C60;
                 *(unsigned int *)0x8C287D7C = ((*(int *)0x8C287D7C) - (((t1 == 0)) ? 1 : 0));
                 t2 = (((t1 == 0)) ? 1 : 0);
             }
             t1 = t2;
         } else {
-            thunk_FUN_8c0bcda0(t0, 0x8C1389FC, a6, a7, 1.0f, u0);
+            thunk_fadeScreenDraw(t0, 0x8C1389FC, a6, a7, 1.0f, u0);
             t0 = *(int *)0x8C287C60;
             *(unsigned int *)0x8C287D7C = ((*(int *)0x8C287D7C) - (((t0 == 0)) ? 1 : 0));
             t1 = (((t0 == 0)) ? 1 : 0);
@@ -62,10 +62,10 @@ int texPicPut(float f4)
     *(float *)0x8C340740 = (*(float *)(((int)stk + 20)));
     *(float *)0x8C340724 = 40.0f;
     *(float *)0x8C340728 = 30.0f;
-    return (thunk_FUN_8c0f41f0(0x8C340714));
+    return (thunk_nlSprPut(0x8C340714));
 }
 
-int thunk_FUN_8c0bcda0(int a4, int a5, int a6, int a7, float f4, float f5)
+int thunk_fadeScreenDraw(int a4, int a5, int a6, int a7, float f4, float f5)
 {
     return fadeScreenDraw(a4, a5, a6, a7, f4, f5);
 }

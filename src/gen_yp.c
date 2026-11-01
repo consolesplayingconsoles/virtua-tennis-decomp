@@ -6,7 +6,7 @@ typedef struct { int w[3]; } Stk3;
 int ADXT_ExecServer(void);
 int ADXT_SetOutVol(int, int);
 int ADXT_StartAfs(int, int, int);
-int FUN_8c0eaf00(int, int, int, float);
+int resetBackColorZ(int, int, int, float);
 int buSetCompleteCallback(int);
 int buSetProgressCallback(int);
 int camInit(void);
@@ -76,7 +76,7 @@ int sprTexFree(int);
 int stageLoadEnding(void);
 int strmCallScore(int, int, int, int, int, int, int, int, int, int, int, int);
 int strmExec(void);
-extern int thunk_FUN_8c0f41f0();
+extern int thunk_nlSprPut();
 int umpCallAdvName(int);
 int umpCallDeuce(int);
 int umpCallGame(int);
@@ -222,7 +222,7 @@ int FUN_8c0d6d54(int a4, int a5)
 
 int FUN_8c08d520(float f4)
 {
-    FUN_8c0eaf00(0xFFFFFF, 0xFFFFFF, 0xFFFFFF, f4);
+    resetBackColorZ(0xFFFFFF, 0xFFFFFF, 0xFFFFFF, f4);
     camInit();
     nlInitEvent();
     sndFadeFlagsClear();
@@ -1099,9 +1099,9 @@ int FUN_8c0c4cce(int a4, int a5, int a6, int a7)
 {
     register int t0;
 
-    t0 = ((int (*)(int, int, int, int))(thunk_FUN_8c0f41f0))(0x8C37BB88, a5, a6, a7);
-    t0 = ((int (*)(int))(thunk_FUN_8c0f41f0))(0x8C37BBD8);
-    return (((int (*)(int))(thunk_FUN_8c0f41f0))(0x8C37BC28));
+    t0 = ((int (*)(int, int, int, int))(thunk_nlSprPut))(0x8C37BB88, a5, a6, a7);
+    t0 = ((int (*)(int))(thunk_nlSprPut))(0x8C37BBD8);
+    return (((int (*)(int))(thunk_nlSprPut))(0x8C37BC28));
 }
 
 int FUN_8c0da7ae(int a4)

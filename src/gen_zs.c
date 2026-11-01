@@ -1,6 +1,6 @@
 /* A function proven on cases written by hand: the generator's C with the replacements ['int camGetPos(int, ...);=>typedef struct { int w; } Stk1;\nint camGetPos(Stk1);', '    camGetPos(0x8C301BCC);=>    { Stk1 s1; s1.w = 0x8C301BCC; camGetPos(s1); }']. */
 
-int FUN_8c0f0860(int);
+int nlUnitVector(int);
 typedef struct { int w; } Stk1;
 int camGetPos(Stk1);
 int FUN_8c08785e(int a4);
@@ -33,7 +33,7 @@ int FUN_8c08785e(int a4)
         u1 = (u0 * ((*(float *)((a4 + 0x18))) / 255.0f));
     }
     *(float *)0x8C301BD4 = u1;
-    t0 = FUN_8c0f0860(0x8C301BCC);
+    t0 = nlUnitVector(0x8C301BCC);
     if ((*(int *)0x8C287C60) == 0) {
         *(unsigned int *)((a4 + 0x14)) = ((*(int *)((a4 + 0x14))) + 0x1);
     }

@@ -44,9 +44,9 @@ void strmScoreReset(void)
     *(unsigned int *)0x8C1D476C = 0x0;
 }
 
-void nlSetCommonTextureOffset(int a4)
+void nlSetCommonTextureOffset(int textureOffset)
 {
-    *(unsigned int *)0x8C458DCC = a4;
+    *(unsigned int *)0x8C458DCC = textureOffset;
 }
 
 void nlPrintSetGarbagedTexture(void)

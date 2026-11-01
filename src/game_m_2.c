@@ -1,6 +1,5 @@
 /* Game functions with single-precision floats (batch m): camera target setters, print scale and size, small stores. */
 
-void FUN_0c05af8e(void);
 
 
 /* out = a + b for 3-vectors. */

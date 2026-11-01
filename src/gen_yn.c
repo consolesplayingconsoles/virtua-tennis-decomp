@@ -7,7 +7,7 @@ typedef struct { int w[6]; } Stk6;
 int ADXT_SetOutVol(int, int);
 int ADXT_Stop(int);
 int BupRequestSave(int, int, int, int);
-int FUN_8c0eaf00(int, int, int);
+int resetBackColorZ(int, int, int);
 int btnGuideDrawB(int, int, int, int, Stk3, float);
 int buGetDiskInfo(int, int);
 int camWorldToView(Stk4);
@@ -91,7 +91,7 @@ int strmCallScore(int, int, int, int, int, int, int, int, int, int, int, int);
 int strmScoreReset(void);
 int strmVoiceQueueReset(void);
 int swingBlurPut(int, float, float);
-int thunk_FUN_8c0f41f0(int, int, int, int);
+int thunk_nlSprPut(int, int, int, int);
 int titleSprTexLoad(int, int, int, int, int, int, int, int, int);
 int umpBusyStart(void);
 Stk3 vecMake(float, float, float);
@@ -389,7 +389,7 @@ int FUN_8c08e99c(int a4, int a5, int a6, int a7, float f4, float f5)
         *(float *)((a4 + 0x1C)) = ((u2 - (f5 * u5)) + u5);
         *(float *)((a4 + 0x14)) = (f5 * u5);
     }
-    thunk_FUN_8c0f41f0(a4, a5, a6, a7);
+    thunk_nlSprPut(a4, a5, a6, a7);
     *(float *)((a4 + 0x18)) = u0;
     *(float *)((a4 + 0x1C)) = u2;
     *(float *)((a4 + 0x20)) = u1;
@@ -415,7 +415,7 @@ int FUN_8c0d6684(void)
     if ((int)(*(int *)0x8C20D15C) > (int)0xA) {
         hudPanelDraw(0x1, 0x0, (*(float *)0x8C0D67A8));
     }
-    t17 = FUN_8c0eaf00(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
+    t17 = resetBackColorZ(0xFFFFFF, 0xFFFFFF, 0xFFFFFF);
     if ((*(int *)0x8C20D15C) == 0xBE) {
         fadeScreenStart(0x3, 0x0, 0x1E, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4));
         hudPanelDraw(0x2, 0x0, 0.0f);
@@ -576,7 +576,7 @@ int FUN_8c0e1d7c(void)
         rankSprTexFree();
         stageFreeAll();
         stageTexSetGarbagedAll();
-        FUN_8c0eaf00(0x4D4D4D, 0x4D4D4D, 0x4D4D4D);
+        resetBackColorZ(0x4D4D4D, 0x4D4D4D, 0x4D4D4D);
     }
     t9 = resSprTitleRead();
     if (t9 == 1) {
