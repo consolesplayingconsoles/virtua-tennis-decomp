@@ -15,7 +15,7 @@ int nlRotateAX(int);
 int nlRotateAY(int);
 int nlScale(float, float, float);
 int nlTranslate(float, float, float);
-int segPlaneHit(int, int, int, int, int);
+int segPlaneHit(int, int, int, int, int, int, int, int, int, int, int);
 float shadowBallScale(float);
 int shadowBallTrailLen(float);
 float vecDist(Stk3, Stk3);
@@ -127,7 +127,7 @@ int shadowBallDraw(Stk1 s)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(R14); }
     t62 = R13;
     *(int *)((int)stk + 4) = t62;
-    segPlaneHit(0x8C10DD3C, 0x4, 0x0, 0x0, t62);
+    { int *va = (int *)R14; int *vb = (int *)(((int)stk + 32) + 0x78); segPlaneHit(0x8C10DD3C, 0x4, 0x0, 0x0, t62, va[0], va[1], va[2], vb[0], vb[1], vb[2]); }
     t64 = *(int *)(((int)stk + 48));
     *(unsigned int *)(((int)stk + 56)) = (t64 + (((int)stk + 48) + 0x1C));
     *(int *)((int)stk + 44) = (t64 + (((int)stk + 48) + 0x1C));

@@ -12879,7 +12879,7 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 55 of 77 instructions
 
 ### FUN_8c0890dc (`8C0890DC`, 154 bytes, `src/gen_yl.c`)
-- equivalent on 17 development and 8 holdout cases, in `tests/gen_yl/FUN_8c0890dc.json`
+- equivalent on 25 development and 12 holdout cases, in `tests/gen_yl/FUN_8c0890dc.json`
 - case 3
 - case 5
 - case 7
@@ -12897,6 +12897,14 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 69
 - case 74
 - case 81
+- flag 0: morph called, counters incremented, count 5, stays open
+- flag 0, count 80 becomes 81: face reset and event closed
+- flag 0, count 79 becomes 80: not above 80, stays open
+- flag nonzero, count 90 (above 80): reset and close, no counters
+- flag 0, b44 0: count forced to 0x82
+- flag nonzero, count 81, b44 0: reset, close, then 0x82 stored
+- slot 2, entries differ: 0x268 counter not incremented
+- slot 2, entries equal: 0x268 incremented
 - case 154
 - case 126
 - case 117
@@ -12905,7 +12913,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 85
 - case 132
 - case 100
-- the cases run 55 of 77 instructions
+- slot 5, flag 0, count 100: close
+- slot 5, flag 0, count 0, b44 0
+- slot 1, flag 1, count 50, b44 0 (0x82 stored, no close)
+- slot 3, count 80 exactly with flag 1: not above 80
+- the cases run 77 of 77 instructions
 
 ### FUN_8c0891ec (`8C0891EC`, 148 bytes, `src/gen_yl.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_yl/FUN_8c0891ec.json`
@@ -12948,10 +12960,18 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 74 of 74 instructions
 
 ### FUN_8c08969c (`8C08969C`, 240 bytes, `src/gen_yj.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_yj/FUN_8c08969c.json`
+- equivalent on 6 development and 4 holdout cases, in `tests/gen_yj/FUN_8c08969c.json`
 - rescue: empty case
+- fog off (value 5 = 0): preset 0, stores 4 and 3
+- fog on, new table 1 and new density
+- fog on, table and density unchanged
+- fog on, same table, new density
+- fog on, new table 2, same density
 - rescue: empty case
-- the cases run 33 of 99 instructions
+- fog off, other values
+- fog on, new table 4, negative density value
+- fog on, unchanged table, unchanged density, colour 0
+- the cases run 100 of 100 instructions
 
 ### FUN_8c08978c (`8C08978C`, 158 bytes, `src/gen_yl.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_yl/FUN_8c08978c.json`
@@ -95058,10 +95078,19 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 82 of 82 instructions
 
 ### screenSphereVisible (`8C08A148`, 176 bytes, `src/gen_fc.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_fc/screenSphereVisible.json`
+- equivalent on 7 development and 4 holdout cases, in `tests/gen_fc/screenSphereVisible.json`
 - rescue: empty case
+- behind the camera: radius not above depth
+- in front, x outside the window
+- in front, x inside, y outside
+- in front, x and y inside: visible
+- negative depth, inside
+- zero depth, x inside y inside
 - rescue: empty case
-- the cases run 28 of 88 instructions
+- other radius, visible
+- other radius, y just outside
+- depth equal to radius: not visible
+- the cases run 86 of 88 instructions
 
 ### screenSphereVisibleRaised (`8C08A1F8`, 190 bytes, `src/gen_hk.c`)
 - equivalent on 18 development and 13 holdout cases, in `tests/gen_hk/screenSphereVisibleRaised.json`
@@ -95879,10 +95908,21 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 49 of 63 instructions
 
 ### segPlaneHit (`8C089870`, 330 bytes, `src/gen_hk.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_hk/segPlaneHit.json`
+- equivalent on 8 development and 5 holdout cases, in `tests/gen_hk/segPlaneHit.json`
 - rescue: empty case
+- hit inside: t = 0.5
+- hit at t = 0 edge
+- t < 0: before the segment start
+- t > 1: past the segment end
+- parallel: n.D = 0
+- facing away: n.D < 0
+- hit at t = 1 edge
 - rescue: empty case
-- the cases run 110 of 164 instructions
+- other plane, hit inside
+- other plane, t > 1
+- other plane, t < 0
+- other plane, tiny n.D (below the epsilon)
+- the cases run 165 of 165 instructions
 
 ### selCellClear (`8C0A9AEC`, 76 bytes, `src/gen_e.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_e/selCellClear.json`

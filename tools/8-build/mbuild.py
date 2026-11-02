@@ -41,6 +41,7 @@ SYM = 'build/sym'
 LIT = re.compile(r'(?<![\w.])0[xX]([0-9A-Fa-f]{7,8})([uUlL]*)(?![\w.])')       # an integer suffix (0x0C0DB008u) is part of the number
 TOPS = (0x0C, 0x8C, 0xAC)
 LOG = OUT + '/mbuild.log'
+VENEER_ROUNDS = 40       # each round routes the branches a link found out of reach; a veneer pushes the next one out (H5 of Virtua Tennis needed more than 6)
 
 
 def say(msg):
@@ -625,7 +626,7 @@ def main():
     say('assembled %d sources' % len(jobs))
     def settle(tag, defs, pads):
         """Link until no branch is out of reach: each one the linker reports goes through a veneer, the unit is written again."""
-        for round_ in range(6):
+        for round_ in range(VENEER_ROUNDS):
             over = link(tag, defs, soft=True)
             if not over:
                 return
@@ -641,7 +642,7 @@ def main():
             jobs = write_units(pads)
             assemble(jobs)
             say('link %s: %d branches out of reach go through a veneer (round %d, %d units)' % (tag, n, round_ + 1, len(unit_routes)))
-        say('[ERROR] branches still out of reach after 6 rounds of veneers')
+        say('[ERROR] branches still out of reach after %d rounds of veneers' % VENEER_ROUNDS)
         sys.exit(1)
 
     settle('layout', names, pad1)

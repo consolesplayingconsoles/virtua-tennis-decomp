@@ -39,7 +39,7 @@ int set_event2(int, int);
 int sprAdvLoad(void);
 int sprSet192Load(void);
 int vecAnglesTo(int, int, Stk3);
-float vecDist(Stk3);
+float vecDist(Stk3, Stk3);
 int vecMake(int, int, int, int, int, float, float, float);
 int vmsfs_unmount(int);
 int vmsio_ismount(int);
@@ -729,7 +729,7 @@ float camMoveBegin(float f4, float f5)
             vecAnglesTo(0x8C287648, 0x8C28764A, *(Stk3 *)(0x8C2875C0));
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(0x8C2875CC); }
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(0x8C2875C0); }
-            t4 = vecDist(*(Stk3 *)(0x8C2875C0));
+            t4 = vecDist(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 16)));
             *(float *)0x8C287628 = t4;
             u7 = t4;
         }

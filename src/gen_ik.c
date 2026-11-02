@@ -3,7 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 int cpuDebugLine(int, Stk3, float);
-int cpuDebugLine2(int, float);
+int cpuDebugLine2(int, Stk3, Stk3, float);
 Stk3 vecMake(float, float, float);
 int kmProcessVertexRenderState(int a4, int a5, int a6, int a7);
 int ndbEditShowEntry(int a4);
@@ -28,7 +28,7 @@ int ndbEditShowEntry(int a4)
     }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)(((int)stk + 40)); }
     *(Stk3 *)(((int)stk + 16)) = vecMake((*(float *)0x8C28886C), 0.00999999978f, (*(float *)0x8C288874));
-    cpuDebugLine2(t7, (1.0f + 1.0f));
+    cpuDebugLine2(t7, *(Stk3 *)(((int)stk + 16)), *(Stk3 *)(((int)stk + 28)), (1.0f + 1.0f));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(((int)stk + 40)); }
     cpuDebugLine(t7, *(Stk3 *)(((int)stk + 4)), (1.0f + 1.0f));
     *(float *)0x8C2895E4 = (*(float *)((((((int)stk + 40) + 0x1C) + ((*(signed char *)((a4 + 0x2))) << 2)) + 0xC)));
@@ -39,7 +39,7 @@ int ndbEditShowEntry(int a4)
     *(float *)((((int)stk + 40) + 0x8)) = (*(float *)0x8C2895EC);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)(((int)stk + 40)); }
     *(Stk3 *)(((int)stk + 16)) = vecMake((*(float *)0x8C2895E4), (*(float *)0x8C0824DC), (*(float *)0x8C2895EC));
-    cpuDebugLine2(0xFFFF00FF, 1.0f);
+    cpuDebugLine2(0xFFFF00FF, *(Stk3 *)(((int)stk + 16)), *(Stk3 *)(((int)stk + 28)), 1.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(((int)stk + 40)); }
     return (cpuDebugLine(0xFFFF00FF, *(Stk3 *)(((int)stk + 4)), 1.0f));
 }

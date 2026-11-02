@@ -240,7 +240,7 @@ or endorsed by them.
 
 ## Where this comes from
 
-It came out of real work on Consoles Playing Consoles. See what Pluto has helped me build:
+It came out of real work on Consoles Playing Consoles. See what it has helped me build:
 
 - 📸 **Instagram:** [@consolesplayingconsoles](https://www.instagram.com/consolesplayingconsoles/)
 - 🔗 **Everything else:** [beacons.ai/consolesplayingconsoles](https://beacons.ai/consolesplayingconsoles)

@@ -10,7 +10,7 @@ extern int _builtin_get_imask(void);
 extern void _builtin_set_imask(int);
 int abs(int);
 int camProject(int, int, Stk3);
-int camWorldToView(void);
+void camWorldToView(Stk4);
 int crowdAnimModel(int, int);
 int kmyConnectInterrupt(int, int, int);
 int kmyZeroMemory(int, int);
@@ -596,7 +596,7 @@ int miniPopupSpawn(Stk4 s)
     stk[17] = s.w[3];
     if (((*(int *)0x8C287C60) == 0) && (t1 = *(int *)0x8C2FBFD8, t1 == 0)) {
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x18)); }
-        camWorldToView();
+        { Stk4 cv; cv.w[0] = (((int)stk + 16) + 0x18); cv.w[1] = s.w[0]; cv.w[2] = s.w[1]; cv.w[3] = s.w[2]; camWorldToView(cv); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x18)); }
         camProject((((int)stk + 4) + 0x20), (((int)stk + 4) + 0x1C), *(Stk3 *)((((int)stk + 16) + 0x18)));
         *(float *)(((int)stk + 36)) = ((*(float *)(((int)stk + 36))) + (*(float *)0x8C03BBC4));

@@ -3,10 +3,11 @@
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[10]; } Stk10;
+typedef struct { int w[4]; } Stk4;
 int VQalloc(int, int, int, int, int, int, int, int, int);
 extern int _builtin_tas(char *);
 int abs(int);
-int camWorldToView(int, ...);
+void camWorldToView(Stk4);
 int charaTexFreeAll(void);
 int colliObjInit(int, int, int, int, int, float);
 extern int hudCallDigitPut();
@@ -224,8 +225,7 @@ int screenSphereVisible(Stk3 s, float f4)
     stk[13] = s.w[0];
     stk[14] = s.w[1];
     stk[15] = s.w[2];
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x20)); }
-    camWorldToView((((int)stk + 20) + 0x8));
+    { Stk4 cv; cv.w[0] = (((int)stk + 20) + 0x8); cv.w[1] = s.w[0]; cv.w[2] = s.w[1]; cv.w[3] = s.w[2]; camWorldToView(cv); }
     t26 = 0x0;
     if (f4 > (*(float *)(((((int)stk + 20) + 0x8) + 0x8)))) {
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x8)); }

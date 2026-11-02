@@ -7,7 +7,7 @@ int entryGetColorId(int, Stk3);
 int hudFramePutWide(int, int, Stk3, float);
 int hudNumPut(int, Stk3, float);
 extern int hudPointsPut();
-int hudScoreIconPut(int, float);
+int hudScoreIconPut(int, Stk3, float);
 int nlPopMatrix(int);
 int nlPushMatrix(int);
 int nlRotateAY(int);
@@ -99,7 +99,7 @@ int hudScoreBoardDraw(int a4, int a5)
             t19 = 0xC;
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(((((t20 << 1) + t20) << 2) + 0x8C33D760)); }
             t19 = (entryGetColorId(t20, *(Stk3 *)(((int)stk + 16))));
-            t19 = (hudScoreIconPut(t19, 1.0f));
+            t19 = (hudScoreIconPut(t19, *(Stk3 *)(((int)stk + 16)), 1.0f));
             t20 = (t20 + 0x1);
         }
         if ((*(int *)0x8C287B44) != 5) {

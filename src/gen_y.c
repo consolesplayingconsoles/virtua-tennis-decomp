@@ -64,7 +64,7 @@ int stageTexSetGarbagedAll(void);
 int stageWtcMainTexFree(void);
 int strncpy(int, int, int);
 int syCachePurgeAll(int, int, int, int);
-float vecDist(Stk3);
+float vecDist(Stk3, Stk3);
 int vecMake(float, float, float, ...);
 int logoSmallPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
 int evPackRamp(int a4, int a5, int a6, int a7);
@@ -398,7 +398,7 @@ float courtDistScale(Stk4 s)
     stk[11] = s.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 28) + 0x10)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x10)); }
-    t0 = vecDist(*(Stk3 *)((((int)stk + 16) + 0x10)));
+    t0 = vecDist(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 16)));
     if (t0 > (*(float *)0x8C0B6938)) {
         return (*(float *)0x8C0B693C);
     }

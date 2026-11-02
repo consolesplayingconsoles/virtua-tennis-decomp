@@ -1,6 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_e): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
+typedef struct { int w[3]; } Stk3;
 int ADXB_CheckAu(int);
 int ADXB_CheckSpsd(void);
 int ADXB_CheckWav(int);
@@ -54,7 +55,7 @@ int dbgMenuSetItem(int, int, int, int, int, int, int);
 int motionBackup(void);
 int motionSetFrame(int, float);
 int vecMake(float, float, float);
-float vecDist(void);
+float vecDist(Stk3, Stk3);
 int mtxGetPos(int, int, int);
 int vecAnglesTo(int, int);
 int camInit(void);
@@ -905,47 +906,14 @@ void camViewToWorld(int a4, int a5, int a6, int a7, int a8)
     *(unsigned int *)((a8 + 0x0)) = t6;
 }
 
-void vecStepToward(int a4, int a5, int a6, int a7, int a8, float f4)
+void vecStepToward(int a4, int a5, int a6, int a7, int a8, Stk3 p, Stk3 q, float f4)
 {
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    float t6;
-    float u8;
-    int t11;
-    int t12;
-    int t13;
-    int stk[9];
-
-    *(float *)(((int)stk + 28)) = f4;
-    t0 = *(int *)(((((int)stk + 28) + 0x18) + 0x8));
-    *(unsigned int *)((((int)stk + 16) + 0x8)) = t0;
-    t1 = *(int *)(((((int)stk + 28) + 0x18) + 0x4));
-    *(unsigned int *)((((int)stk + 16) + 0x4)) = t1;
-    t2 = *(int *)(((((int)stk + 28) + 0x18) + 0x0));
-    *(unsigned int *)((((int)stk + 16) + 0x0)) = t2;
-    t3 = *(int *)(((((int)stk + 16) + 0x18) + 0x8));
-    *(unsigned int *)((((int)stk + 4) + 0x8)) = t3;
-    t4 = *(int *)(((((int)stk + 16) + 0x18) + 0x4));
-    *(unsigned int *)((((int)stk + 4) + 0x4)) = t4;
-    t5 = *(int *)(((((int)stk + 16) + 0x18) + 0x0));
-    *(unsigned int *)((((int)stk + 4) + 0x0)) = t5;
-    t6 = vecDist();
-    if (t6 != 0.0f) {
-        nlSubVector((((int)stk + 28) + 0x18), (((int)stk + 28) + 0xC));
-        u8 = *(float *)(((int)stk + 28));
-        nlScaleUnitVector((((int)stk + 28) + 0x18), (((int)stk + 28) + 0x18), u8);
-        nlAddVector((((int)stk + 28) + 0xC), (((int)stk + 28) + 0x18));
+    if (vecDist(p, q) != 0.0f) {
+        nlSubVector((int)&q, (int)&p);
+        nlScaleUnitVector((int)&q, (int)&q, f4);
+        nlAddVector((int)&p, (int)&q);
     }
-    t11 = *(int *)(((((int)stk + 28) + 0xC) + 0x8));
-    *(unsigned int *)((a8 + 0x8)) = t11;
-    t12 = *(int *)(((((int)stk + 28) + 0xC) + 0x4));
-    *(unsigned int *)((a8 + 0x4)) = t12;
-    t13 = *(int *)(((((int)stk + 28) + 0xC) + 0x0));
-    *(unsigned int *)((a8 + 0x0)) = t13;
+    *(Stk3 *)a8 = p;
 }
 
 void camSetEye(void)
@@ -1105,7 +1073,7 @@ int camMoveBeginAtGoal(float f4, float f5)
             R1008 = t13;
             t14 = *(int *)0x8C2875C0;
             R1004 = t14;
-            t15 = vecDist();
+            t15 = vecDist(*(Stk3 *)0x8C2875C0, *(Stk3 *)0x8C2875CC);
             *(float *)0x8C287628 = t15;
         }
         t17 = *(int *)0x8C2875F8;

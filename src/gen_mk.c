@@ -5,7 +5,7 @@ typedef struct { int w[3]; } Stk3;
 int endPlayerPut(int, int);
 int evFlashStart(float);
 int hudFlagPut(int, Stk3, float);
-int hudFontNumPut(int, float);
+int hudFontNumPut(int, Stk3, float);
 int lightOverrideAmbient(int, int);
 int menuTextMsgPut(int, float);
 int motionAdvance(int);
@@ -111,7 +111,7 @@ int endingSceneDraw(int a4, int a5, int a6, int a7, float f4)
     *(Stk3 *)(((int)stk + 8)) = vecMake(505.0f, 355.0f, 0.100000001f);
     hudFlagPut((*(int *)(((*(int *)0x8C402CB4) + 0xC58))), *(Stk3 *)((int)stk + 8), u41);
     *(Stk3 *)(((int)stk + 8)) = vecMake(555.0f, 405.0f, 0.100000001f);
-    hudFontNumPut((*(int *)0x8C2FBC58), u41);
+    hudFontNumPut((*(int *)0x8C2FBC58), *(Stk3 *)(((int)stk + 8)), u41);
     *(Stk3 *)(((int)stk + 8)) = vecMake(505.0f, 400.0f, 0.100000001f);
     menuTextMsgPut((*(int *)((((*(int *)(((*(int *)0x8C402CB4) + 0xC58))) << 2) + 0x8C1D36F8))), u41);
     nlPushMatrix(0x0);

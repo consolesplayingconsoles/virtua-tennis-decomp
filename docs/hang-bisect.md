@@ -115,8 +115,8 @@ Next: build I = `fadeScreenStart` and `FUN_8c08535e` on the original asm. Boots:
 
 **Tomorrow, in this order:**
 1. `bash build.sh` once (must print MATCH).
-2. Pluto build with no asm-functions.txt (move it to build/aside/): the all-C build must pass with the new mbuild (build N2).
-3. Put asm-functions.txt back (the five functions, already written) and Pluto-build E2. Run the pool check (scratchpad poolall.py: decode original and built pool loads) on build/mbuild/game.bin BEFORE testing the disc: zero wrong reads, then test. E2 = the earlier E result re-tested with correct asm: boots = the five C functions are involved (then one by one); hangs = they are not.
+2. Build with no asm-functions.txt (move it to build/aside/): the all-C build must pass with the new mbuild (build N2).
+3. Put asm-functions.txt back (the five functions, already written) and build E2. Run the pool check (scratchpad poolall.py: decode original and built pool loads) on build/mbuild/game.bin BEFORE testing the disc: zero wrong reads, then test. E2 = the earlier E result re-tested with correct asm: boots = the five C functions are involved (then one by one); hangs = they are not.
 4. build/disc-cbuild is overwritten by every build: copy the disc you want to keep.
 
 
@@ -135,3 +135,11 @@ Lists: `docs/bisect/h1-asm-first-half.txt` (the first 982 functions that have C,
 Results: H1 plays (the first half on asm, the second half's C works); H2 crashes at the SEGA screen (the second half on asm, the first half's C fails). The cause is in the first half's C. A half that boots with the other half's C on cleared the C it holds; the half that hangs holds the cause. Halve that half next (lists from the same sorted function list).
 
 Next: H3 (first 491 of the first half on asm) and H4 (the last 491 of the first half on asm), lists `docs/bisect/h3-asm-first-half-q1.txt` and `h4-asm-first-half-q2.txt`.
+
+Results: H3 (first 491 of the first half on asm) crashes at SEGA; H4 (the last 491 of the first half, `cpuDblPickTactic` .. `panelWideInit`, on asm) plays. The cause is in the C of `cpuDblPickTactic` .. `panelWideInit` (491 functions). Next: H5 (first 245 of them on asm, `docs/bisect/h5-asm-q2a.txt`) and H6 (last 246, `h6-asm-q2b.txt`).
+
+Result: H6 (the last 246 of the cause range, `FUN_8c084764` .. `panelWideInit`, on asm) plays. The cause is in the C of those 246 (they hold fadeScreenStart, matchSceneSetup, modelSwapMaterial, hudFadeNearPlayers and sprPutAt, which E2 showed are not enough alone). H5 (the first 245 on asm) did not build: the veneer step cannot place a `BRA _u00124__v1` at offset 0x6C of unit u00124 (not converging at 40 rounds). Next: H7 (first 123 of the 246 on asm, `h7-asm-q2b1.txt`) and H8 (last 123, `h8-asm-q2b2.txt`).
+
+Result: H7 (the first 123 of the 246 on asm) is broken; H8 (the last 123, `FUN_8c08a2d4` .. `panelWideInit`, on asm) plays. **The cause is in the C of `FUN_8c08a2d4` .. `panelWideInit` (123 functions, `docs/bisect/h8-asm-q2b2.txt`).** The disc copies of the halving builds were deleted (disk was 98% full); `build/keep-H*` hold each build's game.bin and map. From here: read the code of those 123 functions against the original, not more splitting.
+
+**2026-11-02: `build/` was deleted** (6 GB, the disk was 97% full; nothing in it is tracked). The `build/keep-*` folders (each build's game.bin and map), the disc copies and the build logs are gone; the lists are in `docs/bisect/`, the results above. To build again: `bash build.sh` once (assembles `build/obj`, must print MATCH), then the build; a forced-asm test needs `asm-functions.txt` in the repo root (never commit it).

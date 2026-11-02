@@ -2,6 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[4]; } Stk4;
+typedef struct { int w[3]; } Stk3;
 extern void _builtin_ftrv(float *, float *);
 extern void _builtin_ld_ext(float (*)[4]);
 extern void _builtin_set_imask(int);
@@ -31,8 +32,8 @@ void SJMEM_Unlock(int a4, int a5);
 void SJRBF_Unlock(int a4, int a5);
 void SJUNI_Unlock(int a4, int a5);
 void ovUnlockCs_8c20012c(int a4);
-int vecDist(Stk4 s);
-int vecDot(Stk4 s);
+int vecDist(Stk3 a, Stk3 b);
+int vecDot(Stk3 a, Stk3 b);
 int cpuInitPoint(void);
 int nlSetFatalErrorMode(int a4);
 int kmyInitializeCallback(void);
@@ -125,26 +126,14 @@ void ovUnlockCs_8c20012c(int a4)
     _builtin_set_imask(((unsigned int)((((*(int *)((a4 + 0x0))) & 0xF) << 2) << 2) >> 4));
 }
 
-int vecDist(Stk4 s)
+int vecDist(Stk3 a, Stk3 b)
 {
-    int stk[14];
-
-    stk[2] = s.w[0];
-    stk[3] = s.w[1];
-    stk[4] = s.w[2];
-    stk[5] = s.w[3];
-    return (nlLength((((int)stk + 4) + 0x4), (((int)stk + 4) + 0x10)));
+    return (nlLength((int)&a, (int)&b));
 }
 
-int vecDot(Stk4 s)
+int vecDot(Stk3 a, Stk3 b)
 {
-    int stk[14];
-
-    stk[2] = s.w[0];
-    stk[3] = s.w[1];
-    stk[4] = s.w[2];
-    stk[5] = s.w[3];
-    return (nlInnerProduct((((int)stk + 4) + 0x4), (((int)stk + 4) + 0x10)));
+    return (nlInnerProduct((int)&a, (int)&b));
 }
 
 

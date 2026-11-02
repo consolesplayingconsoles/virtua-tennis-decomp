@@ -43,7 +43,7 @@ int strmVoicePlay(int, int);
 int syBtFlDeleteSct(int, int, int);
 int thunk_nlSprPut(int);
 int uniformPreviewPut(int, int);
-float vecDist(Stk3);
+float vecDist(Stk3, Stk3);
 int vecMake(int, int, int, int, int, float, float, float);
 int crowdCheerStart(void);
 int _fmtout_putstr(int a4, int a5, int a6);
@@ -428,7 +428,7 @@ float effServeSpeedCalc(int a4)
 
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((a4 + 0xC)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(a4); }
-    t0 = vecDist(*(Stk3 *)(a4));
+    t0 = vecDist(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 16)));
     u1 = *(float *)0x8C0834DC;
     u2 = *(float *)0x8C0834E0;
     u3 = *(float *)0x8C0834E4;

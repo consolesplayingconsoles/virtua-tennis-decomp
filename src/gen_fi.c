@@ -4,7 +4,7 @@
 typedef struct { int w[3]; } Stk3;
 int colliObjInit(int, int, int, int, int, float);
 int cpuDebugLine(int, Stk3, float);
-int cpuDebugLine2(int, float);
+int cpuDebugLine2(int, Stk3, Stk3, float);
 int ndbKeyEqual(int, int);
 int nlAddVector(int, int);
 int nlLocate(int, int);
@@ -87,7 +87,7 @@ int ndbEditDrawMatches(int a4)
             u29 = 0.200000003f;
             u29 = u29 + 0.100000001f * (float)t27;
             *(Stk3 *)(((int)stk + 16)) = vecMake((*(float *)((0x8C287D84 + t2))), u29, u25);
-            t2 = (cpuDebugLine2(t5, 1.0f));
+            t2 = (cpuDebugLine2(t5, *(Stk3 *)(((int)stk + 16)), *(Stk3 *)(((int)stk + 28)), 1.0f));
             t3 = 0x8C0F7DAC;
             t2 = 0xC;
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 40) + 0x4)); }

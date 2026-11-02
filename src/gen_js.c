@@ -7,7 +7,7 @@ float nlCos(int);
 int nlDispStripTexOfs(int, int, int);
 float nlPow(int, int, int, int, float, float);
 float nlTan(int);
-int rectFrameDraw(int, float);
+int rectFrameDraw(int, Stk3, Stk3, float);
 Stk3 vecMake(float, float, float);
 int cpuDblSignalPut(int a4, int a5, int a6, int a7);
 
@@ -110,7 +110,7 @@ int cpuDblSignalPut(int a4, int a5, int a6, int a7)
         u28 = *(float *)(((int)stk + 64));
         *(float *)(((int)stk + 80)) = ((float)t11 - (u28 * 35.0f));
         *(Stk3 *)(((int)stk + 8)) = vecMake(((float)t11 - (u28 * 35.0f)), 100.0f, 0.479999989f);
-        rectFrameDraw((0xFFFFFF + (((int)u8 << 16) << 8)), 1.0f);
+        rectFrameDraw((0xFFFFFF + (((int)u8 << 16) << 8)), *(Stk3 *)(((int)stk + 8)), *(Stk3 *)(((int)stk + 20)), 1.0f);
         *(Stk3 *)(((int)stk + 20)) = vecMake((*(float *)(((int)stk + 84))), 116.0f, 0.5f);
         *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((int)stk + 80))), 100.0f, 0.5f);
         cpuQuadPut((((unsigned int)(((int)u8 << 16) << 8) >> 1) & 0xFF000000), 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16));
@@ -152,7 +152,7 @@ int cpuDblSignalPut(int a4, int a5, int a6, int a7)
         u55 = *(float *)(((int)stk + 44));
         *(float *)(((int)stk + 72)) = ((float)t11 - (u55 * 35.0f));
         *(Stk3 *)(((int)stk + 8)) = vecMake(((float)t11 - (u55 * 35.0f)), 100.0f, 0.479999989f);
-        rectFrameDraw((0xFFFFFF + (((int)u8 << 16) << 8)), 1.0f);
+        rectFrameDraw((0xFFFFFF + (((int)u8 << 16) << 8)), *(Stk3 *)(((int)stk + 8)), *(Stk3 *)(((int)stk + 20)), 1.0f);
         *(Stk3 *)(((int)stk + 20)) = vecMake((*(float *)(((int)stk + 76))), 116.0f, 0.5f);
         *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((int)stk + 72))), 100.0f, 0.5f);
         t60 = (cpuQuadPut((((unsigned int)(((int)u8 << 16) << 8) >> 1) & 0xFF000000), 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16)));
@@ -192,7 +192,7 @@ int cpuDblSignalPut(int a4, int a5, int a6, int a7)
         u80 = *(float *)(((int)stk + 56));
         *(float *)(((int)stk + 88)) = ((float)t11 - (u80 * 35.0f));
         *(Stk3 *)(((int)stk + 8)) = vecMake(((float)t11 - (u80 * 35.0f)), 100.0f, 0.479999989f);
-        rectFrameDraw((0xFFFFFF + (((int)u8 << 16) << 8)), 1.0f);
+        rectFrameDraw((0xFFFFFF + (((int)u8 << 16) << 8)), *(Stk3 *)(((int)stk + 8)), *(Stk3 *)(((int)stk + 20)), 1.0f);
         *(Stk3 *)(((int)stk + 20)) = vecMake((*(float *)(((int)stk + 68))), 116.0f, 0.5f);
         *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((int)stk + 88))), 100.0f, 0.5f);
         t85 = (cpuQuadPut((0xFF000000 & ((unsigned int)(((int)u8 << 16) << 8) >> 1)), 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16)));
