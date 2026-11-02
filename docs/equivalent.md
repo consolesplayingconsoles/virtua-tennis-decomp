@@ -12060,35 +12060,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 67
 - the cases run 151 of 292 instructions
 
-### matchSceneSetup (`8C08535E`, 594 bytes, `src/gen_gf.c`)
-- equivalent on 18 development and 8 holdout cases, in `tests/gen_gf/matchSceneSetup.json`
-- case 101
-- case 1
-- case 0
-- case 2
-- case 3
-- case 4
-- case 5
-- case 6
-- case 8
-- case 9
-- case 11
-- case 12
-- case 13
-- case 14
-- case 15
-- case 17
-- case 18
-- case 24
-- case 102
-- case 96
-- case 116
-- case 92
-- case 110
-- case 114
-- case 109
-- case 117
-- the cases run 205 of 227 instructions
+### matchSceneSetup (`8C08535E`, 594 bytes, `src/gen_ng.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_ng/matchSceneSetup.json`
+- rescue: empty case
+- rescue: empty case
+- the cases run 170 of 227 instructions
 
 ### FUN_8c0855c6 (`8C0855C6`, 156 bytes, `src/gen_yl.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_yl/FUN_8c0855c6.json`
@@ -45183,10 +45159,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 111 of 111 instructions
 
 ### fadeScreenStart (`8C084C26`, 150 bytes, `src/gen_en.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_en/fadeScreenStart.json`
+- equivalent on 19 development and 19 holdout cases, in `tests/gen_en/fadeScreenStart.json`
 - rescue: empty case
+- hand a4=0 a5=0 a6=0
+- hand a4=0 a5=0 a6=32767
+- hand a4=0 a5=1 a6=10
+- hand a4=0 a5=7 a6=0
+- hand a4=0 a5=7 a6=32767
+- hand a4=1 a5=0 a6=10
+- hand a4=1 a5=1 a6=0
+- hand a4=1 a5=1 a6=32767
+- hand a4=1 a5=7 a6=10
+- hand a4=2 a5=0 a6=0
+- hand a4=2 a5=0 a6=32767
+- hand a4=2 a5=1 a6=10
+- hand a4=2 a5=7 a6=0
+- hand a4=2 a5=7 a6=32767
+- hand a4=3 a5=0 a6=10
+- hand a4=3 a5=1 a6=0
+- hand a4=3 a5=1 a6=32767
+- hand a4=3 a5=7 a6=10
 - rescue: empty case
-- the cases run 66 of 75 instructions
+- hand a4=0 a5=0 a6=10
+- hand a4=0 a5=1 a6=0
+- hand a4=0 a5=1 a6=32767
+- hand a4=0 a5=7 a6=10
+- hand a4=1 a5=0 a6=0
+- hand a4=1 a5=0 a6=32767
+- hand a4=1 a5=1 a6=10
+- hand a4=1 a5=7 a6=0
+- hand a4=1 a5=7 a6=32767
+- hand a4=2 a5=0 a6=10
+- hand a4=2 a5=1 a6=0
+- hand a4=2 a5=1 a6=32767
+- hand a4=2 a5=7 a6=10
+- hand a4=3 a5=0 a6=0
+- hand a4=3 a5=0 a6=32767
+- hand a4=3 a5=1 a6=10
+- hand a4=3 a5=7 a6=0
+- hand a4=3 a5=7 a6=32767
+- the cases run 75 of 75 instructions
 
 ### fadeStart (`8C01B22C`, 36 bytes, `src/gen_a.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_a/fadeStart.json`
@@ -51218,7 +51230,7 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 34 of 34 instructions
 
 ### hudFadeNearPlayers (`8C08E4BE`, 354 bytes, `src/gen_ie.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ie/hudFadeNearPlayers.json`
+- equivalent on 27 development and 27 holdout cases, in `tests/gen_ie/hudFadeNearPlayers.json`
 - case 4
 - case 0
 - case 1
@@ -51237,6 +51249,15 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 18
 - case 19
 - case 21
+- case 4 +a4=0, 2 players
+- case 3 +a4=0, 2 players
+- case 8 +a4=0, 2 players
+- case 14 +a4=0, 2 players
+- case 19 +a4=0, 2 players
+- case 85 +a4=0, 2 players
+- case 57 +a4=0, 2 players
+- case 64 +a4=0, 2 players
+- case 72 +a4=0, 2 players
 - case 68
 - case 74
 - case 85
@@ -51255,7 +51276,16 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 78
 - case 93
 - case 86
-- the cases run 91 of 110 instructions
+- case 1 +a4=0, 2 players
+- case 6 +a4=0, 2 players
+- case 10 +a4=0, 2 players
+- case 17 +a4=0, 2 players
+- case 68 +a4=0, 2 players
+- case 61 +a4=0, 2 players
+- case 82 +a4=0, 2 players
+- case 62 +a4=0, 2 players
+- case 93 +a4=0, 2 players
+- the cases run 101 of 110 instructions
 
 ### hudFadeOutStart (`8C087F7E`, 74 bytes, `src/gen_o.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_o/hudFadeOutStart.json`
@@ -67724,7 +67754,7 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 28 of 77 instructions
 
 ### modelSwapMaterial (`8C089D6C`, 110 bytes, `src/gen_e.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/modelSwapMaterial.json`
+- equivalent on 27 development and 19 holdout cases, in `tests/gen_e/modelSwapMaterial.json`
 - case 0
 - case 1
 - case 2
@@ -67740,6 +67770,18 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 20
 - case 25
 - case 26
+- hand 0
+- hand 1
+- hand 2
+- hand 3
+- hand 4
+- hand 5
+- hand 6
+- hand 7
+- hand 8
+- hand 9
+- hand 10
+- hand 11
 - case 27
 - case 29
 - case 36
@@ -67747,7 +67789,19 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 39
 - case 40
 - case 46
-- the cases run 25 of 55 instructions
+- hand 12
+- hand 13
+- hand 14
+- hand 15
+- hand 16
+- hand 17
+- hand 18
+- hand 19
+- hand 20
+- hand 21
+- hand 22
+- hand 23
+- the cases run 55 of 55 instructions
 
 ### motFileInit (`8C015B84`, 46 bytes, `src/gen_e.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_e/motFileInit.json`
