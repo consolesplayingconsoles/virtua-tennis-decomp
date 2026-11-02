@@ -1321,6 +1321,21 @@ int nlSetIntrPriority(int a4, int a5)
     return 0x0;
 }
 
+
+int mwlRnaStartCopy(int a4, int a5, int a6, int a7, int a8)
+{
+    int t0;
+    int t3;
+
+    if ((int)a8 <= 0) {
+        return 0x0;
+    }
+    t0 = *(int *)((a4 + 0x38));
+    t3 = ((int (*)(int, int, int, int, int))((*(int *)(((*(int *)((t0 + 0x0))) + 0x4C)))))(t0, a5, a6, a7, a8);
+    *(unsigned int *)((a4 + 0x5C)) = 0x1;
+    return a8;
+}
+
 void nlLoadMatrix33on44(int a4)
 {
     float u0;
@@ -1362,16 +1377,3 @@ void nlLoadMatrix33on44(int a4)
     }
 }
 
-int mwlRnaStartCopy(int a4, int a5, int a6, int a7, int a8)
-{
-    int t0;
-    int t3;
-
-    if ((int)a8 <= 0) {
-        return 0x0;
-    }
-    t0 = *(int *)((a4 + 0x38));
-    t3 = ((int (*)(int, int, int, int, int))((*(int *)(((*(int *)((t0 + 0x0))) + 0x4C)))))(t0, a5, a6, a7, a8);
-    *(unsigned int *)((a4 + 0x5C)) = 0x1;
-    return a8;
-}

@@ -82,7 +82,7 @@ int cpuDblAimAddRange(int a4, int a5);
 int cpuDblAimAddRange2(int a4, int a5);
 int uniformPreviewPut(int a4, int a5);
 int sunPut(int a4, int a5, int a6, float f4);
-float nlCreateVertexBuffer_multi_pass(int a4, int a5, int a6, int a7, int a8, int a9);
+int nlCreateVertexBuffer_multi_pass(int a4, int a5, int a6, int a7, int a8, int a9);
 
 
 
@@ -175,7 +175,7 @@ int entryPortLeave(int a4, int a5, int a6)
 
 
 
-float nlCreateVertexBuffer_multi_pass(int a4, int a5, int a6, int a7, int a8, int a9)
+int nlCreateVertexBuffer_multi_pass(int a4, int a5, int a6, int a7, int a8, int a9)
 {
     int t15;
     int t11;
@@ -184,7 +184,6 @@ float nlCreateVertexBuffer_multi_pass(int a4, int a5, int a6, int a7, int a8, in
     int t29;
     int t33;
     int t6;
-    float u60;
 
     t15 = (((((a5 + a6) + a7) + a8) + a9) + ((((a5 + a6) + a7) + a8) + a9));
     if ((*(int *)0x8C42440C) == 3) {
@@ -243,8 +242,7 @@ float nlCreateVertexBuffer_multi_pass(int a4, int a5, int a6, int a7, int a8, in
                 }
             }
         }
-        u60 = (float)t15;
     }
-    return u60;
+    return t15;
 }
 

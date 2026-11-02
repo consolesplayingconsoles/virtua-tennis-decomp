@@ -100,44 +100,6 @@ float nlMultiMatrixRevOrder8(int a4);
 float nlLineClipPoint(int a4, int a5, int a6);
 int _pd_peripheral_error(int a4, int a5, int a6);
 
-void _lsfts(int a4, int a5, int a6)
-{
-    int t11;
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-
-    if ((short)(0x8 - a6) != 0) {
-        t11 = 0x0;
-        if ((int)(a5 - 1) >= 0) {
-            t0 = (a4 + (a5 - 1));
-            t1 = (a5 - 1);
-            t2 = 0x0;
-            for (;;) {
-                t3 = *(signed char *)((t0 + 0x0));
-                t4 = *(signed char *)((t0 + 0x0));
-                t1 = (t1 - 1);
-                *(unsigned char *)((t0 + 0x0)) = (((int)(short)a6 >= 0) ? (t3 << ((short)a6 & 31)) : ((-(int)(short)a6 & 31) ? ((unsigned int)t3 >> (-(int)(short)a6 & 31)) : 0));
-                t5 = *(signed char *)((t0 + 0x0));
-                *(unsigned char *)((t0 + 0x0)) = (t5 | t2);
-                t2 = (unsigned char)(t4 & (((int)(short)(0x8 - a6) >= 0) ? (0xFF << ((short)(0x8 - a6) & 31)) : ((-(int)(short)(0x8 - a6) & 31) ? ((int)0xFF >> (-(int)(short)(0x8 - a6) & 31)) : ((int)0xFF >> 31))));
-                t2 = (((int)(-(short)(0x8 - a6)) >= 0) ? (t2 << ((-(short)(0x8 - a6)) & 31)) : ((-(int)(-(short)(0x8 - a6)) & 31) ? ((unsigned int)t2 >> (-(int)(-(short)(0x8 - a6)) & 31)) : 0));
-                t0 = (t0 - 1);
-                if ((int)t1 < 0) {
-                    break;
-                }
-            }
-            t11 = t2;
-        }
-        if ((unsigned char)t11 != 0) {
-            return;
-        }
-        return;
-    }
-}
 
 
 
@@ -827,61 +789,6 @@ float nlFloor(float f4)
     return f4;
 }
 
-void nlLoadRechangeMatrix(int a4)
-{
-    float u0;
-    float u1;
-    float u2;
-    float u3;
-    float u4;
-    float u5;
-    float u6;
-    float u7;
-    float u8;
-    float u9;
-    float u10;
-    float u11;
-    float u12;
-    float u13;
-    float u14;
-    float u15;
-    float u16[16];
-
-    u0 = *(float *)((a4 + 0x0));
-    u1 = *(float *)(((a4 + 0x4) + 0x0));
-    u2 = *(float *)((((a4 + 0x4) + 0x8) + 0x0));
-    u3 = *(float *)((((a4 + 0x4) + 0x8) + 0x0));
-    u4 = *(float *)(((((a4 + 0x4) + 0x8) + 0x4) + 0x0));
-    u5 = *(float *)((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x0));
-    u6 = *(float *)(((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x0));
-    u7 = *(float *)(((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x0));
-    u8 = *(float *)((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x0));
-    u9 = *(float *)(((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x0));
-    u10 = *(float *)((((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x0));
-    u11 = *(float *)((((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x0));
-    u12 = *(float *)(((((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x0));
-    u13 = *(float *)((((((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x0));
-    u14 = *(float *)(((((((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x0));
-    u15 = *(float *)(((((((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x0));
-    _builtin_st_ext((float (*)[4])u16);
-    u16[0] = u3;
-    u16[1] = u0;
-    u16[2] = u1;
-    u16[3] = (-u2);
-    u16[4] = u7;
-    u16[5] = u4;
-    u16[6] = u5;
-    u16[7] = (-u6);
-    u16[8] = u11;
-    u16[9] = u8;
-    u16[10] = u9;
-    u16[11] = (-u10);
-    u16[12] = u15;
-    u16[13] = u12;
-    u16[14] = u13;
-    u16[15] = (-u14);
-    _builtin_ld_ext((float (*)[4])u16);
-}
 
 int SearchUsed(int a4, int a5)
 {
@@ -1238,4 +1145,59 @@ int seNetHit(void)
     return 0;
 }
 
+void nlLoadRechangeMatrix(int a4)
+{
+    float u0;
+    float u1;
+    float u2;
+    float u3;
+    float u4;
+    float u5;
+    float u6;
+    float u7;
+    float u8;
+    float u9;
+    float u10;
+    float u11;
+    float u12;
+    float u13;
+    float u14;
+    float u15;
+    float u16[16];
+
+    u0 = *(float *)((a4 + 0x0));
+    u1 = *(float *)(((a4 + 0x4) + 0x0));
+    u2 = *(float *)((((a4 + 0x4) + 0x8) + 0x0));
+    u3 = *(float *)((((a4 + 0x4) + 0x8) + 0x0));
+    u4 = *(float *)(((((a4 + 0x4) + 0x8) + 0x4) + 0x0));
+    u5 = *(float *)((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x0));
+    u6 = *(float *)(((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x0));
+    u7 = *(float *)(((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x0));
+    u8 = *(float *)((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x0));
+    u9 = *(float *)(((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x0));
+    u10 = *(float *)((((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x0));
+    u11 = *(float *)((((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x0));
+    u12 = *(float *)(((((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x0));
+    u13 = *(float *)((((((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x0));
+    u14 = *(float *)(((((((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x0));
+    u15 = *(float *)(((((((((((((a4 + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x4) + 0x4) + 0x8) + 0x0));
+    _builtin_st_ext((float (*)[4])u16);
+    u16[0] = u3;
+    u16[1] = u0;
+    u16[2] = u1;
+    u16[3] = (-u2);
+    u16[4] = u7;
+    u16[5] = u4;
+    u16[6] = u5;
+    u16[7] = (-u6);
+    u16[8] = u11;
+    u16[9] = u8;
+    u16[10] = u9;
+    u16[11] = (-u10);
+    u16[12] = u15;
+    u16[13] = u12;
+    u16[14] = u13;
+    u16[15] = (-u14);
+    _builtin_ld_ext((float (*)[4])u16);
+}
 

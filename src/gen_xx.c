@@ -2,9 +2,9 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 float cpuDistXZ(int, int);
-float FUN_8c07f038(int a4, int a5, int a6, int a7, int a8, int a9, int a10);
+int FUN_8c07f038(int a4, int a5, int a6, int a7, int a8, int a9, int a10);
 
-float FUN_8c07f038(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
+int FUN_8c07f038(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
 {
     int stk[24];
 
@@ -45,7 +45,7 @@ float FUN_8c07f038(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
     L_8C07F21A:;
     v0_7 = (0x0);
     L_8C07F21C:;
-    return F0;
+    return v0_7;
     L_8C07F06E:;
     if (((*(float *)((v0_0 + 0x0))) > w0_4)) goto L_8C07F078;
     goto L_8C07F21A;

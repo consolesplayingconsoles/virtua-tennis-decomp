@@ -346,46 +346,6 @@ int vmsfs_scanfile(int a4, int a5, int a6)
 }
 
 
-void ADX_DecodeInfo(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-    int t10;
-
-    if ((int)a5 < (int)0x10) {
-        return;
-    }
-    t0 = *(short *)((a4 + 0x0));
-    if ((unsigned short)((unsigned char)((int)(unsigned short)t0 >> 8) | (((unsigned short)t0 << 8) & 0xFF00)) != 0x8000) {
-        return;
-    }
-    t1 = *(short *)((a4 + 0x2));
-    *(unsigned short *)((a6 + 0x0)) = (((unsigned char)((int)t1 >> 8) | ((t1 << 8) & 0xFFFFFF00)) + 0x4);
-    t2 = *(signed char *)((a4 + 0x4));
-    *(unsigned char *)((a7 + 0x0)) = t2;
-    t3 = *(signed char *)((a4 + 0x5));
-    *(unsigned char *)((a9 + 0x0)) = t3;
-    t4 = *(signed char *)((a4 + 0x6));
-    *(unsigned char *)((a8 + 0x0)) = t4;
-    t5 = *(signed char *)((a4 + 0x7));
-    *(unsigned char *)((a10 + 0x0)) = t5;
-    t6 = *(int *)((a4 + 0x8));
-    *(unsigned int *)((a11 + 0x0)) = ((((unsigned char)(signed char)((unsigned int)((unsigned int)t6 >> 16) >> 8) | (((int)t6 >> 8) & 0xFF00)) | ((t6 << 8) & 0xFF0000)) | ((t6 << 16) << 8));
-    t7 = *(int *)((a4 + 0xC));
-    *(unsigned int *)((a12 + 0x0)) = ((((unsigned char)(signed char)((unsigned int)((unsigned int)t7 >> 16) >> 8) | (((int)t7 >> 8) & 0xFF00)) | ((t7 << 8) & 0xFF0000)) | ((t7 << 16) << 8));
-    t8 = *(signed char *)((a9 + 0x0));
-    t9 = *(signed char *)((a8 + 0x0));
-    t10 = (int)((int)(((t8 - 2) << 2) << 1) / (int)t9);
-    *(unsigned int *)((a13 + 0x0)) = t10;
-}
 
 
 void mwlRnaAddFlshPos(int a4)
@@ -714,7 +674,7 @@ int mwlSbSetGain(int a4, int a5)
 
 
 
-void ADXPD_EntrySte(int a4, int a5, int a6, int a7, int a8)
+int ADXPD_EntrySte(int a4, int a5, int a6, int a7, int a8)
 {
     int t0;
 
@@ -725,6 +685,7 @@ void ADXPD_EntrySte(int a4, int a5, int a6, int a7, int a8)
         *(unsigned int *)((a4 + 0x1C)) = a6;
         *(unsigned int *)((a4 + 0x20)) = a7;
         *(unsigned int *)((a4 + 0x24)) = a8;
-        return;
+        return 0x1;
     }
+    return 0x0;
 }

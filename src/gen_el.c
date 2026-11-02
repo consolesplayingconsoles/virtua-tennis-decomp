@@ -24,7 +24,7 @@ int hudBarDraw(Stk3, float, float);
 int hudNumPut(int, Stk3, float);
 int nlDispStripTrnsl(int, int, Stk16);
 int nlLength(int, int);
-int nlSetCommonTextureOffset(int, Stk4);
+int nlSetCommonTextureOffset(int);
 int nlSingleLine(int, int, int, Stk3);
 int nlSpriteFreeTexture(int, int);
 int nlSpriteLoadTextureList(int, int);
@@ -550,21 +550,14 @@ int cpuDebugBallLine(void)
 int sprTexLoad(int a4)
 {
     int stk[11];
-    int R1024;
-    int R1028;
-    int R1032;
-
-    R1024 = *(int *)((int)stk + 24);
-    R1028 = *(int *)((int)stk + 28);
-    R1032 = *(int *)((int)stk + 32);
 
     { struct mv4 { int w[4]; }; *(struct mv4 *)(((int)stk + 4)) = *(struct mv4 *)((((a4 << 2) << 2) + 0x8C18281C)); }
     *(unsigned short *)(((((int)stk + 4) + 0x10) + 0x0)) = 0xFFFFFFFF;
     *(unsigned short *)(((((int)stk + 4) + 0x10) + 0x2)) = 0xFFFFFFFF;
-    R1024 = 0xFFFFFFFF;
-    R1028 = 0xFFFFFFFF;
-    R1032 = 0xFFFFFFFF;
-    nlSetCommonTextureOffset(a4, *(Stk4 *)(((int)stk + 4)));
+    *(unsigned int *)(((int)stk + 24)) = 0xFFFFFFFF;
+    *(unsigned int *)(((int)stk + 28)) = 0xFFFFFFFF;
+    *(unsigned int *)(((int)stk + 32)) = 0xFFFFFFFF;
+    nlSetCommonTextureOffset(a4);
     return (nlSpriteLoadTextureList(((int)stk + 4), 0x0));
 }
 
@@ -585,7 +578,7 @@ int sprTexFree(int a4)
     R1024 = 0xFFFFFFFF;
     R1028 = 0xFFFFFFFF;
     R1032 = 0xFFFFFFFF;
-    nlSetCommonTextureOffset(a4, *(Stk4 *)(((int)stk + 4)));
+    nlSetCommonTextureOffset(a4);
     return (nlSpriteFreeTexture(((int)stk + 4), 0x0));
 }
 
@@ -618,10 +611,10 @@ int sprTexRestore(int a4)
     { struct mv4 { int w[4]; }; *(struct mv4 *)(((int)stk + 4)) = *(struct mv4 *)((((a4 << 2) << 2) + 0x8C18281C)); }
     *(unsigned short *)(((((int)stk + 4) + 0x10) + 0x0)) = 0xFFFFFFFF;
     *(unsigned short *)(((((int)stk + 4) + 0x10) + 0x2)) = 0xFFFFFFFF;
-    R1024 = 0xFFFFFFFF;
-    R1028 = 0xFFFFFFFF;
-    R1032 = 0xFFFFFFFF;
-    nlSetCommonTextureOffset(a4, *(Stk4 *)(((int)stk + 4)));
+    *(unsigned int *)(((int)stk + 24)) = 0xFFFFFFFF;
+    *(unsigned int *)(((int)stk + 28)) = 0xFFFFFFFF;
+    *(unsigned int *)(((int)stk + 32)) = 0xFFFFFFFF;
+    nlSetCommonTextureOffset(a4);
     return (nlSpriteSetGarbagedTexture(((int)stk + 4)));
 }
 

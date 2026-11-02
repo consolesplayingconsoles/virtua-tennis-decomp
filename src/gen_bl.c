@@ -63,7 +63,7 @@ int selModelSpawn(int a4, int a5);
 int hudPlayerMarkers(void);
 void seShotHit(int a4, int a5);
 void titleObjTrailPut(int a4, int a5);
-float shotCheckNet(int a4, int a5, float f4, float f5, float f6);
+int shotCheckNet(int a4, int a5, float f4, float f5, float f6);
 int strmUmpireCall(int a4, int a5, int a6);
 
 int lineJudgePose(int a4)

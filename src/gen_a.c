@@ -327,14 +327,15 @@ int dbgMenuGetSelect(void)
 }
 
 
-void motionIsEnd(int a4)
+int motionIsEnd(int a4)
 {
     int t0;
 
     t0 = *(int *)((a4 + 0x5C));
     if (!((t0 & 1) == 0)) {
-        return;
+        return 0x1;
         }
+    return 0x0;
 }
 
 int motionAdvanceSimple(int a4)
@@ -714,60 +715,62 @@ int fogSetColor(int a4, int a5, int a6, int a7)
     return nlFogTableColor(((((unsigned char)t0 << 16) | ((unsigned char)t1 << 8)) | (unsigned char)a7), a5, a6, a7);
 }
 
-void screenOutcode(int a4, int a5)
+int screenOutcode(int a4, int a5)
 {
     if (!((int)a4 >= (int)0xFFFFFEA2)) {
         if (((int)a5 > (int)0x104)) {
-        return;
+        return 0x1001;
         }
         if (!((int)a5 >= (int)0xFFFFFEFC)) {
-        return;
+        return 0x11;
         }
-        return;
+        return 0x1;
         }
     if (((int)a4 > (int)0x15E)) {
         if (((int)a5 > (int)0x104)) {
-        return;
+        return 0x1100;
         }
         if (!((int)a5 >= (int)0xFFFFFEFC)) {
-        return;
+        return 0x110;
         }
-        return;
+        return 0x100;
         }
     if (((int)a5 > (int)0x104)) {
-        return;
+        return 0x1000;
         }
     if (!((int)a5 >= (int)0xFFFFFEFC)) {
-        return;
+        return 0x10;
         }
+    return 0x0;
 }
 
-void screenOutcodeMargin(int a4, int a5, int a6)
+int screenOutcodeMargin(int a4, int a5, int a6)
 {
     if (!((int)a4 >= (int)(0xFFFFFEC0 - a6))) {
         if (((int)a5 > (int)(0xF0 + a6))) {
-        return;
+        return 0x1001;
         }
         if (!((int)a5 >= (int)(0xFFFFFF10 - a6))) {
-        return;
+        return 0x11;
         }
-        return;
+        return 0x1;
         }
     if (((int)a4 > (int)(a6 + 0x140))) {
         if (((int)a5 > (int)(0xF0 + a6))) {
-        return;
+        return 0x1100;
         }
         if (!((int)a5 >= (int)(0xFFFFFF10 - a6))) {
-        return;
+        return 0x110;
         }
-        return;
+        return 0x100;
         }
     if (((int)a5 > (int)(0xF0 + a6))) {
-        return;
+        return 0x1000;
         }
     if (!((int)a5 >= (int)(0xFFFFFF10 - a6))) {
-        return;
+        return 0x10;
         }
+    return 0x0;
 }
 
 void crowdCheerStop(void)
@@ -776,17 +779,8 @@ void crowdCheerStop(void)
 }
 
 
-void selSlot0FlagSet(void)
-{
-    int t0;
 
-    t0 = *(int *)0x8C34326C;
-    if (!(t0 == 0)) {
-        return;
-        }
-}
-
-void entryGetRound(void)
+int entryGetRound(void)
 {
     int t0;
     int t1;
@@ -795,6 +789,8 @@ void entryGetRound(void)
     int t4;
     int t5;
     int t6;
+    int t7;
+    int t8;
 
     t0 = entryAnyAtRound5();
     if ((t0 == 0)) {
@@ -810,14 +806,27 @@ void entryGetRound(void)
         if ((t5 == 4)) {
         t6 = entryIsVersus(0x8C181628);
         if ((t6 == 0)) {
-        return;
+        return 0x5;
+        }
+        }
+        t7 = 0x0;
+        for (;;) {
+            t8 = *(short *)((0x8C185298 + (t7 << 1)));
+            if (((unsigned short)(*(short *)0x8C343262) & (unsigned short)t8) != 0) {
+                return (*(int *)((0x8C343724 + (t7 << 2))));
+            }
+            t7 = (t7 + 0x1);
+            if ((int)t7 >= (int)0x4) {
+                break;
+            }
+        }
+        return (unsigned short)t8;
         }
         }
         }
         }
-        }
-        }
-        }
+    }
+    return 0x5;
 }
 
 int entryClearJoined(void)
@@ -1797,13 +1806,6 @@ void resTitleObjTexFree(void)
         }
 }
 
-void resTitleLoadInit(void)
-{
-    *(unsigned int *)0x8C343FF4 = 0x0;
-    *(unsigned int *)0x8C343FE8 = 0x0;
-    *(unsigned int *)0x8C287C50 = 0x3E8;
-    *(unsigned int *)0x8C301970 = 0x1;
-}
 
 int resCautionReset(int a4)
 {
@@ -1924,29 +1926,33 @@ int nlSysMetricsCpuPowerGet(void)
     return nlSysMetricsScaleTime(t2);
 }
 
-void nlSysBeginScene(void)
+int nlSysBeginScene(void)
 {
     *(unsigned int *)0x8C424464 = 0x1;
     kmBeginScene(0x8C42420C);
+    return 0x0;
 }
 
-void nlSysEndScene(void)
+int nlSysEndScene(void)
 {
     kmEndScene(0x8C42420C);
+    return 0x0;
 }
 
-void nlSysBeginPass(void)
+int nlSysBeginPass(void)
 {
     int t1;
 
     kmBeginPass(0x8C454FC0);
     t1 = *(int *)0x8C454FC0;
     *(unsigned int *)0x8C42445C = t1;
+    return 0x0;
 }
 
-void nlSysEndPass(void)
+int nlSysEndPass(void)
 {
     kmEndPass(0x8C454FC0);
+    return 0x0;
 }
 
 int nlArcCosec(float f4)
@@ -2340,9 +2346,10 @@ int buSetRetryCount(void)
 }
 
 
-void syCfgExit(void)
+int syCfgExit(void)
 {
     *(unsigned int *)0x8C20C240 = 0x0;
+    return 0x0;
 }
 
 void syCfgGetLanguage(int a4)
@@ -2465,13 +2472,14 @@ int ADXF_GetStat(int a4)
     return t1;
 }
 
-void kmSetFogDensity(int a4)
+int kmSetFogDensity(int a4)
 {
     int t0;
 
     *(unsigned int *)0x8C4709F8 = a4;
     t0 = *(int *)0x8C4709EC;
     *(unsigned int *)0x8C4709EC = (t0 | 0x2);
+    return 0x0;
 }
 
 int kmiReadRegister(int a4)
@@ -2482,7 +2490,7 @@ int kmiReadRegister(int a4)
     return t0;
 }
 
-void kmSetPaletteData(int a4)
+int kmSetPaletteData(int a4)
 {
     int t0;
     int t2;
@@ -2492,9 +2500,10 @@ void kmSetPaletteData(int a4)
     kmyMemCopy(0x8C470E08, a4, 0x1000);
     t2 = *(int *)0x8C471E08;
     *(unsigned int *)0x8C471E08 = (t2 | 0x2);
+    return 0x0;
 }
 
-void kmyEnableASyncCopy(int a4)
+int kmyEnableASyncCopy(int a4)
 {
     int t0;
     int t1;
@@ -2508,8 +2517,9 @@ void kmyEnableASyncCopy(int a4)
         t1 = 0x0;
         }
         *(unsigned int *)0x8C470D20 = t1;
-        return;
+        return 0x0;
         }
+    return 0xEEEE;
 }
 
 int kmQueryFinishLastTextureDMA(void)
@@ -2605,12 +2615,13 @@ int kmGetFreeTextureMem(void)
     return t0;
 }
 
-void kmSetRegionClipping(int a4, int a5, int a6, int a7)
+int kmSetRegionClipping(int a4, int a5, int a6, int a7)
 {
     *(unsigned int *)0x8C45F7DC = a4;
     *(unsigned int *)0x8C45F7E4 = a6;
     *(unsigned int *)0x8C45F7E0 = a5;
     *(unsigned int *)0x8C45F7E8 = a7;
+    return 0x0;
 }
 
 int gdDcfReset_(void)
@@ -3046,7 +3057,7 @@ void VQEnQueueTop(int a4, int a5)
     *(unsigned int *)((a4 + 0x0)) = a5;
 }
 
-void kmBlankScreen(int a4)
+int kmBlankScreen(int a4)
 {
     int t0;
     int t2;
@@ -3071,6 +3082,7 @@ void kmBlankScreen(int a4)
     kmiWriteRegister(0xE8, t7);
     t9 = *(int *)0x8C45EE4C;
     kmiWriteRegister(0x44, t9);
+    return 0x0;
 }
 
 int kmyGarbageCollection(void)
@@ -3105,13 +3117,14 @@ void kmyiUnloadInterrupt(void)
     kmiUnregisterInterruptHandler();
 }
 
-void kmyRegisterPALEXTCallback(int a4)
+int kmyRegisterPALEXTCallback(int a4)
 {
     if (!(a4 == 0)) {
         *(unsigned int *)0x8C45EEF0 = a4;
-        return;
+        return 0x0;
         }
     *(unsigned int *)0x8C45EEF0 = 0x8C1F78A0;
+    return 0xEEEE;
 }
 
 int kmyIsEnabledASyncCopy(void)
@@ -3127,17 +3140,19 @@ void kmySetDMACallback(int requestAddress, int callbackAddress)
     *(unsigned int *)((requestAddress + 0x18)) = callbackAddress;
 }
 
-void kmySetDisplayBpp(int a4)
+int kmySetDisplayBpp(int a4)
 {
     *(unsigned int *)0x8C45EE30 = a4;
     kmiFBControl(a4, 0x0);
     kmiWriteDispModeRegisters();
+    return 0x0;
 }
 
-void kmyInitializeFog(void)
+int kmyInitializeFog(void)
 {
     memset(0x8C4707EC, 0x0, 0x210);
     kmyInitializeFogTable();
+    return 0x78;
 }
 
 int kmyGetDeviceType(void)
@@ -3164,7 +3179,7 @@ int kmyGetPVRCoreRevision(void)
     return t0;
 }
 
-void kmiFLWCTRLCheckFreeNBuf(void)
+int kmiFLWCTRLCheckFreeNBuf(void)
 {
     int t0;
     int t1;
@@ -3173,12 +3188,13 @@ void kmiFLWCTRLCheckFreeNBuf(void)
     if (!(t0 == 0)) {
         t1 = kmiFLWCTRLFindFreeNBuf();
         if ((t1 == -1)) {
-        return;
+        return 0x0;
         }
         }
+    return 0x1;
 }
 
-void kmiSetDisplayClipSize(void)
+int kmiSetDisplayClipSize(void)
 {
     int t2;
     int t3;
@@ -3192,6 +3208,7 @@ void kmiSetDisplayClipSize(void)
         t3 = *(int *)0x8C45F7D8;
         *(unsigned int *)0x8C45F7D8 = (t3 + 0xFFFFFFFF);
         }
+    return 0x0;
 }
 
 int vmsfb_init(void)
@@ -3433,7 +3450,7 @@ int kmyGetNativeBufferStatus(int a4, int a5)
     return t8;
 }
 
-void kmyiInitializeDriverObject(int a4, int a5)
+int kmyiInitializeDriverObject(int a4, int a5)
 {
     *(unsigned int *)((a4 + 0x0)) = a5;
     *(unsigned int *)((a4 + 0x8)) = 0x8C205A20;
@@ -3442,6 +3459,7 @@ void kmyiInitializeDriverObject(int a4, int a5)
     *(unsigned int *)((a4 + 0x14)) = 0x8C205A7C;
     *(unsigned int *)((a5 + 0x4)) = 0x8C20B498;
     *(unsigned int *)((a5 + 0x8)) = 0x8C20B4F8;
+    return 0x0;
 }
 
 void kmySetDMAValue(int requestAddress, int userValue)
@@ -3457,14 +3475,16 @@ int kmyGetDMAValue(int requestAddress)
     return userValue;
 }
 
-void kmySetPunchThroughThreshold(int a4)
+int kmySetPunchThroughThreshold(int a4)
 {
     kmiWriteRegister(0x11C, (unsigned char)a4);
+    return 0x0;
 }
 
-void kmySetColorClampMAX(int a4)
+int kmySetColorClampMAX(int a4)
 {
     kmiWriteRegister(0xBC, a4);
+    return 0x0;
 }
 
 void kmySetPaletteMode(int a4)
@@ -3472,47 +3492,8 @@ void kmySetPaletteMode(int a4)
     kmiWriteRegister(0x108, a4);
 }
 
-void ADXB_CheckAiff(int a4)
-{
-    int t0;
-    int t1;
 
-    t0 = memcmp(a4, 0x8C20B974, 0x4);
-    if ((t0 == 0)) {
-        t1 = memcmp((a4 + 0x8), 0x8C20B97C, 0x4);
-        if ((t1 == 0)) {
-        return;
-        }
-        }
-}
 
-void ADXB_CheckAu(int a4)
-{
-    int t0;
-    int t1;
-
-    t0 = memcmp(a4, 0x8C20B984, 0x4);
-    if (!(t0 == 0)) {
-        t1 = memcmp(a4, 0x8C20B98C, 0x4);
-        if ((t1 == 0)) {
-        return;
-        }
-        }
-}
-
-void ADXB_CheckWav(int a4)
-{
-    int t0;
-    int t1;
-
-    t0 = memcmp(a4, 0x8C20B998, 0x4);
-    if ((t0 == 0)) {
-        t1 = memcmp((a4 + 0x8), 0x8C20B9A8, 0x4);
-        if ((t1 == 0)) {
-        return;
-        }
-        }
-}
 
 int ADXPD_Init(void)
 {
@@ -3524,7 +3505,7 @@ void ADXPD_SetMode(int a4, int a5)
     *(unsigned int *)((a4 + 0x8)) = a5;
 }
 
-void ADXPD_EntryMono(int a4, int a5, int a6, int a7)
+int ADXPD_EntryMono(int a4, int a5, int a6, int a7)
 {
     int t0;
 
@@ -3535,8 +3516,9 @@ void ADXPD_EntryMono(int a4, int a5, int a6, int a7)
         *(unsigned int *)((a4 + 0x1C)) = a6;
         *(unsigned int *)((a4 + 0x20)) = a7;
         *(unsigned int *)((a4 + 0x24)) = 0x0;
-        return;
+        return 0x1;
         }
+    return 0x0;
 }
 
 void ADXPD_Start(int a4)

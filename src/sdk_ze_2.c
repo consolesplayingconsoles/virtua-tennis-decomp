@@ -25,7 +25,7 @@ typedef struct {
 extern int syBtCfgSet(int item, int value);
 extern int kmiFBgetfreemem(int *a, int *b, int *c, int *d);
 
-extern void kmSetFogDensity(int d);
+extern int kmSetFogDensity(int d);
 extern int buSaveFile(int a, int b, int c, int d, void *date, int flags);
 extern void syRtcGetDate(void *date);
 

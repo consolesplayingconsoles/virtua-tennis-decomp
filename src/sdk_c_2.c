@@ -18,9 +18,9 @@ extern signed char g_0c14a9c0[][4];
 extern float gNlSpriteScreenSize[2];
 
 void kmCreateTextureSurface(void *s, int w, int h, int fmt);
-void kmLoadTexture(void *s, int data, int a, int b);
+int kmLoadTexture(void *s, int data, int a, int b);
 void nlCreateTextureParamA(void *s);
-void kmSetBorderColor(unsigned int c);
+int kmSetBorderColor(unsigned int c);
 float nlSin(int a);
 float nlLog(float x);
 void nlSetPaletteData(int a, int b, int c);

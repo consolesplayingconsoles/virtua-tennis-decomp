@@ -91,7 +91,7 @@ int vecMake(int, int, int, int, int, float, float, float);
 float playerCalcMotionSpeeds(int a4, int a5, int a6, int a7);
 int kmiSetFBSurfaceDesc(int a4);
 int screenPlanePut(void);
-float cpuPointBehind(int a4, int a5, int a6, int a7);
+int cpuPointBehind(int a4, int a5, int a6, int a7);
 int primLineH(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13);
 int fadeScreenDraw(int a4, int a5, int a6, int a7, float f4, float f5);
 void nlRenderTextureEnd(void);
@@ -204,10 +204,9 @@ int screenPlanePut(void)
     return (nlMatrixMode(0x1));
 }
 
-float cpuPointBehind(int a4, int a5, int a6, int a7)
+int cpuPointBehind(int a4, int a5, int a6, int a7)
 {
     float t10;
-    float u24;
     float t16;
     float u21;
     int stk[25];
@@ -222,20 +221,21 @@ float cpuPointBehind(int a4, int a5, int a6, int a7)
     nlSubVector3op((((int)stk + 4) + 0x30), (*(int *)(((int)stk + 8))), a7);
     nlOuterProduct((((int)stk + 4) + 0x3C), (((int)stk + 4) + 0x30), (((int)stk + 4) + 0x18));
     t10 = nlInnerProduct((((int)stk + 4) + 0x24), (((int)stk + 4) + 0x18));
-    u24 = t10;
-    if (!(-0.0500000007f > t10)) {
-        nlSubVector3op((((int)stk + 4) + 0x3C), (*(int *)(((int)stk + 8))), a7);
-        nlSubVector3op((((int)stk + 4) + 0x30), (*(int *)(((int)stk + 12))), a7);
-        nlOuterProduct((((int)stk + 4) + 0x3C), (((int)stk + 4) + 0x30), (((int)stk + 4) + 0xC));
-        t16 = nlInnerProduct((((int)stk + 4) + 0x24), (((int)stk + 4) + 0xC));
-        u21 = t16;
-        if (!(-0.0500000007f > t16)) {
-            
-            u21 = (nlInnerProduct((((int)stk + 4) + 0x18), (((int)stk + 4) + 0xC)));
-        }
-        u24 = u21;
+    if (-0.0500000007f > t10) {
+        return 0;
     }
-    return u24;
+    nlSubVector3op((((int)stk + 4) + 0x3C), (*(int *)(((int)stk + 8))), a7);
+    nlSubVector3op((((int)stk + 4) + 0x30), (*(int *)(((int)stk + 12))), a7);
+    nlOuterProduct((((int)stk + 4) + 0x3C), (((int)stk + 4) + 0x30), (((int)stk + 4) + 0xC));
+    t16 = nlInnerProduct((((int)stk + 4) + 0x24), (((int)stk + 4) + 0xC));
+    if (-0.0500000007f > t16) {
+        return 0;
+    }
+    u21 = nlInnerProduct((((int)stk + 4) + 0x18), (((int)stk + 4) + 0xC));
+    if (-0.0500000007f > u21) {
+        return 0;
+    }
+    return 1;
 }
 
 

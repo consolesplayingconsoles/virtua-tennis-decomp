@@ -5,7 +5,7 @@ extern void gdc_StopStreamVoiceAll(void);
 extern void FUN_0c074990(int color);
 extern void FUN_0c0749b0(int color);
 extern void thunk_kmSetFogTable(float *table);
-extern void kmSetFogDensity(int density);
+extern int kmSetFogDensity(int density);
 extern void njSetRenderWidth(int w);
 
 /* The fog set-ups: white fog, then a 129-entry table (fog/0C1EE360) of base / d, where d starts at

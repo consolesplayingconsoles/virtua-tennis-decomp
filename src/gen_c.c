@@ -74,12 +74,13 @@ int abs(int a4)
     return (-a4);
 }
 
-void syCfgInit(int a4)
+int syCfgInit(int a4)
 {
     if ((a4 == 0)) {
-        return;
+        return -1;
         }
     *(unsigned int *)0x8C20C240 = a4;
+    return 0x0;
 }
 
 void ADXT_SetReloadSct(int a4, int a5)
@@ -92,12 +93,13 @@ void ADXT_SetAutoRcvr(int a4, int a5)
     *(unsigned char *)((a4 + 0x6D)) = a5;
 }
 
-void kmSetPixelClipping(int a4, int a5, int a6, int a7)
+int kmSetPixelClipping(int a4, int a5, int a6, int a7)
 {
     *(unsigned int *)0x8C45F7CC = a4;
     *(unsigned int *)0x8C45F7D4 = a6;
     *(unsigned int *)0x8C45F7D0 = a5;
     *(unsigned int *)0x8C45F7D8 = a7;
+    return 0x0;
 }
 
 void kdSetGunCallback(int a4)
@@ -105,9 +107,10 @@ void kdSetGunCallback(int a4)
     *(unsigned int *)0x8C461E98 = a4;
 }
 
-void vmsfs_c_exit(int a4, int a5, int a6, int a7)
+int vmsfs_c_exit(int a4, int a5, int a6, int a7)
 {
     memset(0x8C462180, 0x0, 0x400, a7);
+    return 0x0;
 }
 
 void ADXCRS_Init(void)
@@ -115,9 +118,10 @@ void ADXCRS_Init(void)
     *(unsigned int *)0x8C20C894 = 0x0;
 }
 
-void ADXSTM_Init(int a4, int a5, int a6, int a7)
+int ADXSTM_Init(int a4, int a5, int a6, int a7)
 {
     memset(0x8C46B2E4, 0x0, 0xC80, a7);
+    return 0x1;
 }
 
 int kmySetupTA(int a4, int a5, int a6, int a7)

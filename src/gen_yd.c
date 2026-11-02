@@ -46,7 +46,7 @@ int FUN_8c074c9c(int a4, int a5);
 int FUN_8c0d9072(int a4);
 float FUN_8c04d8dc(int a4, int a5, float f4, float f5, float f6);
 float FUN_8c04dad4(int a4, int a5, float f4, float f5, float f6);
-float FUN_8c071a70(int a4, int a5);
+int FUN_8c071a70(int a4, int a5);
 float FUN_8c05fbda(int a4, float f4, float f5, float f6, float f7);
 int FUN_8c04e424(int a4, int a5, float f4, float f5);
 float FUN_8c0553b0(int a4, int a5, float f4, float f5, float f6);
@@ -492,7 +492,7 @@ float FUN_8c04dad4(int a4, int a5, float f4, float f5, float f6)
     return u83;
 }
 
-float FUN_8c071a70(int a4, int a5)
+int FUN_8c071a70(int a4, int a5)
 {
     int stk[9];
 
@@ -530,7 +530,7 @@ float FUN_8c071a70(int a4, int a5)
     L_8C071B68:;
     v0_0 = ((v0_0 + v0_4));
     L_8C071C3A:;
-    return F0;
+    return v0_0;
     L_8C071AC8:;
     if ((((*(int *)((v0_1 + 0xB60))) & 4) == 0)) goto L_8C071AEE;
     v0_4 = !(10.0f > (cpuDistXZ((0xAE8 + v0_1), (0xBA8 + v0_1))));

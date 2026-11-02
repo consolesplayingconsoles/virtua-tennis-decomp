@@ -111,7 +111,7 @@ int nldispstripTexSub(int a4, int a5);
 int vmsfs_fopen(int a4, int a5, int a6);
 int ADXB_ExecOneAu16(int a4, int a5, int a6, int a7);
 float zoneListSample(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
-void sprListPut(int a4, int a5, int a6, float f4, float f5, float f6);
+void sprListPut(int a4, int a5, int a6, Stk3 p, float f4, float f5, float f6);
 int windowFrameInit(void);
 int ADXB_DecodeHeaderAdx(int a4, int a5, int a6);
 void selCursorPos(int a4, int a5, int a6, int a7, int a8);
@@ -839,7 +839,7 @@ int vmsfs_fopen(int a4, int a5, int a6)
 
 
 
-void sprListPut(int a4, int a5, int a6, float f4, float f5, float f6)
+void sprListPut(int a4, int a5, int a6, Stk3 p, float f4, float f5, float f6)
 {
     float u0;
     int t1;
@@ -881,7 +881,7 @@ void sprListPut(int a4, int a5, int a6, float f4, float f5, float f6)
                 u11 = *(float *)((t2 + 0x0));
                 t2 = t4;
                 t2 = (t2 + 0xC);
-                u12 = (*(float *)(((0xA4 + ((int)stk + 4)) + 0x0)));
+                u12 = (*(float *)&p.w[0]);
                 u12 = u12 + f5 * u11;
                 t1 = 0x4;
                 t2 = (t2 + t7);
@@ -890,11 +890,11 @@ void sprListPut(int a4, int a5, int a6, float f4, float f5, float f6)
                 t2 = t4;
                 t2 = (t2 + 0xC);
                 t2 = (t2 + t7);
-                u15 = (*(float *)(((0xA4 + ((int)stk + 4)) + t1)));
+                u15 = (*(float *)&p.w[1]);
                 u15 = u15 + f5 * u13;
                 *(float *)((((t9 * 0x1C) + (((int)stk + 4) + 0xC)) + t1)) = u15;
                 t1 = 0x8;
-                *(float *)((((t9 * 0x1C) + (((int)stk + 4) + 0xC)) + t1)) = (*(float *)(((0xA4 + ((int)stk + 4)) + t1)));
+                *(float *)((((t9 * 0x1C) + (((int)stk + 4) + 0xC)) + t1)) = (*(float *)&p.w[2]);
                 t1 = 0x4;
                 u17 = *(float *)((t4 + t1));
                 t1 = 0xC;

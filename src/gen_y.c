@@ -87,12 +87,12 @@ void syCacheInit_P2_(int a4, int a5, int a6, int a7);
 float cpuLineCrossXZ(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14, int a15, int a16, float f4, float f5);
 void effHitFlashSpawn(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
 float courtDistScale(Stk4 s);
-void _rsfts(int a4, int a5, int a6);
+int _rsfts(int a4, int a5, int a6);
 int fileLoadCloseSlot(int a4);
 void nlSinf(float f4);
 int _pd_peripheral_set_id(int a4, int a5, int a6, int a7);
 int miniBallObjSpawn(void);
-void hudNearAlpha(int a4);
+float hudNearAlpha(int a4);
 int iconSlotPutB(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5);
 int stageMinigameLoadBegin(int a4);
 void syChainMasterHandlerPVR_V(void);
@@ -412,37 +412,6 @@ float courtDistScale(Stk4 s)
     return u11;
 }
 
-void _rsfts(int a4, int a5, int a6)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t6;
-
-    if ((short)(0x8 - a6) != 0) {
-        if ((int)a5 > 0) {
-            t0 = a4;
-            t1 = 0x0;
-            t2 = 0x0;
-            for (;;) {
-                t3 = *(signed char *)((t0 + 0x0));
-                t4 = *(signed char *)((t0 + 0x0));
-                t2 = (t2 + 0x1);
-                *(unsigned char *)((t0 + 0x0)) = (((int)(-(short)a6) >= 0) ? ((unsigned char)t3 << ((-(short)a6) & 31)) : ((-(int)(-(short)a6) & 31) ? ((unsigned int)(unsigned char)t3 >> (-(int)(-(short)a6) & 31)) : 0));
-                t6 = ((*(signed char *)((t0 + 0x0))) | t1);
-                t1 = (unsigned char)(t4 & (((int)(-(short)(0x8 - a6)) >= 0) ? (0xFF << ((-(short)(0x8 - a6)) & 31)) : ((-(int)(-(short)(0x8 - a6)) & 31) ? ((int)0xFF >> (-(int)(-(short)(0x8 - a6)) & 31)) : ((int)0xFF >> 31))));
-                *(unsigned char *)((t0 + 0x0)) = t6;
-                t1 = (((int)(short)(0x8 - a6) >= 0) ? (t1 << ((short)(0x8 - a6) & 31)) : ((-(int)(short)(0x8 - a6) & 31) ? ((unsigned int)t1 >> (-(int)(short)(0x8 - a6) & 31)) : 0));
-                t0 = (t0 + 0x1);
-                if ((int)t2 >= (int)a5) {
-                    break;
-                }
-            }
-        }
-    }
-}
 
 int fileLoadCloseSlot(int a4)
 {
@@ -525,25 +494,26 @@ int _pd_peripheral_set_id(int a4, int a5, int a6, int a7)
 }
 
 
-void hudNearAlpha(int a4)
+float hudNearAlpha(int a4)
 {
+    float u4;
+
     if ((int)a4 > (int)0xDC) {
+        u4 = 1.0f;
     } else {
         if ((int)a4 < (int)0xB4) {
-            *(volatile float *)0x8C08E4FC;
+            u4 = *(float *)0x8C08E4FC;
         } else {
-            *(volatile float *)0x8C08E500;
-            *(volatile float *)0x8C08E504;
-            *(volatile float *)0x8C08E508;
+            u4 = ((((float)a4 * (*(float *)0x8C08E500)) / (*(float *)0x8C08E504)) + (*(float *)0x8C08E508));
         }
     }
     if ((*(int *)0x8C287B44) == 0) {
         if ((*(int *)0x8C295DAC) == 1) {
-            *(volatile float *)0x8C08E514;
-            return;
+            return (u4 * (*(float *)0x8C08E514));
         }
-        return;
+        return u4;
     }
+    return u4;
 }
 
 

@@ -76,9 +76,10 @@ int stageEspCourtDraw(int a4)
     return t18;
 }
 
-void kmiWriteRegister(int a4, int a5)
+int kmiWriteRegister(int a4, int a5)
 {
     *(unsigned int *)(((a4 + 0xA05F8000) + 0x0)) = a5;
+    return 0x1;
 }
 
 void ADXF_Init(void)
@@ -91,7 +92,7 @@ void ADXF_Init(void)
     *(unsigned int *)0x8C46C664 = 0x0;
 }
 
-void kmiCalculateWorkSize(int a4)
+int kmiCalculateWorkSize(int a4)
 {
     int t0;
     int t1;
@@ -124,4 +125,5 @@ void kmiCalculateWorkSize(int a4)
     t13 = *(int *)0x8C45F7BC;
     t14 = *(int *)0x8C45F7C0;
     *(unsigned int *)0x8C45F7C4 = ((t13 - t12) - t14);
+    return 0x0;
 }

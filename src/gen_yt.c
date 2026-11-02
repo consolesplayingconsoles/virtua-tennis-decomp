@@ -52,7 +52,7 @@ int sys_init(void);
 int FUN_8c0450ac(int a4, float f4, float f5);
 int FUN_8c0f0d80(int a4, float f4, float f5, float f6);
 int FUN_8c1f8120(int a4);
-float FUN_8c07f038(int a4, int a5, int a6, int a7, int a8, int a9, int a10);
+int FUN_8c07f038(int a4, int a5, int a6, int a7, int a8, int a9, int a10);
 int FUN_8c200296(int a4);
 int FUN_8c1e55c0(int a4, int a5, int a6, int a7);
 int FUN_8c1e57a0(int a4, int a5, int a6, int a7);

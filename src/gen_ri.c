@@ -1,9 +1,9 @@
 /* Straight-line functions with calls and guards (batch gen_ri): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-void kmiFLWCTRLCheckFinishPacket(int a4);
+int kmiFLWCTRLCheckFinishPacket(int a4);
 
-void kmiFLWCTRLCheckFinishPacket(int a4)
+int kmiFLWCTRLCheckFinishPacket(int a4)
 {
     int t6;
     int t16;
@@ -64,7 +64,7 @@ void kmiFLWCTRLCheckFinishPacket(int a4)
     *(unsigned int *)((R5 + 0x10)) = R4;
     *(unsigned int *)((R4 + 0xC)) = R5;
     L_8C1FA9C0:;
-    return;
+    return 0x0;
     L_8C1FA9B6:;
     *(unsigned int *)((R5 + 0x10)) = R6;
     goto L_8C1FA9C0;
@@ -84,4 +84,5 @@ void kmiFLWCTRLCheckFinishPacket(int a4)
     *(unsigned int *)0x8C45F940 = ((*(int *)0x8C45F940) & (~R7));
     goto L_8C1FA93C;
     L_8C1FA9C4:;
+    return 0x1;
 }

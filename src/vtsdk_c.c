@@ -13,7 +13,7 @@ extern void ADXCRS_Lock(void);
 extern void ADXCRS_Unlock(void);
 extern int mwRnaErrCallFunc(int a, int b, int c, int d, int e);
 extern void kmyMemCopy(int a, int b, int c);
-extern void kmiWriteRegister(int reg, int val);
+extern int kmiWriteRegister(int reg, int val);
 
 extern int gNlSoundPackUsedBytes;
 extern int *gGdFsGlobalState;

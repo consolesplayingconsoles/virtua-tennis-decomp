@@ -3721,7 +3721,7 @@ int selSideCheck(void)
 }
 
 
-void selJoinBlocked(void)
+int selJoinBlocked(void)
 {
     int t0;
     int t1;
@@ -3734,19 +3734,20 @@ void selJoinBlocked(void)
         if ((unsigned short)t1 == 1) {
             t2 = *(int *)0x8C343724;
             if ((int)t2 < (int)0x5) {
-                return;
+                return 0x0;
             }
-            return;
+            return 0x1;
         }
         if ((unsigned short)t1 == 16) {
             t3 = *(int *)0x8C343728;
             if ((int)t3 >= (int)0x5) {
-                return;
+                return 0x1;
             }
-            return;
+            return 0x0;
         }
-        return;
+        return 0x0;
     }
+    return 0x0;
 }
 
 void selModeTrack(void)
@@ -4006,7 +4007,7 @@ int entryFirstPortMask(void)
     return 0x0;
 }
 
-void entryAnyAtRound5Clean(void)
+int entryAnyAtRound5Clean(void)
 {
     int t0;
     int t1;
@@ -4019,18 +4020,19 @@ void entryAnyAtRound5Clean(void)
         t2 = *(short *)((((t0 << 1) + 0x8C185298) + 0x0));
         if (((unsigned short)t1 & (unsigned short)t2) != 0) {
             t3 = entryPortAtRound5Clean(t0);
-            if (t3 != 0) break;
+            if (t3 != 0) return 0x1;
             t0 = (t0 + 0x1);
             if ((int)t0 >= (int)0x4) {
-                return;
+                return 0x0;
             }
             continue;
         }
         t0 = (t0 + 0x1);
         if ((int)t0 >= (int)0x4) {
-            return;
+            return 0x0;
         }
     }
+    return 0x0;
 }
 
 int entryFirstPortFlag(void)
@@ -4058,7 +4060,7 @@ int entryFirstPortFlag(void)
     return 0x0;
 }
 
-void entryAnyAtRound5(void)
+int entryAnyAtRound5(void)
 {
     int t0;
     int t1;
@@ -4077,24 +4079,25 @@ void entryAnyAtRound5(void)
                 t4 = *(short *)0x8C343262;
                 if (((unsigned short)t4 & (unsigned short)t3) != 0) {
                     t5 = *(int *)((t2 + 0x8C343724));
-                    if (t5 == 5) break;
+                    if (t5 == 5) return 0x1;
                     t1 = (t1 + 0x2);
                     t2 = (t2 + 0x4);
                     if ((unsigned int)t1 >= (unsigned int)0x8C1852A0) {
-                        return;
+                        return 0x0;
                     }
                     continue;
                 }
                 t1 = (t1 + 0x2);
                 t2 = (t2 + 0x4);
                 if ((unsigned int)t1 >= (unsigned int)0x8C1852A0) {
-                    return;
+                    return 0x0;
                 }
             }
-            return;
+            return 0x0;
         }
-        return;
+        return 0x0;
     }
+    return 0x0;
 }
 
 int entryGridCount(int a4)
@@ -4924,7 +4927,7 @@ int stageSegaScoreDigits(int a4)
 }
 
 
-void matchStageSlot(void)
+int matchStageSlot(void)
 {
     int t0;
 
@@ -4934,16 +4937,17 @@ void matchStageSlot(void)
             if (t0 != 1) {
                 if (t0 != 3) {
                     if (t0 != 4) {
-                        return;
+                        return 0x0;
                     }
-                    return;
+                    return 0x4;
                 }
-                return;
+                return 0x3;
             }
-            return;
+            return 0x2;
         }
-        return;
+        return 0x1;
     }
+    return 0x0;
 }
 
 void primTexVertexSet(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
@@ -6099,7 +6103,7 @@ int staffMorphReset(void)
 
 
 
-void lightVec3EqualArgs(void)
+int lightVec3EqualArgs(void)
 {
     float u0;
     float u1;
@@ -6118,12 +6122,13 @@ void lightVec3EqualArgs(void)
             u4 = *(float *)((((int)stk + 4) + 0x8));
             u5 = *(float *)(((((int)stk + 4) + 0xC) + 0x8));
             if (u4 == u5) {
-                return;
+                return 0x1;
             }
-            return;
+            return 0x0;
         }
-        return;
+        return 0x0;
     }
+    return 0x0;
 }
 
 int mtxGetYaw(int a4)
@@ -6825,7 +6830,7 @@ int eepromGetDeuceMode(void)
     return eepromGetVsDeuce();
 }
 
-void eepromIsMatchMax(void)
+int eepromIsMatchMax(void)
 {
     int t0;
     int t1;
@@ -6835,19 +6840,20 @@ void eepromIsMatchMax(void)
     if (t0 == 0) {
         t1 = *(signed char *)0x8C40C2F6;
         if (((unsigned char)t1 + 0x1) != 7) {
-            return;
+            return 0x0;
         }
-        return;
+        return 0x1;
     }
     t2 = *(signed char *)0x8C40C2F7;
     if (((unsigned char)t2 + 0x1) == 7) {
-        return;
+        return 0x1;
     }
+    return 0x0;
 }
 
 
 
-void BupRequestSave(int a4, int a5, int a6, int a7)
+int BupRequestSave(int a4, int a5, int a6, int a7)
 {
     int t1;
     int t2;
@@ -6873,58 +6879,10 @@ void BupRequestSave(int a4, int a5, int a6, int a7)
             padLcdSetMode(0xC);
         }
     }
+    return 0x0;
 }
 
 
-void rankNameMatch(int a4, int a5, int a6, int a7)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-
-    t0 = a4;
-    t1 = a5;
-    t2 = 0x3;
-    t3 = a7;
-    for (;;) {
-        t4 = (t2 == 0);
-        t2 = (t2 - 1);
-        if (!t4) {
-            t5 = *(signed char *)((t1 + 0x0));
-            if (t5 == 0) break;
-            t6 = *(signed char *)((t1 + 0x0));
-            t3 = t6;
-            if (t6 != 95) {
-                t7 = *(signed char *)((t0 + 0x0));
-                if (t7 == t3) {
-                    t1 = (t1 + 0x1);
-                    t0 = (t0 + 0x1);
-                    continue;
-                }
-                return;
-            }
-            t1 = (t1 + 0x1);
-            t0 = (t0 + 0x1);
-            continue;
-        }
-        break;
-    }
-    if ((int)t2 >= 0) {
-        t8 = *(signed char *)((t1 + 0x0));
-        t9 = *(signed char *)((t0 + 0x0));
-        if (t9 != t8) {
-            return;
-        }
-        return;
-    }
-}
 
 
 
@@ -7074,18 +7032,6 @@ int shopDrawCatIcon(int a4, float f4)
 
 
 
-void unlockTestW2(int a4)
-{
-    int t0;
-
-    if ((int)a4 >= (int)0x5) {
-        t0 = *(int *)0x8C40C310;
-        if (((((int)a4 >= 0) ? (0x1 << (a4 & 31)) : ((-(int)a4 & 31) ? ((int)0x1 >> (-(int)a4 & 31)) : ((int)0x1 >> 31))) & t0) != 0) {
-            return;
-        }
-        return;
-    }
-}
 
 
 int resWtcShopLoadStep(void)
@@ -7533,7 +7479,7 @@ void nlSpriteSetVtxContext(int a4)
     *(float *)((a4 + 0x1C)) = u9;
 }
 
-void nlsndG2Write(int a4, int a5)
+int nlsndG2Write(int a4, int a5)
 {
     int t0;
 
@@ -7541,6 +7487,7 @@ void nlsndG2Write(int a4, int a5)
         t0 = *(int *)0xA05F688C;
     } while ((t0 & 0x31) != 0);
     *(unsigned int *)((a5 + 0x0)) = a4;
+    return 0x0;
 }
 
 int nlsndControlChange(int a4, int a5, int a6, int a7)
@@ -7850,29 +7797,6 @@ int ovMdlDeleteTbl(int a4)
     return t5;
 }
 
-void gdFsCheckMedia(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-
-    t0 = 0x0;
-    t1 = (a4 + 0x1);
-    t2 = 0x8C209614;
-    for (;;) {
-        t3 = *(signed char *)((t1 + 0x0));
-        t1 = (t1 + 0x1);
-        t4 = *(signed char *)((t2 + 0x0));
-        t2 = (t2 + 0x1);
-        if (t4 != t3) break;
-        t0 = (t0 + 0x1);
-        if ((int)t0 >= (int)0x5) {
-            return;
-        }
-    }
-}
 
 
 int buExit(void)
@@ -8105,13 +8029,14 @@ int ADXF_Seek(int a4, int a5, int a6)
     return t39;
 }
 
-void kmSetFogTableColor(int a4, int a5, int a6, int a7, int a8)
+int kmSetFogTableColor(int a4, int a5, int a6, int a7, int a8)
 {
     int t0;
 
     *(unsigned int *)0x8C4709F4 = a8;
     t0 = *(int *)0x8C4709EC;
     *(unsigned int *)0x8C4709EC = (t0 | 0x1);
+    return 0x0;
 }
 
 
@@ -8332,7 +8257,7 @@ int kmRender(int a4)
     return t10;
 }
 
-void kmEndScene(int a4)
+int kmEndScene(int a4)
 {
     int t0;
     int t1;
@@ -8354,9 +8279,10 @@ void kmEndScene(int a4)
             }
         }
     }
+    return 0x0;
 }
 
-void kmLoadTexture(int a4, int a5)
+int kmLoadTexture(int a4, int a5)
 {
     int t0;
     int t1;
@@ -8434,9 +8360,10 @@ void kmLoadTexture(int a4, int a5)
         }
         kmyCopyToTexture(t28, a5, t29, 0x0);
     }
+    return 0x0;
 }
 
-void kmSetWaitVsyncCount(int a4)
+int kmSetWaitVsyncCount(int a4)
 {
     int t0;
 
@@ -8446,6 +8373,7 @@ void kmSetWaitVsyncCount(int a4)
         t0 = (-a4);
     }
     *(unsigned int *)0x8C45F7B8 = (t0 - 1);
+    return 0x0;
 }
 
 
@@ -9023,7 +8951,7 @@ int VQAllocEntry(void)
     return 0x0;
 }
 
-void kmyEnableHolizontalScaler(int a4, int a5)
+int kmyEnableHolizontalScaler(int a4, int a5)
 {
     int t0;
     int t1;
@@ -9032,7 +8960,7 @@ void kmyEnableHolizontalScaler(int a4, int a5)
 
     t0 = kmyiCheckNativeHandle(a4);
     if (t0 == 0) {
-        return;
+        return 0xEEEE;
     }
     t1 = *(int *)((a4 + 0x88));
     if (a5 != 0) {
@@ -9042,6 +8970,7 @@ void kmyEnableHolizontalScaler(int a4, int a5)
         t3 = *(int *)((t1 + 0x24));
         *(unsigned int *)((t1 + 0x24)) = (t3 & 0xFFFEFFFF);
     }
+    return 0x0;
 }
 
 void kmyGetFrameBufferAddress(int a4, int a5)
@@ -9073,7 +9002,7 @@ void kmyGetFrameBufferAddress(int a4, int a5)
     }
 }
 
-void kmyReleaseFrameBufferHandle(int a4)
+int kmyReleaseFrameBufferHandle(int a4)
 {
     int t0;
     int t1;
@@ -9097,6 +9026,7 @@ void kmyReleaseFrameBufferHandle(int a4)
             }
         }
     }
+    return 0x0;
 }
 
 int SearchVQEntry(int a4)
@@ -9124,7 +9054,7 @@ int SearchVQEntry(int a4)
     return t2;
 }
 
-void kmyGetDisplayRegionSize(int a4, int a5, int a6, int a7)
+int kmyGetDisplayRegionSize(int a4, int a5, int a6, int a7)
 {
     int t0;
     int t1;
@@ -9157,9 +9087,10 @@ void kmyGetDisplayRegionSize(int a4, int a5, int a6, int a7)
     if (a6 != 0) {
         *(unsigned int *)((a6 + 0x0)) = t3;
     }
+    return 0x0;
 }
 
-void Qreset(void)
+int Qreset(void)
 {
     int t0;
     int t1;
@@ -9203,6 +9134,7 @@ void Qreset(void)
         } while ((unsigned int)t10 < (unsigned int)t13);
     }
     *(unsigned int *)0x8C20CA0C = 0x0;
+    return 0x0;
 }
 
 void kmyiUnloadCallback(int a4)
@@ -9280,16 +9212,17 @@ void kmyiInitializeInterrupt(int a4)
     *(unsigned int *)((t0 + 0x234)) = 0x0;
 }
 
-void kmySeparatePassInfo(int a4, int a5, int a6, int a7, int a8, int a9)
+int kmySeparatePassInfo(int a4, int a5, int a6, int a7, int a8, int a9)
 {
     *(unsigned int *)((a5 + 0x0)) = (a4 & 0x3);
     *(unsigned int *)((a6 + 0x0)) = (((unsigned int)((unsigned int)a4 >> 2) >> 2) & 0x3);
     *(unsigned int *)((a7 + 0x0)) = (((unsigned int)a4 >> 8) & 0x3);
     *(unsigned int *)((a8 + 0x0)) = (((unsigned int)((unsigned int)((unsigned int)a4 >> 8) >> 2) >> 2) & 0x3);
     *(unsigned int *)((a9 + 0x0)) = (((unsigned int)a4 >> 16) & 0x3);
+    return 0x0;
 }
 
-void kmySetPassDepth(int a4, int a5, int a6, int a7)
+int kmySetPassDepth(int a4, int a5, int a6, int a7)
 {
     int t0;
     int t1;
@@ -9309,7 +9242,7 @@ void kmySetPassDepth(int a4, int a5, int a6, int a7)
 
     t0 = kmyiCheckNativeHandle(a4);
     if (t0 == 0) {
-        return;
+        return 0xEEEE;
     }
     t1 = *(int *)((a4 + 0x88));
     *(unsigned int *)((a4 + 0xC)) = a7;
@@ -9339,6 +9272,7 @@ void kmySetPassDepth(int a4, int a5, int a6, int a7)
     *(unsigned int *)((t1 + 0x10)) = t14;
     t15 = *(int *)0x8C45EE50;
     *(unsigned int *)((t1 + 0x4)) = t15;
+    return 0x0;
 }
 
 int kmiInitializeDisplayModule(int a4)
@@ -9352,7 +9286,7 @@ int kmiInitializeDisplayModule(int a4)
     return kmiInitFBControl();
 }
 
-void kmyInitializeFogTable(void)
+int kmyInitializeFogTable(void)
 {
     int t0;
 
@@ -9362,6 +9296,7 @@ void kmyInitializeFogTable(void)
         *(unsigned int *)(((t0 << 2) + 0x8C4707EC)) = 0x0;
         kmiWriteRegister(((t0 << 2) + 0x200), 0x0);
     } while (t0 != 0);
+    return 0x0;
 }
 
 int kmyUpdateFogParameter(void)
@@ -9931,7 +9866,7 @@ int kmiFLWCTRLFindFreeNBuf(void)
 
 
 
-void kmiFLWCTRLStartDisplayEntry(int a4)
+int kmiFLWCTRLStartDisplayEntry(int a4)
 {
     int t0;
     int t1;
@@ -9964,26 +9899,9 @@ void kmiFLWCTRLStartDisplayEntry(int a4)
         *(unsigned int *)0x8C45F900 = 0x0;
         kmBlankScreen(0x0);
     }
+    return 0x0;
 }
 
-void kmiInitVertexBufferDesc(int a4)
-{
-    int t0;
-
-    t0 = *(int *)((a4 + 0x24));
-    *(unsigned int *)0x8C45F004 = 0x0;
-    *(unsigned int *)0x8C45F000 = 0x0;
-    *(unsigned int *)0x8C45EFFC = 0x0;
-    *(unsigned int *)0x8C45F008 = 0x0;
-    *(unsigned int *)0x8C45EFF8 = 0x0;
-    *(unsigned int *)0x8C45F010 = 0x0;
-    *(unsigned int *)((t0 + 0x0)) = 0x8C45F074;
-    *(unsigned int *)((t0 + 0x10)) = 0x8C45F074;
-    *(unsigned int *)((t0 + 0x4)) = 0x8C45F020;
-    *(unsigned int *)((t0 + 0x8)) = 0x8C45EFF8;
-    *(unsigned int *)((t0 + 0xC)) = 0x8C45F114;
-    *(unsigned int *)((t0 + 0x18)) = (a4 + 0x38);
-}
 
 int kmtex_TextureSize(int a4)
 {
@@ -10091,7 +10009,7 @@ int kmtex_TextureSize_smallVQ(int a4)
     return t20;
 }
 
-void syG2DmaResumeAll(void)
+int syG2DmaResumeAll(void)
 {
     int t0;
     int t1;
@@ -10103,9 +10021,10 @@ void syG2DmaResumeAll(void)
         t0 = (t0 + 0x34);
     } while ((unsigned int)t0 < (unsigned int)0xD0);
     *(unsigned int *)0x8C471F7C = 0x0;
+    return 0x0;
 }
 
-void syG2DmaSuspendAll(void)
+int syG2DmaSuspendAll(void)
 {
     int t0;
     int t1;
@@ -10117,6 +10036,7 @@ void syG2DmaSuspendAll(void)
         t0 = (t0 + 0x34);
     } while ((unsigned int)t0 < (unsigned int)0xD0);
     *(unsigned int *)0x8C471F7C = 0x1;
+    return 0x0;
 }
 
 void mpdrv_make_rootdevicedata(int a4, int a5, int a6, int a7)
@@ -10385,9 +10305,10 @@ int kmyContinueTA(int a4)
     return kmiReadRegister(0x144);
 }
 
-void kmyGeneratePassInfo(int a4, int a5, int a6, int a7, int a8, int a9)
+int kmyGeneratePassInfo(int a4, int a5, int a6, int a7, int a8, int a9)
 {
     *(unsigned int *)((a4 + 0x0)) = (0x100000 | (((((((a6 & 0x3) << 2) << 2) | ((a7 & 0x3) << 8)) | ((((a8 & 0x3) << 8) << 2) << 2)) | ((a9 & 0x3) << 16)) | (a5 & 0x3)));
+    return 0x0;
 }
 
 int kmySetSkipCount(int a4, int a5)
@@ -10513,7 +10434,7 @@ void kmyInitializeAllRenderPackets(void)
     } while ((int)t0 < (int)0x8);
 }
 
-void kmyReleaseRenderPacket(int a4)
+int kmyReleaseRenderPacket(int a4)
 {
     int t0;
     int t1;
@@ -10522,44 +10443,48 @@ void kmyReleaseRenderPacket(int a4)
 
     t0 = kmyiCheckRenderPacket(a4);
     if (t0 == 0) {
-        return;
+        return 0xEEEE;
     }
     t1 = *(int *)((a4 + 0x0));
     t2 = *(int *)0x8C474644;
     *(unsigned int *)0x8C474644 = (t2 & (~(((int)t1 >= 0) ? (0x1 << (t1 & 31)) : ((-(int)t1 & 31) ? ((int)0x1 >> (-(int)t1 & 31)) : ((int)0x1 >> 31)))));
     t3 = *(int *)0x8C474648;
     *(unsigned int *)0x8C474648 = (t3 - 1);
+    return 0x0;
 }
 
-void kmySetDMAErrorCallback(int a4, int a5)
+int kmySetDMAErrorCallback(int a4, int a5)
 {
     if (a4 != 0) {
         if (a4 != 1) {
-            return;
+            return 0xEEEE;
         }
         *(unsigned int *)0x8C203434 = a5;
-        return;
+        return 0x0;
     }
     *(unsigned int *)0x8C203430 = a5;
+    return 0x0;
 }
 
-void kmySetRegionArrayCallback(int a4, int a5)
+int kmySetRegionArrayCallback(int a4, int a5)
 {
     int t0;
 
     t0 = kmyiCheckNativeHandle(a4);
     if (t0 != 0) {
         if (a5 == 0) {
-            return;
+            return 0xEEEE;
         }
         *(unsigned int *)((a4 + 0x14)) = a5;
-        return;
+        return 0x0;
     }
+    return 0xEEEE;
 }
 
-void kmySetStrideWidth(int a4)
+int kmySetStrideWidth(int a4)
 {
     kmiWriteRegister(0xE4, ((int)(0x3E0 & a4) >> 5));
+    return 0x0;
 }
 
 int kmyStartRenderTexture(int a4, int a5, int a6)
@@ -10686,30 +10611,32 @@ int kmyStartRender(int a4, int a5)
     return t31;
 }
 
-void kmySetPixelClippingX(int a4, int a5, int a6)
+int kmySetPixelClippingX(int a4, int a5, int a6)
 {
     int t0;
     int t1;
 
     t0 = kmyiCheckNativeHandle(a4);
     if (t0 == 0) {
-        return;
+        return 0xEEEE;
     }
     t1 = *(int *)((a4 + 0x88));
     *(unsigned int *)((t1 + 0x14)) = (((a6 & 0x7FF) << 16) | (a5 & 0x7FF));
+    return 0x0;
 }
 
-void kmySetPixelClippingY(int a4, int a5, int a6)
+int kmySetPixelClippingY(int a4, int a5, int a6)
 {
     int t0;
     int t1;
 
     t0 = kmyiCheckNativeHandle(a4);
     if (t0 == 0) {
-        return;
+        return 0xEEEE;
     }
     t1 = *(int *)((a4 + 0x88));
     *(unsigned int *)((t1 + 0x18)) = (((a6 & 0x7FF) << 16) | (a5 & 0x7FF));
+    return 0x0;
 }
 
 int kmyiCheckNativeHandle(int a4)
@@ -10820,7 +10747,7 @@ void kmySetRenderBpp(int a4, int a5)
     *(unsigned int *)((t1 + 0x4)) = ((t8 & 0xFFFFFFF8) | (t7 & 0x7));
 }
 
-void kmResetRenderer(void)
+int kmResetRenderer(void)
 {
     int t0;
 
@@ -10829,63 +10756,9 @@ void kmResetRenderer(void)
     } while (t0 != 0);
     kmyResetRenderer();
     kmyResetTA();
+    return 0x0;
 }
 
-void ADX_DecodeInfoAiff(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-    int t10;
-    int t11;
-    int t12;
-    int stk[10];
-
-    *(unsigned int *)(((int)stk + 24)) = a4;
-    *(unsigned int *)(((int)stk + 28)) = a6;
-    *(unsigned int *)(((int)stk + 32)) = a7;
-    if ((int)a5 < (int)0x1000) {
-        t0 = *(int *)(((int)stk + 28));
-        *(unsigned short *)((t0 + 0x0)) = 0x0;
-        return;
-    }
-    t1 = *(int *)(((int)stk + 24));
-    t2 = adxb_DecodeInfoAiffSub(t1, (((int)stk + 4) + 0x4), (((int)stk + 4) + 0x8), (((int)stk + 4) + 0xC), (((int)stk + 8) + 0xC));
-    if (t2 != 0) {
-        t3 = *(int *)(((int)stk + 24));
-        t4 = *(int *)(((int)stk + 28));
-        *(unsigned short *)((t4 + 0x0)) = (t2 - t3);
-        if ((int)(short)(t2 - t3) <= 0) {
-            return;
-        }
-        t5 = *(int *)(((int)stk + 8));
-        *(unsigned int *)((a11 + 0x0)) = t5;
-        t6 = *(int *)(((int)stk + 12));
-        *(unsigned char *)((a10 + 0x0)) = t6;
-        t7 = *(int *)(((int)stk + 16));
-        *(unsigned char *)((a8 + 0x0)) = t7;
-        t8 = *(int *)(((int)stk + 20));
-        *(unsigned int *)((a12 + 0x0)) = t8;
-        t9 = *(int *)(((int)stk + 32));
-        *(unsigned char *)((t9 + 0x0)) = 0xFFFFFFFF;
-        t10 = *(signed char *)((a10 + 0x0));
-        t11 = *(signed char *)((a8 + 0x0));
-        t12 = ((short)t10 * (short)t11);
-        if ((int)((short)t10 * (short)t11) < 0) {
-            t12 = (((short)t10 * (short)t11) + 0x7);
-        }
-        *(unsigned char *)((a9 + 0x0)) = (((t12 >> 1) >> 1) >> 1);
-        *(unsigned int *)((a13 + 0x0)) = 0x1;
-        return;
-    }
-}
 
 
 int ADXPD_Create(void)
@@ -10977,14 +10850,6 @@ int syIntAdrChk_printh(int a4)
     return t2;
 }
 
-void kmSetFogVertexColor(int a4, int a5, int a6, int a7, int a8)
-{
-    int t0;
-
-    *(unsigned int *)0x8C4709F0 = a8;
-    t0 = *(int *)0x8C4709EC;
-    *(unsigned int *)0x8C4709EC = t0;
-}
 
 int ADXPD_ExecHndl(int a4)
 {
@@ -11051,5 +10916,15 @@ int ADXPD_ExecHndl(int a4)
         t20 = t19;
     }
     return t20;
+}
+
+int kmSetFogVertexColor(int a4, int a5, int a6, int a7, int a8)
+{
+    int t0;
+
+    *(unsigned int *)0x8C4709F0 = a8;
+    t0 = *(int *)0x8C4709EC;
+    *(unsigned int *)0x8C4709EC = t0;
+    return 0;
 }
 

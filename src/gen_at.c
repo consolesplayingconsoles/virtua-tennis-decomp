@@ -68,7 +68,7 @@ int staffMorphCapture(int a4, int a5, int a6, int a7);
 int miniTargetDraw(int a4, int a5, int a6, int a7);
 int ADXB_ExecOneAuUlaw(int a4, int a5, int a6, int a7);
 void vecSegCrossXZ(Stk10 s);
-float ADX_DecodeMonoFloat(int a4, int a5, int a6, int a7, int a8, int a9, float f4, float f5, float f6, float f7, float f8, float f9, float f10);
+int ADX_DecodeMonoFloat(int a4, int a5, int a6, int a7, int a8, int a9, float f4, float f5, float f6, float f7, float f8, float f9, float f10);
 int frame_make(void);
 int ADXB_ExecOneWav8(int a4, int a5, int a6, int a7);
 int ADXT_ExecHndl(int a4, int a5, int a6, int a7);

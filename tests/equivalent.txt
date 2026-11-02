@@ -277,8 +277,6 @@ FUN_8c017ca6
 FUN_8c018102
 FUN_8c02414c
 FUN_8c025500
-cameraBlendVector240
-cameraBlendFloat240
 FUN_8c030364
 FUN_8c030376
 FUN_8c0303c0
@@ -305,7 +303,6 @@ FUN_8c03ce4c
 FUN_8c03f5aa
 FUN_8c041cac
 FUN_8c041d6a
-cpuSglPointInit
 FUN_8c044dbc
 FUN_8c0450ac
 FUN_8c04546c
@@ -357,7 +354,6 @@ FUN_8c055cd2
 FUN_8c055ee2
 FUN_8c0561dc
 FUN_8c05674c
-cpuDblPointInit
 FUN_8c05d970
 FUN_8c05dae0
 FUN_8c05db9c
@@ -503,7 +499,6 @@ FUN_8c084bce
 FUN_8c084cbc
 FUN_8c084fcc
 FUN_8c08509a
-matchSceneSetup
 FUN_8c0855c6
 FUN_8c085c24
 FUN_8c0860c4
@@ -637,9 +632,6 @@ FUN_8c0b5da8
 FUN_8c0b5f78
 FUN_8c0b614c
 FUN_8c0b6994
-courtFraDraw
-courtUsaDraw
-courtWinDraw
 FUN_8c0ba302
 FUN_8c0bbf00
 FUN_8c0bbfb2
@@ -652,19 +644,6 @@ FUN_8c0bdf26
 FUN_8c0be2dc
 FUN_8c0c1684
 FUN_8c0c194c
-stageSweDraw
-stageGerDraw
-stageJpnDraw
-stageRusDraw
-stageEspDraw
-stage10Draw
-stage11Draw
-stage12Draw
-stage14Draw
-stage13Draw
-stage15Draw
-stage16Draw
-stage17Draw
 FUN_8c0c4bf0
 FUN_8c0c4c84
 FUN_8c0c4cce
@@ -761,7 +740,6 @@ FUN_8c0ea550
 FUN_8c0eaaf0
 FUN_8c0eab20
 FUN_8c0eab40
-resetBackColorZ
 FUN_8c0eaf30
 FUN_8c0ec0d0
 FUN_8c0ec0e0
@@ -797,7 +775,6 @@ FUN_8c0f02a0
 FUN_8c0f02c0
 FUN_8c0f0720
 FUN_8c0f07c0
-nlUnitVector
 FUN_8c0f0900
 FUN_8c0f09c0
 FUN_8c0f0a90
@@ -841,7 +818,6 @@ FUN_8c0f8290
 FUN_8c0f8360
 FUN_8c0f8370
 FUN_8c0f8380
-copySmallVQToTextureRom
 FUN_8c1dd692
 FUN_8c1dd6e4
 FUN_8c1e0c2c
@@ -858,7 +834,6 @@ FUN_8c1e3260
 FUN_8c1e326e
 FUN_8c1e3272
 FUN_8c1e3278
-collectTextureGarbage
 FUN_8c1e5280
 FUN_8c1e53a0
 FUN_8c1e55c0
@@ -871,7 +846,6 @@ FUN_8c1e5e80
 FUN_8c1e5fc0
 FUN_8c1e6120
 FUN_8c1e629a
-setCullingThreshold
 FUN_8c1e6738
 FUN_8c1e6746
 FUN_8c1e67c6
@@ -888,7 +862,6 @@ FUN_8c1e6a04
 FUN_8c1e6a34
 FUN_8c1e6a3a
 FUN_8c1e6a5a
-stringEquals
 FUN_8c1e7978
 FUN_8c1e797e
 FUN_8c1e7e96
@@ -901,7 +874,6 @@ FUN_8c1e90f0
 FUN_8c1ef400
 FUN_8c1ef43c
 FUN_8c1ef450
-kbCfgIni
 FUN_8c1f1658
 FUN_8c1f1906
 FUN_8c1f5b60
@@ -919,8 +891,6 @@ FUN_8c1feb60
 FUN_8c1feb6a
 FUN_8c1feb72
 FUN_8c1feb7a
-bufferEquals
-copyBytes
 FUN_8c200110
 FUN_8c2001b8
 FUN_8c2001dc
@@ -1209,6 +1179,7 @@ buUnmount
 buUnmountDisk
 buWriteDiskImage
 buWriteFile
+bufferEquals
 cacheOcbiRange
 camExec
 camGetAngles
@@ -1227,6 +1198,8 @@ camSetTarget
 camSetupView
 camViewToWorld
 camWorldToView
+cameraBlendFloat240
+cameraBlendVector240
 cameraCalcPoint
 cameraCalcPointInv
 cameraExec
@@ -1279,6 +1252,7 @@ circuitTaskTrim
 clear_file
 close_file_handle
 cmp_fname
+collectTextureGarbage
 colliObjClear
 colliObjEntry
 colliObjInit
@@ -1292,6 +1266,8 @@ commonSprInitAll
 commonSysInit
 commonViewInit
 convert_support
+copyBytes
+copySmallVQToTextureRom
 copy_device
 cos
 countryNameInit
@@ -1309,6 +1285,7 @@ courtColliEntry
 courtColliInit
 courtDistScale
 courtDrawStageModels
+courtFraDraw
 courtFraDrawAnim
 courtFraDrawNumber
 courtFraDrawScoreboard
@@ -1318,10 +1295,12 @@ courtLimitZ
 courtPropPickPose
 courtPropsDraw
 courtPropsInit
+courtUsaDraw
 courtUsaDrawExtras
 courtUsaDrawNumber
 courtUsaDrawScoreboard
 courtUsaDrawScoreboard2
+courtWinDraw
 courtWinDrawNumber
 courtWinDrawScoreboard
 courtWinDrawSign
@@ -1365,6 +1344,7 @@ cpuDblPartnerSignal
 cpuDblPathCross
 cpuDblPickTactic
 cpuDblPoachCheck
+cpuDblPointInit
 cpuDblPosition
 cpuDblPositionCalc
 cpuDblReceivePos
@@ -1432,6 +1412,7 @@ cpuSglInput
 cpuSglMoodUpdate
 cpuSglMove
 cpuSglPickLv07
+cpuSglPointInit
 cpuSglReceivePos
 cpuSglServe
 cpuSglShot
@@ -1889,6 +1870,7 @@ initSprPut2
 init_sub
 invitationSpriteLoad
 kbCfgGetId
+kbCfgIni
 kdDevGetControllerInfo
 kdDevGetFD
 kdDevGetGunInfo
@@ -2284,6 +2266,7 @@ matchPointWon
 matchPropStart
 matchSceneExec
 matchSceneInit
+matchSceneSetup
 matchSetSlowMotion
 matchSetupPlayers
 matchStageSlot
@@ -2906,6 +2889,7 @@ nlTranslateNV
 nlTranslateV
 nlTransposeMatrix
 nlUnitMatrix
+nlUnitVector
 nlVoidUnitVector
 nlVtxBufScanInit
 nlWaitVSync
@@ -3237,6 +3221,7 @@ resWtcShopSprRead
 resWtcShopSprTexFree
 resWtcShopSprTexLoad
 resWtcShopTexRead
+resetBackColorZ
 restart_t404
 resultBoxDraw
 resultDoublesDraw
@@ -3328,6 +3313,7 @@ serveGetReceiver
 serveGetServer
 serveNextGame
 serveNextPoint
+setCullingThreshold
 set_event
 set_event2
 set_fat
@@ -3409,6 +3395,7 @@ sprCommonRestore
 sprInitPos
 sprInitRect
 sprInitRectF
+sprListPut
 sprListPutEx
 sprListPutGrad
 sprListPutScaleY
@@ -3490,17 +3477,28 @@ staffShadowFlat
 staffShadowMulti
 staffShadowPart
 staffShadowPut
+stage10Draw
+stage11Draw
+stage12Draw
+stage13Draw
+stage14Draw
+stage15Draw
+stage16Draw
+stage17Draw
 stageCrowdTexLoad
 stageEspCourtDraw
+stageEspDraw
 stageEspScoreDigits
 stageEspScoreboardDraw
 stageExtraTexFree
 stageExtraTexLoad
 stageFreeAll
 stageGerCourtDraw
+stageGerDraw
 stageGerScoreDigits
 stageGerScoreboardDraw
 stageJpnCourtDraw
+stageJpnDraw
 stageJpnScoreDigits
 stageJpnScoreboardDraw
 stageLoadBegin
@@ -3525,6 +3523,7 @@ stageMinigameTexLoad
 stagePolyLoad
 stageReloadBegin
 stageRusCourtDraw
+stageRusDraw
 stageRusScoreDigits
 stageRusScoreboardDraw
 stageSegaCourtDraw
@@ -3540,6 +3539,7 @@ stageSelSprInit2
 stageSelSprInit3
 stageSoftReset
 stageSweCourtDraw
+stageSweDraw
 stageSweScoreDigits
 stageSweScoreboardDraw
 stageTexFileLoad
@@ -3558,6 +3558,7 @@ standRowBarDraw
 standSort
 standTableDraw
 str_len
+stringEquals
 stripQuadDrawA
 stripQuadDrawB
 strlen
@@ -3691,20 +3692,20 @@ sys_init
 texPicInit
 texPicPut
 thunk_ADXERR_EntryErrFunc
-thunk_circuitTaskRun
-thunk_selCopyLocalConstants
-thunk_fadeScreenDraw
-thunk_nlGetMatrix
-thunk_nlObjPutMvInit
-thunk_nlSprPut
 thunk_buIsExistFile
-thunk_stringEquals
 thunk_bufferEquals
+thunk_circuitTaskRun
 thunk_copyBytes
+thunk_fadeScreenDraw
 thunk_kmSetHSyncLine
 thunk_mwRnaErrEntryFunc
 thunk_mwRnaFinish
 thunk_mwRnaInit
+thunk_nlGetMatrix
+thunk_nlObjPutMvInit
+thunk_nlSprPut
+thunk_selCopyLocalConstants
+thunk_stringEquals
 titleFrameCue
 titleMenuLayout
 titleObjSpinPut

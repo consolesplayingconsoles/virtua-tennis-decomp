@@ -2,9 +2,9 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 float nlRandom(void);
-float entryPickRandomChara(void);
+int entryPickRandomChara(void);
 
-float entryPickRandomChara(void)
+int entryPickRandomChara(void)
 {
     int t0;
     int t1;
@@ -53,5 +53,5 @@ float entryPickRandomChara(void)
             break;
         }
     }
-    return (t14 * u12);
+    return ((int)(t14 * u12));
 }

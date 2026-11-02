@@ -3,9 +3,10 @@
 
 typedef struct { int w[4]; } Stk4;
 int kmySetBorderColor(int);
-void kmSetBorderColor(Stk4 s);
+int kmSetBorderColor(Stk4 s);
 
-void kmSetBorderColor(Stk4 s)
+int kmSetBorderColor(Stk4 s)
 {
     kmySetBorderColor(s.w[0]);
+    return 0x0;
 }

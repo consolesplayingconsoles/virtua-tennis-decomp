@@ -2,9 +2,9 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 int kmyMemCopy(int, int, int);
-void kmGetSystemMetrics(int a4);
+int kmGetSystemMetrics(int a4);
 
-void kmGetSystemMetrics(int a4)
+int kmGetSystemMetrics(int a4)
 {
     int t0;
     int t1;
@@ -55,4 +55,5 @@ void kmGetSystemMetrics(int a4)
         *(unsigned int *)((a4 + 0x1A8)) = (*(int *)0x8C4607C4);
         *(unsigned int *)((a4 + 0x1AC)) = (*(int *)0x8C4607CC);
     }
+    return 0x0;
 }

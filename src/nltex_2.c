@@ -14,7 +14,7 @@ extern int gNlCommonTextureOffset;
 #define LOAD_WORDS      (*(int *)0x0C14A63C)             /* its length in words */
 
 int kmCreateTextureSurface(int *s, int w, int h, int type);
-void kmLoadTexture(int *s, int data, int a, int b);
+int kmLoadTexture(int *s, int data, int a, int b);
 void nlCreateTextureParamA(int *s);
 void kmFreeTexture(int *s);
 

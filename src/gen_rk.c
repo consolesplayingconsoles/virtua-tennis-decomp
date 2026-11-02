@@ -1,9 +1,9 @@
 /* Straight-line functions with calls and guards (batch gen_rk): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-float ADX_DecodeMonoFloat(int a4, int a5, int a6, int a7, int a8, int a9);
+int ADX_DecodeMonoFloat(int a4, int a5, int a6, int a7, int a8, int a9);
 
-float ADX_DecodeMonoFloat(int a4, int a5, int a6, int a7, int a8, int a9)
+int ADX_DecodeMonoFloat(int a4, int a5, int a6, int a7, int a8, int a9)
 {
     int t0;
     int t15;
@@ -66,7 +66,7 @@ float ADX_DecodeMonoFloat(int a4, int a5, int a6, int a7, int a8, int a9)
     *(unsigned short *)(((R1008) + 0x0)) = ((unsigned int)(int)F7 >> 16);
     R0 = (R5);
     L_8C209112:;
-    return F0;
+    return R0;
     L_8C20907A:;
     t15 = *(short *)((R13 + 0x0));
     R4 = ((short)((unsigned char)((int)t15 >> 8) | ((t15 << 8) & R8)));

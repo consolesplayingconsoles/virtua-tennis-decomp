@@ -23,7 +23,7 @@ extern float nlScalor(float *v);
 extern void nlstripSetVertexContext(void *ctx);
 extern void kmRender();
 extern void kmFlipFrameBuffer();
-extern void kmSetFogDensity(int w);
+extern int kmSetFogDensity(int w);
 
 
 void nlInitTextureSurface(int *surfaceTable, int surfaceCount)

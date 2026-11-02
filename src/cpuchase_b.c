@@ -7,9 +7,9 @@ int cpuInFan(int, int, Stk3);
 int cpuLineCrossXZ(int, Stk3, Stk3, Stk3);
 float cpuLineXAtZ(Stk3, Stk3, float);
 extern int cpuReachPoint();
-void cpuChasePlan(int a4, int a5, int a6, int a7);
+int cpuChasePlan(int a4, int a5, int a6, int a7);
 
-void cpuChasePlan(int a4, int a5, int a6, int a7)
+int cpuChasePlan(int a4, int a5, int a6, int a7)
 {
     register float u10;
     register int t59;
@@ -161,7 +161,7 @@ void cpuChasePlan(int a4, int a5, int a6, int a7)
     L_8C041684:;
     R0 = (0x3);
     L_8C041C4C:;
-    return;
+    return R0;
     L_8C03F6B4:;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((R1308) + 0xA0)) = *(struct mv3 *)(((R1312) + 0xB9C)); }
     L_8C041C4A:;
@@ -1490,5 +1490,6 @@ void cpuChasePlan(int a4, int a5, int a6, int a7)
     L_8C03F8F0:;
     R1 = (0x0);
     goto L_8C03F8F2;
+    return 0x1;
 }
 

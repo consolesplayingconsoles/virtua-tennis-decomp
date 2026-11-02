@@ -373,10 +373,6 @@ void dbgHookNop(void)
     
 }
 
-void emotRetOne(void)
-{
-    
-}
 
 int sprSet266InitThunk(void)
 {

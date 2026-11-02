@@ -73,7 +73,7 @@ int endSprCharaTexFree(int a4);
 int endSprCharaTexLoad(int a4);
 int nlSysUseLatency2V(void);
 int nlsndStreamGetBufInfo(int a4, int a5, int a6);
-void nlSpriteF2C(float f4);
+int nlSpriteF2C(float f4);
 int nlsnd_PL_WaitRequest(void);
 int commonEtcTexSetGarbaged(void);
 int resCautionTexFree(int a4);
@@ -828,9 +828,20 @@ int nlsndStreamGetBufInfo(int a4, int a5, int a6)
     return (*(int *)(((0x8C454CF8 + ((short)a4 * (short)0x1C)) + ((short)a5 << 2))));
 }
 
-void nlSpriteF2C(float f4)
+int nlSpriteF2C(float f4)
 {
-    
+    float u0;
+    int t1;
+
+    u0 = (f4 * 255.0f);
+    if (u0 > 2147483648.0f) {
+        u0 = (u0 + -4294967296.0f);
+    }
+    t1 = (int)u0;
+    if ((unsigned int)t1 > (unsigned int)0xFF) {
+        t1 = 0xFF;
+    }
+    return t1;
 }
 
 int nlsnd_PL_WaitRequest(void)

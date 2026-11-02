@@ -3,9 +3,9 @@
 
 int nlAddVector(int, int);
 int nlScaleVector(int, int, float);
-float shotCheckNet(int a4, int a5, float f4, float f5, float f6);
+int shotCheckNet(int a4, int a5, float f4, float f5, float f6);
 
-float shotCheckNet(int a4, int a5, float f4, float f5, float f6)
+int shotCheckNet(int a4, int a5, float f4, float f5, float f6)
 {
     int stk[23];
     register int t0;
@@ -99,16 +99,16 @@ float shotCheckNet(int a4, int a5, float f4, float f5, float f6)
                         }
                     }
                     if ((t14 != ((u17 > 0.0f) - (0.0f > u17))) && (u66 = R1008, u67 = *(float *)(((int)stk + 40)), u66 > u67)) {
-                        break;
+                        return 1;
                     }
                     t15 = (t15 + 0x1);
                     continue;
                 }
-                return u17;
+                return 0;
             }
             u80 = u17;
         }
         u101 = u80;
     }
-    return u101;
+    return 0;
 }

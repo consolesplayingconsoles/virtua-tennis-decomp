@@ -15,30 +15,18 @@ int vmsfs_c_getstate(int, int);
 int vmsfs_fisexist(int, int);
 int vmsfs_xfind(int, int);
 
-void angDiff(int a4, int a5)
-{
-    abs(((unsigned short)a4 - (unsigned short)a5), a5);
-    
-    
-    
-}
 
 
 
-void ambLevelGet(void)
+int ambLevelGet(void)
 {
     int t0;
-    int t1;
-    int t2;
 
     t0 = *(int *)0x8C1891E8;
-    if (!(t0 == 2)) {
-        if ((t0 == 3)) {
-        t1 = *(int *)0x8C301BE8;
-        return;
-        }
-        }
-    t2 = *(int *)0x8C301BE8;
+    if ((t0 == 2) || (t0 == 3)) {
+        return (*(int *)0x8C301BE8);
+    }
+    return 0x64;
 }
 
 
@@ -69,15 +57,16 @@ void buFindExecFile(int a4, int a5)
     vmsfs_xfind(a4, a5);
 }
 
-void buIsExistFile(int a4, int a5)
+int buIsExistFile(int a4, int a5)
 {
     int t0;
 
     t0 = vmsfs_c_getstate(a4, a5);
     if (!(t0 == 0)) {
-        return;
+        return -1;
         }
     vmsfs_fisexist(a4, a5);
+    return -1;
 }
 
 void ADXF_GetNumReqSct(int a4, int a5)
@@ -95,16 +84,15 @@ void ADXF_GetNumReqSct(int a4, int a5)
     t2 = *(int *)((a4 + 0x20));
 }
 
-void vmsfs_setretry(int a4)
+int vmsfs_setretry(int a4)
 {
     *(unsigned int *)0x8C46215C = a4;
+    return a4;
 }
 
-void kmyGetInterruptLevel(void)
+int kmyGetInterruptLevel(void)
 {
-    int t0;
-
-    t0 = *(int *)0x8C470AA4;
+    return (*(int *)0x8C470AA4);
 }
 
 void kmiWriteDispModeRegisters(void)

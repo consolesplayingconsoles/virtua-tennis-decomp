@@ -1,9 +1,9 @@
 /* Straight-line functions with calls and guards (batch gen_fx): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-float ADX_DecodeSteFloat(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5, float f6);
+int ADX_DecodeSteFloat(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5, float f6);
 
-float ADX_DecodeSteFloat(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5, float f6)
+int ADX_DecodeSteFloat(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5, float f6)
 {
     int t0;
     int t1;
@@ -121,7 +121,7 @@ float ADX_DecodeSteFloat(int a4, int a5, int a6, int a7, int a8, int a9, int a10
             t11 = (t11 | ((t33 << 8) & 0xFFFFFF00));
             if ((0x8000 & (short)t11) != 0) {
                 t7 = (*(int *)(((int)stk + 12)));
-                return u12;
+                return t7;
             }
             t9 = (t9 + 0x2);
             u15 = (float)(((short)t11 & 0x1FFF) + 0x1);
@@ -179,8 +179,7 @@ float ADX_DecodeSteFloat(int a4, int a5, int a6, int a7, int a8, int a9, int a10
         *(unsigned short *)(((*(int *)(((int)stk + 20))) + 0x0)) = ((unsigned int)(int)u14 >> 16);
         *(unsigned short *)((a9 + 0x0)) = (short)((unsigned int)(int)u20 >> 16);
         *(unsigned short *)(((*(int *)(((int)stk + 24))) + 0x0)) = ((unsigned int)(int)u21 >> 16);
-        return u12;
+        return t7;
     }
-    *(volatile int *)(((int)stk + 8));
-    return u12;
+    return (*(int *)(((int)stk + 8)));
 }

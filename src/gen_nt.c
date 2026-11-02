@@ -18,9 +18,9 @@ int pdExecPeripheralServer(void);
 int pdTmrAlarm(int, int);
 int resCautionReset(int);
 Stk3 vecMake(float, float, float);
-void BupFailDialog(int a4);
+int BupFailDialog(int a4);
 
-void BupFailDialog(int a4)
+int BupFailDialog(int a4)
 {
     int t23;
     int t38;
@@ -98,7 +98,7 @@ void BupFailDialog(int a4)
     if ((R11 != 2)) goto L_8C0E0CEC;
     R0 = (0x0);
     L_8C0E0E34:;
-    return;
+    return R0;
     L_8C0E0CEC:;
     R10 = (R12);
     R4 = ((*(int *)(((int)stk + 32))));
@@ -158,3 +158,4 @@ void BupFailDialog(int a4)
     R0 = (0x1);
     goto L_8C0E0E34;
 }
+
