@@ -111,7 +111,7 @@ int FUN_8c082974(int a4);
 float FUN_8c0479d4(int a4, float f4, float f5);
 int FUN_8c08969c(int a4);
 int FUN_8c0cb7ee(Stk3 s, float f4);
-int FUN_8c08a4b0(int a4, int a5, int a6, int a7, int a8, float f4);
+int FUN_8c08a4b0(int a4, int a5, int a6, int a7, Stk3 p, float f4);
 int FUN_8c0ddb36(float f4);
 int FUN_8c07f800(int a4, Stk6 s);
 int FUN_8c0862ba(int a4, float f4, float f5);
@@ -669,7 +669,7 @@ int FUN_8c0cb7ee(Stk3 s, float f4)
     return t23;
 }
 
-int FUN_8c08a4b0(int a4, int a5, int a6, int a7, int a8, float f4)
+int FUN_8c08a4b0(int a4, int a5, int a6, int a7, Stk3 p, float f4)
 {
     int stk[28];
 
@@ -689,7 +689,9 @@ int FUN_8c08a4b0(int a4, int a5, int a6, int a7, int a8, float f4)
     register int v0_6;
     register int v0_7;
     register float w0_0;
-    stk[19] = a8;
+    stk[19] = p.w[0];
+    stk[20] = p.w[1];
+    stk[21] = p.w[2];
     v0_2 = a4;
     v0_0 = a7;
     w0_0 = f4;

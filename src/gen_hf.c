@@ -47,7 +47,7 @@ int nlRand(void);
 int playerInit(int, int);
 int rankDrawCharaIcon(int, int, Stk3);
 int rankDrawString(int, int, Stk3);
-int selCharInfoDraw(int, int);
+int selCharInfoDraw(int, Stk3, int);
 int selSideCheck(void);
 int set_event(int, int);
 Stk3 vecMake(float, float, float);
@@ -164,16 +164,16 @@ int entryCharaSelDraw(int a4, int a5)
     }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((*(int *)(((int)stk + 52)))); }
     t41 = entryGetColorId(0x0, *(Stk3 *)(((int)stk + 40)));
-    selCharInfoDraw(0x0, t41);
+    selCharInfoDraw(0x0, *(Stk3 *)(((int)stk + 40)), t41);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)(((((int)stk + 52) + 0x4) + 0xC)); }
     t43 = entryGetColorId(0x2, *(Stk3 *)(((int)stk + 28)));
-    selCharInfoDraw(0x2, t43);
+    selCharInfoDraw(0x2, *(Stk3 *)(((int)stk + 28)), t43);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(((((int)stk + 52) + 0x4) + 0x18)); }
     t45 = entryGetColorId(0x1, *(Stk3 *)(((int)stk + 16)));
-    selCharInfoDraw(0x1, t45);
+    selCharInfoDraw(0x1, *(Stk3 *)(((int)stk + 16)), t45);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(((((int)stk + 52) + 0x4) + 0x24)); }
     t47 = entryGetColorId(0x3, *(Stk3 *)(((int)stk + 4)));
-    return (selCharInfoDraw(0x3, t47));
+    return (selCharInfoDraw(0x3, *(Stk3 *)(((int)stk + 4)), t47));
 }
 
 

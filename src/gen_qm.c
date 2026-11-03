@@ -46,11 +46,9 @@ int kdRecvFrame(void)
     int R13;
     int R14;
     int T_;
-    int R1004;
     int R1008;
     int R1012;
     int R1016;
-    R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
     R1016 = *(int *)((int)stk + 16);
@@ -117,7 +115,7 @@ int kdRecvFrame(void)
     t56 = (R1012);
     R1008 = t56;
     t59 = (kdGetDeviceInfo((*(int *)((R14 + 0x0)))));
-    R1004 = t59;
+    (*(int *)((int)stk + 4)) = t59;
     t61 = kdGetDevice((*(int *)((R14 + 0x0))));
     t64 = ((int (*)(int, int, int, int))(t56))((*(int *)((R14 + 0x0))), (*(int *)((R14 + 0x4))), t61, t59);
     L_8C1E9A8C:;

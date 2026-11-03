@@ -81,8 +81,8 @@ int nlUnitMatrix(void);
 int nl_action_PixelClipping(void);
 int nl_set_cnv_proj_pers(void);
 int pdTmrIsReady(int);
-int primTexVertexSet(int, int, int, int, int, float, float);
-int primVertexSet(int, int, int, int, int);
+int primTexVertexSet(int, int, int, int, int, Stk3, float, float);
+int primVertexSet(int, int, int, int, int, Stk3);
 int set_event(int, int);
 int staffMorphBlend(int, int, int, float);
 float valStepToward(int, float, float);
@@ -109,13 +109,13 @@ int VQFBfree(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, i
 int lightExec(int a4, int a5, int a6, int a7);
 float bodyRaySphere(Stk10 s, float f4, float f5);
 void ballBoyDrawIdle(int a4, float f4);
-int primRectIncGradY(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
+int primRectIncGradY(int a4, int a5, int a6, int a7, Stk4 p);
 int pdTmrSetTime(int a4, int a5, int a6, int a7);
 int adxt_stat_prep(int a4);
 int SJRBF_GetChunk(int a4, int a5, int a6, int a7);
 int kmySetDisplayFrameBuffer(int a4, int a5);
 int selCursorReset(int a4, int a5);
-int primRectDirY(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
+int primRectDirY(int a4, int a5, int a6, int a7, Stk4 p);
 int nlObjPutSetGarbagedTexture_Sub(int a4, int a5, int a6);
 float _in_coss(float f4);
 int kmyGetFrameBufferHandle(int a4);
@@ -244,13 +244,13 @@ int fadeScreenDraw(int a4, int a5, int a6, int a7, float f4, float f5)
     int stk[41];
 
     vecMake(a4, a5, a6, a7, ((int)stk + 8), 0.0f, 0.0f, f5);
-    primTexVertexSet(((((0xFF & (int)(f4 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0x0, 0x0, 0x0, ((int)stk + 20), 0.0f, 0.0f);
+    primTexVertexSet(((((0xFF & (int)(f4 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0x0, 0x0, 0x0, ((int)stk + 20), *(Stk3 *)((int)stk + 8), 0.0f, 0.0f);
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 0.0f, 480.0f, f5);
-    primTexVertexSet(((((0xFF & (int)(f4 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0x0, 0x0, 0x0, (0x1C + ((int)stk + 20)), 0.0f, 0.9375f);
+    primTexVertexSet(((((0xFF & (int)(f4 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0x0, 0x0, 0x0, (0x1C + ((int)stk + 20)), *(Stk3 *)((int)stk + 8), 0.0f, 0.9375f);
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 640.0f, 0.0f, f5);
-    primTexVertexSet(((((0xFF & (int)(f4 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0x0, 0x0, 0x0, (0x38 + ((int)stk + 20)), 0.625f, 0.0f);
+    primTexVertexSet(((((0xFF & (int)(f4 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0x0, 0x0, 0x0, (0x38 + ((int)stk + 20)), *(Stk3 *)((int)stk + 8), 0.625f, 0.0f);
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 640.0f, 480.0f, f5);
-    primTexVertexSet(((((0xFF & (int)(f4 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0x0, 0x0, 0x0, (0x54 + ((int)stk + 20)), 0.625f, 0.9375f);
+    primTexVertexSet(((((0xFF & (int)(f4 * 255.0f)) << 16) << 8) | 0xFFFFFF), 0x0, 0x0, 0x0, (0x54 + ((int)stk + 20)), *(Stk3 *)((int)stk + 8), 0.625f, 0.9375f);
     return (nlDispStripTexOfs(0x4, ((int)stk + 20), 0x3A5));
 }
 
@@ -740,11 +740,9 @@ float bodyRaySphere(Stk10 s, float f4, float f5)
     float u35;
     float u36;
     int stk[25];
-    int R1028;
 
-    R1028 = *(int *)((int)stk + 28);
 
-    R1028 = s.w[0];
+    (*(int *)((int)stk + 28)) = s.w[0];
     stk[8] = s.w[1];
     stk[9] = s.w[2];
     stk[10] = s.w[3];
@@ -845,41 +843,31 @@ void ballBoyDrawIdle(int a4, float f4)
     }
 }
 
-int primRectIncGradY(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+int primRectIncGradY(int a4, int a5, int a6, int a7, Stk4 p)
 {
     int t6;
     int t13;
     int stk[44];
-    int R1020;
-    int R1024;
-    int R1028;
-    int R1032;
-    int R1140;
 
-    R1020 = *(int *)((int)stk + 20);
-    R1024 = *(int *)((int)stk + 24);
-    R1028 = *(int *)((int)stk + 28);
-    R1032 = *(int *)((int)stk + 32);
-    R1140 = *(int *)((int)stk + 140);
 
-    stk[32] = a8;
-    stk[33] = a9;
-    stk[34] = a10;
-    R1140 = a11;
-    R1028 = a4;
-    R1032 = a5;
-    R1024 = a6;
-    R1020 = a7;
+    stk[32] = p.w[0];
+    stk[33] = p.w[1];
+    stk[34] = p.w[2];
+    stk[35] = p.w[3];
+    (*(int *)((int)stk + 28)) = a4;
+    (*(int *)((int)stk + 32)) = a5;
+    (*(int *)((int)stk + 24)) = a6;
+    (*(int *)((int)stk + 20)) = a7;
     vecMake(a4, a5, a6, a7, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x6C) + 0x0))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x4))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
-    primVertexSet((R1024), 0x0, 0x0, 0x0, (((int)stk + 20) + 0x10));
-    t6 = R1028;
+    primVertexSet(((*(int *)((int)stk + 24))), 0x0, 0x0, 0x0, (((int)stk + 20) + 0x10), *(Stk3 *)((int)stk + 8));
+    t6 = (*(int *)((int)stk + 28));
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x6C) + 0x0))) - (float)t6), (*(float *)(((((int)stk + 20) + 0x6C) + 0x4))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
-    primVertexSet((R1024), 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x10)));
-    t13 = R1032;
+    primVertexSet(((*(int *)((int)stk + 24))), 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x10)), *(Stk3 *)((int)stk + 8));
+    t13 = (*(int *)((int)stk + 32));
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x6C) + 0x0))), (((*(float *)(((((int)stk + 20) + 0x6C) + 0x4))) + (float)t13) + 1.0f), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
-    primVertexSet((R1020), 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x10)));
+    primVertexSet(((*(int *)((int)stk + 20))), 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x10)), *(Stk3 *)((int)stk + 8));
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x6C) + 0x0))) - (float)t6), (((*(float *)(((((int)stk + 20) + 0x6C) + 0x4))) + (float)t13) + 1.0f), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
-    primVertexSet((R1020), 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x10)));
+    primVertexSet(((*(int *)((int)stk + 20))), 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x10)), *(Stk3 *)((int)stk + 8));
     return (nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x10)));
 }
 
@@ -1140,35 +1128,31 @@ int kmySetDisplayFrameBuffer(int a4, int a5)
 }
 
 
-int primRectDirY(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+int primRectDirY(int a4, int a5, int a6, int a7, Stk4 p)
 {
     int t0;
     int t7;
     int stk[42];
-    int R1020;
-    int R1132;
 
-    R1020 = *(int *)((int)stk + 20);
-    R1132 = *(int *)((int)stk + 132);
 
-    stk[30] = a8;
-    stk[31] = a9;
-    stk[32] = a10;
-    R1132 = a11;
-    R1020 = a6;
+    stk[30] = p.w[0];
+    stk[31] = p.w[1];
+    stk[32] = p.w[2];
+    stk[33] = p.w[3];
+    (*(int *)((int)stk + 20)) = a6;
     t0 = (-a5);
     if (a7 != 0) {
         t0 = a5;
     }
     vecMake(a4, a5, a6, a7, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x64) + 0x0))), (*(float *)(((((int)stk + 20) + 0x64) + 0x4))), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    primVertexSet(a4, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x4));
-    t7 = R1020;
+    primVertexSet(a4, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x4), *(Stk3 *)((int)stk + 8));
+    t7 = (*(int *)((int)stk + 20));
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x64) + 0x0))) - (float)t7), (*(float *)(((((int)stk + 20) + 0x64) + 0x4))), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    primVertexSet(a4, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x4)));
+    primVertexSet(a4, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x4)), *(Stk3 *)((int)stk + 8));
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x64) + 0x0))), ((*(float *)(((((int)stk + 20) + 0x64) + 0x4))) + (float)t0), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    primVertexSet(a4, 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x4)));
+    primVertexSet(a4, 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x4)), *(Stk3 *)((int)stk + 8));
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x64) + 0x0))) - (float)t7), ((*(float *)(((((int)stk + 20) + 0x64) + 0x4))) + (float)t0), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    primVertexSet(a4, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x4)));
+    primVertexSet(a4, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x4)), *(Stk3 *)((int)stk + 8));
     return (nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x4)));
 }
 

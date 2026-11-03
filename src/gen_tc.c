@@ -35,11 +35,7 @@ void sndCrowdBallReact(int a4, int a5, int a6, int a7, float f4, float f5)
     float u209;
     int t42;
     int t63;
-    int R1004;
-    int R1008;
 
-    R1004 = *(int *)((int)stk + 4);
-    R1008 = *(int *)((int)stk + 8);
 
     if ((*(int *)0x8C421F60) != 0) {
     } else {
@@ -119,7 +115,7 @@ void sndCrowdBallReact(int a4, int a5, int a6, int a7, float f4, float f5)
                                     }
                                     t76 = 0xAF0;
                                     u83 = 0.0f;
-                                    R1008 = t81;
+                                    (*(int *)((int)stk + 8)) = t81;
                                     u84 = (*(float *)((t81 + t76)));
                                     if (u84 > u83) {
                                         t77 = 0x1;
@@ -142,7 +138,7 @@ void sndCrowdBallReact(int a4, int a5, int a6, int a7, float f4, float f5)
                                         if (u83 > u82) {
                                             t76 = 0xAF0;
                                             u83 = 0.0f;
-                                            R1004 = t81;
+                                            (*(int *)((int)stk + 4)) = t81;
                                             u84 = (*(float *)((t81 + t76)));
                                             if (!(u83 > u84)) {
                                                 u83 = u84;

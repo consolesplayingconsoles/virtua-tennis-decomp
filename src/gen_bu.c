@@ -18,7 +18,7 @@ int nlRotateAY(int);
 int nlTranslate(float, float, float);
 int phraseBigWordPut(int, Stk3);
 int primSprDraw(int, int, int, int, Stk3);
-int primVertexSet(int, int, int, int, int);
+int primVertexSet(int, int, int, int, int, Stk3);
 int resGetModelLoad(int);
 int resGetTexLoad(int);
 int resSpGetFree(int, int);

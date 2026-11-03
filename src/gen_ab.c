@@ -361,11 +361,9 @@ int mwRnaSetTransSw(int a4, int a5, int a6, int a7)
     int t23;
     int t36;
     int stk[7];
-    int R1012;
 
-    R1012 = *(int *)((int)stk + 12);
 
-    R1012 = a5;
+    (*(int *)((int)stk + 12)) = a5;
     if (a4 == 0) {
         t36 = (mwRnaErrCallFunc(0x8C20AC30));
     } else {
@@ -382,7 +380,7 @@ int mwRnaSetTransSw(int a4, int a5, int a6, int a7)
         }
         ovLockCs_8c200114(((int)stk + 8));
         *(unsigned int *)((a4 + 0x8C)) = 0x0;
-        if ((R1012) == 0) {
+        if (((*(int *)((int)stk + 12))) == 0) {
             t16 = mwRnaGetTransSw(a4);
             if (t16 != 0) {
                 *(unsigned int *)((a4 + 0x50)) = (*(int *)((a4 + 0x2C)));
@@ -391,7 +389,7 @@ int mwRnaSetTransSw(int a4, int a5, int a6, int a7)
                 *(unsigned char *)((a4 + 0x1)) = ((*(signed char *)((a4 + 0x1))) & 0x6);
             }
         } else {
-            if ((R1012) == 1) {
+            if (((*(int *)((int)stk + 12))) == 1) {
                 t23 = mwRnaGetTransSw(a4);
                 if (t23 != 1) {
                     *(unsigned int *)((a4 + 0x2C)) = 0x0;
@@ -737,11 +735,9 @@ int _mult(int a4, int a5, int a6)
     int t2;
     int t13;
     int stk[16];
-    int R1008;
 
-    R1008 = *(int *)((int)stk + 8);
 
-    R1008 = a4;
+    (*(int *)((int)stk + 8)) = a4;
     memset(a6, 0x0, 0x10);
     t1 = 0x7;
     for (;;) {
@@ -750,7 +746,7 @@ int _mult(int a4, int a5, int a6)
             memset((((int)stk + 4) + 0x8), 0x0, 0x10);
             t2 = 0x7;
             for (;;) {
-                t6 = *(signed char *)(((short)t2 + (R1008)));
+                t6 = *(signed char *)(((short)t2 + ((*(int *)((int)stk + 8)))));
                 t7 = *(signed char *)(((short)t1 + a5));
                 *(unsigned short *)(((int)stk + 4)) = (unsigned char)(*(signed char *)(((((short)t1 + (short)t2) + (((int)stk + 4) + 0x8)) + 0x1)));
                 *(unsigned short *)(((int)stk + 4)) = ((*(short *)(((int)stk + 4))) + ((unsigned short)(unsigned char)t6 * (unsigned short)(unsigned char)t7));

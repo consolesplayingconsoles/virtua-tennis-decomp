@@ -47,7 +47,7 @@ int sprPutAtAlpha(int, Stk3, float);
 int unlockApplyW1(void);
 int unlockApplyW2(void);
 int vecAdd(int, int, int, int, int);
-float vecDistXZ(Stk3);
+float vecDistXZ(Stk3, Stk3);
 float vecLength(Stk4);
 int vecMake(int, int, int, int, int, float, float, float);
 int vecScale(int, int, int, int, int, float, float, float, float, float, float, float);
@@ -83,24 +83,16 @@ int BupLoadFile(int a4, int a5, int a6, int a7)
     int t26;
     int t31;
     int stk[46];
-    int R1020;
-    int R1024;
-    int R1028;
-    int R1140;
 
-    R1020 = *(int *)((int)stk + 20);
-    R1024 = *(int *)((int)stk + 24);
-    R1028 = *(int *)((int)stk + 28);
-    R1140 = *(int *)((int)stk + 140);
 
-    R1024 = a6;
-    R1028 = a7;
+    (*(int *)((int)stk + 24)) = a6;
+    (*(int *)((int)stk + 28)) = a7;
     t0 = *(int *)0x8C40C628;
-    R1020 = ((t0 * 0x4C) + 0x8C40C6B0);
+    (*(int *)((int)stk + 20)) = ((t0 * 0x4C) + 0x8C40C6B0);
     t2 = buGetDiskInfo((*(int *)0x8C40C628), (((t0 * 0x4C) + 0x8C40C6B0) + 0x14));
     padVmsBeep(0x0, 0xF4);
     t4 = buGetFileSize(a4, a5);
-    R1020 = t4;
+    (*(int *)((int)stk + 20)) = t4;
     t5 = buLoadFile(a4, a5, 0x8C41BE14, t4);
     if (t5 == 0) {
         for (;;) {
@@ -118,7 +110,7 @@ int BupLoadFile(int a4, int a5, int a6, int a7)
                     padLcdMessage(0xA);
                     return t8;
                 }
-                memmove((R1024), (R1140), (R1028));
+                memmove(((*(int *)((int)stk + 24))), ((*(int *)((int)stk + 140))), ((*(int *)((int)stk + 28))));
                 if (t8 != 0) {
                     padLcdMessage(0xA);
                     padVmsBeep(0x0, 0x0);
@@ -180,21 +172,17 @@ int cpuDblPartnerSignal(void)
     int t50;
     int t0;
     int stk[12];
-    int R1008;
-    int R1012;
 
-    R1008 = *(int *)((int)stk + 8);
-    R1012 = *(int *)((int)stk + 12);
 
-    R1012 = 0x8C287ACC;
-    R1008 = 0x8C28B364;
+    (*(int *)((int)stk + 12)) = 0x8C287ACC;
+    (*(int *)((int)stk + 8)) = 0x8C28B364;
     *(unsigned char *)(((int)stk + 16)) = 0x1;
     *(unsigned char *)(((int)stk + 4)) = 0x1;
     t1 = 0x1;
     t2 = 0x8C287D84;
     for (;;) {
         t3 = *(int *)((t2 + 0xB5C));
-        t6 = *(int *)((((*(int *)(((0xB5C + (((0x3 & (t3 + 0x2)) * 0xD78) + 0x8C287D84)) + 0x0))) << 2) + ((R1012) + 0x14)));
+        t6 = *(int *)((((*(int *)(((0xB5C + (((0x3 & (t3 + 0x2)) * 0xD78) + 0x8C287D84)) + 0x0))) << 2) + (((*(int *)((int)stk + 12))) + 0x14)));
         t40 = t6;
         t41 = 0x0;
         if (t6 == 2) {
@@ -265,7 +253,7 @@ int cpuDblPartnerSignal(void)
             t54 = t50;
         }
         t2 = (t2 + 0xD78);
-        if ((unsigned int)t2 < (unsigned int)(R1008)) continue;
+        if ((unsigned int)t2 < (unsigned int)((*(int *)((int)stk + 8)))) continue;
         break;
     }
     return t54;
@@ -280,26 +268,18 @@ void playerPivotTurn(int a4, int a5, int a6, int a7, int a8, int a9, int a10, in
     int t21;
     int t30;
     int stk[42];
-    int R1120;
-    int R1124;
-    int R1128;
-    int R1132;
 
-    R1120 = *(int *)((int)stk + 120);
-    R1124 = *(int *)((int)stk + 124);
-    R1128 = *(int *)((int)stk + 128);
-    R1132 = *(int *)((int)stk + 132);
 
-    R1120 = a8;
-    R1124 = a9;
-    R1128 = a10;
-    R1132 = a11;
+    (*(int *)((int)stk + 120)) = a8;
+    (*(int *)((int)stk + 124)) = a9;
+    (*(int *)((int)stk + 128)) = a10;
+    (*(int *)((int)stk + 132)) = a11;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((0xAF4 + a4)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((0xAC4 + a4)); }
-    t0 = vecDistXZ(*(Stk3 *)((0xAC4 + a4)));
+    t0 = vecDistXZ(*(Stk3 *)(((int)stk + 28)), *(Stk3 *)(((int)stk + 40)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((0xAF4 + a4)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xAB8 + a4)); }
-    t1 = vecDistXZ(*(Stk3 *)((0xAB8 + a4)));
+    t1 = vecDistXZ(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 16)));
     t2 = 0x0;
     if (t1 > t0) {
         t2 = 0x1;
@@ -333,7 +313,7 @@ void playerPivotTurn(int a4, int a5, int a6, int a7, int a8, int a9, int a10, in
             break;
         }
     }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((R1120)) = *(struct mv3 *)((((int)stk + 52) + 0x18)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)((int)stk + 120)))) = *(struct mv3 *)((((int)stk + 52) + 0x18)); }
 }
 
 

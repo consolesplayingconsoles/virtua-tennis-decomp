@@ -32,7 +32,7 @@ int serveGetReceiver(void);
 int sndCrowdAmb(void);
 int sndSeDecide(void);
 int sndStopAll(void);
-int sprListPut(int, int, int, float, float, float);
+int sprListPut(int, Stk3, int, int, float, float, float);
 int stageFreeAll(void);
 int stageLoadBegin(int);
 int stageLoadStep(int, int, int, int);
@@ -473,7 +473,7 @@ int FUN_8c0e18b4(float f4)
     *(Stk3 *)(((int)stk + 100)) = vecMake(0.0f, -15.0f, 70.0f);
     winDrawB(0xFF1E00, 0x2, 520.0f, 1.0f, 0.649999976f);
     *(Stk3 *)(((int)stk + 100)) = vecMake(8.0f, 32.0f, 60.0f);
-    sprListPut(0x8C1D7970, 0x2, 0xFF000000, 1.0f, 1.0f, 1.0f);
+    sprListPut(0x8C1D7970, *(Stk3 *)((int)stk + 100), 0x2, 0xFF000000, 1.0f, 1.0f, 1.0f);
     if ((*(int *)0x8C287ADC) == 4) {
         *(Stk3 *)(((int)stk + 100)) = vecMake(151.0f, 32.0f, 60.0f);
         t11 = 0x8C1D7BF8;
@@ -481,9 +481,9 @@ int FUN_8c0e18b4(float f4)
         *(Stk3 *)(((int)stk + 100)) = vecMake(151.0f, 32.0f, 60.0f);
         t11 = 0x8C1D7B20;
     }
-    sprListPut(t11, 0x2, 0xFF000000, 1.0f, 1.0f, 1.0f);
+    sprListPut(t11, *(Stk3 *)((int)stk + 100), 0x2, 0xFF000000, 1.0f, 1.0f, 1.0f);
     *(Stk3 *)(((int)stk + 100)) = vecMake(347.0f, 32.0f, 60.0f);
-    sprListPut(0x8C1D7A48, 0x2, 0xFF000000, 1.0f, 1.0f, 1.0f);
+    sprListPut(0x8C1D7A48, *(Stk3 *)((int)stk + 100), 0x2, 0xFF000000, 1.0f, 1.0f, 1.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)((((int)stk + 112) + 0xC)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)(((int)stk + 112)); }
     primLineH(0x2, 0xFFFFFFFF, *(Stk3 *)(((int)stk + 76)), *(Stk3 *)(((int)stk + 88)));

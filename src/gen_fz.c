@@ -62,10 +62,8 @@ float cpuDblPathCross(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
     float u38;
     int stk[52];
     int R1088;
-    int R1092;
 
     R1088 = *(int *)((int)stk + 88);
-    R1092 = *(int *)((int)stk + 92);
 
     stk[38] = a8;
     stk[39] = a9;
@@ -82,7 +80,7 @@ float cpuDblPathCross(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
             if ((int)t0 >= 0) {
                 t2 = (t0 & 0x7);
             }
-            R1092 = t2;
+            (*(int *)((int)stk + 92)) = t2;
             t4 = R1088;
             *(Stk3 *)(((int)stk + 76)) = vecMake(((*(float *)((t1 + 0x0))) - (*(float *)((((((t2 << 1) + t2) << 2) + t4) + 0x0)))), 0.0f, ((*(float *)((t1 + 0x8))) - (*(float *)((((((t2 << 1) + t2) << 2) + t4) + 0x8)))));
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)(t1); }

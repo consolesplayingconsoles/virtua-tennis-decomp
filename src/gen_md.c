@@ -11,9 +11,9 @@ int primRectDirY(int, int, int, int, Stk3, Stk1);
 int sprPutAt(int, int, int, int, Stk3);
 int unlockCountW0(void);
 Stk3 vecMake(float, float, float);
-int selCharInfoDraw(int a4, int a5, int a6, int a7, int a8);
+int selCharInfoDraw(int a4, int a5, int a6, int a7, Stk3 s);
 
-int selCharInfoDraw(int a4, int a5, int a6, int a7, int a8)
+int selCharInfoDraw(int a4, int a5, int a6, int a7, Stk3 s)
 {
     int t0;
     int t5;
@@ -70,7 +70,9 @@ int selCharInfoDraw(int a4, int a5, int a6, int a7, int a8)
     float F6;
     float F15;
     int T_;
-    stk[50] = a8;
+    stk[50] = s.w[0];
+    stk[51] = s.w[1];
+    stk[52] = s.w[2];
     R4 = a4;
     R5 = a5;
     *(unsigned int *)(((int)stk + 48)) = R5;

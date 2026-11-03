@@ -4,13 +4,15 @@
 typedef struct { int w[1]; } Stk1;
 typedef struct { int w[3]; } Stk3;
 int sprPutCropV(int, int, Stk3, float, float, float);
-int hudBarDraw(Stk1 s, float f4, float f5);
+int hudBarDraw(Stk3 s, float f4, float f5);
 
-int hudBarDraw(Stk1 s, float f4, float f5)
+int hudBarDraw(Stk3 s, float f4, float f5)
 {
     int stk[25];
 
     stk[16] = s.w[0];
+    stk[17] = s.w[1];
+    stk[18] = s.w[2];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x18)); }
     sprPutCropV(0x8C33DE20, 0x0, *(Stk3 *)((((int)stk + 40) + 0x18)), f4, 1.0f, f5);
     *(float *)(((((int)stk + 40) + 0x18) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x18) + 0x0))) + (*(float *)0x8C09B3E8));

@@ -73,7 +73,7 @@ int nlsndSystemControl(int, int, int);
 int nlsndVersion(void);
 int primRectDirX(int, int, int, int, Stk3, Stk1);
 int primRectDirY(int, int, int, int, Stk3, Stk1);
-int primVertexSet(int, int, int, int, int);
+int primVertexSet(int, int, int, int, int, Stk3);
 int screenFramePut(int, int, float);
 int screenPlanePut(void);
 int set_event(int, int);
@@ -1125,16 +1125,16 @@ int FUN_8c09c6f6(int a4, Stk3 s)
     stk[31] = s.w[2];
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((((int)stk + 20) + 0x60) + 0x0))), (*(float *)(((((int)stk + 20) + 0x60) + 0x4))), (*(float *)(((((int)stk + 20) + 0x60) + 0x8))));
     *(int *)((int)stk + 4) = (0x10 + ((int)stk + 20));
-    primVertexSet(a4, 0x0, 0x0, 0x0, (0x10 + ((int)stk + 20)));
+    primVertexSet(a4, 0x0, 0x0, 0x0, (0x10 + ((int)stk + 20)), *(Stk3 *)((int)stk + 8));
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((((int)stk + 20) + 0x60) + 0x0))) + 100.0f), (*(float *)(((((int)stk + 20) + 0x60) + 0x4))), (*(float *)(((((int)stk + 20) + 0x60) + 0x8))));
     *(int *)((int)stk + 4) = ((int)stk + 20);
-    primVertexSet(a4, 0x0, 0x0, 0x0, ((int)stk + 20));
+    primVertexSet(a4, 0x0, 0x0, 0x0, ((int)stk + 20), *(Stk3 *)((int)stk + 8));
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((((int)stk + 20) + 0x60) + 0x0))) + 100.0f), ((*(float *)(((((int)stk + 20) + 0x60) + 0x4))) + 20.0f), (*(float *)(((((int)stk + 20) + 0x60) + 0x8))));
     *(int *)((int)stk + 4) = (0x20 + ((int)stk + 20));
-    primVertexSet(a4, 0x0, 0x0, 0x0, (0x20 + ((int)stk + 20)));
+    primVertexSet(a4, 0x0, 0x0, 0x0, (0x20 + ((int)stk + 20)), *(Stk3 *)((int)stk + 8));
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((((int)stk + 20) + 0x60) + 0x0))), ((*(float *)(((((int)stk + 20) + 0x60) + 0x4))) + 20.0f), (*(float *)(((((int)stk + 20) + 0x60) + 0x8))));
     *(int *)((int)stk + 4) = (0x30 + ((int)stk + 20));
-    primVertexSet(a4, 0x0, 0x0, 0x0, (0x30 + ((int)stk + 20)));
+    primVertexSet(a4, 0x0, 0x0, 0x0, (0x30 + ((int)stk + 20)), *(Stk3 *)((int)stk + 8));
     return (nlDispStrip(0x4, ((int)stk + 20)));
 }
 
@@ -1184,16 +1184,16 @@ int FUN_8c0bbf00(int a4, Stk12 s)
     stk[37] = s.w[11];
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((((int)stk + 20) + 0x54) + 0x0))), (*(float *)(((((int)stk + 20) + 0x54) + 0x4))), (*(float *)(((((int)stk + 20) + 0x54) + 0x8))));
     *(int *)((int)stk + 4) = ((int)stk + 20);
-    primVertexSet(a4, 0x0, 0x0, 0x0, ((int)stk + 20));
+    primVertexSet(a4, 0x0, 0x0, 0x0, ((int)stk + 20), *(Stk3 *)((int)stk + 8));
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((((int)stk + 20) + 0x60) + 0x0))), (*(float *)(((((int)stk + 20) + 0x60) + 0x4))), (*(float *)(((((int)stk + 20) + 0x60) + 0x8))));
     *(int *)((int)stk + 4) = (0x10 + ((int)stk + 20));
-    primVertexSet(a4, 0x0, 0x0, 0x0, (0x10 + ((int)stk + 20)));
+    primVertexSet(a4, 0x0, 0x0, 0x0, (0x10 + ((int)stk + 20)), *(Stk3 *)((int)stk + 8));
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((((int)stk + 20) + 0x6C) + 0x0))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x4))), (*(float *)(((((int)stk + 20) + 0x6C) + 0x8))));
     *(int *)((int)stk + 4) = (0x20 + ((int)stk + 20));
-    primVertexSet(a4, 0x0, 0x0, 0x0, (0x20 + ((int)stk + 20)));
+    primVertexSet(a4, 0x0, 0x0, 0x0, (0x20 + ((int)stk + 20)), *(Stk3 *)((int)stk + 8));
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((((int)stk + 20) + 0x78) + 0x0))), (*(float *)(((((int)stk + 20) + 0x78) + 0x4))), (*(float *)(((((int)stk + 20) + 0x78) + 0x8))));
     *(int *)((int)stk + 4) = (0x30 + ((int)stk + 20));
-    primVertexSet(a4, 0x0, 0x0, 0x0, (0x30 + ((int)stk + 20)));
+    primVertexSet(a4, 0x0, 0x0, 0x0, (0x30 + ((int)stk + 20)), *(Stk3 *)((int)stk + 8));
     return (nlDispStripTrnsl(0x4, ((int)stk + 20)));
 }
 

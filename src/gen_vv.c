@@ -24,11 +24,9 @@ int circuitDrawMatchIcon(void)
     register float u38;
     register int t10;
     register int t36;
-    int R1004;
     int R1008;
     int R1012;
 
-    R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
 
@@ -65,7 +63,7 @@ int circuitDrawMatchIcon(void)
         }
         *(unsigned int *)((((((int)stk + 4) + 0xC) + 0x10) + 0xC)) = ((*(int *)((((((int)stk + 4) + 0xC) + 0x10) + 0xC))) | (((int)(((float)((-t18) + 0x1E) / 30.0f) * 64.0f) << 16) << 8));
         t21 = *(int *)0x8C2FBE48;
-        R1004 = (t21 - 30);
+        (*(int *)((int)stk + 4)) = (t21 - 30);
         t24 = (t21 - 30);
         if ((int)(t21 - 30) >= 0) {
         } else {

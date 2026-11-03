@@ -34,7 +34,7 @@ int shopDrawCatPanel(int, int, int, int, Stk3);
 int shopDrawCount(int, int, int, int, Stk3, Stk1, float);
 int shopDrawMenu(void);
 int shopDrawPrice(int, int, int, int, Stk3, Stk1);
-int shopItemTblInit(int, float, float, float);
+int shopItemTblInit(int, Stk3, float, float, float);
 int shopPreviewExec(int, int, int, int, int, int);
 int sndSe05_04(void);
 int sndSeCancel(void);
@@ -246,7 +246,7 @@ int FUN_8c0e6620(float f4)
     v0_3 = ((int (*)(int, int, int, Stk3, float, float, float))(sprListPut))((*(int *)(((int)stk + 36))), 0x2, 0x0, *(Stk3 *)(((int)stk + 4)), w0_1, w0_1, w0_1);
     L_8C0E6B9A:;
     *(Stk3 *)(((int)stk + 24)) = vecMake(503.0f, 113.0f, w0_1);
-    shopItemTblInit(0x8C1DA4E8, 233.0f, 51.0f, w0_1);
+    shopItemTblInit(0x8C1DA4E8, *(Stk3 *)((int)stk + 24), 233.0f, 51.0f, w0_1);
     v0_3 = *(int *)((v0_4 + 0x10));
     v0_5 = (v0_3);
     w0_3 = (503.0f);
@@ -254,7 +254,7 @@ int FUN_8c0e6620(float f4)
     if ((v0_5 != 5)) goto L_8C0E6BEC;
     L_8C0E6BCC:;
     *(Stk3 *)(((int)stk + 24)) = vecMake(w0_3, 347.0f, w0_1);
-    shopItemTblInit(0x8C1DA4E8, 233.0f, 30.0f, w0_1);
+    shopItemTblInit(0x8C1DA4E8, *(Stk3 *)((int)stk + 24), 233.0f, 30.0f, w0_1);
     L_8C0E6BEC:;
     v0_3 = (0x8C1D9CD0);
     if (((*(int *)0x8C1D9CD0) != 1)) goto L_8C0E6C36;

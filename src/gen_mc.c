@@ -73,13 +73,9 @@ float cpuReachPoint(int a4, int a5, int a6, Stk3 s)
     int R1004;
     float R1008;
     int R1012;
-    int R1016;
-    int R1020;
     R1004 = *(int *)((int)stk + 4);
     R1008 = *(float *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
-    R1016 = *(int *)((int)stk + 16);
-    R1020 = *(int *)((int)stk + 20);
     R4 = a4;
     R5 = a5;
     R6 = a6;
@@ -99,8 +95,8 @@ float cpuReachPoint(int a4, int a5, int a6, Stk3 s)
     R10 = (R4);
     L_8C080808:;
     t16 = *(int *)((R14 + 0xC58));
-    R1020 = ((t16 * 0x6C) + 0x8C102424);
-    R1016 = 0x8C102424;
+    (*(int *)((int)stk + 20)) = ((t16 * 0x6C) + 0x8C102424);
+    (*(int *)((int)stk + 16)) = 0x8C102424;
     u17 = *(float *)(((((t16 * 0x6C) + 0x8C102424) + 0x28) + 0x4));
     u18 = *(float *)0x8C102450;
     R1008 = ((*(float *)(((((t16 * 0x6C) + 0x8C102424) + 0x28) + 0x0))) / (*(float *)0x8C10244C));

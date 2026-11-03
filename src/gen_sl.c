@@ -3,7 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 int nlDispStripTrnsl(int, int);
-int primVertexSet(int, int, int, int, int);
+int primVertexSet(int, int, int, int, int, Stk3);
 Stk3 vecMake(float, float, float);
 int primRect(int a4, int a5, int a6, Stk3 s);
 
@@ -27,17 +27,17 @@ int primRect(int a4, int a5, int a6, Stk3 s)
     R1024 = a5;
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((((int)stk + 20) + 0x64) + 0x0))), (*(float *)(((((int)stk + 20) + 0x64) + 0x4))), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
     R1004 = (((int)stk + 20) + 0x8);
-    primVertexSet(a6, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x8));
+    primVertexSet(a6, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x8), *(Stk3 *)((int)stk + 8));
     t4 = R1020;
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((((int)stk + 20) + 0x64) + 0x0))) - (float)t4), (*(float *)(((((int)stk + 20) + 0x64) + 0x4))), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
     R1004 = (0x10 + (((int)stk + 20) + 0x8));
-    primVertexSet(a6, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x8)));
+    primVertexSet(a6, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x8)), *(Stk3 *)((int)stk + 8));
     t9 = R1024;
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((((int)stk + 20) + 0x64) + 0x0))), ((*(float *)(((((int)stk + 20) + 0x64) + 0x4))) + (float)t9), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
     R1004 = (0x20 + (((int)stk + 20) + 0x8));
-    primVertexSet(a6, 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x8)));
+    primVertexSet(a6, 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x8)), *(Stk3 *)((int)stk + 8));
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((((int)stk + 20) + 0x64) + 0x0))) - (float)t4), ((*(float *)(((((int)stk + 20) + 0x64) + 0x4))) + (float)t9), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
     R1004 = (0x30 + (((int)stk + 20) + 0x8));
-    primVertexSet(a6, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x8)));
+    primVertexSet(a6, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x8)), *(Stk3 *)((int)stk + 8));
     return (nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x8)));
 }

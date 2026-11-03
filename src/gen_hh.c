@@ -8,11 +8,11 @@ int primSprSetSize(int, float, float);
 int sprListPut(int, int, int, Stk3, float, float, float);
 int sprPutAtAlpha(int, Stk3, float);
 int sprPutCropV(int, int, Stk3, float, float, float);
-int shopItemTblInit(int a4, int a5, int a6, int a7, int a8, float f4, float f5, float f6);
+int shopItemTblInit(int a4, int a5, int a6, int a7, Stk3 s, float f4, float f5, float f6);
 int panelMenuItemPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4);
 int hudCallDeuceDraw(int a4, float f4, float f5);
 
-int shopItemTblInit(int a4, int a5, int a6, int a7, int a8, float f4, float f5, float f6)
+int shopItemTblInit(int a4, int a5, int a6, int a7, Stk3 s, float f4, float f5, float f6)
 {
     int t0;
     int t1;
@@ -22,7 +22,9 @@ int shopItemTblInit(int a4, int a5, int a6, int a7, int a8, float f4, float f5, 
     int t4;
     int stk[263];
 
-    stk[254] = a8;
+    stk[254] = s.w[0];
+    stk[255] = s.w[1];
+    stk[256] = s.w[2];
     *(float *)(((int)stk + 16)) = f6;
     t0 = 0x0;
     for (;;) {

@@ -30,9 +30,7 @@ void scoreAddPoint(int a4, int a5)
     register float w0_4;
     register float w0_5;
     int R1004;
-    int R1008;
     R1004 = *(int *)((int)stk + 4);
-    R1008 = *(int *)((int)stk + 8);
     v0_0 = a4;
     v0_6 = a5;
     *(unsigned int *)0x8C181638 = 0x1;
@@ -92,7 +90,7 @@ void scoreAddPoint(int a4, int a5)
     w0_0 = (0.0500000007f);
     if (((*(int *)((((v0_2 + 0x4) + v0_1) + 0x10))) == 0)) goto L_8C01947A;
     if ((v0_3 == 5)) goto L_8C019422;
-    R1008 = (v0_4 + 0x34);
+    (*(int *)((int)stk + 8)) = (v0_4 + 0x34);
     v0_6 = *(int *)(((v0_4 + 0x34) + 0x0));
     v0_7 = *(int *)(((v0_4 + 0x34) + 0x4));
     R1004 = (v0_6 + v0_7);

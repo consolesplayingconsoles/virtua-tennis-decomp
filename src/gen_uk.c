@@ -1,10 +1,11 @@
+typedef struct { int w[3]; } Stk3;
 /* Straight-line functions with calls and guards (batch gen_uk): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 int nlDispStripTexOfsTrnsl(int, int, int);
-void sprListPutGrad(int a4, int a5, int a6, int a7, int a8, float f4, float f5);
+void sprListPutGrad(int a4, int a5, int a6, int a7, Stk3 s, float f4, float f5);
 
-void sprListPutGrad(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
+void sprListPutGrad(int a4, int a5, int a6, int a7, Stk3 s, float f4, float f5)
 {
     int stk[48];
 
@@ -25,7 +26,9 @@ void sprListPutGrad(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
     register int v0_6;
     register float w0_0;
     register float w0_1;
-    stk[39] = a8;
+    stk[39] = s.w[0];
+    stk[40] = s.w[1];
+    stk[41] = s.w[2];
     v0_0 = a4;
     v0_6 = a5;
     v0_4 = a6;

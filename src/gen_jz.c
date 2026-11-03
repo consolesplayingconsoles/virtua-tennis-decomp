@@ -1,3 +1,4 @@
+typedef struct { int w[5]; } Stk5;
 /* Straight-line functions with calls and guards (batch gen_jz): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
@@ -66,7 +67,7 @@ int panelLogoSwingDraw2(int a4, Stk3 s);
 int _power(int a4, int a5, int a6);
 float cameraFovForSize(float f4);
 int panelLogoSwingDraw(Stk3 s, float f4);
-int rectFrameDraw(int a4, Stk4 s, float f4);
+int rectFrameDraw(int a4, Stk5 p, float f4);
 int circuitDrawPrompt(void);
 int ballInit(int a4);
 int nlSysInitStripContextVtx(int a4, int a5, int a6, int a7);
@@ -380,14 +381,10 @@ float cameraFovForSize(float f4)
     int t19;
     int stk[36];
     int R1004;
-    float R1052;
-    float R1128;
 
     R1004 = *(int *)((int)stk + 4);
-    R1052 = *(float *)((int)stk + 52);
-    R1128 = *(float *)((int)stk + 128);
 
-    R1052 = f4;
+    (*(float *)((int)stk + 52)) = f4;
     nlPushUnitMatrix();
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)(0x8C287B54); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(0x8C287B60); }
@@ -400,12 +397,12 @@ float cameraFovForSize(float f4)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(0x8C287B60); }
     R1004 = (((int)stk + 8) + 0x70);
     cameraCalcPoint((((int)stk + 8) + 0x30), 0x0, 0x0, 0x0, R1004);
-    u13 = R1128;
+    u13 = (*(float *)((int)stk + 128));
     u14 = (-u13);
     if (!(0.0f > u13)) {
         u14 = u13;
     }
-    t19 = nlArcTan(((*(float *)0x8C02DBEC) / ((u14 * (*(float *)0x8C02DBE8)) / (R1052))));
+    t19 = nlArcTan(((*(float *)0x8C02DBEC) / ((u14 * (*(float *)0x8C02DBE8)) / ((*(float *)((int)stk + 52))))));
     return ((((float)t19 * (*(float *)0x8C02DBF4)) / (*(float *)0x8C02DBF8)) / (*(float *)0x8C02DBFC));
 }
 
@@ -443,15 +440,16 @@ int panelLogoSwingDraw(Stk3 s, float f4)
     return (sprPutAtAlpha(0x8C340440, *(Stk3 *)((int)stk + 8), (*(float *)(((int)stk + 20)))));
 }
 
-int rectFrameDraw(int a4, Stk4 s, float f4)
+int rectFrameDraw(int a4, Stk5 p, float f4)
 {
     float u0;
     int stk[55];
 
-    stk[43] = s.w[0];
-    stk[44] = s.w[1];
-    stk[45] = s.w[2];
-    stk[46] = s.w[3];
+    stk[43] = p.w[0];
+    stk[44] = p.w[1];
+    stk[45] = p.w[2];
+    stk[46] = p.w[3];
+    stk[47] = p.w[4];
     u0 = *(float *)(((0xA8 + ((int)stk + 4)) + 0x8));
     *(unsigned int *)((((int)stk + 4) + 0xC)) = a4;
     *(float *)((((int)stk + 4) + 0x8)) = u0;

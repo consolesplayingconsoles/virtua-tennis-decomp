@@ -1,3 +1,4 @@
+typedef struct { int w[4]; } Stk4;
 /* Straight-line functions with calls and guards (batch gen_an): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
@@ -35,7 +36,7 @@ int scoreBoardSync(void);
 int kmiConvertUVnum(int a4);
 int ADXT_GetTime(int a4, int a5, int a6);
 int hudFlagInit(void);
-int rankDrawString(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
+int rankDrawString(int a4, int a5, int a6, int a7, Stk4 p);
 void nlPow(float f4, float f5);
 int nlsndFxControl(int a4, int a5, int a6);
 float cpuStickNudge(int a4, float f4);
@@ -505,7 +506,7 @@ int hudFlagInit(void)
     return t14;
 }
 
-int rankDrawString(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+int rankDrawString(int a4, int a5, int a6, int a7, Stk4 p)
 {
     int t0;
     int t1;
@@ -518,15 +519,13 @@ int rankDrawString(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     float u15;
     int stk[23];
     int R1016;
-    int R1056;
 
+    stk[11] = p.w[0];
+    stk[12] = p.w[1];
+    stk[13] = p.w[2];
+    stk[14] = p.w[3];
     R1016 = *(int *)((int)stk + 16);
-    R1056 = *(int *)((int)stk + 56);
 
-    stk[11] = a8;
-    stk[12] = a9;
-    stk[13] = a10;
-    R1056 = a11;
     R1016 = a5;
     t0 = 0x8C0E13DC;
     t1 = a4;

@@ -51,12 +51,10 @@ int nlObjPutLoadTextureOnce_Sub(int a4, int a5, int a6, int a7, int a8)
     int R13;
     int R14;
     int T_;
-    int R1004;
     int R1008;
     int R1012;
     int R1016;
     int R1020;
-    R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
     R1016 = *(int *)((int)stk + 16);
@@ -97,7 +95,6 @@ int nlObjPutLoadTextureOnce_Sub(int a4, int a5, int a6, int a7, int a8)
     if (((*(int *)((((((R13 + t19) << 2) << 1) + (*(int *)0x8C4241C0)) + 0x0))) != 0)) goto L_8C0F1C5E;
     t24 = R1008;
     t25 = *(int *)((R11 + 0x0));
-    R1004 = (0x4 + (t24 + t25));
     *(unsigned int *)(((0x4 + (t24 + t25)) + 0x0)) = (nlCommonTextureGetNextTextureIndex());
     L_8C0F1C5E:;
     t27 = R1008;

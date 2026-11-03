@@ -1,3 +1,5 @@
+typedef struct { int w[4]; } Stk4;
+typedef struct { int w[6]; } Stk6;
 /* Straight-line functions with calls and guards (batch gen_cg): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
@@ -55,7 +57,7 @@ int search_free_dir(int);
 int set_vmstime(int, int);
 extern int sprPutAtAlpha();
 float valStepToward(int, int, Stk3, float, float);
-int vecAnglesTo(int, int);
+int vecAnglesTo(int, int, Stk6);
 int vecMake(int, int, int, int, int, float, float, float);
 int vmsfs_unmount(int);
 int vmsio_ismount(int);
@@ -73,9 +75,9 @@ int kmSetDisplayMode(int a4, int a5, int a6, int a7);
 int mpdrv_make_exdevicedata(int a4, int a5, int a6, int a7, int a8);
 int kmytex_TXalloc(int a4, int a5, int a6, int a7);
 int nldispstripSub(int a4, int a5, int a6);
-int modeMarkPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
+int modeMarkPut(int a4, int a5, int a6, int a7, Stk4 p, float f4);
 int panelTopPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
-int hudFramePutWide(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
+int hudFramePutWide(int a4, int a5, int a6, int a7, Stk4 p, float f4);
 int lightUpdate(int a4, int a5);
 int camGetAngles(int a4, int a5, int a6, int a7);
 
@@ -932,7 +934,7 @@ int nldispstripSub(int a4, int a5, int a6)
     return t44;
 }
 
-int modeMarkPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
+int modeMarkPut(int a4, int a5, int a6, int a7, Stk4 p, float f4)
 {
     int t1;
     int t8;
@@ -941,14 +943,12 @@ int modeMarkPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11
     int t31;
     int t21;
     int stk[24];
-    int R1060;
 
-    R1060 = *(int *)((int)stk + 60);
 
-    stk[12] = a8;
-    stk[13] = a9;
-    stk[14] = a10;
-    R1060 = a11;
+    stk[12] = p.w[0];
+    stk[13] = p.w[1];
+    stk[14] = p.w[2];
+    stk[15] = p.w[3];
     *(float *)(((((int)stk + 16) + 0x20) + 0x4)) = ((*(float *)(((((int)stk + 16) + 0x20) + 0x4))) + 3.0f);
     t1 = *(int *)0x8C287D5C;
     if (t1 != 0) {
@@ -987,21 +987,19 @@ int modeMarkPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11
 }
 
 
-int hudFramePutWide(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
+int hudFramePutWide(int a4, int a5, int a6, int a7, Stk4 p, float f4)
 {
     int t0;
     int t7;
     int t14;
     float u17;
     int stk[20];
-    int R1044;
 
-    R1044 = *(int *)((int)stk + 44);
 
-    stk[8] = a8;
-    stk[9] = a9;
-    stk[10] = a10;
-    R1044 = a11;
+    stk[8] = p.w[0];
+    stk[9] = p.w[1];
+    stk[10] = p.w[2];
+    stk[11] = p.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x10)); }
     t0 = ((int (*)(int, int, int, int, Stk3, float))(sprPutAtAlpha))(0x8C33A450, a5, a6, a7, *(Stk3 *)((((int)stk + 16) + 0x10)), f4);
     *(float *)(((((int)stk + 16) + 0x10) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0x10) + 0x0))) + (*(float *)0x8C0954A4));
@@ -1062,7 +1060,7 @@ int camGetAngles(int a4, int a5, int a6, int a7)
 
     vecMake(a4, a5, a6, a7, ((int)stk + 20), (*(float *)0x8C287958), (*(float *)0x8C28795C), (*(float *)0x8C287960));
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 0.0f, 0.0f, 0.0f);
-    t5 = vecAnglesTo(a4, a5);
+    t5 = vecAnglesTo(a4, a5, *(Stk6 *)(((int)stk + 8)));
     *(unsigned short *)((a4 + 0x0)) = (-(*(short *)((a4 + 0x0))));
     *(unsigned short *)((a5 + 0x0)) = (-(*(short *)((a5 + 0x0))));
     return t5;

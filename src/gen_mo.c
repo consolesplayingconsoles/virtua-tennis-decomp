@@ -21,9 +21,9 @@ int shadowBallTrailLen(float);
 float vecDist(Stk3, Stk3);
 Stk3 vecMake(float, float, float);
 int vecScale(int, int, int, int, int, float);
-int shadowBallDraw(Stk1 s);
+int shadowBallDraw(Stk3 s);
 
-int shadowBallDraw(Stk1 s)
+int shadowBallDraw(Stk3 s)
 {
     int t0;
     float t14;
@@ -69,6 +69,8 @@ int shadowBallDraw(Stk1 s)
     float F15;
     int T_;
     stk[62] = s.w[0];
+    stk[63] = s.w[1];
+    stk[64] = s.w[2];
     t0 = *(int *)0x8C1891E8;
     R14 = ((0xC8 + ((int)stk + 48)));
     R4 = (t0);

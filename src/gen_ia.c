@@ -49,23 +49,13 @@ void playerInit(int a4, int a5, int a6, int a7)
     int t69;
     int t104;
     int t132;
-    int R1004;
     int R1008;
     int R1012;
     int R1016;
-    int R1020;
-    int R1024;
-    int R1028;
-    int R1032;
 
-    R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
     R1016 = *(int *)((int)stk + 16);
-    R1020 = *(int *)((int)stk + 20);
-    R1024 = *(int *)((int)stk + 24);
-    R1028 = *(int *)((int)stk + 28);
-    R1032 = *(int *)((int)stk + 32);
 
     if ((*(int *)((a4 + 0xC58))) == -1) {
         *(unsigned int *)((a4 + 0xC58)) = 0x0;
@@ -252,13 +242,13 @@ void playerInit(int a4, int a5, int a6, int a7)
         t111 = (*(int *)(((0x8C102424 + ((*(int *)((a4 + 0xC58))) * 0x6C)) + 0x0)));
         R1008 = t111;
         motionSet(a4, t105, 0x0, 0x7D204, t111, t108, (*(float *)0x8C23D204));
-        R1004 = (0xAE8 + a4);
+        (*(int *)((int)stk + 4)) = (0xAE8 + a4);
         motionRootFirst(a4, 0x0, 0x0, 0x0, (0xAE8 + a4));
         *(unsigned int *)((a4 + 0xD40)) = 0x8C025500;
     }
     lightOverrideAmbient((*(int *)((a4 + 0xB5C))), 0x0);
     lightOverrideDiffuse((*(int *)((a4 + 0xB5C))), 0x0);
-    seFootstepCheck(a4, 0x0, 0x0, 0x0, R1016, R1020, R1024, R1028, R1032);
+    seFootstepCheck(a4, 0x0, 0x0, 0x0, R1016, (*(int *)((int)stk + 20)), (*(int *)((int)stk + 24)), (*(int *)((int)stk + 28)), (*(int *)((int)stk + 32)));
     evSkidMarkSpawn(a4, 0x0, 0x0);
     t128 = 0x8C28B364;
     for (;;) {

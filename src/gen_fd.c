@@ -136,11 +136,9 @@ void staffShadowPut(int a4, int a5, int a6, int a7)
 void padLcdLineTo3D(int a4, int a5, int a6, int a7)
 {
     int stk[12];
-    int R1016;
 
-    R1016 = *(int *)((int)stk + 16);
 
-    R1016 = a4;
+    (*(int *)((int)stk + 16)) = a4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(a4); }
     padLcdProject(0x8C2FBC04, (((int)stk + 4) + 0x10), a6, a7, *(Stk3 *)(((int)stk + 4)));
     padLcdLine((*(int *)0x8C2FBC44), 0x8C2FBBF8, (((int)stk + 4) + 0x10), 0x1);

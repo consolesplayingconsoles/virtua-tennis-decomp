@@ -1,3 +1,4 @@
+typedef struct { int w[6]; } Stk6;
 /* Straight-line functions with calls and guards (batch gen_y): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
@@ -66,7 +67,7 @@ int strncpy(int, int, int);
 int syCachePurgeAll(int, int, int, int);
 float vecDist(Stk3, Stk3);
 int vecMake(float, float, float, ...);
-int logoSmallPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
+int logoSmallPut(int a4, int a5, int a6, int a7, Stk4 p);
 int evPackRamp(int a4, int a5, int a6, int a7);
 int nlCommonTextureGetNextTextureIndex(int a4, int a5, int a6);
 int nlsndSeqRequest(int a4);
@@ -79,14 +80,14 @@ int rankEntryMain(float f4);
 int resSpTexLoad(int a4);
 float nlSinh(int a4);
 int ADXSTM_OpenFileRange(int a4, int a5, int a6, int a7);
-int countryStagePut(Stk4 s, float f4);
+int countryStagePut(Stk4 p, float f4);
 int charaTexFree(int a4);
 int iconSlotPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5);
 float nlTanfReduce(int a4, float f4);
 void syCacheInit_P2_(int a4, int a5, int a6, int a7);
 float cpuLineCrossXZ(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14, int a15, int a16, float f4, float f5);
 void effHitFlashSpawn(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
-float courtDistScale(Stk4 s);
+float courtDistScale(Stk6 p);
 int _rsfts(int a4, int a5, int a6);
 int fileLoadCloseSlot(int a4);
 void nlSinf(float f4);
@@ -102,28 +103,26 @@ void worldToScreen(Stk4 s);
 int hudCounterStep(int a4, int a5, int a6, int a7, int a8);
 void nlTanf(float f4);
 void camWorldToView(Stk4 s);
-int decoGaugeDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
+int decoGaugeDraw(int a4, int a5, int a6, int a7, Stk4 p, float f4);
 int sklBindMatrices(int a4);
 int nlLineClipNear(int a4, int a5);
 float evDist2d(Stk4 s);
 int cpuDebugBallLine(void);
 int hudWordFlagDraw(void);
 int nlFogVertexColor(int a4);
-int panelMenuSprPutA(Stk4 s, float f4);
+int panelMenuSprPutA(Stk4 p, float f4);
 
-int logoSmallPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+int logoSmallPut(int a4, int a5, int a6, int a7, Stk4 p)
 {
     int t0;
     int t3;
     int stk[25];
-    int R1064;
 
-    R1064 = *(int *)((int)stk + 64);
 
-    stk[13] = a8;
-    stk[14] = a9;
-    stk[15] = a10;
-    R1064 = a11;
+    stk[13] = p.w[0];
+    stk[14] = p.w[1];
+    stk[15] = p.w[2];
+    stk[16] = p.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0xC)); }
     t0 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(0x8C3398C0, a5, a6, a7, *(Stk3 *)((((int)stk + 40) + 0xC)));
     *(float *)(((((int)stk + 40) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0xC) + 0x0))) + (*(float *)0x8C091CA0));
@@ -245,18 +244,16 @@ float nlSinh(int a4)
 }
 
 
-int countryStagePut(Stk4 s, float f4)
+int countryStagePut(Stk4 p, float f4)
 {
     int t3;
     int stk[22];
-    int R1052;
 
-    R1052 = *(int *)((int)stk + 52);
 
-    stk[10] = s.w[0];
-    stk[11] = s.w[1];
-    stk[12] = s.w[2];
-    R1052 = s.w[3];
+    stk[10] = p.w[0];
+    stk[11] = p.w[1];
+    stk[12] = p.w[2];
+    stk[13] = p.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 28) + 0xC)); }
     sprPutAtAlpha(0x8C33A1D0, *(Stk3 *)((((int)stk + 28) + 0xC)), f4);
     *(float *)(((((int)stk + 28) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 28) + 0xC) + 0x0))) + 121.0f);
@@ -346,22 +343,16 @@ float cpuLineCrossXZ(int a4, int a5, int a6, int a7, int a8, int a9, int a10, in
     float u7;
     float u8;
     int stk[18];
-    int R1008;
-    int R1020;
-    int R1032;
 
-    R1008 = *(int *)((int)stk + 8);
-    R1020 = *(int *)((int)stk + 20);
-    R1032 = *(int *)((int)stk + 32);
 
     stk[1] = a8;
-    R1008 = a9;
+    (*(int *)((int)stk + 8)) = a9;
     stk[3] = a10;
     stk[4] = a11;
-    R1020 = a12;
+    (*(int *)((int)stk + 20)) = a12;
     stk[6] = a13;
     stk[7] = a14;
-    R1032 = a15;
+    (*(int *)((int)stk + 32)) = a15;
     stk[9] = a16;
     *(float *)((a4 + 0x4)) = 0.0f;
     u0 = *(float *)(((((int)stk + 4) + 0xC) + 0x0));
@@ -384,7 +375,7 @@ float cpuLineCrossXZ(int a4, int a5, int a6, int a7, int a8, int a9, int a10, in
 }
 
 
-float courtDistScale(Stk4 s)
+float courtDistScale(Stk6 p)
 {
     float t0;
     float u5;
@@ -392,10 +383,12 @@ float courtDistScale(Stk4 s)
     float u8;
     int stk[20];
 
-    stk[8] = s.w[0];
-    stk[9] = s.w[1];
-    stk[10] = s.w[2];
-    stk[11] = s.w[3];
+    stk[8] = p.w[0];
+    stk[9] = p.w[1];
+    stk[10] = p.w[2];
+    stk[11] = p.w[3];
+    stk[12] = p.w[4];
+    stk[13] = p.w[5];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 28) + 0x10)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x10)); }
     t0 = vecDist(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 16)));
@@ -572,11 +565,9 @@ int kmySetFlickerFilterMode(int a4, int a5)
 void worldToScreen(Stk4 s)
 {
     int stk[15];
-    int R1012;
 
-    R1012 = *(int *)((int)stk + 12);
 
-    R1012 = s.w[0];
+    (*(int *)((int)stk + 12)) = s.w[0];
     stk[4] = s.w[1];
     stk[5] = s.w[2];
     stk[6] = s.w[3];
@@ -619,20 +610,18 @@ int hudCounterStep(int a4, int a5, int a6, int a7, int a8)
 
 
 
-int decoGaugeDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
+int decoGaugeDraw(int a4, int a5, int a6, int a7, Stk4 p, float f4)
 {
     int t2;
     int stk[18];
     int R1016;
-    int R1036;
 
+    stk[6] = p.w[0];
+    stk[7] = p.w[1];
+    stk[8] = p.w[2];
+    stk[9] = p.w[3];
     R1016 = *(int *)((int)stk + 16);
-    R1036 = *(int *)((int)stk + 36);
 
-    stk[6] = a8;
-    stk[7] = a9;
-    stk[8] = a10;
-    R1036 = a11;
     R1016 = a4;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x8)); }
     t2 = R1016;
@@ -671,10 +660,8 @@ float evDist2d(Stk4 s)
     float u5;
     int stk[15];
     float R1004;
-    float R1008;
 
     R1004 = *(float *)((int)stk + 4);
-    R1008 = *(float *)((int)stk + 8);
 
     stk[3] = s.w[0];
     stk[4] = s.w[1];
@@ -683,7 +670,7 @@ float evDist2d(Stk4 s)
     R1004 = ((*(float *)(((((int)stk + 4) + 0x8) + 0x0))) - (*(float *)(((((int)stk + 4) + 0x10) + 0x0))));
     u2 = *(float *)(((((int)stk + 4) + 0x8) + 0x4));
     u3 = *(float *)(((((int)stk + 4) + 0x10) + 0x4));
-    R1008 = (u2 - u3);
+    (*(float *)((int)stk + 8)) = (u2 - u3);
     u4 = R1004;
     u5 = ((u2 - u3) * (u2 - u3));
     u5 = u5 + u4 * u4;
@@ -721,20 +708,18 @@ int nlFogVertexColor(int a4)
     return (kmSetFogVertexColor(a4, (short)((unsigned int)a4 >> 16), ((int)a4 >> 8), (signed char)((unsigned int)((unsigned int)a4 >> 16) >> 8), ((*(int *)((((int)stk + 8) + 0x0))))));
 }
 
-int panelMenuSprPutA(Stk4 s, float f4)
+int panelMenuSprPutA(Stk4 p, float f4)
 {
     float u2;
     int stk[18];
     int R1016;
-    int R1036;
 
+    stk[6] = p.w[0];
+    stk[7] = p.w[1];
+    stk[8] = p.w[2];
+    stk[9] = p.w[3];
     R1016 = *(int *)((int)stk + 16);
-    R1036 = *(int *)((int)stk + 36);
 
-    stk[6] = s.w[0];
-    stk[7] = s.w[1];
-    stk[8] = s.w[2];
-    R1036 = s.w[3];
     u2 = (*(float *)0x8C09C1E8);
     u2 = u2 + (*(float *)0x8C09C1EC) * f4;
     R1016 = (int)u2;

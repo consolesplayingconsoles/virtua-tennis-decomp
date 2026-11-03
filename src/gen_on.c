@@ -42,7 +42,7 @@ int hudPointPanelShow(int);
 int hudScoreShow(int, int, int);
 int hudSignFirstPut(int, Stk3, float);
 int hudSignPut(int, Stk3, float);
-int infoPlayerDrawWrap(Stk3);
+int infoPlayerDrawWrap(int, int, int, int, Stk3, float, float, float);
 int mainExitToBios(int);
 int markerShowStart(int, int, int, int, Stk3, Stk3, Stk3);
 int matchCheckTiebreak(void);
@@ -86,7 +86,7 @@ int shadowBallDraw(Stk3);
 int sndSeStage(void);
 int sprPutAtAlpha(int, Stk3, float);
 int stageSoftReset(void);
-int standBarDraw(int, int, int, int, int);
+int standBarDraw(int, int, int, int, Stk3);
 int standBoxesDraw(int, int, int, int, int, int, int, int, int, int, int, int);
 int strmBgmPlay(int);
 int strmVoiceQueueReset(void);
@@ -98,7 +98,7 @@ int umpCallOut(int, int, int, int, int, int, int);
 float vecLength(Stk3);
 Stk3 vecMake(float, float, float);
 int matchExec(int a4, int a5, int a6, float f4, float f5);
-int standPanelDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
+int standPanelDraw(int a4, int a5, int a6, int a7, Stk3 p, int a11, int a12);
 int resultDoublesDraw(int a4, int a5, int a6, float f4);
 int FUN_8c0a048c(int a4, int a5, int a6, int a7, float f4);
 void ballExec(int a4);
@@ -1556,7 +1556,7 @@ int matchExec(int a4, int a5, int a6, float f4, float f5)
     return t1777;
 }
 
-int standPanelDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+int standPanelDraw(int a4, int a5, int a6, int a7, Stk3 p, int a11, int a12)
 {
     int stk[63];
 
@@ -1584,7 +1584,9 @@ int standPanelDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     register float w0_4;
     register float w0_5;
     register float w0_6;
-    stk[54] = a8;
+    stk[54] = p.w[0];
+    stk[55] = p.w[1];
+    stk[56] = p.w[2];
     v0_0 = a4;
     v0_2 = a5;
     v0_3 = a6;
@@ -1653,7 +1655,7 @@ int standPanelDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int 
     *(Stk3 *)(((int)stk + 68)) = vecMake(((*(float *)((v0_5 + 0x0))) + 41.0f), ((*(float *)((v0_5 + 0x4))) + w0_3), 0.00499999989f);
     hudSignLastPut(*(Stk3 *)((int)stk + 68), w0_0);
     *(Stk3 *)(((int)stk + 68)) = vecMake(((*(float *)((v0_5 + 0x0))) + 97.0f), ((*(float *)((v0_5 + 0x4))) + -42.0f), w0_1);
-    standBarDraw(0x1F, 0x16, 0x1, 0x0, *(int *)((int)stk + 68));
+    standBarDraw(0x1F, 0x16, 0x1, 0x0, *(Stk3 *)((int)stk + 68));
     L_8C0A36E8:;
     w0_2 = *(float *)((v0_5 + 0x0));
     w0_4 = *(float *)((v0_5 + 0x8));
@@ -2176,16 +2178,14 @@ int FUN_8c0a048c(int a4, int a5, int a6, int a7, float f4)
         *(int *)((int)stk + 56) = (((int)stk + 68) + 0x24);
         *(Stk3 *)((((int)stk + 68) + 0x24)) = vecMake((u22 + 107.0f), (u24 + 55.0f), (u23 + -0.100000001f));
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 44)) = *(struct mv3 *)((((int)stk + 68) + 0x24)); }
-        *(volatile int *)(((int)stk + 72));
-        infoPlayerDrawWrap(*(Stk3 *)(((int)stk + 44)));
+        infoPlayerDrawWrap(*(volatile int *)(((int)stk + 72)), 0, 0, 0, *(Stk3 *)(((int)stk + 44)), f4, 0.0f, 0.0f);
         u27 = *(float *)(((((int)stk + 64) + 0x10) + 0x0));
         u28 = *(float *)(((((int)stk + 64) + 0x10) + 0x8));
         u29 = *(float *)(((((int)stk + 64) + 0x10) + 0x4));
         *(int *)((int)stk + 40) = (((int)stk + 68) + 0x24);
         *(Stk3 *)((((int)stk + 68) + 0x24)) = vecMake((u27 + 307.0f), (u29 + 55.0f), (u28 + -0.100000001f));
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 68) + 0x24)); }
-        *(volatile int *)(((int)stk + 68));
-        infoPlayerDrawWrap(*(Stk3 *)(((int)stk + 28)));
+        infoPlayerDrawWrap(*(volatile int *)(((int)stk + 68)), 0, 0, 0, *(Stk3 *)(((int)stk + 28)), f4, 0.0f, 0.0f);
         u32 = *(float *)(((((int)stk + 64) + 0x10) + 0x0));
         u33 = *(float *)(((((int)stk + 64) + 0x10) + 0x8));
         u34 = *(float *)(((((int)stk + 64) + 0x10) + 0x4));

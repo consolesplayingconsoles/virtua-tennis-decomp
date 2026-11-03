@@ -52,16 +52,14 @@ int gdFsStopRd(int a4)
     int R1012;
     int R1016;
     int R1020;
-    int R1024;
     R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
     R1016 = *(int *)((int)stk + 16);
     R1020 = *(int *)((int)stk + 20);
-    R1024 = *(int *)((int)stk + 24);
     R4 = a4;
     t0 = R13;
-    R1024 = t0;
+    (*(int *)((int)stk + 24)) = t0;
     t1 = R12;
     R1020 = t1;
     t2 = R11;

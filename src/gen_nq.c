@@ -32,9 +32,7 @@ int gdDecSubcode(int a4, int a5)
     float F0;
     float F15;
     int T_;
-    int R1004;
     int R1008;
-    R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
     R4 = a4;
     R5 = a5;
@@ -69,7 +67,7 @@ int gdDecSubcode(int a4, int a5)
     *(unsigned int *)((R11 + 0xC)) = (bcd2bin((*(signed char *)((R14 + 0x11)))));
     R1008 = (R14 + 0xC);
     t30 = *(signed char *)(((R14 + 0xC) + 0x0));
-    R1004 = ((t30 << 16) << 8);
+    (*(int *)((int)stk + 4)) = ((t30 << 16) << 8);
     *(unsigned int *)((R11 + 0x10)) = ((bcdtime2fad(((R1008) + 0x7))) | ((t30 << 16) << 8));
     *(unsigned int *)((R11 + 0x14)) = (bcd2bin((*(signed char *)((R14 + 0xE)))));
     R0 = (0x0);

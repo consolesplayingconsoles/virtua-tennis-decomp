@@ -2,7 +2,7 @@
 
 typedef struct { int w[3]; } Stk3;
 int nlDispStripTexOfs(int, int, int);
-int primTexVertexSet(int, int, int, int, int, float, float);
+int primTexVertexSet(int, int, int, int, int, Stk3, float, float);
 Stk3 vecMake(float, float, float);
 int FUN_8c0bca14(void);
 
@@ -69,7 +69,7 @@ int FUN_8c0bca14(void)
                 *(float *)(((int)stk + 48)) = u8;
                 t20 = (*(int *)(((int)stk + 20)));
                 *(int *)((int)stk + 4) = t20;
-                primTexVertexSet(t11, t14, 0x0, 0x0, t20, ((float)t6 * 0.01953125f), u8);
+                primTexVertexSet(t11, t14, 0x0, 0x0, t20, *(Stk3 *)((int)stk + 8), ((float)t6 * 0.01953125f), u8);
                 *(unsigned int *)(((int)stk + 20)) = (*(int *)(((int)stk + 40)));
                 u8 = (float)((*(int *)(((int)stk + 56))) + 0x14);
                 *(float *)(((int)stk + 92)) = u8;
@@ -79,7 +79,7 @@ int FUN_8c0bca14(void)
                 *(float *)(((int)stk + 84)) = u8;
                 t27 = (*(int *)(((int)stk + 20)));
                 *(int *)((int)stk + 4) = t27;
-                primTexVertexSet(t11, t14, 0x0, 0x0, t27, ((float)t6 * 0.01953125f), u8);
+                primTexVertexSet(t11, t14, 0x0, 0x0, t27, *(Stk3 *)((int)stk + 8), ((float)t6 * 0.01953125f), u8);
                 *(unsigned int *)(((int)stk + 20)) = (*(int *)(((int)stk + 36)));
                 u31 = *(float *)(((int)stk + 104));
                 u8 = (float)((*(int *)(((int)stk + 28))) + 0x14);
@@ -91,14 +91,14 @@ int FUN_8c0bca14(void)
                 *(float *)(((int)stk + 68)) = u8;
                 t34 = (*(int *)(((int)stk + 20)));
                 *(int *)((int)stk + 4) = t34;
-                primTexVertexSet(t11, t14, 0x0, 0x0, t34, u8, u32);
+                primTexVertexSet(t11, t14, 0x0, 0x0, t34, *(Stk3 *)((int)stk + 8), u8, u32);
                 *(unsigned int *)(((int)stk + 20)) = (*(int *)(((int)stk + 44)));
                 *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((int)stk + 64))), (*(float *)(((int)stk + 92))), 10.0f);
                 u40 = *(float *)(((int)stk + 84));
                 u41 = *(float *)(((int)stk + 68));
                 t42 = (*(int *)(((int)stk + 20)));
                 *(int *)((int)stk + 4) = t42;
-                primTexVertexSet(t11, t14, 0x0, 0x0, t42, u41, u40);
+                primTexVertexSet(t11, t14, 0x0, 0x0, t42, *(Stk3 *)((int)stk + 8), u41, u40);
                 *(volatile int *)(((int)stk + 20));
                 t46 = (nlDispStripTexOfs(0x4, (((int)stk + 20) + 0x64), 0x3A5));
             } else {

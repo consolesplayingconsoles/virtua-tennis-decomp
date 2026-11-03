@@ -6,7 +6,7 @@ typedef struct { int w[4]; } Stk4;
 int cursorBoxPut(int, Stk3, float, float, float);
 int logoWaveDraw(float);
 float mathLerp(float, float, float);
-int menuIconPutRot(int, int, float);
+int menuIconPutRot(int, Stk3, int, float);
 float nlCos(int);
 int nlDispStripTrnsl(int, int);
 int primLineH(int, int, Stk3, Stk3);
@@ -14,7 +14,7 @@ int primLineV(int, int, Stk3, Stk3);
 int rankDrawTbl1(Stk4);
 int rankDrawTbl2(int, int, int, int, int, int, int, int, int, int, int, int);
 int screenQuadPut(int, float);
-int sprListPut(int, int, int, float, float, float);
+int sprListPut(int, Stk3, int, int, float, float, float);
 int uiScanlinesPut(float);
 Stk3 vecMake(float, float, float);
 int winDrawB(int, int, float, float, float);
@@ -77,7 +77,7 @@ int rankDispExec(int a4, int a5, float f4, float f5, float f6)
     *(Stk3 *)(((int)stk + 52)) = vecMake(0.0f, -15.0f, 70.0f);
     winDrawB(0xFF1E00, 0x2, 520.0f, 1.0f, 0.649999976f);
     *(Stk3 *)(((int)stk + 52)) = vecMake(8.0f, 32.0f, 60.0f);
-    sprListPut(0x8C1D7970, 0x2, 0xFF000000, 1.0f, 1.0f, 1.0f);
+    sprListPut(0x8C1D7970, *(Stk3 *)((int)stk + 52), 0x2, 0xFF000000, 1.0f, 1.0f, 1.0f);
     if ((*(int *)(((int)stk + 64))) == 1) {
         *(Stk3 *)(((int)stk + 52)) = vecMake(151.0f, 32.0f, 60.0f);
         t35 = 0x8C1D7BF8;
@@ -85,9 +85,9 @@ int rankDispExec(int a4, int a5, float f4, float f5, float f6)
         *(Stk3 *)(((int)stk + 52)) = vecMake(157.0f, 32.0f, 60.0f);
         t35 = 0x8C1D7B20;
     }
-    sprListPut(t35, 0x2, 0xFF000000, 1.0f, 1.0f, 1.0f);
+    sprListPut(t35, *(Stk3 *)((int)stk + 52), 0x2, 0xFF000000, 1.0f, 1.0f, 1.0f);
     *(Stk3 *)(((int)stk + 52)) = vecMake(347.0f, 32.0f, 60.0f);
-    sprListPut(0x8C1D7A48, 0x2, 0xFF000000, 1.0f, 1.0f, 1.0f);
+    sprListPut(0x8C1D7A48, *(Stk3 *)((int)stk + 52), 0x2, 0xFF000000, 1.0f, 1.0f, 1.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)(((((int)stk + 64) + 0x2C) + 0xC)); }
     *(unsigned int *)(((int)stk + 92)) = (((int)stk + 64) + 0x2C);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 64) + 0x2C)); }
@@ -133,14 +133,14 @@ int rankDispExec(int a4, int a5, float f4, float f5, float f6)
     cursorBoxPut(0x1, *(Stk3 *)((int)stk + 52), u58, 95.0f, 1.0f);
     if ((*(int *)(((int)stk + 64))) == 1) {
         *(Stk3 *)(((int)stk + 52)) = vecMake(80.0f, 415.0f, 0.5f);
-        sprListPut(0x8C1D7E14, 0x1, 0x0, 1.0f, 1.0f, 1.0f);
+        sprListPut(0x8C1D7E14, *(Stk3 *)((int)stk + 52), 0x1, 0x0, 1.0f, 1.0f, 1.0f);
         if (((int)((int)(*(int *)0x8C421F48) % (int)0x1E)) == 0) {
             *(float *)0x8C421F50 = 55.0f;
         }
         t71 = mathLerp((*(float *)0x8C421F50), 40.0f, 0.200000003f);
         *(float *)0x8C421F50 = t71;
         *(Stk3 *)(((int)stk + 52)) = vecMake(t71, 415.0f, 0.5f);
-        menuIconPutRot(0x7, 0xFF00FF00, 1.0f);
+        menuIconPutRot(0x7, *(Stk3 *)((int)stk + 52), 0xFF00FF00, 1.0f);
         *(Stk3 *)(((int)stk + 52)) = vecMake((*(float *)0x8C421F50), 415.0f, 0.400000006f);
         t75 = nlCos((*(int *)0x8C421F4C));
         if (!(0.0f > t75)) {
@@ -148,18 +148,18 @@ int rankDispExec(int a4, int a5, float f4, float f5, float f6)
         } else {
             u81 = (-(nlCos((*(int *)0x8C421F4C))));
         }
-        menuIconPutRot(0x7, (0xFFFF00 | ((((int)(u81 * 255.0f) & 0xFF) << 16) << 8)), 1.0f);
+        menuIconPutRot(0x7, *(Stk3 *)((int)stk + 52), (0xFFFF00 | ((((int)(u81 * 255.0f) & 0xFF) << 16) << 8)), 1.0f);
     } else {
         if ((*(int *)(((int)stk + 64))) == 0) {
             *(Stk3 *)(((int)stk + 52)) = vecMake(50.0f, 415.0f, 0.5f);
-            sprListPut(0x8C1D7E80, 0x1, 0x0, 1.0f, 1.0f, 1.0f);
+            sprListPut(0x8C1D7E80, *(Stk3 *)((int)stk + 52), 0x1, 0x0, 1.0f, 1.0f, 1.0f);
             if (((int)((int)(*(int *)0x8C421F48) % (int)0x1E)) == 0) {
                 *(float *)0x8C421F54 = 120.0f;
             }
             t93 = mathLerp((*(float *)0x8C421F54), 135.0f, 0.200000003f);
             *(float *)0x8C421F54 = t93;
             *(Stk3 *)(((int)stk + 52)) = vecMake(t93, 415.0f, 0.400000006f);
-            menuIconPutRot(0x8, 0xFF00FF00, 1.0f);
+            menuIconPutRot(0x8, *(Stk3 *)((int)stk + 52), 0xFF00FF00, 1.0f);
             *(Stk3 *)(((int)stk + 52)) = vecMake((*(float *)0x8C421F54), 415.0f, 0.400000006f);
             t97 = nlCos((*(int *)0x8C421F4C));
             if (!(0.0f > t97)) {
@@ -167,7 +167,7 @@ int rankDispExec(int a4, int a5, float f4, float f5, float f6)
             } else {
                 u103 = (-(nlCos((*(int *)0x8C421F4C))));
             }
-            menuIconPutRot(0x8, (0xFFFF00 | ((((int)(u103 * 255.0f) & 0xFF) << 16) << 8)), 1.0f);
+            menuIconPutRot(0x8, *(Stk3 *)((int)stk + 52), (0xFFFF00 | ((((int)(u103 * 255.0f) & 0xFF) << 16) << 8)), 1.0f);
         }
     }
     if (((*(int *)(((int)stk + 64))) != 0) && (t113 = *(int *)(((int)stk + 68)), t113 == 0)) {

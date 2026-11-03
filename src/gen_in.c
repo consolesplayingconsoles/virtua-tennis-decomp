@@ -450,12 +450,10 @@ int selCursorInput(int a4, int a5)
     int R13;
     int R14;
     int T_;
-    int R1004;
     int R1008;
     int R1012;
     int R1016;
     int R1020;
-    R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
     R1016 = *(int *)((int)stk + 16);
@@ -567,7 +565,7 @@ int selCursorInput(int a4, int a5)
     sndSe05_04();
     L_8C0AA7A0:;
     t103 = selSlot0FlagSet();
-    R1004 = (0x8C2889DC + (((-t103) + 0x1) * 0xD78));
+    (*(int *)((int)stk + 4)) = (0x8C2889DC + (((-t103) + 0x1) * 0xD78));
     t106 = *(int *)(((0x8C343ACC + (R1008)) + 0x0));
     *(unsigned int *)((((((-(selSlot0FlagSet())) + 0x1) * 0x38) + (R9 + 0xC)) + 0x0)) = t106;
     *(unsigned int *)(((0x8C2889DC + (((-t103) + 0x1) * 0xD78)) + 0x0)) = t106;

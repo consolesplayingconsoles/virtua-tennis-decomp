@@ -124,12 +124,10 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     float F14;
     float F15;
     int T_;
-    int R1004;
     int R1128;
     int R1132;
     int R1136;
     int R1140;
-    R1004 = *(int *)((int)stk + 4);
     R1128 = *(int *)((int)stk + 128);
     R1132 = *(int *)((int)stk + 132);
     R1136 = *(int *)((int)stk + 136);
@@ -277,7 +275,7 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     u98 = *(float *)((R13 + 0x8));
     u99 = *(float *)((R13 + 0x4));
     t100 = R14;
-    R1004 = t100;
+    (*(int *)((int)stk + 4)) = t100;
     *(Stk3 *)(t100) = vecMake((u97 + 29.0f), (u99 + -23.0f), u98);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)(R14); }
     t101 = ((int (*)(int, Stk3))(entryGetColorId))(0x1, *(Stk3 *)(((int)stk + 112)));

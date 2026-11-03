@@ -38,7 +38,7 @@ int selInit(void);
 int sndSeCursor(void);
 int sndStagePackLoad(int, int, int, int);
 int sprPutAlpha(int, int, int, int, float);
-int sprPutCropV(int, int, float, float, float);
+int sprPutCropV(int, Stk3, int, float, float, float);
 int sprSet109Free(void);
 int sprSet163Free(int);
 int sprSet163Load(int);
@@ -333,7 +333,7 @@ int FUN_8c0c194c(int a4, float f4)
     sprPutAlpha((0x8C37BF9C + v0_5), R5, R6, R7, (*(float *)((v0_2 + 0x0))));
     *(Stk3 *)(((int)stk + 32)) = vecMake(356.0f, 86.0f, 5.0f);
     w0_4 = *(float *)((v0_4 + 0x0));
-    sprPutCropV((0x8C37BC7C + v0_5), 0x0, w0_4, w0_2, w0_4);
+    sprPutCropV((0x8C37BC7C + v0_5), *(Stk3 *)((int)stk + 32), 0x0, w0_4, w0_2, w0_4);
     *(float *)((v0_2 + 0x0)) = ((*(float *)((v0_2 + 0x0))) + 0.0199999996f);
     *(float *)((v0_4 + 0x0)) = ((*(float *)((v0_4 + 0x0))) + 0.150000006f);
     if ((!((*(float *)((v0_2 + 0x0))) > w0_2))) goto L_8C0C2214;

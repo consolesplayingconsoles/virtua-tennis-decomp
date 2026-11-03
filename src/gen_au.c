@@ -1,3 +1,4 @@
+typedef struct { int w[4]; } Stk4;
 /* Straight-line functions with calls and guards (batch gen_au): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
@@ -64,7 +65,7 @@ float nlTanf(float);
 int nlTranslate(float, float, float);
 int nlUnitMatrix(void);
 int playerPut(int, int, int, int, int, int, int, int, int, int, int, int);
-int primVertexSet(int, int, int, int, int);
+int primVertexSet(int, int, int, int, int, Stk3);
 int resCautionReset(int);
 int search_dir(int, int, int);
 int set_event2(int, int);
@@ -106,7 +107,7 @@ int entryIsVersus(int a4, int a5, int a6, int a7);
 int rankInsert1(void);
 float cpuEdgeX(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
 int scorePressure(void);
-int primRectDirX(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
+int primRectDirX(int a4, int a5, int a6, int a7, Stk4 p);
 int endingScreenObjPut(void);
 
 int cpuSglAimScoreAngle(int a4, int a5)
@@ -1048,16 +1049,12 @@ int ADXB_DecodeHeaderSpsd(int a4, int a5, int a6)
     int t2;
     int t13;
     int stk[14];
-    int R1036;
-    int R1040;
 
-    R1036 = *(int *)((int)stk + 36);
-    R1040 = *(int *)((int)stk + 40);
 
-    R1036 = a5;
-    R1040 = a6;
+    (*(int *)((int)stk + 36)) = a5;
+    (*(int *)((int)stk + 40)) = a6;
     *(unsigned short *)((a4 + 0x2)) = 0x1;
-    t2 = ADX_DecodeInfoSpsd((R1036), (R1040), (((int)stk + 4) + 0x1C), (a4 + 0xC), (a4 + 0xD), (a4 + 0xF), (a4 + 0xE), (a4 + 0x14), (a4 + 0x18), (a4 + 0x10), (0xAA + a4));
+    t2 = ADX_DecodeInfoSpsd(((*(int *)((int)stk + 36))), ((*(int *)((int)stk + 40))), (((int)stk + 4) + 0x1C), (a4 + 0xC), (a4 + 0xD), (a4 + 0xF), (a4 + 0xE), (a4 + 0x14), (a4 + 0x18), (a4 + 0x10), (0xAA + a4));
     t13 = 0x0;
     if ((int)t2 < 0) {
     } else {
@@ -1290,35 +1287,31 @@ int scorePressure(void)
     return t69;
 }
 
-int primRectDirX(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+int primRectDirX(int a4, int a5, int a6, int a7, Stk4 p)
 {
     int t0;
     int t12;
     int stk[42];
-    int R1020;
-    int R1132;
 
-    R1020 = *(int *)((int)stk + 20);
-    R1132 = *(int *)((int)stk + 132);
 
-    stk[30] = a8;
-    stk[31] = a9;
-    stk[32] = a10;
-    R1132 = a11;
-    R1020 = a5;
+    stk[30] = p.w[0];
+    stk[31] = p.w[1];
+    stk[32] = p.w[2];
+    stk[33] = p.w[3];
+    (*(int *)((int)stk + 20)) = a5;
     t0 = (-a6);
     if (a7 != 0) {
         t0 = a6;
     }
     vecMake(a4, a5, a6, a7, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x64) + 0x0))), (*(float *)(((((int)stk + 20) + 0x64) + 0x4))), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    primVertexSet(a4, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x4));
+    primVertexSet(a4, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x4), *(Stk3 *)((int)stk + 8));
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x64) + 0x0))) - (float)t0), (*(float *)(((((int)stk + 20) + 0x64) + 0x4))), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    primVertexSet(a4, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x4)));
-    t12 = R1020;
+    primVertexSet(a4, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x4)), *(Stk3 *)((int)stk + 8));
+    t12 = (*(int *)((int)stk + 20));
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)(((((int)stk + 20) + 0x64) + 0x0))), ((*(float *)(((((int)stk + 20) + 0x64) + 0x4))) + (float)t12), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    primVertexSet(a4, 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x4)));
+    primVertexSet(a4, 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x4)), *(Stk3 *)((int)stk + 8));
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), ((*(float *)(((((int)stk + 20) + 0x64) + 0x0))) - (float)t0), ((*(float *)(((((int)stk + 20) + 0x64) + 0x4))) + (float)t12), (*(float *)(((((int)stk + 20) + 0x64) + 0x8))));
-    primVertexSet(a4, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x4)));
+    primVertexSet(a4, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x4)), *(Stk3 *)((int)stk + 8));
     return (nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x4)));
 }
 

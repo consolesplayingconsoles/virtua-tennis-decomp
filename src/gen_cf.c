@@ -33,7 +33,7 @@ int nlSetPaletteData(int, int, int);
 int nlSetPaletteMap(int, int);
 float nlSin(int);
 int open_file_handle(void);
-int primTexVertexSet(int, int, int, int, int, float, float);
+int primTexVertexSet(int, int, int, int, int, Stk3, float, float);
 int search_dir(int, int, int);
 int search_exec_file(int, int);
 int search_free_dir(int);

@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int camViewToWorld(int, int, int, int, int);
+int camViewToWorld(int, int, int, int, int, Stk3);
 int fileLoadClose(void);
 int fileLoadCloseSlot(int);
 int motionAdvance(int);
@@ -261,9 +261,8 @@ void shopPreviewExec(int a4, int a5, int a6, int a7)
             nlRotateAY((t238 << 2));
             t242 = nlArcTan2((*(float *)(((int)stk + 56))), (-(*(float *)(((int)stk + 64)))));
             nlRotateAX((t242 << 2));
-            { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 28) + 0x1C)); }
             *(int *)((int)stk + 12) = (((int)stk + 16) + 0x28);
-            camViewToWorld(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 12));
+            camViewToWorld(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 12), *(Stk3 *)((((int)stk + 28) + 0x1C)));
             t247 = nlArcTan2((*(float *)(((int)stk + 56))), (-(*(float *)(((int)stk + 64)))));
             nlRotateAY((t247 << 2));
             t251 = nlArcTan2((*(float *)(((int)stk + 56))), (-(*(float *)(((int)stk + 64)))));

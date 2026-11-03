@@ -51,7 +51,7 @@ int nlsndSystemControl(int, int, int);
 int padLcdModeClear(void);
 int playerSetup(int, int, int, int);
 int prefetch(int);
-int primVertexSet(int, int, int, int, int);
+int primVertexSet(int, int, int, int, int, Stk3);
 int screenOutcodeMargin(int, int, int);
 int screenProject(int, int, Stk3);
 int screenQuadPut(int, float);

@@ -56,7 +56,7 @@ float nlTan(int);
 int nlTranslate(float, float, float);
 int panelLogoSwingDraw(Stk3, float);
 int panelMenuItemPut(int, float);
-int primPanelDraw(Stk1);
+int primPanelDraw(Stk3);
 int selCursorPos(int, int, int, int, int);
 int set_event(int, int);
 int shadowLightMatrixAng(int, int);
@@ -483,7 +483,7 @@ int entryGridDraw(int a4, int a5, float f4)
     }
     entryDrawStripes();
     *(Stk3 *)(((int)stk + 16)) = vecMake(398.0f, 133.0f, 500.0f);
-    primPanelDraw(*(Stk1 *)((int)stk + 16));
+    primPanelDraw(*(Stk3 *)((int)stk + 16));
     { struct mv4 { int w[4]; }; *(struct mv4 *)((((int)stk + 28) + 0x2C)) = *(struct mv4 *)(0x8C110EE0); }
     t120 = 0x0;
     for (;;) {

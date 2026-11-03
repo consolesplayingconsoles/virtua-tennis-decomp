@@ -93,7 +93,7 @@ int set_vmstime(int, int);
 int sprInitPos(int, int);
 int sprInitRectF(int, int, int, int, int, int);
 extern int sprPutAtAlpha();
-float vecDistXZ(Stk4);
+float vecDistXZ(Stk3, Stk3);
 int vecMake(int, int, int, int, int, float, float, float);
 int vmsfs_unmount(int);
 int vmsfs_write_retry(int, int, int);
@@ -119,13 +119,13 @@ int sseleSlotEntry(int a4);
 int nlSingleLineSub(int a4, int a5, int a6, int a7);
 int sysInitGraphics(void);
 int bgTilesInit(int a4, int a5, int a6, int a7);
-int panelBodyPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
-int panelPartBPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
+int panelBodyPut(int a4, int a5, int a6, int a7, Stk4 p, float f4);
+int panelPartBPut(int a4, int a5, int a6, int a7, Stk4 p, float f4);
 void ADXT_Destroy(int a4);
 int vmsfs_xwrite1(int a4, int a5);
 int ADXB_ExecOneAiff8(int a4, int a5, int a6, int a7);
 int hudBgTileInit(int a4, int a5, int a6, int a7);
-int panelPartCPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
+int panelPartCPut(int a4, int a5, int a6, int a7, Stk4 p, float f4);
 int mwlRnaAddWrPos(int a4);
 
 int _its(int a4, int a5, int a6)
@@ -1174,26 +1174,24 @@ int sysInitGraphics(void)
 int bgTilesInit(int a4, int a5, int a6, int a7)
 {
     int stk[15];
-    int R1020;
 
-    R1020 = *(int *)((int)stk + 20);
 
     vecMake(a4, a5, a6, a7, ((int)stk + 8), 0.0f, 0.0f, 400.0f);
-    R1020 = 0x8C33CF40;
+    (*(int *)((int)stk + 20)) = 0x8C33CF40;
     sprInitPos(0x8C33CF40, 0x27);
-    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
+    *(unsigned int *)((((*(int *)((int)stk + 20))) + 0x34)) = 0x5;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 256.0f, 0.0f, 400.0f);
-    R1020 = 0x8C33CF90;
+    (*(int *)((int)stk + 20)) = 0x8C33CF90;
     sprInitPos(0x8C33CF90, 0x28);
-    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
+    *(unsigned int *)((((*(int *)((int)stk + 20))) + 0x34)) = 0x5;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 0.0f, 256.0f, 400.0f);
-    R1020 = 0x8C33CFE0;
+    (*(int *)((int)stk + 20)) = 0x8C33CFE0;
     sprInitPos(0x8C33CFE0, 0x29);
-    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
+    *(unsigned int *)((((*(int *)((int)stk + 20))) + 0x34)) = 0x5;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 256.0f, 256.0f, 400.0f);
-    R1020 = 0x8C33D030;
+    (*(int *)((int)stk + 20)) = 0x8C33D030;
     sprInitPos(0x8C33D030, 0x2A);
-    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
+    *(unsigned int *)((((*(int *)((int)stk + 20))) + 0x34)) = 0x5;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 512.0f, 0.0f, 400.0f);
     sprInitPos(0x8C33D080, 0x2B);
     *(unsigned int *)0x8C33D0B4 = 0x5;
@@ -1207,7 +1205,7 @@ int bgTilesInit(int a4, int a5, int a6, int a7)
     return 0x10;
 }
 
-int panelBodyPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
+int panelBodyPut(int a4, int a5, int a6, int a7, Stk4 p, float f4)
 {
     int t0;
     float u2;
@@ -1217,14 +1215,12 @@ int panelBodyPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a1
     int t10;
     int t14;
     int stk[41];
-    int R1128;
 
-    R1128 = *(int *)((int)stk + 128);
 
-    stk[29] = a8;
-    stk[30] = a9;
-    stk[31] = a10;
-    R1128 = a11;
+    stk[29] = p.w[0];
+    stk[30] = p.w[1];
+    stk[31] = p.w[2];
+    stk[32] = p.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)((((int)stk + 76) + 0x28)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)((((int)stk + 76) + 0x28)); }
     t0 = ((int (*)(int, int, int, int, Stk3, float))(sprPutAtAlpha))(0x8C340210, a5, a6, a7, *(Stk3 *)((((int)stk + 76) + 0x28)), f4);
@@ -1249,7 +1245,7 @@ int panelBodyPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a1
     return (((int (*)(int, Stk3, float))(sprPutAtAlpha))(0x8C3403A0, *(Stk3 *)(((int)stk + 76)), f4));
 }
 
-int panelPartBPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
+int panelPartBPut(int a4, int a5, int a6, int a7, Stk4 p, float f4)
 {
     int t0;
     int t4;
@@ -1257,14 +1253,12 @@ int panelPartBPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a
     int t8;
     int t12;
     int stk[41];
-    int R1128;
 
-    R1128 = *(int *)((int)stk + 128);
 
-    stk[29] = a8;
-    stk[30] = a9;
-    stk[31] = a10;
-    R1128 = a11;
+    stk[29] = p.w[0];
+    stk[30] = p.w[1];
+    stk[31] = p.w[2];
+    stk[32] = p.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)((((int)stk + 76) + 0x28)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)((((int)stk + 76) + 0x28)); }
     t0 = ((int (*)(int, int, int, int, Stk3, float))(sprPutAtAlpha))(0x8C33FD10, a5, a6, a7, *(Stk3 *)((((int)stk + 76) + 0x28)), f4);
@@ -1579,28 +1573,26 @@ int hudBgTileInit(int a4, int a5, int a6, int a7)
     float u14;
     float u17;
     int stk[15];
-    int R1020;
 
-    R1020 = *(int *)((int)stk + 20);
 
     u0 = *(float *)0x8C09B24C;
     vecMake(a4, a5, a6, a7, ((int)stk + 8), 0.0f, 0.0f, u0);
-    R1020 = 0x8C33F1D0;
+    (*(int *)((int)stk + 20)) = 0x8C33F1D0;
     sprInitPos(0x8C33F1D0, 0x10);
-    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
+    *(unsigned int *)((((*(int *)((int)stk + 20))) + 0x34)) = 0x5;
     u4 = *(float *)0x8C09B254;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), u4, 0.0f, u0);
-    R1020 = 0x8C33F220;
+    (*(int *)((int)stk + 20)) = 0x8C33F220;
     sprInitPos(0x8C33F220, 0x11);
-    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
+    *(unsigned int *)((((*(int *)((int)stk + 20))) + 0x34)) = 0x5;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 0.0f, u4, u0);
-    R1020 = 0x8C33F270;
+    (*(int *)((int)stk + 20)) = 0x8C33F270;
     sprInitPos(0x8C33F270, 0x12);
-    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
+    *(unsigned int *)((((*(int *)((int)stk + 20))) + 0x34)) = 0x5;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), u4, u4, u0);
-    R1020 = 0x8C33F2C0;
+    (*(int *)((int)stk + 20)) = 0x8C33F2C0;
     sprInitPos(0x8C33F2C0, 0x13);
-    *(unsigned int *)(((R1020) + 0x34)) = 0x5;
+    *(unsigned int *)((((*(int *)((int)stk + 20))) + 0x34)) = 0x5;
     u14 = *(float *)0x8C09B258;
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), u14, 0.0f, u0);
     sprInitPos(0x8C33F310, 0x14);
@@ -1616,7 +1608,7 @@ int hudBgTileInit(int a4, int a5, int a6, int a7)
     return 0x10;
 }
 
-int panelPartCPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
+int panelPartCPut(int a4, int a5, int a6, int a7, Stk4 p, float f4)
 {
     int t0;
     int t4;
@@ -1624,14 +1616,12 @@ int panelPartCPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a
     int t8;
     int t12;
     int stk[41];
-    int R1128;
 
-    R1128 = *(int *)((int)stk + 128);
 
-    stk[29] = a8;
-    stk[30] = a9;
-    stk[31] = a10;
-    R1128 = a11;
+    stk[29] = p.w[0];
+    stk[30] = p.w[1];
+    stk[31] = p.w[2];
+    stk[32] = p.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)((((int)stk + 76) + 0x28)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)((((int)stk + 76) + 0x28)); }
     t0 = ((int (*)(int, int, int, int, Stk3, float))(sprPutAtAlpha))(0x8C33FF40, a5, a6, a7, *(Stk3 *)((((int)stk + 76) + 0x28)), f4);

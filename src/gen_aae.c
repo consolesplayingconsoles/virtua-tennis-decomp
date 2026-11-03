@@ -35,7 +35,7 @@ int strmSetStereo(int);
 int strmVoiceSetVol(int);
 int syCfgGetSoundMode(int);
 int syCfgSetSoundMode(int, int, int);
-int uiPanelPut(int, float);
+int uiPanelPut(int, Stk3, float);
 int uiScanlinesPut(float);
 Stk3 vecMake(float, float, float);
 int winDrawA(int, int, float, float, float);
@@ -584,7 +584,7 @@ int FUN_8c0da9d0(int a4, float f4)
     *(Stk3 *)(((int)stk + 32)) = vecMake(85.0f, 120.0f, 0.100000001f);
     v0_1 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1D616C, 0x1, (*(int *)(((int)stk + 116))), 1.0f, 1.0f, (*(float *)(((int)stk + 100))));
     *(Stk3 *)(((int)stk + 32)) = vecMake(65.0f, 113.0f, 50.0f);
-    uiPanelPut((*(int *)(((int)stk + 120))), 175.0f);
+    uiPanelPut((*(int *)(((int)stk + 120))), *(Stk3 *)((int)stk + 32), 175.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(265.0f, 113.0f, 60.0f);
     optionBarPut(*(Stk1 *)((int)stk + 32));
     *(unsigned int *)(((((int)stk + 32) + 0x60) + 0x0)) = (*(int *)((((((unsigned char)(*(signed char *)0x8C40C2F4) << 1) << 2) + (0x140 + ((int)stk + 32))) + 0x0)));
@@ -641,7 +641,7 @@ int FUN_8c0da9d0(int a4, float f4)
     *(Stk3 *)(((int)stk + 32)) = vecMake(100.0f, 150.0f, 0.100000001f);
     v0_1 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1D6244, 0x2, (*(int *)(((int)stk + 116))), 1.0f, 1.0f, 1.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(65.0f, 143.0f, 50.0f);
-    uiPanelPut((*(int *)(((int)stk + 120))), 175.0f);
+    uiPanelPut((*(int *)(((int)stk + 120))), *(Stk3 *)((int)stk + 32), 175.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(265.0f, 143.0f, 60.0f);
     optionBarPut(*(Stk1 *)((int)stk + 32));
     v0_1 = *(signed char *)0x8C40C2F6;
@@ -697,7 +697,7 @@ int FUN_8c0da9d0(int a4, float f4)
     *(Stk3 *)(((int)stk + 32)) = vecMake(130.0f, 180.0f, 0.100000001f);
     v0_1 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1D61D8, 0x1, (*(int *)(((int)stk + 116))), 1.0f, 1.0f, 1.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(65.0f, 173.0f, 50.0f);
-    uiPanelPut((*(int *)(((int)stk + 120))), 175.0f);
+    uiPanelPut((*(int *)(((int)stk + 120))), *(Stk3 *)((int)stk + 32), 175.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(265.0f, 173.0f, 60.0f);
     optionBarPut(*(Stk1 *)((int)stk + 32));
     v0_1 = *(signed char *)0x8C40C2F8;
@@ -740,7 +740,7 @@ int FUN_8c0da9d0(int a4, float f4)
     *(Stk3 *)(((int)stk + 32)) = vecMake(110.0f, 210.0f, 0.100000001f);
     v0_1 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1D631C, 0x1, (*(int *)(((int)stk + 116))), 1.0f, 1.0f, 1.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(65.0f, 203.0f, 50.0f);
-    uiPanelPut((*(int *)(((int)stk + 120))), 175.0f);
+    uiPanelPut((*(int *)(((int)stk + 120))), *(Stk3 *)((int)stk + 32), 175.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(265.0f, 203.0f, 60.0f);
     optionBarPut(*(Stk1 *)((int)stk + 32));
     if (((*(int *)0x8C40C470) != 3)) goto L_8C0DBBAC;
@@ -765,7 +765,7 @@ int FUN_8c0da9d0(int a4, float f4)
     *(Stk3 *)(((int)stk + 32)) = vecMake(130.0f, 250.0f, 0.100000001f);
     v0_1 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1D6388, 0x1, (*(int *)(((int)stk + 116))), 1.0f, 1.0f, 1.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(65.0f, 243.0f, 50.0f);
-    uiPanelPut((*(int *)(((int)stk + 120))), 175.0f);
+    uiPanelPut((*(int *)(((int)stk + 120))), *(Stk3 *)((int)stk + 32), 175.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(265.0f, 243.0f, 60.0f);
     optionBarPut(*(Stk1 *)((int)stk + 32));
     v0_1 = *(int *)0x8C40C48C;
@@ -806,7 +806,7 @@ int FUN_8c0da9d0(int a4, float f4)
     *(Stk3 *)(((int)stk + 32)) = vecMake(115.0f, 280.0f, 0.100000001f);
     v0_1 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1D64CC, 0x2, (*(int *)(((int)stk + 116))), 1.0f, 1.0f, 1.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(65.0f, 273.0f, 50.0f);
-    uiPanelPut((*(int *)(((int)stk + 120))), 175.0f);
+    uiPanelPut((*(int *)(((int)stk + 120))), *(Stk3 *)((int)stk + 32), 175.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(265.0f, 273.0f, 60.0f);
     optionBarPut(*(Stk1 *)((int)stk + 32));
     v0_1 = ((((int)stk + 44) + 0x64));
@@ -837,7 +837,7 @@ int FUN_8c0da9d0(int a4, float f4)
     *(Stk3 *)(((int)stk + 32)) = vecMake(105.0f, 310.0f, 0.100000001f);
     v0_1 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1D63F4, 0x2, (*(int *)(((int)stk + 116))), 1.0f, 1.0f, 1.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(65.0f, 303.0f, 50.0f);
-    uiPanelPut((*(int *)(((int)stk + 120))), 175.0f);
+    uiPanelPut((*(int *)(((int)stk + 120))), *(Stk3 *)((int)stk + 32), 175.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(265.0f, 303.0f, 60.0f);
     optionBarPut(*(Stk1 *)((int)stk + 32));
     *(Stk3 *)(((int)stk + 32)) = vecMake(345.0f, 310.0f, 0.100000001f);
@@ -868,7 +868,7 @@ int FUN_8c0da9d0(int a4, float f4)
     *(Stk3 *)(((int)stk + 32)) = vecMake(115.0f, 340.0f, 0.100000001f);
     v0_1 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1D65A4, 0x1, (*(int *)(((int)stk + 116))), 1.0f, 1.0f, 1.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(65.0f, 333.0f, 50.0f);
-    uiPanelPut((*(int *)(((int)stk + 120))), 175.0f);
+    uiPanelPut((*(int *)(((int)stk + 120))), *(Stk3 *)((int)stk + 32), 175.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(265.0f, 333.0f, 60.0f);
     optionBarPut(*(Stk1 *)((int)stk + 32));
     *(Stk3 *)(((int)stk + 32)) = vecMake(345.0f, 340.0f, 0.100000001f);
@@ -902,7 +902,7 @@ int FUN_8c0da9d0(int a4, float f4)
     *(Stk3 *)(((int)stk + 32)) = vecMake(120.0f, 380.0f, 0.100000001f);
     v0_1 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1D6100, 0x1, (*(int *)(((int)stk + 116))), 1.0f, 1.0f, 1.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(65.0f, 373.0f, 50.0f);
-    uiPanelPut((*(int *)(((int)stk + 120))), 175.0f);
+    uiPanelPut((*(int *)(((int)stk + 120))), *(Stk3 *)((int)stk + 32), 175.0f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(265.0f, 373.0f, 60.0f);
     optionBarPut(*(Stk1 *)((int)stk + 32));
     if ((((*(int *)0x8C40C300) & 1) == 0)) goto L_8C0DC940;

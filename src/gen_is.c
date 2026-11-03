@@ -4,7 +4,7 @@
 typedef struct { int w[3]; } Stk3;
 int btnGuideDrawA(int, Stk3);
 extern int countryNamePut();
-int standRowBarDraw(int, int);
+int standRowBarDraw(int, Stk3, int);
 Stk3 vecMake(float, float, float);
 int standTableDraw(int a4, int a5, int a6, int a7, float f4, float f5, float f6);
 
@@ -225,9 +225,9 @@ int standTableDraw(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     *(unsigned int *)(((int)stk + 124)) = (((R9 << 1) + R9) << 2);
     *(unsigned int *)(((int)stk + 112)) = ((((R9 << 1) + R9) << 2) + R10);
     *(Stk3 *)(((int)stk + 88)) = vecMake(((*(float *)((((((R9 << 1) + R9) << 2) + R10) + 0x0))) + (*(float *)0x8C0A482C)), ((*(float *)((((((R9 << 1) + R9) << 2) + R10) + 0x4))) + F14), F13);
-    standRowBarDraw(0x22, (*(int *)(((int)stk + 128))));
+    standRowBarDraw(0x22, *(Stk3 *)((int)stk + 88), (*(int *)(((int)stk + 128))));
     *(Stk3 *)(((int)stk + 88)) = vecMake(((*(float *)((((*(int *)(((int)stk + 124))) + R12) + 0x0))) + (*(float *)0x8C0A4834)), ((*(float *)(((*(int *)(((int)stk + 112))) + 0x4))) + F14), F13);
-    R0 = ((standRowBarDraw(0x22, (*(int *)(((int)stk + 128))))));
+    R0 = ((standRowBarDraw(0x22, *(Stk3 *)((int)stk + 88), (*(int *)(((int)stk + 128))))));
     goto L_8C0A47B2;
     L_8C0A42B4:;
     *(unsigned int *)(((int)stk + 100)) = R2;
@@ -253,9 +253,9 @@ int standTableDraw(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     *(unsigned int *)(((int)stk + 144)) = (((R9 << 1) + R9) << 2);
     *(unsigned int *)(((int)stk + 112)) = ((((R9 << 1) + R9) << 2) + R10);
     *(Stk3 *)(((int)stk + 88)) = vecMake(((*(float *)((((((R9 << 1) + R9) << 2) + R10) + 0x0))) + 152.0f), ((*(float *)((((((R9 << 1) + R9) << 2) + R10) + 0x4))) + F14), F13);
-    standRowBarDraw(0x22, (*(int *)(((int)stk + 128))));
+    standRowBarDraw(0x22, *(Stk3 *)((int)stk + 88), (*(int *)(((int)stk + 128))));
     *(Stk3 *)(((int)stk + 88)) = vecMake(((*(float *)((((*(int *)(((int)stk + 144))) + R12) + 0x0))) + -37.0f), ((*(float *)(((*(int *)(((int)stk + 112))) + 0x4))) + F14), F13);
-    R0 = ((standRowBarDraw(0x22, (*(int *)(((int)stk + 128))))));
+    R0 = ((standRowBarDraw(0x22, *(Stk3 *)((int)stk + 88), (*(int *)(((int)stk + 128))))));
     L_8C0A44D2:;
     L_8C0A44D4:;
     t186 = (int)(R9 + 0x1) >= (int)(*(int *)(((int)stk + 140)));
@@ -281,9 +281,9 @@ int standTableDraw(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     *(unsigned int *)(((int)stk + 144)) = (((R9 << 1) + R9) << 2);
     *(unsigned int *)(((int)stk + 112)) = ((((R9 << 1) + R9) << 2) + R10);
     *(Stk3 *)(((int)stk + 88)) = vecMake(((*(float *)((((((R9 << 1) + R9) << 2) + R10) + 0x0))) + 152.0f), ((*(float *)((((((R9 << 1) + R9) << 2) + R10) + 0x4))) + F14), F13);
-    standRowBarDraw(0x22, (*(int *)(((int)stk + 128))));
+    standRowBarDraw(0x22, *(Stk3 *)((int)stk + 88), (*(int *)(((int)stk + 128))));
     *(Stk3 *)(((int)stk + 88)) = vecMake(((*(float *)((((*(int *)(((int)stk + 144))) + R12) + 0x0))) + -37.0f), ((*(float *)(((*(int *)(((int)stk + 112))) + 0x4))) + F14), F13);
-    R0 = ((standRowBarDraw(0x22, (*(int *)(((int)stk + 128))))));
+    R0 = ((standRowBarDraw(0x22, *(Stk3 *)((int)stk + 88), (*(int *)(((int)stk + 128))))));
     L_8C0A4404:;
     goto L_8C0A44D4;
     L_8C0A43E4:;

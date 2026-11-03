@@ -12,11 +12,9 @@ void camWorldToView(Stk4 s);
 void camWorldToView(Stk4 s)
 {
     int stk[15];
-    int R1012;
 
-    R1012 = *(int *)((int)stk + 12);
 
-    R1012 = s.w[0];
+    (*(int *)((int)stk + 12)) = s.w[0];
     stk[4] = s.w[1];
     stk[5] = s.w[2];
     stk[6] = s.w[3];

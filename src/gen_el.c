@@ -564,20 +564,14 @@ int sprTexLoad(int a4)
 int sprTexFree(int a4)
 {
     int stk[11];
-    int R1024;
-    int R1028;
-    int R1032;
 
-    R1024 = *(int *)((int)stk + 24);
-    R1028 = *(int *)((int)stk + 28);
-    R1032 = *(int *)((int)stk + 32);
 
     { struct mv4 { int w[4]; }; *(struct mv4 *)(((int)stk + 4)) = *(struct mv4 *)((((a4 << 2) << 2) + 0x8C18281C)); }
     *(unsigned short *)(((((int)stk + 4) + 0x10) + 0x0)) = 0xFFFFFFFF;
     *(unsigned short *)(((((int)stk + 4) + 0x10) + 0x2)) = 0xFFFFFFFF;
-    R1024 = 0xFFFFFFFF;
-    R1028 = 0xFFFFFFFF;
-    R1032 = 0xFFFFFFFF;
+    (*(int *)((int)stk + 24)) = 0xFFFFFFFF;
+    (*(int *)((int)stk + 28)) = 0xFFFFFFFF;
+    (*(int *)((int)stk + 32)) = 0xFFFFFFFF;
     nlSetCommonTextureOffset(a4);
     return (nlSpriteFreeTexture(((int)stk + 4), 0x0));
 }
@@ -600,13 +594,7 @@ void panelDigitPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
 int sprTexRestore(int a4)
 {
     int stk[11];
-    int R1024;
-    int R1028;
-    int R1032;
 
-    R1024 = *(int *)((int)stk + 24);
-    R1028 = *(int *)((int)stk + 28);
-    R1032 = *(int *)((int)stk + 32);
 
     { struct mv4 { int w[4]; }; *(struct mv4 *)(((int)stk + 4)) = *(struct mv4 *)((((a4 << 2) << 2) + 0x8C18281C)); }
     *(unsigned short *)(((((int)stk + 4) + 0x10) + 0x0)) = 0xFFFFFFFF;

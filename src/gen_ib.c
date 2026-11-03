@@ -1,7 +1,8 @@
+typedef struct { int w[3]; } Stk3;
 /* Straight-line functions with calls and guards (batch gen_ib): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int camViewToWorld(int, int, int, int, int);
+int camViewToWorld(int, int, int, int, int, Stk3);
 int nlArcTan2(float, float);
 int nlCalcPoint(int, int);
 int nlCalcVector(int, int);

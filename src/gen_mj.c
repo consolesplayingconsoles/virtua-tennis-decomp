@@ -210,7 +210,7 @@ int hudMatchDraw(void)
     R2 = (R9);
     t103 = 0;
     for (; t103 < (int)R0; t103++) *(unsigned char *)(R1 + t103) = *(unsigned char *)(R2 + t103);
-    t106 = ((int (*)(int, int, int, float, float))(hudPlayerPanelDraw))((*(int *)((R12 + 0x0))), (*(int *)((R13 + 0x0))), 0x0, F12, F14);
+    t106 = ((int (*)(int, int, int, Stk3, float, float))(hudPlayerPanelDraw))((*(int *)((R12 + 0x0))), (*(int *)((R13 + 0x0))), 0x0, *(Stk3 *)(((int)stk + 20)), F12, F14);
     *(float *)((R9 + 0x4)) = ((*(float *)((R9 + 0x4))) + 18.0f);
     *(float *)((R9 + 0x0)) = ((*(float *)((R9 + 0x0))) + 50.0f);
     *(unsigned int *)(((int)stk + 36)) = (R8 + 0xC);

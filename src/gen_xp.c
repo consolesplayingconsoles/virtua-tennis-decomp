@@ -75,18 +75,12 @@ int FUN_8c03488c(int a4)
     register int t88;
     register int t68;
     register int t100;
-    int R1016;
-    int R1032;
-    int R1048;
     int R1076;
     int R1080;
     int R1084;
     int R1088;
     float R1092;
 
-    R1016 = *(int *)((int)stk + 16);
-    R1032 = *(int *)((int)stk + 32);
-    R1048 = *(int *)((int)stk + 48);
     R1076 = *(int *)((int)stk + 76);
     R1080 = *(int *)((int)stk + 80);
     R1084 = *(int *)((int)stk + 84);
@@ -158,15 +152,15 @@ int FUN_8c03488c(int a4)
     circuitNumDraw((*(int *)0x8C2FBD0C), 0x0, 0x8C159D18, 473.0f, 224.0f, 0.699999988f);
     circuitNumDraw((*(int *)0x8C2FBD10), 0x0, 0x8C159D18, 473.0f, 264.0f, 0.699999988f);
     circuitNumDraw((*(int *)0x8C2FBD14), 0x0, 0x8C159D18, 473.0f, 304.0f, 0.699999988f);
-    R1048 = (((int)stk + 52) + 0x6C);
+    (*(int *)((int)stk + 48)) = (((int)stk + 52) + 0x6C);
     *(Stk3 *)((((int)stk + 52) + 0x6C)) = vecMake(105.0f, 352.0f, 0.699999988f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)((((int)stk + 52) + 0x6C)); }
     sprPutAtAlpha(0x8C33E370, *(Stk3 *)(((int)stk + 36)), 1.0f);
-    R1032 = (((int)stk + 52) + 0x6C);
+    (*(int *)((int)stk + 32)) = (((int)stk + 52) + 0x6C);
     *(Stk3 *)((((int)stk + 52) + 0x6C)) = vecMake(190.0f, 352.0f, 0.699999988f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 52) + 0x6C)); }
     sprPutAtAlpha(0x8C33E3C0, *(Stk3 *)(((int)stk + 20)), 1.0f);
-    R1016 = (((int)stk + 52) + 0x6C);
+    (*(int *)((int)stk + 16)) = (((int)stk + 52) + 0x6C);
     *(Stk3 *)((((int)stk + 52) + 0x6C)) = vecMake(498.0f, 352.0f, 0.699999988f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 52) + 0x6C)); }
     hudFontNumPut((*(int *)0x8C2FBD18), *(Stk3 *)(((int)stk + 4)), 1.0f);

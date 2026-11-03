@@ -28,9 +28,7 @@ int sseleGridDraw(int a4, int a5, int a6, int a7)
     int v0_6;
     float w0_0;
     float w0_1;
-    int R1016;
     int R1020;
-    R1016 = *(int *)((int)stk + 16);
     R1020 = *(int *)((int)stk + 20);
     v0_0 = a4;
     v0_0 = a5;
@@ -51,7 +49,7 @@ int sseleGridDraw(int a4, int a5, int a6, int a7)
     v0_5 = (v0_3);
     L_8C0C18B2:;
     v0_6 = v0_0;
-    R1016 = v0_6;
+    (*(int *)((int)stk + 16)) = v0_6;
     *(Stk3 *)(v0_6) = vecMake(w0_1, (float)((v0_4 * 0x52) + 0x12B), w0_0);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(v0_0); }
     v0_6 = (int)(v0_4 + 0x1) >= (int)0x2;

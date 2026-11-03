@@ -31,11 +31,9 @@ float miniEp2TargetSpawn(int a4)
     register int v0_4;
     register float w0_0;
     register float w0_1;
-    int R1004;
     int R1008;
     int R1012;
     int R1016;
-    R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
     R1016 = *(int *)((int)stk + 16);
@@ -71,7 +69,7 @@ float miniEp2TargetSpawn(int a4)
     v0_4 = R1012;
     nlAddVector((((int)stk + 8) + 0xC), ((((v0_1 << 2) + v0_1) << 2) + v0_4));
     w0_1 = *(float *)((((((v0_1 << 2) + v0_1) << 2) + v0_4) + 0xC));
-    R1004 = ((v0_2 + 0x14) + (v0_1 * v0_3));
+    (*(int *)((int)stk + 4)) = ((v0_2 + 0x14) + (v0_1 * v0_3));
     colliObjInit((((int)stk + 8) + 0xC), 0x0, 0x0, 0x0, ((v0_2 + 0x14) + (v0_1 * v0_3)), w0_1);
     *(unsigned int *)((((v0_2 + 0x14) + (v0_1 * v0_3)) + 0x30)) = (R1016);
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((v0_2 + 0x14) + (v0_1 * v0_3)) + 0x24)) = *(struct mv3 *)((((int)stk + 8) + 0xC)); }

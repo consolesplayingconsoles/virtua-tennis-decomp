@@ -1,3 +1,4 @@
+typedef struct { int w[9]; } Stk9;
 /* Straight-line functions with calls and guards (batch gen_v): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
@@ -52,7 +53,7 @@ int vmsfs_init(int, int, int);
 int strmVoiceSetVol(int a4);
 void motFileRequest(int a4, int a5);
 float screenProject(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
-int hudSignSprSet(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
+int hudSignSprSet(int a4, int a5, int a6, int a7, Stk4 p);
 int hudBarDrawAlt(Stk4 s, float f4, float f5);
 int hudBannerInit(void);
 int hudBarDraw(Stk4 s, float f4, float f5);
@@ -61,23 +62,23 @@ float nlSprPutPosSet(int a4, int a5, int a6, float f4, float f5, float f6, float
 int nlsndStreamSetHdInfo(int a4, int a5);
 int mwlSbTrnsDat(int a4, int a5, int a6, int a7, int a8);
 int sprInitRectF(int a4, int a5, int a6, int a7, int a8, int a9);
-int logoBDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
-int panelLogoInit(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
-int panelWidePut(Stk4 s, float f4);
+int logoBDraw(int a4, int a5, int a6, int a7, Stk4 p);
+int panelLogoInit(int a4, int a5, int a6, int a7, Stk4 p);
+int panelWidePut(Stk4 p, float f4);
 int sprSet192Setup(void);
 int buInit(int a4, int a5, int a6, int a7);
 int mainExitToBios(void);
 int cpuStickNudge(int a4);
-int hudBannerPut(Stk4 s, float f4);
+int hudBannerPut(Stk4 p, float f4);
 int adxt_RcvrReplay(int a4);
 int syIntAdrChk_putchar(int a4, int a5);
-int hudFramePutNarrow(Stk4 s, float f4);
-int panelPartAPut(Stk4 s, float f4);
+int hudFramePutNarrow(Stk4 p, float f4);
+int panelPartAPut(Stk4 p, float f4);
 int ADXSTMF_Create(int a4, int a5, int a6, int a7);
 int mwRnaSetNumChan(int a4, int a5);
 int SJRBF_IsGetChunk(int a4, int a5, int a6, int a7);
-int markerShowStart(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14);
-int stageSelFramePut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
+int markerShowStart(int a4, int a5, int a6, int a7, Stk9 p);
+int stageSelFramePut(int a4, int a5, int a6, int a7, Stk4 p);
 int nlInitPrint(void);
 int _pow10(int a4, int a5, int a6);
 
@@ -144,18 +145,16 @@ void motFileRequest(int a4, int a5)
 }
 
 
-int hudSignSprSet(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+int hudSignSprSet(int a4, int a5, int a6, int a7, Stk4 p)
 {
     float u4;
     int stk[13];
-    int R1016;
 
-    R1016 = *(int *)((int)stk + 16);
 
-    stk[1] = a8;
-    stk[2] = a9;
-    stk[3] = a10;
-    R1016 = a11;
+    stk[1] = p.w[0];
+    stk[2] = p.w[1];
+    stk[3] = p.w[2];
+    stk[4] = p.w[3];
     *(unsigned int *)((a4 + 0x0)) = 0x20;
     *(unsigned int *)((a4 + 0x28)) = 0x0;
     *(float *)((a4 + 0x4)) = (*(float *)((((int)stk + 4) + 0x0)));
@@ -327,20 +326,18 @@ int mwlSbTrnsDat(int a4, int a5, int a6, int a7, int a8)
 }
 
 
-int logoBDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+int logoBDraw(int a4, int a5, int a6, int a7, Stk4 p)
 {
     int t0;
     int t2;
     int t4;
     int stk[27];
-    int R1072;
 
-    R1072 = *(int *)((int)stk + 72);
 
-    stk[15] = a8;
-    stk[16] = a9;
-    stk[17] = a10;
-    R1072 = a11;
+    stk[15] = p.w[0];
+    stk[16] = p.w[1];
+    stk[17] = p.w[2];
+    stk[18] = p.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x8)); }
     t0 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(0x8C334EDC, a5, a6, a7, *(Stk3 *)((((int)stk + 52) + 0x8)));
     *(float *)(((((int)stk + 52) + 0x8) + 0x0)) = ((*(float *)(((((int)stk + 52) + 0x8) + 0x0))) + 245.0f);
@@ -355,19 +352,17 @@ int logoBDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
     return (((int (*)(int, Stk3))(sprPutAt))(0x8C334984, *(Stk3 *)((((int)stk + 52) + 0x8))));
 }
 
-int panelLogoInit(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+int panelLogoInit(int a4, int a5, int a6, int a7, Stk4 p)
 {
     float u4;
     float u5;
     int stk[13];
-    int R1016;
 
-    R1016 = *(int *)((int)stk + 16);
 
-    stk[1] = a8;
-    stk[2] = a9;
-    stk[3] = a10;
-    R1016 = a11;
+    stk[1] = p.w[0];
+    stk[2] = p.w[1];
+    stk[3] = p.w[2];
+    stk[4] = p.w[3];
     *(unsigned int *)((a4 + 0x0)) = 0xB;
     *(unsigned int *)((a4 + 0x28)) = 0x0;
     *(float *)((a4 + 0x4)) = (*(float *)((((int)stk + 4) + 0x0)));
@@ -387,18 +382,16 @@ int panelLogoInit(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a
     return 0x2C;
 }
 
-int panelWidePut(Stk4 s, float f4)
+int panelWidePut(Stk4 p, float f4)
 {
     float u2;
     int stk[30];
-    int R1084;
 
-    R1084 = *(int *)((int)stk + 84);
 
-    stk[18] = s.w[0];
-    stk[19] = s.w[1];
-    stk[20] = s.w[2];
-    R1084 = s.w[3];
+    stk[18] = p.w[0];
+    stk[19] = p.w[1];
+    stk[20] = p.w[2];
+    stk[21] = p.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x14)); }
     sprPutAtAlpha(0x8C337CA0, *(Stk3 *)((((int)stk + 52) + 0x14)), f4);
     u2 = *(float *)0x8C090DC0;
@@ -492,17 +485,15 @@ int mainExitToBios(void)
 }
 
 
-int hudBannerPut(Stk4 s, float f4)
+int hudBannerPut(Stk4 p, float f4)
 {
     int stk[17];
-    int R1032;
 
-    R1032 = *(int *)((int)stk + 32);
 
-    stk[5] = s.w[0];
-    stk[6] = s.w[1];
-    stk[7] = s.w[2];
-    R1032 = s.w[3];
+    stk[5] = p.w[0];
+    stk[6] = p.w[1];
+    stk[7] = p.w[2];
+    stk[8] = p.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x4)); }
     return (sprPutAtAlpha(0x8C33D790, *(Stk3 *)((((int)stk + 16) + 0x4)), f4));
 }
@@ -545,17 +536,15 @@ int adxt_RcvrReplay(int a4)
 }
 
 
-int hudFramePutNarrow(Stk4 s, float f4)
+int hudFramePutNarrow(Stk4 p, float f4)
 {
     int stk[26];
-    int R1068;
 
-    R1068 = *(int *)((int)stk + 68);
 
-    stk[14] = s.w[0];
-    stk[15] = s.w[1];
-    stk[16] = s.w[2];
-    R1068 = s.w[3];
+    stk[14] = p.w[0];
+    stk[15] = p.w[1];
+    stk[16] = p.w[2];
+    stk[17] = p.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x10)); }
     sprPutAtAlpha(0x8C33A540, *(Stk3 *)((((int)stk + 40) + 0x10)), f4);
     *(float *)(((((int)stk + 40) + 0x10) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x10) + 0x0))) + 52.0f);
@@ -567,17 +556,15 @@ int hudFramePutNarrow(Stk4 s, float f4)
     return (sprPutAtAlpha(0x8C33A5E0, *(Stk3 *)((((int)stk + 40) + 0x10)), f4));
 }
 
-int panelPartAPut(Stk4 s, float f4)
+int panelPartAPut(Stk4 p, float f4)
 {
     int stk[27];
-    int R1072;
 
-    R1072 = *(int *)((int)stk + 72);
 
-    stk[15] = s.w[0];
-    stk[16] = s.w[1];
-    stk[17] = s.w[2];
-    R1072 = s.w[3];
+    stk[15] = p.w[0];
+    stk[16] = p.w[1];
+    stk[17] = p.w[2];
+    stk[18] = p.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x14)); }
     sprPutAtAlpha(0x8C340120, *(Stk3 *)((((int)stk + 40) + 0x14)), f4);
     *(float *)(((((int)stk + 40) + 0x14) + 0x0)) = ((*(float *)(((((int)stk + 40) + 0x14) + 0x0))) + 18.0f);
@@ -697,19 +684,21 @@ int SJRBF_IsGetChunk(int a4, int a5, int a6, int a7)
     return (((t47 == a6)) ? 1 : 0);
 }
 
-int markerShowStart(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14)
+int markerShowStart(int a4, int a5, int a6, int a7, Stk9 p)
 {
     int t0;
     int t2;
     int stk[18];
 
-    stk[3] = a8;
-    stk[4] = a9;
-    stk[5] = a10;
-    stk[6] = a11;
-    stk[7] = a12;
-    stk[8] = a13;
-    stk[9] = a14;
+    stk[3] = p.w[0];
+    stk[4] = p.w[1];
+    stk[5] = p.w[2];
+    stk[6] = p.w[3];
+    stk[7] = p.w[4];
+    stk[8] = p.w[5];
+    stk[9] = p.w[6];
+    stk[10] = p.w[7];
+    stk[11] = p.w[8];
     *(unsigned int *)(((int)stk + 4)) = a4;
     t0 = set_event2(0x4C, 0x8C088C3E);
     t2 = *(int *)((((*(int *)(((int)stk + 4))) << 2) + 0x8C10DB38));
@@ -727,20 +716,18 @@ int markerShowStart(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int
     return 0x20;
 }
 
-int stageSelFramePut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+int stageSelFramePut(int a4, int a5, int a6, int a7, Stk4 p)
 {
     int t0;
     int t2;
     int t4;
     int stk[32];
-    int R1092;
 
-    R1092 = *(int *)((int)stk + 92);
 
-    stk[20] = a8;
-    stk[21] = a9;
-    stk[22] = a10;
-    R1092 = a11;
+    stk[20] = p.w[0];
+    stk[21] = p.w[1];
+    stk[22] = p.w[2];
+    stk[23] = p.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x1C)); }
     t0 = ((int (*)(int, int, int, int, Stk3))(sprPutAt))(0x8C340AD4, a5, a6, a7, *(Stk3 *)((((int)stk + 52) + 0x1C)));
     *(float *)(((((int)stk + 52) + 0x1C) + 0x0)) = ((*(float *)(((((int)stk + 52) + 0x1C) + 0x0))) + 128.0f);

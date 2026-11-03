@@ -1,8 +1,9 @@
+typedef struct { int w[3]; } Stk3;
 /* Straight-line functions with calls and guards (batch gen_ss): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 int ballBoyPoseIdle(int);
-int camViewToWorld(int, int, int, int, int);
+int camViewToWorld(int, int, int, int, int, Stk3);
 int endingFlyObjPut(int, int, int, int);
 int endingTrophyPut(void);
 int evEndingThrowSpawn(int);
@@ -216,9 +217,8 @@ int endingDraw(int a4)
     nlRotateAY((v0_1 << 2));
     v0_1 = nlArcTan2((*(float *)(((int)stk + 40))), (-(*(float *)(((int)stk + 48)))));
     nlRotateAX((v0_1 << 2));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x14)); }
     R1004 = (((int)stk + 8) + 0x20);
-    camViewToWorld(0x0, 0x0, 0x0, 0x0, R1004);
+    camViewToWorld(0x0, 0x0, 0x0, 0x0, R1004, *(Stk3 *)((((int)stk + 20) + 0x14)));
     v0_1 = nlArcTan2((*(float *)(((int)stk + 40))), (-(*(float *)(((int)stk + 48)))));
     nlRotateAY((v0_1 << 2));
     v0_1 = nlArcTan2((*(float *)(((int)stk + 40))), (-(*(float *)(((int)stk + 48)))));

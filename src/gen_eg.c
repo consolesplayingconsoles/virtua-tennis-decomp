@@ -30,20 +30,16 @@ int VQFBfree(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, i
     int stk[20];
     int R1028;
     int R1032;
-    int R1036;
-    int R1040;
     int R1044;
 
     R1028 = *(int *)((int)stk + 28);
     R1032 = *(int *)((int)stk + 32);
-    R1036 = *(int *)((int)stk + 36);
-    R1040 = *(int *)((int)stk + 40);
     R1044 = *(int *)((int)stk + 44);
 
     R1028 = a8;
     R1032 = a9;
-    R1036 = a10;
-    R1040 = a11;
+    (*(int *)((int)stk + 36)) = a10;
+    (*(int *)((int)stk + 40)) = a11;
     R1044 = a12;
     t0 = *(int *)0x8C20CA0C;
     t1 = R1044;

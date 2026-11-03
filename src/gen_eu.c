@@ -3,16 +3,18 @@
 
 typedef struct { int w[3]; } Stk3;
 int sprPutAtAlpha(int, int, int, int, Stk3, float);
-void sprPutCropV(int a4, int a5, int a6, int a7, int a8, float f4, float f5, float f6);
+void sprPutCropV(int a4, int a5, Stk3 p, float f4, float f5, float f6);
 
-void sprPutCropV(int a4, int a5, int a6, int a7, int a8, float f4, float f5, float f6)
+void sprPutCropV(int a4, int a5, Stk3 p, float f4, float f5, float f6)
 {
     float u2;
     float u3;
     float u5;
     int stk[21];
 
-    stk[12] = a8;
+    stk[12] = p.w[0];
+    stk[13] = p.w[1];
+    stk[14] = p.w[2];
     *(float *)(((int)stk + 20)) = (*(float *)((a4 + 0x18)));
     *(float *)(((int)stk + 16)) = (*(float *)((a4 + 0x20)));
     u2 = *(float *)((a4 + 0x1C));
@@ -28,7 +30,7 @@ void sprPutCropV(int a4, int a5, int a6, int a7, int a8, float f4, float f5, flo
         *(float *)((a4 + 0x14)) = (f6 * u5);
     }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x20)); }
-    sprPutAtAlpha(a4, a5, a6, a7, *(Stk3 *)((((int)stk + 16) + 0x20)), f4);
+    sprPutAtAlpha(a4, a5, 0x0, 0x0, *(Stk3 *)((((int)stk + 16) + 0x20)), f4);
     *(float *)((a4 + 0x18)) = (*(float *)(((int)stk + 20)));
     *(float *)((a4 + 0x1C)) = u2;
     *(float *)((a4 + 0x20)) = (*(float *)(((int)stk + 16)));

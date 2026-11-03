@@ -1153,9 +1153,7 @@ int adxsjd_decexec_start(int a4, int a5, int a6, int a7, float f4)
     float F4;
     float F12;
     int T_;
-    int R1004;
     int R1008;
-    R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
     R4 = a4;
     R6 = a6;
@@ -1203,7 +1201,7 @@ int adxsjd_decexec_start(int a4, int a5, int a6, int a7, float f4)
     L_8C1F06DE:;
     R1008 = (ADXSJD_GetBlkSmpl(R14));
     t29 = *(int *)((R14 + 0xC));
-    R1004 = t29;
+    (*(int *)((int)stk + 4)) = t29;
     t32 = ((int (*)(int, int))((*(int *)(((*(int *)((t29 + 0x0))) + 0x24)))))(t29, 0x0);
     R4 = (((unsigned int)t32 >> 1));
     if (((int)((unsigned int)t32 >> 1) >= (int)(R1008))) goto L_8C1F0714;

@@ -39,7 +39,7 @@ int nlRand(void);
 float nlRandom(void);
 int nlsndSeqRequest(int);
 int playerInit(int, int);
-int primTexVertexSet(int, int, int, int, int, float, float);
+int primTexVertexSet(int, int, int, int, int, Stk3, float, float);
 int selCharInfoDraw(int, int);
 int selModelSpawn(int, int);
 int set_event(int, int);
@@ -159,18 +159,12 @@ int fadeQuadDraw(int a4, int a5, int a6, float f4, float f5)
     vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 112) + 0x24), (*(float *)((a6 + 0x4))), (((float)a5 * (u4 - u3)) + (*(float *)((a6 + 0x8)))), (*(float *)((a6 + 0xC))));
     vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 108) + 0x1C), ((f4 * u2) + (*(float *)((a6 + 0x4)))), (*(float *)((a6 + 0x8))), (*(float *)((a6 + 0xC))));
     vecMake(0x0, 0x0, 0x0, 0x0, (((int)stk + 104) + 0x14), ((f4 * u2) + (*(float *)((a6 + 0x4)))), (((float)a5 * (u4 - u3)) + (*(float *)((a6 + 0x8)))), (*(float *)((a6 + 0xC))));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)((((int)stk + 100) + 0x48)); }
-    primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (((int)stk + 100) + 0x60), (*(float *)((a6 + 0x18))), ((-(*(float *)((a6 + 0x1C)))) + 1.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 72)) = *(struct mv3 *)((((int)stk + 84) + 0x40)); }
-    primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (0x1C + (((int)stk + 100) + 0x60)), (*(float *)((a6 + 0x18))), ((-(*(float *)((a6 + 0x24)))) + 1.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)((((int)stk + 68) + 0x44)); }
-    primTexVertexSet(0xFFFFFFFF, (((((0xFF & (int)(f5 * 255.0f)) << 16) | ((0xFF & (int)(f5 * 255.0f)) << 8)) | (0xFF & (int)(f5 * 255.0f))) | 0xFF000000), 0x0, 0x0, (0x38 + (((int)stk + 100) + 0x60)), u5, ((-(*(float *)((a6 + 0x1C)))) + 1.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 52) + 0x48)); }
-    primTexVertexSet(0xFFFFFFFF, (((((0xFF & (int)(f5 * 255.0f)) << 16) | ((0xFF & (int)(f5 * 255.0f)) << 8)) | (0xFF & (int)(f5 * 255.0f))) | 0xFF000000), 0x0, 0x0, (0x54 + (((int)stk + 100) + 0x60)), u5, ((-(*(float *)((a6 + 0x24)))) + 1.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)((0x94 + ((int)stk + 36))); }
-    primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (0x70 + (((int)stk + 100) + 0x60)), (*(float *)((a6 + 0x20))), ((-(*(float *)((a6 + 0x1C)))) + 1.0f));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0x8C + ((int)stk + 20))); }
-    primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (0x8C + (((int)stk + 100) + 0x60)), (*(float *)((a6 + 0x20))), ((-(*(float *)((a6 + 0x24)))) + 1.0f));
+    primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (((int)stk + 100) + 0x60), *(Stk3 *)((((int)stk + 100) + 0x48)), (*(float *)((a6 + 0x18))), ((-(*(float *)((a6 + 0x1C)))) + 1.0f));
+    primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (0x1C + (((int)stk + 100) + 0x60)), *(Stk3 *)((((int)stk + 84) + 0x40)), (*(float *)((a6 + 0x18))), ((-(*(float *)((a6 + 0x24)))) + 1.0f));
+    primTexVertexSet(0xFFFFFFFF, (((((0xFF & (int)(f5 * 255.0f)) << 16) | ((0xFF & (int)(f5 * 255.0f)) << 8)) | (0xFF & (int)(f5 * 255.0f))) | 0xFF000000), 0x0, 0x0, (0x38 + (((int)stk + 100) + 0x60)), *(Stk3 *)((((int)stk + 68) + 0x44)), u5, ((-(*(float *)((a6 + 0x1C)))) + 1.0f));
+    primTexVertexSet(0xFFFFFFFF, (((((0xFF & (int)(f5 * 255.0f)) << 16) | ((0xFF & (int)(f5 * 255.0f)) << 8)) | (0xFF & (int)(f5 * 255.0f))) | 0xFF000000), 0x0, 0x0, (0x54 + (((int)stk + 100) + 0x60)), *(Stk3 *)((((int)stk + 52) + 0x48)), u5, ((-(*(float *)((a6 + 0x24)))) + 1.0f));
+    primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (0x70 + (((int)stk + 100) + 0x60)), *(Stk3 *)((0x94 + ((int)stk + 36))), (*(float *)((a6 + 0x20))), ((-(*(float *)((a6 + 0x1C)))) + 1.0f));
+    primTexVertexSet(0xFFFFFFFF, 0xFF000000, 0x0, 0x0, (0x8C + (((int)stk + 100) + 0x60)), *(Stk3 *)((0x8C + ((int)stk + 20))), (*(float *)((a6 + 0x20))), ((-(*(float *)((a6 + 0x24)))) + 1.0f));
     return (nlDispStripTexOfsTrnsl(0x6, (((int)stk + 100) + 0x60), (*(int *)((a6 + 0x0)))));
 }
 

@@ -1,3 +1,4 @@
+typedef struct { int w[4]; } Stk4;
 /* Straight-line functions with calls and guards (batch gen_po): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
@@ -7,9 +8,9 @@ int hudFontNumPut(int, Stk3, float);
 int memset(int, int, int);
 int rankDrawCharaIcon(int, int, Stk3);
 int rankDrawString(int, int, int, Stk3, Stk1);
-int rankDrawTbl1(int a4, int a5, int a6, int a7, int a8);
+int rankDrawTbl1(int a4, int a5, int a6, int a7, Stk4 p);
 
-int rankDrawTbl1(int a4, int a5, int a6, int a7, int a8)
+int rankDrawTbl1(int a4, int a5, int a6, int a7, Stk4 p)
 {
     int t25;
     int t30;
@@ -47,6 +48,10 @@ int rankDrawTbl1(int a4, int a5, int a6, int a7, int a8)
     float R1064;
     int R1068;
     int R1072;
+    stk[38] = p.w[0];
+    stk[39] = p.w[1];
+    stk[40] = p.w[2];
+    stk[41] = p.w[3];
     R1044 = *(float *)((int)stk + 44);
     R1048 = *(int *)((int)stk + 48);
     R1052 = *(int *)((int)stk + 52);
@@ -55,7 +60,6 @@ int rankDrawTbl1(int a4, int a5, int a6, int a7, int a8)
     R1064 = *(float *)((int)stk + 64);
     R1068 = *(int *)((int)stk + 68);
     R1072 = *(int *)((int)stk + 72);
-    stk[38] = a8;
     R4 = a4;
     { struct mv4 { int w[4]; }; *(struct mv4 *)((((int)stk + 40) + 0x30)) = *(struct mv4 *)(0x8C126CC8); }
     R1044 = (*(float *)(((((int)stk + 40) + 0x70) + 0x0)));

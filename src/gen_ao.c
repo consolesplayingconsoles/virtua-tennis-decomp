@@ -1,3 +1,4 @@
+typedef struct { int w[3]; } Stk3;
 /* Straight-line functions with calls and guards (batch gen_ao): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
@@ -16,7 +17,7 @@ int kmyReleaseRenderPacket(int);
 int kmyiCheckNativeHandle(int);
 int kmyiCheckTAHandle(int);
 int logoSmallPut(int, int, int, int, int, int, int, int, int, int, int, int);
-int modeMarkPut(float);
+int modeMarkPut(int, int, int, int, int, int, int, int, float);
 int motionBackup(int);
 int motionSwitch(int, int, int, int, float);
 int mwRnaErrCallFunc(int, ...);
@@ -52,7 +53,7 @@ int strmControl(int, int);
 extern int thunk_nlSprPut();
 int vecMake(int, int, int, int, int, float, float, float);
 int vmsfs_read_retry(int, int, int);
-int winPartsPut(int, int, int, int, float, float);
+int winPartsPut(int, Stk3, int, int, int, float, float);
 int vmsfs_read_disk_image(int a4, int a5);
 int evFadeValueTask(int a4);
 int kmLoadTextureRom(int a4, int a5);
@@ -74,7 +75,7 @@ int motionRotateRaw(int a4, float f4, float f5);
 int nlFreeTextureAll(void);
 int nlsndCheckPackReloadError(int a4, int a5);
 int nlLineSendVertex(int a4, int a5, int a6);
-int bgScreenDraw(int a4, int a5, int a6, int a7);
+int bgScreenDraw(int, int, int, int);
 int winDrawFilled(int a4, int a5, int a6, int a7, float f4, float f5);
 int nlExp(float f4);
 float shadowLightMatrixAng(int a4, int a5, float f4, float f5);
@@ -870,9 +871,9 @@ int bgScreenDraw(int a4, int a5, int a6, int a7)
     t4 = ((int (*)(int))(thunk_nlSprPut))(0x8C33D080);
     t5 = ((int (*)(int))(thunk_nlSprPut))(0x8C33D0D0);
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)0x8C098354), (*(float *)0x8C098350), (*(float *)0x8C09834C));
-    modeMarkPut(1.0f);
+    modeMarkPut(0x0, 0x0, 0x0, 0x0, *(volatile int *)((int)stk + 8), *(volatile int *)((int)stk + 8 + 4), *(volatile int *)((int)stk + 8 + 8), *(volatile int *)((int)stk + 8 + 12), 1.0f);
     vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), (*(float *)0x8C098368), (*(float *)0x8C098364), (*(float *)0x8C098360));
-    return (logoSmallPut(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), *(int *)((int)stk + 8 + 24), *(int *)((int)stk + 8 + 28)));
+    return (logoSmallPut(0x0, 0x0, 0x0, 0x0, *(volatile int *)((int)stk + 8), *(volatile int *)((int)stk + 8 + 4), *(volatile int *)((int)stk + 8 + 8), *(volatile int *)((int)stk + 8 + 12), *(volatile int *)((int)stk + 8 + 16), *(volatile int *)((int)stk + 8 + 20), *(volatile int *)((int)stk + 8 + 24), *(volatile int *)((int)stk + 8 + 28)));
 }
 
 int winDrawFilled(int a4, int a5, int a6, int a7, float f4, float f5)
@@ -883,7 +884,7 @@ int winDrawFilled(int a4, int a5, int a6, int a7, float f4, float f5)
 
     *(unsigned int *)(((int)stk + 24)) = (int)(f4 * 255.0f);
     vecMake(a4, a5, a6, a7, ((int)stk + 8), 0.0f, 0.0f, f5);
-    winPartsPut(0x8C1D7110, 0x8C1D736C, 0x4, 0x78, f4, 1.0f);
+    winPartsPut(0x8C1D7110, *(Stk3 *)((int)stk + 8), 0x8C1D736C, 0x4, 0x78, f4, 1.0f);
     t2 = *(int *)(((int)stk + 24));
     t3 = 0x8C1D72C0;
     for (;;) {

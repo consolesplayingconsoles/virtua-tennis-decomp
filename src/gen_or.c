@@ -49,12 +49,10 @@ int kmiFLWCTRLFinalizePass(int a4)
     int R13;
     int R14;
     int T_;
-    int R1004;
     int R1008;
     int R1012;
     int R1016;
     int R1020;
-    R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
     R1016 = *(int *)((int)stk + 16);
@@ -139,7 +137,7 @@ int kmiFLWCTRLFinalizePass(int a4)
     R1016 = t57;
     if ((t57 == 0)) goto L_8C1FA5A0;
     R1008 = (((int)R13 >= 0) ? (0x1 << (R13 & 31)) : ((-(int)R13 & 31) ? ((int)0x1 >> (-(int)R13 & 31)) : ((int)0x1 >> 31)));
-    R1004 = 0x0;
+    (*(int *)((int)stk + 4)) = 0x0;
     kmySetTADMA((R1016), (*(int *)((R14 + 0x3C))), (*(int *)((R9 + ((R14 + 0x44) + R8)))), (*(int *)((R9 + ((0xE4 + R14) + R8)))), 0x0);
     *(unsigned int *)0x8C4607D8 = (kmyRequestDMA((R1016)));
     goto L_8C1FA5E0;

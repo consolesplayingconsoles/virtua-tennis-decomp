@@ -7,10 +7,10 @@ int menuListDraw(int, int, int, int, int, int, int, int, int, int, int, int);
 int nlDispStripTexOfs(int, int, int);
 int sprListPut(int, int, int, Stk3, float, float, float);
 int menuListExec(int a4, int a5, int a6, int a7);
-int rankDrawCharaIcon(int a4, int a5, int a6, int a7, int a8, float f4, float f5, float f6);
+int rankDrawCharaIcon(int a4, int a5, int a6, int a7, Stk3 s, float f4, float f5, float f6);
 
 
-int rankDrawCharaIcon(int a4, int a5, int a6, int a7, int a8, float f4, float f5, float f6)
+int rankDrawCharaIcon(int a4, int a5, int a6, int a7, Stk3 s, float f4, float f5, float f6)
 {
     int t0;
     int t2;
@@ -39,7 +39,9 @@ int rankDrawCharaIcon(int a4, int a5, int a6, int a7, int a8, float f4, float f5
     int t21;
     int stk[59];
 
-    stk[50] = a8;
+    stk[50] = s.w[0];
+    stk[51] = s.w[1];
+    stk[52] = s.w[2];
     t0 = 0x8C126BDC;
     t2 = ((int)stk + 4);
     for (;;) { t3 = *(int *)t0; t0 = (t0 + 4); if ((unsigned int)((0x8C126BDC + 72)) < (unsigned int)t0) break; *(unsigned int *)t2 = t3; t2 = (t2 + 4); }

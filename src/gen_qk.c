@@ -43,17 +43,11 @@ int padVibExec(void)
     int R1008;
     int R1012;
     int R1016;
-    int R1020;
-    int R1024;
-    int R1028;
     int R1032;
     R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
     R1016 = *(int *)((int)stk + 16);
-    R1020 = *(int *)((int)stk + 20);
-    R1024 = *(int *)((int)stk + 24);
-    R1028 = *(int *)((int)stk + 28);
     R1032 = *(int *)((int)stk + 32);
     *(unsigned int *)0x8C40C41C = 0x0;
     R1008 = 0x8C2FBBC8;
@@ -68,7 +62,7 @@ int padVibExec(void)
     L_8C02F3DE:;
     t6 = *(int *)((0x8C29B898 + (R9 << 2)));
     t7 = *(int *)((R8 + (R9 << 2)));
-    R1028 = t6;
+    (*(int *)((int)stk + 28)) = t6;
     t8 = *(int *)((t6 + 0x4));
     R1004 = t8;
     R10 = ((R9 << 2));
@@ -89,7 +83,7 @@ int padVibExec(void)
     if (((t19 - 1) != 0)) goto L_8C02F4B6;
     t22 = *(int *)((R8 + R10));
     t23 = *(int *)((0x8C29B898 + R10));
-    R1024 = t23;
+    (*(int *)((int)stk + 24)) = t23;
     t24 = *(int *)((t23 + 0x4));
     R1032 = t24;
     R4 = (t22);
@@ -126,7 +120,7 @@ int padVibExec(void)
     t50 = R1012;
     t51 = *(int *)((0x8C29B898 + t50));
     t52 = *(int *)((R8 + t50));
-    R1020 = t51;
+    (*(int *)((int)stk + 20)) = t51;
     t53 = *(int *)((t51 + 0x4));
     R10 = (t53);
     R4 = (t52);

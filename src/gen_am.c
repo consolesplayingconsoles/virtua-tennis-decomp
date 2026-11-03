@@ -62,7 +62,7 @@ int circuitStageStart(void);
 float effServeSpeedCalc(int a4);
 int exprPlay(int a4, int a5, int a6);
 float easeSin(int a4, float f4, float f5, float f6);
-int sprPutScaleXArgs(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5);
+int sprPutScaleXArgs(int a4, int a5, int a6, int a7, Stk4 p, float f4, float f5);
 int nlMatrixMode(int a4);
 int nlsndStreamChgFilter(int a4, int a5, int a6);
 void umpireStart(void);
@@ -79,7 +79,7 @@ int circuitStatsStart(void);
 int nlsnd_PL_WaitAica1(void);
 int nlsnd_PL_WaitBlockMove(void);
 int mwRnaGetOutPan(int a4, int a5);
-int cpuInRange(Stk4 s);
+int cpuInRange(Stk3, Stk3, Stk3);
 int endingWinnerRootSync(int a4, int a5, int a6, int a7);
 int cpuDebugLine2(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
 int mwRnaGetOutVol(int a4);
@@ -467,17 +467,15 @@ float easeSin(int a4, float f4, float f5, float f6)
     return u7;
 }
 
-int sprPutScaleXArgs(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5)
+int sprPutScaleXArgs(int a4, int a5, int a6, int a7, Stk4 p, float f4, float f5)
 {
     int stk[14];
-    int R1020;
 
-    R1020 = *(int *)((int)stk + 20);
 
-    stk[2] = a8;
-    stk[3] = a9;
-    stk[4] = a10;
-    R1020 = a11;
+    stk[2] = p.w[0];
+    stk[3] = p.w[1];
+    stk[4] = p.w[2];
+    stk[5] = p.w[3];
     *(float *)((a4 + 0x4)) = (*(float *)(((((int)stk + 4) + 0x4) + 0x0)));
     *(float *)((a4 + 0x8)) = (*(float *)(((((int)stk + 4) + 0x4) + 0x4)));
     *(float *)((a4 + 0xC)) = (*(float *)(((((int)stk + 4) + 0x4) + 0x8)));
@@ -699,28 +697,18 @@ int mwRnaGetOutPan(int a4, int a5)
     return (*(int *)(((a4 + 0x64) + (a5 << 2))));
 }
 
-int cpuInRange(Stk4 s)
+int cpuInRange(Stk3 a, Stk3 b, Stk3 c)
 {
     float u0;
     float u1;
-    int stk[13];
-    int R1008;
-    int R1012;
 
-    R1008 = *(int *)((int)stk + 8);
-    R1012 = *(int *)((int)stk + 12);
-
-    stk[1] = s.w[0];
-    R1008 = s.w[1];
-    R1012 = s.w[2];
-    stk[4] = s.w[3];
-    u0 = *(float *)((((int)stk + 4) + 0x0));
-    u1 = *(float *)(((((int)stk + 4) + 0xC) + 0x0));
+    u0 = *(float *)&a.w[0];
+    u1 = *(float *)&b.w[0];
     if (u0 > u1) {
-        *(float *)((((int)stk + 4) + 0x0)) = u1;
-        *(float *)(((((int)stk + 4) + 0xC) + 0x0)) = u0;
+        *(float *)&a.w[0] = u1;
+        *(float *)&b.w[0] = u0;
     }
-    if (!((*(float *)((((int)stk + 4) + 0x0))) > *(float *)&s.w[6]) && !(*(float *)&s.w[6] > *(float *)&s.w[3])) {
+    if (!((*(float *)&a.w[0]) > *(float *)&c.w[0]) && !(*(float *)&c.w[0] > *(float *)&b.w[0])) {
         return 1;
     }
     return 0;

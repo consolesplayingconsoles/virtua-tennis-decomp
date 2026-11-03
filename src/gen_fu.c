@@ -26,10 +26,10 @@ int vecAdd(int, int, int, int, int);
 Stk3 vecMake(float, float, float);
 int winDrawA(int, int, Stk3, float, float, float);
 int selPortsExec(int a4, int a5);
-int primPanelDraw(Stk1 s);
+int primPanelDraw(Stk3 p);
 
 
-int primPanelDraw(Stk1 s)
+int primPanelDraw(Stk3 p)
 {
     float u0;
     int t54;
@@ -40,9 +40,11 @@ int primPanelDraw(Stk1 s)
     int stk[74];
     int R1128;
 
+    stk[65] = p.w[0];
+    stk[66] = p.w[1];
+    stk[67] = p.w[2];
     R1128 = *(int *)((int)stk + 128);
 
-    stk[65] = s.w[0];
     R1128 = 0xE3;
     u0 = *(float *)0x8C18D2D0;
     *(float *)0x8C18D2DC = (float)(int)(u0 * 0.600000024f);

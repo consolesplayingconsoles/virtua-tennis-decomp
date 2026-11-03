@@ -1,3 +1,4 @@
+typedef struct { int w[4]; } Stk4;
 /* Straight-line functions with calls and guards (batch gen_u): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
@@ -59,12 +60,12 @@ int sprInitRect(int a4, int a5, int a6, int a7, int a8, int a9, int a10);
 int scoreBoardSync(void);
 int hudCallMsgDrawD830(float f4, float f5);
 int hudCallMsgDrawD8d0(float f4, float f5);
-int hudFontSprSet(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
-int hudFont2SprSet(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
+int hudFontSprSet(int a4, int a5, int a6, int a7, Stk4 p);
+int hudFont2SprSet(int a4, int a5, int a6, int a7, Stk4 p);
 int buFbrCreateServer(int a4);
 int circuitDrawPicture(void);
 int ndbPack(int a4, int a5, int a6);
-int bgSprInitRect(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
+int bgSprInitRect(int a4, int a5, int a6, int a7, Stk4 p);
 int hudCallMsgDrawDa10(float f4, float f5);
 int hudCallMsgDrawD9c0(float f4, float f5);
 int hudCallMsgDrawD970(float f4, float f5);
@@ -193,12 +194,8 @@ int emotDebugPrint(int a4)
     float u15;
     int t12;
     int stk[15];
-    float R1024;
-    int R1028;
     int R1032;
 
-    R1024 = *(float *)((int)stk + 24);
-    R1028 = *(int *)((int)stk + 28);
     R1032 = *(int *)((int)stk + 32);
 
     R1032 = a4;
@@ -207,7 +204,7 @@ int emotDebugPrint(int a4)
     if (t0 == 77) {
         nlLocate(0xF, 0xA);
         t2 = R1032;
-        R1028 = (t2 * 0x270);
+        (*(int *)((int)stk + 28)) = (t2 * 0x270);
         nlPrintf(0x8C123218, ((*(int *)((((t2 * 0x270) + 0x8C34B4F4) + 0x26C)))));
         nlPrintf(0x8C123228, ((*(int *)((((t2 * 0x270) + 0x8C34B4F4) + 0x264)))));
         nlPrintf(0x8C123234, ((*(int *)((((t2 * 0x270) + 0x8C34B4F4) + 0x264)))));
@@ -222,7 +219,7 @@ int emotDebugPrint(int a4)
             t12 = (t12 << 2);
             t12 = (t12 + ((t2 * 0x270) + 0x8C34B4F4));
             u15 = *(float *)((t12 + 0x8));
-            R1024 = u15;
+            (*(float *)((int)stk + 24)) = u15;
             nlPrintf(0x8C123240, ((*(int *)((t12 + 0x0)))), ((*(int *)((t12 + 0x4)))), u15);
             t13 = (t13 + 0x1);
         }
@@ -324,18 +321,16 @@ int hudCallMsgDrawD8d0(float f4, float f5)
     return (sprPutCropV(0x8C33D880, 0x0, *(Stk3 *)(((int)stk + 40)), f4, 1.0f, f5));
 }
 
-int hudFontSprSet(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+int hudFontSprSet(int a4, int a5, int a6, int a7, Stk4 p)
 {
     float u4;
     int stk[13];
-    int R1016;
 
-    R1016 = *(int *)((int)stk + 16);
 
-    stk[1] = a8;
-    stk[2] = a9;
-    stk[3] = a10;
-    R1016 = a11;
+    stk[1] = p.w[0];
+    stk[2] = p.w[1];
+    stk[3] = p.w[2];
+    stk[4] = p.w[3];
     *(unsigned int *)((a4 + 0x0)) = 0x1B;
     *(unsigned int *)((a4 + 0x28)) = 0x0;
     *(float *)((a4 + 0x4)) = (*(float *)((((int)stk + 4) + 0x0)));
@@ -354,18 +349,16 @@ int hudFontSprSet(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a
     return 0x2C;
 }
 
-int hudFont2SprSet(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+int hudFont2SprSet(int a4, int a5, int a6, int a7, Stk4 p)
 {
     float u4;
     int stk[13];
-    int R1016;
 
-    R1016 = *(int *)((int)stk + 16);
 
-    stk[1] = a8;
-    stk[2] = a9;
-    stk[3] = a10;
-    R1016 = a11;
+    stk[1] = p.w[0];
+    stk[2] = p.w[1];
+    stk[3] = p.w[2];
+    stk[4] = p.w[3];
     *(unsigned int *)((a4 + 0x0)) = 0x2;
     *(unsigned int *)((a4 + 0x28)) = 0x0;
     *(float *)((a4 + 0x4)) = (*(float *)((((int)stk + 4) + 0x0)));
@@ -451,18 +444,16 @@ int circuitDrawPicture(void)
 }
 
 
-int bgSprInitRect(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+int bgSprInitRect(int a4, int a5, int a6, int a7, Stk4 p)
 {
     float u4;
     int stk[13];
-    int R1016;
 
-    R1016 = *(int *)((int)stk + 16);
 
-    stk[1] = a8;
-    stk[2] = a9;
-    stk[3] = a10;
-    R1016 = a11;
+    stk[1] = p.w[0];
+    stk[2] = p.w[1];
+    stk[3] = p.w[2];
+    stk[4] = p.w[3];
     *(unsigned int *)((a4 + 0x0)) = 0x0;
     *(unsigned int *)((a4 + 0x28)) = 0x0;
     *(float *)((a4 + 0x4)) = (*(float *)((((int)stk + 4) + 0x0)));

@@ -4,7 +4,7 @@
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[6]; } Stk6;
 int nlDispStripTrnsl(int, int);
-int primVertexSet(int, int, int, int, int);
+int primVertexSet(int, int, int, int, int, Stk3);
 Stk3 vecMake(float, float, float);
 int primLineV(int a4, int a5, Stk6 s);
 
@@ -27,16 +27,16 @@ int primLineV(int a4, int a5, Stk6 s)
     R1020 = a4;
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((((int)stk + 20) + 0x5C) + 0x0))), (*(float *)(((((int)stk + 20) + 0x5C) + 0x4))), (*(float *)(((((int)stk + 20) + 0x5C) + 0x8))));
     R1004 = (((int)stk + 20) + 0x4);
-    primVertexSet(a5, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x4));
+    primVertexSet(a5, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x4), *(Stk3 *)((int)stk + 8));
     t4 = R1020;
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((((int)stk + 20) + 0x5C) + 0x0))) - (float)t4), (*(float *)(((((int)stk + 20) + 0x5C) + 0x4))), (*(float *)(((((int)stk + 20) + 0x5C) + 0x8))));
     R1004 = (0x10 + (((int)stk + 20) + 0x4));
-    primVertexSet(a5, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x4)));
+    primVertexSet(a5, 0x0, 0x0, 0x0, (0x10 + (((int)stk + 20) + 0x4)), *(Stk3 *)((int)stk + 8));
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((((int)stk + 20) + 0x68) + 0x0))), (*(float *)(((((int)stk + 20) + 0x68) + 0x4))), (*(float *)(((((int)stk + 20) + 0x68) + 0x8))));
     R1004 = (0x20 + (((int)stk + 20) + 0x4));
-    primVertexSet(a5, 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x4)));
+    primVertexSet(a5, 0x0, 0x0, 0x0, (0x20 + (((int)stk + 20) + 0x4)), *(Stk3 *)((int)stk + 8));
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((((int)stk + 20) + 0x68) + 0x0))) - (float)t4), (*(float *)(((((int)stk + 20) + 0x68) + 0x4))), (*(float *)(((((int)stk + 20) + 0x68) + 0x8))));
     R1004 = (0x30 + (((int)stk + 20) + 0x4));
-    primVertexSet(a5, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x4)));
+    primVertexSet(a5, 0x0, 0x0, 0x0, (0x30 + (((int)stk + 20) + 0x4)), *(Stk3 *)((int)stk + 8));
     return (nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x4)));
 }

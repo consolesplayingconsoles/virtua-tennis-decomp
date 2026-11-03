@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int camViewToWorld(int, int, int, int, int);
+int camViewToWorld(int, int, int, int, int, Stk3);
 int cpuAimPointSet(int, int, float, float);
 int cpuDblAimAddCorners(int, int);
 int cpuDblAimAddCourt(int, int);
@@ -121,7 +121,7 @@ int FUN_8c013714(int a4)
         nlPrintf(0x8C101424, u54, u53, u52);
         *(Stk3 *)(((int)stk + 36)) = vecMake(0.0f, 0.0f, -100.0f);
         *(int *)((int)stk + 32) = (((int)stk + 48) + 0x18);
-        camViewToWorld(0x0, 0x0, 0x0, 0x0, (((int)stk + 48) + 0x18));
+        camViewToWorld(0x0, 0x0, 0x0, 0x0, (((int)stk + 48) + 0x18), *(Stk3 *)((int)stk + 36));
         u57 = *(float *)(((((int)stk + 48) + 0x18) + 0x8));
         *(float *)(((int)stk + 28)) = u57;
         u58 = *(float *)(((((int)stk + 48) + 0x18) + 0x4));

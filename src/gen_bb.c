@@ -39,7 +39,7 @@ int nlsndSeqRequest(int);
 int nlsndSystemControl(int, int, int);
 int primRectFrame(int, int, int, int, Stk3);
 int primSprDrawScaleAlpha(int, int, int, int, Stk3, float, float, float);
-int primTexVertexSet(int, int, int, int, int, float, float);
+int primTexVertexSet(int, int, int, int, int, Stk3, float, float);
 int selModelSpawn(int, int);
 int serveGetServer(void);
 int set_event(int, int);

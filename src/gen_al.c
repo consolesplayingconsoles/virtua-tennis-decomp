@@ -108,15 +108,15 @@ int arcadePickRival(int a4, int a5);
 int charaModelCount(int a4);
 void umpCallLet(void);
 int umpCallGamePoint(void);
-int uiBarStretchPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
+int uiBarStretchPut(int a4, int a5, int a6, int a7, Stk4 p, float f4);
 int getID_Color(int a4, float f4);
 int nlSpriteSetGarbagedTextureOnce_Sub(int a4, int a5, int a6);
 int motionRootAtFrame(int a4, int a5, int a6, int a7, int a8);
 int ambEventStart(void);
 int lightPlayerApply(int a4);
 int gdFsOpenRangeG(int a4, int a5);
-int sprPutScaledAlpha(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5);
-int menuTextTimePut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
+int sprPutScaledAlpha(int a4, int a5, int a6, int a7, Stk4 p, float f4, float f5);
+int menuTextTimePut(int a4, int a5, int a6, int a7, Stk4 p, float f4);
 int stageLoadBegin(int a4);
 void umpCallMatchPoint(void);
 void umpCallSpareA(void);
@@ -511,12 +511,10 @@ void vecOrbit(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, 
 {
     int stk[29];
     float R1040;
-    int R1068;
 
     R1040 = *(float *)((int)stk + 40);
-    R1068 = *(int *)((int)stk + 68);
 
-    R1068 = a8;
+    (*(int *)((int)stk + 68)) = a8;
     stk[18] = a9;
     stk[19] = a10;
     stk[20] = a11;
@@ -532,7 +530,7 @@ void vecOrbit(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, 
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x10)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x34)); }
     vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 8) + 0x28));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((R1068)) = *(struct mv3 *)((((int)stk + 4) + 0x2C)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)((int)stk + 68)))) = *(struct mv3 *)((((int)stk + 4) + 0x2C)); }
 }
 
 void umpCallOut(void)
@@ -783,17 +781,15 @@ int umpCallGamePoint(void)
     return 0x8C421F60;
 }
 
-int uiBarStretchPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
+int uiBarStretchPut(int a4, int a5, int a6, int a7, Stk4 p, float f4)
 {
     int stk[19];
-    int R1040;
 
-    R1040 = *(int *)((int)stk + 40);
 
-    stk[7] = a8;
-    stk[8] = a9;
-    stk[9] = a10;
-    R1040 = a11;
+    stk[7] = p.w[0];
+    stk[8] = p.w[1];
+    stk[9] = p.w[2];
+    stk[10] = p.w[3];
     *(float *)((((a4 + 0x6C) + 0xC) + 0x18)) = 3.0f;
     *(float *)((((a4 + 0x6C) + 0xC) + 0x0)) = 3.0f;
     *(float *)((((a4 + 0x6C) + 0xC) + 0x48)) = ((float)a5 + 3.0f);
@@ -953,20 +949,18 @@ int gdFsOpenRangeG(int startFad, int sectorCount)
     return openedHandleAddress;
 }
 
-int sprPutScaledAlpha(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5)
+int sprPutScaledAlpha(int a4, int a5, int a6, int a7, Stk4 p, float f4, float f5)
 {
     float u0;
     float u1;
     float u2;
     int stk[18];
-    int R1036;
 
-    R1036 = *(int *)((int)stk + 36);
 
-    stk[6] = a8;
-    stk[7] = a9;
-    stk[8] = a10;
-    R1036 = a11;
+    stk[6] = p.w[0];
+    stk[7] = p.w[1];
+    stk[8] = p.w[2];
+    stk[9] = p.w[3];
     u0 = *(float *)((a4 + 0x10));
     u1 = *(float *)((a4 + 0x14));
     u2 = *(float *)((a4 + 0x2C));
@@ -983,7 +977,7 @@ int sprPutScaledAlpha(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
     return 0x2C;
 }
 
-int menuTextTimePut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
+int menuTextTimePut(int a4, int a5, int a6, int a7, Stk4 p, float f4)
 {
     int t0;
     int t1;
@@ -991,14 +985,12 @@ int menuTextTimePut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int
     int t4;
     int t6;
     int stk[23];
-    int R1056;
 
-    R1056 = *(int *)((int)stk + 56);
 
-    stk[11] = a8;
-    stk[12] = a9;
-    stk[13] = a10;
-    R1056 = a11;
+    stk[11] = p.w[0];
+    stk[12] = p.w[1];
+    stk[13] = p.w[2];
+    stk[14] = p.w[3];
     t0 = (int)((int)a4 / (int)0x3C);
     t1 = (int)((int)t0 / (int)0x3C);
     t3 = ((int)((int)t0 % (int)0x3C));
@@ -1168,25 +1160,19 @@ float cpuSegCrossXZ(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int
     float u18;
     float u11;
     int stk[21];
-    int R1020;
-    int R1032;
-    int R1044;
 
-    R1020 = *(int *)((int)stk + 20);
-    R1032 = *(int *)((int)stk + 32);
-    R1044 = *(int *)((int)stk + 44);
 
     stk[1] = a8;
     stk[2] = a9;
     stk[3] = a10;
     stk[4] = a11;
-    R1020 = a12;
+    (*(int *)((int)stk + 20)) = a12;
     stk[6] = a13;
     stk[7] = a14;
-    R1032 = a15;
+    (*(int *)((int)stk + 32)) = a15;
     stk[9] = a16;
     stk[10] = a17;
-    R1044 = a18;
+    (*(int *)((int)stk + 44)) = a18;
     stk[12] = a19;
     *(float *)((a4 + 0x4)) = (*(float *)((((int)stk + 4) + 0x4)));
     u1 = *(float *)(((((int)stk + 4) + 0xC) + 0x0));

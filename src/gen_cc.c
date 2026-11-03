@@ -1066,11 +1066,9 @@ int pdVmsLcdIsReady(int a4)
     int t6;
     int t7;
     int stk[6];
-    int R1004;
 
-    R1004 = *(int *)((int)stk + 4);
 
-    R1004 = a4;
+    (*(int *)((int)stk + 4)) = a4;
     t0 = kdGetDeviceInfo(a4);
     t1 = kdDevGetLCDInfo((((int)stk + 4) + 0x4), t0);
     if (((int)t1 >= 0) && ((t2 = *(int *)((t0 + 0x0)), t2 == 14) && ((t3 = *(short *)(((int)stk + 8)), (unsigned short)t3 == 1) && ((t4 = *(short *)(((int)stk + 10)), (unsigned short)t4 == 0xC0) && ((t5 = *(short *)(((int)stk + 12)), (unsigned short)t5 == 1) && ((t6 = *(signed char *)(((int)stk + 14)), t6 == 0) && (t7 = *(signed char *)(((int)stk + 15)), t7 == 0))))))) {

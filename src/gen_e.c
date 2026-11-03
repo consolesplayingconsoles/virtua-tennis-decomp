@@ -1,3 +1,4 @@
+typedef struct { int w[6]; } Stk6;
 /* Straight-line functions with calls and guards (batch gen_e): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
@@ -57,7 +58,7 @@ int motionSetFrame(int, float);
 int vecMake(float, float, float);
 float vecDist(Stk3, Stk3);
 int mtxGetPos(int, int, int);
-int vecAnglesTo(int, int);
+int vecAnglesTo(int, int, Stk6);
 int camInit(void);
 int sprCellInit(int, int);
 int serveGetServer(void);
@@ -130,7 +131,7 @@ int minigameSpriteLoad(void);
 int gameSpriteLoad(void);
 int courtPropsInit(void);
 int matchSceneInit(void);
-int primSprDraw(int, int, int, int);
+int primSprDraw(int, int, int, int, Stk3);
 int emotKeysSort(int);
 int emotFaceReset(int);
 int sprMatchInit(void);
@@ -173,7 +174,7 @@ int menuSprInit(int, int, int);
 int lineJudgeDraw(void);
 int lineJudgeUpdate(void);
 int netJudgePose(int);
-int netJudgeUpdate(void);
+int netJudgeUpdate(int);
 int netJudgeDraw(void);
 int staffShadowFlat(void);
 int staffShadowMulti(int);
@@ -330,10 +331,10 @@ int memcpy2(int, int, int);
 int memmove(int, int, int);
 int memset(int, int, int);
 int motionAdvanceSimple(int);
-int motionRoot(void);
-int motionRoot2(void);
-int motionRotate(void);
-int motionRotate2(void);
+int motionRoot(int);
+int motionRoot2(int);
+int motionRotate(int);
+int motionRotate2(int);
 int motionSwitch(int, int, int, int, float);
 int mpdrv_clear_deviceinfo(int);
 int mpdrv_make_deviceinfo(int, int, int);
@@ -684,7 +685,7 @@ void motionSetCurrent(int a4)
     *(unsigned int *)0x8C2873C0 = 0x0;
 }
 
-int motionRootAuto(void)
+int motionRootAuto(int a4)
 {
     int t0;
     int t1;
@@ -695,14 +696,14 @@ int motionRootAuto(void)
     if (t1 != 0) {
         u2 = *(float *)((t0 + 0x4));
         if (u2 == 0.0f) {
-            return motionRoot();
+            return motionRoot(a4);
         }
-        return motionRoot2();
+        return motionRoot2(a4);
     }
-    return motionRoot();
+    return motionRoot(a4);
 }
 
-int motionRotateAuto(void)
+int motionRotateAuto(int a4)
 {
     int t0;
     int t1;
@@ -713,11 +714,11 @@ int motionRotateAuto(void)
     if (t1 != 0) {
         u2 = *(float *)((t0 + 0x4));
         if (u2 == 0.0f) {
-            return motionRotate();
+            return motionRotate(a4);
         }
-        return motionRotate2();
+        return motionRotate2(a4);
     }
-    return motionRotate();
+    return motionRotate(a4);
 }
 
 int motFileInit(void)
@@ -861,15 +862,11 @@ void camProject(int a4, int a5)
     float u6;
     float u7;
     int stk[1];
-    float R1004;
-    float R1008;
     float R1012;
 
-    R1004 = *(float *)((int)stk + 4);
-    R1008 = *(float *)((int)stk + 8);
     R1012 = *(float *)((int)stk + 12);
 
-    u0 = R1004;
+    u0 = (*(float *)((int)stk + 4));
     u1 = *(float *)0x8C287A10;
     u2 = R1012;
     u3 = (-u2);
@@ -877,7 +874,7 @@ void camProject(int a4, int a5)
         u3 = u2;
     }
     *(float *)((a4 + 0x0)) = ((u0 * u1) / u3);
-    u4 = R1008;
+    u4 = (*(float *)((int)stk + 8));
     u5 = *(float *)0x8C287A10;
     u6 = R1012;
     u7 = (-u6);
@@ -887,7 +884,7 @@ void camProject(int a4, int a5)
     *(float *)((a5 + 0x0)) = ((u4 * u5) / u7);
 }
 
-void camViewToWorld(int a4, int a5, int a6, int a7, int a8)
+void camViewToWorld(int a4, int a5, int a6, int a7, int a8, Stk3 s)
 {
     int t4;
     int t5;
@@ -896,13 +893,13 @@ void camViewToWorld(int a4, int a5, int a6, int a7, int a8)
 
     nlPushMatrix(0x0);
     nlLoadMatrix(0x8C287978);
-    nlCalcPoint((((int)stk + 4) + 0x8), (((int)stk + 4) + 0x8));
+    nlCalcPoint(((int)&s.w[0]), ((int)&s.w[0]));
     nlPopMatrix(0x1);
-    t4 = *(int *)(((((int)stk + 4) + 0x8) + 0x8));
+    t4 = s.w[2];
     *(unsigned int *)((a8 + 0x8)) = t4;
-    t5 = *(int *)(((((int)stk + 4) + 0x8) + 0x4));
+    t5 = s.w[1];
     *(unsigned int *)((a8 + 0x4)) = t5;
-    t6 = *(int *)(((((int)stk + 4) + 0x8) + 0x0));
+    t6 = s.w[0];
     *(unsigned int *)((a8 + 0x0)) = t6;
 }
 
@@ -1011,33 +1008,9 @@ int camMoveBeginAtGoal(float f4, float f5)
     float u32;
     float u33;
     int stk[17];
-    int R1004;
-    int R1008;
-    int R1012;
-    int R1016;
-    int R1020;
-    int R1024;
-    int R1028;
-    int R1032;
-    int R1036;
-    int R1040;
-    int R1044;
-    int R1048;
     float R1052;
     float R1056;
 
-    R1004 = *(int *)((int)stk + 4);
-    R1008 = *(int *)((int)stk + 8);
-    R1012 = *(int *)((int)stk + 12);
-    R1016 = *(int *)((int)stk + 16);
-    R1020 = *(int *)((int)stk + 20);
-    R1024 = *(int *)((int)stk + 24);
-    R1028 = *(int *)((int)stk + 28);
-    R1032 = *(int *)((int)stk + 32);
-    R1036 = *(int *)((int)stk + 36);
-    R1040 = *(int *)((int)stk + 40);
-    R1044 = *(int *)((int)stk + 44);
-    R1048 = *(int *)((int)stk + 48);
     R1052 = *(float *)((int)stk + 52);
     R1056 = *(float *)((int)stk + 56);
 
@@ -1049,30 +1022,30 @@ int camMoveBeginAtGoal(float f4, float f5)
         t1 = *(int *)0x8C287634;
         if (t1 != 0) {
             t2 = *(int *)0x8C2875D4;
-            R1048 = t2;
+            (*(int *)((int)stk + 48)) = t2;
             t3 = *(int *)0x8C2875D0;
-            R1044 = t3;
+            (*(int *)((int)stk + 44)) = t3;
             t4 = *(int *)0x8C2875CC;
-            R1040 = t4;
+            (*(int *)((int)stk + 40)) = t4;
             t5 = *(int *)0x8C2875C8;
-            R1036 = t5;
+            (*(int *)((int)stk + 36)) = t5;
             t6 = *(int *)0x8C2875C4;
-            R1032 = t6;
+            (*(int *)((int)stk + 32)) = t6;
             t7 = *(int *)0x8C2875C0;
-            R1028 = t7;
-            vecAnglesTo(0x8C287648, 0x8C28764A);
+            (*(int *)((int)stk + 28)) = t7;
+            vecAnglesTo(0x8C287648, 0x8C28764A, *(Stk6 *)(((int)stk + 28)));
             t9 = *(int *)0x8C2875D4;
-            R1024 = t9;
+            (*(int *)((int)stk + 24)) = t9;
             t10 = *(int *)0x8C2875D0;
-            R1020 = t10;
+            (*(int *)((int)stk + 20)) = t10;
             t11 = *(int *)0x8C2875CC;
-            R1016 = t11;
+            (*(int *)((int)stk + 16)) = t11;
             t12 = *(int *)0x8C2875C8;
-            R1012 = t12;
+            (*(int *)((int)stk + 12)) = t12;
             t13 = *(int *)0x8C2875C4;
-            R1008 = t13;
+            (*(int *)((int)stk + 8)) = t13;
             t14 = *(int *)0x8C2875C0;
-            R1004 = t14;
+            (*(int *)((int)stk + 4)) = t14;
             t15 = vecDist(*(Stk3 *)0x8C2875C0, *(Stk3 *)0x8C2875CC);
             *(float *)0x8C287628 = t15;
         }
@@ -3151,29 +3124,17 @@ int shadowMulShear(void)
     float u5;
     int t6;
     int stk[18];
-    float R1020;
-    float R1024;
-    float R1028;
-    float R1072;
-    float R1076;
-    float R1080;
 
-    R1020 = *(float *)((int)stk + 20);
-    R1024 = *(float *)((int)stk + 24);
-    R1028 = *(float *)((int)stk + 28);
-    R1072 = *(float *)((int)stk + 72);
-    R1076 = *(float *)((int)stk + 76);
-    R1080 = *(float *)((int)stk + 80);
 
     nlPushUnitMatrix();
     nlGetMatrix(((int)stk + 4));
     nlPopMatrix(0x1);
-    u3 = R1072;
-    R1020 = u3;
-    u4 = R1076;
-    R1024 = (u4 + 1.0f);
-    u5 = R1080;
-    R1028 = u5;
+    u3 = (*(float *)((int)stk + 72));
+    (*(float *)((int)stk + 20)) = u3;
+    u4 = (*(float *)((int)stk + 76));
+    (*(float *)((int)stk + 24)) = (u4 + 1.0f);
+    u5 = (*(float *)((int)stk + 80));
+    (*(float *)((int)stk + 28)) = u5;
     t6 = nlMultiMatrix(((int)stk + 4));
     return t6;
 }
@@ -3240,44 +3201,11 @@ void sprInitPos(int a4, int a5)
 
 
 
-int menuIconPutRot(int a4, int a5)
+int menuIconPutRot(int a4, int a5, int a6, int a7, Stk3 s)
 {
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
     int t5;
-    int stk[7];
-    int R1004;
-    int R1008;
-    int R1012;
-    int R1016;
-    int R1020;
-    int R1028;
-    int R1032;
-    int R1036;
 
-    R1004 = *(int *)((int)stk + 4);
-    R1008 = *(int *)((int)stk + 8);
-    R1012 = *(int *)((int)stk + 12);
-    R1016 = *(int *)((int)stk + 16);
-    R1020 = *(int *)((int)stk + 20);
-    R1028 = *(int *)((int)stk + 28);
-    R1032 = *(int *)((int)stk + 32);
-    R1036 = *(int *)((int)stk + 36);
-
-    R1016 = a4;
-    R1020 = a5;
-    t0 = R1036;
-    R1012 = t0;
-    t1 = R1032;
-    R1008 = t1;
-    t2 = R1028;
-    R1004 = t2;
-    t3 = R1016;
-    t4 = R1020;
-    t5 = primSprDraw((((((t3 << 2) + t3) << 2) << 2) + 0x8C334434), 0x80, 0x80, t4);
+    t5 = primSprDraw((((((a4 << 2) + a4) << 2) << 2) + 0x8C334434), 0x80, 0x80, a5, s);
     return t5;
 }
 
@@ -3537,56 +3465,32 @@ void selCopyLocalConstants(void)
     int t10;
     int t11;
     int stk[14];
-    int R1004;
-    int R1008;
-    int R1012;
-    int R1016;
-    int R1020;
-    int R1024;
-    int R1028;
-    int R1032;
-    int R1036;
-    int R1040;
-    int R1044;
-    int R1048;
 
-    R1004 = *(int *)((int)stk + 4);
-    R1008 = *(int *)((int)stk + 8);
-    R1012 = *(int *)((int)stk + 12);
-    R1016 = *(int *)((int)stk + 16);
-    R1020 = *(int *)((int)stk + 20);
-    R1024 = *(int *)((int)stk + 24);
-    R1028 = *(int *)((int)stk + 28);
-    R1032 = *(int *)((int)stk + 32);
-    R1036 = *(int *)((int)stk + 36);
-    R1040 = *(int *)((int)stk + 40);
-    R1044 = *(int *)((int)stk + 44);
-    R1048 = *(int *)((int)stk + 48);
 
     t0 = *(int *)0x8C1103C4;
-    R1048 = t0;
+    (*(int *)((int)stk + 48)) = t0;
     t1 = *(int *)0x8C1103C0;
-    R1044 = t1;
+    (*(int *)((int)stk + 44)) = t1;
     t2 = *(int *)0x8C1103BC;
-    R1040 = t2;
+    (*(int *)((int)stk + 40)) = t2;
     t3 = *(int *)0x8C1103B8;
-    R1036 = t3;
+    (*(int *)((int)stk + 36)) = t3;
     t4 = *(int *)0x8C1103D4;
-    R1032 = t4;
+    (*(int *)((int)stk + 32)) = t4;
     t5 = *(int *)0x8C1103D0;
-    R1028 = t5;
+    (*(int *)((int)stk + 28)) = t5;
     t6 = *(int *)0x8C1103CC;
-    R1024 = t6;
+    (*(int *)((int)stk + 24)) = t6;
     t7 = *(int *)0x8C1103C8;
-    R1020 = t7;
+    (*(int *)((int)stk + 20)) = t7;
     t8 = *(int *)0x8C1103E4;
-    R1016 = t8;
+    (*(int *)((int)stk + 16)) = t8;
     t9 = *(int *)0x8C1103E0;
-    R1012 = t9;
+    (*(int *)((int)stk + 12)) = t9;
     t10 = *(int *)0x8C1103DC;
-    R1008 = t10;
+    (*(int *)((int)stk + 8)) = t10;
     t11 = *(int *)0x8C1103D8;
-    R1004 = t11;
+    (*(int *)((int)stk + 4)) = t11;
 }
 
 
@@ -4950,7 +4854,7 @@ int matchStageSlot(void)
     return 0x0;
 }
 
-void primTexVertexSet(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
+void primTexVertexSet(int a4, int a5, int a6, int a7, int a8, Stk3 s, float f4, float f5)
 {
     float u0;
     float u1;
@@ -4964,11 +4868,11 @@ void primTexVertexSet(int a4, int a5, int a6, int a7, int a8, float f4, float f5
     int t9;
     int stk[9];
 
-    u0 = *(float *)(((((int)stk + 4) + 0x24) + 0x0));
+    u0 = (*(float *)&s.w[0]);
     *(float *)((((int)stk + 4) + 0x0)) = u0;
-    u1 = *(float *)(((((int)stk + 4) + 0x24) + 0x4));
+    u1 = (*(float *)&s.w[1]);
     *(float *)((((int)stk + 4) + 0x4)) = u1;
-    u2 = *(float *)(((((int)stk + 4) + 0x24) + 0x8));
+    u2 = (*(float *)&s.w[2]);
     *(float *)((((int)stk + 4) + 0x8)) = u2;
     *(float *)((((int)stk + 4) + 0xC)) = f4;
     *(float *)((((int)stk + 4) + 0x10)) = f5;
@@ -4990,7 +4894,7 @@ void primTexVertexSet(int a4, int a5, int a6, int a7, int a8, float f4, float f5
     *(unsigned int *)((a8 + 0x0)) = t9;
 }
 
-void primVertexSet(int a4, int a5, int a6, int a7, int a8)
+void primVertexSet(int a4, int a5, int a6, int a7, int a8, Stk3 s)
 {
     float u0;
     float u1;
@@ -5001,11 +4905,11 @@ void primVertexSet(int a4, int a5, int a6, int a7, int a8)
     int t6;
     int stk[6];
 
-    u0 = *(float *)(((((int)stk + 4) + 0x18) + 0x0));
+    u0 = (*(float *)&s.w[0]);
     *(float *)((((int)stk + 4) + 0x0)) = u0;
-    u1 = *(float *)(((((int)stk + 4) + 0x18) + 0x4));
+    u1 = (*(float *)&s.w[1]);
     *(float *)((((int)stk + 4) + 0x4)) = u1;
-    u2 = *(float *)(((((int)stk + 4) + 0x18) + 0x8));
+    u2 = (*(float *)&s.w[2]);
     *(float *)((((int)stk + 4) + 0x8)) = u2;
     *(unsigned int *)((((int)stk + 4) + 0xC)) = a4;
     t3 = *(int *)((((int)stk + 4) + 0xC));
@@ -6004,7 +5908,7 @@ int netJudgeDraw(void)
 
 /* manual: the original is one chain of tests whose branches meet at a shared tail (netJudgeUpdate, then netJudgeDraw); the
    generated form copied that tail into every path (2,664 bytes for 114). r0 at each early return is the value last tested. */
-int netJudgeExec(void)
+int netJudgeExec(int a4)
 {
     int v;
     if (*(int *)0x8C421F60 != 0) {
@@ -6029,7 +5933,7 @@ int netJudgeExec(void)
     if (*(int *)0x8C20D14C == 0 && *(int *)0x8C20D150 == 3) {
         return 3;
     }
-    netJudgeUpdate();
+    netJudgeUpdate(a4);
     return netJudgeDraw();
 }
 
@@ -6241,25 +6145,17 @@ void sprPutCentered(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
     int t6;
     int stk[8];
     float R1004;
-    float R1008;
-    float R1036;
-    float R1040;
-    float R1044;
 
     R1004 = *(float *)((int)stk + 4);
-    R1008 = *(float *)((int)stk + 8);
-    R1036 = *(float *)((int)stk + 36);
-    R1040 = *(float *)((int)stk + 40);
-    R1044 = *(float *)((int)stk + 44);
 
-    u0 = R1036;
+    u0 = (*(float *)((int)stk + 36));
     R1004 = (u0 - (f4 / (1.0f + 1.0f)));
-    u1 = R1040;
-    R1008 = (u1 - (f5 / (1.0f + 1.0f)));
+    u1 = (*(float *)((int)stk + 40));
+    (*(float *)((int)stk + 8)) = (u1 - (f5 / (1.0f + 1.0f)));
     u2 = R1004;
     *(float *)(((((int)stk + 4) + 0xC) + 0x0)) = (float)(int)u2;
     *(float *)(((((int)stk + 4) + 0xC) + 0x4)) = (float)(int)(u1 - (f5 / (1.0f + 1.0f)));
-    u3 = R1044;
+    u3 = (*(float *)((int)stk + 44));
     *(float *)(((((int)stk + 4) + 0xC) + 0x8)) = u3;
     t4 = *(int *)(((((int)stk + 4) + 0xC) + 0x8));
     *(unsigned int *)((a8 + 0x8)) = t4;

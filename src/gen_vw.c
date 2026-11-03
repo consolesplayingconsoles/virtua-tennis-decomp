@@ -14,12 +14,10 @@ int decoHeaderDrawB(int a4, int a5, Stk3 s)
     register float u0;
     register float u1;
     register float u2;
-    int R1100;
     int R1104;
     int R1108;
     int R1112;
 
-    R1100 = *(int *)((int)stk + 100);
     R1104 = *(int *)((int)stk + 104);
     R1108 = *(int *)((int)stk + 108);
     R1112 = *(int *)((int)stk + 112);
@@ -32,7 +30,7 @@ int decoHeaderDrawB(int a4, int a5, Stk3 s)
     u0 = *(float *)(((((int)stk + 104) + 0x34) + 0x8));
     u1 = *(float *)(((((int)stk + 104) + 0x34) + 0x4));
     u2 = *(float *)(((((int)stk + 104) + 0x34) + 0x0));
-    R1100 = (((int)stk + 104) + 0xC);
+    (*(int *)((int)stk + 100)) = (((int)stk + 104) + 0xC);
     *(Stk3 *)((((int)stk + 104) + 0xC)) = vecMake((u2 + -17.0f), (u1 + 21.0f), (u0 + -0.00100000005f));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)((((int)stk + 100) + 0x10)); }
     sprPutAtAlpha(0x8C341D58, *(Stk3 *)(((int)stk + 88)), 1.0f);

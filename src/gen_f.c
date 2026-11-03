@@ -16,8 +16,8 @@ int kmiFLWCTRLStartRenderEntry(void);
 int kmyReleaseRenderPacket(void);
 int kmyiCheckNativeHandle(int);
 int motionBoneOffset(int);
-int motionRoot(void);
-int motionRoot2(void);
+int motionRoot(int);
+int motionRoot2(int);
 int motionRotate(int);
 int motionRotate2(int);
 int nlGetTranslate(int);
@@ -38,15 +38,15 @@ void motionRootBone(int a4, int a5)
     if (t1 != 0) {
         u2 = *(float *)((t0 + 0x4));
         if (u2 == 0.0f) {
-            motionRoot();
+            motionRoot(a4);
             motionRotate(a5);
     return;
         }
-        motionRoot2();
+        motionRoot2(a4);
         motionRotate2(a5);
     return;
     }
-    motionRoot();
+    motionRoot(a4);
     motionRotate(a5);
 }
 

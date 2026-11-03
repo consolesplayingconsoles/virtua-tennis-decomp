@@ -61,7 +61,6 @@ int lineJudgeInit(void)
     int R1024;
     int R1028;
     int R1032;
-    float R1044;
     R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
@@ -70,7 +69,6 @@ int lineJudgeInit(void)
     R1024 = *(int *)((int)stk + 24);
     R1028 = *(int *)((int)stk + 28);
     R1032 = *(int *)((int)stk + 32);
-    R1044 = *(float *)((int)stk + 44);
     t0 = *(int *)0x8C1891E8;
     R4 = (t0);
     if (((int)t0 <= (int)0x9)) goto L_8C0C9026;
@@ -122,7 +120,7 @@ int lineJudgeInit(void)
     *(float *)((((R12 * R14) + R10) + 0x5A4)) = (float)(*(int *)((((((*(int *)((R8 + 0x0))) * R13) + R9) + (R1012)) + 0x0)));
     *(float *)((((R12 * R14) + R10) + 0x5A8)) = (float)(*(int *)((((((*(int *)((R8 + 0x0))) * R13) + R9) + (R1012)) + 0x4)));
     if ((R12 != 7)) goto L_8C0C91AC;
-    u48 = R1044;
+    u48 = (*(float *)((int)stk + 44));
     R2 = (((R12 * R14) + R10));
     F2 = (0.0f);
     F3 = ((float)(*(int *)((((((*(int *)((R8 + 0x0))) * R13) + R9) + (R1012)) + 0x8))));

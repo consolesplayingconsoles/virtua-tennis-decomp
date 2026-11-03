@@ -3,11 +3,11 @@
 
 typedef struct { int w[3]; } Stk3;
 int nlDispStripTrnsl(int, int);
-int primVertexSet(int, int, int, int, int);
+int primVertexSet(int, int, int, int, int, Stk3);
 Stk3 vecMake(float, float, float);
-int resultBoxDraw(int a4, int a5, int a6, int a7, int a8);
+int resultBoxDraw(int a4, int a5, int a6, int a7, Stk3 p);
 
-int resultBoxDraw(int a4, int a5, int a6, int a7, int a8)
+int resultBoxDraw(int a4, int a5, int a6, int a7, Stk3 p)
 {
     int stk[46];
     register int t17;
@@ -26,6 +26,9 @@ int resultBoxDraw(int a4, int a5, int a6, int a7, int a8)
     float R1152;
     float R1156;
 
+    stk[37] = p.w[0];
+    stk[38] = p.w[1];
+    stk[39] = p.w[2];
     R1004 = *(int *)((int)stk + 4);
     R1020 = *(int *)((int)stk + 20);
     R1024 = *(int *)((int)stk + 24);
@@ -34,43 +37,42 @@ int resultBoxDraw(int a4, int a5, int a6, int a7, int a8)
     R1152 = *(float *)((int)stk + 152);
     R1156 = *(float *)((int)stk + 156);
 
-    stk[37] = a8;
     R1020 = (((int)stk + 20) + 0x10);
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((0x80 + ((int)stk + 20)) + 0x0))) + -85.0f), ((R1152) + (-1.0f)), (R1156));
     R1004 = (((int)stk + 20) + 0x10);
-    primVertexSet(a4, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x10));
+    primVertexSet(a4, 0x0, 0x0, 0x0, (((int)stk + 20) + 0x10), *(Stk3 *)((int)stk + 8));
     R1028 = ((((int)stk + 20) + 0x10) + 0x10);
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((0x80 + ((int)stk + 20)) + 0x0))) + -146.0f), ((R1152) + (-1.0f)), (R1156));
     R1004 = ((((int)stk + 20) + 0x10) + 0x10);
-    primVertexSet(a4, 0x0, 0x0, 0x0, ((((int)stk + 20) + 0x10) + 0x10));
+    primVertexSet(a4, 0x0, 0x0, 0x0, ((((int)stk + 20) + 0x10) + 0x10), *(Stk3 *)((int)stk + 8));
     R1032 = ((((int)stk + 20) + 0x10) + 0x20);
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((0x80 + ((int)stk + 20)) + 0x0))) + -85.0f), ((R1152) + 1.0f), (R1156));
     R1004 = ((((int)stk + 20) + 0x10) + 0x20);
-    primVertexSet(a4, 0x0, 0x0, 0x0, ((((int)stk + 20) + 0x10) + 0x20));
+    primVertexSet(a4, 0x0, 0x0, 0x0, ((((int)stk + 20) + 0x10) + 0x20), *(Stk3 *)((int)stk + 8));
     R1024 = ((((int)stk + 20) + 0x10) + 0x30);
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((0x80 + ((int)stk + 20)) + 0x0))) + -146.0f), ((R1152) + 1.0f), (R1156));
     R1004 = ((((int)stk + 20) + 0x10) + 0x30);
-    primVertexSet(a4, 0x0, 0x0, 0x0, ((((int)stk + 20) + 0x10) + 0x30));
+    primVertexSet(a4, 0x0, 0x0, 0x0, ((((int)stk + 20) + 0x10) + 0x30), *(Stk3 *)((int)stk + 8));
     nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x10));
     t17 = R1020;
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((0x80 + ((int)stk + 20)) + 0x0))) + 108.0f), ((R1152) + (-1.0f)), (R1156));
     t21 = t17;
     R1004 = t21;
-    primVertexSet(a5, 0x0, 0x0, 0x0, t21);
+    primVertexSet(a5, 0x0, 0x0, 0x0, t21, *(Stk3 *)((int)stk + 8));
     t23 = R1028;
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((0x80 + ((int)stk + 20)) + 0x0))) + 169.0f), ((R1152) + (-1.0f)), (R1156));
     t27 = t23;
     R1004 = t27;
-    primVertexSet(a5, 0x0, 0x0, 0x0, t27);
+    primVertexSet(a5, 0x0, 0x0, 0x0, t27, *(Stk3 *)((int)stk + 8));
     t29 = R1032;
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((0x80 + ((int)stk + 20)) + 0x0))) + 108.0f), ((R1152) + 1.0f), (R1156));
     t33 = t29;
     R1004 = t33;
-    primVertexSet(a5, 0x0, 0x0, 0x0, t33);
+    primVertexSet(a5, 0x0, 0x0, 0x0, t33, *(Stk3 *)((int)stk + 8));
     t35 = R1024;
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((0x80 + ((int)stk + 20)) + 0x0))) + 169.0f), ((R1152) + 1.0f), (R1156));
     t39 = t35;
     R1004 = t39;
-    primVertexSet(a5, 0x0, 0x0, 0x0, t39);
+    primVertexSet(a5, 0x0, 0x0, 0x0, t39, *(Stk3 *)((int)stk + 8));
     return (nlDispStripTrnsl(0x4, (((int)stk + 20) + 0x10)));
 }

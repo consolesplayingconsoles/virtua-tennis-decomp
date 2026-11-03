@@ -1,10 +1,11 @@
+typedef struct { int w[3]; } Stk3;
 /* Straight-line functions with calls and guards (batch gen_gc): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 int nlDispStripTexOfsTrnsl(int, int, int);
-int uiPanelPut(int a4, int a5, int a6, int a7, int a8, float f4);
+int uiPanelPut(int a4, int a5, int a6, int a7, Stk3 s, float f4);
 
-int uiPanelPut(int a4, int a5, int a6, int a7, int a8, float f4)
+int uiPanelPut(int a4, int a5, int a6, int a7, Stk3 s, float f4)
 {
     int t0;
     int t2;
@@ -18,7 +19,9 @@ int uiPanelPut(int a4, int a5, int a6, int a7, int a8, float f4)
     float u6;
     int stk[133];
 
-    stk[124] = a8;
+    stk[124] = s.w[0];
+    stk[125] = s.w[1];
+    stk[126] = s.w[2];
     *(unsigned int *)(((int)stk + 4)) = a4;
     t0 = 0x8C12696C;
     t2 = (((int)stk + 4) + 0x8);

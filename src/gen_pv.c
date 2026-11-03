@@ -8,10 +8,10 @@ extern int getID_Color();
 int nlsndSeqRequest(int);
 int padDirAny(int);
 int padDirRepeat(int, int);
-int selCursorDraw(int, int, int, float, float);
+int selCursorDraw(int, int, int, int, Stk3, float, float);
 int selCursorInputC(int, int, int, int, int, int, int, int, int);
 int selModelSpawn(int, int);
-int selPanelDraw(int, int, int, float, float);
+int selPanelDraw(int, int, int, Stk3, float, float);
 extern int selSlot0FlagClear();
 int sndSeCursor(void);
 int unlockCountW0(void);
@@ -235,7 +235,7 @@ int selPortsExec(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     if (((*(int *)0x8C287D5C) != 2)) goto L_8C0A7C4A;
     *(Stk3 *)(((int)stk + 20)) = vecMake(87.0f, F12, F14);
     t101 = ((int (*)(int, float))(getID_Color))(R10, F15);
-    selPanelDraw(t101, R10, (*(int *)(((int)stk + 32))), F15, F13);
+    selPanelDraw(t101, R10, (*(int *)(((int)stk + 32))), *(Stk3 *)(((int)stk + 20)), F15, F13);
     L_8C0A7C7C:;
     L_8C0A7C7E:;
     t104 = (int)(R12 + 0x1) < (int)0x4;
@@ -253,7 +253,7 @@ int selPortsExec(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     t116 = (((int (*)(Stk3))(selSlot0FlagClear))(*(Stk3 *)(((int)stk + 20))));
     *(int *)((int)stk + 16) = t116;
     t117 = ((int (*)(int, float))(getID_Color))(0x4, F15);
-    selCursorDraw(t117, 0x4, t116, F15, F14);
+    selCursorDraw(t117, 0x4, t116, 0x0, *(Stk3 *)(((int)stk + 20)), F15, F14);
     L_8C0A7D1E:;
     selCursorInputC(R4, R5, R6, R7, *(int *)((int)stk + 32), *(int *)((int)stk + 32 + 4), *(int *)((int)stk + 32 + 8), *(int *)((int)stk + 32 + 12), *(int *)((int)stk + 32 + 16));
     t123 = R11;
@@ -295,7 +295,7 @@ int selPortsExec(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     t155 = *(int *)(((int)stk + 32));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(((((t155 << 1) + t155) << 2) + (((int)stk + 32) + 0x2C))); }
     t156 = ((int (*)(int, Stk3, float))(getID_Color))(R10, *(Stk3 *)(((int)stk + 20)), F15);
-    selCursorDraw(t156, R10, (*(int *)(((int)stk + 32))), F15, F13);
+    selCursorDraw(t156, R10, (*(int *)(((int)stk + 32))), 0x0, *(Stk3 *)(((int)stk + 20)), F15, F13);
     goto L_8C0A7C7C;
     L_8C0A7C14:;
     F13 = ((*(float *)((R9 + 0x0))));

@@ -50,14 +50,12 @@ float circuitNumDrawSign(int a4, int a5, int a6, float f4, float f5, float f6, f
     int R1016;
     int R1020;
     int R1024;
-    int R1028;
     R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
     R1016 = *(int *)((int)stk + 16);
     R1020 = *(int *)((int)stk + 20);
     R1024 = *(int *)((int)stk + 24);
-    R1028 = *(int *)((int)stk + 28);
     R4 = a4;
     R5 = a5;
     R6 = a6;
@@ -106,7 +104,7 @@ float circuitNumDrawSign(int a4, int a5, int a6, float f4, float f5, float f6, f
     if (t30) goto L_8C033986;
     L_8C033996:;
     t34 = (int)((int)R4 % (int)R13);
-    R1028 = t34;
+    (*(int *)((int)stk + 28)) = t34;
     sprSheetSet((*(int *)(((t34 << 2) + (R1016)))));
     t38 = *(int *)0x8C2FBE18;
     R4 = (t38);

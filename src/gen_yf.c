@@ -1,3 +1,4 @@
+typedef struct { int w[5]; } Stk5;
 /* Straight-line functions with calls and guards (batch gen_yf): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
@@ -78,7 +79,7 @@ int FUN_8c047dbc(int a4, float f4, float f5);
 int FUN_8c079678(int a4, int a5);
 int FUN_8c07a220(int a4, int a5);
 float FUN_8c05d970(int a4, float f4);
-int FUN_8c08ac4c(Stk4 s);
+int FUN_8c08ac4c(Stk5 p);
 int FUN_8c083310(int a4);
 int FUN_8c082f60(int a4);
 int FUN_8c08adba(Stk4 s, float f4);
@@ -670,7 +671,7 @@ float FUN_8c05d970(int a4, float f4)
     return u1;
 }
 
-int FUN_8c08ac4c(Stk4 s)
+int FUN_8c08ac4c(Stk5 p)
 {
     int stk[53];
     register int t0;
@@ -687,10 +688,11 @@ int FUN_8c08ac4c(Stk4 s)
     register float u7;
     register float u8;
 
-    stk[41] = s.w[0];
-    stk[42] = s.w[1];
-    stk[43] = s.w[2];
-    stk[44] = s.w[3];
+    stk[41] = p.w[0];
+    stk[42] = p.w[1];
+    stk[43] = p.w[2];
+    stk[44] = p.w[3];
+    stk[45] = p.w[4];
     t0 = 0x8C10DC20;
     t2 = (((int)stk + 24) + 0xC);
     for (;;) { t3 = *(int *)t0; t0 = (t0 + 4); if ((unsigned int)((0x8C10DC20 + 96)) < (unsigned int)t0) break; *(unsigned int *)t2 = t3; t2 = (t2 + 4); }

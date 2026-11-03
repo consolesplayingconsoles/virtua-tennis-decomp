@@ -48,28 +48,20 @@ int mpdrv_setcmd(int a4, int a5, int a6, int a7, int a8, int a9)
     int t60;
     int stk[17];
     int R1008;
-    int R1016;
-    int R1020;
-    int R1028;
-    int R1032;
 
     R1008 = *(int *)((int)stk + 8);
-    R1016 = *(int *)((int)stk + 16);
-    R1020 = *(int *)((int)stk + 20);
-    R1028 = *(int *)((int)stk + 28);
-    R1032 = *(int *)((int)stk + 32);
 
     *(unsigned char *)(((int)stk + 12)) = a5;
-    R1032 = a6;
+    (*(int *)((int)stk + 32)) = a6;
     t0 = *(int *)0x8C47317C;
     t115 = 0xFFFFFFFF;
     if ((*(signed char *)((((t0 + 0x28) + (a4 * 0x2C)) + 0x6))) != 0) {
     } else {
         *(unsigned char *)((((t0 + 0x28) + (a4 * 0x2C)) + 0x6)) = (*(signed char *)(((int)stk + 12)));
-        R1016 = ((a7 + a9) + 0x3);
+        (*(int *)((int)stk + 16)) = ((a7 + a9) + 0x3);
         t3 = *(signed char *)((a4 + 0x8C20B018));
         *(unsigned char *)(((((int)stk + 8) + 0x10) + 0x0)) = t3;
-        R1020 = (unsigned char)(0xC0 & t3);
+        (*(int *)((int)stk + 20)) = (unsigned char)(0xC0 & t3);
         R1008 = (((int)(unsigned char)(0xC0 & t3) >> 6) & 0x3);
         t4 = *(int *)0x8C47317C;
         if (((int)(*(int *)((t4 + 0x10CC))) > 0) && ((t6 = *(int *)((t4 + 0xFD8)), (int)t6 > 0) && (t7 = *(int *)((t4 + 0xFCC)), t8 = *(int *)((t7 + 0x0)), t9 = R1008, t9 == (0x3 & (short)((unsigned int)t8 >> 16))))) {
@@ -79,16 +71,16 @@ int mpdrv_setcmd(int a4, int a5, int a6, int a7, int a8, int a9)
         *(unsigned int *)((t19 + 0xFCC)) = ((*(int *)((t19 + 0xFCC))) + ((*(int *)(((0xFD8 + t19) + 0x0))) << 2));
         t22 = R1008;
         t24 = *(int *)(((*(int *)0x8C47317C) + 0xFCC));
-        R1028 = (unsigned char)(a7 + a9);
+        (*(int *)((int)stk + 28)) = (unsigned char)(a7 + a9);
         *(unsigned int *)((t24 + 0x0)) = ((t22 << 16) | (unsigned char)(a7 + a9));
         t25 = *(int *)0x8C47317C;
         t26 = *(int *)(((0x10B4 + t25) + 0x0));
         *(unsigned int *)(((t24 + 0x4) + 0x0)) = (mpdrv_v2p((*(int *)(((a4 << 2) + ((t25 + 0xFE8) + (((((t26 << 1) + t26) << 2) << 2) << 1)))))));
-        t30 = R1032;
+        t30 = (*(int *)((int)stk + 32));
         R1008 = (unsigned char)(*(signed char *)(((int)stk + 12)));
         t31 = *(signed char *)(((int)stk + 24));
         if ((*(int *)((0x10C4 + (*(int *)0x8C47317C)))) == 1) {
-            *(unsigned int *)((((t24 + 0x4) + 0x4) + 0x0)) = (((((((R1008) << 16) << 8) & 0xFF000000) | (((unsigned char)t31 << 16) & 0xFF0000)) | (((R1020) << 8) & 0xFF00)) | (R1028));
+            *(unsigned int *)((((t24 + 0x4) + 0x4) + 0x0)) = (((((((R1008) << 16) << 8) & 0xFF000000) | (((unsigned char)t31 << 16) & 0xFF0000)) | ((((*(int *)((int)stk + 20))) << 8) & 0xFF00)) | ((*(int *)((int)stk + 28))));
             t41 = (((t24 + 0x4) + 0x4) + 0x4);
             if ((int)a7 > 0) {
                 t37 = t30;
@@ -108,7 +100,7 @@ int mpdrv_setcmd(int a4, int a5, int a6, int a7, int a8, int a9)
             }
             t60 = t41;
         } else {
-            *(unsigned int *)((((t24 + 0x4) + 0x4) + 0x0)) = ((((((R1020) << 16) & 0xFF0000) | (((unsigned char)t31 << 8) & 0xFF00)) | ((((a7 + a9) << 16) << 8) & 0xFF000000)) | (R1008));
+            *(unsigned int *)((((t24 + 0x4) + 0x4) + 0x0)) = (((((((*(int *)((int)stk + 20))) << 16) & 0xFF0000) | (((unsigned char)t31 << 8) & 0xFF00)) | ((((a7 + a9) << 16) << 8) & 0xFF000000)) | (R1008));
             t52 = (((t24 + 0x4) + 0x4) + 0x4);
             if ((int)a7 > 0) {
                 t47 = t30;
@@ -160,9 +152,9 @@ int mpdrv_setcmd(int a4, int a5, int a6, int a7, int a8, int a9)
                 }
             }
         }
-        *(unsigned int *)(((*(int *)0x8C47317C) + 0xFD8)) = (R1016);
+        *(unsigned int *)(((*(int *)0x8C47317C) + 0xFD8)) = ((*(int *)((int)stk + 16)));
         t99 = *(int *)0x8C47317C;
-        *(unsigned int *)((t99 + 0xFDC)) = ((*(int *)((t99 + 0xFDC))) + ((R1016) << 2));
+        *(unsigned int *)((t99 + 0xFDC)) = ((*(int *)((t99 + 0xFDC))) + (((*(int *)((int)stk + 16))) << 2));
         t102 = *(int *)0x8C47317C;
         t103 = *(int *)0x8C47317C;
         t104 = *(int *)((t102 + 0xFE0));
@@ -213,12 +205,10 @@ int mpdrv_setcmd_force(int a4, int a5, int a6, int a7, int a8, int a9)
     int R1008;
     int R1012;
     int R1016;
-    int R1028;
 
     R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
     R1016 = *(int *)((int)stk + 16);
-    R1028 = *(int *)((int)stk + 28);
 
     R1008 = a4;
     *(unsigned char *)(((int)stk + 24)) = a5;
@@ -233,7 +223,7 @@ int mpdrv_setcmd_force(int a4, int a5, int a6, int a7, int a8, int a9)
     t17 = *(int *)0x8C47317C;
     *(unsigned int *)((t17 + 0xFCC)) = ((*(int *)((t17 + 0xFCC))) + ((*(int *)(((0xFD8 + t17) + 0x0))) << 2));
     t21 = *(int *)(((*(int *)0x8C47317C) + 0xFCC));
-    R1028 = (unsigned char)(a7 + a9);
+    (*(int *)((int)stk + 28)) = (unsigned char)(a7 + a9);
     *(unsigned int *)((t21 + 0x0)) = (((((int)(unsigned char)(t2 & 0xC0) >> 6) & 0x3) << 16) | (unsigned char)(a7 + a9));
     t22 = *(int *)0x8C47317C;
     t23 = *(int *)(((0x10B4 + t22) + 0x0));
@@ -242,7 +232,7 @@ int mpdrv_setcmd_force(int a4, int a5, int a6, int a7, int a8, int a9)
     R1012 = (unsigned char)(*(signed char *)(((int)stk + 24)));
     R1008 = (unsigned char)(*(signed char *)(((int)stk + 20)));
     if ((*(int *)((0x10C4 + (*(int *)0x8C47317C)))) == 1) {
-        *(unsigned int *)((((t21 + 0x4) + 0x4) + 0x0)) = (((((((R1012) << 16) << 8) & 0xFF000000) | (((R1008) << 16) & 0xFF0000)) | (((unsigned char)(t2 & 0xC0) << 8) & 0xFF00)) | (R1028));
+        *(unsigned int *)((((t21 + 0x4) + 0x4) + 0x0)) = (((((((R1012) << 16) << 8) & 0xFF000000) | (((R1008) << 16) & 0xFF0000)) | (((unsigned char)(t2 & 0xC0) << 8) & 0xFF00)) | ((*(int *)((int)stk + 28))));
         t40 = (((t21 + 0x4) + 0x4) + 0x4);
         if ((int)a7 > 0) {
             t35 = t28;

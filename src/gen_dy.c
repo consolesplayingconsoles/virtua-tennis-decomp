@@ -1,7 +1,8 @@
+typedef struct { int w[3]; } Stk3;
 /* Straight-line functions with calls and guards (batch gen_dy): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int camViewToWorld(int, int, int, int, int);
+int camViewToWorld(int, int, int, int, int, Stk3);
 int nlArcTan2(float, float);
 int nlCalcPoint(int, int);
 int nlCalcVector(int, int);
@@ -115,9 +116,8 @@ int playerDrawNodeFacing(int a4, float f4, float f5, float f6, float f7, float f
     v0_1 = ((int (*)(int, float, float))(nlRotateAY))(v0_4, w0_0, w0_1);
     v0_1 = nlArcTan2((*(float *)(((int)stk + 28))), (-(*(float *)(((int)stk + 32)))));
     nlRotateAX((((v0_1 << 2) << 2) << 1));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x4)); }
     R1004 = (((int)stk + 8) + 0x10);
-    camViewToWorld(0x0, 0x0, 0x0, 0x0, R1004);
+    camViewToWorld(0x0, 0x0, 0x0, 0x0, R1004, *(Stk3 *)((((int)stk + 20) + 0x4)));
     v0_1 = nlArcTan2((*(float *)(((int)stk + 24))), (-(*(float *)(((int)stk + 32)))));
     v0_1 = ((int (*)(int))(nlRotateAY))((((v0_1 << 2) << 2) << 1));
     v0_1 = nlArcTan2((*(float *)(((int)stk + 28))), (-(*(float *)(((int)stk + 32)))));

@@ -42,7 +42,7 @@ int fileLoadStart(int, int, int);
 int hudFont2DigitPut(int, Stk3, float);
 int hudLabelPut(int, Stk3, float);
 int hudSignPut(int, Stk3, float);
-int infoPlayerDrawWrap(Stk3);
+int infoPlayerDrawWrap(int, int, int, int, Stk3, float, float, float);
 int lightSet(int, int, int, int);
 int lightUpdate(int);
 int logoWaveDraw(float);

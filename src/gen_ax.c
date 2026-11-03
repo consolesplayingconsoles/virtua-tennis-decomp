@@ -51,7 +51,7 @@ float nlSin(int);
 int nlTranslate(float, float, float);
 int perfMark(int);
 int perfPrint(void);
-int primTexVertexSet(int, int, int, int, int, float, float);
+int primTexVertexSet(int, int, int, int, int, Stk3, float, float);
 int replaySnapshot(void);
 int serveGetServer(void);
 int shadowLightMatrix(float);

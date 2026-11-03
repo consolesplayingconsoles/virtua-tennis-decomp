@@ -26,16 +26,14 @@ int swingBlurSpawn(int a4)
     float F6;
     float F15;
     int T_;
-    int R1068;
     int R1072;
     int R1076;
-    R1068 = *(int *)((int)stk + 68);
     R1072 = *(int *)((int)stk + 72);
     R1076 = *(int *)((int)stk + 76);
     R4 = a4;
     R1072 = R4;
     R1076 = (*(int *)((((*(int *)((((R4 * 0xD78) + 0x8C287D84) + 0xC58))) << 2) + 0x8C10DFD4)));
-    R1068 = (((int)stk + 72) + 0x48);
+    (*(int *)((int)stk + 68)) = (((int)stk + 72) + 0x48);
     *(Stk3 *)((((int)stk + 72) + 0x48)) = vecMake(0.0f, 0.0f, 1.0f);
     nlGetMatrix((((int)stk + 68) + 0xC));
     nlPushMatrix(0x0);

@@ -34,15 +34,13 @@ void swingBlurPut(int a4, float f4, float f5, float f6)
     int T_;
     float R1004;
     float R1008;
-    float R1012;
     R1004 = *(float *)((int)stk + 4);
     R1008 = *(float *)((int)stk + 8);
-    R1012 = *(float *)((int)stk + 12);
     R4 = a4;
     F4 = f4;
     F5 = f5;
     F6 = f6;
-    R1012 = F13;
+    (*(float *)((int)stk + 12)) = F13;
     R1008 = F12;
     R1008 = F13;
     R1004 = F12;

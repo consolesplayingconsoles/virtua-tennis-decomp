@@ -1,3 +1,4 @@
+typedef struct { int w[6]; } Stk6;
 /* Straight-line functions with calls and guards (batch gen_hw): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
@@ -15,9 +16,9 @@ int nlRotateAY(int);
 float nlTanf(float);
 int nlTranslate(float, float, float);
 int vecAnglesTo(int, int, Stk3, Stk3);
-float cameraFovFit(Stk4 s, float f4, float f5);
+float cameraFovFit(Stk6 p, float f4, float f5);
 
-float cameraFovFit(Stk4 s, float f4, float f5)
+float cameraFovFit(Stk6 p, float f4, float f5)
 {
     float t13;
     float u16;
@@ -53,10 +54,12 @@ float cameraFovFit(Stk4 s, float f4, float f5)
     float u54;
     int stk[63];
 
-    stk[51] = s.w[0];
-    stk[52] = s.w[1];
-    stk[53] = s.w[2];
-    stk[54] = s.w[3];
+    stk[51] = p.w[0];
+    stk[52] = p.w[1];
+    stk[53] = p.w[2];
+    stk[54] = p.w[3];
+    stk[55] = p.w[4];
+    stk[56] = p.w[5];
     *(float *)(((int)stk + 60)) = f5;
     nlPushUnitMatrix();
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 48)) = *(struct mv3 *)(0x8C287B54); }

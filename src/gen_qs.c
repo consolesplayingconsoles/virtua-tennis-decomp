@@ -49,12 +49,8 @@ int mwlRnaStartTrans(int a4, int a5, int a6, int a7)
     register int T_;
     int R1004;
     int R1008;
-    int R1012;
-    int R1016;
     R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
-    R1012 = *(int *)((int)stk + 12);
-    R1016 = *(int *)((int)stk + 16);
     R4 = a4;
     R5 = a5;
     R6 = a6;
@@ -132,9 +128,9 @@ int mwlRnaStartTrans(int a4, int a5, int a6, int a7)
     R4 = (t58);
     goto L_8C1F25AE;
     L_8C1F24F0:;
-    R1016 = (R14 + 0x18);
+    (*(int *)((int)stk + 16)) = (R14 + 0x18);
     t61 = *(int *)(((R14 + 0x18) + 0x4));
-    R1012 = ((R14 + 0x18) + 0x8);
+    (*(int *)((int)stk + 12)) = ((R14 + 0x18) + 0x8);
     t62 = *(int *)((((R14 + 0x18) + 0x8) + 0x4));
     R6 = (t61);
     R7 = (t62);

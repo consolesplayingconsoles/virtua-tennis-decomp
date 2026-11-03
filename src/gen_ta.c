@@ -9,8 +9,8 @@ int hudSignPut(int, Stk3, float);
 int markerShowStart(int, int, int, int, Stk3, Stk3, Stk3);
 int primRectIncGradX(int, int, int, int, Stk3, Stk1);
 int sprPutAtAlpha(int, Stk3, float);
-int standBarDraw(int, int, int, int, int);
+int standBarDraw(int, int, int, int, Stk3);
 int standBoxesDraw(int, int, int, int, int, int, int, int, int, int, int, int);
 Stk3 vecMake(float, float, float);
-int standPanelDraw(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
+int standPanelDraw(int a4, int a5, int a6, int a7, Stk3 p, int a11, int a12);
 

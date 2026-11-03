@@ -40,7 +40,6 @@ int cpuPadHistory(void)
     int R1032;
     int R1036;
     int R1040;
-    int R1044;
     int R1048;
     R1016 = *(int *)((int)stk + 16);
     R1020 = *(int *)((int)stk + 20);
@@ -49,7 +48,6 @@ int cpuPadHistory(void)
     R1032 = *(int *)((int)stk + 32);
     R1036 = *(int *)((int)stk + 36);
     R1040 = *(int *)((int)stk + 40);
-    R1044 = *(int *)((int)stk + 44);
     R1048 = *(int *)((int)stk + 48);
     R1028 = 0x8C287ACC;
     v0_2 = *(int *)0x8C20D19C;
@@ -349,7 +347,7 @@ int cpuPadHistory(void)
     if (v0_5) goto L_8C03E3C4;
     L_8C03E42A:;
     v0_3 = *(int *)((((*(int *)((v0_0 + 0xB64))) << 2) + 0x8C29B898));
-    R1044 = v0_3;
+    (*(int *)((int)stk + 44)) = v0_3;
     t209 = *(int *)((v0_3 + 0x10));
     R4 = (t209);
     if (((0x5 & t209) != 0)) goto L_8C03E444;

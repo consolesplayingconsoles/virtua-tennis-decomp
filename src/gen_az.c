@@ -57,7 +57,7 @@ int padRepeatInit(void);
 int pdGetPeripheralInfo(int);
 int pdVibMxStart(int, int);
 int pdVibMxStop(int);
-int primTexVertexSet(int, int, int, int, int, float, float);
+int primTexVertexSet(int, int, int, int, int, Stk3, float, float);
 float rndRangef(float);
 int shotCheckNet(int, int);
 extern int sprPutAt();

@@ -19,7 +19,7 @@ extern void _builtin_st_ext(float (*)[4]);
 int abs(int);
 int buFbrWakeupFiber(int, int);
 int buGetFileInfo(int, int, int);
-int camViewToWorld(int, ...);
+int camViewToWorld(int, int, int, int, int, Stk3);
 int colliObjInit(int, float);
 int dbgMenuDrawPage(void);
 int eepromVmuLoad(int);
@@ -96,7 +96,7 @@ void seNetHit2(void);
 int ADXERR_CallErrFunc(Stk4 s);
 int mwRnaErrCallFunc(Stk4 s);
 int motionBoneOffset(int a4);
-void effBounceDustSpawn(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
+void effBounceDustSpawn(int a4, int a5, int a6, int a7, Stk4 p);
 int sprSet192PutB(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
 void _duchek(float f4, float f5);
 int kmyFreeSmallVQArea(int a4, int a5);
@@ -207,7 +207,7 @@ float _app_sins(float f4);
 int kmSetStrideWidth(int a4);
 int kmyDisnnectRenderPacket(void);
 int kmyUnregisterCallback(int a4);
-int vecDistXZ(Stk4 s);
+int vecDistXZ(Stk3 a, Stk3 b);
 int perfPrint(void);
 float cpuLineXAtZ(Stk6 s, float f4);
 int nlsndStreamGetFreq(int a4);
@@ -278,18 +278,16 @@ int motionBoneOffset(int a4)
     return nlTranslate(((*(float *)((((((a4 << 1) + a4) << 2) + t1) + 0x0))) * u2), ((*(float *)((((((a4 << 1) + a4) << 2) + t1) + 0x4))) * u2), (-((*(float *)((((((a4 << 1) + a4) << 2) + t1) + 0x8))) * u2)));
 }
 
-void effBounceDustSpawn(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+void effBounceDustSpawn(int a4, int a5, int a6, int a7, Stk4 p)
 {
     int t1;
     int stk[14];
-    int R1020;
 
-    R1020 = *(int *)((int)stk + 20);
 
-    stk[2] = a8;
-    stk[3] = a9;
-    stk[4] = a10;
-    R1020 = a11;
+    stk[2] = p.w[0];
+    stk[3] = p.w[1];
+    stk[4] = p.w[2];
+    stk[5] = p.w[3];
     if ((*(int *)0x8C287C60) == 0) {
         t1 = set_event(0x28, 0x8C082BC0);
         { struct mv3 { int w[3]; }; *(struct mv3 *)((t1 + 0x14)) = *(struct mv3 *)((((int)stk + 4) + 0x4)); }
@@ -535,7 +533,7 @@ int mtxGetWorldPos(int a4, int a5, int a6, int a7, int a8)
 
     mtxGetPos(((int)stk + 20), (((int)stk + 20) + 0x4), (((int)stk + 20) + 0x8), a7);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((int)stk + 20)); }
-    return (camViewToWorld(a8));
+    return (camViewToWorld(0x0, 0x0, 0x0, 0x0, a8, *(Stk3 *)(((int)stk + 8))));
 }
 
 void netVecSubXZ(Stk5 s)
@@ -1255,17 +1253,13 @@ float pauseDistXZArgs(Stk6 s)
     float u3;
     float u4;
     int stk[15];
-    int R1008;
-    int R1020;
 
-    R1008 = *(int *)((int)stk + 8);
-    R1020 = *(int *)((int)stk + 20);
 
     stk[1] = s.w[0];
-    R1008 = s.w[1];
+    (*(int *)((int)stk + 8)) = s.w[1];
     stk[3] = s.w[2];
     stk[4] = s.w[3];
-    R1020 = s.w[4];
+    (*(int *)((int)stk + 20)) = s.w[4];
     stk[6] = s.w[5];
     u0 = *(float *)((((int)stk + 4) + 0x8));
     u1 = *(float *)(((((int)stk + 4) + 0xC) + 0x8));
@@ -1542,15 +1536,11 @@ int kmyUnregisterCallback(int a4)
     return 0x0;
 }
 
-int vecDistXZ(Stk4 s)
+int vecDistXZ(Stk3 a, Stk3 b)
 {
-    int stk[14];
-
-    stk[2] = s.w[0];
-    stk[3] = s.w[1];
-    stk[4] = s.w[2];
-    stk[5] = s.w[3];
-    return (nlLength((((int)stk + 4) + 0x4), (((int)stk + 4) + 0x10)));
+    a.w[1] = 0;
+    b.w[1] = 0;
+    return (nlLength(((int)&a.w[0]), ((int)&b.w[0])));
 }
 
 
@@ -1560,17 +1550,13 @@ float cpuLineXAtZ(Stk6 s, float f4)
     float u1;
     float u4;
     int stk[15];
-    int R1008;
-    int R1020;
 
-    R1008 = *(int *)((int)stk + 8);
-    R1020 = *(int *)((int)stk + 20);
 
     stk[1] = s.w[0];
-    R1008 = s.w[1];
+    (*(int *)((int)stk + 8)) = s.w[1];
     stk[3] = s.w[2];
     stk[4] = s.w[3];
-    R1020 = s.w[4];
+    (*(int *)((int)stk + 20)) = s.w[4];
     stk[6] = s.w[5];
     u0 = *(float *)(((((int)stk + 4) + 0xC) + 0x0));
     u1 = *(float *)(((((int)stk + 4) + 0xC) + 0x8));

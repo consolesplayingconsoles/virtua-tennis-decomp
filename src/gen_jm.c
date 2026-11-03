@@ -56,15 +56,11 @@ int kmiFLWCTRLStartDMAEntry(int a4)
     int R13;
     int R14;
     int T_;
-    int R1004;
-    int R1008;
     int R1012;
     int R1016;
     int R1020;
     int R1024;
     int R1028;
-    R1004 = *(int *)((int)stk + 4);
-    R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
     R1016 = *(int *)((int)stk + 16);
     R1020 = *(int *)((int)stk + 20);
@@ -107,9 +103,9 @@ int kmiFLWCTRLStartDMAEntry(int a4)
     R1028 = R9;
     L_8C1FAB08:;
     t24 = kmyGetDMAHANDLE(0x0);
-    R1008 = (((int)R13 >= 0) ? (R14 << (R13 & 31)) : ((-(int)R13 & 31) ? ((int)R14 >> (-(int)R13 & 31)) : ((int)R14 >> 31)));
+    (*(int *)((int)stk + 8)) = (((int)R13 >= 0) ? (R14 << (R13 & 31)) : ((-(int)R13 & 31) ? ((int)R14 >> (-(int)R13 & 31)) : ((int)R14 >> 31)));
     t25 = R8;
-    R1004 = t25;
+    (*(int *)((int)stk + 4)) = t25;
     t26 = R1012;
     R1024 = (R13 << 2);
     kmySetTADMA(t24, (*(int *)((R11 + 0x3C))), (*(int *)((((R11 + 0x44) + (R1012)) + (R1024)))), (*(int *)(((R13 << 2) + ((0xE4 + R11) + t26)))), t25);

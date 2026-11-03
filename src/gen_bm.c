@@ -34,7 +34,7 @@ int nlWaitVSync(void);
 int pdExecPeripheralServer(void);
 int primSprDrawOfs(int, int, int, int, Stk3);
 int primSprDrawScaleOfs(int, int, int, int, Stk3, float, float);
-int primVertexSet(int, int, int, int, int);
+int primVertexSet(int, int, int, int, int, Stk3);
 int resCautionReset(int);
 int selGridClear(void);
 int selInitB(void);
@@ -44,7 +44,7 @@ int stageTexSetGarbagedAll(void);
 int thunk_buIsExistFile(int, int);
 int uniformTexRestore(int);
 int vecMake(int, int, int, int, int, float, float, float);
-int stageSelMarkDraw(Stk4 s);
+int stageSelMarkDraw(Stk4 p);
 int cpuSglAimPickNet(int a4);
 int _fmtout_intcnv(int a4, int a5, int a6, int a7);
 int cpuDblAimAddCorners(int a4, int a5);
@@ -55,17 +55,15 @@ int stageSoftReset(float f4);
 int cpuShotAimCheck(int a4);
 int BupCardWarning(int a4);
 
-int stageSelMarkDraw(Stk4 s)
+int stageSelMarkDraw(Stk4 p)
 {
     int stk[52];
-    int R1172;
 
-    R1172 = *(int *)((int)stk + 172);
 
-    stk[40] = s.w[0];
-    stk[41] = s.w[1];
-    stk[42] = s.w[2];
-    R1172 = s.w[3];
+    stk[40] = p.w[0];
+    stk[41] = p.w[1];
+    stk[42] = p.w[2];
+    stk[43] = p.w[3];
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 100)) = *(struct mv3 *)((((int)stk + 100) + 0x3C)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)(((int)stk + 100)); }
     primSprDrawOfs(0x8C341484, 0x100, 0x100, 0x969600, *(Stk3 *)(((int)stk + 100)));

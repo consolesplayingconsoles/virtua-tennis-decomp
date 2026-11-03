@@ -32,12 +32,10 @@ int selModelSpawn(int a4, int a5)
     register int v0_6;
     register float w0_0;
     register float w0_1;
-    int R1004;
     int R1008;
     int R1012;
     int R1016;
     int R1020;
-    R1004 = *(int *)((int)stk + 4);
     R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
     R1016 = *(int *)((int)stk + 16);
@@ -113,7 +111,7 @@ int selModelSpawn(int a4, int a5)
     v0_1 = *(int *)((v0_2 + 0x5C));
     R1020 = v0_1;
     v0_1 = (*(int *)((((*(int *)((v0_1 + 0xC58))) * 0x6C) + 0x8C102424)));
-    R1004 = v0_1;
+    (*(int *)((int)stk + 4)) = v0_1;
     v0_0 = ((motionSet((R1020), 0x10D2D8, 0x1, 0x12755C, v0_1, v0_0, (*(float *)0x8C23D204))));
     L_8C0A9706:;
     return v0_0;

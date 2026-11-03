@@ -673,11 +673,9 @@ int pdTmrIsReady(int a4)
     int t0;
     int t1;
     int stk[4];
-    int R1004;
 
-    R1004 = *(int *)((int)stk + 4);
 
-    R1004 = a4;
+    (*(int *)((int)stk + 4)) = a4;
     t0 = kdGetDeviceInfo(a4);
     t1 = kdDevGetTimerInfo((((int)stk + 4) + 0x4), t0);
     return ((((int)t1 >= 0)) ? 1 : 0);

@@ -122,18 +122,10 @@ int pdVibSetStopTime(int a4, int a5, int a6, int a7)
     int R1016;
     int R1020;
     int R1024;
-    int R1032;
-    int R1036;
-    int R1040;
-    int R1044;
 
     R1016 = *(int *)((int)stk + 16);
     R1020 = *(int *)((int)stk + 20);
     R1024 = *(int *)((int)stk + 24);
-    R1032 = *(int *)((int)stk + 32);
-    R1036 = *(int *)((int)stk + 36);
-    R1040 = *(int *)((int)stk + 40);
-    R1044 = *(int *)((int)stk + 44);
 
     R1024 = a4;
     R1020 = a5;
@@ -142,10 +134,10 @@ int pdVibSetStopTime(int a4, int a5, int a6, int a7)
     t1 = pdVibIsReady(t0, a5, a6, a7);
     t21 = 0xFFFFFFFE;
     if (t1 != 0) {
-        R1044 = 0x0;
-        R1040 = 0x0;
-        R1036 = 0x0;
-        R1032 = 0x0;
+        (*(int *)((int)stk + 44)) = 0x0;
+        (*(int *)((int)stk + 40)) = 0x0;
+        (*(int *)((int)stk + 36)) = 0x0;
+        (*(int *)((int)stk + 32)) = 0x0;
         *(unsigned int *)(((((int)stk + 16) + 0xC) + 0x0)) = 0x0;
         t8 = 0x0;
         if ((unsigned int)0x0 < (unsigned int)a7) {

@@ -1,10 +1,11 @@
+typedef struct { int w[3]; } Stk3;
 /* Straight-line functions with calls and guards (batch gen_qn): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 int nlDispStripTexOfsTrnsl(int, int, int);
-int winPartsPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5);
+int winPartsPut(int a4, int a5, int a6, int a7, Stk3 p, int a11, float f4, float f5);
 
-int winPartsPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4, float f5)
+int winPartsPut(int a4, int a5, int a6, int a7, Stk3 p, int a11, float f4, float f5)
 {
     int stk[55];
 
@@ -29,7 +30,9 @@ int winPartsPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11
     register float w0_3;
     register float w0_4;
     register float w0_5;
-    stk[46] = a8;
+    stk[46] = p.w[0];
+    stk[47] = p.w[1];
+    stk[48] = p.w[2];
     v0_0 = a4;
     v0_7 = a5;
     v0_1 = a6;

@@ -68,13 +68,9 @@ int gameMatchSetup(void)
     int stk[13];
     int R1008;
     int R1012;
-    int R1016;
-    int R1020;
 
     R1008 = *(int *)((int)stk + 8);
     R1012 = *(int *)((int)stk + 12);
-    R1016 = *(int *)((int)stk + 16);
-    R1020 = *(int *)((int)stk + 20);
 
     *(unsigned int *)0x8C287B3C = 0x0;
     *(unsigned int *)0x8C287AD4 = 0x0;
@@ -174,7 +170,7 @@ int gameMatchSetup(void)
         *(unsigned int *)0x8C289754 = 0x10;
     }
     entryInit();
-    entryPortJoin((*(int *)0x8C421F70), 0x0, 0x0, 0x0, R1008, R1012, R1016, R1020);
+    entryPortJoin((*(int *)0x8C421F70), 0x0, 0x0, 0x0, R1008, R1012, (*(int *)((int)stk + 16)), (*(int *)((int)stk + 20)));
     entrySetSlot(0x0, (*(int *)0x8C2889DC), 0x0, (*(int *)0x8C421F70));
     *(unsigned int *)0x8C343294 = (*(signed char *)0x8C2FBC83);
     entrySetSlot(0x1, (*(int *)0x8C289754), 0x1, 0x0);

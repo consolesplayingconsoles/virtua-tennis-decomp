@@ -5,9 +5,9 @@ typedef struct { int w[3]; } Stk3;
 typedef struct { int w[16]; } Stk16;
 extern int nlDispStripTrnsl();
 int sprListPut(int, int, int, Stk3, float, float, float);
-int shopDrawCatPanel(int a4, int a5, int a6, int a7, int a8);
+int shopDrawCatPanel(int a4, int a5, int a6, int a7, Stk3 s);
 
-int shopDrawCatPanel(int a4, int a5, int a6, int a7, int a8)
+int shopDrawCatPanel(int a4, int a5, int a6, int a7, Stk3 s)
 {
     int t4;
     int t3;
@@ -26,7 +26,9 @@ int shopDrawCatPanel(int a4, int a5, int a6, int a7, int a8)
     float u9;
     int stk[58];
 
-    stk[49] = a8;
+    stk[49] = s.w[0];
+    stk[50] = s.w[1];
+    stk[51] = s.w[2];
     { struct mv5 { int w[5]; }; *(struct mv5 *)((0x80 + ((int)stk + 16))) = *(struct mv5 *)(0x8C1271A8); }
     { struct mv16 { int w[16]; }; *(struct mv16 *)((((int)stk + 16) + 0x40)) = *(struct mv16 *)(0x8C1271BC); }
     { struct mv16 { int w[16]; }; *(struct mv16 *)(((int)stk + 16)) = *(struct mv16 *)(0x8C1271FC); }

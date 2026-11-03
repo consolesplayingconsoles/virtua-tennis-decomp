@@ -4,9 +4,9 @@
 typedef struct { int w[3]; } Stk3;
 int nlDispStripTexOfsTrnsl(int, int, int);
 int sprListPutGrad(int, int, int, int, Stk3, float, float);
-int rankDrawGlyph(int a4, int a5, int a6, int a7, int a8, float f4, float f5);
+int rankDrawGlyph(int a4, int a5, int a6, int a7, Stk3 p, float f4, float f5);
 
-int rankDrawGlyph(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
+int rankDrawGlyph(int a4, int a5, int a6, int a7, Stk3 p, float f4, float f5)
 {
     int stk[50];
 
@@ -32,7 +32,9 @@ int rankDrawGlyph(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
     register float w0_3;
     register float w0_4;
     register float w0_5;
-    stk[41] = a8;
+    stk[41] = p.w[0];
+    stk[42] = p.w[1];
+    stk[43] = p.w[2];
     v0_4 = a4;
     v0_3 = a5;
     v0_1 = a6;

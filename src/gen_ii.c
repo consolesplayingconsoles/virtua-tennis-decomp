@@ -1,3 +1,4 @@
+typedef struct { int w[6]; } Stk6;
 /* Straight-line functions with calls and guards (batch gen_ii): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
@@ -9,9 +10,9 @@ int nlPushUnitMatrix(void);
 int nlRotateAX(int);
 int nlRotateAY(int);
 int nlRotateAZ(int);
-void bodyCreate(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, float f4, float f5);
+void bodyCreate(int a4, int a5, int a6, int a7, Stk6 s, float f4, float f5);
 
-void bodyCreate(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, float f4, float f5)
+void bodyCreate(int a4, int a5, int a6, int a7, Stk6 s, float f4, float f5)
 {
     int t1;
     int t14;
@@ -20,11 +21,12 @@ void bodyCreate(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11
     int t17;
     int stk[254];
 
-    stk[241] = a8;
-    stk[242] = a9;
-    stk[243] = a10;
-    stk[244] = a11;
-    stk[245] = a12;
+    stk[241] = s.w[0];
+    stk[242] = s.w[1];
+    stk[243] = s.w[2];
+    stk[244] = s.w[3];
+    stk[245] = s.w[4];
+    stk[246] = s.w[5];
     *(unsigned int *)(((int)stk + 20)) = a5;
     { struct mv3 { int w[3]; }; *(struct mv3 *)((0x328 + ((int)stk + 20))) = *(struct mv3 *)((0x3B4 + ((int)stk + 20))); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)((0x340 + ((int)stk + 20))) = *(struct mv3 *)(0x8C1016D4); }
