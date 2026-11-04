@@ -3,7 +3,7 @@
 
 typedef struct { int w[1]; } Stk1;
 typedef struct { int w[3]; } Stk3;
-int btnGuideDrawB(int, float);
+int btnGuideDrawB(int, Stk3, float);
 int countryNamePutC(int, Stk3, Stk1, float);
 extern int entryGetColorId();
 int getID_Color(int, float);
@@ -195,7 +195,7 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     F14 = (0.100000001f);
     F15 = (F4);
     t37 = ((int (*)(int, Stk3))(entryGetColorId))(R4, *(Stk3 *)(((int)stk + 36)));
-    btnGuideDrawB(t37, F15);
+    btnGuideDrawB(t37, *(Stk3 *)(((int)stk + 36)), F15);
     t39 = *(int *)(((int)stk + 124));
     u40 = *(float *)((t39 + 0x8));
     u41 = *(float *)((t39 + 0x4));
@@ -205,7 +205,7 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     *(Stk3 *)(t43) = vecMake((u42 + 29.0f), (u41 + -23.0f), u40);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(R14); }
     t44 = ((int (*)(int, Stk3))(entryGetColorId))(0x2, *(Stk3 *)(((int)stk + 20)));
-    btnGuideDrawB(t44, F15);
+    btnGuideDrawB(t44, *(Stk3 *)(((int)stk + 20)), F15);
     u46 = *(float *)((R11 + 0x0));
     u47 = *(float *)((R11 + 0x8));
     u48 = *(float *)((R11 + 0x4));
@@ -279,7 +279,7 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     *(Stk3 *)(t100) = vecMake((u97 + 29.0f), (u99 + -23.0f), u98);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 112)) = *(struct mv3 *)(R14); }
     t101 = ((int (*)(int, Stk3))(entryGetColorId))(0x1, *(Stk3 *)(((int)stk + 112)));
-    btnGuideDrawB(t101, F15);
+    btnGuideDrawB(t101, *(Stk3 *)(((int)stk + 112)), F15);
     u103 = *(float *)((R9 + 0x0));
     u104 = *(float *)((R9 + 0x8));
     u105 = *(float *)((R9 + 0x4));
@@ -288,7 +288,7 @@ int resultTeamsDrawAlt(int a4, int a5, int a6, int a7, float f4)
     *(Stk3 *)(t106) = vecMake((u103 + 29.0f), (u105 + -23.0f), u104);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 96)) = *(struct mv3 *)(R14); }
     t107 = ((int (*)(int, Stk3))(entryGetColorId))(0x3, *(Stk3 *)(((int)stk + 96)));
-    btnGuideDrawB(t107, F15);
+    btnGuideDrawB(t107, *(Stk3 *)(((int)stk + 96)), F15);
     u109 = *(float *)((R13 + 0x0));
     u110 = *(float *)((R13 + 0x8));
     u111 = *(float *)((R13 + 0x4));

@@ -69,7 +69,7 @@ int shadowLightMatrix(float);
 int shadowPartPutProj(int);
 int shadowVolPutDirA(void);
 int sndFadeFlagsClear(void);
-int sprInitPos(int, int);
+int sprInitPos(int, int, Stk3);
 int sprPutAt(int, int, int, int, Stk3);
 int sprPutAtAlpha(int, Stk3, float);
 int sprTexFree(int);
@@ -345,9 +345,9 @@ int FUN_8c0c4c84(void)
     u0 = *(float *)0x8C0C4D88;
     u1 = *(float *)0x8C0C4D8C;
     *(Stk3 *)(((int)stk + 8)) = vecMake(u1, (*(float *)0x8C0C4D90), u0);
-    sprInitPos(0x8C37BB88, 0x10D);
+    sprInitPos(0x8C37BB88, 0x10D, *(Stk3 *)(((int)stk + 8)));
     *(Stk3 *)(((int)stk + 8)) = vecMake(u1, (*(float *)0x8C0C4DA0), u0);
-    return (sprInitPos(0x8C37BC28, 0x10E));
+    return (sprInitPos(0x8C37BC28, 0x10E, *(Stk3 *)(((int)stk + 8))));
 }
 
 int FUN_8c0cfc5a(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4, float f5)

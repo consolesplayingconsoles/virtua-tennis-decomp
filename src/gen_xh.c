@@ -53,7 +53,7 @@ int resCautionReset(int);
 int sndCrowdReact(int);
 int sndPack1FadeCancel(void);
 int sndStopAll(void);
-int sprInitPos(int, int);
+int sprInitPos(int, int, Stk3);
 int strmBgmSetVol(int, int, int, int, int, int, int);
 int strmScoreReset(void);
 int strmSetStereo(int);
@@ -589,7 +589,7 @@ int pauseExec(int a4, int a5)
     if (((*(int *)0x8C38B958) != 70)) goto L_8C0CE9E0;
     fadeScreenStart(0x3, 0x0, 0x46, v0_9, *(int *)((int)stk + 28), *(int *)((int)stk + 28 + 4));
     *(Stk3 *)(((int)stk + 16)) = vecMake(320.0f, 240.0f, w0_0);
-    sprInitPos(0x8C38B960, 0x22);
+    sprInitPos(0x8C38B960, 0x22, *(Stk3 *)(((int)stk + 16)));
     *(float *)0x8C38B970 = 40.0f;
     *(float *)0x8C38B974 = 30.0f;
     v0_10 = (0x8C38B960);

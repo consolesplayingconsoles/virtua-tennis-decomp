@@ -46,7 +46,7 @@ int nlsndPackLoad(int, int);
 int prefetch(int);
 int resCautionRead(int);
 int sndStopAll(void);
-int sprInitPos(int, int);
+int sprInitPos(int, int, Stk3);
 int sprInitRectF(int, int, int, int, int, int);
 int sprListPut(int, int, int, float, float, float);
 int strmControl(int, int);
@@ -647,7 +647,7 @@ int resCautionShow(int a4)
             *(unsigned int *)(((a4 << 2) + 0x8C1DC590)) = 0x1;
         }
         vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 320.0f, 240.0f, 0.00999999978f);
-        t10 = sprInitPos((((((a4 << 2) + a4) << 2) << 2) + 0x8C423BD8), (*(int *)(((a4 << 2) + 0x8C1DC608))));
+        t10 = sprInitPos((((((a4 << 2) + a4) << 2) << 2) + 0x8C423BD8), (*(int *)(((a4 << 2) + 0x8C1DC608))), *(Stk3 *)(((int)stk + 8)));
         *(unsigned int *)0x8C1DC648 = 0x0;
         t11 = t10;
     } else {
