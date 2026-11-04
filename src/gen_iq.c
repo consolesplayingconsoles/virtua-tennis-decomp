@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int sprListPut(int, int, int, float, float, float);
+int sprListPut(int, int, int, Stk3, float, float, float);
 int sprPutAtAlpha(int, Stk3, float);
 Stk3 vecMake(float, float, float);
 int titleMenuLayout(int a4, int a5, int a6, int a7, float f4, float f5);
@@ -215,7 +215,7 @@ int titleMenuLayout(int a4, int a5, int a6, int a7, float f4, float f5)
     T_ = (((t82 == 0)));
     if ((!T_)) goto L_8C0E48A6;
     *(Stk3 *)(((int)stk + 36)) = vecMake(F15, 305.0f, F14);
-    R0 = ((sprListPut(0x8C1D90C0, 0x1, 0xFF000000, (*(float *)((R9 + 0x0))), 1.0f, 1.0f)));
+    R0 = ((sprListPut(0x8C1D90C0, 0x1, 0xFF000000, *(Stk3 *)(((int)stk + 36)), (*(float *)((R9 + 0x0))), 1.0f, 1.0f)));
     goto L_8C0E48A6;
     L_8C0E48A6:;
     return R0;

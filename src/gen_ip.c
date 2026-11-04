@@ -4,7 +4,7 @@
 typedef struct { int w[3]; } Stk3;
 int countryNamePut(int, Stk3, float);
 int getID_Color(int, float);
-int iconSlotPutC(int, float);
+int iconSlotPutC(int, Stk3, float);
 int menuTextIconPut(int, Stk3, float);
 int menuTextMsgPut(int, Stk3, float);
 int nlDispStripTrnsl(int, int);
@@ -130,7 +130,7 @@ int resultSideDraw(int a4, Stk3 p, float f4)
         *(int *)((int)stk + 32) = (0xB4 + ((int)stk + 36));
         *(Stk3 *)((0xB4 + ((int)stk + 36))) = vecMake((u35 + 153.0f), u37, u36);
         *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xB4 + ((int)stk + 36)) + 0x0))), ((*(float *)(((0xB4 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)), (*(float *)(((0xB4 + ((int)stk + 36)) + 0x8))));
-        iconSlotPutC((*(int *)(((int)stk + 68))), f4);
+        iconSlotPutC((*(int *)(((int)stk + 68))), *(Stk3 *)(((int)stk + 24)), f4);
         *(unsigned int *)(((int)stk + 40)) = (((int)stk + 36) + 0x44);
         *(unsigned int *)(((int)stk + 36)) = (((int)stk + 36) + 0x44);
         *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xB4 + ((int)stk + 36)) + 0x0))) + 95.0f), (*(float *)(((0xB4 + ((int)stk + 36)) + 0x4))), (*(float *)(((0xB4 + ((int)stk + 36)) + 0x8))));
@@ -250,7 +250,7 @@ int resultSideDraw(int a4, Stk3 p, float f4)
         *(int *)((int)stk + 32) = (0xB4 + ((int)stk + 36));
         *(Stk3 *)((0xB4 + ((int)stk + 36))) = vecMake((u182 + -93.0f), u184, u183);
         *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)(((0xB4 + ((int)stk + 36)) + 0x0))), ((*(float *)(((0xB4 + ((int)stk + 36)) + 0x4))) + (1.0f + 1.0f)), (*(float *)(((0xB4 + ((int)stk + 36)) + 0x8))));
-        iconSlotPutC((*(int *)(((int)stk + 68))), f4);
+        iconSlotPutC((*(int *)(((int)stk + 68))), *(Stk3 *)(((int)stk + 24)), f4);
         *(unsigned int *)(((int)stk + 52)) = (((int)stk + 36) + 0x44);
         *(unsigned int *)(((int)stk + 36)) = (((int)stk + 36) + 0x44);
         *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)(((0xB4 + ((int)stk + 36)) + 0x0))) + 95.0f), (*(float *)(((0xB4 + ((int)stk + 36)) + 0x4))), (*(float *)(((0xB4 + ((int)stk + 36)) + 0x8))));

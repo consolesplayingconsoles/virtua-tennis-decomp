@@ -33,7 +33,7 @@ int playerPut(int, int, int, int, int, int, int, int, int, int, int, int);
 int serveGetReceiver(void);
 int shadowNullCb(void);
 int strmUmpireCallAnim(int, int);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 int vecDiv(int, int, int, int, int, float);
 int FUN_8c076140(int a4, int a5);
 int FUN_8c06fbde(int a4, int a5);

@@ -8,7 +8,7 @@ int nlDispStripTrnsl(int, int);
 int primLineH(int, int, Stk3, Stk3);
 int primLineV(int, int, Stk3, Stk3);
 extern int sprListPut();
-int sprPutCentered(int, int, int, int, int, float, float);
+int sprPutCentered(int, int, int, int, int, Stk3, float, float);
 int sprRecInit(int, int, int, int, int);
 int sprRecPutRotated(int, int, int, int);
 int sprSet192PutB(int, int, int, int, Stk3, float);

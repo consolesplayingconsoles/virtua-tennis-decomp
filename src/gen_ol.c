@@ -5,8 +5,8 @@ typedef struct { int w[3]; } Stk3;
 int nlDispStripTrnsl(int, int);
 int primLineH(int, int, Stk3, Stk3);
 int primLineV(int, int, Stk3, Stk3);
-extern int sprListPut();
-int sprPutCentered(int, int, int, int, int, float, float);
+int sprListPut(int, int, int, Stk3, float, float, float);
+int sprPutCentered(int, int, int, int, int, Stk3, float, float);
 int sprRecInit(int, int, int, int, int);
 int sprRecPutRotated(int, int, int, int);
 Stk3 vecMake(float, float, float);
@@ -59,9 +59,9 @@ int shopDrawMenu(int a4)
     nlDispStripTrnsl(0x4, (0x238 + ((int)stk + 84)));
     nlDispStripTrnsl(0x4, (0x1F8 + ((int)stk + 84)));
     *(Stk3 *)(((int)stk + 72)) = vecMake(296.0f, 0.0f, 70.0f);
-    t2 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1D9CE4, 0x1, 0x0, 0.699999988f, 1.0f, 1.0f);
+    t2 = sprListPut(0x8C1D9CE4, 0x1, 0x0, *(Stk3 *)(((int)stk + 72)), 0.699999988f, 1.0f, 1.0f);
     *(Stk3 *)(((int)stk + 72)) = vecMake(30.0f, 30.0f, 65.0f);
-    t3 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1D9D50, 0x1, 0x0, 1.0f, 1.0f, 1.0f);
+    t3 = sprListPut(0x8C1D9D50, 0x1, 0x0, *(Stk3 *)(((int)stk + 72)), 1.0f, 1.0f, 1.0f);
     *(unsigned int *)(((int)stk + 84)) = (0x88 + ((int)stk + 84));
     R10 = ((((int)stk + 84) + 0x40));
     R11 = ((0x1C8 + ((int)stk + 84)));
@@ -90,7 +90,7 @@ int shopDrawMenu(int a4)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 68)) = *(struct mv3 *)(R14); }
     u26 = *(float *)(((*(int *)((R12 + ((*(int *)((R13 + 0x0))) << 2)))) + 0x54));
     *(int *)((int)stk + 64) = (R14);
-    sprPutCentered(R4, R5, R6, R7, *(int *)((int)stk + 64), u26, F14);
+    sprPutCentered(R4, R5, R6, R7, *(int *)((int)stk + 64), *(Stk3 *)((int)stk + 68), u26, F14);
     t29 = *(int *)((R13 + 0x0));
     *(unsigned int *)((R12 + (t29 << 2))) = ((*(int *)((R12 + (t29 << 2)))) - 0xD8);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)(R14); }

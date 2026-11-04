@@ -9,7 +9,7 @@ int nlRotateAY(int);
 int nlTranslate(float, float, float);
 extern int screenSegVisibleRaised();
 int screenSphereVisibleRaised(Stk3, float);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 int vecDiv(int, int, int, int, int, float);
 int crowdDrawBlock(int a4, int a5, int a6, int a7, int a8, int a9);
 
@@ -54,7 +54,7 @@ int crowdDrawBlock(int a4, int a5, int a6, int a7, int a8, int a9)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((R4 + 0xC)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(R4); }
     *(int *)((int)stk + 4) = (0x18 + ((int)stk + 8));
-    vecAdd(R4, R5, R6, R7, *(int *)((int)stk + 4));
+    vecAdd(R4, R5, R6, R7, *(int *)((int)stk + 4), *(Stk3 *)((int)stk + 8), *(Stk3 *)((int)stk + 20));
     *(int *)((int)stk + 28) = (((int)stk + 32) + 0x20);
     vecDiv(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x20), (1.0f + 1.0f));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(((*(int *)((int)stk + 44)))); }

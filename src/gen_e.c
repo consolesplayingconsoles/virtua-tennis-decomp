@@ -208,7 +208,7 @@ int strmCallPair(int);
 int strmCallPlayerOnce(void);
 int strmScoreReset(void);
 int evPackFade(int, int, int);
-int sprListPut(int, int, int, float, float, float);
+int sprListPut(int, int, int, Stk3, float, float, float);
 int eepromGetDeuce(void);
 int eepromGetVsDeuce(void);
 int BupRequestLoad(int, int, int, int);
@@ -802,20 +802,12 @@ void motFileLoadBegin(void)
     }
 }
 
-void vecAdd(int a4, int a5, int a6, int a7, int a8)
+void vecAdd(int a4, int a5, int a6, int a7, int a8, Stk3 a, Stk3 b)
 {
-    int t1;
-    int t2;
-    int t3;
-    int stk[2];
-
-    nlAddVector((((int)stk + 4) + 0x8), (((int)stk + 4) + 0x14));
-    t1 = *(int *)(((((int)stk + 4) + 0x8) + 0x8));
-    *(unsigned int *)((a8 + 0x8)) = t1;
-    t2 = *(int *)(((((int)stk + 4) + 0x8) + 0x4));
-    *(unsigned int *)((a8 + 0x4)) = t2;
-    t3 = *(int *)(((((int)stk + 4) + 0x8) + 0x0));
-    *(unsigned int *)((a8 + 0x0)) = t3;
+    nlAddVector((int)&a, (int)&b);
+    *(unsigned int *)((a8 + 0x8)) = a.w[2];
+    *(unsigned int *)((a8 + 0x4)) = a.w[1];
+    *(unsigned int *)((a8 + 0x0)) = a.w[0];
 }
 
 
@@ -6134,7 +6126,7 @@ int pauseQuit(void)
     return t5;
 }
 
-void sprPutCentered(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
+void sprPutCentered(int a4, int a5, int a6, int a7, int a8, Stk3 c, float f4, float f5)
 {
     float u0;
     float u1;
@@ -6148,14 +6140,14 @@ void sprPutCentered(int a4, int a5, int a6, int a7, int a8, float f4, float f5)
 
     R1004 = *(float *)((int)stk + 4);
 
-    u0 = (*(float *)((int)stk + 36));
+    u0 = (*(float *)&c.w[0]);
     R1004 = (u0 - (f4 / (1.0f + 1.0f)));
-    u1 = (*(float *)((int)stk + 40));
+    u1 = (*(float *)&c.w[1]);
     (*(float *)((int)stk + 8)) = (u1 - (f5 / (1.0f + 1.0f)));
     u2 = R1004;
     *(float *)(((((int)stk + 4) + 0xC) + 0x0)) = (float)(int)u2;
     *(float *)(((((int)stk + 4) + 0xC) + 0x4)) = (float)(int)(u1 - (f5 / (1.0f + 1.0f)));
-    u3 = (*(float *)((int)stk + 44));
+    u3 = (*(float *)&c.w[2]);
     *(float *)(((((int)stk + 4) + 0xC) + 0x8)) = u3;
     t4 = *(int *)(((((int)stk + 4) + 0xC) + 0x8));
     *(unsigned int *)((a8 + 0x8)) = t4;
@@ -6802,7 +6794,7 @@ int shopPowi(int a4, int a5)
     return t4;
 }
 
-int shopDrawCatIcon(int a4, float f4)
+int shopDrawCatIcon(int a4, int a5, int a6, int a7, Stk3 s, float f4)
 {
     int t4;
     int t0;
@@ -6862,7 +6854,7 @@ int shopDrawCatIcon(int a4, float f4)
                             R1008 = t1;
                             t2 = R1036;
                             R1004 = t2;
-                            t3 = sprListPut(0x8C1DAA64, 0x1, 0x0, 1.0f, 1.0f, f4);
+                            t3 = sprListPut(0x8C1DAA64, 0x1, 0x0, s, 1.0f, 1.0f, f4);
                             t4 = t3;
                         }
                         t9 = t4;
@@ -6873,7 +6865,7 @@ int shopDrawCatIcon(int a4, float f4)
                         R1008 = t6;
                         t7 = R1036;
                         R1004 = t7;
-                        t8 = sprListPut(0x8C1DA9F8, 0x1, 0x0, 1.0f, 1.0f, f4);
+                        t8 = sprListPut(0x8C1DA9F8, 0x1, 0x0, s, 1.0f, 1.0f, f4);
                         t9 = t8;
                     }
                     t14 = t9;
@@ -6884,7 +6876,7 @@ int shopDrawCatIcon(int a4, float f4)
                     R1008 = t11;
                     t12 = R1036;
                     R1004 = t12;
-                    t13 = sprListPut(0x8C1DA98C, 0x1, 0x0, 1.0f, 1.0f, f4);
+                    t13 = sprListPut(0x8C1DA98C, 0x1, 0x0, s, 1.0f, 1.0f, f4);
                     t14 = t13;
                 }
                 t19 = t14;
@@ -6895,7 +6887,7 @@ int shopDrawCatIcon(int a4, float f4)
                 R1008 = t16;
                 t17 = R1036;
                 R1004 = t17;
-                t18 = sprListPut(0x8C1DAAD0, 0x1, 0x0, 1.0f, 1.0f, f4);
+                t18 = sprListPut(0x8C1DAAD0, 0x1, 0x0, s, 1.0f, 1.0f, f4);
                 t19 = t18;
             }
             t24 = t19;
@@ -6906,7 +6898,7 @@ int shopDrawCatIcon(int a4, float f4)
             R1008 = t21;
             t22 = R1036;
             R1004 = t22;
-            t23 = sprListPut(0x8C1DA920, 0x1, 0x0, 1.0f, 1.0f, f4);
+            t23 = sprListPut(0x8C1DA920, 0x1, 0x0, s, 1.0f, 1.0f, f4);
             t24 = t23;
         }
         t29 = t24;
@@ -6917,7 +6909,7 @@ int shopDrawCatIcon(int a4, float f4)
         R1008 = t26;
         t27 = R1036;
         R1004 = t27;
-        t28 = sprListPut(0x8C1DA8B4, 0x1, 0x0, 1.0f, 1.0f, f4);
+        t28 = sprListPut(0x8C1DA8B4, 0x1, 0x0, s, 1.0f, 1.0f, f4);
         t29 = t28;
     }
     return t29;

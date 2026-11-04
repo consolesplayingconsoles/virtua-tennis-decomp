@@ -46,7 +46,7 @@ int ADXF_Stop(int a4);
 int hudCallMsgDrawDab0(float f4, float f5);
 int hudPointsPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10);
 int menuTextLetterPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4);
-int optionBarPut(Stk1 s);
+int optionBarPut(Stk3 s);
 int courtColliInit(int a4, int a5, int a6, int a7);
 int hudCallMsgDrawDa60(float f4, float f5);
 int hudCallMsgDrawDb50(float f4, float f5);
@@ -372,7 +372,7 @@ int menuTextLetterPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, f
     return (sprPutAtAlpha(t10, a5, a6, a7, *(Stk3 *)(((int)stk + 4)), f4));
 }
 
-int optionBarPut(Stk1 s)
+int optionBarPut(Stk3 s)
 {
     int t0;
     int t1;
@@ -382,6 +382,8 @@ int optionBarPut(Stk1 s)
     int stk[28];
 
     stk[19] = s.w[0];
+    stk[20] = s.w[1];
+    stk[21] = s.w[2];
     { struct mv16 { int w[16]; }; *(struct mv16 *)(((int)stk + 4)) = *(struct mv16 *)(0x8C126514); }
     *(float *)(((((int)stk + 4) + 0x30) + 0x0)) = 400.0f;
     *(float *)(((((int)stk + 4) + 0x20) + 0x0)) = 400.0f;

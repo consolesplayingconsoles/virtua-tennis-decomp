@@ -9,7 +9,7 @@ int padDirRepeat(int, int);
 int panelLogoSwingDraw2(int, Stk3);
 int sndSeCursor(void);
 int sndSeDecide(void);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 Stk3 vecMake(float, float, float);
 int entryGridSettingsStep(int a4, int a5, int a6, int a7, float f4, float f5, float f6);
 
@@ -69,28 +69,28 @@ int entryGridSettingsStep(int a4, int a5, int a6, int a7, float f4, float f5, fl
     *(Stk3 *)(((int)stk + 28)) = vecMake(-119.0f, 135.0f, 0.100000001f);
     t1 = (*(int *)(((int)stk + 52)));
     *(int *)((int)stk + 24) = t1;
-    vecAdd(0x0, 0x0, 0x0, 0x0, t1);
+    vecAdd(0x0, 0x0, 0x0, 0x0, t1, *(Stk3 *)((int)stk + 28), *(Stk3 *)((int)stk + 40));
     *(unsigned int *)(((int)stk + 56)) = ((((int)stk + 52) + 0x18) + 0xC);
     *(unsigned int *)(((int)stk + 52)) = ((((int)stk + 52) + 0x18) + 0xC);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)(0x8C1855E8); }
     *(Stk3 *)(((int)stk + 28)) = vecMake(-124.0f, 205.0f, 0.100000001f);
     t4 = (*(int *)(((int)stk + 52)));
     *(int *)((int)stk + 24) = t4;
-    vecAdd(0x0, 0x0, 0x0, 0x0, t4);
+    vecAdd(0x0, 0x0, 0x0, 0x0, t4, *(Stk3 *)((int)stk + 28), *(Stk3 *)((int)stk + 40));
     *(unsigned int *)(((int)stk + 64)) = ((((int)stk + 52) + 0x18) + 0x18);
     *(unsigned int *)(((int)stk + 52)) = ((((int)stk + 52) + 0x18) + 0x18);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)(0x8C1855E8); }
     *(Stk3 *)(((int)stk + 28)) = vecMake(-122.0f, 275.0f, 0.100000001f);
     t7 = (*(int *)(((int)stk + 52)));
     *(int *)((int)stk + 24) = t7;
-    vecAdd(0x0, 0x0, 0x0, 0x0, t7);
+    vecAdd(0x0, 0x0, 0x0, 0x0, t7, *(Stk3 *)((int)stk + 28), *(Stk3 *)((int)stk + 40));
     *(unsigned int *)(((int)stk + 68)) = ((((int)stk + 52) + 0x18) + 0x24);
     *(unsigned int *)(((int)stk + 52)) = ((((int)stk + 52) + 0x18) + 0x24);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)(0x8C1855E8); }
     *(Stk3 *)(((int)stk + 28)) = vecMake(-122.0f, 345.0f, 0.100000001f);
     t10 = (*(int *)(((int)stk + 52)));
     *(int *)((int)stk + 24) = t10;
-    vecAdd(0x0, 0x0, 0x0, 0x0, t10);
+    vecAdd(0x0, 0x0, 0x0, 0x0, t10, *(Stk3 *)((int)stk + 28), *(Stk3 *)((int)stk + 40));
     R1 = ((*(int *)(((int)stk + 52))));
     R10 = (0x8C0300E0);
     R11 = (0x8C343DD0);

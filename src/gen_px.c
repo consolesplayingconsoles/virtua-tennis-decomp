@@ -4,7 +4,7 @@
 typedef struct { int w[3]; } Stk3;
 int countryNamePut(int, float);
 int getID_Color(int, float);
-int iconSlotPutC(int, float);
+int iconSlotPutC(int, Stk3, float);
 int menuItemTextPut(int, Stk3, float);
 int nlDispStripTrnsl(int, int);
 int primVertexSet(int, int, int, int, int, Stk3);
@@ -70,7 +70,7 @@ int infoPlayerDraw(int a4, int a5, int a6, int a7, Stk3 s, float f4, float f5, f
     *(int *)((int)stk + 32) = v0_4;
     *(Stk3 *)(v0_4) = vecMake((w0_3 + 160.0f), w0_5, w0_4);
     *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)((v0_2 + 0x0))), ((*(float *)((v0_2 + 0x4))) + 1.0f), (*(float *)((v0_2 + 0x8))));
-    iconSlotPutC((*(int *)(((int)stk + 40))), w0_1);
+    iconSlotPutC((*(int *)(((int)stk + 40))), *(Stk3 *)(((int)stk + 24)), w0_1);
     *(unsigned int *)(((int)stk + 56)) = v0_0;
     *(unsigned int *)(((int)stk + 36)) = v0_0;
     *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)((v0_2 + 0x0))) + 94.0f), (*(float *)((v0_2 + 0x4))), (*(float *)((v0_2 + 0x8))));
@@ -311,7 +311,7 @@ int infoPlayerDraw(int a4, int a5, int a6, int a7, Stk3 s, float f4, float f5, f
     *(int *)((int)stk + 32) = v0_4;
     *(Stk3 *)(v0_4) = vecMake((w0_3 + -93.0f), w0_5, w0_4);
     *(Stk3 *)(((int)stk + 24)) = vecMake((*(float *)((v0_2 + 0x0))), ((*(float *)((v0_2 + 0x4))) + 1.0f), (*(float *)((v0_2 + 0x8))));
-    iconSlotPutC((*(int *)(((int)stk + 40))), w0_1);
+    iconSlotPutC((*(int *)(((int)stk + 40))), *(Stk3 *)(((int)stk + 24)), w0_1);
     *(unsigned int *)(((int)stk + 56)) = v0_0;
     *(unsigned int *)(((int)stk + 36)) = v0_0;
     *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)((v0_2 + 0x0))) + 95.0f), (*(float *)((v0_2 + 0x4))), (*(float *)((v0_2 + 0x8))));

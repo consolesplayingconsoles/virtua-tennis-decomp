@@ -26,7 +26,7 @@ int primTexVertexSet(int, int, int, int, int, Stk3, float, float);
 int primVertexSet(int, int, int, int, int, Stk3);
 int set_event(int, int);
 int sprInitPos(int, int, Stk3);
-int sprListPut(int, int, int, float, float, float);
+int sprListPut(int, int, int, Stk3, float, float, float);
 int sprPutAtAlpha(int, Stk3, float);
 int stageSelNameDraw(int, int, Stk3);
 int sunMatrixSet(int, int);
@@ -395,7 +395,7 @@ int titleSprBlinkPut(float f4)
     t6 = t1;
     if ((int)t1 < (int)0x1E) {
         *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)0x8C0E6440), (R1020), (*(float *)0x8C0E643C));
-        t6 = (sprListPut(0x8C1D8658, 0x3, 0xFF000000, 1.0f, 1.0f, 1.0f));
+        t6 = (sprListPut(0x8C1D8658, 0x3, 0xFF000000, *(Stk3 *)(((int)stk + 8)), 1.0f, 1.0f, 1.0f));
     }
     return t6;
 }

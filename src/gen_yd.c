@@ -39,7 +39,7 @@ int nlsndSystemControl(int, int, int);
 int restart_t404(void);
 int serveGetServer(void);
 int thunk_nlObjPutMvInit(int);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 Stk3 vecMake(float, float, float);
 int FUN_8c013714(int a4);
 int FUN_8c074c9c(int a4, int a5);
@@ -101,7 +101,7 @@ int FUN_8c013714(int a4)
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)((((int)stk + 48) + 0xC)); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)((a4 + 0x18)); }
         *(int *)((int)stk + 20) = (0x18 + a4);
-        vecAdd(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 20));
+        vecAdd(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 20), *(Stk3 *)((int)stk + 24), *(Stk3 *)((int)stk + 36));
         nlPopMatrix(0x1);
         nlPushUnitMatrix();
         nlRotateAX((-(unsigned short)(*(short *)((a4 + 0x3C)))));

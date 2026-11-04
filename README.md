@@ -10,9 +10,7 @@ byte-identical C (Matching) is the bonus tier.
 
 **Known issues:**
 
-- Main menu: the submenu entries show no labels
-- Game opening: The pictures of the players are missing
-- Exhibition mode: crashes the game
+- Game opening: The pictures of the players are missing or appear in the wrong place
 - World circuit: plays but very slow and sometimes hangs
 
 _**This is not a traditional, human-idiomatic decompilation.** It is structured and documented for AI consumption,

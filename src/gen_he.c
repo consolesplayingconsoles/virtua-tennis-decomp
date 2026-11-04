@@ -16,7 +16,7 @@ int screenSegVisibleRaised(int, Stk3, Stk3);
 int screenSphereVisibleRaised(Stk3, float);
 int serveGetServer(void);
 int sprPutAt(int, Stk3);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 int vecDiv(int, int, int, int, int, float);
 Stk3 vecMake(float, float, float);
 int hudScoreBoardDraw(int a4, int a5);

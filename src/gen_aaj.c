@@ -40,8 +40,8 @@ int sndSe05_04(void);
 int sndSeCancel(void);
 int sndSeCursor(void);
 int sndSeDecide(void);
-extern int sprListPut();
-int sprPutCentered(int, int, int, int, int, float, float);
+int sprListPut(int, int, int, Stk3, float, float, float);
+int sprPutCentered(int, int, int, int, int, Stk3, float, float);
 int uiScanlinesPut(float);
 Stk3 vecMake(float, float, float);
 int FUN_8c0e6620(float f4);
@@ -110,18 +110,18 @@ int FUN_8c0e6620(float f4)
     uiScanlinesPut(75.0f);
     shopDrawMenu();
     *(Stk3 *)(((int)stk + 24)) = vecMake(412.0f, 374.0f, w0_2);
-    v0_3 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1DC270, 0x2, 0x0, w0_1, w0_1, w0_1);
+    v0_3 = sprListPut(0x8C1DC270, 0x2, 0x0, *(Stk3 *)(((int)stk + 24)), w0_1, w0_1, w0_1);
     *(Stk3 *)(((int)stk + 24)) = vecMake(575.0f, 400.0f, w0_2);
     hudFontNumPut((*(int *)0x8C2FBC58), *(Stk3 *)((int)stk + 24), w0_1);
     *(Stk3 *)(((int)stk + 24)) = vecMake(384.0f, 370.0f, 0.150000006f);
-    v0_3 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1DC12C, 0x3, 0x0, 0.5f, w0_1, w0_1);
+    v0_3 = sprListPut(0x8C1DC12C, 0x3, 0x0, *(Stk3 *)(((int)stk + 24)), 0.5f, w0_1, w0_1);
     *(Stk3 *)(((int)stk + 24)) = vecMake(384.0f, 400.0f, 0.150000006f);
-    v0_3 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1DC12C, 0x3, 0x0, 0.5f, w0_1, w0_1);
+    v0_3 = sprListPut(0x8C1DC12C, 0x3, 0x0, *(Stk3 *)(((int)stk + 24)), 0.5f, w0_1, w0_1);
     *(int *)((int)stk + 20) = 0x8C4220D0;
     hudCounterStep(0x1, 0x0, 0x1E, 0xA, 0x8C4220D0);
     if (((*(int *)0x8C4220D0) == 0)) goto L_8C0E6788;
     *(Stk3 *)(((int)stk + 24)) = vecMake(427.0f, 433.0f, w0_2);
-    v0_3 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1DBFE8, 0x3, 0x0, w0_1, w0_1, w0_1);
+    v0_3 = sprListPut(0x8C1DBFE8, 0x3, 0x0, *(Stk3 *)(((int)stk + 24)), w0_1, w0_1, w0_1);
     L_8C0E6788:;
     *(int *)((int)stk + 32) = (((int)stk + 36) + 0x54);
     *(Stk3 *)((((int)stk + 36) + 0x54)) = vecMake(w0_0, 80.0f, w0_1);
@@ -225,7 +225,7 @@ int FUN_8c0e6620(float f4)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x4C)); }
     w0_3 = *(float *)(((v0_3 + ((v0_5 - 1) * 0x6C)) + 0x54));
     *(int *)((int)stk + 16) = (((int)stk + 20) + 0x58);
-    sprPutCentered(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), w0_3, w0_0);
+    sprPutCentered(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), *(Stk3 *)((int)stk + 20), w0_3, w0_0);
     v0_6 = *(int *)(((int)stk + 40));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x5C)); }
     v0_3 = ((int (*)(int, int, int, Stk3, float, float, float))(sprListPut))(((v0_3 + ((v0_5 - 1) * 0x6C)) - v0_6), (*(int *)(((int)stk + 44))), 0x0, *(Stk3 *)(((int)stk + 4)), w0_1, w0_1, w0_1);
@@ -240,7 +240,7 @@ int FUN_8c0e6620(float f4)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x4C)); }
     w0_3 = *(float *)(((*(int *)(((int)stk + 36))) + 0x54));
     *(int *)((int)stk + 16) = (((int)stk + 20) + 0x58);
-    sprPutCentered(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), w0_3, w0_0);
+    sprPutCentered(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), *(Stk3 *)((int)stk + 20), w0_3, w0_0);
     *(unsigned int *)(((int)stk + 36)) = ((*(int *)(((int)stk + 36))) - 108);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x5C)); }
     v0_3 = ((int (*)(int, int, int, Stk3, float, float, float))(sprListPut))((*(int *)(((int)stk + 36))), 0x2, 0x0, *(Stk3 *)(((int)stk + 4)), w0_1, w0_1, w0_1);
@@ -261,7 +261,7 @@ int FUN_8c0e6620(float f4)
     *(Stk3 *)(((int)stk + 24)) = vecMake(430.0f, 231.0f, 0.150000006f);
     v0_6 = ((int (*)(int, Stk3, float, float, float))(cursorBoxPut))(0xFFE60000, *(Stk3 *)((int)stk + 24), w0_1, 170.0f, w0_1);
     *(Stk3 *)(((int)stk + 24)) = vecMake(450.0f, 235.0f, w0_2);
-    v0_6 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1DB5C8, 0x3, 0x0, w0_1, w0_1, w0_1);
+    v0_6 = sprListPut(0x8C1DB5C8, 0x3, 0x0, *(Stk3 *)(((int)stk + 24)), w0_1, w0_1, w0_1);
     L_8C0E6C36:;
     if (!(((*(int *)0x8C4220C0) == 1))) goto L_8C0E6DCE;
     *(Stk3 *)(((int)stk + 24)) = vecMake(490.0f, 255.0f, w0_1);
@@ -427,9 +427,9 @@ int FUN_8c0e6620(float f4)
     *(Stk3 *)(((int)stk + 24)) = vecMake(515.0f, 260.0f, w0_2);
     w0_4 = 0.400000006f;
     w0_4 = w0_4 + w0_3 * (float)(*(int *)((v0_2 + 0x0)));
-    v0_6 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1DB778, 0x1, 0x0, w0_1, w0_1, w0_4);
+    v0_6 = sprListPut(0x8C1DB778, 0x1, 0x0, *(Stk3 *)(((int)stk + 24)), w0_1, w0_1, w0_4);
     *(Stk3 *)(((int)stk + 24)) = vecMake(505.0f, 295.0f, w0_2);
-    v0_6 = ((int (*)(int, int, int, float, float, float))(sprListPut))(0x8C1DB70C, 0x1, 0x0, w0_1, w0_1, (w0_1 - ((float)(*(int *)((v0_2 + 0x0))) * w0_3)));
+    v0_6 = sprListPut(0x8C1DB70C, 0x1, 0x0, *(Stk3 *)(((int)stk + 24)), w0_1, w0_1, (w0_1 - ((float)(*(int *)((v0_2 + 0x0))) * w0_3)));
     *(unsigned int *)0x8C4220D4 = ((*(int *)0x8C4220D4) + 0x200);
     goto L_8C0E6DCE;
     L_8C0E6D58:;

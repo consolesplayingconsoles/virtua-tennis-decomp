@@ -20,7 +20,7 @@ int padDirRepeat(int, int);
 int panelLogoSwingDraw2(int, Stk3);
 int sndSeCursor(void);
 int sndSeDecide(void);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 int vecMake(int, int, int, int, int, float, float, float);
 int courtUsaDrawScoreboard2(void);
 int courtUsaDrawScoreboard(void);

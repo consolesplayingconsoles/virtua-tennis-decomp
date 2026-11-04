@@ -9,7 +9,7 @@ int nlRotateAY(int);
 int nlTranslate(float, float, float);
 extern int screenSegVisibleRaised();
 int screenSphereVisibleRaised(Stk3, float);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 int vecDiv(int, int, int, int, int, float);
 int crowdDrawBlockAlt(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, float f4, float f5, float f6);
 
@@ -62,7 +62,7 @@ int crowdDrawBlockAlt(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((R4 + 0xC)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(R4); }
     *(int *)((int)stk + 4) = (0x18 + ((int)stk + 8));
-    vecAdd(R4, R5, R6, R7, *(int *)((int)stk + 4));
+    vecAdd(R4, R5, R6, R7, *(int *)((int)stk + 4), *(Stk3 *)((int)stk + 8), *(Stk3 *)((int)stk + 20));
     *(int *)((int)stk + 28) = (((int)stk + 32) + 0x30);
     vecDiv(0x0, 0x0, 0x0, 0x0, (((int)stk + 32) + 0x30), (1.0f + 1.0f));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(((*(int *)((int)stk + 52)))); }
@@ -98,7 +98,7 @@ int crowdDrawBlockAlt(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((((int)stk + 44) + 0x58)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(((((R13 << 1) + R13) << 2) + ((*(int *)((int)stk + 48))))); }
     *(int *)((int)stk + 16) = (R14);
-    vecAdd(R4, R5, R6, R7, *(int *)((int)stk + 16));
+    vecAdd(R4, R5, R6, R7, *(int *)((int)stk + 16), *(Stk3 *)((int)stk + 20), *(Stk3 *)((int)stk + 32));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(R14); }
     t24 = screenSphereVisibleRaised(*(Stk3 *)(((int)stk + 4)), F15);
     R0 = (t24);
@@ -124,7 +124,7 @@ int crowdDrawBlockAlt(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((((int)stk + 44) + 0x58)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((((R13 + 0x1) << 1) + (R13 + 0x1)) << 2) + ((*(int *)((int)stk + 48))))); }
     *(int *)((int)stk + 16) = (R14);
-    vecAdd(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 16));
+    vecAdd(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), *(Stk3 *)((int)stk + 20), *(Stk3 *)((int)stk + 32));
     R0 = (a8);
     R13 = ((R13 + 0x1));
     if ((a8 == 0)) goto L_8C0B3E72;
@@ -140,7 +140,7 @@ int crowdDrawBlockAlt(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((((int)stk + 44) + 0x58)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((((R13 + 0x1) << 1) + (R13 + 0x1)) << 2) + ((*(int *)((int)stk + 48))))); }
     *(int *)((int)stk + 16) = (R14);
-    vecAdd(R4, R5, R6, R7, *(int *)((int)stk + 16));
+    vecAdd(R4, R5, R6, R7, *(int *)((int)stk + 16), *(Stk3 *)((int)stk + 20), *(Stk3 *)((int)stk + 32));
     t72 = ((int)((int)(R11 + (R13 + 0x1)) % (int)R12));
     R13 = ((R13 + 0x1));
     R4 = t72;

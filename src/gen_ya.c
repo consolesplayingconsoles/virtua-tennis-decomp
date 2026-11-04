@@ -41,7 +41,7 @@ int titleMenuLayout(int, int, float, float);
 int titleObjSpinPut(int);
 int titleObjTrailPut(int, int);
 int titleSprAnim(int, int, int, int, int, int);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 Stk3 vecMake(float, float, float);
 int FUN_8c04b100(int a4, int a5);
 int FUN_8c0e9422(int a4, int a5, int a6);
@@ -1007,7 +1007,7 @@ int FUN_8c087986(int a4, int a5, int a6, int a7)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((v0_3 + 0x28)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((v0_3 + 0x1C)); }
     *(int *)((int)stk + 4) = (0x1C + v0_3);
-    v0_6 = ((vecAdd(v0_0, v0_1, a6, a7, *(int *)((int)stk + 4))));
+    v0_6 = ((vecAdd(v0_0, v0_1, a6, a7, *(int *)((int)stk + 4), *(Stk3 *)((int)stk + 8), *(Stk3 *)((int)stk + 20))));
     L_8C087B6A:;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C301B84) = *(struct mv3 *)((v0_3 + 0x1C)); }
     nlPushMatrix(0x0);

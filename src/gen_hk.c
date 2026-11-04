@@ -16,7 +16,7 @@ int nlUnitMatrix(void);
 int screenOutcodeMargin(int, int, int);
 int screenProject(int, int, Stk3);
 int set_event(int, int);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 float vecLength(Stk4);
 Stk3 vecMake(float, float, float);
 int vecScale(int, int, int, int, int, float, float, float, float, float, float, float);
@@ -95,7 +95,7 @@ void segPlaneHit(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a1
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 48)) = *(struct mv3 *)((((int)stk + 60) + 0x40)); }
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)((((int)stk + 60) + 0x4C)); }
             vecScale(0x0, 0x0, 0x0, 0x0, (0xC + ((int)stk + 24)), (((((-(u22 * u21)) - (u24 * u23)) - (u26 * u25)) - (((-(u8 * u10)) - (u9 * u11)) - (u12 * u13))) / u19), ((((-(u22 * u21)) - (u24 * u23)) - (u26 * u25)) - (((-(u8 * u10)) - (u9 * u11)) - (u12 * u13))), (u24 * u23), u19, (((-(u8 * u10)) - (u9 * u11)) - (u12 * u13)), (u6 * u7), u2);
-            vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x18));
+            vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 36) + 0x18), *(Stk3 *)((int)stk + 24), *(Stk3 *)((int)stk + 36));
             { struct mv3 { int w[3]; }; *(struct mv3 *)(a8) = *(struct mv3 *)(((int)stk + 60)); }
         } else {
             { struct mv3 { int w[3]; }; *(struct mv3 *)(a8) = *(struct mv3 *)(0x8C1016D4); }

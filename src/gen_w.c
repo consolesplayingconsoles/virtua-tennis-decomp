@@ -118,7 +118,7 @@ int syCacheOCBI(int a4, int a5);
 int syCacheOCBP(int a4, int a5);
 int ADXF_Ocbi(int a4, int a5);
 int sysSetVideoMode(int a4);
-float iconSlotPutC(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4);
+float iconSlotPutC(int a4, int a5, int a6, int a7, Stk3 p, float f4);
 int bgScreenDraw(int a4, int a5, int a6, int a7);
 
 int shadowLightMatrix(float f4)
@@ -821,16 +821,15 @@ float nlSin(int a4)
 
 
 
-float iconSlotPutC(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
+float iconSlotPutC(int a4, int a5, int a6, int a7, Stk3 p, float f4)
 {
     float u2;
     float u10;
     int stk[19];
 
-    stk[7] = a8;
-    stk[8] = a9;
-    stk[9] = a10;
-    stk[10] = a11;
+    stk[7] = p.w[0];
+    stk[8] = p.w[1];
+    stk[9] = p.w[2];
     *(float *)(((((int)stk + 16) + 0xC) + 0x8)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x8))) + 0.00100000005f);
     *(float *)(((((int)stk + 16) + 0xC) + 0x0)) = ((*(float *)(((((int)stk + 16) + 0xC) + 0x0))) + 93.0f);
     u2 = *(float *)(((((int)stk + 16) + 0xC) + 0x4));

@@ -33,7 +33,7 @@ int sndSeCursor(void);
 int sndSeDecide(void);
 extern int strmBgmSetVol();
 int strmBgmVolTo(int);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 Stk3 vecMake(float, float, float);
 int entryGridSettingsStep(int a4, int a5);
 int courtAusDraw(int a4);

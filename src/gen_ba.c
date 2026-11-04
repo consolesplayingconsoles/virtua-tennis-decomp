@@ -50,7 +50,7 @@ int strmVoiceQueueAdd(int);
 int strmVoiceVolRestore(void);
 int umpCheerTimed(int);
 int umpirePose(int);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 int vecDiv(int, int, int, int, int, float, float);
 int vecMake(int, int, int, int, int, float, float, float);
 int ndbEditInput(int a4);

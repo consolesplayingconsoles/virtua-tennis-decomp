@@ -46,7 +46,7 @@ int sprListPut(int, int, int, Stk3, float, float, float);
 int sprPutAtAlpha(int, Stk3, float);
 int unlockApplyW1(void);
 int unlockApplyW2(void);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 float vecDistXZ(Stk3, Stk3);
 float vecLength(Stk4);
 int vecMake(int, int, int, int, int, float, float, float);

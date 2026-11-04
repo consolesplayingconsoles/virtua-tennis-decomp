@@ -57,7 +57,7 @@ int serveGetServer(void);
 int shadowLightMatrix(float);
 int sndCrowdBallReact(int);
 int sprListPut(int, int, int, Stk3, float, float, float);
-int sprPutCentered(int, int, int, int, int, float, float);
+int sprPutCentered(int, int, int, int, int, Stk3, float, float);
 int sprSheetPut(int, float, float, float, float);
 int sprSheetSet(int);
 int staffRestart(void);
@@ -469,13 +469,13 @@ int shopDrawPrice(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a
         if (a5 != 6) {
             *(float *)(((((int)stk + 32) + 0x7C) + 0x0)) = ((*(float *)(((((int)stk + 32) + 0x7C) + 0x0))) + -40.0f);
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x7C)); }
-            sprPutCentered(a4, a5, a6, a7, (((int)stk + 32) + 0x4), (*(float *)0x8C1DB838), 0.0f);
+            sprPutCentered(a4, a5, a6, a7, (((int)stk + 32) + 0x4), *(Stk3 *)((int)stk + 20), (*(float *)0x8C1DB838), 0.0f);
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 32) + 0x4)); }
             t6 = 0x8C1DB7E4;
         } else {
             *(float *)(((((int)stk + 32) + 0x7C) + 0x0)) = ((*(float *)(((((int)stk + 32) + 0x7C) + 0x0))) + -60.0f);
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x7C)); }
-            sprPutCentered(a4, a5, a6, a7, (((int)stk + 32) + 0x4), (*(float *)0x8C1DBFD0), 0.0f);
+            sprPutCentered(a4, a5, a6, a7, (((int)stk + 32) + 0x4), *(Stk3 *)((int)stk + 20), (*(float *)0x8C1DBFD0), 0.0f);
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 32) + 0x4)); }
             t6 = 0x8C1DBF7C;
         }

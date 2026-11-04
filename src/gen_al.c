@@ -77,7 +77,7 @@ int standSort(void);
 int thunk_fadeScreenDraw(int, int, int, int, float, float);
 int umpBusyStart(void);
 int umpCallServeNo(int);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 int vecMake(int, int, int, int, int, float, float, float);
 int winPartsPut(int, int, int, int, Stk3, float, float);
 int winTriPartsPut(int, int, int, int, Stk3, float, float);
@@ -529,7 +529,7 @@ void vecOrbit(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, 
     nlPopMatrix(0x1);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x10)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 20) + 0x34)); }
-    vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 8) + 0x28));
+    vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 8) + 0x28), *(Stk3 *)((int)stk + 8), *(Stk3 *)((int)stk + 20));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((*(int *)((int)stk + 68)))) = *(struct mv3 *)((((int)stk + 4) + 0x2C)); }
 }
 

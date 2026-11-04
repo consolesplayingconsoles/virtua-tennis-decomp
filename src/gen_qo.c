@@ -4,7 +4,7 @@
 typedef struct { int w[3]; } Stk3;
 int nlAddVector(int, int);
 int nlScaleVector(int, int, float);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 int vecDiv(int, int, int, int, int, float);
 Stk3 vecMake(float, float, float);
 void bodyGroundFriction(int a4, int a5, int a6, int a7, int a8, float f4, float f5);
@@ -125,7 +125,7 @@ void bodyGroundFriction(int a4, int a5, int a6, int a7, int a8, float f4, float 
         { struct mv3 { int w[3]; }; *(struct mv3 *)(t2) = *(struct mv3 *)(((a4 + 0xC) + t0)); }
         t3 = ((*(int *)((int)stk + 32)));
         (*(int *)((int)stk + 4)) = t3;
-        vecAdd(0x0, 0x0, 0x0, 0x0, t3);
+        vecAdd(0x0, 0x0, 0x0, 0x0, t3, *(Stk3 *)((int)stk + 8), *(Stk3 *)((int)stk + 20));
         t2 = ((*(int *)((int)stk + 32)));
         t1 = (t1 + 0x1);
     }

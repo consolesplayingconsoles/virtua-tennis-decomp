@@ -22,7 +22,7 @@ int selPanelDraw(int, float, float);
 extern int selSlot0FlagClear();
 int sndSeCursor(void);
 int unlockCountW0(void);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 Stk3 vecMake(float, float, float);
 int winDrawA(int, int, Stk3, float, float, float);
 int selPortsExec(int a4, int a5);
@@ -100,28 +100,28 @@ int primPanelDraw(Stk3 p)
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 100) + 0x20)) = *(struct mv3 *)(0x8C122D14); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)(0x8C18D2D0); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)((((int)stk + 100) + 0x20)); }
-    vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 100) + 0x20));
+    vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 100) + 0x20), *(Stk3 *)((int)stk + 76), *(Stk3 *)((int)stk + 88));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 60)) = *(struct mv3 *)((((int)stk + 100) + 0x20)); }
     t54 = ((int (*)(int, int, int, int, Stk3))(primRectIncGradY))(0x240, 0x156, 0xA4000078, 0xA4000078, *(Stk3 *)(((int)stk + 60)));
     *(Stk3 *)((((int)stk + 116) + 0x58)) = vecMake(30.0f, 76.0f, 529.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 44)) = *(struct mv3 *)(0x8C18D2D0); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((((int)stk + 116) + 0x58)); }
-    vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 116) + 0x58));
+    vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 116) + 0x58), *(Stk3 *)((int)stk + 32), *(Stk3 *)((int)stk + 44));
     *(Stk3 *)((((int)stk + 112) + 0x50)) = vecMake(30.0f, 417.0f, 529.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 116)) = *(struct mv3 *)(0x8C18D2D0); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 104)) = *(struct mv3 *)((((int)stk + 112) + 0x50)); }
-    vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 112) + 0x50));
+    vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 112) + 0x50), *(Stk3 *)((int)stk + 104), *(Stk3 *)((int)stk + 116));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 116)) = *(struct mv3 *)((((int)stk + 112) + 0x50)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 104)) = *(struct mv3 *)((((int)stk + 116) + 0x58)); }
     primLineV(0x2, 0xFFFFFFFF, *(Stk3 *)(((int)stk + 104)), *(Stk3 *)(((int)stk + 116)));
     *(Stk3 *)((((int)stk + 116) + 0x58)) = vecMake(605.0f, 76.0f, 529.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 88)) = *(struct mv3 *)(0x8C18D2D0); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 76)) = *(struct mv3 *)((((int)stk + 116) + 0x58)); }
-    vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 116) + 0x58));
+    vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 116) + 0x58), *(Stk3 *)((int)stk + 76), *(Stk3 *)((int)stk + 88));
     *(Stk3 *)((((int)stk + 112) + 0x50)) = vecMake(605.0f, 417.0f, 529.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 56)) = *(struct mv3 *)(0x8C18D2D0); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 44)) = *(struct mv3 *)((((int)stk + 112) + 0x50)); }
-    vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 112) + 0x50));
+    vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 112) + 0x50), *(Stk3 *)((int)stk + 44), *(Stk3 *)((int)stk + 56));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 112) + 0x50)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((((int)stk + 116) + 0x58)); }
     primLineV(0x2, 0xFFFFFFFF, *(Stk3 *)(((int)stk + 16)), *(Stk3 *)(((int)stk + 28)));

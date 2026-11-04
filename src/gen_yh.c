@@ -91,7 +91,7 @@ int strmVoiceQueueReset(void);
 int thunk_buIsExistFile(int, int);
 int titleSprTexLoad(int, int, int, int, int, int, int, int, int);
 int unlockApplyW1(void);
-int vecAdd(int, int, int, int, int);
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 int vecCross(int, int, int, int, int);
 float vecDot(Stk3, Stk3);
 Stk3 vecMake(float, float, float);
@@ -1276,7 +1276,7 @@ int FUN_8c0902c8(int a4, int a5, int a6, int a7)
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)(((int)stk + 44)); }
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(0x8C1846BC); }
             *(int *)((int)stk + 16) = (((int)stk + 20) + 0x30);
-            vecAdd(a4, a5, a6, a7, *(int *)((int)stk + 16));
+            vecAdd(a4, a5, a6, a7, *(int *)((int)stk + 16), *(Stk3 *)((int)stk + 20), *(Stk3 *)((int)stk + 32));
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x34)); }
             t10 = ((int (*)(int, Stk3, float))(numPutSprite))(0x18, *(Stk3 *)(((int)stk + 4)), 1.0f);
         } else {
@@ -1287,7 +1287,7 @@ int FUN_8c0902c8(int a4, int a5, int a6, int a7)
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)(((int)stk + 44)); }
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)(0x8C1846C8); }
             *(int *)((int)stk + 16) = (((int)stk + 20) + 0x24);
-            vecAdd(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 16));
+            vecAdd(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), *(Stk3 *)((int)stk + 20), *(Stk3 *)((int)stk + 32));
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x28)); }
             t18 = (((int (*)(int, Stk3, float))(numPutSprite))(0x18, *(Stk3 *)(((int)stk + 4)), 1.0f));
         } else {

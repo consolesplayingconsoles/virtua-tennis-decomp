@@ -60,7 +60,8 @@ int titleSprLoad(void);
 int titleSprTexLoad(int, int, int, int, int, int, int, int, int);
 int umpCallSpareA(void);
 int umpCallSpareB(void);
-int vecAdd(int, int, int, int, int);
+typedef struct { int w[3]; } Stk3;
+int vecAdd(int, int, int, int, int, Stk3, Stk3);
 int vecDiv(int, int, int, int, int, float);
 int FUN_8c0e426a(int a4);
 int FUN_8c08d78c(int a4);
@@ -323,7 +324,7 @@ int FUN_8c08d78c(int a4)
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((0xAF4 + (*(int *)((a4 + 0x34))))); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(((*(int *)((a4 + 0x30))) + 0xAF4)); }
         *(int *)((int)stk + 4) = (0x18 + ((int)stk + 8));
-        vecAdd(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 4));
+        vecAdd(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(Stk3 *)((int)stk + 8), *(Stk3 *)((int)stk + 20));
         *(int *)((int)stk + 28) = 0x8C32DDA4;
         vecDiv(0x0, 0x0, 0x0, 0x0, 0x8C32DDA4, (1.0f + 1.0f));
     }
