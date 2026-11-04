@@ -4,9 +4,9 @@
 typedef struct { int w[3]; } Stk3;
 int camExec(int, int, int, int, int, int, int, int, int, int, int, int);
 int camMoveBegin(float, float);
-int camSetEye(void);
+int camSetEye(Stk3);
 int camSetOrbit(int, int, float);
-int camSetTarget(void);
+int camSetTarget(Stk3);
 int camSetupView(void);
 float cpuEdgeX(int, Stk3, float);
 int cpuInFan(int, int, Stk3);
@@ -174,16 +174,16 @@ int FUN_8c0be2dc(void)
     t84 = *(int *)0x8C1AA550;
     if ((int)t84 < (int)0x4) {
         *(Stk3 *)(((int)stk + 44)) = vecMake(0.0f, (float)((*(int *)(((((t84 << 1) + t84) << 2) + 0x8C1AA55C))) + 0xC), 0.0f);
-        camSetEye();
+        camSetEye(*(Stk3 *)(((int)stk + 44)));
         t87 = *(int *)0x8C1AA550;
         *(unsigned int *)(((int)stk + 56)) = (0x8C1AA554 + (((t87 << 1) + t87) << 2));
         *(Stk3 *)(((int)stk + 44)) = vecMake(0.0f, (float)((*(int *)(((0x8C1AA554 + (((t87 << 1) + t87) << 2)) + 0x0))) + 0x14), (float)((*(int *)(((0x8C1AA554 + (((t87 << 1) + t87) << 2)) + 0x4))) + 0x44));
     } else {
         *(Stk3 *)(((int)stk + 44)) = vecMake(0.0f, (1.0f + 1.0f), 0.0f);
-        camSetEye();
+        camSetEye(*(Stk3 *)(((int)stk + 44)));
         *(Stk3 *)(((int)stk + 44)) = vecMake(0.0f, 0.5f, 11.0f);
     }
-    camSetTarget();
+    camSetTarget(*(Stk3 *)(((int)stk + 44)));
     camMoveBegin(1.0f, 1.0f);
     *(float *)0x8C287A04 = 20.0f;
     camSetupView();

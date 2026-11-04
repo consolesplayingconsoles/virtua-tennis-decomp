@@ -9,7 +9,7 @@ int resetBackColorZ(int, int, int);
 int nlUnitVector(int);
 int abs(int);
 int camInit(void);
-int camProject(int, int);
+int camProject(int, int, Stk3);
 int camWorldToView(Stk4);
 int charaTexFreeAll(void);
 int circuitNumDraw(int, int, int, float, float, float);
@@ -644,7 +644,7 @@ int FUN_8c0cb7ee(Stk3 s, float f4)
         *(int *)((int)stk + 4) = (0xC + ((int)stk + 8));
         *(int *)((int)stk + 4) = (0xC + ((int)stk + 8));
         camWorldToView(*(Stk4 *)(((int)stk + 4)));
-        camProject((((int)stk + 20) + 0x10), (((int)stk + 20) + 0xC));
+        camProject((((int)stk + 20) + 0x10), (((int)stk + 20) + 0xC), *(Stk3 *)(((int)stk + 20)));
         u2 = (*(float *)(((int)stk + 32)));
         if (0.0f > u2) {
             u2 = (-u2);

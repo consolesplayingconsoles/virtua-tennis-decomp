@@ -5,8 +5,8 @@ typedef struct { int w[3]; } Stk3;
 int resetBackColorZ(int, int, int);
 int camExec(int, int, int, int, int, int, int, int, int, int, int, int);
 int camMoveBegin(float, float);
-int camSetEye(void);
-int camSetTarget(void);
+int camSetEye(Stk3);
+int camSetTarget(Stk3);
 int camSetupView(void);
 int cpuAimPointSet(int, int, float, float);
 float cpuDblPathCross(int, Stk3, Stk3);
@@ -190,9 +190,9 @@ int FUN_8c0e9422(int a4, int a5, int a6)
     }
     lightUpdate(0x0, t10);
     *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, 79.0f);
-    camSetTarget();
+    camSetTarget(*(Stk3 *)(((int)stk + 8)));
     *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, 0.0f);
-    camSetEye();
+    camSetEye(*(Stk3 *)(((int)stk + 8)));
     camExec(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 20), *(int *)((int)stk + 20 + 4), *(int *)((int)stk + 20 + 8), *(int *)((int)stk + 20 + 12), *(int *)((int)stk + 20 + 16), *(int *)((int)stk + 20 + 20), *(int *)((int)stk + 20 + 24), *(int *)((int)stk + 20 + 28));
     camSetupView();
     titleFrameCue();
