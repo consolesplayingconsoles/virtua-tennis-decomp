@@ -4,7 +4,7 @@
 typedef struct { int w[3]; } Stk3;
 int charaTexFree(int);
 int cpuAimPointSet(int, int, float, float);
-float cpuLineXAtZ(Stk3, int, int, int, float);
+float cpuLineXAtZ(Stk3, Stk3, float);
 int cpuShotRange(int, int, int, int, int);
 int decoHeaderDrawB(int, int, int, int, Stk3, float, float, float);
 int entryGetColorId(int);
@@ -613,16 +613,16 @@ int cpuSglAimAddRange(int a4, int a5)
     if (!(59.4249992f > u3)) {
         *(Stk3 *)(((int)stk + 20)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 68)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 64)))));
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xBA8 + a4)); }
-        t11 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), (*(float *)((a4 + 0xAF0))));
+        t11 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)((int)stk + 8 + 12), (*(float *)((a4 + 0xAF0))));
         if (!(0.0f > ((*(float *)((a4 + 0xAF0))) - t11))) {
             *(Stk3 *)(((int)stk + 20)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 68)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 64)))));
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xBA8 + a4)); }
-            u29 = ((*(float *)((a4 + 0xAF0))) - (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), (*(float *)((a4 + 0xAF0))))));
+            u29 = ((*(float *)((a4 + 0xAF0))) - (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)((int)stk + 8 + 12), (*(float *)((a4 + 0xAF0))))));
         } else {
             *(float *)(((int)stk + 28)) = (-(*(float *)((a4 + 0xAF0))));
             *(Stk3 *)(((int)stk + 16)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 68)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 64)))));
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xBA8 + a4)); }
-            u29 = (u1 + (cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), (*(float *)((a4 + 0xAF0))))));
+            u29 = (u1 + (cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 12), (*(float *)((a4 + 0xAF0))))));
         }
         u31 = *(float *)(((int)stk + 68));
         t34 = 0x1;
@@ -650,16 +650,16 @@ int cpuSglAimAddRange(int a4, int a5)
         }
         *(Stk3 *)(((int)stk + 20)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 56)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 64)))));
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xBA8 + a4)); }
-        t48 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), (*(float *)((a4 + 0xAF0))));
+        t48 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)((int)stk + 8 + 12), (*(float *)((a4 + 0xAF0))));
         if (!(0.0f > ((*(float *)((a4 + 0xAF0))) - t48))) {
             *(Stk3 *)(((int)stk + 20)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 56)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 64)))));
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xBA8 + a4)); }
-            u67 = ((*(float *)((a4 + 0xAF0))) - (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), (*(float *)((a4 + 0xAF0))))));
+            u67 = ((*(float *)((a4 + 0xAF0))) - (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)((int)stk + 8 + 12), (*(float *)((a4 + 0xAF0))))));
         } else {
             *(float *)(((int)stk + 28)) = (-(*(float *)((a4 + 0xAF0))));
             *(Stk3 *)(((int)stk + 16)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 56)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 64)))));
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xBA8 + a4)); }
-            u67 = ((*(float *)(((int)stk + 28))) + (cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), (*(float *)((a4 + 0xAF0))))));
+            u67 = ((*(float *)(((int)stk + 28))) + (cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 12), (*(float *)((a4 + 0xAF0))))));
         }
         u69 = *(float *)(((int)stk + 56));
         t72 = 0x1;
@@ -726,16 +726,16 @@ int cpuSglAimAddRange(int a4, int a5)
                 }
                 *(Stk3 *)(((int)stk + 20)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 68)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 76)))));
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xBA8 + a4)); }
-                t118 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), (*(float *)((a4 + 0xAF0))));
+                t118 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)((int)stk + 8 + 12), (*(float *)((a4 + 0xAF0))));
                 if (!(0.0f > ((*(float *)((a4 + 0xAF0))) - t118))) {
                     *(Stk3 *)(((int)stk + 20)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 68)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 76)))));
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xBA8 + a4)); }
-                    u136 = ((*(float *)((a4 + 0xAF0))) - (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), (*(float *)((a4 + 0xAF0))))));
+                    u136 = ((*(float *)((a4 + 0xAF0))) - (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)((int)stk + 8 + 12), (*(float *)((a4 + 0xAF0))))));
                 } else {
                     *(float *)(((int)stk + 28)) = (-(*(float *)((a4 + 0xAF0))));
                     *(Stk3 *)(((int)stk + 16)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 68)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 76)))));
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xBA8 + a4)); }
-                    u136 = (u1 + (cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), (*(float *)((a4 + 0xAF0))))));
+                    u136 = (u1 + (cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 12), (*(float *)((a4 + 0xAF0))))));
                 }
                 u138 = *(float *)(((int)stk + 68));
                 t141 = 0x1;
@@ -763,16 +763,16 @@ int cpuSglAimAddRange(int a4, int a5)
                 }
                 *(Stk3 *)(((int)stk + 20)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 56)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 76)))));
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xBA8 + a4)); }
-                t155 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), (*(float *)((a4 + 0xAF0))));
+                t155 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)((int)stk + 8 + 12), (*(float *)((a4 + 0xAF0))));
                 if (!(0.0f > ((*(float *)((a4 + 0xAF0))) - t155))) {
                     *(Stk3 *)(((int)stk + 20)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 56)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 76)))));
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xBA8 + a4)); }
-                    u174 = ((*(float *)((a4 + 0xAF0))) - (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), (*(float *)((a4 + 0xAF0))))));
+                    u174 = ((*(float *)((a4 + 0xAF0))) - (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)((int)stk + 8 + 12), (*(float *)((a4 + 0xAF0))))));
                 } else {
                     *(float *)(((int)stk + 28)) = (-(*(float *)((a4 + 0xAF0))));
                     *(Stk3 *)(((int)stk + 16)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 56)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 76)))));
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xBA8 + a4)); }
-                    u174 = ((*(float *)(((int)stk + 28))) + (cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), (*(float *)((a4 + 0xAF0))))));
+                    u174 = ((*(float *)(((int)stk + 28))) + (cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 12), (*(float *)((a4 + 0xAF0))))));
                 }
                 u176 = *(float *)(((int)stk + 56));
                 t179 = 0x1;
@@ -808,16 +808,16 @@ int cpuSglAimAddRange(int a4, int a5)
             } else {
                 *(Stk3 *)(((int)stk + 20)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 68)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 64)))));
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xBA8 + a4)); }
-                t200 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), (*(float *)((a4 + 0xAF0))));
+                t200 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)((int)stk + 8 + 12), (*(float *)((a4 + 0xAF0))));
                 if (!(0.0f > ((*(float *)((a4 + 0xAF0))) - t200))) {
                     *(Stk3 *)(((int)stk + 20)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 68)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 64)))));
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xBA8 + a4)); }
-                    u218 = ((*(float *)((a4 + 0xAF0))) - (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), (*(float *)((a4 + 0xAF0))))));
+                    u218 = ((*(float *)((a4 + 0xAF0))) - (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)((int)stk + 8 + 12), (*(float *)((a4 + 0xAF0))))));
                 } else {
                     *(float *)(((int)stk + 28)) = (-(*(float *)((a4 + 0xAF0))));
                     *(Stk3 *)(((int)stk + 16)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 68)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 64)))));
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xBA8 + a4)); }
-                    u218 = (u1 + (cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), (*(float *)((a4 + 0xAF0))))));
+                    u218 = (u1 + (cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 12), (*(float *)((a4 + 0xAF0))))));
                 }
                 u220 = *(float *)(((int)stk + 68));
                 t223 = 0x1;
@@ -845,16 +845,16 @@ int cpuSglAimAddRange(int a4, int a5)
                 }
                 *(Stk3 *)(((int)stk + 20)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 56)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 64)))));
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xBA8 + a4)); }
-                t237 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), (*(float *)((a4 + 0xAF0))));
+                t237 = cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)((int)stk + 8 + 12), (*(float *)((a4 + 0xAF0))));
                 if (!(0.0f > ((*(float *)((a4 + 0xAF0))) - t237))) {
                     *(Stk3 *)(((int)stk + 20)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 56)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 64)))));
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xBA8 + a4)); }
-                    u256 = ((*(float *)((a4 + 0xAF0))) - (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16), *(int *)((int)stk + 8 + 20), (*(float *)((a4 + 0xAF0))))));
+                    u256 = ((*(float *)((a4 + 0xAF0))) - (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)((int)stk + 8 + 12), (*(float *)((a4 + 0xAF0))))));
                 } else {
                     *(float *)(((int)stk + 28)) = (-(*(float *)((a4 + 0xAF0))));
                     *(Stk3 *)(((int)stk + 16)) = vecMake(((*(float *)((a4 + 0xBA8))) - (*(float *)(((int)stk + 56)))), 0.0f, ((*(float *)((a4 + 0xBB0))) - (*(float *)(((int)stk + 64)))));
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xBA8 + a4)); }
-                    u256 = ((*(float *)(((int)stk + 28))) + (cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), (*(float *)((a4 + 0xAF0))))));
+                    u256 = ((*(float *)(((int)stk + 28))) + (cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 12), (*(float *)((a4 + 0xAF0))))));
                 }
                 u258 = *(float *)(((int)stk + 56));
                 t261 = 0x1;

@@ -4,9 +4,9 @@
 typedef struct { int w[3]; } Stk3;
 int cpuInFan(int, int, Stk3);
 int serveGetReceiver(void);
-float cpuDblSupportT55(int a4);
+void cpuDblSupportT55(int a4);
 
-float cpuDblSupportT55(int a4)
+void cpuDblSupportT55(int a4)
 {
     int stk[13];
 
@@ -50,7 +50,7 @@ float cpuDblSupportT55(int a4)
     if (((*(signed char *)(((*(int *)(((int)stk + 32))) + 0x12E))) == 0)) goto L_8C06CC04;
     goto L_8C06D6C0;
     L_8C06D6C0:;
-    return F0;
+    return;
     L_8C06CC04:;
     if ((((*(int *)((0x54 + (*(int *)(((int)stk + 28)))))) & 4) == 0)) goto L_8C06CC6C;
     v0_0 = (serveGetReceiver()) != (*(int *)(((0xB5C + (*(int *)(((int)stk + 44)))) + 0x0)));

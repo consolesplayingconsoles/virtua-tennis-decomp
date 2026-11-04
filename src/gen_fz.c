@@ -16,7 +16,7 @@ int cpuGiveUpCheck(int);
 int cpuInRange(Stk3, Stk3, Stk3);
 int cpuLineCrossXZ(int, int, int, int, Stk3, Stk3, Stk3, float, float);
 int cpuPointOverInput(int);
-int cpuSegCrossXZ(int, Stk3, Stk3, Stk3);
+int cpuSegCrossXZ(int, Stk3, Stk3, Stk3, Stk3);
 int cpuSglChase(int);
 int cpuSglHitCheck(int, int, int, int, int, int, int, int, int, int, int, int);
 int cpuSglMove(int);
@@ -86,7 +86,7 @@ float cpuDblPathCross(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)(t1); }
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 88) + 0x4C)); }
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 88) + 0x40)); }
-            cpuSegCrossXZ((((int)stk + 40) + 0x38), *(Stk3 *)(((int)stk + 40)), *(Stk3 *)(((int)stk + 52)), *(Stk3 *)(((int)stk + 64)));
+            cpuSegCrossXZ((((int)stk + 40) + 0x38), *(Stk3 *)(((int)stk + 40)), *(Stk3 *)(((int)stk + 52)), *(Stk3 *)(((int)stk + 64)), *(Stk3 *)((int)stk + 40 + 36));
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 40) + 0x38)); }
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(((((t2 << 1) + t2) << 2) + t4)); }
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(t1); }
@@ -106,7 +106,7 @@ float cpuDblPathCross(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)(t1); }
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 88) + 0x4C)); }
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 88) + 0x40)); }
-                    cpuSegCrossXZ((((int)stk + 40) + 0x38), *(Stk3 *)(((int)stk + 40)), *(Stk3 *)(((int)stk + 52)), *(Stk3 *)(((int)stk + 64)));
+                    cpuSegCrossXZ((((int)stk + 40) + 0x38), *(Stk3 *)(((int)stk + 40)), *(Stk3 *)(((int)stk + 52)), *(Stk3 *)(((int)stk + 64)), *(Stk3 *)((int)stk + 40 + 36));
                     u15 = *(float *)((t1 + 0x0));
                     u16 = *(float *)(((int)stk + 96));
                     u19 = ((-u16) + u15);
@@ -134,7 +134,7 @@ float cpuDblPathCross(int a4, int a5, int a6, int a7, int a8, int a9, int a10, i
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 64)) = *(struct mv3 *)(t24); }
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 52)) = *(struct mv3 *)((((int)stk + 88) + 0x4C)); }
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((((int)stk + 88) + 0x40)); }
-            cpuSegCrossXZ((((int)stk + 40) + 0x38), *(Stk3 *)(((int)stk + 40)), *(Stk3 *)(((int)stk + 52)), *(Stk3 *)(((int)stk + 64)));
+            cpuSegCrossXZ((((int)stk + 40) + 0x38), *(Stk3 *)(((int)stk + 40)), *(Stk3 *)(((int)stk + 52)), *(Stk3 *)(((int)stk + 64)), *(Stk3 *)((int)stk + 40 + 36));
             u27 = *(float *)((t24 + 0x0));
             u28 = *(float *)(((int)stk + 96));
             u31 = ((-u28) + u27);

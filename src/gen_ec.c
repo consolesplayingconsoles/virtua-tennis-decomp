@@ -2,6 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
+typedef struct { int w[13]; } Stk13;
 extern float _builtin_sqrtf(float);
 int cpuDblSignalDraw(int, float);
 extern int cursorBoxPut();
@@ -25,7 +26,7 @@ int primSprSetSize(int, float, float);
 int primTexVertexSet(int, int, int, int, int, Stk3, float, float);
 int sprListPut(int, int, int, float, float, float);
 int sprPutAtAlpha(int, Stk3, float);
-int vecLineCrossXZ(int, ...);
+void vecLineCrossXZ(Stk13, float, float, float, float, float, float);
 Stk3 vecMake(float, float, float);
 int menuItemDraw2(int a4, int a5, int a6, int a7, int a8, int a9, int a10);
 int hudMatchDraw(int a4, float f4);
@@ -105,7 +106,8 @@ int cpuDblAimArc(int a4, int a5)
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((0xAE8 + (((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84))); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x28)); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xB9C + a4)); }
-        vecLineCrossXZ((((int)stk + 8) + 0x34));
+        *(int *)((int)stk + 4) = (((int)stk + 8) + 0x34);
+        vecLineCrossXZ(*(Stk13 *)((int)stk + 4), 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
         u11 = *(float *)(((int)stk + 60));
         u12 = *(float *)(((((0x3 & ((-t0) + 0x3)) * 0xD78) + 0x8C287D84) + 0xAE8));
         u14 = ((-u11) + u12);
@@ -134,7 +136,8 @@ int cpuDblAimArc(int a4, int a5)
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 32)) = *(struct mv3 *)((0xAE8 + (((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84))); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x28)); }
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xB9C + a4)); }
-        vecLineCrossXZ((((int)stk + 8) + 0x34));
+        *(int *)((int)stk + 4) = (((int)stk + 8) + 0x34);
+        vecLineCrossXZ(*(Stk13 *)((int)stk + 4), 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
         u28 = *(float *)(((int)stk + 60));
         u29 = *(float *)(((((0x3 & (t1 + 0x2)) * 0xD78) + 0x8C287D84) + 0xAE8));
         u31 = ((-u28) + u29);

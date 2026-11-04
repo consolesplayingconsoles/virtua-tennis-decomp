@@ -47,9 +47,9 @@ int serveGetServer(void);
 int strmBgmPlayStage(void);
 int strmCrowdFadeOut(void);
 Stk3 vecMake(float, float, float);
-float cameraExec(int a4);
+void cameraExec(int a4);
 
-float cameraExec(int a4)
+void cameraExec(int a4)
 {
     int stk[52];
     register int t11;
@@ -364,7 +364,7 @@ float cameraExec(int a4)
     R0 = (0x8C287C60);
     if (((*(int *)0x8C287C60) == 0)) goto L_8C02A054;
     L_8C02D900:;
-    return F0;
+    return;
     L_8C02A054:;
     *(unsigned int *)0x8C34B148 = (*(int *)(((int)stk + 188)));
     if (((*(int *)0x8C421F60) == 0)) goto L_8C02A074;

@@ -2,6 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
+typedef struct { int w[10]; } Stk10;
 int resetBackColorZ(int, int, int);
 int btnGuideDrawB(int, Stk3, float);
 int camExec(int, int, int, int, int, int, int, int, int, int, int, int);
@@ -49,7 +50,7 @@ int sndSeCursor(void);
 int sprPutAtAlpha(int, Stk3, float);
 int unlockCountW0(void);
 Stk3 vecMake(float, float, float);
-int vecSegCrossXZ(Stk3);
+int vecSegCrossXZ(Stk10);
 int selExec(int a4, int a5);
 int resultDraw(int a4, int a5, int a6, float f4);
 int racketHitCheck(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7);
@@ -367,28 +368,28 @@ int racketHitCheck(int a4, int a5, int a6, int a7, float f4, float f5, float f6,
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((((int)stk + 52) + 0x4C)); }
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((0xC4 + ((int)stk + 28))); }
                     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xDC + ((int)stk + 16))); }
-                    t112 = vecSegCrossXZ(*(Stk3 *)(((int)stk + 4)));
+                    t112 = vecSegCrossXZ(*(Stk10 *)(((int)stk + 4)));
                     t123 = t112;
                     if (t112 == 0) {
                         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)(((((int)stk + 52) + 0x4C) + 0x18)); }
                         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)((*(int *)(((int)stk + 60)))); }
                         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((0xC4 + ((int)stk + 28))); }
                         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xDC + ((int)stk + 16))); }
-                        t114 = vecSegCrossXZ(*(Stk3 *)(((int)stk + 4)));
+                        t114 = vecSegCrossXZ(*(Stk10 *)(((int)stk + 4)));
                         t121 = t114;
                         if (t114 == 0) {
                             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)(((((int)stk + 52) + 0x4C) + 0x24)); }
                             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)(((((int)stk + 52) + 0x4C) + 0x18)); }
                             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((0xC4 + ((int)stk + 28))); }
                             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xDC + ((int)stk + 16))); }
-                            t115 = vecSegCrossXZ(*(Stk3 *)(((int)stk + 4)));
+                            t115 = vecSegCrossXZ(*(Stk10 *)(((int)stk + 4)));
                             t119 = t115;
                             if (t115 == 0) {
                                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)((*(int *)(((int)stk + 52)))); }
                                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 28)) = *(struct mv3 *)(((((int)stk + 52) + 0x4C) + 0x24)); }
                                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)((0xC4 + ((int)stk + 28))); }
                                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((0xDC + ((int)stk + 16))); }
-                                t117 = vecSegCrossXZ(*(Stk3 *)(((int)stk + 4)));
+                                t117 = vecSegCrossXZ(*(Stk10 *)(((int)stk + 4)));
                                 if (t117 == 0) {
                                     *(unsigned int *)(((int)stk + 56)) = 0x0;
                                 }

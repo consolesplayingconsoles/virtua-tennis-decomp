@@ -820,7 +820,7 @@ int entryGetRound(void)
                 break;
             }
         }
-        return (unsigned short)t8;
+        return (unsigned short)*(short *)0x8C343262;
         }
         }
         }

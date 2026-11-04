@@ -4,9 +4,9 @@
 extern int cpuDblPoachCheck();
 int cpuDblPosition(int);
 extern int cpuDblThink();
-int cpuDblThinkAll(float f4, float f5, float f6);
+int cpuDblThinkAll(int a4, int a5, int a6, int a7, float f4, float f5, float f6);
 
-int cpuDblThinkAll(float f4, float f5, float f6)
+int cpuDblThinkAll(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
 {
     int t11;
     int t15;
@@ -103,12 +103,12 @@ int cpuDblThinkAll(float f4, float f5, float f6)
     R2 = (0x1);
     L_8C05774C:;
     if (((float)R2 != (-(*(float *)((R14 + 0xB00)))))) goto L_8C057760;
-    t43 = ((int (*)(int, int, float, float, float))(cpuDblPoachCheck))(R14, R5, F4, F5, f6);
+    t43 = ((int (*)(int, int, int, int, float, float, float))(cpuDblPoachCheck))(R14, R5, a6, a7, F4, F5, f6);
     L_8C057760:;
-    t44 = ((int (*)(int, int))(cpuDblThink))(R14, R5);
+    t44 = ((int (*)(int, int, int, int))(cpuDblThink))(R14, R5, a6, a7);
     R4 = (R13);
     L_8C0577C8:;
-    R0 = ((((int (*)(int, int))(cpuDblThink))(R4, R5)));
+    R0 = ((((int (*)(int, int, int, int))(cpuDblThink))(R4, R5, a6, a7)));
     goto L_8C057844;
     L_8C057742:;
     if ((!(F3 > F4))) goto L_8C05774A;
@@ -125,9 +125,9 @@ int cpuDblThinkAll(float f4, float f5, float f6)
     R2 = (0x1);
     L_8C0577AE:;
     if (((float)R2 != (-(*(float *)((R13 + 0xB00)))))) goto L_8C0577C2;
-    t58 = ((int (*)(int, int, float, float))(cpuDblPoachCheck))(R13, R5, F4, F5);
+    t58 = ((int (*)(int, int, int, int, float, float))(cpuDblPoachCheck))(R13, R5, a6, a7, F4, F5);
     L_8C0577C2:;
-    t59 = ((int (*)(int, int))(cpuDblThink))(R13, R5);
+    t59 = ((int (*)(int, int, int, int))(cpuDblThink))(R13, R5, a6, a7);
     R4 = (R14);
     goto L_8C0577C8;
     L_8C057776:;
@@ -165,7 +165,7 @@ int cpuDblThinkAll(float f4, float f5, float f6)
     t85 = ((int (*)(int, int, float, float))((*(int *)((((unsigned char)(*(signed char *)(((((*(int *)((R14 + 0xB5C))) * R11) + R10) + 0x141))) << 2) + 0x8C10D890)))))(R14, R5, F4, F5);
     L_8C057838:;
     cpuDblPosition(R14);
-    t87 = ((int (*)(int))(cpuDblThink))(R14);
+    t87 = ((int (*)(int, int, int, int))(cpuDblThink))(R14, R5, a6, a7);
     *(unsigned int *)((R12 + 0x0)) = R13;
     R0 = (t87);
     goto L_8C057844;

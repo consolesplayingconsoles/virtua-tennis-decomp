@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-float cpuLineXAtZ(Stk3, float);
+float cpuLineXAtZ(Stk3, Stk3, float);
 int serveGetServer(void);
 Stk3 vecMake(float, float, float);
 int cpuDblReceivePos(int a4);
@@ -65,25 +65,25 @@ int cpuDblReceivePos(int a4)
                 u16 = u16 + 64.0f * (*(float *)((a4 + 0xB00)));
                 *(Stk3 *)(((int)stk + 20)) = vecMake((u10 + -0.0f), 0.0f, u16);
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 32) + 0x4)); }
-                *(float *)(((int)stk + 28)) = (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), (*(float *)((a4 + 0xAF0)))));
+                *(float *)(((int)stk + 28)) = (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)((int)stk + 8 + 12), (*(float *)((a4 + 0xAF0)))));
                 u23 = (*(float *)(((((int)stk + 32) + 0x4) + 0x8)));
                 u23 = u23 + 64.0f * (*(float *)((a4 + 0xB00)));
                 *(Stk3 *)(((int)stk + 16)) = vecMake(((*(float *)(((((int)stk + 32) + 0x4) + 0x0))) - (R1032)), 0.0f, u23);
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 32) + 0x4)); }
                 u38 = 0.200000003f;
-                u40 = ((cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), (*(float *)((a4 + 0xAF0))))) * 0.800000012f);
+                u40 = ((cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 12), (*(float *)((a4 + 0xAF0))))) * 0.800000012f);
             } else {
                 u27 = u11;
                 u27 = u27 + 64.0f * (*(float *)((a4 + 0xB00)));
                 *(Stk3 *)(((int)stk + 20)) = vecMake((u10 + -0.0f), 0.0f, u27);
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((((int)stk + 32) + 0x4)); }
-                *(float *)(((int)stk + 28)) = (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), (*(float *)((a4 + 0xAF0)))));
+                *(float *)(((int)stk + 28)) = (cpuLineXAtZ(*(Stk3 *)(((int)stk + 8)), *(Stk3 *)((int)stk + 8 + 12), (*(float *)((a4 + 0xAF0)))));
                 u34 = (*(float *)(((((int)stk + 32) + 0x4) + 0x8)));
                 u34 = u34 + 64.0f * (*(float *)((a4 + 0xB00)));
                 *(Stk3 *)(((int)stk + 16)) = vecMake(((*(float *)(((((int)stk + 32) + 0x4) + 0x0))) - (R1032)), 0.0f, u34);
                 { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 32) + 0x4)); }
                 u38 = 0.5f;
-                u40 = ((cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), (*(float *)((a4 + 0xAF0))))) * 0.5f);
+                u40 = ((cpuLineXAtZ(*(Stk3 *)(((int)stk + 4)), *(Stk3 *)((int)stk + 4 + 12), (*(float *)((a4 + 0xAF0))))) * 0.5f);
             }
             u44 = u40;
             u44 = u44 + u38 * (*(float *)(((int)stk + 28)));

@@ -1,6 +1,6 @@
 # Virtua Tennis decomp
 
-![decomp progress](badges/progress.svg?p=100.0&b=100.0&a=70&s=3)
+![decomp progress](badges/progress.svg?p=100.0&b=100.0&a=71&s=3)
 
 **Explore this decomp project with [Shuriken Explorer](https://consolesplayingconsoles.github.io/dc-shuriken-explorer/) and see the game's models, skeletons, animations, textures, images, sounds, text and side-by-side C and assembly code directly in your browser.**
 
@@ -29,7 +29,7 @@ everything game-derived on your machine, and `.gitignore` keeps it out of git.
 
 <!-- progress -->
 ```
-TOTAL TEST COVERAGE           69.8%  the instructions the cases ran, of all instructions, over the 4056 functions that can be C; the 3899 functions that reached the check are measured, the others count 0
+TOTAL TEST COVERAGE           70.9%  the instructions the cases ran, of all instructions, over the 4056 functions that can be C; the 3899 functions that reached the check are measured, the others count 0
 FUNCTIONS LEFT  (100.0% complete) 0  of the 4056 functions that can be C (12 with no C form are counted apart)
 BYTES LEFT      (100.0% complete) 0  of 1062522 bytes of code that can be C
 FUNCTIONS                            

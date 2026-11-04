@@ -3,9 +3,9 @@
 
 int exprPlay(int, int, int);
 float nlRandom(void);
-float playerStartReactions(int a4, int a5, int a6, int a7, float f4);
+void playerStartReactions(int a4, int a5, int a6, int a7, float f4);
 
-float playerStartReactions(int a4, int a5, int a6, int a7, float f4)
+void playerStartReactions(int a4, int a5, int a6, int a7, float f4)
 {
     int t4;
     int t18;
@@ -218,5 +218,4 @@ float playerStartReactions(int a4, int a5, int a6, int a7, float f4)
     R4 = ((R8 + R11));
     goto L_8C02805C;
     L_8C028210:;
-    return F0;
 }

@@ -97,7 +97,7 @@ int umpCallLet(int, int, int, int, int, int, int);
 int umpCallOut(int, int, int, int, int, int, int);
 float vecLength(Stk3);
 Stk3 vecMake(float, float, float);
-int matchExec(int a4, int a5, int a6, float f4, float f5);
+int matchExec(int a4, int a5, int a6, int a7, float f4, float f5);
 int standPanelDraw(int a4, int a5, int a6, int a7, Stk3 p, int a11, int a12);
 int resultDoublesDraw(int a4, int a5, int a6, float f4);
 int FUN_8c0a048c(int a4, int a5, int a6, int a7, float f4);
@@ -107,7 +107,7 @@ int ADXSTM_OpenFileRange(int a4, int a5, int a6, int a7);
 int mainCheckDrive(void);
 int hudSignLastPut(Stk3 s, float f4);
 
-int matchExec(int a4, int a5, int a6, float f4, float f5)
+int matchExec(int a4, int a5, int a6, int a7, float f4, float f5)
 {
     int stk[18];
     register int t0;
@@ -483,7 +483,7 @@ int matchExec(int a4, int a5, int a6, float f4, float f5)
                             t125 = (t125 + 0x1);
                             *(unsigned int *)(((int)stk + 8)) = t125;
                         }
-                        ballBoyReset(t121, t122, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16));
+                        ballBoyReset(t121, t122, a6, a7, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16));
                         ballInit(0x8C291F24);
                         if ((*(int *)0x8C287D5C) == 3) {
                             miniRoundStart();
@@ -533,7 +533,7 @@ int matchExec(int a4, int a5, int a6, float f4, float f5)
                                 t182 = (t182 + 0x1);
                                 *(unsigned int *)(((int)stk + 8)) = t182;
                             }
-                            ballBoyReset(t178, t179, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16));
+                            ballBoyReset(t178, t179, a6, a7, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), *(int *)((int)stk + 8 + 12), *(int *)((int)stk + 8 + 16));
                             ballInit(0x8C291F24);
                             if ((*(int *)0x8C287D5C) == 3) {
                                 miniRoundStart();

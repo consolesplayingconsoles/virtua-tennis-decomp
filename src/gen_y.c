@@ -48,7 +48,7 @@ int panelPartAPut(Stk3, float);
 int panelPartBPut(Stk3, float);
 int panelPartCPut(Stk3, float);
 int panelTopPut(Stk3, float);
-int panelWordPut(int, Stk3);
+int panelWordPut(int, Stk3, float);
 int primSprDraw(int, int, int, int, Stk3);
 int resSpRead(int);
 int set_event(int, int);
@@ -66,7 +66,7 @@ int stageWtcMainTexFree(void);
 int strncpy(int, int, int);
 int syCachePurgeAll(int, int, int, int);
 float vecDist(Stk3, Stk3);
-int vecMake(float, float, float, ...);
+Stk3 vecMake(float, float, float);
 int logoSmallPut(int a4, int a5, int a6, int a7, Stk4 p);
 int evPackRamp(int a4, int a5, int a6, int a7);
 int nlCommonTextureGetNextTextureIndex(int a4, int a5, int a6);
@@ -690,9 +690,9 @@ int hudWordFlagDraw(void)
     t0 = *(int *)0x8C287B3C;
     t6 = t0;
     if ((t0 & 1) != 0) {
-        vecMake((*(float *)0x8C0963C4), (*(float *)0x8C0963C0), (*(float *)0x8C0963BC), ((int)stk + 20));
+        *(Stk3 *)((int)stk + 20) = vecMake((*(float *)0x8C0963C4), (*(float *)0x8C0963C0), (*(float *)0x8C0963BC));
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x4)); }
-        t6 = (panelWordPut(0x3, *(Stk3 *)((((int)stk + 16) + 0x4))));
+        t6 = (panelWordPut(0x3, *(Stk3 *)((((int)stk + 16) + 0x4)), 1.0f));
     }
     return t6;
 }

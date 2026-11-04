@@ -700,9 +700,11 @@ int miniResultStart(int a4, int a5)
     R0 = (t24);
     if ((t24 != 0)) goto L_8C03B414;
     if (((*(int *)(((int)stk + 4))) == 0)) goto L_8C03B406;
+    R4 = (0x10);
     L_8C03B408:;
     return strmBgmPlay(R4, R5, R6);
     L_8C03B406:;
+    R4 = (0x12);
     goto L_8C03B408;
     L_8C03B414:;
     return R0;

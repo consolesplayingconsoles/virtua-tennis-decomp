@@ -22,7 +22,7 @@ int nlSetPalExtMode(int);
 int nlTranslate(float, float, float);
 int nlsndG2WriteN(int, int, int);
 int nlsndSeqRequest(int);
-int rankDrawGlyph(int, int, Stk3);
+int rankDrawGlyph(int, int, int, int, Stk3, float, float);
 int sprInitRectF(int, int, int, int, int, int);
 int vmsfs_c_progress(int, int, int, int);
 void ballBoyPropPut(int a4);
@@ -542,7 +542,7 @@ int rankDrawString(int a4, int a5, int a6, int a7, Stk4 p)
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)((((int)stk + 16) + 0x1C)); }
             t2 = (R1016);
             t1 = (*(signed char *)((t3 + 0x0)));
-            t0 = (rankDrawGlyph(t1, t2, *(Stk3 *)((((int)stk + 16) + 0x1C))));
+            t0 = (rankDrawGlyph(t1, t2, a6, a7, *(Stk3 *)((((int)stk + 16) + 0x1C)), 0.0f, 0.0f));
         } else {
             t13 = t1;
             t14 = t2;

@@ -2,13 +2,13 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-float cpuDblPathCross(int, int, int, Stk3, Stk3);
+float cpuDblPathCross(int, int, int, int, Stk3, Stk3);
 float cpuDistXZ(int, int);
 int nlRand(void);
 float nlScalor(int);
-void cpuDblPoachCheck(int a4, float f4, float f5, float f6);
+void cpuDblPoachCheck(int a4, int a5, int a6, int a7, float f4, float f5, float f6);
 
-void cpuDblPoachCheck(int a4, float f4, float f5, float f6)
+void cpuDblPoachCheck(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
 {
     int stk[17];
     int t0;
@@ -269,7 +269,7 @@ void cpuDblPoachCheck(int a4, float f4, float f5, float f6)
             }
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 16)) = *(struct mv3 *)(0x8C291F48); }
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(0x8C291F3C); }
-            t382 = cpuDblPathCross((0xB8 + ((t1 * 0x160) + 0x8C2FC69C)), t375, t376, *(Stk3 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 16)));
+            t382 = cpuDblPathCross((0xB8 + ((t1 * 0x160) + 0x8C2FC69C)), t375, t376, a7, *(Stk3 *)(((int)stk + 4)), *(Stk3 *)(((int)stk + 16)));
             if (((int)(*(int *)0x8C2FCC1C) >= (int)0x5) && (t384 = *(signed char *)((((t1 * 0x160) + 0x8C2FC69C) + 0x12B)), t385 = *(signed char *)((((t0 * 0x160) + 0x8C2FC69C) + 0x12B)), t385 != t384)) {
                 u388 = *(float *)((a4 + 0xAF0));
                 u389 = *(float *)0x8C291F44;

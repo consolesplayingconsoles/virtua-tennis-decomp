@@ -27318,43 +27318,43 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### ballMarkCheck (`8C084E34`, 324 bytes, `src/gen_hk.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_hk/ballMarkCheck.json`
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
 - case 0
-- case 1
 - case 2
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- case 1
 - case 3
-- case 4
-- case 5
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 13
-- case 14
-- case 15
-- case 16
-- case 17
-- case 59
-- case 144
-- case 126
-- case 156
-- case 61
-- case 120
-- case 76
-- case 84
-- case 114
-- case 62
-- case 154
-- case 107
-- case 102
-- case 116
-- case 101
-- case 66
-- case 137
-- case 64
-- the cases run 54 of 161 instructions
+- the cases run 162 of 162 instructions
 
 ### ballMove (`8C023520`, 3074 bytes, `src/ballmove_b.c`)
 - equivalent on 8 development and 3 holdout cases, in `tests/ballmove_b/ballMove.json`
@@ -29586,30 +29586,44 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 97 of 97 instructions
 
 ### camMoveBeginAtGoal (`8C016C40`, 214 bytes, `src/gen_e.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_e/camMoveBeginAtGoal.json`
-- case 0
-- case 1
-- case 2
-- case 3
-- case 4
-- case 5
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 13
-- case 14
-- case 15
-- case 16
-- case 17
-- case 18
-- case 19
-- case 20
-- case 21
-- the cases run 15 of 106 instructions
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_e/camMoveBeginAtGoal.json`
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 107 of 107 instructions
 
 ### camProject (`8C016174`, 64 bytes, `src/gen_e.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_e/camProject.json`
@@ -30208,10 +30222,44 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 4940 of 5627 instructions
 
 ### cameraFovFit (`8C02DAF2`, 770 bytes, `src/gen_hw.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_hw/cameraFovFit.json`
-- rescue: empty case
-- rescue: empty case
-- the cases run 254 of 336 instructions
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_hw/cameraFovFit.json`
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- case 5
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 305 of 336 instructions
 
 ### cameraFovForSize (`8C02D9D6`, 284 bytes, `src/gen_jz.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_jz/cameraFovForSize.json`
@@ -33486,10 +33534,44 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 11 of 11 instructions
 
 ### cpuBallPredict (`8C03E688`, 1880 bytes, `src/gen_le.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_le/cpuBallPredict.json`
-- rescue: flips 8C03E796
-- rescue: flips 8C03E796
-- the cases run 82 of 815 instructions
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_le/cpuBallPredict.json`
+- case 59
+- hand: search
+- case 59
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- case 2
+- case 4
+- case 6
+- case 8
+- case 10
+- case 12
+- case 14
+- case 46
+- case 0
+- case 59
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- case 1
+- case 3
+- case 5
+- case 7
+- case 9
+- case 11
+- case 13
+- case 15
+- the cases run 669 of 826 instructions
 
 ### cpuChasePlan (`8C03F630`, 9768 bytes, `src/cpuchase_b.c`)
 - equivalent on 54 development and 54 holdout cases, in `tests/cpuchase_b/cpuChasePlan.json`
@@ -34245,43 +34327,43 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### cpuDblAimArc (`8C0763A0`, 820 bytes, `src/gen_ec.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_ec/cpuDblAimArc.json`
-- case 0
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
 - case 2
-- case 3
 - case 4
-- case 5
 - case 6
-- case 7
 - case 8
-- case 9
 - case 10
-- case 11
 - case 12
-- case 13
 - case 14
-- case 15
 - case 16
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- case 3
+- case 5
+- case 7
+- case 9
+- case 11
+- case 13
+- case 15
 - case 17
-- case 18
-- case 49
-- case 147
-- case 38
-- case 105
-- case 126
-- case 135
-- case 87
-- case 110
-- case 39
-- case 143
-- case 74
-- case 121
-- case 41
-- case 50
-- case 80
-- case 141
-- case 43
-- case 76
-- the cases run 86 of 380 instructions
+- the cases run 280 of 380 instructions
 
 ### cpuDblAimRateA (`8C0766D4`, 1668 bytes, `src/gen_li.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_li/cpuDblAimRateA.json`
@@ -35014,43 +35096,43 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### cpuDblPoachCheck (`8C062EDA`, 1260 bytes, `src/gen_uc.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_uc/cpuDblPoachCheck.json`
-- case 0
-- case 6
-- case 0
-- case 12
-- case 0
-- case 0
-- case 0
-- case 4
-- case 7
-- case 1
-- case 2
-- case 3
-- case 5
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 158
-- case 83
-- case 88
-- case 131
-- case 74
-- case 95
-- case 145
-- case 104
-- case 132
-- case 112
-- case 128
-- case 87
-- case 82
-- case 69
-- case 103
-- case 116
-- case 118
-- case 123
-- the cases run 222 of 550 instructions
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 304 of 551 instructions
 
 ### cpuDblPointInit (`8C056AAA`, 1022 bytes, `src/gen_ml.c`)
 - equivalent on 5 development and 5 holdout cases, in `tests/gen_ml/cpuDblPointInit.json`
@@ -35436,83 +35518,83 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### cpuDblSupportT55 (`8C06CB38`, 2960 bytes, `src/gen_ha.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_ha/cpuDblSupportT55.json`
-- case 80
-- case 25
-- case 80
-- case 80
-- case 80
-- case 0
-- case 1
-- case 2
-- case 3
-- case 4
-- case 5
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 134
-- case 148
-- case 101
-- case 136
-- case 43
-- case 119
-- case 149
-- case 107
-- case 77
-- case 80
-- case 34
-- case 39
-- case 62
-- case 68
-- case 61
-- case 147
-- case 52
-- case 78
-- the cases run 462 of 1348 instructions
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 1096 of 1365 instructions
 
 ### cpuDblSupportT57 (`8C06D6C8`, 2962 bytes, `src/gen_kg.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_kg/cpuDblSupportT57.json`
-- case 14
-- case 103
-- case 94
-- case 49
-- case 0
-- case 14
-- case 14
-- case 1
-- case 2
-- case 3
-- case 4
-- case 5
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 44
-- case 54
-- case 65
-- case 37
-- case 120
-- case 32
-- case 114
-- case 108
-- case 134
-- case 41
-- case 126
-- case 73
-- case 113
-- case 157
-- case 112
-- case 92
-- case 82
-- case 79
-- the cases run 455 of 1349 instructions
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 540 of 1358 instructions
 
 ### cpuDblSwingInput (`8C057A94`, 332 bytes, `src/gen_bc.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_bc/cpuDblSwingInput.json`
@@ -35614,43 +35696,43 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### cpuDblThinkAll (`8C057694`, 478 bytes, `src/gen_qj.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_qj/cpuDblThinkAll.json`
-- case 0
-- case 1
-- case 2
-- case 3
-- case 4
-- case 5
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 13
-- case 14
-- case 15
-- case 16
-- case 17
-- case 126
-- case 159
-- case 38
-- case 112
-- case 59
-- case 91
-- case 58
-- case 150
-- case 118
-- case 73
-- case 135
-- case 131
-- case 98
-- case 99
-- case 123
-- case 86
-- case 116
-- case 143
-- the cases run 68 of 213 instructions
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 216 of 216 instructions
 
 ### cpuDebugBallLine (`8C08104A`, 64 bytes, `src/gen_el.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_el/cpuDebugBallLine.json`
@@ -43009,30 +43091,44 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 39 of 39 instructions
 
 ### entryGetRound (`8C0AAFA4`, 112 bytes, `src/gen_a.c`)
-- equivalent on 15 development and 7 holdout cases, in `tests/gen_a/entryGetRound.json`
-- case 0
-- case 1
-- case 2
-- case 3
-- case 4
-- case 5
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 13
-- case 14
-- case 15
-- case 16
-- case 17
-- case 18
-- case 19
-- case 20
-- case 21
-- the cases run 8 of 54 instructions
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_a/entryGetRound.json`
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 51 of 55 instructions
 
 ### entryGridCount (`8C0AC676`, 54 bytes, `src/gen_e.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_e/entryGridCount.json`
@@ -51464,43 +51560,43 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### hudMatchDraw (`8C0955E4`, 972 bytes, `src/gen_mj.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_mj/hudMatchDraw.json`
-- case 1
-- case 2
-- case 3
-- case 140
-- case 6
-- case 4
-- case 5
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 13
-- case 14
-- case 15
-- case 16
-- case 126
-- case 151
-- case 66
-- case 42
-- case 147
-- case 90
-- case 134
-- case 53
-- case 44
-- case 55
-- case 58
-- case 89
-- case 145
-- case 122
-- case 100
-- case 124
-- case 88
-- case 59
-- the cases run 61 of 423 instructions
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 427 of 428 instructions
 
 ### hudNearAlpha (`8C08E470`, 78 bytes, `src/gen_y.c`)
 - equivalent on 6 development and 3 holdout cases, in `tests/gen_y/hudNearAlpha.json`
@@ -51807,43 +51903,43 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### hudPlayerMarkers (`8C0960A4`, 538 bytes, `src/gen_uv.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_uv/hudPlayerMarkers.json`
-- case 0
-- case 1
-- case 3
-- case 0
-- case 2
-- case 3
-- case 4
-- case 5
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 13
-- case 14
-- case 15
-- case 52
-- case 140
-- case 66
-- case 43
-- case 130
-- case 142
-- case 45
-- case 72
-- case 143
-- case 77
-- case 35
-- case 147
-- case 159
-- case 133
-- case 83
-- case 68
-- case 129
-- case 132
-- the cases run 108 of 218 instructions
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 112 of 218 instructions
 
 ### hudPlayerPanelDraw (`8C0951E4`, 286 bytes, `src/gen_iz.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_iz/hudPlayerPanelDraw.json`
@@ -52391,43 +52487,43 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### hudWordFlagDraw (`8C0962BE`, 64 bytes, `src/gen_y.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_y/hudWordFlagDraw.json`
-- case 0
-- case 2
-- case 4
-- case 6
-- case 8
-- case 11
-- case 13
-- case 14
-- case 15
-- case 16
-- case 17
-- case 18
-- case 19
-- case 20
-- case 23
-- case 24
-- case 26
-- case 28
-- case 91
-- case 64
-- case 100
-- case 118
-- case 59
-- case 109
-- case 76
-- case 94
-- case 89
-- case 72
-- case 82
-- case 86
-- case 66
-- case 115
-- case 80
-- case 101
-- case 113
-- case 88
-- the cases run 10 of 32 instructions
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 32 of 32 instructions
 
 ### hwInit (`8C1DF6B0`, 40 bytes, `src/vtsdk_a.c`)
 - equivalent on 4 development and 2 holdout cases, in `tests/vtsdk_a/hwInit.json`
@@ -64963,43 +65059,43 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### matchExec (`8C019500`, 2936 bytes, `src/gen_on.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_on/matchExec.json`
-- case 77
-- case 49
-- case 0
-- case 1
-- case 2
-- case 3
-- case 4
-- case 5
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 13
-- case 14
-- case 15
-- case 116
-- case 83
-- case 158
-- case 140
-- case 45
-- case 90
-- case 94
-- case 117
-- case 74
-- case 41
-- case 82
-- case 155
-- case 98
-- case 68
-- case 153
-- case 80
-- case 137
-- case 53
-- the cases run 177 of 1152 instructions
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 442 of 1170 instructions
 
 ### matchFrame (`8C018F70`, 492 bytes, `src/gen_ut.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_ut/matchFrame.json`
@@ -65824,14 +65920,44 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 372 of 377 instructions
 
 ### menuListExec (`8C0CFD18`, 944 bytes, `src/gen_jz.c`)
-- equivalent on 4 development and 2 holdout cases, in `tests/gen_jz/menuListExec.json`
-- port 0, no item
-- port 1, item 0
-- port 2, item 2, buttons
-- port 3, item 1, repeat answers
-- port 0, item 3
-- port 1, no item, buttons
-- the cases run 244 of 404 instructions
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_jz/menuListExec.json`
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- case 1
+- case 3
+- case 7
+- case 9
+- case 11
+- case 13
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- case 0
+- case 2
+- case 4
+- case 8
+- case 10
+- case 12
+- case 14
+- the cases run 394 of 406 instructions
 
 ### menuResultDraw (`8C0D043C`, 920 bytes, `src/gen_fh.c`)
 - equivalent on 15 development and 15 holdout cases, in `tests/gen_fh/menuResultDraw.json`
@@ -65981,43 +66107,43 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### menuTextIconPut (`8C092E82`, 120 bytes, `src/gen_w.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_w/menuTextIconPut.json`
-- case 0
-- case 0
-- case 1
-- case 2
-- case 3
-- case 4
-- case 5
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 13
-- case 14
-- case 15
-- case 16
-- case 73
-- case 44
-- case 121
-- case 126
-- case 61
-- case 48
-- case 107
-- case 71
-- case 75
-- case 148
-- case 81
-- case 120
-- case 119
-- case 123
-- case 113
-- case 67
-- case 108
-- case 87
-- the cases run 38 of 60 instructions
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 60 of 60 instructions
 
 ### menuTextInit (`8C092E2C`, 86 bytes, `src/gen_e.c`)
 - equivalent on 15 development and 7 holdout cases, in `tests/gen_e/menuTextInit.json`
@@ -66126,10 +66252,44 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 1322 of 1585 instructions
 
 ### menuTextMsgPutB (`8C093F64`, 3978 bytes, `src/gen_ue.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_ue/menuTextMsgPutB.json`
-- search: r4 -> scratch, r5 -> scratch2
-- search: 8C700000=01000000
-- the cases run 476 of 1659 instructions
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ue/menuTextMsgPutB.json`
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 1348 of 1660 instructions
 
 ### menuTextNumPut (`8C092EFA`, 212 bytes, `src/gen_fi.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_fi/menuTextNumPut.json`
@@ -66843,43 +67003,43 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### miniResultStart (`8C03B220`, 512 bytes, `src/gen_jg.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_jg/miniResultStart.json`
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
 - case 1
-- case 2
 - case 3
-- case 4
 - case 5
-- case 6
 - case 7
-- case 8
 - case 9
-- case 10
 - case 11
-- case 12
 - case 13
-- case 14
 - case 15
-- case 16
 - case 17
+- case 19
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- case 0
+- case 2
+- case 4
+- case 6
+- case 8
+- case 10
+- case 12
+- case 14
+- case 16
 - case 18
-- case 127
-- case 149
-- case 116
-- case 47
-- case 139
-- case 85
-- case 104
-- case 46
-- case 43
-- case 138
-- case 124
-- case 84
-- case 129
-- case 90
-- case 143
-- case 120
-- case 109
-- case 86
-- the cases run 58 of 218 instructions
+- case 20
+- the cases run 79 of 219 instructions
 
 ### miniRoundStart (`8C037302`, 714 bytes, `src/gen_ku.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_ku/miniRoundStart.json`
@@ -90990,43 +91150,43 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### playerChooseSwing (`8C028DE0`, 2344 bytes, `src/gen_bt.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_bt/playerChooseSwing.json`
-- case 155
-- case 122
-- case 4
-- case 2
-- case 49
-- case 0
+- case 30
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
 - case 1
 - case 3
 - case 5
-- case 6
 - case 7
-- case 8
 - case 9
-- case 10
 - case 11
-- case 12
 - case 13
+- case 15
+- case 17
+- hand: search
+- case 0
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- case 2
+- case 4
+- case 6
+- case 8
+- case 10
+- case 12
 - case 14
-- case 101
-- case 118
-- case 65
-- case 154
-- case 54
-- case 43
-- case 93
-- case 84
-- case 133
-- case 136
-- case 131
-- case 41
-- case 38
-- case 77
-- case 126
-- case 124
-- case 95
-- case 80
-- the cases run 482 of 1026 instructions
+- case 16
+- case 18
+- the cases run 518 of 1026 instructions
 
 ### playerControl (`8C01DE1A`, 21482 bytes, `src/gen_sr.c`)
 - equivalent on 51 development and 51 holdout cases, in `tests/gen_sr/playerControl.json`
@@ -91616,43 +91776,43 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### playerStartReactions (`8C027EB8`, 882 bytes, `src/gen_mu.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_mu/playerStartReactions.json`
-- case 0
-- case 1
-- case 2
-- case 3
-- case 4
-- case 5
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 13
-- case 14
-- case 15
-- case 16
-- case 17
-- case 151
-- case 74
-- case 157
-- case 59
-- case 109
-- case 82
-- case 116
-- case 35
-- case 110
-- case 95
-- case 139
-- case 155
-- case 158
-- case 152
-- case 45
-- case 124
-- case 75
-- case 113
-- the cases run 35 of 379 instructions
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 262 of 386 instructions
 
 ### playerStartSwing (`8C028514`, 2252 bytes, `src/gen_sj.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_sj/playerStartSwing.json`
@@ -96023,11 +96183,44 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 0 of 23 instructions (nothing compared: no case showed a write, a call, a device access or a change of SR, and the C returns nothing)
 
 ### selCursorDraw (`8C09C7EC`, 4708 bytes, `src/gen_ck.c`)
-- equivalent on 2 development and 1 holdout cases, in `tests/gen_ck/selCursorDraw.json`
-- search: r4 -> scratch, r5 -> scratch2
-- search: 8C343264=0C000000
-- search: r6=00000001
-- the cases run 1348 of 2248 instructions
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ck/selCursorDraw.json`
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- case 1
+- case 3
+- case 5
+- case 8
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- case 0
+- case 2
+- case 4
+- case 7
+- case 10
+- the cases run 2251 of 2251 instructions
 
 ### selCursorInit (`8C0A9874`, 388 bytes, `src/gen_ba.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_ba/selCursorInit.json`
@@ -96387,43 +96580,43 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 
 ### selInit (`8C0A6908`, 1662 bytes, `src/gen_lj.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_lj/selInit.json`
-- case 103
-- case 4
-- case 0
-- case 1
-- case 2
-- case 3
-- case 5
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 13
-- case 14
-- case 15
-- case 16
-- case 112
-- case 71
-- case 87
-- case 143
-- case 107
-- case 47
-- case 54
-- case 52
-- case 64
-- case 86
-- case 95
-- case 69
-- case 36
-- case 114
-- case 111
-- case 53
-- case 82
-- case 104
-- the cases run 353 of 702 instructions
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- hand: search
+- the cases run 662 of 706 instructions
 
 ### selInitB (`8C0A6F86`, 1134 bytes, `src/gen_br.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_br/selInitB.json`
