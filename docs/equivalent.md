@@ -63631,7 +63631,7 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 29 of 65 instructions
 
 ### lightCamCalc (`8C0CC59A`, 5752 bytes, `src/gen_hl.c`)
-- equivalent on 4 development and 4 holdout cases, in `tests/gen_hl/lightCamCalc.json`
+- equivalent on 4 development and 7 holdout cases, in `tests/gen_hl/lightCamCalc.json`
 - search: r4 -> scratch, r5 -> scratch2
 - search: 8C287960=01000000
 - search: 8C287ADC=02000000
@@ -63640,7 +63640,10 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - search: 8C287960=000080BF
 - search: 8C421F60=01000000
 - search: call 30 fr0=1.0
-- the cases run 886 of 2358 instructions
+- dump snapMT-o (original, mid-rally, ball crossing the net toward the CPU), as cameraExec mode 0 calls it
+- dump snapMT-o, ball just off the CPU racket heading back (position and velocity set)
+- dump snapMT-o, ball halfway back from the CPU (position and velocity set)
+- the cases run 1125 of 2364 instructions
 
 ### lightExec (`8C0170E4`, 212 bytes, `src/gen_av.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_av/lightExec.json`

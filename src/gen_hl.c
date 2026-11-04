@@ -5,7 +5,7 @@ typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
 int nlUnitVector(int);
 int camGetPos(int, ...);
-int camProject(int, int);
+int camProject(int, int, Stk3);
 int camWorldToView(Stk4);
 int lightVec3EqualArgs(Stk3, Stk3);
 int nlAddVector(int, int);
@@ -521,7 +521,7 @@ int lightCamCalc(int a4, int a5, int a6, int a7, int a8, int a9)
             { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xCC + ((int)stk + 32))); }
             *(int *)((int)stk + 4) = (0xC + ((int)stk + 8));
             camWorldToView(*(Stk4 *)(((int)stk + 4)));
-            camProject((((int)stk + 20) + 0xC), (((int)stk + 20) + 0x10));
+            camProject((((int)stk + 20) + 0xC), (((int)stk + 20) + 0x10), *(Stk3 *)(((int)stk + 20)));
             u54 = (*(float *)(((int)stk + 32)));
             if (u54 > (float)t52) {
                 t52 = (int)u54;
@@ -586,7 +586,7 @@ int lightCamCalc(int a4, int a5, int a6, int a7, int a8, int a9)
                         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((a8 + 0xC)); }
                         *(int *)((int)stk + 4) = (0xC + ((int)stk + 8));
                         camWorldToView(*(Stk4 *)(((int)stk + 4)));
-                        camProject((((int)stk + 20) + 0xC), (((int)stk + 20) + 0x10));
+                        camProject((((int)stk + 20) + 0xC), (((int)stk + 20) + 0x10), *(Stk3 *)(((int)stk + 20)));
                         u223 = *(float *)(((int)stk + 36));
                         t334 = t184;
                         if (!(u223 > (float)t184)) {
@@ -910,8 +910,9 @@ int lightCamCalc(int a4, int a5, int a6, int a7, int a8, int a9)
                             t539 = t537;
                         }
                         *(Stk3 *)(((int)stk + 8)) = vecMake(10.0f, 40.0f, ((float)t539 * 40.0f));
+                        *(int *)((int)stk + 4) = (0xC + ((int)stk + 8));
                         camWorldToView(*(Stk4 *)((int)stk + 4));
-                        camProject((((int)stk + 20) + 0xC), (((int)stk + 20) + 0x10));
+                        camProject((((int)stk + 20) + 0xC), (((int)stk + 20) + 0x10), *(Stk3 *)(((int)stk + 20)));
                         u544 = *(float *)(((int)stk + 32));
                         t545 = t499;
                         if (u544 > (float)t499) {
@@ -1040,7 +1041,7 @@ int lightCamCalc(int a4, int a5, int a6, int a7, int a8, int a9)
                                     t610 = ((int)stk + 20);
                                     t611 = (t611 + 0x10);
                                     t610 = (t610 + 0xC);
-                                    t608 = (camProject(t610, t611));
+                                    t608 = (camProject(t610, t611, *(Stk3 *)(((int)stk + 20))));
                                     u615 = (*(float *)(((int)stk + 32)));
                                     u616 = (float)t613;
                                     if (u615 > u616) {
@@ -1099,7 +1100,7 @@ int lightCamCalc(int a4, int a5, int a6, int a7, int a8, int a9)
                                         t610 = ((int)stk + 20);
                                         t611 = (t611 + 0x10);
                                         t610 = (t610 + 0xC);
-                                        t608 = (camProject(t610, t611));
+                                        t608 = (camProject(t610, t611, *(Stk3 *)(((int)stk + 20))));
                                         u615 = (*(float *)(((int)stk + 32)));
                                         u616 = (float)t613;
                                         if (u615 > u616) {
@@ -1183,7 +1184,7 @@ int lightCamCalc(int a4, int a5, int a6, int a7, int a8, int a9)
                                 t610 = ((int)stk + 20);
                                 t611 = (t611 + 0x10);
                                 t610 = (t610 + 0xC);
-                                t608 = (camProject(t610, t611));
+                                t608 = (camProject(t610, t611, *(Stk3 *)(((int)stk + 20))));
                                 u615 = (*(float *)(((int)stk + 32)));
                                 u616 = (float)t613;
                                 if (u615 > u616) {
@@ -1245,7 +1246,7 @@ int lightCamCalc(int a4, int a5, int a6, int a7, int a8, int a9)
                                     t610 = ((int)stk + 20);
                                     t611 = (t611 + 0x10);
                                     t610 = (t610 + 0xC);
-                                    t608 = (camProject(t610, t611));
+                                    t608 = (camProject(t610, t611, *(Stk3 *)(((int)stk + 20))));
                                     u615 = (*(float *)(((int)stk + 32)));
                                     u616 = (float)t613;
                                     if (u615 > u616) {
@@ -1358,8 +1359,9 @@ int lightCamCalc(int a4, int a5, int a6, int a7, int a8, int a9)
         t875 = t873;
     }
     *(Stk3 *)(((int)stk + 8)) = vecMake((float)(*(int *)(((*(int *)(((int)stk + 64))) + 0x0))), 0.0f, (float)((t872 + 0xA) * t875));
+    *(int *)((int)stk + 4) = (0xC + ((int)stk + 8));
     camWorldToView(*(Stk4 *)((int)stk + 4));
-    camProject((((int)stk + 20) + 0x48), (((int)stk + 20) + 0x28));
+    camProject((((int)stk + 20) + 0x48), (((int)stk + 20) + 0x28), *(Stk3 *)(((int)stk + 20)));
     t882 = *(int *)(((((*(int *)0x8C1891E8) << 2) << 1) + 0x8C1D11BC));
     u883 = *(float *)(((int)stk + 196));
     t886 = 0x1;
@@ -1372,8 +1374,9 @@ int lightCamCalc(int a4, int a5, int a6, int a7, int a8, int a9)
         t886 = t884;
     }
     *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, (float)((t882 + 0xA) * t886));
+    *(int *)((int)stk + 4) = (0xC + ((int)stk + 8));
     camWorldToView(*(Stk4 *)((int)stk + 4));
-    camProject((((int)stk + 20) + 0x44), (((int)stk + 20) + 0x24));
+    camProject((((int)stk + 20) + 0x44), (((int)stk + 20) + 0x24), *(Stk3 *)(((int)stk + 20)));
     t890 = *(int *)0x8C1891E8;
     *(unsigned int *)(((int)stk + 64)) = (0x8C1D11B8 + ((t890 << 2) << 1));
     u891 = *(float *)(((int)stk + 196));
@@ -1388,8 +1391,9 @@ int lightCamCalc(int a4, int a5, int a6, int a7, int a8, int a9)
         t895 = t893;
     }
     *(Stk3 *)(((int)stk + 8)) = vecMake((float)(-(*(int *)(((*(int *)(((int)stk + 64))) + 0x0)))), 0.0f, (float)((t892 + 0xA) * t895));
+    *(int *)((int)stk + 4) = (0xC + ((int)stk + 8));
     camWorldToView(*(Stk4 *)((int)stk + 4));
-    camProject((((int)stk + 20) + 0x40), (((int)stk + 20) + 0x20));
+    camProject((((int)stk + 20) + 0x40), (((int)stk + 20) + 0x20), *(Stk3 *)(((int)stk + 20)));
     if (((-375.0f > (*(float *)(((int)stk + 60)))) && ((u902 = *(float *)(((int)stk + 56)), -375.0f > u902) && (u903 = *(float *)(((int)stk + 52)), -375.0f > u903))) || (a9 == 0)) {
         *(unsigned int *)0x8C1D1250 = 0x0;
         *(float *)0x8C38B8C0 = 9999.0f;

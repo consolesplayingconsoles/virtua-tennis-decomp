@@ -14,7 +14,7 @@ byte-identical C (Matching) is the bonus tier.
 - Main menu: the submenu entries show no labels
 - Player select: a large blue panel is drawn out of place and the player models are missing
 - Game opening: The pictures of the players are missing
-- Camera: zooms in so the bottom player is not visible
+- Exhibition mode: crashes the game
 
 _**This is not a traditional, human-idiomatic decompilation.** It is structured and documented for AI consumption,
 and its tooling is built for the automation and scale of that paradigm.
@@ -29,7 +29,7 @@ everything game-derived on your machine, and `.gitignore` keeps it out of git.
 
 <!-- progress -->
 ```
-TOTAL TEST COVERAGE           70.9%  the instructions the cases ran, of all instructions, over the 4056 functions that can be C; the 3899 functions that reached the check are measured, the others count 0
+TOTAL TEST COVERAGE           71.0%  the instructions the cases ran, of all instructions, over the 4056 functions that can be C; the 3899 functions that reached the check are measured, the others count 0
 FUNCTIONS LEFT  (100.0% complete) 0  of the 4056 functions that can be C (12 with no C form are counted apart)
 BYTES LEFT      (100.0% complete) 0  of 1062522 bytes of code that can be C
 FUNCTIONS                            

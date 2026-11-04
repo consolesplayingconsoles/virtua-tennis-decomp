@@ -151,6 +151,49 @@
      "fr0": 1.0
     }
    ]
+  },
+  {
+   "dump": "build/snapMT-o.ram",
+   "regs": {
+    "r4": "8C287D84",
+    "r5": "0CED3800",
+    "r6": "0CED3810",
+    "r7": "8C287A04"
+   },
+   "poke": {
+    "0DFFFF00": "241f298c01000000"
+   },
+   "about": "dump snapMT-o (original, mid-rally, ball crossing the net toward the CPU), as cameraExec mode 0 calls it"
+  },
+  {
+   "dump": "build/snapMT-o.ram",
+   "regs": {
+    "r4": "8C287D84",
+    "r5": "0CED3800",
+    "r6": "0CED3810",
+    "r7": "8C287A04"
+   },
+   "poke": {
+    "0DFFFF00": "241f298c01000000",
+    "8C291F30": "0000d0c1000070410000ecc2",
+    "8C291F58": "14ae473fc3f5283fc3f58840"
+   },
+   "about": "dump snapMT-o, ball just off the CPU racket heading back (position and velocity set)"
+  },
+  {
+   "dump": "build/snapMT-o.ram",
+   "regs": {
+    "r4": "8C287D84",
+    "r5": "0CED3800",
+    "r6": "0CED3810",
+    "r7": "8C287A04"
+   },
+   "poke": {
+    "0DFFFF00": "241f298c01000000",
+    "8C291F30": "000070c10000a041000070c2",
+    "8C291F58": "14ae473fcdcc4c3ec3f58840"
+   },
+   "about": "dump snapMT-o, ball halfway back from the CPU (position and velocity set)"
   }
  ]
 }
