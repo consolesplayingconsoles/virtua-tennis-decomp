@@ -4,7 +4,7 @@
 int afsLoadPartitions(void);
 int camGetAngles(int, int, int, int);
 int fileLoadSync(int, int, int);
-int mathLineY(float, float, float, float, float);
+float mathLineY(float, float, float, float, float);
 int nlCloseEvent(int);
 int nlObjPut(int);
 int nlPopMatrix(int);
@@ -20,7 +20,7 @@ int strmInit(void);
 int FUN_8c03ce4c(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, float f4);
 int FUN_8c0d267c(void);
 int FUN_8c0d9b54(int a4, int a5, int a6, int a7);
-int FUN_8c0b6994(float f4);
+float FUN_8c0b6994(float f4);
 void FUN_8c0c4bf0(void);
 
 int FUN_8c03ce4c(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, float f4)
@@ -98,14 +98,13 @@ int FUN_8c0d9b54(int a4, int a5, int a6, int a7)
     return (nlCloseEvent(a4));
 }
 
-int FUN_8c0b6994(float f4)
+float FUN_8c0b6994(float f4)
 {
     register float u0;
 
     u0 = *(float *)0x8C0B6A4C;
     if (f4 > u0) {
-        *(volatile float *)0x8C0B6A50;
-        return 0x8C0B6A50;
+        return *(float *)0x8C0B6A50;
     }
     return mathLineY(0.0f, 0.0f, u0, (*(float *)0x8C0B6A50), f4);
 }
