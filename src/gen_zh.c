@@ -15,7 +15,7 @@ int nlExecuteEvent(void);
 int stageLoadEndingModels(void);
 int vecAdd(int, int, int, int, int, Stk3, Stk3);
 int vecDiv(int, int, int, int, int, float);
-int vecScale(int, int, int, int, int, float);
+void vecScale(int, int, int, int, int, Stk3, float);
 int vecSub(Stk4, Stk3);
 int FUN_8c08d59c(void);
 
@@ -43,7 +43,7 @@ int FUN_8c08d59c(void)
         vecDiv(0x0, 0x0, 0x0, 0x0, (0xC + ((int)stk + 32)), 300.0f);
         t5 = *(int *)0x8C32DD98;
         *(int *)((int)stk + 40) = (0xC + ((int)stk + 44));
-        vecScale(0x0, 0x0, 0x0, 0x0, (0xC + ((int)stk + 44)), (float)t5);
+        vecScale(0x0, 0x0, 0x0, 0x0, (0xC + ((int)stk + 44)), *(Stk3 *)((int)stk + 44), (float)t5);
         *(int *)((int)stk + 52) = (((int)stk + 56) + 0x18);
         vecAdd(0x0, 0x0, 0x0, 0x0, (((int)stk + 56) + 0x18), *(Stk3 *)((int)stk + 56), *(Stk3 *)((int)stk + 68));
         { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 40)) = *(struct mv3 *)(0x8C1826D0); }

@@ -95,7 +95,7 @@ int vecAdd(int, int, int, int, int, Stk3, Stk3);
 int vecCross(int, int, int, int, int);
 float vecDot(Stk3, Stk3);
 Stk3 vecMake(float, float, float);
-int vecScale(int, int, int, int, int, float);
+void vecScale(int, int, int, int, int, Stk3, float);
 int vecSub(Stk4, Stk3);
 int FUN_8c08d268(int a4, int a5, int a6, int a7);
 int FUN_8c039788(int a4);
@@ -222,7 +222,7 @@ int FUN_8c08d268(int a4, int a5, int a6, int a7)
                             t33 = t1;
                             *(int *)((int)stk + 4) = t33;
                             t1 = 0x8C015F4C;
-                            t0 = (vecScale(t2, t3, t4, a7, t33, u32));
+                            vecScale(t2, t3, t4, a7, t33, *(Stk3 *)((int)stk + 8), u32);
                             t24 = 0x60;
                             t8 = (t8 + 0xC);
                             t19 = (*(int *)(((int)stk + 20)));

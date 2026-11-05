@@ -38,7 +38,7 @@ int syCfgSetSoundMode(int, int, int);
 int uiPanelPut(int, Stk3, float);
 int uiScanlinesPut(float);
 Stk3 vecMake(float, float, float);
-int winDrawA(int, int, float, float, float);
+int winDrawA(int, int, Stk3, float, float, float);
 int FUN_8c0da9d0(int a4, float f4);
 
 int FUN_8c0da9d0(int a4, float f4)
@@ -551,7 +551,7 @@ int FUN_8c0da9d0(int a4, float f4)
     F5 = (-15.0f);
     F6 = (70.0f);
     *(Stk3 *)(*(int *)((int)stk + 28)) = vecMake(w0_0, F5, F6);
-    winDrawA(0x50, 0x0, 320.0f, 1.0f, 0.699999988f);
+    winDrawA(0x50, 0x0, *(Stk3 *)(((int)stk + 32)), 320.0f, 1.0f, 0.699999988f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(50.0f, 25.0f, 0.100000001f);
     v0_1 = sprListPut(0x8C1D56E0, 0x1, 0xFF000000, *(Stk3 *)(((int)stk + 32)), 1.0f, 1.0f, 1.0f);
     v0_2 = (0x8C40C470);

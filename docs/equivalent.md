@@ -16353,6 +16353,12 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 272
 - the cases run 35 of 109 instructions
 
+### FUN_8c0e0610 (`8C0E0610`, 56 bytes, `src/gen_au.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_au/FUN_8c0e0610.json`
+- a full queue of five 20-byte requests: four shift down, the fifth is cleared
+- another fill: every word moves by 20 bytes, nothing past 0x8C40C698 is touched
+- the cases run 28 of 28 instructions
+
 ### FUN_8c0e1108 (`8C0E1108`, 224 bytes, `src/gen_yj.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_yj/FUN_8c0e1108.json`
 - rescue: empty case

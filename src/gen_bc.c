@@ -50,7 +50,7 @@ int vecAdd(int, int, int, int, int, Stk3, Stk3);
 float vecDistXZ(Stk3, Stk3);
 float vecLength(Stk4);
 int vecMake(int, int, int, int, int, float, float, float);
-int vecScale(int, int, int, int, int, float, float, float, float, float, float, float);
+void vecScale(int, int, int, int, int, Stk3, float);
 int vecSub(int, int, int, int, int);
 int decoHeaderDrawB(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
 int BupLoadFile(int a4, int a5, int a6, int a7);

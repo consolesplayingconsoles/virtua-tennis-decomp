@@ -63,7 +63,7 @@ int strmBgmPlay(int);
 int titleSprTexLoad(int, int, int, int, int, int, int, int, int);
 int uiScanlinesPut(float);
 Stk3 vecMake(float, float, float);
-int winDrawA(int, int, float, float, float);
+int winDrawA(int, int, Stk3, float, float, float);
 int winDrawFilled(float, float);
 int FUN_8c0e48d8(int a4, int a5, int a6, int a7, float f4, float f5, float f6);
 
@@ -186,12 +186,12 @@ int FUN_8c0e48d8(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     { struct mv6 { int w[6]; }; *(struct mv6 *)((((int)stk + 28) + 0x78)) = *(struct mv6 *)(0x8C126FD4); }
     screenQuadPut((((int)stk + 28) + 0x78), 460.0f);
     *(Stk3 *)(((int)stk + 16)) = vecMake(w0_4, w0_4, 85.0f);
-    winDrawA(0x78, 0x0, 370.0f, w0_0, w0_0);
+    winDrawA(0x78, 0x0, *(Stk3 *)(((int)stk + 16)), 370.0f, w0_0, w0_0);
     winDrawFilled(w0_0, 85.0f);
     logoWaveDraw(80.0f);
     uiScanlinesPut(75.0f);
     *(Stk3 *)(((int)stk + 16)) = vecMake(w0_4, w0_4, 70.0f);
-    winDrawA(0x78, 0x0, 370.0f, w0_0, 0.5f);
+    winDrawA(0x78, 0x0, *(Stk3 *)(((int)stk + 16)), 370.0f, w0_0, 0.5f);
     winDrawFilled(0.5f, 70.0f);
     v0_6 = *(int *)((v0_7 + 0x0));
     v0_10 = ((v0_6 << 1));

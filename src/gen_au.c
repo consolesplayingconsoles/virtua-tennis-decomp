@@ -797,6 +797,29 @@ int endingCamera2Set(void)
     return t24;
 }
 
+void FUN_8c0e0610(void)
+{
+    unsigned int *dst;
+    unsigned int *src;
+
+    dst = (unsigned int *)0x8C40C634;
+    src = (unsigned int *)0x8C40C648;
+    do {
+        dst[0] = src[0];
+        dst[1] = src[1];
+        dst[2] = src[2];
+        dst[3] = src[3];
+        dst[4] = src[4];
+        dst += 5;
+        src += 5;
+    } while ((unsigned int)dst < 0x8C40C684);
+    dst[0] = 0x0;
+    dst[1] = 0x0;
+    dst[2] = 0x0;
+    dst[3] = 0x0;
+    dst[4] = 0x0;
+}
+
 int BupExecRequest(void)
 {
     int t0;

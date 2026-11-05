@@ -24,7 +24,7 @@ extern int kdGetDriverMode();
 int kmSetFogVertexColor(int, int, int, int, int);
 int kmyiCheckNativeHandle(int);
 int kmytex_GetSmallVQprofile(int, int);
-int mathLineY(float, float, float, float, float);
+float mathLineY(float, float, float, float, float);
 int mtxGetPos(int, int, int);
 int mwRnaErrCallFunc(int, ...);
 int nlExecuteEvent(void);
@@ -72,7 +72,7 @@ int evPackRamp(int a4, int a5, int a6, int a7);
 int nlCommonTextureGetNextTextureIndex(int a4, int a5, int a6);
 int nlsndSeqRequest(int a4);
 int kmyAllocateSmallVQArea(int a4, int a5, int a6);
-int shadowBallScale(float f4);
+float shadowBallScale(float f4);
 int panelDrawA(Stk4 s, float f4);
 int panelDrawB(Stk4 s, float f4);
 int panelDrawC(Stk4 s, float f4);
@@ -158,7 +158,7 @@ int evPackRamp(int a4, int a5, int a6, int a7)
 
 
 
-int shadowBallScale(float f4)
+float shadowBallScale(float f4)
 {
     float u5;
     float u9;
@@ -169,13 +169,11 @@ int shadowBallScale(float f4)
     float u17;
 
     if (((*(int *)0x8C291F78) & 2) != 0) {
-        *(volatile float *)0x8C08B5B8;
-        return 0x8C08B5B8;
+        return *(float *)0x8C08B5B8;
     }
     u5 = *(float *)0x8C08B5BC;
     if (f4 > u5) {
-        *(volatile float *)0x8C08B5C0;
-        return 0x8C08B5C0;
+        return *(float *)0x8C08B5C0;
     }
     u9 = *(float *)0x8C08B5C4;
     u10 = *(float *)0x8C08B5C8;

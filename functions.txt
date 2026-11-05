@@ -1853,6 +1853,7 @@ F 8c0e00ba 6 thunk_buIsExistFile
 F 8c0e00c0 782 FUN_8c0e00c0
 F 8c0e03ce 220 FUN_8c0e03ce
 F 8c0e0518 176 BupCheckCard
+F 8c0e0610 56 FUN_8c0e0610
 F 8c0e0648 230 BupExecRequest
 F 8c0e0710 112 BupRequestLoad
 F 8c0e0780 6 BupGetRequest

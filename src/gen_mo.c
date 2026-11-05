@@ -20,7 +20,7 @@ float shadowBallScale(float);
 int shadowBallTrailLen(float);
 float vecDist(Stk3, Stk3);
 Stk3 vecMake(float, float, float);
-int vecScale(int, int, int, int, int, float);
+void vecScale(int, int, int, int, int, Stk3, float);
 int shadowBallDraw(Stk3 s);
 
 int shadowBallDraw(Stk3 s)
@@ -124,7 +124,7 @@ int shadowBallDraw(Stk3 s)
     nlPopMatrix(0x1);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 36)) = *(struct mv3 *)((((int)stk + 48) + 0x68)); }
     *(int *)((int)stk + 32) = (((int)stk + 36) + 0x74);
-    vecScale(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 32), 200.0f);
+    vecScale(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 32), *(Stk3 *)((int)stk + 36), 200.0f);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((((int)stk + 32) + 0x78)); }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(R14); }
     t62 = R13;

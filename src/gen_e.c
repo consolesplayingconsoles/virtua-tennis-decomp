@@ -363,7 +363,7 @@ int nlRenderTextureFree(int);
 int nlRotateAY(int);
 int nlScale(float, float, float);
 int nlScaleUnitVector(int, int, float);
-int nlScaleVector(int, int);
+int nlScaleVector(int, int, float);
 int nlSetTextureParameter(int);
 int nlSpriteFreeTextureOnce(void);
 int nlSpriteSetGarbagedTextureOnce(int, int);
@@ -811,20 +811,12 @@ void vecAdd(int a4, int a5, int a6, int a7, int a8, Stk3 a, Stk3 b)
 }
 
 
-void vecScale(int a4, int a5, int a6, int a7, int a8)
+void vecScale(int a4, int a5, int a6, int a7, int a8, Stk3 v, float f4)
 {
-    int t1;
-    int t2;
-    int t3;
-    int stk[2];
-
-    nlScaleVector((((int)stk + 4) + 0x8), (((int)stk + 4) + 0x8));
-    t1 = *(int *)(((((int)stk + 4) + 0x8) + 0x8));
-    *(unsigned int *)((a8 + 0x8)) = t1;
-    t2 = *(int *)(((((int)stk + 4) + 0x8) + 0x4));
-    *(unsigned int *)((a8 + 0x4)) = t2;
-    t3 = *(int *)(((((int)stk + 4) + 0x8) + 0x0));
-    *(unsigned int *)((a8 + 0x0)) = t3;
+    nlScaleVector((int)&v, (int)&v, f4);
+    *(unsigned int *)((a8 + 0x8)) = v.w[2];
+    *(unsigned int *)((a8 + 0x4)) = v.w[1];
+    *(unsigned int *)((a8 + 0x0)) = v.w[0];
 }
 
 void vecCross(int a4, int a5, int a6, int a7, int a8)

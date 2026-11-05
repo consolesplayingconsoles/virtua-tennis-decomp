@@ -53,7 +53,7 @@ int strmControl(int, int);
 extern int thunk_nlSprPut();
 int vecMake(int, int, int, int, int, float, float, float);
 int vmsfs_read_retry(int, int, int);
-int winPartsPut(int, Stk3, int, int, int, float, float);
+int winPartsPut(int, int, int, int, Stk3, int, float, float);
 int vmsfs_read_disk_image(int a4, int a5);
 int evFadeValueTask(int a4);
 int kmLoadTextureRom(int a4, int a5);
@@ -884,7 +884,7 @@ int winDrawFilled(int a4, int a5, int a6, int a7, float f4, float f5)
 
     *(unsigned int *)(((int)stk + 24)) = (int)(f4 * 255.0f);
     vecMake(a4, a5, a6, a7, ((int)stk + 8), 0.0f, 0.0f, f5);
-    winPartsPut(0x8C1D7110, *(Stk3 *)((int)stk + 8), 0x8C1D736C, 0x4, 0x78, f4, 1.0f);
+    winPartsPut(0x8C1D7110, 0x8C1D736C, 0x4, 0x78, *(Stk3 *)((int)stk + 8), 0x0, f4, 1.0f);
     t2 = *(int *)(((int)stk + 24));
     t3 = 0x8C1D72C0;
     for (;;) {
