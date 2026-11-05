@@ -1,7 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_qa): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int bodyCreate(int, int, int, int, int, int, int, int, int, float, float);
+int bodyCreate(int, int, int, int, int, int, int, int, int, int, float, float);
 int colliObjInit(int, int, int, int, int, float);
 int nlAddVector(int, int);
 int miniTargetInit(int a4, int a5, int a6, int a7, int a8, int a9, int a10);
@@ -62,7 +62,7 @@ int miniTargetInit(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
     u9 = *(float *)(((((((t6 << 2) << 1) + t6) << 2) + 0x8C10C6B0) + 0x1C));
     t10 = *(int *)(((((((t6 << 2) << 1) + t6) << 2) + 0x8C10C6B0) + 0x4));
     *(int *)((int)stk + 4) = (0x18 + R4);
-    bodyCreate(t7, t10, t8, a7, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), u9, 0.800000012f);
+    bodyCreate(t7, t10, t8, a7, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), u9, 0.800000012f);
     t12 = *(int *)((R4 + 0x14));
     t13 = *(int *)(((((((t12 << 2) << 1) + t12) << 2) + 0x8C10C6B0) + 0x20));
     R0 = (t13);

@@ -11,7 +11,7 @@ int buSaveFile(int, int, int, int, int, int);
 int buStat(int);
 int memmove(int, int, int);
 int memset(int, int, int);
-int msgWinSet(int, int);
+int msgWinSet(int, int, int, int, int, int, int);
 int padLcdClear(int);
 int padLcdMessage(int);
 int padVmsBeep(int, int);
@@ -167,7 +167,7 @@ int BupSaveFile(int a4, int a5, int a6, int a7, float f4, float f5, float f6, fl
     goto L_8C0DFF10;
     L_8C0DFEDC:;
     *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, 0.0f);
-    msgWinSet(0x6, 0x0);
+    msgWinSet(0x6, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16));
     padLcdMessage(0xD);
     memmove(0x8C40C6A8, (((int)stk + 20) + 0x18), 0x8);
     goto L_8C0DFF08;

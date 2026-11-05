@@ -19,7 +19,7 @@ int cpuDblThinkAll(float);
 int cpuMeterInput(int, int, int, float, float);
 int cpuPadHistory(int, int, int, int, int, int);
 int cursorBoxPut(int, Stk3, float, float, float);
-int decoPairPut(int, float);
+int decoPairPut(int, int, int, int, int, int, int, float);
 int hudProfileDraw(int, Stk3);
 int hudScoreIconPut(int, Stk3, float);
 int iconSlotPutB(int, Stk3, float, float);
@@ -324,11 +324,11 @@ int decoWaveDraw(int a4, Stk2 s)
     }
     R1028 = u56;
     *(Stk3 *)(((int)stk + 8)) = vecMake((*(float *)(((((int)stk + 20) + 0x24) + 0x0))), (*(float *)(((((int)stk + 20) + 0x24) + 0x4))), (*(float *)0x8C0A5D08));
-    decoPairPut(a4, (R1020));
+    decoPairPut(a4, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), (R1020));
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((((int)stk + 20) + 0x24) + 0x0))) + (*(float *)0x8C0A5D10)), (*(float *)(((((int)stk + 20) + 0x24) + 0x4))), (*(float *)0x8C0A5D0C));
-    decoPairPut(a4, (R1024));
+    decoPairPut(a4, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), (R1024));
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((((int)stk + 20) + 0x24) + 0x0))) + (*(float *)0x8C0A5D18)), (*(float *)(((((int)stk + 20) + 0x24) + 0x4))), (*(float *)0x8C0A5D14));
-    return (decoPairPut(a4, (R1028)));
+    return (decoPairPut(a4, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), (R1028)));
 }
 
 

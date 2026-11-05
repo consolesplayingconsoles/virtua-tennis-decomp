@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int countryNamePut(int, float);
+int countryNamePut(int, int, int, int, int, int, int, float);
 int getID_Color(int, float);
 int iconSlotPutC(int, Stk3, float);
 int menuItemTextPut(int, Stk3, float);
@@ -166,7 +166,7 @@ int infoPlayerDraw(int a4, int a5, int a6, int a7, Stk3 s, float f4, float f5, f
     *(volatile int *)(((int)stk + 36));
     nlDispStripTrnsl(0x4, v0_0);
     *(Stk3 *)(((int)stk + 24)) = vecMake(((*(float *)((v0_3 + 0x0))) + 7.0f), ((*(float *)((v0_3 + 0x4))) + 54.0f), 0.100000001f);
-    countryNamePut((*(int *)(((int)stk + 40))), w0_1);
+    countryNamePut((*(int *)(((int)stk + 40))), 0x0, 0x0, 0x0, *(int *)((int)stk + 24), *(int *)((int)stk + 28), *(int *)((int)stk + 32), w0_1);
     w0_3 = (34.0f);
     w0_4 = (((*(float *)((v0_3 + 0x4))) + 119.0f));
     w0_5 = ((*(float *)((v0_3 + 0x8))));
@@ -408,7 +408,7 @@ int infoPlayerDraw(int a4, int a5, int a6, int a7, Stk3 s, float f4, float f5, f
     nlDispStripTrnsl(0x4, v0_0);
     w0_3 = *(float *)((v0_3 + 0x0));
     *(Stk3 *)(((int)stk + 24)) = vecMake((w0_3 + 5.0f), (w0_3 + 54.0f), 0.100000001f);
-    countryNamePut((*(int *)(((int)stk + 40))), w0_1);
+    countryNamePut((*(int *)(((int)stk + 40))), 0x0, 0x0, 0x0, *(int *)((int)stk + 24), *(int *)((int)stk + 28), *(int *)((int)stk + 32), w0_1);
     w0_3 = (22.0f);
     w0_4 = (((*(float *)((v0_3 + 0x4))) + 119.0f));
     w0_5 = ((*(float *)((v0_3 + 0x8))));

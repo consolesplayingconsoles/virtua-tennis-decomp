@@ -55,7 +55,7 @@ float nlSin(int);
 float nlTan(int);
 int nlTranslate(float, float, float);
 int panelLogoSwingDraw(Stk3, float);
-int panelMenuItemPut(int, float);
+int panelMenuItemPut(int, int, int, int, int, int, int, float);
 int primPanelDraw(Stk3);
 int selCursorPos(int, int, int, int, int);
 int set_event(int, int);
@@ -388,11 +388,11 @@ int entryGridDraw(int a4, int a5, float f4)
     t10 = *(int *)0x8C287D5C;
     if (t10 == 0) {
         *(Stk3 *)(((int)stk + 16)) = vecMake(452.0f, 41.0f, 0.100000001f);
-        panelMenuItemPut(0x0, 1.0f);
+        panelMenuItemPut(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), *(int *)((int)stk + 20), *(int *)((int)stk + 24), 1.0f);
     } else {
         if (t10 == 1) {
             *(Stk3 *)(((int)stk + 16)) = vecMake(420.0f, 41.0f, 0.100000001f);
-            panelMenuItemPut(0x1, 1.0f);
+            panelMenuItemPut(0x1, 0x0, 0x0, 0x0, *(int *)((int)stk + 16), *(int *)((int)stk + 20), *(int *)((int)stk + 24), 1.0f);
         } else {
             t15 = t10;
         }

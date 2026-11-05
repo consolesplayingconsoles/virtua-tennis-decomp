@@ -19,7 +19,7 @@ int nlTranslate(float, float, float);
 int sndEndingCheer(int, int, int, int, int, int);
 int sprListPut(int, Stk3, int, int, float, float, float);
 int sunPut(int, int, int, float);
-int uiBarStretchPut(int, int, float);
+int uiBarStretchPut(int, int, int, int, int, int, int, int, float);
 Stk3 vecMake(float, float, float);
 int endingSceneDraw(int a4, int a5, int a6, int a7, float f4);
 
@@ -93,13 +93,13 @@ int endingSceneDraw(int a4, int a5, int a6, int a7, float f4)
     *(Stk3 *)(((int)stk + 8)) = vecMake(160.0f, 325.0f, 0.100000001f);
     sprListPut(0x8C1D3ABC, *(Stk3 *)((int)stk + 8), 0x3, 0x0, u41, 1.0f, 1.0f);
     *(Stk3 *)(((int)stk + 8)) = vecMake(30.0f, 320.0f, 0.5f);
-    uiBarStretchPut(0x8C1D3834, 0x5D, u41);
+    uiBarStretchPut(0x8C1D3834, 0x5D, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), *(int *)((int)stk + 20), u41);
     *(float *)(((int)stk + 20)) = u41;
     if (u41 > 0.699999988f) {
         *(float *)(((int)stk + 20)) = ((*(float *)(((int)stk + 20))) * 0.699999988f);
     }
     *(Stk3 *)(((int)stk + 8)) = vecMake(129.0f, 320.0f, 0.5f);
-    uiBarStretchPut(0x8C1D3978, 0x1DD, (*(float *)(((int)stk + 20))));
+    uiBarStretchPut(0x8C1D3978, 0x1DD, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), *(int *)((int)stk + 20), (*(float *)(((int)stk + 20))));
     *(Stk3 *)(((int)stk + 8)) = vecMake(135.0f, 360.0f, 0.100000001f);
     t55 = *(int *)(((*(int *)0x8C402CB4) + 0xC58));
     R1024 = (((t55 << 1) << 2) + 0x8C125E08);

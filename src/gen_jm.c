@@ -13,7 +13,7 @@ int kmyGetDMAHANDLE(int);
 int kmyRequestDMA(int);
 int kmySetDMACallback(int, int);
 int kmySetDMAValue(int, int);
-int kmySetTADMA(int, int, int, int, int);
+int kmySetTADMA(int, int, int, int, int, int);
 int nlAddVector(int, int);
 float nlInnerProduct(int, int);
 int nlOuterProduct(int, int, int);
@@ -108,7 +108,7 @@ int kmiFLWCTRLStartDMAEntry(int a4)
     (*(int *)((int)stk + 4)) = t25;
     t26 = R1012;
     R1024 = (R13 << 2);
-    kmySetTADMA(t24, (*(int *)((R11 + 0x3C))), (*(int *)((((R11 + 0x44) + (R1012)) + (R1024)))), (*(int *)(((R13 << 2) + ((0xE4 + R11) + t26)))), t25);
+    kmySetTADMA(t24, (*(int *)((R11 + 0x3C))), (*(int *)((((R11 + 0x44) + (R1012)) + (R1024)))), (*(int *)(((R13 << 2) + ((0xE4 + R11) + t26)))), t25, (*(int *)((int)stk + 8)));
     R10 = (t24);
     if ((R12 != ((*(int *)0x8C4607D0) - 1))) goto L_8C1FAB5E;
     if ((R13 != (R1020))) goto L_8C1FAB5E;

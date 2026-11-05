@@ -13,7 +13,7 @@ int gdFsWaitCompleteReq(int);
 int matchNextSetup(int);
 int menuTextLetterPut(int, Stk3);
 int msgWinFramePut(int, int, int, int, int, int, int, int, int, int, int, int);
-int msgWinPut(int, int);
+int msgWinPut(int, int, int, int, int, int, int);
 int nlAddVector3op(int, int, int);
 int nlDispStripTexOfsTrnsl(int, int, int);
 int nlObjPut(int);
@@ -417,11 +417,11 @@ int BupDrawWarning(int a4, int a5, int a6, int a7)
         vecMake(0x0, 0x0, 0x0, 0x0, (0x24 + ((int)stk + 20)), (*(float *)0x8C0E0C78), (*(float *)0x8C0E0C74), u3);
         msgWinFramePut(((int)stk + 20), 0x0, 0x0, 0x0, *(int *)((int)stk + 20), *(int *)((int)stk + 20 + 4), *(int *)((int)stk + 20 + 8), *(int *)((int)stk + 20 + 12), *(int *)((int)stk + 20 + 16), *(int *)((int)stk + 20 + 20), *(int *)((int)stk + 20 + 24), *(int *)((int)stk + 20 + 28));
         vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), u2, (*(float *)0x8C0E0C80), u1);
-        msgWinPut(0x5, 0x0);
+        msgWinPut(0x5, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8));
         vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), u2, (*(float *)0x8C0E0C88), u1);
-        msgWinPut(0xB, 0x0);
+        msgWinPut(0xB, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8));
         vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), u2, u2, u1);
-        t45 = (msgWinPut(0x0, 0x0));
+        t45 = (msgWinPut(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8)));
     } else {
         t42 = a4;
         if (a4 == 1) {
@@ -431,11 +431,11 @@ int BupDrawWarning(int a4, int a5, int a6, int a7)
             vecMake(0x0, 0x0, 0x0, 0x0, (0x24 + ((int)stk + 20)), (*(float *)0x8C0E0C78), (*(float *)0x8C0E0C74), u3);
             msgWinFramePut(((int)stk + 20), 0x0, 0x0, 0x0, *(int *)((int)stk + 20), *(int *)((int)stk + 20 + 4), *(int *)((int)stk + 20 + 8), *(int *)((int)stk + 20 + 12), *(int *)((int)stk + 20 + 16), *(int *)((int)stk + 20 + 20), *(int *)((int)stk + 20 + 24), *(int *)((int)stk + 20 + 28));
             vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), u2, (*(float *)0x8C0E0C70), u1);
-            msgWinPut(0x4, 0x0);
+            msgWinPut(0x4, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8));
             vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), u2, (*(float *)0x8C0E0C88), u1);
-            msgWinPut(0xB, 0x0);
+            msgWinPut(0xB, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8));
             vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), u2, u2, u1);
-            t42 = (msgWinPut(0x0, 0x0));
+            t42 = (msgWinPut(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8)));
         }
         t45 = t42;
     }

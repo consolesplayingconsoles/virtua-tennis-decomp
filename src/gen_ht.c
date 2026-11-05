@@ -3,7 +3,7 @@
 
 typedef struct { int w[3]; } Stk3;
 int crowdDrawBlock(int, int, int, int, int, int);
-int crowdDrawBlockAlt(int, int, int, int, int);
+int crowdDrawBlockAlt(int, int, int, int, int, int, int, int, int);
 Stk3 vecMake(float, float, float);
 int crowdDrawAus(int a4);
 int crowdDrawSega(int a4);
@@ -27,75 +27,75 @@ int crowdDrawAus(int a4)
                     R1020 = 0x0;
                     *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, (1.0f + 1.0f));
                     R1004 = 0x1;
-                    crowdDrawBlockAlt(0x8C11A424, 0x8C118258, 0x0, 0x8, 0x1);
+                    crowdDrawBlockAlt(0x8C11A424, 0x8C118258, 0x0, 0x8, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                     R1020 = 0x0;
                     *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, (1.0f + 1.0f));
                     R1004 = 0x0;
-                    crowdDrawBlockAlt(0x8C11A454, 0x8C1182B8, 0x0, 0x1E, 0x0);
+                    crowdDrawBlockAlt(0x8C11A454, 0x8C1182B8, 0x0, 0x1E, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                     R1020 = 0x0;
                     *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, (1.0f + 1.0f));
                     R1004 = 0x1;
-                    crowdDrawBlockAlt(0x8C11A484, 0x8C118420, 0x0, 0x1E, 0x1);
+                    crowdDrawBlockAlt(0x8C11A484, 0x8C118420, 0x0, 0x1E, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                     R1020 = 0x0;
                     *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, (1.0f + 1.0f));
                     R1004 = 0x0;
-                    crowdDrawBlockAlt(0x8C11A4B4, 0x8C118588, 0x0, 0x2B, 0x0);
+                    crowdDrawBlockAlt(0x8C11A4B4, 0x8C118588, 0x0, 0x2B, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                 } else {
                     if (a4 == 34) {
                         R1020 = 0x0;
                         *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, -2.0f);
                         R1004 = 0x1;
-                        crowdDrawBlockAlt(0x8C11A4E4, 0x8C11878C, 0x8300, 0x2B, 0x1);
+                        crowdDrawBlockAlt(0x8C11A4E4, 0x8C11878C, 0x8300, 0x2B, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                         R1020 = 0x0;
                         *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, -2.0f);
                         R1004 = 0x0;
-                        crowdDrawBlockAlt(0x8C11A514, 0x8C118990, 0x8300, 0x1E, 0x0);
+                        crowdDrawBlockAlt(0x8C11A514, 0x8C118990, 0x8300, 0x1E, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                         R1020 = 0x0;
                         *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, -2.0f);
                         R1004 = 0x1;
-                        crowdDrawBlockAlt(0x8C11A544, 0x8C118AF8, 0x8300, 0x1E, 0x1);
+                        crowdDrawBlockAlt(0x8C11A544, 0x8C118AF8, 0x8300, 0x1E, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                         R1020 = 0x0;
                         *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, -2.0f);
                         R1004 = 0x0;
-                        crowdDrawBlockAlt(0x8C11A574, 0x8C118C60, 0x8300, 0x8, 0x0);
+                        crowdDrawBlockAlt(0x8C11A574, 0x8C118C60, 0x8300, 0x8, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                     } else {
                         if (a4 == 35) {
                             R1020 = 0x0;
                             *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, -2.0f);
                             R1004 = 0x1;
-                            crowdDrawBlockAlt(0x8C11A5A4, 0x8C118CC0, 0x8200, 0x14, 0x1);
+                            crowdDrawBlockAlt(0x8C11A5A4, 0x8C118CC0, 0x8200, 0x14, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                             R1020 = 0x0;
                             *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, -2.0f);
                             R1004 = 0x0;
-                            crowdDrawBlockAlt(0x8C11A5D4, 0x8C118DB0, 0x8200, 0x1E, 0x0);
+                            crowdDrawBlockAlt(0x8C11A5D4, 0x8C118DB0, 0x8200, 0x1E, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                             R1020 = 0x0;
                             *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, -2.0f);
                             R1004 = 0x1;
-                            crowdDrawBlockAlt(0x8C11A604, 0x8C118F18, 0x8200, 0x1E, 0x1);
+                            crowdDrawBlockAlt(0x8C11A604, 0x8C118F18, 0x8200, 0x1E, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                             R1020 = 0x0;
                             *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, -2.0f);
                             R1004 = 0x0;
-                            crowdDrawBlockAlt(0x8C11A634, 0x8C119080, 0x8200, 0x2A, 0x0);
+                            crowdDrawBlockAlt(0x8C11A634, 0x8C119080, 0x8200, 0x2A, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                         } else {
                             if (a4 == 36) {
                                 R1020 = 0x0;
                                 *(Stk3 *)(((int)stk + 8)) = vecMake(1.0f, 0.0f, -2.0f);
                                 R1004 = 0x1;
-                                crowdDrawBlockAlt(0x8C11A664, 0x8C119278, 0x6400, 0x23, 0x1);
+                                crowdDrawBlockAlt(0x8C11A664, 0x8C119278, 0x6400, 0x23, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                                 R1020 = 0x0;
                                 *(Stk3 *)(((int)stk + 8)) = vecMake(1.0f, 0.0f, -2.0f);
                                 R1004 = 0x0;
-                                crowdDrawBlockAlt(0x8C11A694, 0x8C11941C, 0x6400, 0x23, 0x0);
+                                crowdDrawBlockAlt(0x8C11A694, 0x8C11941C, 0x6400, 0x23, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                             } else {
                                 if (a4 == 37) {
                                     R1020 = 0x0;
                                     *(Stk3 *)(((int)stk + 8)) = vecMake(1.0f, 3.0f, 0.0f);
                                     R1004 = 0x0;
-                                    crowdDrawBlockAlt(0x8C11A6F4, 0x8C1199D4, 0x4000, 0x51, 0x0);
+                                    crowdDrawBlockAlt(0x8C11A6F4, 0x8C1199D4, 0x4000, 0x51, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                                     R1020 = 0x0;
                                     *(Stk3 *)(((int)stk + 8)) = vecMake(1.0f, 3.0f, 0.0f);
                                     R1004 = 0x0;
-                                    crowdDrawBlockAlt(0x8C11A754, 0x8C11A028, 0x4000, 0x2D, 0x0);
+                                    crowdDrawBlockAlt(0x8C11A754, 0x8C11A028, 0x4000, 0x2D, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                                 }
                             }
                         }
@@ -105,39 +105,39 @@ int crowdDrawAus(int a4)
                 R1020 = 0x0;
                 *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, 3.0f);
                 R1004 = 0x1;
-                crowdDrawBlockAlt(0x8C11A364, 0x8C117CA0, 0x0, 0x2A, 0x1);
+                crowdDrawBlockAlt(0x8C11A364, 0x8C117CA0, 0x0, 0x2A, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                 R1020 = 0x0;
                 *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, 3.0f);
                 R1004 = 0x0;
-                crowdDrawBlockAlt(0x8C11A394, 0x8C117E98, 0x0, 0x1E, 0x0);
+                crowdDrawBlockAlt(0x8C11A394, 0x8C117E98, 0x0, 0x1E, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                 R1020 = 0x0;
                 *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, 3.0f);
                 R1004 = 0x1;
-                crowdDrawBlockAlt(0x8C11A3C4, 0x8C118000, 0x0, 0x1E, 0x1);
+                crowdDrawBlockAlt(0x8C11A3C4, 0x8C118000, 0x0, 0x1E, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                 R1020 = 0x0;
                 *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 0.0f, 3.0f);
                 R1004 = 0x0;
-                crowdDrawBlockAlt(0x8C11A3F4, 0x8C118168, 0x0, 0x14, 0x0);
+                crowdDrawBlockAlt(0x8C11A3F4, 0x8C118168, 0x0, 0x14, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
             }
         } else {
             R1020 = 0x0;
             *(Stk3 *)(((int)stk + 8)) = vecMake(1.0f, 0.0f, 1.0f);
             R1004 = 0x1;
-            crowdDrawBlockAlt(0x8C11A304, 0x8C117958, 0x1900, 0x23, 0x1);
+            crowdDrawBlockAlt(0x8C11A304, 0x8C117958, 0x1900, 0x23, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
             R1020 = 0x0;
             *(Stk3 *)(((int)stk + 8)) = vecMake(1.0f, 0.0f, 1.0f);
             R1004 = 0x0;
-            crowdDrawBlockAlt(0x8C11A334, 0x8C117AFC, 0x1900, 0x23, 0x0);
+            crowdDrawBlockAlt(0x8C11A334, 0x8C117AFC, 0x1900, 0x23, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
         }
     } else {
         R1020 = 0x0;
         *(Stk3 *)(((int)stk + 8)) = vecMake(1.0f, 3.0f, 1.0f);
         R1004 = 0x0;
-        crowdDrawBlockAlt(0x8C11A274, 0x8C116F5C, 0x3A00, 0x2D, 0x0);
+        crowdDrawBlockAlt(0x8C11A274, 0x8C116F5C, 0x3A00, 0x2D, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
         R1020 = 0x0;
         *(Stk3 *)(((int)stk + 8)) = vecMake(1.0f, 3.0f, 1.0f);
         R1004 = 0x0;
-        crowdDrawBlockAlt(0x8C11A2D4, 0x8C11758C, 0x3A00, 0x51, 0x0);
+        crowdDrawBlockAlt(0x8C11A2D4, 0x8C11758C, 0x3A00, 0x51, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
     }
     return (*(int *)0x8C188FD4);
 }
@@ -164,77 +164,77 @@ int crowdDrawSega(int a4)
                 R1020 = (t1);
                 *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                 R1004 = 0x0;
-                crowdDrawBlockAlt(0x8C11F230, 0x8C11DA3C, 0x8200, 0xE, 0x0);
+                crowdDrawBlockAlt(0x8C11F230, 0x8C11DA3C, 0x8200, 0xE, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                 R1020 = (t1);
                 *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                 R1004 = 0x1;
-                crowdDrawBlockAlt(0x8C11F260, 0x8C11DAE4, 0x8200, 0x10, 0x1);
+                crowdDrawBlockAlt(0x8C11F260, 0x8C11DAE4, 0x8200, 0x10, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                 R1020 = (t1);
                 *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                 R1004 = 0x0;
-                crowdDrawBlockAlt(0x8C11F290, 0x8C11DBA4, 0x8200, 0x1D, 0x0);
+                crowdDrawBlockAlt(0x8C11F290, 0x8C11DBA4, 0x8200, 0x1D, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                 R1020 = (t1);
                 *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                 R1004 = 0x1;
-                crowdDrawBlockAlt(0x8C11F2C0, 0x8C11DD00, 0x8200, 0x2D, 0x1);
+                crowdDrawBlockAlt(0x8C11F2C0, 0x8C11DD00, 0x8200, 0x2D, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
             } else {
                 if (a4 == 51) {
                     R1020 = (t1);
                     *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                     R1004 = 0x0;
-                    crowdDrawBlockAlt(0x8C11F2F0, 0x8C11DF1C, 0x4A00, 0x20, 0x0);
+                    crowdDrawBlockAlt(0x8C11F2F0, 0x8C11DF1C, 0x4A00, 0x20, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                     R1020 = (t1);
                     *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                     R1004 = 0x1;
-                    crowdDrawBlockAlt(0x8C11F320, 0x8C11E09C, 0x4A00, 0x18, 0x1);
+                    crowdDrawBlockAlt(0x8C11F320, 0x8C11E09C, 0x4A00, 0x18, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                 } else {
                     if (a4 == 52) {
                         R1020 = (t1);
                         *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                         R1004 = 0x0;
-                        crowdDrawBlockAlt(0x8C11F350, 0x8C11E1BC, 0x4400, 0x3C, 0x0);
+                        crowdDrawBlockAlt(0x8C11F350, 0x8C11E1BC, 0x4400, 0x3C, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                         R1020 = (t1);
                         *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                         R1004 = 0x1;
-                        crowdDrawBlockAlt(0x8C11F380, 0x8C11E48C, 0x4400, 0x18, 0x1);
+                        crowdDrawBlockAlt(0x8C11F380, 0x8C11E48C, 0x4400, 0x18, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                     } else {
                         if (a4 == 53) {
                             R1020 = (t1);
                             *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                             R1004 = 0x0;
-                            crowdDrawBlockAlt(0x8C11F3B0, 0x8C11E5AC, 0x4100, 0x3C, 0x0);
+                            crowdDrawBlockAlt(0x8C11F3B0, 0x8C11E5AC, 0x4100, 0x3C, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                             R1020 = (t1);
                             *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                             R1004 = 0x1;
-                            crowdDrawBlockAlt(0x8C11F3E0, 0x8C11E87C, 0x4100, 0x18, 0x1);
+                            crowdDrawBlockAlt(0x8C11F3E0, 0x8C11E87C, 0x4100, 0x18, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                         } else {
                             if (a4 == 54) {
                                 R1020 = (t1);
                                 *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                                 R1004 = 0x0;
-                                crowdDrawBlockAlt(0x8C11F410, 0x8C11E99C, (*(short *)(((int)stk + 24))), 0x20, 0x0);
+                                crowdDrawBlockAlt(0x8C11F410, 0x8C11E99C, (*(short *)(((int)stk + 24))), 0x20, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                                 R1020 = (t1);
                                 *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                                 R1004 = 0x1;
-                                crowdDrawBlockAlt(0x8C11F440, 0x8C11EB1C, (*(short *)(((int)stk + 24))), 0x18, 0x1);
+                                crowdDrawBlockAlt(0x8C11F440, 0x8C11EB1C, (*(short *)(((int)stk + 24))), 0x18, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                             } else {
                                 if (a4 == 56) {
                                     R1020 = (t1);
                                     *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                                     R1004 = 0x0;
-                                    crowdDrawBlockAlt(0x8C11F470, 0x8C11EC3C, 0x0, 0x1A, 0x0);
+                                    crowdDrawBlockAlt(0x8C11F470, 0x8C11EC3C, 0x0, 0x1A, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                                     R1020 = (t1);
                                     *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                                     R1004 = 0x1;
-                                    crowdDrawBlockAlt(0x8C11F4A0, 0x8C11ED74, 0x0, 0x2A, 0x1);
+                                    crowdDrawBlockAlt(0x8C11F4A0, 0x8C11ED74, 0x0, 0x2A, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                                     R1020 = (t1);
                                     *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                                     R1004 = 0x0;
-                                    crowdDrawBlockAlt(0x8C11F4D0, 0x8C11EF6C, 0x0, 0xD, 0x0);
+                                    crowdDrawBlockAlt(0x8C11F4D0, 0x8C11EF6C, 0x0, 0xD, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                                     R1020 = (t1);
                                     *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
                                     R1004 = 0x1;
-                                    crowdDrawBlockAlt(0x8C11F500, 0x8C11F008, 0x0, 0xE, 0x1);
+                                    crowdDrawBlockAlt(0x8C11F500, 0x8C11F008, 0x0, 0xE, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
                                 }
                             }
                         }
@@ -245,37 +245,37 @@ int crowdDrawSega(int a4)
             R1020 = (t1);
             *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
             R1004 = 0x0;
-            crowdDrawBlockAlt(0x8C11F170, 0x8C11D55C, 0x7E00, 0x10, 0x0);
+            crowdDrawBlockAlt(0x8C11F170, 0x8C11D55C, 0x7E00, 0x10, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
             R1020 = (t1);
             *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
             R1004 = 0x1;
-            crowdDrawBlockAlt(0x8C11F1A0, 0x8C11D61C, 0x7E00, 0xE, 0x1);
+            crowdDrawBlockAlt(0x8C11F1A0, 0x8C11D61C, 0x7E00, 0xE, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
             R1020 = (t1);
             *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
             R1004 = 0x0;
-            crowdDrawBlockAlt(0x8C11F1D0, 0x8C11D6C4, 0x7E00, 0x2D, 0x0);
+            crowdDrawBlockAlt(0x8C11F1D0, 0x8C11D6C4, 0x7E00, 0x2D, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
             R1020 = (t1);
             *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
             R1004 = 0x1;
-            crowdDrawBlockAlt(0x8C11F200, 0x8C11D8E0, 0x7E00, 0x1D, 0x1);
+            crowdDrawBlockAlt(0x8C11F200, 0x8C11D8E0, 0x7E00, 0x1D, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
         }
     } else {
         R1020 = (t1);
         *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
         R1004 = 0x0;
-        crowdDrawBlockAlt(0x8C11F0B0, 0x8C11D154, 0x0, 0x23, 0x0);
+        crowdDrawBlockAlt(0x8C11F0B0, 0x8C11D154, 0x0, 0x23, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
         R1020 = (t1);
         *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
         R1004 = 0x1;
-        crowdDrawBlockAlt(0x8C11F0E0, 0x8C11D2F8, 0x0, 0x19, 0x1);
+        crowdDrawBlockAlt(0x8C11F0E0, 0x8C11D2F8, 0x0, 0x19, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
         R1020 = (t1);
         *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
         R1004 = 0x0;
-        crowdDrawBlockAlt(0x8C11F110, 0x8C11D424, 0x0, 0xE, 0x0);
+        crowdDrawBlockAlt(0x8C11F110, 0x8C11D424, 0x0, 0xE, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
         R1020 = (t1);
         *(Stk3 *)(((int)stk + 8)) = vecMake(0.0f, 1.5f, 0.0f);
         R1004 = 0x1;
-        crowdDrawBlockAlt(0x8C11F140, 0x8C11D4CC, 0x0, 0xC, 0x1);
+        crowdDrawBlockAlt(0x8C11F140, 0x8C11D4CC, 0x0, 0xC, 0x1, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), R1020);
     }
     return (*(int *)0x8C188FD4);
 }
@@ -360,11 +360,11 @@ int crowdDrawFra(int a4)
                                 R1036 = 0x2;
                                 *(Stk3 *)(((int)stk + 24)) = vecMake(0.0f, -0.699999988f, 0.0f);
                                 R1020 = 0x0;
-                                crowdDrawBlockAlt(0x8C114634, 0x8C1112A4, 0x8000, 0x10, 0x0);
+                                crowdDrawBlockAlt(0x8C114634, 0x8C1112A4, 0x8000, 0x10, 0x0, *(int *)((int)stk + 24), *(int *)((int)stk + 28), *(int *)((int)stk + 32), R1036);
                                 R1036 = 0x2;
                                 *(Stk3 *)(((int)stk + 24)) = vecMake(0.0f, -0.699999988f, 0.0f);
                                 R1020 = 0x1;
-                                crowdDrawBlockAlt(0x8C114664, 0x8C111364, 0x8000, 0x10, 0x1);
+                                crowdDrawBlockAlt(0x8C114664, 0x8C111364, 0x8000, 0x10, 0x1, *(int *)((int)stk + 24), *(int *)((int)stk + 28), *(int *)((int)stk + 32), R1036);
                                 R1016 = 0x1;
                                 R1012 = 0x0;
                                 crowdDrawBlock(0x8C114694, 0x8C111424, 0x8000, 0x20, 0x0, 0x1);
@@ -410,11 +410,11 @@ int crowdDrawFra(int a4)
             R1036 = 0x2;
             *(Stk3 *)(((int)stk + 24)) = vecMake(0.0f, -0.699999988f, 0.0f);
             R1020 = 0x0;
-            crowdDrawBlockAlt(0x8C114334, 0x8C112978, 0x0, 0x15, 0x0);
+            crowdDrawBlockAlt(0x8C114334, 0x8C112978, 0x0, 0x15, 0x0, *(int *)((int)stk + 24), *(int *)((int)stk + 28), *(int *)((int)stk + 32), R1036);
             R1036 = 0x2;
             *(Stk3 *)(((int)stk + 24)) = vecMake(0.0f, -0.699999988f, 0.0f);
             R1020 = 0x1;
-            crowdDrawBlockAlt(0x8C114364, 0x8C112A74, 0x0, 0x15, 0x1);
+            crowdDrawBlockAlt(0x8C114364, 0x8C112A74, 0x0, 0x15, 0x1, *(int *)((int)stk + 24), *(int *)((int)stk + 28), *(int *)((int)stk + 32), R1036);
             R1016 = 0x1;
             R1012 = 0x0;
             crowdDrawBlock(0x8C114394, 0x8C112B70, 0x0, 0x37, 0x0, 0x1);
@@ -495,19 +495,19 @@ int crowdDrawWin(int a4)
                                     R1024 = 0x2;
                                     *(Stk3 *)(((int)stk + 12)) = vecMake(0.0f, 0.0f, -2.0f);
                                     R1008 = 0x1;
-                                    crowdDrawBlockAlt(0x8C11D094, 0x8C11C5FC, 0x4F00, 0x2D, 0x1);
+                                    crowdDrawBlockAlt(0x8C11D094, 0x8C11C5FC, 0x4F00, 0x2D, 0x1, *(int *)((int)stk + 12), *(int *)((int)stk + 16), *(int *)((int)stk + 20), R1024);
                                     R1024 = 0x2;
                                     *(Stk3 *)(((int)stk + 12)) = vecMake(0.0f, 0.0f, -2.0f);
                                     R1008 = 0x0;
-                                    crowdDrawBlockAlt(0x8C11D0C4, 0x8C11C818, 0x4F00, 0x1B, 0x0);
+                                    crowdDrawBlockAlt(0x8C11D0C4, 0x8C11C818, 0x4F00, 0x1B, 0x0, *(int *)((int)stk + 12), *(int *)((int)stk + 16), *(int *)((int)stk + 20), R1024);
                                     R1024 = 0x2;
                                     *(Stk3 *)(((int)stk + 12)) = vecMake(0.0f, 0.0f, -2.0f);
                                     R1008 = 0x1;
-                                    crowdDrawBlockAlt(0x8C11D0F4, 0x8C11C95C, 0x4F00, 0x29, 0x1);
+                                    crowdDrawBlockAlt(0x8C11D0F4, 0x8C11C95C, 0x4F00, 0x29, 0x1, *(int *)((int)stk + 12), *(int *)((int)stk + 16), *(int *)((int)stk + 20), R1024);
                                     R1024 = 0x2;
                                     *(Stk3 *)(((int)stk + 12)) = vecMake(0.0f, 0.0f, -2.0f);
                                     R1008 = 0x0;
-                                    crowdDrawBlockAlt(0x8C11D124, 0x8C11CB48, 0x4F00, 0x1D, 0x0);
+                                    crowdDrawBlockAlt(0x8C11D124, 0x8C11CB48, 0x4F00, 0x1D, 0x0, *(int *)((int)stk + 12), *(int *)((int)stk + 16), *(int *)((int)stk + 20), R1024);
                                 }
                             }
                         }

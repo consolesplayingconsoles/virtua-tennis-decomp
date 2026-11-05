@@ -45,7 +45,7 @@ int titleStartSprLoad(void);
 int uiScanlinesPut(float);
 int unlockTestW2(int);
 Stk3 vecMake(float, float, float);
-int winDrawB(int, int, float, float, float);
+int winDrawB(int, int, int, int, int, int, int, float, float, float);
 int FUN_8c07e1f0(int a4, int a5);
 int FUN_8c06fe2e(int a4, int a5);
 int FUN_8c0e9c58(float f4);
@@ -471,7 +471,7 @@ int FUN_8c0e18b4(float f4)
     logoWaveDraw(80.0f);
     uiScanlinesPut(75.0f);
     *(Stk3 *)(((int)stk + 100)) = vecMake(0.0f, -15.0f, 70.0f);
-    winDrawB(0xFF1E00, 0x2, 520.0f, 1.0f, 0.649999976f);
+    winDrawB(0xFF1E00, 0x2, 0x0, 0x0, *(int *)((int)stk + 100), *(int *)((int)stk + 104), *(int *)((int)stk + 108), 520.0f, 1.0f, 0.649999976f);
     *(Stk3 *)(((int)stk + 100)) = vecMake(8.0f, 32.0f, 60.0f);
     sprListPut(0x8C1D7970, *(Stk3 *)((int)stk + 100), 0x2, 0xFF000000, 1.0f, 1.0f, 1.0f);
     if ((*(int *)0x8C287ADC) == 4) {

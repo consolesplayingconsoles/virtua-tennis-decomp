@@ -2,7 +2,7 @@
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 typedef struct { int w[3]; } Stk3;
-int decoHeaderDraw(int, int, int, int, float);
+int decoHeaderDraw(int, int, int, int, int, int, int, int, int, int, float);
 int entryCountJoined(void);
 extern int getID_Color();
 int nlsndSeqRequest(int);
@@ -307,7 +307,7 @@ int selPortsExec(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     *(float *)((R8 + 0x0)) = ((float)R7 / F4);
     goto L_8C0A7B7E;
     L_8C0A7AEE:;
-    decoHeaderDraw(R4, R5, R6, R7, F4);
+    decoHeaderDraw(R4, R5, R6, R7, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), *(int *)((int)stk + 20), *(int *)((int)stk + 24), *(int *)((int)stk + 28), F4);
     goto L_8C0A7AF6;
     L_8C0A7AB8:;
     *(unsigned int *)(((int)stk + 44)) = (*(int *)((R14 + 0x74)));

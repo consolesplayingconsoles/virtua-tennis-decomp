@@ -27,7 +27,7 @@ int shadowPartPut(int);
 int shadowPartPutStage(int);
 int shadowPlayerScale(float);
 float vecLength(Stk4);
-int vecSub(int, int, int, int, int);
+int vecSub(int, int, int, int, int, int, int, int, int, int, int);
 int cpuSglAimAddLv21(int a4, int a5);
 void shadowPlayerDraw(int a4);
 
@@ -195,7 +195,7 @@ void shadowPlayerDraw(int a4)
     L_8C08BE4E:;
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 20)) = *(struct mv3 *)((0xAE8 + R13)); }
     camGetPos(((int)stk + 8));
-    vecSub(0x0, 0x0, 0x0, 0x0, (0x18 + ((int)stk + 8)));
+    vecSub(0x0, 0x0, 0x0, 0x0, (0x18 + ((int)stk + 8)), *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), *(int *)((int)stk + 20), *(int *)((int)stk + 24), *(int *)((int)stk + 28));
     t90 = !(465.0f > (vecLength(*(Stk4 *)((int)stk + 32))));
     if (t90) goto L_8C08BE86;
     goto L_8C08BE82;

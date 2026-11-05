@@ -29,7 +29,7 @@ int memmove(int, int, int);
 int memset(int, int, int);
 int modelSwapMaterial(int, int, int);
 int motFileInit(void);
-int msgWinSet(int, int);
+int msgWinSet(int, int, int, int, int, int, int);
 int mtxGetAngles(int);
 int nlArcTan2(float, float);
 float nlCos(int);

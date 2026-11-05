@@ -6,7 +6,7 @@ int kmiFLWCTRLCheckVBufOverflow(int, int, int, int);
 int kmyGetDMAHANDLE(int);
 int kmyRequestCallback(int, int, int, int);
 int kmyRequestDMA(int);
-int kmySetTADMA(int, int, int, int, int);
+int kmySetTADMA(int, int, int, int, int, int);
 int kmiFLWCTRLFinalizePass(int a4);
 
 int kmiFLWCTRLFinalizePass(int a4)
@@ -138,7 +138,7 @@ int kmiFLWCTRLFinalizePass(int a4)
     if ((t57 == 0)) goto L_8C1FA5A0;
     R1008 = (((int)R13 >= 0) ? (0x1 << (R13 & 31)) : ((-(int)R13 & 31) ? ((int)0x1 >> (-(int)R13 & 31)) : ((int)0x1 >> 31)));
     (*(int *)((int)stk + 4)) = 0x0;
-    kmySetTADMA((R1016), (*(int *)((R14 + 0x3C))), (*(int *)((R9 + ((R14 + 0x44) + R8)))), (*(int *)((R9 + ((0xE4 + R14) + R8)))), 0x0);
+    kmySetTADMA((R1016), (*(int *)((R14 + 0x3C))), (*(int *)((R9 + ((R14 + 0x44) + R8)))), (*(int *)((R9 + ((0xE4 + R14) + R8)))), 0x0, R1008);
     *(unsigned int *)0x8C4607D8 = (kmyRequestDMA((R1016)));
     goto L_8C1FA5E0;
     L_8C1FA5A0:;

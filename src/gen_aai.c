@@ -42,7 +42,7 @@ int sprPutCropV(int, Stk3, int, float, float, float);
 int sprSet109Free(void);
 int sprSet163Free(int);
 int sprSet163Load(int);
-int sseleBarDraw(int, int, float, float, float);
+int sseleBarDraw(int, int, int, int, int, int, int, float, float, float);
 int sseleGridDraw(int, int, int, int, int, int);
 int sseleScanlines(void);
 int sseleSlotEntry(int);
@@ -221,7 +221,7 @@ int FUN_8c0c194c(int a4, float f4)
     stageSelFramePut(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 32), *(int *)((int)stk + 32 + 4), *(int *)((int)stk + 32 + 8), *(int *)((int)stk + 32 + 12), *(int *)((int)stk + 32 + 16), *(int *)((int)stk + 32 + 20), *(int *)((int)stk + 32 + 24), *(int *)((int)stk + 32 + 28));
     *(unsigned int *)(((int)stk + 44)) = 0x3C008BE6;
     *(Stk3 *)(((int)stk + 32)) = vecMake(-5.0f, -16.0f, w0_2);
-    sseleBarDraw((*(int *)(((int)stk + 44))), 0x2, 361.0f, w0_2, 0.5f);
+    sseleBarDraw((*(int *)(((int)stk + 44))), 0x2, 0x0, 0x0, *(int *)((int)stk + 32), *(int *)((int)stk + 36), *(int *)((int)stk + 40), 361.0f, w0_2, 0.5f);
     *(Stk3 *)(((int)stk + 32)) = vecMake(640.0f, 75.0f, w0_1);
     *(Stk3 *)(((int)stk + 20)) = vecMake(w0_0, 75.0f, w0_1);
     primLineH(0x1, 0xFFFFFFFF, 0x0, 0x0, *(int *)((int)stk + 20), *(int *)((int)stk + 20 + 4), *(int *)((int)stk + 20 + 8), *(int *)((int)stk + 20 + 12), *(int *)((int)stk + 20 + 16), *(int *)((int)stk + 20 + 20));

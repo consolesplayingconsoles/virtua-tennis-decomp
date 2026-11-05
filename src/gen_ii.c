@@ -2,7 +2,7 @@ typedef struct { int w[6]; } Stk6;
 /* Straight-line functions with calls and guards (batch gen_ii): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int bodyInit(int, int, int, int, int, int, float, float);
+int bodyInit(int, int, int, int, int, int, int, int, float, float);
 int bodyPlacePoints(int);
 int nlGetMatrix(int);
 int nlPopMatrix(int);
@@ -40,7 +40,7 @@ void bodyCreate(int a4, int a5, int a6, int a7, Stk6 s, float f4, float f5)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0x328 + ((int)stk + 20))); }
     t1 = *(int *)(((int)stk + 20));
     *(int *)((int)stk + 4) = (((int)stk + 8) + 0x10);
-    bodyInit(t1, 0x8C1016D4, a6, a7, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), f4, f5);
+    bodyInit(t1, 0x8C1016D4, a6, a7, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), f4, f5);
     *(unsigned int *)(((int)stk + 952)) = 0x0;
     nlPushUnitMatrix();
     nlRotateAY((unsigned short)(*(short *)(((0x3D0 + ((int)stk + 4)) + 0x2))));

@@ -16,7 +16,7 @@ int buStat(int);
 int decoSwingDraw(int, int, Stk3, float);
 int kmFreeTexture(int);
 int memmove(int, int, int);
-int msgWinSet(int, int);
+int msgWinSet(int, int, int, int, int, int, int);
 int mtxGetPos(int, int, int);
 int nlAddVector(int, int);
 int nlAddVector3op(int, int, int);
@@ -126,7 +126,7 @@ int BupLoadFile(int a4, int a5, int a6, int a7)
                     return t8;
                 }
                 vecMake(0x0, 0x0, 0x0, 0x0, ((int)stk + 8), 0.0f, 0.0f, 0.0f);
-                msgWinSet(0x6, 0x0);
+                msgWinSet(0x6, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16));
                 padLcdMessage(0xD);
                 buGetFileInfo((*(int *)0x8C40C628), a5, (((int)stk + 20) + 0xC));
                 memmove(0x8C40C6A8, (((int)stk + 20) + 0x16), 0x8);

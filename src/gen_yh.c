@@ -22,7 +22,7 @@ int cpuSglAimLv21(int, int);
 int cpuShotTargetSet(int, float, float);
 int cursorBoxPut(int, Stk3, float, float, float);
 int dbgMenuExec(void);
-int decoPairPut(int, float);
+int decoPairPut(int, int, int, int, int, int, int, float);
 int eepromBootLoad(void);
 int endingCamera2Set(int, int, int, int, int, int, int, int, int);
 int endingNop(void);
@@ -871,7 +871,7 @@ int FUN_8c0a5960(Stk2 s)
     } else {
         u9 = (-(nlSin((((*(int *)0x8C20D198) << 8) << 2))));
     }
-    decoPairPut(0x0, u9);
+    decoPairPut(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), u9);
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((((int)stk + 20) + 0x18) + 0x0))) + (*(float *)0x8C0A5B08)), (*(float *)(((((int)stk + 20) + 0x18) + 0x4))), (*(float *)0x8C0A5B04));
     t17 = nlSin(((((*(int *)0x8C20D198) << 8) << 2) + 0x1400));
     if (!(0.0f > t17)) {
@@ -879,7 +879,7 @@ int FUN_8c0a5960(Stk2 s)
     } else {
         u23 = (-(nlSin(((((*(int *)0x8C20D198) << 8) << 2) + 0x1400))));
     }
-    decoPairPut(0x0, u23);
+    decoPairPut(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), u23);
     *(Stk3 *)(((int)stk + 8)) = vecMake(((*(float *)(((((int)stk + 20) + 0x18) + 0x0))) + (*(float *)0x8C0A5B10)), (*(float *)(((((int)stk + 20) + 0x18) + 0x4))), (*(float *)0x8C0A5B0C));
     t31 = nlSin(((((*(int *)0x8C20D198) << 8) << 2) + 0x2800));
     if (!(0.0f > t31)) {
@@ -887,7 +887,7 @@ int FUN_8c0a5960(Stk2 s)
     } else {
         u37 = (-(nlSin(((((*(int *)0x8C20D198) << 8) << 2) + 0x2800))));
     }
-    return (decoPairPut(0x0, u37));
+    return (decoPairPut(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 12), *(int *)((int)stk + 16), u37));
 }
 
 int FUN_8c0c1684(void)

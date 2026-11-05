@@ -19,7 +19,7 @@ int nlObjPut(int);
 int nlObjPutMvSub(int, int);
 int nlObjPutSetLightDirectionF(float, float, float);
 int nlRand(void);
-int nlRenderTextureSet_Sub(void);
+int nlRenderTextureSet_Sub(int, int, int, int, int);
 int nlScalor(int);
 int nlSpriteFreeTextureOnce_Sub(int, int, int, int);
 void motionBackup(int a4);
@@ -47,7 +47,7 @@ int circuitTaskSetB(int a4, int a5);
 float nlLog10(float f4);
 float nlLog2(float f4);
 int nlRenderTextureSet(void);
-int nlRenderTextureSet_Stride(void);
+int nlRenderTextureSet_Stride(int, int, int, int);
 void nlGetTranslate(int a4);
 void nlSetTranslate(int a4);
 void nlTranslate(float f4, float f5, float f6);
@@ -204,9 +204,9 @@ float nlLog2(float f4)
 }
 
 
-int nlRenderTextureSet_Stride(void)
+int nlRenderTextureSet_Stride(int a4, int a5, int a6, int a7)
 {
-    return (nlRenderTextureSet_Sub());
+    return (nlRenderTextureSet_Sub(a4, a5, a6, a7, 0x0));
 }
 
 void nlGetTranslate(int a4)

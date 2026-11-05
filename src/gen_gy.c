@@ -17,7 +17,7 @@ int screenQuadPut(int, float);
 int sprListPut(int, Stk3, int, int, float, float, float);
 int uiScanlinesPut(float);
 Stk3 vecMake(float, float, float);
-int winDrawB(int, int, float, float, float);
+int winDrawB(int, int, int, int, int, int, int, float, float, float);
 int rankDispExec(int a4, int a5, float f4, float f5, float f6);
 
 int rankDispExec(int a4, int a5, float f4, float f5, float f6)
@@ -75,7 +75,7 @@ int rankDispExec(int a4, int a5, float f4, float f5, float f6)
     logoWaveDraw(80.0f);
     uiScanlinesPut(75.0f);
     *(Stk3 *)(((int)stk + 52)) = vecMake(0.0f, -15.0f, 70.0f);
-    winDrawB(0xFF1E00, 0x2, 520.0f, 1.0f, 0.649999976f);
+    winDrawB(0xFF1E00, 0x2, 0x0, 0x0, *(int *)((int)stk + 52), *(int *)((int)stk + 56), *(int *)((int)stk + 60), 520.0f, 1.0f, 0.649999976f);
     *(Stk3 *)(((int)stk + 52)) = vecMake(8.0f, 32.0f, 60.0f);
     sprListPut(0x8C1D7970, *(Stk3 *)((int)stk + 52), 0x2, 0xFF000000, 1.0f, 1.0f, 1.0f);
     if ((*(int *)(((int)stk + 64))) == 1) {

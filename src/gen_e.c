@@ -6149,21 +6149,13 @@ void sprPutCentered(int a4, int a5, int a6, int a7, int a8, Stk3 c, float f4, fl
     *(unsigned int *)((a8 + 0x0)) = t6;
 }
 
-void msgWinSet(int a4, int a5)
+void msgWinSet(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
 {
-    int t0;
-    int t1;
-    int t2;
-    int stk[2];
-
     *(unsigned int *)0x8C1D175C = a4;
     *(unsigned int *)0x8C1D1760 = a5;
-    t0 = *(int *)(((((int)stk + 4) + 0x4) + 0x8));
-    *(unsigned int *)0x8C38BA5C = t0;
-    t1 = *(int *)(((((int)stk + 4) + 0x4) + 0x4));
-    *(unsigned int *)0x8C38BA58 = t1;
-    t2 = *(int *)(((((int)stk + 4) + 0x4) + 0x0));
-    *(unsigned int *)0x8C38BA54 = t2;
+    *(unsigned int *)0x8C38BA54 = a8;
+    *(unsigned int *)0x8C38BA58 = a9;
+    *(unsigned int *)0x8C38BA5C = a10;
 }
 
 

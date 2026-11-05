@@ -153,7 +153,7 @@ int FUN_8c0e00c0(int a4)
     v0_8 = (0x4);
     v0_7 = (0x0);
     L_8C0E0340:;
-    v0_5 = ((int (*)(int, int, int, int, float))(msgWinPut))(v0_8, v0_7, v0_5, R7, F4);
+    v0_5 = ((int (*)(int, int, int, int, int, int, int, float))(msgWinPut))(v0_8, v0_7, v0_5, R7, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8), F4);
     *(Stk3 *)(((int)stk + 8)) = vecMake(w0_1, (*(float *)0x8C0E04C4), w0_0);
     v0_5 = ((int (*)(int, int, int, int, int, int, int))(msgWinPut))(0xB, 0x0, 0x0, 0x0, *(int *)((int)stk + 8), *(int *)((int)stk + 8 + 4), *(int *)((int)stk + 8 + 8));
     *(Stk3 *)(((int)stk + 8)) = vecMake(w0_1, w0_1, w0_0);
