@@ -4,8 +4,8 @@ typedef struct { int w[6]; } Stk6;
 
 typedef struct { int w[3]; } Stk3;
 typedef struct { int w[4]; } Stk4;
-int cameraCalcPoint(int, int, int, int, int);
-int cameraCalcPointInv(int, int, int, int, int);
+int cameraCalcPoint(int, int, int, int, int, Stk3);
+int cameraCalcPointInv(int, int, int, int, int, Stk3);
 float cameraFovForSize(float);
 int nlGetAverageVector(int, int, int, float, float);
 int nlGetMatrix(int);
@@ -73,10 +73,10 @@ float cameraFovFit(Stk6 p, float f4, float f5)
     t13 = nlTanf((((*(float *)0x8C287A04) * 1.04457951f) / 90.0f));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 24)) = *(struct mv3 *)((0xA8 + ((int)stk + 36))); }
     *(int *)((int)stk + 20) = (0x88 + ((int)stk + 24));
-    cameraCalcPoint((((int)stk + 24) + 0x30), 0x0, 0x0, 0x0, *(int *)((int)stk + 20));
+    cameraCalcPoint((((int)stk + 24) + 0x30), 0x0, 0x0, 0x0, *(int *)((int)stk + 20), *(Stk3 *)(((int)stk + 24)));
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)((0xC4 + ((int)stk + 20))); }
     *(int *)((int)stk + 4) = (0x8C + ((int)stk + 8));
-    cameraCalcPoint((((int)stk + 8) + 0x40), 0x0, 0x0, 0x0, *(int *)((int)stk + 4));
+    cameraCalcPoint((((int)stk + 8) + 0x40), 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(Stk3 *)(((int)stk + 8)));
     u16 = *(float *)(((int)stk + 160));
     u17 = *(float *)(((int)stk + 168));
     u18 = (-u17);
@@ -163,7 +163,7 @@ float cameraFovFit(Stk6 p, float f4, float f5)
     }
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 48)) = *(struct mv3 *)((((int)stk + 60) + 0x4C)); }
     *(int *)((int)stk + 44) = 0x8C287B60;
-    cameraCalcPointInv((((int)stk + 48) + 0x18), 0x0, 0x0, 0x0, *(int *)((int)stk + 44));
+    cameraCalcPointInv((((int)stk + 48) + 0x18), 0x0, 0x0, 0x0, *(int *)((int)stk + 44), *(Stk3 *)(((int)stk + 48)));
     t75 = cameraFovForSize((((float)t69 / (1.0f + 1.0f)) / ((320.0f / t13) / u72)));
     *(float *)0x8C287A04 = t75;
     return t75;

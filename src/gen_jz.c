@@ -10,7 +10,7 @@ int _mult64(int, int, int, int);
 int _pow10(int, int, int);
 int _rnd(int, int);
 int ballColliInit(int, int, int, int);
-int cameraCalcPoint(int, int, int, int, int);
+int cameraCalcPoint(int, int, int, int, int, Stk3);
 int countryNamePutB(int, Stk3, Stk1, float);
 int cpuBallPredict(int, int, int, int, float, float, float);
 int cpuDblMoodUpdate(float);
@@ -396,7 +396,7 @@ float cameraFovForSize(float f4)
     nlPopMatrix(0x1);
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 8)) = *(struct mv3 *)(0x8C287B60); }
     R1004 = (((int)stk + 8) + 0x70);
-    cameraCalcPoint((((int)stk + 8) + 0x30), 0x0, 0x0, 0x0, R1004);
+    cameraCalcPoint((((int)stk + 8) + 0x30), 0x0, 0x0, 0x0, R1004, *(Stk3 *)(((int)stk + 8)));
     u13 = (*(float *)((int)stk + 128));
     u14 = (-u13);
     if (!(0.0f > u13)) {

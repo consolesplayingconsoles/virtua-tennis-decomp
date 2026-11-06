@@ -1333,7 +1333,7 @@ void playerRecA20Clear(int a4)
     *(unsigned int *)(((a4 + 0x14) + 0x0)) = t2;
 }
 
-void cameraCalcPoint(int a4, int a5, int a6, int a7, int a8)
+void cameraCalcPoint(int a4, int a5, int a6, int a7, int a8, Stk3 s)
 {
     int t1;
     float u3;
@@ -1348,21 +1348,21 @@ void cameraCalcPoint(int a4, int a5, int a6, int a7, int a8)
     nlPushMatrix(0x0);
     t1 = *(int *)(((int)stk + 4));
     nlLoadMatrix(t1);
-    u3 = *(float *)(((((int)stk + 4) + 0x10) + 0x8));
-    u4 = *(float *)(((((int)stk + 4) + 0x10) + 0x4));
-    u5 = *(float *)(((((int)stk + 4) + 0x10) + 0x0));
+    u3 = *(float *)(&s.w[2]);
+    u4 = *(float *)(&s.w[1]);
+    u5 = *(float *)(&s.w[0]);
     nlTranslate(u5, u4, u3);
-    mtxGetPos((((int)stk + 4) + 0x10), ((((int)stk + 4) + 0x10) + 0x4), ((((int)stk + 4) + 0x10) + 0x8));
+    mtxGetPos(((int)&s.w[0]), ((int)&s.w[1]), ((int)&s.w[2]));
     nlPopMatrix(0x1);
-    t9 = *(int *)(((((int)stk + 4) + 0x10) + 0x8));
+    t9 = s.w[2];
     *(unsigned int *)((a8 + 0x8)) = t9;
-    t10 = *(int *)(((((int)stk + 4) + 0x10) + 0x4));
+    t10 = s.w[1];
     *(unsigned int *)((a8 + 0x4)) = t10;
-    t11 = *(int *)(((((int)stk + 4) + 0x10) + 0x0));
+    t11 = s.w[0];
     *(unsigned int *)((a8 + 0x0)) = t11;
 }
 
-void cameraCalcPointInv(int a4, int a5, int a6, int a7, int a8)
+void cameraCalcPointInv(int a4, int a5, int a6, int a7, int a8, Stk3 s)
 {
     int t1;
     int t6;
@@ -1375,13 +1375,13 @@ void cameraCalcPointInv(int a4, int a5, int a6, int a7, int a8)
     t1 = *(int *)(((int)stk + 4));
     nlLoadMatrix(t1);
     nlQuickInvertMatrix();
-    nlCalcPoint((((int)stk + 4) + 0xC), (((int)stk + 4) + 0xC));
+    nlCalcPoint(((int)&s.w[0]), ((int)&s.w[0]));
     nlPopMatrix(0x1);
-    t6 = *(int *)(((((int)stk + 4) + 0xC) + 0x8));
+    t6 = s.w[2];
     *(unsigned int *)((a8 + 0x8)) = t6;
-    t7 = *(int *)(((((int)stk + 4) + 0xC) + 0x4));
+    t7 = s.w[1];
     *(unsigned int *)((a8 + 0x4)) = t7;
-    t8 = *(int *)(((((int)stk + 4) + 0xC) + 0x0));
+    t8 = s.w[0];
     *(unsigned int *)((a8 + 0x0)) = t8;
 }
 
@@ -3200,7 +3200,7 @@ int logoBInit(void)
     int t3;
     int stk[31];
 
-    _quick_mvn();
+    { struct mv20 { int w[20]; }; *(struct mv20 *)(((int)stk + 12)) = *(struct mv20 *)(0x8C10E418); }
     t1 = 0x0;
     do {
         t2 = sprInitRectF((((((t1 << 2) + t1) << 2) << 2) + 0x8C334EDC), 0x87, ((int)stk + 12), 0x80, 0x80, t1);

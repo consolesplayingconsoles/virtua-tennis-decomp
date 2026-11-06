@@ -4,8 +4,10 @@
 
 **Explore this decomp project with [Shuriken Explorer](https://consolesplayingconsoles.github.io/dc-shuriken-explorer/) and see the game's models, skeletons, animations, textures, images, sounds, text and side-by-side C and assembly code directly in your browser.**
 
-**A complete decompilation of the Dreamcast Virtua Tennis**. It builds and plays normally in Flycast but not in a Dreamcast yet. 
-It rebuilds the game's executable byte for byte. A function is **done** when its C behaves like the original (Equivalent);
+**A complete decompilation of the Dreamcast Virtua Tennis**. It builds and plays. No issues are known, please report any.
+
+It rebuilds the game's executable byte for byte. 
+A function is **done** when its C behaves like the original (Equivalent);
 byte-identical C (Matching) is the bonus tier.
 
 _**This is not a traditional, human-idiomatic decompilation.** It is structured and documented for AI consumption,

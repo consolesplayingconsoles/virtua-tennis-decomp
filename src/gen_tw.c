@@ -1297,10 +1297,10 @@ void cameraExec(int a4)
     L_8C02B83A:;
     t860 = *(int *)(((int)stk + 68));
     *(Stk3 *)(((int)stk + 20)) = vecMake((*(float *)((t860 + 0x80))), (*(float *)((t860 + 0x84))), (*(float *)((t860 + 0x88))));
-    t864 = ((int (*)(void))(camSetTarget))();
+    t864 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 20)));
     t865 = *(int *)(((int)stk + 68));
     *(Stk3 *)(((int)stk + 20)) = vecMake((*(float *)((t865 + 0x8C))), (*(float *)((t865 + 0x90))), (*(float *)((t865 + 0x94))));
-    t869 = ((int (*)(void))(camSetEye))();
+    t869 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 20)));
     *(float *)0x8C287A04 = (*(float *)(((*(int *)(((int)stk + 68))) + 0x98)));
     t872 = ((int (*)(float, float))(camMoveBegin))(1.0f, 1.0f);
     if (((*(int *)((0x80 + (*(int *)(((int)stk + 184)))))) != 79)) goto L_8C02B8AA;
@@ -1849,7 +1849,7 @@ void cameraExec(int a4)
     u1417 = *(float *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288874));
     *(float *)0x8C295DD0 = (u1416 + (((u1417 - u1416) * 10.0f) / 100.0f));
     *(Stk3 *)(((int)stk + 20)) = vecMake((*(float *)0x8C295DC8), 14.0f, (*(float *)0x8C295DD0));
-    t1420 = ((int (*)(void))(camSetEye))();
+    t1420 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 20)));
     camSetOrbit((int)((-52.0f - (*(float *)0x8C295DD4)) * 32.0f), ((*(short *)((((*(int *)(((int)stk + 92))) * 0xD78) + 0x8C288888))) + 0x8000), (*(float *)(((int)stk + 60))));
     *(float *)0x8C287A04 = 28.0f;
     t1426 = ((int (*)(float, float))(camMoveBegin))(1.0f, 1.0f);

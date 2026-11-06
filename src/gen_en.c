@@ -197,9 +197,9 @@ int endingCameraSet(void)
     } else {
         if (t0 == 7) {
             *(Stk3 *)(((int)stk + 16)) = vecMake((*(float *)0x8C0D3E04), (*(float *)0x8C0D3E00), (*(float *)0x8C0D3DFC));
-            t22 = ((int (*)(void))(camSetTarget))();
+            t22 = ((int (*)(Stk3))(camSetTarget))(*(Stk3 *)(((int)stk + 16)));
             *(Stk3 *)(((int)stk + 16)) = vecMake((*(float *)0x8C0D3E10), 0.0f, (*(float *)0x8C0D3E0C));
-            t25 = ((int (*)(void))(camSetEye))();
+            t25 = ((int (*)(Stk3))(camSetEye))(*(Stk3 *)(((int)stk + 16)));
             t35 = (camMoveBegin(1.0f, 1.0f));
         } else {
             t27 = *(int *)0x8C402CA0;

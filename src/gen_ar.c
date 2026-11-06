@@ -14,7 +14,7 @@ int _rnd(int, int);
 int bcd2bin(int);
 int bcdtime2fad(int);
 int buIsFormat(int);
-int cameraCalcPoint(int, int, int, int, int);
+int cameraCalcPoint(int, int, int, int, int, Stk3);
 float cpuAimDistRate(int, int, int, int, int, float, float);
 int cpuDblSignalPut(int, int, int, int, float);
 int cpuShotRange(int, int, int, int, int);

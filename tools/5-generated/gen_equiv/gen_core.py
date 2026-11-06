@@ -59,8 +59,8 @@ class Ctx:
             return ('e','((int)stk + @@F:%d@@)'%(-s.D))
         if r not in s.R:
             n=int(r[1:])
-            if 4<=n<=7 and getattr(s,'ncalls',0) and getattr(s,'uninit',None):
-                s.uninit(r)                  # a call on this path already clobbered it: what is read is the callee's leftover, not the incoming argument (an uninitialised local, as in the original C)
+            if 4<=n<=7 and getattr(s,'pcalls',0) and getattr(s,'uninit',None):
+                s.uninit(r)                  # a call on this path (pcalls: the calls of the arm being read, not all generated so far) already clobbered it: what is read is the callee's leftover, not the incoming argument (an uninitialised local, as in the original C)
             elif 4<=n<=7: s.R[r]=('s','a%d'%n); s.iuse.add(n)
             elif 8<=n<=14 and getattr(s,'uninit',None) and getattr(s,'wrote_somewhere',set()) & {r}:
                 s.uninit(r)                  # a callee-saved register this path never wrote, written on another: an uninitialised local in the original C
@@ -401,6 +401,55 @@ def callee_stack_words(fname):
     except Exception:
         n=0
     _STACKW[fname]=n
+    return n
+
+_POPS={}
+def callee_pops(fname):
+    """Bytes a function takes off the stack beyond what it put there, when every path to a return agrees: the stack adjustment along the
+    path, the delay slot of the `rts` included, is below zero when the callee pops the words its caller pushed (`rts` / `add #16,r15`:
+    Zombie Revenge FUN_0c0f3bf4, a routine that returns through a shared epilogue). Branches are followed (a loop is cut at a stack
+    depth it has seen). 0 for the usual callee, which leaves the stack as it found it, when two returns differ, and when the code
+    cannot be read."""
+    if fname in _POPS: return _POPS[fname]
+    n=0
+    try:
+        out=subprocess.run(['python3','tools/shdis.py','--func',fname],capture_output=True,text=True).stdout.splitlines()[2:]
+        ins=[]
+        for l in out:
+            m=re.match(r'([0-9a-f]{8}) ([0-9a-f]{4})\s+(\S+)\s*(.*)',l)
+            if not m: continue
+            ops=m.group(4).split(';')[0].strip()
+            ins.append((int(m.group(1),16),m.group(3),[x.strip() for x in re.split(r',(?![^(]*\))',ops)] if ops else []))
+        at={x[0]:k for k,x in enumerate(ins)}
+        def eff(mn,a):
+            if len(a)==2 and a[1]=='@-r15' and mn in ('mov.l','sts.l','fmov.s','stc.l'): return 4
+            if mn=='add' and len(a)==2 and a[1]=='r15' and a[0].startswith('#'): return -int(a[0][1:],0)
+            if len(a)==2 and a[0]=='@r15+' and mn in ('mov.l','lds.l','ldc.l','fmov.s'): return -4
+            return 0
+        ends=set(); seen=set(); work=[(0,0)]; steps=0
+        while work and steps<5000:
+            k,d=work.pop(); steps+=1
+            while True:
+                if k>=len(ins) or (k,d) in seen: break
+                seen.add((k,d)); _,mn,a=ins[k]
+                if mn=='rts':
+                    ends.add(d+(eff(*ins[k+1][1:]) if k+1<len(ins) else 0)); break
+                if mn in ('bra','bt','bf','bt/s','bf/s'):
+                    tgt=at.get(int(a[0],16)) if a and a[0].startswith('0x') else None
+                    dl=eff(*ins[k+1][1:]) if k+1<len(ins) and mn in ('bra','bt/s','bf/s') else 0
+                    if tgt is None: ends.add(None); break
+                    if mn=='bra': k,d=tgt,d+dl; continue
+                    work.append((tgt,d+dl)); k+=1; d+=dl if mn.endswith('/s') else 0
+                    if mn.endswith('/s'): k+=1
+                    continue
+                if mn in ('jmp','braf'): ends.add(None); break
+                d+=eff(mn,a); k+=1
+        if len(ends)==1 and None not in ends:
+            e=next(iter(ends))
+            if e<0 and -e%4==0: n=-e
+    except Exception:
+        n=0
+    _POPS[fname]=n
     return n
 
 def callee_arity(fname):
@@ -783,8 +832,12 @@ def _run(name,passthru=False,frame=False,flat=False):
             ab=-c.D
             c.D-=4
             if c.pend:
-                if isfp(c.pend[-1]): raise Skip('float popped into integer register')
-                c.R[a[1]]=held(c.pend.pop())
+                if isfp(c.pend[-1]):      # a float pushed, popped as an integer: its bits, through the frame word it was pushed to
+                    if not c.frame: raise Skip('stack: float popped into integer register')
+                    ad_=('expr','((int)stk + @@F:%d@@)'%ab)      # (ab: the depth before this pop)
+                    fstore(ad_,c.pend.pop()[1])
+                    c.R[a[1]]=('e','*(int *)((int)stk + @@F:%d@@)'%ab)
+                else: c.R[a[1]]=held(c.pend.pop())
             elif a[1] in ('r0','r1','r2','r3','r4','r5','r6','r7') and ab<0:      # a word stored to the frame with a plain store and read back by a pop (an argument for a tail call): a load from that slot
                 key=(ab,'i')
                 if key in c.stack: c.R[a[1]]=c.stack[key]
@@ -931,7 +984,9 @@ def _run(name,passthru=False,frame=False,flat=False):
                     newmode=(mode&kb) if mm.group(2)=='&' else (mode|kb)
                     keep=(newmode&2)==(mode&2)                         # FR (the bank) must stay; SZ (the move size) follows the write
                     if keep: c.sz=bool(newmode&1)
-            if not keep and not (isinstance(v,tuple) and v[0]=='e' and re.match(r'^[tu]\d+$',v[1])): raise Skip('lds fpscr not a restore')
+            sv_=getattr(c,'fpscr_saved',set())      # a value built from the FPSCR read earlier (a merge with a word from memory: the context restore FUN_0c0e35b6)
+            merged=bool(sv_) and isinstance(v,tuple) and v[0]=='e' and re.search(r'\b(%s)\b'%'|'.join(sorted(sv_)),v[1]) is not None
+            if not keep and not merged and not (isinstance(v,tuple) and v[0]=='e' and re.match(r'^[tu]\d+$',v[1])): raise Skip('lds fpscr not a restore')
             # a value carried in a variable (through a join or a loop): written as it is; the check catches a mode the generator did not follow
             c.protos['_builtin_set_fpscr']=('int',); emit('_builtin_set_fpscr(%s);'%(ex(v))); return
         if mn=='ldc' and a[1]=='sr':
@@ -966,10 +1021,16 @@ def _run(name,passthru=False,frame=False,flat=False):
             x=c.gi(a[0]); y=c.gi(a[1])
             cast={'mul.l':'int','muls.w':'short','mulu.w':'unsigned short'}[mn]
             c.macl=('e','((%s)%s * (%s)%s)'%(cast,ex(y),cast,ex(x))) if mn!='mul.l' else ('e','(%s * %s)'%(ex(y),ex(x))); return
+        if mn=='sts' and a[0]=='pr': c.R[a[1]]=('prsave',); return      # the return address kept in a register for after the calls
+        if mn=='lds' and a[1]=='pr':
+            if c.R.get(a[0])!=('prsave',): raise Skip('lds %s,pr of something that is not the saved pr'%a[0])
+            return
         if mn=='sts' and a[0]=='macl':
             if getattr(c,'macl',None) is None: raise Skip('macl')
             c.R[a[1]]=c.macl; return
-        if mn=='shll': v=c.gi(a[0]); c.R[a[0]]=(v<<1)&M if isint(v) else ('e','(%s << 1)'%ex(v)); return
+        if mn in ('shll','shal'):         # T = the bit shifted out (bit 31): a later bt, bf, rotcl, addc or movt reads it
+            v=c.gi(a[0]); t_=fresh(False); emit('int %s = (int)(((unsigned int)%s) >> 31);'%(t_,ex(v)))
+            c.R[a[0]]=(v<<1)&M if isint(v) else ('e','(%s << 1)'%ex(v)); setT('(%s != 0)'%t_,'(%s == 0)'%t_); return
         if mn in('shll2','shll8','shll16'):
             n={'shll2':2,'shll8':8,'shll16':16}[mn]; v=c.gi(a[0]); c.R[a[0]]=(v<<n)&M if isint(v) else ('e','(%s << %d)'%(ex(v),n)); return
         if mn in('shlr','shlr2','shlr8','shlr16'):
@@ -977,6 +1038,8 @@ def _run(name,passthru=False,frame=False,flat=False):
             if isinstance(v,tuple) and v[0]=='srx':
                 if v[3] is not None: raise Skip('sr shift')
                 c.R[a[0]]=('srx',v[1]+n,v[2]>>n,None); sr_get_fin(c,a[0]); return
+            if n==1:                       # T = the bit shifted out (bit 0)
+                t_=fresh(False); emit('int %s = (int)(((unsigned int)%s) & 1);'%(t_,ex(v))); setT('(%s != 0)'%t_,'(%s == 0)'%t_)
             c.R[a[0]]=(v>>n) if isint(v) else ('e','((unsigned int)%s >> %d)'%(ex(v),n)); return
         if mn in ('shad','shld'):
             m=c.gi(a[0]); v=c.gi(a[1]); sg=mn=='shad'
@@ -996,9 +1059,14 @@ def _run(name,passthru=False,frame=False,flat=False):
                 x=ex(m); y=ex(v)
                 c.R[a[1]]=('e','((%s)%s << (int)%s)'%(ty,y,x))
             return
-        if mn=='shar': v=c.gi(a[0]); c.R[a[0]]=('e','(%s >> 1)'%ex(v)) if not isint(v) else ((v>>1)|(v&0x80000000)); return
+        if mn=='shar':                    # T = bit 0, the bit shifted out
+            v=c.gi(a[0]); t_=fresh(False); emit('int %s = (int)(((unsigned int)%s) & 1);'%(t_,ex(v)))
+            c.R[a[0]]=('e','(%s >> 1)'%ex(v)) if not isint(v) else ((v>>1)|(v&0x80000000)); setT('(%s != 0)'%t_,'(%s == 0)'%t_); return
         if mn=='swap.w':
             v=c.gi(a[0]); c.R[a[1]]=((((v&0xffff)<<16)|((v>>16)&0xffff))&M) if isint(v) else ('e','((((unsigned int)%s) << 16) | (((unsigned int)%s) >> 16))'%(ex(v),ex(v))); return
+        if mn=='xtrct':        # Rn = (Rm << 16) | (Rn >> 16)
+            m=c.gi(a[0]); n=c.gi(a[1])
+            c.R[a[1]]=((((m&0xffff)<<16)|((n>>16)&0xffff))&M) if isint(m) and isint(n) else ('e','((((unsigned int)%s) << 16) | (((unsigned int)%s) >> 16))'%(ex(m),ex(n))); return
         if mn=='swap.b':
             v=c.gi(a[0]); c.R[a[1]]=(((v&0xffff0000)|((v&0xff)<<8)|((v>>8)&0xff))&M) if isint(v) else ('e','((((unsigned int)%s) & 0xFFFF0000) | ((((unsigned int)%s) & 0xFF) << 8) | ((((unsigned int)%s) >> 8) & 0xFF))'%(ex(v),ex(v),ex(v))); return
         if mn=='extu.b': v=c.gi(a[0]); c.R[a[1]]=(v&0xff) if isint(v) else ('e','(unsigned char)%s'%ex(v)); return
@@ -1164,6 +1232,11 @@ def _run(name,passthru=False,frame=False,flat=False):
                 # a product of a product: SHC reorders a chain of multiplies (rounding differs); a statement of its own keeps the order
                 if not isint(x) and ' * ' in fx(x): t=fresh(True); emit('float %s = %s;'%(t,fx(x))); x=('e',t)
                 if not isint(y) and ' * ' in fx(y): t=fresh(True); emit('float %s = %s;'%(t,fx(y))); y=('e',t)
+            if mn in ('fadd','fsub'):
+                # the original rounded the product (fmul), then added it (fadd): two roundings. Inline in the sum the compiler fuses them
+                # into an fmac (one rounding) and the written float is a bit off (FUN_0c0d3f0c): the product is a statement of its own
+                if not isint(x) and ' * ' in fx(x): t=fresh(True); emit('float %s = %s;'%(t,fx(x))); x=('e',t)
+                if not isint(y) and ' * ' in fx(y): t=fresh(True); emit('float %s = %s;'%(t,fx(y))); y=('e',t)
             c.FR[a[1]]=('e','(%s %s %s)'%(fx(x),op,fx(y))); return
         if mn=='fsqrt':
             c.protos['_builtin_sqrtf']=('float','->float'); c.FR[a[0]]=('e','_builtin_sqrtf(%s)'%fx(c.gf(a[0]))); return
@@ -1178,6 +1251,7 @@ def _run(name,passthru=False,frame=False,flat=False):
             t=fresh(True); emit('float %s = %s;'%(t,fx(v))); c.fpul=('e','(*(int *)&%s)'%t); return
         if mn=='fneg':
             v=c.gf(a[0])
+            if isint(v) and (v&0x7F800000)!=0x7F800000: c.FR[a[0]]=(v^0x80000000)&0xFFFFFFFF; return      # a constant negated is a constant (its bits with the sign flipped), so a product with it keeps the negative literal
             if not isint(v) and re.search(r' [-+] ',fx(v)):
                 # a negated sum or difference through a temporary: inline, SHC folds -(a - b) to b - a, +0.0 where the original's
                 # fsub then fneg gives -0.0 (vecAnglesTo, Virtua Tennis)
@@ -1186,12 +1260,23 @@ def _run(name,passthru=False,frame=False,flat=False):
             c.FR[a[0]]=('e','(-%s)'%fx(v)); return
         if mn=='fmac' and len(a)==3 and a[0]=='fr0':       # frn += fr0 * frm
             acc=c.gf(a[2]); x=c.gf(a[0]); y=c.gf(a[1])
-            t=fresh(True); emit('float %s = %s;'%(t,fx(acc))); emit('%s = %s + %s * %s;'%(t,t,fx(x),fx(y)))      # a statement of its own, as the source has it: the compiler then selects fmac (one rounding)
+            def atom_(v):
+                # a product or sum feeding the fmac is a value the original had rounded once, in a register: a statement of its own, or the
+                # compiler re-associates (a * b) * c as a * (b * c) and the written float differs by a bit (FUN_0c0a8016, FUN_0c0a80e2)
+                s_=fx(v)
+                if not isint(v) and re.search(r' [-+*/] ',s_):
+                    u_=fresh(True); emit('float %s = %s;'%(u_,s_)); return u_
+                return s_
+            xs_=atom_(x); ys_=atom_(y)
+            t=fresh(True); emit('float %s = %s;'%(t,fx(acc))); emit('%s = %s + %s * %s;'%(t,t,xs_,ys_))      # a statement of its own, as the source has it: the compiler then selects fmac (one rounding)
             c.FR[a[2]]=('e',t); return
         if mn=='fabs':
             c.FR[a[0]]=('e','_builtin_fabsf(%s)'%fx(c.gf(a[0]))); return      # the compiler's own fabs (it clears the sign bit: fabs(-0.0) is +0.0); built in, not declared
         if mn=='lds' and a[1]=='fpul': c.fpul=c.gi(a[0]); return
-        if mn=='float' and a[0]=='fpul': c.FR[a[1]]=('e','(float)%s'%ex(c.fpul)); return
+        if mn=='float' and a[0]=='fpul':
+            s_=ex(c.fpul)
+            if re.search(r'\b0x[89A-Fa-f][0-9A-Fa-f]{7}\b',s_) and not s_.startswith('(int)'): s_='(int)%s'%s_      # a constant above 0x7FFFFFFF is unsigned in C: the sum would convert as unsigned
+            c.FR[a[1]]=('e','(float)%s'%s_); return
         if mn=='ftrc': c.fpul=('e','(int)%s'%fx(c.gf(a[0]))); return
         if mn=='sts' and a[0]=='fpul': c.R[a[1]]=c.fpul; return
         raise Skip(mn+' '+rawops)
@@ -1228,12 +1313,13 @@ def _run(name,passthru=False,frame=False,flat=False):
             t=fresh(False); emit('int %s = (int)(short)((short)%s / (short)%s);'%(t,ex(c.gi('r1')),ex(c.gi('r0'))))
             c.R['r0']=('e',t); c.R.pop('r1',None); return
         if fname=='_slow_strcpy':
-            # the compiler's string copy: destination r0, source r1; the registers it uses come back unknown
+            # the compiler's string copy: destination r0, source r1. It pushes and pops r3 and r4 (the aligned path quick_strcpy1 also r5 and
+            # r6) and returns r0 = the destination; r1 is advanced, r2 and r7 are not touched (Zombie Revenge FUN_0c0c0f84 keeps a pointer in r4)
             if tail: raise Skip('helper as a tail call')
-            d_=ex(c.gi('r0')); s_=ex(c.gi('r1')); k=fresh(False)
+            d0=c.gi('r0'); d_=ex(d0); s_=ex(c.gi('r1')); k=fresh(False)
             emit('int %s;'%k)
             emit('for (%s = 0; ; %s++) { *(unsigned char *)(%s + %s) = *(unsigned char *)(%s + %s); if (*(unsigned char *)(%s + %s) == 0) break; }'%(k,k,d_,k,s_,k,s_,k))
-            for n_r in range(0,8): c.R.pop('r%d'%n_r,None)
+            c.R.pop('r1',None); c.R['r0']=d0
             return
         if fname=='_allzero':
             # the compiler's test that n bytes at p are all zero: p r4, n r5, result r0 (1 when all zero); r1-r7 are used up
@@ -1386,9 +1472,10 @@ def _run(name,passthru=False,frame=False,flat=False):
         if avail and c.pcalls==0 and not c.pt:           # a register below the highest one set that the function never touched is its own incoming argument, passed straight on
             hole=[n for n in range(4,max(avail)) if n not in avail and 'r%d'%n not in c.R]
             if hole and all(n in (4,5,6,7) for n in hole): avail=sorted(set(avail)|set(hole))
-        elif avail and not c.pt and ar is None:
-            # a call of unknown arity (an address, a function pointer): the check compares only the argument registers the function changed,
-            # so a register it never set (clobbered by earlier calls) goes as 0
+        elif avail and not c.pt:
+            # a call after an earlier call: the check compares only the argument registers the function changed, so a register below
+            # the highest one set that it never set (clobbered by earlier calls) goes as 0 (an unknown arity, an address or a function
+            # pointer; and a known one: Zombie Revenge FUN_0c09ec84, r5 and r7 of the tail call to FUN_0c0cc3f8)
             hole=[n for n in range(4,max(avail)) if n not in avail and 'r%d'%n not in c.R]
             if hole and all(n in (4,5,6,7) for n in hole):
                 for n in hole: c.R['r%d'%n]=0
@@ -1520,6 +1607,10 @@ def _run(name,passthru=False,frame=False,flat=False):
         if isf: c.R.pop('r0',None); c.FR['fr0']=('e',t); c.lastcall=None
         else: c.R['r0']=('e',t)
         c.fpul=None
+        pp=0 if ind else callee_pops(fname)
+        if pp:      # the callee took its arguments off the stack itself
+            c.D-=pp
+            if c.pend: del c.pend[max(0,len(c.pend)-pp//4):]
 
     # ---- conditions: every T comes with its negation, so `if` and `while` read the way the source would ----
     c.neg={}
@@ -1915,6 +2006,7 @@ def _run(name,passthru=False,frame=False,flat=False):
         """cond holds when the fall-through arm (starting at f) runs; j is where the branch goes. tA: the T flag on the fall-through
         arm (True for a bf that fell through, False for a bt), the opposite on the taken arm: a second branch there may use it."""
         c._bi=i
+        _KT=getattr(c,'_keepT',None); c._keepT=None       # T at the start of each arm: the delay slot's, when it set T (the slot ran before the branch on both arms)
         sA0,sB0=getattr(c,'_fold',(None,None)); c._fold=(None,None)       # the arms' start states when fold() ran their tests
         J=outer_join(G.ijoin(i) if _IJOIN[0] else G.ipdom(i))
         if c.loopstack and J!=gen_cfg.EXIT and J not in G.loops[c.loopstack[-1]]:
@@ -1924,13 +2016,13 @@ def _run(name,passthru=False,frame=False,flat=False):
         stops2=dict(stops)
         if J!=gen_cfg.EXIT and (J not in stops2 or stops2[J]=='cont'):
             if not c.loopstack or J in G.loops[c.loopstack[-1]]: stops2[J]='join'
-        c.T=None
+        c.T=_KT
         pre=regs_state()
         if sA0: set_regs(sA0)
         if tA is not None: setT('1','0') if tA else setT('0','1')
         A=[]; c.blocks.append(A); oA=exec_from(f,stops2,False); stA=regs_state(); c.blocks.pop()
         endA=c.T
-        set_regs(sB0 or pre); c.T=None
+        set_regs(sB0 or pre); c.T=_KT
         if tA is not None: setT('0','1') if tA else setT('1','0')
         B=[]; c.blocks.append(B)
         if j in FUNCS:                      # the branch goes to another function: a tail call
@@ -1955,11 +2047,11 @@ def _run(name,passthru=False,frame=False,flat=False):
             # one arm stopped at a join that leads on to the other arm's: that arm goes on to it (its code stays inside its arm)
             X,Y=oA[1],oB[1]
             if X in G.reach(Y) and Y!=X and Y not in G.reach(X):          # B stopped first: B goes on to X
-                set_regs(stB); c.T=None
+                set_regs(stB); c.T=_KT
                 stops3=dict(stops2); stops3.pop(Y,None)
                 c.blocks.append(B); oB=exec_from(Y,stops3,False); stB=regs_state(); c.blocks.pop()
             elif Y in G.reach(X) and X!=Y and X not in G.reach(Y):        # A stopped first: A goes on to Y
-                set_regs(stA); c.T=None
+                set_regs(stA); c.T=_KT
                 stops3=dict(stops2); stops3.pop(X,None)
                 c.blocks.append(A); oA=exec_from(X,stops3,False); stA=regs_state(); c.blocks.pop()
             else: break
@@ -2260,10 +2352,23 @@ def _run(name,passthru=False,frame=False,flat=False):
                 tgt=target_of(ops)
                 if tgt not in addr2idx and tgt not in FUNCS and not (in_ram(tgt)): raise Skip('branch out')
                 delay=mn.endswith('/s')
-                if delay: step(i+1)
-                if c.T is None: raise Skip('no T')
-                cond=c.T if mn.startswith('bf') else negate(c.T)
-                r=branch(i,addr2idx.get(tgt,tgt),i+(2 if delay else 1),cond,stops,mn.startswith('bf'))
+                T0=c.T; slotT=False
+                if T0 is None: raise Skip('no T')
+                cond0=T0 if mn.startswith('bf') else negate(T0)
+                if delay:
+                    # the branch decides on T as it was before the slot; the slot may set T (shlr, cmp...) or change a variable the condition names:
+                    # then the condition is taken into a temporary ahead of it (LZ decompressor: `dt r7; bf/s L; shlr r6`)
+                    n0=len(c.blocks[-1]); step(i+1)
+                    asg=set()
+                    for l_ in c.blocks[-1][n0:]:
+                        m_=re.match(r'^\s*(?:(?:register int|int|float|unsigned int) )?(\w+) = ',l_)
+                        if m_: asg.add(m_.group(1))
+                    slotT=c.T!=T0           # the slot set T: the arms do not know T from the branch (it is the slot's, on both)
+                    if slotT: c._keepT=c.T
+                    if slotT or (asg & set(re.findall(r'\b[A-Za-z_]\w*\b',cond0))):
+                        k_=fresh(False); c.blocks[-1].insert(n0,'int %s = %s;'%(k_,uw(cond0))); cond0=k_
+                cond=cond0
+                r=branch(i,addr2idx.get(tgt,tgt),i+(2 if delay else 1),cond,stops,None if slotT else mn.startswith('bf'))
                 if r[0]=='end': return r
                 i=r[1]; continue
             step(i); i+=1
@@ -2309,6 +2414,16 @@ def _run(name,passthru=False,frame=False,flat=False):
                     t_=int(m_.group(1),16)
                     if t_ in addr2idx: GOTO[i_]=[addr2idx[t_]]
                     break
+    # `and #K,r0 ; braf r0` over a table of two-word stubs (bra / delay slot) at the braf + 4: the masked value is a multiple of 4 under
+    # the mask K, so the jump goes to one of those stubs (Zombie Revenge FUN_0c9e2048)
+    BRAFM={}
+    for i_,x_ in enumerate(ins):
+        if x_[0]!='braf' or (x_[1] or '').strip()!='r0' or i_<1 or i_ in GOTO or i_ in {b_ for b_ in SWV}: continue
+        m_=re.match(r'#(\d+),r0$',(ins[i_-1][1] or '').strip()) if ins[i_-1][0]=='and' else None
+        if not m_ or int(m_.group(1))&3 or not 0<int(m_.group(1))<256: continue
+        K_=int(m_.group(1)); vals_=sorted(v_ for v_ in range(0,K_+1,4) if v_&~K_==0)
+        if all(x_[2]+4+v_ in addr2idx for v_ in vals_): BRAFM[i_]=(vals_,[addr2idx[x_[2]+4+v_] for v_ in vals_])
+    for i_,(vals_,tg_) in BRAFM.items(): GOTO[i_]=sorted(set(tg_))
     swg={b:sorted(set(v[2])) for b,v in SWV.items()}
     swg.update(GOTO)
     G=gen_cfg.Graph(ins,addr2idx,swg) if ins else None
@@ -2321,7 +2436,6 @@ def _run(name,passthru=False,frame=False,flat=False):
     def exec_flat():
         """The function as labelled blocks: every register a C variable (R0-R14, F0-F15, T_ for the T flag) written back at the end of each
         block, branches as `if (...) goto`, jump tables as a switch of gotos, the stack frame as memory."""
-        if any(x[0] in ('frchg','fschg') for x in ins): raise Skip('flat: FPU mode changes')
         ints=sorted({int(n) for x in ins for n in re.findall(r'\br(\d+)\b',(x[1] or '').split(';')[0]) if int(n)<=14}|{0})
         flts=sorted({int(n) for x in ins for n in re.findall(r'\bfr(\d+)\b',(x[1] or '').split(';')[0])}|{2*int(n)+k for x in ins for n in re.findall(r'\bdr(\d+)\b',(x[1] or '').split(';')[0]) for k in (0,1)})
         V=lambda r:'R%s'%r[1:]
@@ -2369,7 +2483,9 @@ def _run(name,passthru=False,frame=False,flat=False):
                     slots.append((d_,isfp(v_)))
                 if CARRY.get(c.D,slots)!=slots: raise Skip('flat: blocks push different words at one depth')
                 CARRY[c.D]=slots; c.pend=[]
-            if c.sz or c.swapped: raise Skip('flat: FPU mode across a block')
+            if c.XF: raise Skip('flat: the other register bank across a block')
+            for x_ in (succ or []):      # the FPU size and bank mode the block is entered in: every path into it has the same one
+                if ENTRY_MODE.setdefault(x_,(c.sz,c.swapped))!=(c.sz,c.swapped): raise Skip('flat: FPU mode differs at a join')
             pairs=[]
             for r,v in sorted(c.R.items()):
                 if r=='r15' or r[1:]=='' or not r[1:].isdigit() or int(r[1:])>14 or v is None or v==DIRTY or v==('e',V(r)): continue
@@ -2389,8 +2505,10 @@ def _run(name,passthru=False,frame=False,flat=False):
                 t=fresh(isf); emit('%s %s = %s;'%('float' if isf else 'int',t,e)); tmp.append((var,t))
             for var,t in tmp: emit('%s = %s;'%(var,t))
         def label(i): return 'L_%X'%ins[i][2]
+        ENTRY_MODE={}
         def block(i,D):
             fresh_state(D)
+            c.sz,c.swapped=ENTRY_MODE.get(i,(False,False)); c.XF={}
             emit('%s:;'%label(i))
             start=i
             while True:
@@ -2426,6 +2544,14 @@ def _run(name,passthru=False,frame=False,flat=False):
                     elif in_ram(tgt): do_call('@indirect',ind='0x%X'%tgt,after=ins[i+2] if i+2<len(ins) else None,after2=ins[i+3] if i+3<len(ins) else None)
                     else: raise Skip('callee unknown %x'%tgt)
                     i+=2; continue
+                if mn=='braf' and i in BRAFM:
+                    vals_,tg_=BRAFM[i]
+                    idx=c.gi('r0')
+                    step(i+1)                                    # the delay slot of the braf runs before the jump
+                    sw_=fresh(False); emit('int %s = %s;'%(sw_,ex(idx)))
+                    spill(list(tg_))
+                    emit('switch (%s) { %s }'%(sw_,' '.join('case %d: goto %s;'%(v_,label(t_)) for v_,t_ in zip(vals_,tg_))))
+                    return [(t_,c.D) for t_ in sorted(set(tg_))]
                 if mn in ('bra','jmp','braf'):
                     if mn=='bra': tgt=target_of(ops)
                     else:
