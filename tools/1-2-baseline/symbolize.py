@@ -73,7 +73,7 @@ def branches(P, starts, words, end):
     fstart = [f[0] for f in F]
     mids = {}                                 # a code address a pointer word names inside a function's own piece, not at its start (a
     for v in words.values():                  # callback entry): the walk from the function's entry does not reach it (Virtua Tennis: the
-        t = layout.mirror(v)                  # file system's interrupt callback, 14 bytes after FUN_8c1dd692, ended in a bra to
+        t = layout.mirror(v)                  # file system's interrupt callback, 14 bytes after gdFsHdlG1DmaEnd, ended in a bra to
         k = bisect.bisect_right(fstart, t) - 1    # gdFsExecServerG that stayed the original word and landed 32 bytes early once the
         if k >= 0 and F[k][0] < t and piece(t) == piece(F[k][0]):     # pieces moved); a pointer into a data piece is no entry
             mids.setdefault(k, set()).add(t)

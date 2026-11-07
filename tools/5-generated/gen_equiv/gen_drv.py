@@ -65,9 +65,16 @@ def build(name,ret,passthru=False):
                 ip=sorted(c.iuse); params=['int a%d'%n for n in range(4,max(ip)+1)]
                 if up>16: params=['int a%d'%n for n in range(4,9)]      # more than the compiler takes as parameters (a structure by value): the first one's address reaches the rest
             if fp: params+=['float f%d'%n for n in range(4,max(fp)+1)]
-        W=(c.maxD+3)//4+1
+        ps0=getattr(c,'psaves',0) if os.environ.get('GEN_SAVES','0')!='1' else 0      # the registers the prologue saves are not in the array: the compiler pushes its own below it, and the C's locals then sit where the original's did
+        raw=text
+        for ps in ((ps0,0) if ps0 else (0,)):
+            W=(c.maxD-ps+3)//4+1
+            text=re.sub(r'@@F:(-?\d+)@@',lambda m:str(4*W+int(m.group(1))+(ps if int(m.group(1))<0 else 0)),raw)
+            reach=0
+            for m_ in re.finditer(r'\(int\)stk \+ (\d+)((?: \+ (?:0x[0-9A-Fa-f]+|\d+))*)',text):      # the highest byte of the array the C reaches (an address with its constant offsets added)
+                reach=max(reach,int(m_.group(1))+sum(int(x,0) for x in re.findall(r'\+ (0x[0-9A-Fa-f]+|\d+)',m_.group(2)))+4)
+            if reach<=4*(W+up+(8 if up else 0)): break      # inside the array: this size; else the old one, whose array also held the saved registers' slots
         frame_decl=('int stk[%d] = {0};' if os.environ.get('GEN_ZERO_STK')=='1' else 'int stk[%d];')%(W+up+(8 if up else 0))         # the simulator's stack starts zeroed, so the proof does not need an initialiser (which costs a copy from a constant)
-        text=re.sub(r'@@F:(-?\d+)@@',lambda m:str(4*W+int(m.group(1))),text)
     rt='void'
     if '@@TAIL:' in text:
         if ret=='void': text=re.sub(r'@@TAIL:(.*?)@@',lambda m:m.group(1)+';\nreturn;',text)

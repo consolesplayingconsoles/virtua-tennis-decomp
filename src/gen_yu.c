@@ -88,33 +88,33 @@ int strmBgmPlay(int);
 int syChainAddHandler(int, int, int, int);
 int FUN_8c0d3804(int a4, int a5, int a6, int a7);
 int FUN_8c1dd6e4(void);
-int FUN_8c0efb40(int a4, int a5, int a6);
+int nlPerspectiveProj(int a4, int a5, int a6);
 int FUN_8c0f2fd0(int a4, int a5);
 int FUN_8c013d28(int a4);
 int FUN_8c0e716e(int a4, int a5);
-int FUN_8c1e1960(int a4, int a5, int a6);
+int ADXT_InsertSilence(int a4, int a5, int a6);
 int FUN_8c1e5280(int a4, int a5, int a6, int a7);
 int gdFsDaPlayG(int a4, int a5, int a6);
-int FUN_8c0ef4d0(int a4, int a5, int a6);
+int nlLookAtUp(int a4, int a5, int a6);
 int FUN_8c1f5b60(void);
-int FUN_8c0ef7d0(int a4);
+int nlMirrorDouble(int a4);
 int kmyInitializeVGA(int a4);
 int gdFsDaPlaySctG(int a4, int a5, int a6);
-int FUN_8c0efa70(int a4);
+int nlParallelProj(int a4);
 int adxt_trap_entry(int a4);
-int FUN_8c0f2900(int a4);
-int FUN_8c1e0f28(int a4, int a5, int a6);
+int nlObjPutCheckSideCulling(int a4);
+int ADXT_StartMemIdx(int a4, int a5, int a6);
 int nlSysMetricsGetFrameBufferUser(int a4, int a5, int a6);
-int FUN_8c0ef400(int a4, int a5, int a6);
+int nlLookAtUp_L(int a4, int a5, int a6);
 int FUN_8c1e53a0(int a4, int a5, int a6, int a7);
 int FUN_8c1e5c58(int a4, int a5, int a6, int a7);
 int gdFsDaPauseG(void);
-int FUN_8c1e683a(int a4, int a5);
-int FUN_8c0f0900(float f4, float f5, float f6, float f7, float f8, float f9);
+int gdDcfRepStat_(int a4, int a5);
+int nlFrustum(float f4, float f5, float f6, float f7, float f8, float f9);
 int nlFatalErrorTrap(int a4);
 int nlsndPackReload(int a4, int a5);
 int FUN_8c1e6120(int a4, int a5, int a6, int a7);
-int FUN_8c0f09c0(float f4, float f5, float f6, float f7, float f8, float f9);
+int nlFrustum_L(float f4, float f5, float f6, float f7, float f8, float f9);
 int nlsndPackReloadBG(int a4, int a5, int a6);
 int nlDispStripLoadPalette(int a4, int a5);
 int nlsndPackLoadLock(int a4, int a5, int a6);
@@ -396,7 +396,7 @@ int FUN_8c1dd6e4(void)
     goto L_8C1DD9C6;
 }
 
-int FUN_8c0efb40(int a4, int a5, int a6)
+int nlPerspectiveProj(int a4, int a5, int a6)
 {
     int stk[26];
     register float u6;
@@ -756,7 +756,7 @@ int FUN_8c0e716e(int a4, int a5)
     return t42;
 }
 
-int FUN_8c1e1960(int a4, int a5, int a6)
+int ADXT_InsertSilence(int a4, int a5, int a6)
 {
     int stk[11];
     register int t0;
@@ -908,7 +908,7 @@ int gdFsDaPlayG(int a4, int a5, int a6)
     return t0;
 }
 
-int FUN_8c0ef4d0(int a4, int a5, int a6)
+int nlLookAtUp(int a4, int a5, int a6)
 {
     int stk[30];
 
@@ -1015,7 +1015,7 @@ int FUN_8c1f5b60(void)
     return 0x0;
 }
 
-int FUN_8c0ef7d0(int a4)
+int nlMirrorDouble(int a4)
 {
     int stk[20];
     register float u0;
@@ -1173,7 +1173,7 @@ int gdFsDaPlaySctG(int a4, int a5, int a6)
     return t0;
 }
 
-int FUN_8c0efa70(int a4)
+int nlParallelProj(int a4)
 {
     int stk[20];
     register float u0;
@@ -1254,7 +1254,7 @@ int adxt_trap_entry(int a4)
     return 0x4C;
 }
 
-int FUN_8c0f2900(int a4)
+int nlObjPutCheckSideCulling(int a4)
 {
     int stk[7];
     register float u0;
@@ -1309,7 +1309,7 @@ int FUN_8c0f2900(int a4)
     return 0x0;
 }
 
-int FUN_8c1e0f28(int a4, int a5, int a6)
+int ADXT_StartMemIdx(int a4, int a5, int a6)
 {
     register int t0;
     register int t1;
@@ -1392,7 +1392,7 @@ int nlSysMetricsGetFrameBufferUser(int a4, int a5, int a6)
     return t1;
 }
 
-int FUN_8c0ef400(int a4, int a5, int a6)
+int nlLookAtUp_L(int a4, int a5, int a6)
 {
     int stk[30];
 
@@ -1537,7 +1537,7 @@ int gdFsDaPauseG(void)
     return t3;
 }
 
-int FUN_8c1e683a(int a4, int a5)
+int gdDcfRepStat_(int a4, int a5)
 {
     int stk[7];
 
@@ -1634,7 +1634,7 @@ int FUN_8c1e683a(int a4, int a5)
     goto L_8C1E68EA;
 }
 
-int FUN_8c0f0900(float f4, float f5, float f6, float f7, float f8, float f9)
+int nlFrustum(float f4, float f5, float f6, float f7, float f8, float f9)
 {
     int stk[18];
     register float u0;
@@ -1802,7 +1802,7 @@ int FUN_8c1e6120(int a4, int a5, int a6, int a7)
     return (kmyRegisterBGPlane((((int)stk + 4) + 0xC)));
 }
 
-int FUN_8c0f09c0(float f4, float f5, float f6, float f7, float f8, float f9)
+int nlFrustum_L(float f4, float f5, float f6, float f7, float f8, float f9)
 {
     int stk[18];
     register float u0;

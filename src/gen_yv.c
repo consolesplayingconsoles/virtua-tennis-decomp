@@ -109,33 +109,33 @@ int syCacheOCBP(int, int);
 int syCachePurgeAll(int, int, int, int);
 int thunk_nlSprPut(int);
 Stk3 vecMake(float, float, float);
-int FUN_8c0f29d0(int a4);
+int nlObjPutCheckSideFarCulling(int a4);
 int gdFsDaStopG(void);
 int nlSysMetricsGetFrameBuffer(int a4, int a5, int a6);
-int FUN_8c0ef360(int a4, int a5, int a6, float f4, float f5);
-int FUN_8c200468(int a4);
-int FUN_8c0f0720(int a4, int a5, int a6, int a7);
-int FUN_8c0f07c0(int a4, int a5, int a6, int a7);
+int nlLookAt(int a4, int a5, int a6, float f4, float f5);
+int mwSbClosePort(int a4);
+int nlUnitNormalVectorCCW(int a4, int a5, int a6, int a7);
+int nlUnitNormalVectorCW(int a4, int a5, int a6, int a7);
 float FUN_8c0f1a10(void);
 int gdFsDaGetInfoG(int a4);
-int FUN_8c0eef70(int a4, float f4, float f5, float f6, float f7, float f8, float f9);
+int nlGetNormalCalcMatrix(int a4, float f4, float f5, float f6, float f7, float f8, float f9);
 int nlsndPackLoad_Write(int a4);
 int nlDispStripFreeTexture(int a4);
 int nlDispStripLoadTexture(int a4, int a5);
 int FUN_8c0836fc(void);
 int nlsndPackLoadLockBG(int a4, int a5, int a6, int a7);
 void FUN_8c1e805c(int a4, int a5, int a6, int a7, int a8);
-int FUN_8c200c8c(int a4, int a5, int a6, int a7);
-int FUN_8c1e6746(int a4, int a5, int a6, int a7);
+int mwlSbTrnsEx(int a4, int a5, int a6, int a7);
+int gdDcfRead_(int a4, int a5, int a6, int a7);
 void syG2DmaEndIntrruptHandler(int a4);
-int FUN_8c0f13b0(int a4, int a5);
+int nlProjectScreen(int a4, int a5);
 int syTmrInt1SetEx(int a4, int a5, int a6, int a7);
 int nlLightAllOff(void);
-int FUN_8c1e187a(int a4, int a5, int a6);
+int ADXT_IsHeader(int a4, int a5, int a6);
 int FUN_8c081e9e(void);
 int FUN_8c1e5be0(int a4, int a5, int a6, int a7);
 int nlReturnLightAll(void);
-int FUN_8c0f1930(int a4, int a5, int a6, float f4, float f5, float f6);
+int nlScreenPoint(int a4, int a5, int a6, float f4, float f5, float f6);
 int FUN_8c1e7fd8(int a4, int a5, int a6);
 int nlSetVertexMode(int a4);
 int syTmrGenMicroToCount(int a4, int a5);
@@ -144,23 +144,23 @@ int FUN_8c0e6220(void);
 int nlsndPackLoad_Open(int a4, int a5, int a6);
 int syTmrGenSetInt(int a4, int a5);
 void FUN_8c0d1dda(int a4);
-int FUN_8c200b98(int a4, int a5, int a6, int a7);
+int mwSbGetExPrm(int a4, int a5, int a6, int a7);
 int FUN_8c0efc70(int a4);
 int FUN_8c1e7e96(int a4, int a5, int a6, int a7);
 int nlCommonTextureReloadA(int a4, int a5);
-int FUN_8c0f2190(int a4, int a5, int a6, int a7);
+int nlObjPutSetPaletteOffset(int a4, int a5, int a6, int a7);
 int FUN_8c09c646(float f4);
 int nlSetUserTileClip(int a4, int a5, int a6, int a7, int a8);
-int FUN_8c1e67e2(int a4, int a5, int a6);
+int gdDcfTrans32_(int a4, int a5, int a6);
 int nlChangeDisplayFilterMode(int a4);
 void FUN_8c1e797e(int a4, int a5, int a6, int a7);
 int syTmrGenCountToMicro(int a4, int a5);
 int FUN_8c0d0b5c(void);
-int FUN_8c1e0eda(int a4, int a5);
+int ADXT_StartMem(int a4, int a5);
 int mwAcTrns(int a4, int a5, int a6, int a7, int a8);
 int kmiVRightArray(int a4);
 int FUN_8c1fabc0(int a4);
-int FUN_8c1e0e90(int a4, int a5);
+int ADXT_StartFname(int a4, int a5);
 int FUN_8c08aade(Stk5 s);
 int mwRnaSetFilter(int a4, int a5, int a6);
 int kmiHolizontalStripBufferArray(int a4);
@@ -168,8 +168,8 @@ float nlLightGlobalAmbient(int a4);
 int nlSpriteLoadTextureGI(int a4, int a5);
 void FUN_8c0d2b00(void);
 int FUN_8c013ce6(int a4);
-int FUN_8c0f2e10(int a4);
-int FUN_8c200d7c(int a4, int a5);
+int nlLineFog(int a4);
+int mwSbGetTrnsStat(int a4, int a5);
 int FUN_8c205a7c(int a4, int a5, int a6);
 int nlSysMultiPassMode(int a4, int a5, int a6, int a7);
 int ADXT_IsIbufSafety(int a4);
@@ -181,15 +181,15 @@ int FUN_8c0c53f2(int a4, Stk3 s);
 int nlLightCutoffCos(int a4, float f4);
 int FUN_8c1f8a7e(int a4);
 void FUN_8c0d7ea8(void);
-int FUN_8c200872(int a4, int a5, int a6, int a7);
+int mwSbGetPan(int a4, int a5, int a6, int a7);
 int gdFsIsTrayOpenG(int a4, int a5, int a6, int a7);
 int syTmrCountToMicro(int a4);
 int fmMngRefresh(int a4, int a5, int a6);
-int FUN_8c0f19d0(int a4, int a5);
-int FUN_8c0f28c0(int a4, int a5, int a6, int a7);
+int nlFastScreenPoint(int a4, int a5);
+int nlObjPutVtxBufScan(int a4, int a5, int a6, int a7);
 void ADXT_GetNumSctIbuf(int a4);
 
-int FUN_8c0f29d0(int a4)
+int nlObjPutCheckSideFarCulling(int a4)
 {
     int stk[7];
     register float u0;
@@ -337,7 +337,7 @@ int nlSysMetricsGetFrameBuffer(int a4, int a5, int a6)
     return t1;
 }
 
-int FUN_8c0ef360(int a4, int a5, int a6, float f4, float f5)
+int nlLookAt(int a4, int a5, int a6, float f4, float f5)
 {
     int stk[11];
     register float u10;
@@ -370,7 +370,7 @@ int FUN_8c0ef360(int a4, int a5, int a6, float f4, float f5)
     return (nlTranslateNV(a4));
 }
 
-int FUN_8c200468(int a4)
+int mwSbClosePort(int a4)
 {
     register int t0;
     register int t1;
@@ -414,7 +414,7 @@ int FUN_8c200468(int a4)
     return t0;
 }
 
-int FUN_8c0f0720(int a4, int a5, int a6, int a7)
+int nlUnitNormalVectorCCW(int a4, int a5, int a6, int a7)
 {
     int stk[9];
     register float t13;
@@ -438,7 +438,7 @@ int FUN_8c0f0720(int a4, int a5, int a6, int a7)
     return 0x1;
 }
 
-int FUN_8c0f07c0(int a4, int a5, int a6, int a7)
+int nlUnitNormalVectorCW(int a4, int a5, int a6, int a7)
 {
     int stk[9];
     register float t13;
@@ -785,7 +785,7 @@ int gdFsDaGetInfoG(int a4)
     return t1;
 }
 
-int FUN_8c0eef70(int a4, float f4, float f5, float f6, float f7, float f8, float f9)
+int nlGetNormalCalcMatrix(int a4, float f4, float f5, float f6, float f7, float f8, float f9)
 {
     int stk[22];
     register int t0;
@@ -1000,7 +1000,7 @@ void FUN_8c1e805c(int a4, int a5, int a6, int a7, int a8)
     _builtin_set_imask(((unsigned int)((((unsigned short)((short)(a8 >> 0)) & 0xF) << 2) << 2) >> 4));
 }
 
-int FUN_8c200c8c(int a4, int a5, int a6, int a7)
+int mwlSbTrnsEx(int a4, int a5, int a6, int a7)
 {
     register int t0;
     register int t1;
@@ -1030,7 +1030,7 @@ int FUN_8c200c8c(int a4, int a5, int a6, int a7)
     return t0;
 }
 
-int FUN_8c1e6746(int a4, int a5, int a6, int a7)
+int gdDcfRead_(int a4, int a5, int a6, int a7)
 {
     int stk[9];
 
@@ -1107,7 +1107,7 @@ void syG2DmaEndIntrruptHandler(int a4)
     _builtin_set_imask(((unsigned int)(((t0 & 0xF) << 2) << 2) >> 4));
 }
 
-int FUN_8c0f13b0(int a4, int a5)
+int nlProjectScreen(int a4, int a5)
 {
     int stk[8];
     register float u3;
@@ -1191,7 +1191,7 @@ int nlLightAllOff(void)
     return t6;
 }
 
-int FUN_8c1e187a(int a4, int a5, int a6)
+int ADXT_IsHeader(int a4, int a5, int a6)
 {
     int stk[17];
     register int t0;
@@ -1323,7 +1323,7 @@ int nlReturnLightAll(void)
     return t8;
 }
 
-int FUN_8c0f1930(int a4, int a5, int a6, float f4, float f5, float f6)
+int nlScreenPoint(int a4, int a5, int a6, float f4, float f5, float f6)
 {
     int stk[15];
     register float u6;
@@ -1564,7 +1564,7 @@ void FUN_8c0d1dda(int a4)
     }
 }
 
-int FUN_8c200b98(int a4, int a5, int a6, int a7)
+int mwSbGetExPrm(int a4, int a5, int a6, int a7)
 {
     register int t0;
     register int t1;
@@ -1677,7 +1677,7 @@ int nlCommonTextureReloadA(int a4, int a5)
     return t2;
 }
 
-int FUN_8c0f2190(int a4, int a5, int a6, int a7)
+int nlObjPutSetPaletteOffset(int a4, int a5, int a6, int a7)
 {
     register int t0;
     register int t1;
@@ -1791,7 +1791,7 @@ int nlSetUserTileClip(int a4, int a5, int a6, int a7, int a8)
     return t2;
 }
 
-int FUN_8c1e67e2(int a4, int a5, int a6)
+int gdDcfTrans32_(int a4, int a5, int a6)
 {
     int stk[7];
     register int t0;
@@ -1885,7 +1885,7 @@ int FUN_8c0d0b5c(void)
     return t5;
 }
 
-int FUN_8c1e0eda(int a4, int a5)
+int ADXT_StartMem(int a4, int a5)
 {
     register int t2;
 
@@ -1908,7 +1908,7 @@ int mwAcTrns(int a4, int a5, int a6, int a7, int a8)
 
     t0 = mwlSbTrnsDat(a4, a5, a6, a7, a8);
     if (a6 == 0) {
-        return FUN_8c200c8c(a4, a5, (((((int)((int)(*(int *)((a4 + 0x28))) / (int)(*(int *)((a4 + 0x10))))) << 2) << 1) + a6), a7);
+        return mwlSbTrnsEx(a4, a5, (((((int)((int)(*(int *)((a4 + 0x28))) / (int)(*(int *)((a4 + 0x10))))) << 2) << 1) + a6), a7);
     }
     return t0;
 }
@@ -1967,7 +1967,7 @@ int FUN_8c1fabc0(int a4)
     return t0;
 }
 
-int FUN_8c1e0e90(int a4, int a5)
+int ADXT_StartFname(int a4, int a5)
 {
     register int t3;
 
@@ -2123,7 +2123,7 @@ int FUN_8c013ce6(int a4)
     return (lightSetTarget((t9 << 8), (t7 << 8), t5, t2, 0x1));
 }
 
-int FUN_8c0f2e10(int a4)
+int nlLineFog(int a4)
 {
     if (a4 == 1) {
         *(unsigned int *)0x8C1DCC28 = ((*(int *)0x8C1DCC28) & 0xFF3FFFFF);
@@ -2137,7 +2137,7 @@ int FUN_8c0f2e10(int a4)
     return a4;
 }
 
-int FUN_8c200d7c(int a4, int a5)
+int mwSbGetTrnsStat(int a4, int a5)
 {
     register int t1;
     register int t11;
@@ -2356,7 +2356,7 @@ void FUN_8c0d7ea8(void)
     }
 }
 
-int FUN_8c200872(int a4, int a5, int a6, int a7)
+int mwSbGetPan(int a4, int a5, int a6, int a7)
 {
     *(unsigned int *)((((a5 << 2) + (a4 + 0x40)) + 0x0)) = (mwlSbGetStreamParam(a4, 0x6, a5, a7));
     return (*(int *)(((a5 << 2) + (a4 + 0x40))));
@@ -2403,7 +2403,7 @@ int fmMngRefresh(int a4, int a5, int a6)
     return t0;
 }
 
-int FUN_8c0f19d0(int a4, int a5)
+int nlFastScreenPoint(int a4, int a5)
 {
     int stk[7];
     register float u1;
@@ -2416,7 +2416,7 @@ int FUN_8c0f19d0(int a4, int a5)
     return 0x8;
 }
 
-int FUN_8c0f28c0(int a4, int a5, int a6, int a7)
+int nlObjPutVtxBufScan(int a4, int a5, int a6, int a7)
 {
     *(unsigned int *)((a4 + 0x0)) = ((*(int *)(((*(int *)0x8C42445C) + 0x0))) - (*(int *)0x8C424498));
     *(unsigned int *)((a5 + 0x0)) = ((*(int *)(((*(int *)0x8C42445C) + 0x4))) - (*(int *)0x8C42449C));

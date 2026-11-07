@@ -65,62 +65,62 @@ int FUN_8c0eeca0(int a4, int a5, int a6);
 int FUN_8c0eed00(int a4, int a5, int a6);
 void gdFsEntryErrFuncAllG(int a4, int a5);
 void FUN_8c0ee6b0(void);
-int FUN_8c20060c(int a4);
+int mwSbGetBufSize(int a4);
 int nlLightModelTransOne(void);
-int FUN_8c0f2650(int a4, float f4);
-int FUN_8c0ef010(int a4, float f4, float f5, float f6, float f7, float f8, float f9);
-int FUN_8c0f0a90(void);
-int FUN_8c0f1ab0(void);
+int nlObjPutUseViewMatrixTrnsl(int a4, float f4);
+int nlGetPushedMatrix(int a4, float f4, float f5, float f6, float f7, float f8, float f9);
+int nlMakeModelViewProjectMatrix(void);
+int nlMakeFastModelProjectMatrixVM(void);
 int kmSetPaletteMode(int a4);
 int FUN_8c1e7ef2(Stk4 s);
-int FUN_8c208c5a(void);
+int ADXPD_ExecServer(void);
 int FUN_8c012b10(void);
-int FUN_8c0f2580(float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11);
-float FUN_8c0f0070(float f4, float f5);
-float FUN_8c0f0130(float f4, float f5);
-float FUN_8c0f0190(float f4, float f5);
-float FUN_8c0f01f0(float f4, float f5);
-int FUN_8c0f8050(void);
-int FUN_8c0f8080(void);
+int nlObjPutWorldMatrixMode(float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11);
+float nlRotateXSC_L(float f4, float f5);
+float nlRotateYSC_L(float f4, float f5);
+float nlRotateZSC(float f4, float f5);
+float nlRotateZSC_L(float f4, float f5);
+int nlIntrHandlerEventA40(void);
+int nlIntrHandlerEventB00(void);
 void nlIntrClearEvent(int a4);
-int FUN_8c1e90cc(void);
-int FUN_8c1e90f0(void);
+int syTmrInt1Handler(void);
+int syTmrInt2Handler(void);
 int FUN_8c2001b8(void);
 int FUN_8c2001dc(void);
 int FUN_8c205a34(int a4);
 int nlLightCutoffAng(int a4, int a5);
-int FUN_8c0eedb0(int a4, float f4, float f5, float f6, float f7, float f8, float f9);
+int nlDetMatrix(int a4, float f4, float f5, float f6, float f7, float f8, float f9);
 int nlLightCutoffRad(int a4, float f4);
-int FUN_8c0f25e0(int a4);
+int nlObjPutUseViewMatrix(int a4);
 int gdFsDaPause(void);
-int FUN_8c1e6976(int a4, int a5, int a6);
-int FUN_8c1e6998(int a4, int a5, int a6);
-int FUN_8c1e6a04(int a4, int a5, int a6);
-int FUN_8c2005ea(int a4);
+int gdDcfDaPlay_(int a4, int a5, int a6);
+int gdDcfDaPlay2_(int a4, int a5, int a6);
+int gdDcfGetScd_(int a4, int a5, int a6);
+int mwSbStop(int a4);
 int FUN_8c0f0ac0(void);
-int FUN_8c0f1430(int a4, int a5);
-int FUN_8c1e6a3a(int a4, int a5, int a6, int a7);
+int nlProjectScreen3D(int a4, int a5);
+int gdDcfReqStat_(int a4, int a5, int a6, int a7);
 int FUN_8c0f0220(float f4);
 int FUN_8c0f0260(float f4);
-int FUN_8c0f7ff0(void);
-int FUN_8c0f8010(void);
-int FUN_8c0f8030(void);
-int FUN_8c0f80b0(void);
-int FUN_8c1e68fa(int a4);
-int FUN_8c1e69ca(int a4);
-int FUN_8c1e6a5a(int a4);
+int nlIntrHandlerEOR(void);
+int nlIntrHandlerEvent900(void);
+int nlIntrHandlerEvent920(void);
+int nlIntrHandlerTexOverflow(void);
+int gdDcfSeek_(int a4);
+int gdDcfDaRelease_(int a4);
+int gdDcfGetVer_(int a4);
 int adxb_DefGetWr(int a4, int a5, int a6, int a7);
 int nlSetColorClampValue(int a4, int a5);
-int FUN_8c1e67c6(int a4, int a5);
-int FUN_8c1e694c(int a4, int a5);
-int FUN_8c1e69e8(int a4, int a5);
+int gdDcfReqGdRd_(int a4, int a5);
+int gdDcfGetDrvStat_(int a4, int a5);
+int gdDcfGetToc_(int a4, int a5);
 int FUN_8c0b5c86(void);
 int FUN_8c0b5ca0(void);
 int FUN_8c0b5cba(void);
-int FUN_8c0eed40(void);
-int FUN_8c0f8270(int a4, int a5);
-int FUN_8c1dd692(int a4);
-int FUN_8c1e0d30(int a4, int a5);
+int nlClearMatrix(void);
+int nlIntrSetVectorFunction(int a4, int a5);
+int gdFsHdlG1DmaEnd(int a4);
+int adxini_rnaerr_cbfn(int a4, int a5);
 int FUN_8c1f8a4a(int a4);
 int FUN_8c1f8a64(int a4);
 int nlCommonTextureGetFreeMem(void);
@@ -135,29 +135,29 @@ int gdFsIsTrayOpen(void);
 int nlCommonTextureReloadI(int a4, int a5, int a6);
 int gdFsReadW(void);
 int gdFsSetGlobalErr(void);
-int FUN_8c2006d6(int a4);
-int FUN_8c20070a(int a4);
+int mwSbGetSfreq(int a4);
+int mwSbGetBitPerSmpl(int a4);
 int nlGetCurrentScanLine(void);
 int nlSysMetricsCpuPowerEnd(void);
 int FUN_8c205a20(int a4);
-int FUN_8c0f26c0(int a4);
-int FUN_8c1e0c2c(int a4, int a5, int a6, int a7);
+int nlObjPutSetSpecularEyeDirectionV(int a4);
+int syBtCheckDisc(int a4, int a5, int a6, int a7);
 int kmSetEndOfVertexCallback(int a4, int a5);
 int kmSetStripOverRunCallback(int a4, int a5);
 int adxb_DefAddWr(int a4, int a5, int a6);
-int FUN_8c200dc2(int a4, int a5, int a6);
+int mwlSbClearTrnsReq(int a4, int a5, int a6);
 int nlObjPutLoadTextureOnce(int a4, int a5, int a6, int a7);
 int nlObjPutLoadTextureOnceGI(int a4, int a5, int a6, int a7);
-int FUN_8c0efa50(void);
+int nlPushMultiViewMatrix(void);
 int FUN_8c1e3260(int a4, int a5, int a6, int a7);
 int FUN_8c1e6738(int a4, int a5);
-int FUN_8c200654(int a4);
+int mwSbGetPlayPos(int a4);
 int FUN_8c1ef400(int a4, int a5);
 int FUN_8c1ef43c(int a4, int a5);
 int FUN_8c1ef450(int a4, int a5);
 int ADXSJD_GetLpInsNsmpl(int a4);
 int ADXSJD_GetCof(int a4);
-int FUN_8c1feb60(int a4, int a5);
+int vmsfs_getword_big(int a4, int a5);
 void FUN_8c0eab40(int a4);
 int FUN_8c0f8260(int a4, int a5);
 int FUN_8c0f8290(int a4, int a5);
@@ -165,8 +165,8 @@ int FUN_8c0f8250(int a4, int a5);
 void FUN_8c0f8370(void);
 int FUN_8c0f8380(void);
 void FUN_8c1e3278(int a4);
-int FUN_8c1feb6a(int a4, int a5);
-void FUN_8c1feb72(int a4, int a5, int a6);
+int vmsfs_getword_little(int a4, int a5);
+void vmsfs_setword_big(int a4, int a5, int a6);
 void FUN_8c0ea550(int a4);
 void FUN_8c0eaaf0(int a4);
 int FUN_8c0eab20(void);
@@ -193,7 +193,7 @@ void FUN_8c1e3272(int a4);
 int FUN_8c1e68f4(int a4, int a5);
 int FUN_8c1e7978(void);
 int FUN_8c1e6a34(int a4, int a5);
-void FUN_8c1feb7a(int a4, int a5, int a6);
+void vmsfs_setword_little(int a4, int a5, int a6);
 void nlFatalErrorReturn(void);
 void FUN_8c0ef2bc(void);
 void FUN_8c0ef354(void);
@@ -310,7 +310,7 @@ void FUN_8c0ee6b0(void)
     *(unsigned int *)0x8C1DC8D8 = 0x0;
 }
 
-int FUN_8c20060c(int a4)
+int mwSbGetBufSize(int a4)
 {
     int stk[4];
 
@@ -327,7 +327,7 @@ int nlLightModelTransOne(void)
     return nlTransposeMatrix();
 }
 
-int FUN_8c0f2650(int a4, float f4)
+int nlObjPutUseViewMatrixTrnsl(int a4, float f4)
 {
     if (((*(int *)((a4 + 0x4))) & 2) == 0) {
         nlInvLightVectorUseViewMatrix();
@@ -336,7 +336,7 @@ int FUN_8c0f2650(int a4, float f4)
     return nlobjput_sub_trnsl(a4);
 }
 
-int FUN_8c0ef010(int a4, float f4, float f5, float f6, float f7, float f8, float f9)
+int nlGetPushedMatrix(int a4, float f4, float f5, float f6, float f7, float f8, float f9)
 {
     register int t0;
 
@@ -347,7 +347,7 @@ int FUN_8c0ef010(int a4, float f4, float f5, float f6, float f7, float f8, float
     return nlCopyMatrix(a4, (t0 - 64), f4, f5, f6, f7, f8, f9);
 }
 
-int FUN_8c0f0a90(void)
+int nlMakeModelViewProjectMatrix(void)
 {
     nlPushMatrix((*(int *)0x8C450888));
     nlMultiMatrix((*(int *)0x8C45087C));
@@ -356,7 +356,7 @@ int FUN_8c0f0a90(void)
     return nlPopMatrix(0x1);
 }
 
-int FUN_8c0f1ab0(void)
+int nlMakeFastModelProjectMatrixVM(void)
 {
     nlPushMatrix(0x8C450A90);
     nlMultiMatrix((*(int *)0x8C450888));
@@ -387,7 +387,7 @@ int FUN_8c1e7ef2(Stk4 s)
     return ((int (*)(void))(0xAC1E7F20))();
 }
 
-int FUN_8c208c5a(void)
+int ADXPD_ExecServer(void)
 {
     register int t0;
     register int t1;
@@ -423,7 +423,7 @@ int FUN_8c012b10(void)
     return t3;
 }
 
-int FUN_8c0f2580(float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11)
+int nlObjPutWorldMatrixMode(float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11)
 {
     register int t0;
 
@@ -433,7 +433,7 @@ int FUN_8c0f2580(float f4, float f5, float f6, float f7, float f8, float f9, flo
     return nlLoadMatrix8(0x8C454C08);
 }
 
-float FUN_8c0f0070(float f4, float f5)
+float nlRotateXSC_L(float f4, float f5)
 {
     float u0[4];
     float u1[4];
@@ -471,7 +471,7 @@ float FUN_8c0f0070(float f4, float f5)
     return u0[0];
 }
 
-float FUN_8c0f0130(float f4, float f5)
+float nlRotateYSC_L(float f4, float f5)
 {
     float u0[4];
     float u1[4];
@@ -509,7 +509,7 @@ float FUN_8c0f0130(float f4, float f5)
     return u0[0];
 }
 
-float FUN_8c0f0190(float f4, float f5)
+float nlRotateZSC(float f4, float f5)
 {
     float u0[4];
     float u1[4];
@@ -547,7 +547,7 @@ float FUN_8c0f0190(float f4, float f5)
     return u0[0];
 }
 
-float FUN_8c0f01f0(float f4, float f5)
+float nlRotateZSC_L(float f4, float f5)
 {
     float u0[4];
     float u1[4];
@@ -585,7 +585,7 @@ float FUN_8c0f01f0(float f4, float f5)
     return u0[0];
 }
 
-int FUN_8c0f8050(void)
+int nlIntrHandlerEventA40(void)
 {
     register int t0;
     register int t1;
@@ -599,7 +599,7 @@ int FUN_8c0f8050(void)
     return 0x0;
 }
 
-int FUN_8c0f8080(void)
+int nlIntrHandlerEventB00(void)
 {
     register int t0;
     register int t1;
@@ -621,7 +621,7 @@ void nlIntrClearEvent(int a4)
     }
 }
 
-int FUN_8c1e90cc(void)
+int syTmrInt1Handler(void)
 {
     register int t3;
     register int t4;
@@ -634,7 +634,7 @@ int FUN_8c1e90cc(void)
     return ((int (*)(int))(t3))(t4);
 }
 
-int FUN_8c1e90f0(void)
+int syTmrInt2Handler(void)
 {
     register int t3;
     register int t4;
@@ -698,7 +698,7 @@ int nlLightCutoffAng(int a4, int a5)
     return ((int (*)(int, float, float))(0x8C0EE7A4))(a4, t1, t0);
 }
 
-int FUN_8c0eedb0(int a4, float f4, float f5, float f6, float f7, float f8, float f9)
+int nlDetMatrix(int a4, float f4, float f5, float f6, float f7, float f8, float f9)
 {
     int stk[20];
 
@@ -717,7 +717,7 @@ int nlLightCutoffRad(int a4, float f4)
     return ((int (*)(int, float, float))(0x8C0EE7A4))(a4, t1, t0);
 }
 
-int FUN_8c0f25e0(int a4)
+int nlObjPutUseViewMatrix(int a4)
 {
     if (((*(int *)((a4 + 0x4))) & 2) == 0) {
         nlInvLightVectorUseViewMatrix();
@@ -739,7 +739,7 @@ int gdFsDaPause(void)
     return 0x0;
 }
 
-int FUN_8c1e6976(int a4, int a5, int a6)
+int gdDcfDaPlay_(int a4, int a5, int a6)
 {
     int stk[7];
 
@@ -750,7 +750,7 @@ int FUN_8c1e6976(int a4, int a5, int a6)
     return (gdGdcReqCmd(0x14, ((int)stk + 4)));
 }
 
-int FUN_8c1e6998(int a4, int a5, int a6)
+int gdDcfDaPlay2_(int a4, int a5, int a6)
 {
     int stk[7];
 
@@ -761,7 +761,7 @@ int FUN_8c1e6998(int a4, int a5, int a6)
     return (gdGdcReqCmd(0x15, ((int)stk + 4)));
 }
 
-int FUN_8c1e6a04(int a4, int a5, int a6)
+int gdDcfGetScd_(int a4, int a5, int a6)
 {
     int stk[7];
 
@@ -772,7 +772,7 @@ int FUN_8c1e6a04(int a4, int a5, int a6)
     return (gdGdcReqCmd(0x22, ((int)stk + 4)));
 }
 
-int FUN_8c2005ea(int a4)
+int mwSbStop(int a4)
 {
     nlsndStreamStop((*(short *)((a4 + 0x6))));
     *(unsigned char *)(((0x60 + a4) + 0x0)) = (*(signed char *)((a4 + 0x5)));
@@ -789,14 +789,14 @@ int FUN_8c0f0ac0(void)
     return nlPopMatrix(0x1);
 }
 
-int FUN_8c0f1430(int a4, int a5)
+int nlProjectScreen3D(int a4, int a5)
 {
     nlPushMatrix(0x8C450A10);
     nlCalcPoint(a4, a5);
     return nlPopMatrix(0x1);
 }
 
-int FUN_8c1e6a3a(int a4, int a5, int a6, int a7)
+int gdDcfReqStat_(int a4, int a5, int a6, int a7)
 {
     int stk[7];
 
@@ -827,7 +827,7 @@ int FUN_8c0f0260(float f4)
     return nlRotateYSC(t1, t0);
 }
 
-int FUN_8c0f7ff0(void)
+int nlIntrHandlerEOR(void)
 {
     register int t0;
     register int t1;
@@ -840,7 +840,7 @@ int FUN_8c0f7ff0(void)
     return 0x0;
 }
 
-int FUN_8c0f8010(void)
+int nlIntrHandlerEvent900(void)
 {
     register int t0;
     register int t1;
@@ -853,7 +853,7 @@ int FUN_8c0f8010(void)
     return 0x0;
 }
 
-int FUN_8c0f8030(void)
+int nlIntrHandlerEvent920(void)
 {
     register int t0;
     register int t1;
@@ -866,7 +866,7 @@ int FUN_8c0f8030(void)
     return 0x0;
 }
 
-int FUN_8c0f80b0(void)
+int nlIntrHandlerTexOverflow(void)
 {
     register int t0;
     register int t1;
@@ -879,7 +879,7 @@ int FUN_8c0f80b0(void)
     return 0x0;
 }
 
-int FUN_8c1e68fa(int a4)
+int gdDcfSeek_(int a4)
 {
     int stk[5];
 
@@ -888,7 +888,7 @@ int FUN_8c1e68fa(int a4)
     return (gdGdcReqCmd(0x1B, ((int)stk + 4)));
 }
 
-int FUN_8c1e69ca(int a4)
+int gdDcfDaRelease_(int a4)
 {
     int stk[5];
 
@@ -897,7 +897,7 @@ int FUN_8c1e69ca(int a4)
     return (gdGdcReqCmd(0x17, ((int)stk + 4)));
 }
 
-int FUN_8c1e6a5a(int a4)
+int gdDcfGetVer_(int a4)
 {
     int stk[5];
 
@@ -925,7 +925,7 @@ int nlSetColorClampValue(int a4, int a5)
     return (kmSetColorClampValue(*(Stk4 *)((int)stk + 4)));
 }
 
-int FUN_8c1e67c6(int a4, int a5)
+int gdDcfReqGdRd_(int a4, int a5)
 {
     int stk[5];
 
@@ -934,7 +934,7 @@ int FUN_8c1e67c6(int a4, int a5)
     return (gdGdcReqCmd(0x1C, ((int)stk + 4)));
 }
 
-int FUN_8c1e694c(int a4, int a5)
+int gdDcfGetDrvStat_(int a4, int a5)
 {
     register int t0;
 
@@ -945,7 +945,7 @@ int FUN_8c1e694c(int a4, int a5)
     return 0x1;
 }
 
-int FUN_8c1e69e8(int a4, int a5)
+int gdDcfGetToc_(int a4, int a5)
 {
     int stk[5];
 
@@ -993,7 +993,7 @@ int FUN_8c0b5cba(void)
     return fileLoadPoll(t4);
 }
 
-int FUN_8c0eed40(void)
+int nlClearMatrix(void)
 {
     nlGetMatrix(0x0);
     *(unsigned int *)0x8C450864 = (*(int *)0x8C450860);
@@ -1001,13 +1001,13 @@ int FUN_8c0eed40(void)
     return nlLoadMatrix(0x0);
 }
 
-int FUN_8c0f8270(int a4, int a5)
+int nlIntrSetVectorFunction(int a4, int a5)
 {
     *(unsigned int *)(((((unsigned int)((unsigned int)(*(short *)((((a4 - 5) << 1) + 0x8C127FC8))) >> 2) >> 1) + (((int)_builtin_get_vbr()) + 0x1C0)) + 0x0)) = a5;
     return 0x1;
 }
 
-int FUN_8c1dd692(int a4)
+int gdFsHdlG1DmaEnd(int a4)
 {
     register int t0;
     register int t5;
@@ -1024,7 +1024,7 @@ int FUN_8c1dd692(int a4)
     return FUN_8c1ef400(t5, t6);
 }
 
-int FUN_8c1e0d30(int a4, int a5)
+int adxini_rnaerr_cbfn(int a4, int a5)
 {
     int stk[5];
 
@@ -1192,7 +1192,7 @@ int gdFsSetGlobalErr(void)
     return 0x0;
 }
 
-int FUN_8c2006d6(int a4)
+int mwSbGetSfreq(int a4)
 {
     register int t1;
 
@@ -1201,7 +1201,7 @@ int FUN_8c2006d6(int a4)
     return t1;
 }
 
-int FUN_8c20070a(int a4)
+int mwSbGetBitPerSmpl(int a4)
 {
     register int t1;
 
@@ -1247,12 +1247,12 @@ int FUN_8c205a20(int a4)
     return 0x0;
 }
 
-int FUN_8c0f26c0(int a4)
+int nlObjPutSetSpecularEyeDirectionV(int a4)
 {
     return nlObjPutSetSpecularEyeDirectionF((*(float *)((a4 + 0x0))), (*(float *)((a4 + 0x4))), (*(float *)((a4 + 0x8))));
 }
 
-int FUN_8c1e0c2c(int a4, int a5, int a6, int a7)
+int syBtCheckDisc(int a4, int a5, int a6, int a7)
 {
     register int t1;
 
@@ -1278,7 +1278,7 @@ int adxb_DefAddWr(int a4, int a5, int a6)
     return 0x98;
 }
 
-int FUN_8c200dc2(int a4, int a5, int a6)
+int mwlSbClearTrnsReq(int a4, int a5, int a6)
 {
     *(unsigned char *)((a4 + 0x5)) = (*(signed char *)((a4 + 0x60)));
     *(unsigned char *)((a4 + 0x60)) = 0x0;
@@ -1296,7 +1296,7 @@ int nlObjPutLoadTextureOnceGI(int a4, int a5, int a6, int a7)
     return (nlObjPutLoadTextureOnce_Sub(a4, a5, a6, a7, 0x1));
 }
 
-int FUN_8c0efa50(void)
+int nlPushMultiViewMatrix(void)
 {
     nlPushMatrix((*(int *)0x8C45087C));
     return nlMultiPushedMatrix();
@@ -1314,7 +1314,7 @@ int FUN_8c1e6738(int a4, int a5)
     return 0x1;
 }
 
-int FUN_8c200654(int a4)
+int mwSbGetPlayPos(int a4)
 {
     return nlsndStreamGetPlayPos((*(short *)((a4 + 0x6))));
 }
@@ -1353,7 +1353,7 @@ int ADXSJD_GetCof(int a4)
     return ADXB_GetCof((*(int *)((a4 + 0x4))));
 }
 
-int FUN_8c1feb60(int a4, int a5)
+int vmsfs_getword_big(int a4, int a5)
 {
     register int t0;
 
@@ -1400,12 +1400,12 @@ void FUN_8c1e3278(int a4)
     *(unsigned int *)((a4 + 0x4)) = (*(int *)0x8C45F930);
 }
 
-int FUN_8c1feb6a(int a4, int a5)
+int vmsfs_getword_little(int a4, int a5)
 {
     return (unsigned short)(*(short *)(((a4 + a5) + 0x0)));
 }
 
-void FUN_8c1feb72(int a4, int a5, int a6)
+void vmsfs_setword_big(int a4, int a5, int a6)
 {
     *(unsigned short *)(((a4 + a5) + 0x0)) = ((((unsigned int)a6) & 0xFFFF0000) | ((((unsigned int)a6) & 0xFF) << 8) | ((((unsigned int)a6) >> 8) & 0xFF));
 }
@@ -1540,7 +1540,7 @@ int FUN_8c1e6a34(int a4, int a5)
     return FUN_8c1ef450(a4, a5);
 }
 
-void FUN_8c1feb7a(int a4, int a5, int a6)
+void vmsfs_setword_little(int a4, int a5, int a6)
 {
     *(unsigned short *)(((a4 + a5) + 0x0)) = a6;
 }

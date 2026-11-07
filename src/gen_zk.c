@@ -7,9 +7,9 @@ int nlSetIntrPriority(int, int, int, int);
 int nlSynchFunction(int);
 int syChainAddHandler(int, int, int, int);
 int thunk_kmSetHSyncLine(int);
-int FUN_8c0f8100(int a4);
+int nlInitInterrupt0(int a4);
 
-int FUN_8c0f8100(int a4)
+int nlInitInterrupt0(int a4)
 {
     register int t0;
     register int t1;

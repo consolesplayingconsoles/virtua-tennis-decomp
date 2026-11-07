@@ -9,9 +9,9 @@ int mwSbSetVol(int, int, int, int, int, int, int);
 int nlsndStreamGenerateHdInfo(int);
 int nlsndStreamSetHdInfo(int, int);
 int nlsndStreamStart(int);
-int FUN_8c200548(int a4);
+int mwSbPlay(int a4);
 
-int FUN_8c200548(int a4)
+int mwSbPlay(int a4)
 {
     int stk[4];
     register int t30;
