@@ -274,7 +274,7 @@ class CPU:
         if (x ^ self.srx) & 0x20000000:                 # RB: a second bank of r0-r7 the simulator does not have
             raise Stop('ldc sr changes the register bank (not modelled)')
         # BL (bit 28, block exceptions) is kept as a bit: there are no exceptions or interrupts here to block, and stc sr reads it back
-        # (Virtua Tennis nlInitInterrupt0 sets it around the interrupt setup)
+        # (Virtua Tennis FUN_8c0f8100 sets it around the interrupt setup)
         self.t, self.s, self.q, self.mq = x & 1, (x >> 1) & 1, (x >> 8) & 1, (x >> 9) & 1
         self.srx = x & 0xFFFFFCFC
 
