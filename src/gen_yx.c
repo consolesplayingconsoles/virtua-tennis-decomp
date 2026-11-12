@@ -201,7 +201,7 @@ void FUN_8c0f8360(void);
 int FUN_8c1e2f60(void);
 int FUN_8c1e2f68(void);
 void FUN_8c1e326e(void);
-int FUN_8c1e629a(void);
+int kmiProcessVertex_17(void);
 int FUN_8c1f5d38(void);
 void FUN_8c200110(void);
 int FUN_8c200dd4(void);
@@ -1580,7 +1580,7 @@ void FUN_8c1e326e(void)
     
 }
 
-int FUN_8c1e629a(void)
+int kmiProcessVertex_17(void)
 {
     return 0x78;
 }

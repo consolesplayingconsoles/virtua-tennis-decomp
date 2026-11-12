@@ -93,7 +93,7 @@ int FUN_8c0f2fd0(int a4, int a5);
 int FUN_8c013d28(int a4);
 int FUN_8c0e716e(int a4, int a5);
 int ADXT_InsertSilence(int a4, int a5, int a6);
-int FUN_8c1e5280(int a4, int a5, int a6, int a7);
+int kmiProcessVertex_01(int a4, int a5, int a6, int a7);
 int gdFsDaPlayG(int a4, int a5, int a6);
 int nlLookAtUp(int a4, int a5, int a6);
 int FUN_8c1f5b60(void);
@@ -106,14 +106,14 @@ int nlObjPutCheckSideCulling(int a4);
 int ADXT_StartMemIdx(int a4, int a5, int a6);
 int nlSysMetricsGetFrameBufferUser(int a4, int a5, int a6);
 int nlLookAtUp_L(int a4, int a5, int a6);
-int FUN_8c1e53a0(int a4, int a5, int a6, int a7);
-int FUN_8c1e5c58(int a4, int a5, int a6, int a7);
+int kmiProcessVertex_02(int a4, int a5, int a6, int a7);
+int kmiProcessVertex_10(int a4, int a5, int a6, int a7);
 int gdFsDaPauseG(void);
 int gdDcfRepStat_(int a4, int a5);
 int nlFrustum(float f4, float f5, float f6, float f7, float f8, float f9);
 int nlFatalErrorTrap(int a4);
 int nlsndPackReload(int a4, int a5);
-int FUN_8c1e6120(int a4, int a5, int a6, int a7);
+int kmiProcessVertex_15(int a4, int a5, int a6, int a7);
 int nlFrustum_L(float f4, float f5, float f6, float f7, float f8, float f9);
 int nlsndPackReloadBG(int a4, int a5, int a6);
 int nlDispStripLoadPalette(int a4, int a5);
@@ -790,7 +790,7 @@ int ADXT_InsertSilence(int a4, int a5, int a6)
     return (((((int)((int)((0x0 + (t7 * ((((a5 << 2) << 1) + a5) << 1))) + (t21 * ((((a5 << 2) << 1) + a5) << 1))) / (int)((((a5 << 2) << 1) + a5) << 1))) << 2) << 2) << 1);
 }
 
-int FUN_8c1e5280(int a4, int a5, int a6, int a7)
+int kmiProcessVertex_01(int a4, int a5, int a6, int a7)
 {
     int stk[32];
     register int t5;
@@ -1424,7 +1424,7 @@ int nlLookAtUp_L(int a4, int a5, int a6)
     return (nlTranslateNV((*(int *)(((int)stk + 4)))));
 }
 
-int FUN_8c1e53a0(int a4, int a5, int a6, int a7)
+int kmiProcessVertex_02(int a4, int a5, int a6, int a7)
 {
     int stk[33];
     register int t5;
@@ -1462,7 +1462,7 @@ int FUN_8c1e53a0(int a4, int a5, int a6, int a7)
     return (kmyRegisterBGPlane((((int)stk + 4) + 0x14)));
 }
 
-int FUN_8c1e5c58(int a4, int a5, int a6, int a7)
+int kmiProcessVertex_10(int a4, int a5, int a6, int a7)
 {
     int stk[33];
     register int t5;
@@ -1773,7 +1773,7 @@ int nlsndPackReload(int a4, int a5)
     return t1;
 }
 
-int FUN_8c1e6120(int a4, int a5, int a6, int a7)
+int kmiProcessVertex_15(int a4, int a5, int a6, int a7)
 {
     int stk[30];
 

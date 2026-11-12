@@ -54,18 +54,18 @@ int FUN_8c0f0d80(int a4, float f4, float f5, float f6);
 int FUN_8c1f8120(int a4);
 int FUN_8c07f038(int a4, int a5, int a6, int a7, int a8, int a9, int a10);
 int FUN_8c200296(int a4);
-int FUN_8c1e55c0(int a4, int a5, int a6, int a7);
-int FUN_8c1e57a0(int a4, int a5, int a6, int a7);
+int kmiProcessVertex_05(int a4, int a5, int a6, int a7);
+int kmiProcessVertex_06(int a4, int a5, int a6, int a7);
 void FUN_8c0eaf30(int a4, int a5, int a6, int a7);
 int nlPerspective_L_0c079730(int a4, float f4, float f5, float f6);
 int nlPerspective_L(int a4, float f4, float f5, float f6);
 int ADXT_ExecErrChk(int a4);
 float FUN_8c049480(int a4, float f4, float f5);
 int FUN_8c0ec6a0(int a4, int a5, int a6, int a7, int a8, int a9);
-int FUN_8c1e594e(int a4, int a5, int a6, int a7);
-int FUN_8c1e5e80(int a4, int a5, int a6, int a7);
-int FUN_8c1e5a8e(int a4, int a5, int a6, int a7);
-int FUN_8c1e5fc0(int a4, int a5, int a6, int a7);
+int kmiProcessVertex_07(int a4, int a5, int a6, int a7);
+int kmiProcessVertex_13(int a4, int a5, int a6, int a7);
+int kmiProcessVertex_08(int a4, int a5, int a6, int a7);
+int kmiProcessVertex_14(int a4, int a5, int a6, int a7);
 int gdFsDaReleaseG(int a4);
 int FUN_8c1f5c40(float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11);
 
@@ -509,7 +509,7 @@ int FUN_8c200296(int a4)
     return 0x0;
 }
 
-int FUN_8c1e55c0(int a4, int a5, int a6, int a7)
+int kmiProcessVertex_05(int a4, int a5, int a6, int a7)
 {
     int stk[32];
     register int t5;
@@ -603,7 +603,7 @@ int FUN_8c1e55c0(int a4, int a5, int a6, int a7)
     return (kmyRegisterBGPlane((((int)stk + 4) + 0x10)));
 }
 
-int FUN_8c1e57a0(int a4, int a5, int a6, int a7)
+int kmiProcessVertex_06(int a4, int a5, int a6, int a7)
 {
     int stk[32];
     register int t5;
@@ -1185,7 +1185,7 @@ int FUN_8c0ec6a0(int a4, int a5, int a6, int a7, int a8, int a9)
     return t0;
 }
 
-int FUN_8c1e594e(int a4, int a5, int a6, int a7)
+int kmiProcessVertex_07(int a4, int a5, int a6, int a7)
 {
     int stk[36];
     register int t5;
@@ -1230,7 +1230,7 @@ int FUN_8c1e594e(int a4, int a5, int a6, int a7)
     return (kmyRegisterBGPlane((((int)stk + 4) + 0x18)));
 }
 
-int FUN_8c1e5e80(int a4, int a5, int a6, int a7)
+int kmiProcessVertex_13(int a4, int a5, int a6, int a7)
 {
     int stk[36];
     register int t5;
@@ -1275,7 +1275,7 @@ int FUN_8c1e5e80(int a4, int a5, int a6, int a7)
     return (kmyRegisterBGPlane((((int)stk + 4) + 0x18)));
 }
 
-int FUN_8c1e5a8e(int a4, int a5, int a6, int a7)
+int kmiProcessVertex_08(int a4, int a5, int a6, int a7)
 {
     int stk[36];
     register int t5;
@@ -1319,7 +1319,7 @@ int FUN_8c1e5a8e(int a4, int a5, int a6, int a7)
     return (kmyRegisterBGPlane((((int)stk + 4) + 0x18)));
 }
 
-int FUN_8c1e5fc0(int a4, int a5, int a6, int a7)
+int kmiProcessVertex_14(int a4, int a5, int a6, int a7)
 {
     int stk[36];
     register int t5;

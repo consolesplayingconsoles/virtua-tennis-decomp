@@ -133,7 +133,7 @@ int syTmrInt1SetEx(int a4, int a5, int a6, int a7);
 int nlLightAllOff(void);
 int ADXT_IsHeader(int a4, int a5, int a6);
 int FUN_8c081e9e(void);
-int FUN_8c1e5be0(int a4, int a5, int a6, int a7);
+int kmiProcessVertex_09(int a4, int a5, int a6, int a7);
 int nlReturnLightAll(void);
 int nlScreenPoint(int a4, int a5, int a6, float f4, float f5, float f6);
 int FUN_8c1e7fd8(int a4, int a5, int a6);
@@ -1258,7 +1258,7 @@ int FUN_8c081e9e(void)
     return (nlPrintf(0x8C10DA58, t23));
 }
 
-int FUN_8c1e5be0(int a4, int a5, int a6, int a7)
+int kmiProcessVertex_09(int a4, int a5, int a6, int a7)
 {
     int stk[31];
     register int t5;
