@@ -462,7 +462,7 @@ int FUN_8c01219e(int a4, int a5)
                 if ((int)t212 >= (int)0x4) {
                     break;
                 }
-                t208 = 0x12;
+                t208 = 0x8C287ACC;                     /* the original reads its stack word 0, 0x8C287ACC (stored at 8C0126EC): each player's CPU flag at +0x14 */
                 t211 = t212;
                 t211 = (t211 << 2);
                 t213 = t212;
@@ -472,7 +472,7 @@ int FUN_8c01219e(int a4, int a5)
                 t209 = (*(int *)((t211 + 0x0)));
                 t213 = (t213 << 2);
                 t213 = (t213 + (((int)stk + 4) + 0x14));
-                if ((t209 == 0) && ((t208 = 0x12, t217 = *(int *)((t208 + 0x10)), t208 = t217, t208 != 2) || (t210 = 0x1, (int)t212 <= (int)t210))) {
+                if ((t209 == 0) && ((t208 = 0x8C287ACC, t217 = *(int *)((t208 + 0x10)), t208 = t217, t208 != 2) || (t210 = 0x1, (int)t212 <= (int)t210))) {
                     t211 = 0xD78;
                     t208 = 0x8C2888E8;
                     t211 = (t212 * t211);
@@ -499,7 +499,7 @@ int FUN_8c01219e(int a4, int a5)
                     if ((int)t235 >= (int)0x4) {
                         return t234;
                     }
-                    t234 = 0x12;
+                    t234 = 0x8C287ACC;                 /* stack word 0, as above (not 0x12: that read 0x26 + 4i, and a CPU opponent counted as a player who can pause) */
                     if ((*(int *)((((t235 << 2) + (t234 + 0x14)) + 0x0))) == 0) {
                         t234 = 0xD78;
                         t234 = (t235 * t234);
