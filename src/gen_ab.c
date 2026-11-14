@@ -11,9 +11,9 @@ int _mvsto2b(int, int);
 int check_file_correct(int, int);
 int kmiFLWCTRLCheckFinishPacket(int);
 int kmiFLWCTRLFindTopQueue(void);
-int kmiFLWCTRLStartDMAEntry(void);
+int kmiFLWCTRLStartDMAEntry(int);
 int kmiFLWCTRLStartDisplayEntry(int);
-int kmiFLWCTRLStartRenderEntry(void);
+int kmiFLWCTRLStartRenderEntry(int);
 int kmiGuaranteeFFModeProcessOver(int, int);
 int kmiReadRegister(int);
 int memmove(int, int, int);
@@ -412,59 +412,6 @@ int mwRnaSetTransSw(int a4, int a5, int a6, int a7)
     return t36;
 }
 
-int kmiFLWCTRLRotateReadyQueue(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t14;
-    int t32;
-    int t5;
-    int t31;
-
-    t0 = kmiFLWCTRLFindTopQueue();
-    if (t0 != 0) {
-        t1 = _builtin_get_imask();
-        _builtin_set_imask(0xF);
-        t2 = 0x0;
-        t3 = t0;
-        for (;;) {
-            t4 = kmiFLWCTRLCheckFinishPacket(t3);
-            if ((t4 != 0) && (t5 = *(int *)((t3 + 0x14)), (t5 & 0x1) == 0)) {
-                t14 = *(int *)((t3 + 0x14));
-                if (t14 != 2) {
-                    if (t14 != 4) {
-                        if (t14 != 6) {
-                        } else {
-                            if (((*(int *)0x8C4607C0) == 0) && (a4 != 0)) {
-                                kmiFLWCTRLStartDisplayEntry(t3);
-                            }
-                        }
-                    } else {
-                        if ((((*(int *)((t3 + 0x38))) != 0) && (a4 != 1)) || (t31 = *(int *)0x8C4607B4, t31 != 0)) {
-                        } else {
-                            t32 = kmiFLWCTRLStartRenderEntry();
-                            if (t32 == 0) {
-                                t2 = 0x1;
-                            }
-                        }
-                    }
-                } else {
-                    kmiFLWCTRLStartDMAEntry();
-                }
-            }
-            t3 = (*(int *)((t3 + 0x10)));
-            if (t3 == 0) {
-                break;
-            }
-        }
-        kmiGuaranteeFFModeProcessOver(a4, t2);
-        _builtin_set_imask(((unsigned int)(((t1 & 0xF) << 2) << 2) >> 4));
-    }
-    return 0x0;
-}
 
 int buFbrCreateFiber(int a4, int a5, int a6, int a7)
 {
@@ -809,3 +756,58 @@ int nlArcTan2(float f4, float f5)
     }
     return t24;
 }
+
+int kmiFLWCTRLRotateReadyQueue(int a4)
+{
+    int t0;
+    int t1;
+    int t2;
+    int t3;
+    int t4;
+    int t14;
+    int t32;
+    int t5;
+    int t31;
+
+    t0 = kmiFLWCTRLFindTopQueue();
+    if (t0 != 0) {
+        t1 = _builtin_get_imask();
+        _builtin_set_imask(0xF);
+        t2 = 0x0;
+        t3 = t0;
+        for (;;) {
+            t4 = kmiFLWCTRLCheckFinishPacket(t3);
+            if ((t4 != 0) && (t5 = *(int *)((t3 + 0x14)), (t5 & 0x1) == 0)) {
+                t14 = *(int *)((t3 + 0x14));
+                if (t14 != 2) {
+                    if (t14 != 4) {
+                        if (t14 != 6) {
+                        } else {
+                            if (((*(int *)0x8C4607C0) == 0) && (a4 != 0)) {
+                                kmiFLWCTRLStartDisplayEntry(t3);
+                            }
+                        }
+                    } else {
+                        if ((((*(int *)((t3 + 0x38))) != 0) && (a4 != 1)) || (t31 = *(int *)0x8C4607B4, t31 != 0)) {
+                        } else {
+                            t32 = kmiFLWCTRLStartRenderEntry(t3);
+                            if (t32 == 0) {
+                                t2 = 0x1;
+                            }
+                        }
+                    }
+                } else {
+                    kmiFLWCTRLStartDMAEntry(t3);
+                }
+            }
+            t3 = (*(int *)((t3 + 0x10)));
+            if (t3 == 0) {
+                break;
+            }
+        }
+        kmiGuaranteeFFModeProcessOver(a4, t2);
+        _builtin_set_imask(((unsigned int)(((t1 & 0xF) << 2) << 2) >> 4));
+    }
+    return 0x0;
+}
+

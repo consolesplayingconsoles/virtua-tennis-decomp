@@ -29,7 +29,7 @@ int str_len(int);
 int syRtcAicaSetDateHi(int);
 int syRtcAicaSetDateLo(int);
 int syRtcAicaSetWriteFlag(void);
-int syRtcDateToCount(void);
+int syRtcDateToCount(int, int);
 int syRtcGetCountForce(void);
 int vmsfs_read_retry(int, int, int);
 int vsprintf(int, int, int);
@@ -38,7 +38,7 @@ int pdTmrAlarm(int a4, int a5);
 int kdInitSystem(int a4, int a5);
 int read_fat(int a4);
 int ovSearchLibByUuid(int a4);
-int syRtcSetDate(void);
+int syRtcSetDate(int a4);
 int search_fat_free(int a4, int a5);
 int search_fat(int a4, int a5);
 int ovLibEntryTbl(int a4);
@@ -152,7 +152,7 @@ int ovSearchLibByUuid(int a4)
     return t1;
 }
 
-int syRtcSetDate(void)
+int syRtcSetDate(int a4)
 {
     int t1;
     int t23;
@@ -166,9 +166,8 @@ int syRtcSetDate(void)
     int stk[3];
     int R1004;
 
+    syRtcDateToCount(a4, ((int)stk + 4));
     R1004 = *(int *)((int)stk + 4);
-
-    syRtcDateToCount();
     t1 = syRtcAicaSetWriteFlag();
     t23 = t1;
     if (t1 == 0) {

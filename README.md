@@ -4,10 +4,7 @@
 
 **Explore this decomp project with [Shuriken Explorer](https://consolesplayingconsoles.github.io/dc-shuriken-explorer/) and see the game's models, skeletons, animations, textures, images, sounds, text and side-by-side C and assembly code directly in your browser.**
 
-**A complete decompilation of the Dreamcast Virtua Tennis**. It builds and plays. Please report any issue.
-
-Known issues:
-- Exhibition mode crashes at startup
+**A complete decompilation of the Dreamcast Virtua Tennis**. It builds and plays. No issues are known, please report any.
 
 It rebuilds the game's executable byte for byte. 
 A function is **done** when its C behaves like the original (Equivalent);

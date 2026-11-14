@@ -51,6 +51,9 @@ def entries():
     return sorted(out)
 
 
+_held = {}
+
+
 def reach(start, stop_at=None, tails=()):
     """(end, flags): the end of the code reachable from start by its own branches (calls are not followed), the set of reached
     addresses, and what was seen: 'table' (a jump through a register), 'off' (ran past stop_at or the executable).
@@ -73,7 +76,9 @@ def reach(start, stop_at=None, tails=()):
             end = max(end, a + 2)
             if m in ('bt', 'bf'):
                 if target is not None:
-                    if target < start:                 # a conditional branch out of the start backwards: no function does that
+                    if target in tails:                # to another listed function's entry: a conditional tail jump, not more of
+                        pass                           # this one (Zombie Revenge 0C086A44 ends a path with `bt FUN_0c08696c`, before it)
+                    elif target < start:               # a conditional branch out of the start backwards: no function does that
                         flags.add('back')              # (Crazy Taxi FUN_0c089f4c, a table of words whose first word decodes as bt)
                     else:
                         todo.append(target)
@@ -165,7 +170,9 @@ def main(argv):
                 break
         why = []
         if holder:
-            hend, hseen, hflags = reach(holder[0], stop_at=None)
+            if holder[0] not in _held:            # one walk a holding function: a whole-game list asks about the same one many times
+                _held[holder[0]] = reach(holder[0], stop_at=None)
+            hend, hseen, hflags = _held[holder[0]]
             if a in hseen:
                 rows.append((a, 'label inside %s' % holder[2], '', 'reached by its own branches'))
                 continue

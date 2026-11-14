@@ -253,35 +253,6 @@ void sprSet115Free(void)
     }
 }
 
-void uniformPreviewFree(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t5;
-    int t7;
-
-    t0 = 0x8C37DBBC;
-    t1 = 0x0;
-    do {
-        t2 = *(int *)((t0 + 0x0));
-        if (t2 != 0) {
-            t3 = *(int *)((0x8C124DE0 + t1));
-            nlSetCommonTextureOffset(t3);
-            t5 = *(int *)((0x8C1B1D8C + t1));
-            nlObjPutFreeTextureOnce();
-            *(unsigned int *)((0x8C37DBBC + t1)) = 0x0;
-        }
-        t0 = (t0 + 0x4);
-        t1 = (t1 + 0x4);
-    } while ((unsigned int)t0 < (unsigned int)0x8C37DBCC);
-    t7 = 0x8C37DB44;
-    do {
-        *(unsigned int *)((t7 + 0x0)) = 0x0;
-        t7 = (t7 + 0x4);
-    } while ((unsigned int)t7 < (unsigned int)0x8C37DBBC);
-}
 
 
 void strmVoiceQueueClear(void)

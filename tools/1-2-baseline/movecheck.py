@@ -85,6 +85,10 @@ def groups(starts, listed, code, word, pools, end, stay=None, pool32=None, bsr_t
                 d -= 0x1000 if d & 0x800 else 0
                 if abs(2 * d) > REACH:
                     t = x + 4 + 2 * d
+            elif w >> 8 in (0x89, 0x8B, 0x8D, 0x8F):      # bt / bf (and /s) reach 256 bytes: one that leaves its piece (a tail jump to another
+                d = w & 0xFF                              # function, Zombie Revenge 0C086A44 -> FUN_0c08696c) ties the two, or a pad breaks it
+                d -= 0x100 if d & 0x80 else 0
+                t = x + 4 + 2 * d
             elif (w & 0xF0FF) in (0x0003, 0x0023) and pool32 is not None:      # bsrf / braf Rn: the target is this instruction + 4 +
                 rn = (w >> 8) & 0xF                                              # Rn, and Rn came from a pool word: a distance, no address
                 for y in range(x - 2, max(a - 2, x - 26), -2):                       # (Crazy Taxi strcmp -> _slow_strcmp1, 0x8A0 bytes on; a pad

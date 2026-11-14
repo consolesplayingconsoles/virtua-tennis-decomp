@@ -37,7 +37,7 @@ int syCacheInit_P2_(int);
 int syChainAddHandler(int, int, int, int);
 int syG2Write(int, int, int, int, int, int);
 int syIntInit(int, int);
-int syRtcDateToCount(void);
+int syRtcDateToCount(int, int);
 int syRtcGetAndCheckCount(int);
 int syRtcGetCountForce(void);
 int sySqInit(void);
@@ -160,9 +160,8 @@ int syRtcCompareDate(int a4, int a5)
     int stk[5];
 
     *(unsigned int *)(((int)stk + 12)) = a5;
-    syRtcDateToCount();
-    *(volatile int *)(((int)stk + 12));
-    syRtcDateToCount();
+    syRtcDateToCount(a4, ((int)stk + 8));
+    syRtcDateToCount((*(int *)(((int)stk + 12))), ((int)stk + 4));
     t4 = *(int *)(((int)stk + 4));
     t10 = 0x0;
     if ((*(int *)(((int)stk + 8))) == t4) {
