@@ -5777,41 +5777,6 @@ int charaTexFreeAll(void)
     return t4;
 }
 
-void charaTexReloadAll(void)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-
-    t0 = 0x8C1B05DC;
-    t1 = 0x8C1B054C;
-    t2 = 0x8C1AFA64;
-    do {
-        t3 = *(int *)((t2 + 0x0));
-        if (t3 != 0) {
-            t4 = *(int *)((t0 + 0x0));
-            nlSetCommonTextureOffset(t4);
-            t6 = 0x0;
-            for (;;) {
-                t7 = charaModelCount(t6);
-                if ((int)t6 >= (int)t7) break;
-                t8 = *(int *)((t1 + 0x0));
-                t9 = *(int *)((t8 + (t6 << 2)));
-                nlObjPutSetGarbagedTexture();
-                t6 = (t6 + 0x1);
-            }
-        }
-        t2 = (t2 + 0x4);
-        t1 = (t1 + 0x4);
-        t0 = (t0 + 0x4);
-    } while ((unsigned int)t2 < (unsigned int)0x8C1AFAAC);
-}
 
 int commonSprInitAll(void)
 {

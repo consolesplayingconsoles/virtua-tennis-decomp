@@ -751,24 +751,6 @@ int kmySetPassInfo(int a4, int a5, int a6)
     return 0xEEEE;
 }
 
-int strmBgmFadeOut(int a4, int a5)
-{
-    int t0;
-    int t1;
-    int t2;
-
-    t0 = *(int *)0x8C38BA94;
-    if (a4 != 0) {
-        t1 = ADXT_GetOutVol(t0);
-        *(unsigned int *)0x8C38BA68 = t1;
-        *(unsigned int *)0x8C40C220 = 0x2;
-        *(unsigned int *)0x8C40C22C = a5;
-        t2 = *(int *)0x8C38BA68;
-        *(float *)0x8C40C224 = ((float)(t2 + 0xDC) / ((float)a4 * 60.0f));
-        return 0x4;
-    }
-    return ADXT_Stop();
-}
 
 
 int mwRnaSetOutPan(int a4, int a5, int a6)

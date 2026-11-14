@@ -62,78 +62,6 @@ void ADXF_Ocbi(int a4, int a5);
 
 
 
-int sceneTwoPlayerSetup(int a4, int a5, int a6)
-{
-    int t19;
-    int t25;
-    int t46;
-    int t5;
-    int t9;
-    int stk[20];
-
-    { struct mv4 { int w[4]; }; *(struct mv4 *)((((int)stk + 20) + 0x8)) = *(struct mv4 *)(0x8C10DFBC); }
-    if ((*(int *)0x8C287ADC) == 4) {
-        if (((*(int *)0x8C34326C) != 0) && (t5 = *(int *)0x8C3432DC, t5 != 0)) {
-            *(unsigned int *)0x8C185408 = 0x1;
-            *(unsigned int *)((((int)stk + 20) + 0x0)) = 0x0;
-            *(unsigned int *)((((int)stk + 20) + 0x4)) = 0x2;
-        }
-        if (((*(int *)0x8C3432A4) != 0) && (t9 = *(int *)0x8C343314, t9 != 0)) {
-            *(unsigned int *)0x8C185408 = 0x2;
-            *(unsigned int *)((((int)stk + 20) + 0x0)) = 0x1;
-            *(unsigned int *)((((int)stk + 20) + 0x4)) = 0x3;
-        }
-    } else {
-        if ((*(int *)0x8C34326C) != 0) {
-            *(unsigned int *)((((int)stk + 20) + 0x0)) = 0x0;
-        } else {
-            *(unsigned int *)((((int)stk + 20) + 0x0)) = 0x1;
-        }
-    }
-    t19 = set_event(0x38, 0x8C08D78C);
-    *(unsigned int *)((t19 + 0x20)) = 0x0;
-    *(unsigned int *)((t19 + 0x24)) = 0x0;
-    vecMake(0x0, 0x0, 0x0, 0x0, (0x14 + t19), 0.0f, 0.0f, -20.0f);
-    *(unsigned short *)((t19 + 0x28)) = 0x0;
-    if ((unsigned short)(*(short *)0x8C343262) == 1) {
-        *(unsigned int *)((t19 + 0x2C)) = 0x0;
-    } else {
-        *(unsigned int *)((t19 + 0x2C)) = 0x1;
-    }
-    nlsndSeqRequest(0x503A9);
-    matchSetupPlayers();
-    t25 = *(int *)((((int)stk + 20) + 0x0));
-    *(unsigned int *)((t19 + 0x30)) = ((t25 * 0xD78) + 0x8C287D84);
-    playerInit(((t25 * 0xD78) + 0x8C287D84), (*(int *)((((int)stk + 20) + 0x0))));
-    *(unsigned int *)0x8C29466C = 0x0;
-    *(unsigned int *)0x8C294668 = 0x0;
-    *(unsigned int *)(((0xB5C + (*(int *)((t19 + 0x30)))) + 0x0)) = (*(int *)((((int)stk + 20) + 0x0)));
-    *(unsigned int *)(((*(int *)((t19 + 0x30))) + 0xC58)) = 0x10;
-    *(float *)(((*(int *)((t19 + 0x30))) + 0xC90)) = 0.0f;
-    *(float *)(((*(int *)((t19 + 0x30))) + 0xB18)) = 0.0f;
-    *(unsigned short *)(((*(int *)((t19 + 0x30))) + 0xB10)) = 0x0;
-    *(unsigned short *)(((*(int *)((t19 + 0x30))) + 0xB12)) = 0x0;
-    *(unsigned int *)(((*(int *)((t19 + 0x30))) + 0xD4C)) = 0x0;
-    vecMake(0x0, 0x0, 0x0, 0x0, (0xAE8 + (*(int *)((t19 + 0x30)))), 0.0f, 0.0f, -20.0f);
-    motionSet((*(int *)((t19 + 0x30))), 0x118E84, 0x1, 0x12755C, 0x8C157020, ((*(int *)0x8C2873D0)), (*(float *)0x8C23D204));
-    if ((*(int *)0x8C287ADC) == 4) {
-        vecMake(0x0, 0x0, 0x0, 0x0, (0xAE8 + (*(int *)((t19 + 0x30)))), -4.0f, 0.0f, -20.0f);
-        t46 = *(int *)(((((int)stk + 20) + 0x4) + 0x0));
-        *(unsigned int *)((t19 + 0x34)) = ((t46 * 0xD78) + 0x8C287D84);
-        playerInit(((t46 * 0xD78) + 0x8C287D84), (*(int *)(((((int)stk + 20) + 0x4) + 0x0))));
-        *(unsigned int *)(((*(int *)((t19 + 0x30))) + 0xB5C)) = (*(int *)(((((int)stk + 20) + 0x4) + 0x0)));
-        *(unsigned int *)(((*(int *)((t19 + 0x34))) + 0xC58)) = 0x11;
-        *(unsigned short *)(((*(int *)((t19 + 0x34))) + 0xB10)) = 0x0;
-        *(unsigned short *)(((*(int *)((t19 + 0x34))) + 0xB12)) = 0x0;
-        *(float *)(((*(int *)((t19 + 0x34))) + 0xC90)) = 0.0f;
-        *(float *)(((*(int *)((t19 + 0x34))) + 0xB18)) = 0.0f;
-        *(unsigned int *)(((*(int *)((t19 + 0x34))) + 0xD4C)) = 0x0;
-        vecMake(0x0, 0x0, 0x0, 0x0, (0xAE8 + (*(int *)((t19 + 0x34)))), 4.0f, 0.0f, -20.0f);
-        motionSet((*(int *)((t19 + 0x34))), 0x117244, 0x1, 0x12755C, 0x8C1570A4, ((*(int *)0x8C2873D0)), (*(float *)0x8C23D204));
-    }
-    *(unsigned int *)0x8C287C60 = 0x0;
-    return (vecMake(0x0, 0x0, 0x0, 0x0, 0x8C32DDA4, 0.0f, 0.0f, 0.0f));
-}
 
 
 int fadeQuadDraw(int a4, int a5, int a6, float f4, float f5)
@@ -542,5 +470,78 @@ float cpuSglPickLv07(int a4, int a5, float f4, float f5)
         u108 = u92;
     }
     return u108;
+}
+
+int sceneTwoPlayerSetup(int a4, int a5, int a6)
+{
+    int t19;
+    int t25;
+    int t46;
+    int t5;
+    int t9;
+    int stk[20];
+
+    { struct mv4 { int w[4]; }; *(struct mv4 *)((((int)stk + 20) + 0x8)) = *(struct mv4 *)(0x8C10DFBC); }
+    if ((*(int *)0x8C287ADC) == 4) {
+        if (((*(int *)0x8C34326C) != 0) && (t5 = *(int *)0x8C3432DC, t5 != 0)) {
+            *(unsigned int *)0x8C185408 = 0x1;
+            *(unsigned int *)((((int)stk + 20) + 0x0)) = 0x0;
+            *(unsigned int *)((((int)stk + 20) + 0x4)) = 0x2;
+        }
+        if (((*(int *)0x8C3432A4) != 0) && (t9 = *(int *)0x8C343314, t9 != 0)) {
+            *(unsigned int *)0x8C185408 = 0x2;
+            *(unsigned int *)((((int)stk + 20) + 0x0)) = 0x1;
+            *(unsigned int *)((((int)stk + 20) + 0x4)) = 0x3;
+        }
+    } else {
+        if ((*(int *)0x8C34326C) != 0) {
+            *(unsigned int *)((((int)stk + 20) + 0x0)) = 0x0;
+        } else {
+            *(unsigned int *)((((int)stk + 20) + 0x0)) = 0x1;
+        }
+    }
+    t19 = set_event(0x38, 0x8C08D78C);
+    *(unsigned int *)((t19 + 0x20)) = 0x0;
+    *(unsigned int *)((t19 + 0x24)) = 0x0;
+    vecMake(0x0, 0x0, 0x0, 0x0, (0x14 + t19), 0.0f, 0.0f, -20.0f);
+    *(unsigned short *)((t19 + 0x28)) = 0x0;
+    if ((unsigned short)(*(short *)0x8C343262) == 1) {
+        *(unsigned int *)((t19 + 0x2C)) = 0x0;
+    } else {
+        *(unsigned int *)((t19 + 0x2C)) = 0x1;
+    }
+    nlsndSeqRequest(0x503A9);
+    matchSetupPlayers();
+    t25 = *(int *)((((int)stk + 20) + 0x0));
+    *(unsigned int *)((t19 + 0x30)) = ((t25 * 0xD78) + 0x8C287D84);
+    playerInit(((t25 * 0xD78) + 0x8C287D84), (*(int *)((((int)stk + 20) + 0x0))));
+    *(unsigned int *)0x8C29466C = 0x0;
+    *(unsigned int *)0x8C294668 = 0x0;
+    *(unsigned int *)(((0xB5C + (*(int *)((t19 + 0x30)))) + 0x0)) = (*(int *)((((int)stk + 20) + 0x0)));
+    *(unsigned int *)(((*(int *)((t19 + 0x30))) + 0xC58)) = 0x10;
+    *(float *)(((*(int *)((t19 + 0x30))) + 0xC90)) = 0.0f;
+    *(float *)(((*(int *)((t19 + 0x30))) + 0xB18)) = 0.0f;
+    *(unsigned short *)(((*(int *)((t19 + 0x30))) + 0xB10)) = 0x0;
+    *(unsigned short *)(((*(int *)((t19 + 0x30))) + 0xB12)) = 0x0;
+    *(unsigned int *)(((*(int *)((t19 + 0x30))) + 0xD4C)) = 0x0;
+    vecMake(0x0, 0x0, 0x0, 0x0, (0xAE8 + (*(int *)((t19 + 0x30)))), 0.0f, 0.0f, -20.0f);
+    motionSet((*(int *)((t19 + 0x30))), 0x118E84, 0x1, 0x12755C, 0x8C157020, ((*(int *)0x8C2873D0)), (*(float *)0x8C23D204));
+    if ((*(int *)0x8C287ADC) == 4) {
+        vecMake(0x0, 0x0, 0x0, 0x0, (0xAE8 + (*(int *)((t19 + 0x30)))), -4.0f, 0.0f, -20.0f);
+        t46 = *(int *)(((((int)stk + 20) + 0x4) + 0x0));
+        *(unsigned int *)((t19 + 0x34)) = ((t46 * 0xD78) + 0x8C287D84);
+        playerInit(((t46 * 0xD78) + 0x8C287D84), (*(int *)(((((int)stk + 20) + 0x4) + 0x0))));
+        *(unsigned int *)(((*(int *)((t19 + 0x30))) + 0xB5C)) = (*(int *)(((((int)stk + 20) + 0x4) + 0x0)));
+        *(unsigned int *)(((*(int *)((t19 + 0x34))) + 0xC58)) = 0x11;
+        *(unsigned short *)(((*(int *)((t19 + 0x34))) + 0xB10)) = 0x0;
+        *(unsigned short *)(((*(int *)((t19 + 0x34))) + 0xB12)) = 0x0;
+        *(float *)(((*(int *)((t19 + 0x34))) + 0xC90)) = 0.0f;
+        *(float *)(((*(int *)((t19 + 0x34))) + 0xB18)) = 0.0f;
+        *(unsigned int *)(((*(int *)((t19 + 0x34))) + 0xD4C)) = 0x0;
+        vecMake(0x0, 0x0, 0x0, 0x0, (0xAE8 + (*(int *)((t19 + 0x34)))), 4.0f, 0.0f, -20.0f);
+        motionSet((*(int *)((t19 + 0x34))), 0x117244, 0x1, 0x12755C, 0x8C1570A4, ((*(int *)0x8C2873D0)), (*(float *)0x8C23D204));
+    }
+    *(unsigned int *)0x8C287C60 = 0x0;
+    return (vecMake(0x0, 0x0, 0x0, 0x0, 0x8C32DDA4, 0.0f, 0.0f, 0.0f));
 }
 
