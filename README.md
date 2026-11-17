@@ -26,18 +26,18 @@ everything game-derived on your machine, and `.gitignore` keeps it out of git.
 
 <!-- progress -->
 ```
-TOTAL TEST COVERAGE           70.9%  the instructions the cases ran, of all instructions, over the 3900 functions that can be C; the 3899 functions that reached the check are measured, the others count 0
-FUNCTIONS LEFT  (100.0% complete) 1  of the 3900 functions that can be C (12 with no C form are counted apart)
-BYTES LEFT    (100.0% complete) 454  of 1032834 bytes of code that can be C
+TOTAL TEST COVERAGE           71.0%  the instructions the cases ran, of all instructions, over the 3911 functions that can be C; the 3910 functions that reached the check are measured, the others count 0
+FUNCTIONS LEFT  (100.0% complete) 1  of the 3911 functions that can be C (13 with no C form are counted apart)
+BYTES LEFT    (100.0% complete) 454  of 1033102 bytes of code that can be C
 FUNCTIONS                            
-  unnamed                       577  functions still called FUN_... (577 of 4069)
+  unnamed                       589  functions still called FUN_... (589 of 4081)
   Not written C                   0  0 bytes
   Written C with errors           0  0 bytes
   Not drawn                       1  454 bytes
   Drawn with errors               0  0 bytes
   Checked with errors             0  0 bytes
   No C form                    0.3%  an instruction or a register convention with no C form (tools/5-generated/classify.py names it)
-  documented                  82.1%  3341 named functions in docs/*.md
+  documented                  81.9%  3341 named functions in docs/*.md
 GAME ASSETS (EXTRA)                  
   models named                23.3%  874 of 3745 models: a name, or a named table or collection
   characters named           100.0%  18 of 18 characters (note rules)
