@@ -1,0 +1,1267 @@
+--- a/src/gen_aa.c
++++ b/src/gen_aa.c
+@@ -296,7 +296,11 @@
+     if ((int)byteCount <= 0) {
+         return;
+     }
+-    ((int (*)(int, int, int))(0x8C1FF1E8))(sourceAddress, destinationAddress, (byteCount - 1));
++    for (; (int)byteCount > 0; byteCount--) {        /* the loop at 0x8C1FF1E8 */
++        *(unsigned char *)destinationAddress = *(unsigned char *)sourceAddress;
++        sourceAddress = sourceAddress + 1;
++        destinationAddress = destinationAddress + 1;
++    }
+ }
+ 
+ float lerpf(float f4, float f5, float f6)
+--- a/src/gen_a.c
++++ b/src/gen_a.c
+@@ -39,7 +39,7 @@
+ int cpuSglAimTable(void);
+ int sprTexLoad(int);
+ int sprTexFree(int);
+-int sprPutAlpha(int);
++int sprPutAlpha(int, float);
+ int menuIconInitA(void);
+ int menuIconInitB(void);
+ int logoAInit(void);
+@@ -195,7 +195,7 @@
+ int kmGetSystemMetrics(int);
+ int kmLoadTexture(int, int);
+ int kmSetCheapShadowMode(void);
+-int kmSetFogTable(void);
++int kmSetFogTable(int);
+ int kmiConvertUVnum(int);
+ int kmiFLWCTRLFindFreeNBuf(void);
+ int kmiReadRegister(int);
+@@ -1355,19 +1355,22 @@
+     return t3;
+ }
+ 
+-int initSprPut0(void)
++int initSprPut0(int a4, float f4)
+ {
+-    return sprPutAlpha(0x8C37E98C);
++    /* the alpha (fr4) goes on to sprPutAlpha as it came */
++    return sprPutAlpha(0x8C37E98C, f4);
+ }
+ 
+-int initSprPut1(void)
++int initSprPut1(int a4, float f4)
+ {
+-    return sprPutAlpha(0x8C37E9DC);
++    /* the alpha (fr4) goes on to sprPutAlpha as it came */
++    return sprPutAlpha(0x8C37E9DC, f4);
+ }
+ 
+-int initSprPut2(void)
++int initSprPut2(int a4, float f4)
+ {
+-    return sprPutAlpha(0x8C37EA2C);
++    /* the alpha (fr4) goes on to sprPutAlpha as it came */
++    return sprPutAlpha(0x8C37EA2C, f4);
+ }
+ 
+ int initSprFree(void)
+@@ -1986,9 +1989,10 @@
+     *(unsigned int *)0x8C1DC8CC = a4;
+ }
+ 
+-int nlFogTableSet(void)
++int nlFogTableSet(int a4)
+ {
+-    return kmSetFogTable();
++    /* the table (r4) goes on to kmSetFogTable as it came */
++    return kmSetFogTable(a4);
+ }
+ 
+ 
+--- a/src/gen_ae.c
++++ b/src/gen_ae.c
+@@ -92,7 +92,7 @@
+ int selCellSetChosen(int a4, int a5, int a6, int a7);
+ void emotKeyDel(int a4, int a5);
+ int stageLoadEndingModels(void);
+-int nlSetIntrFunction(int a4);
++int nlSetIntrFunction(int a4, int a5);
+ int stageLoadMinigameModels(void);
+ int stageLoadWtcSprites(void);
+ int nlFreeCommonTextureAll(void);
+@@ -610,7 +610,7 @@
+     return (*(int *)0x8C343FE8);
+ }
+ 
+-int nlSetIntrFunction(int a4)
++int nlSetIntrFunction(int a4, int a5)
+ {
+     int t0;
+     int t4;
+@@ -618,7 +618,8 @@
+     t0 = _builtin_get_imask();
+     _builtin_set_imask(0xE);
+     if ((int)a4 < (int)0xD) {
+-        t4 = (((int (*)(int))((*(int *)(((a4 << 2) + 0x8C1DCB98)))))(a4));
++        /* the setter takes the function in r5, which the original leaves as the caller passed it */
++        t4 = (((int (*)(int, int))((*(int *)(((a4 << 2) + 0x8C1DCB98)))))(a4, a5));
+     } else {
+         t4 = (nlIntrDefaultFunction());
+     }
+@@ -952,8 +953,8 @@
+     *(unsigned int *)(((int)stk + 8)) = 0x0;
+     t0 = 0x0;
+     for (;;) {
+-        t5 = *(int *)(((int)stk + 8));
+         t0 = (t0 | (nlObjPutLoadTextureOnce_Sub((*(int *)(((int)stk + 16))), (*(int *)(((int)stk + 12))), (*(int *)(((int)stk + 8))), (((int)stk + 4) + 0x4), 0x0)));
++        t5 = *(int *)(((int)stk + 8));     /* the cursor the call advanced: the original tests it after the call (8C0F1EB2) */
+         if (t5 == 0) {
+             break;
+         }
+--- a/src/gen_am.c
++++ b/src/gen_am.c
+@@ -59,6 +59,7 @@
+ int ovLibOpen(int a4);
+ int kmyWriteFogDMA(int a4);
+ int circuitStageStart(void);
++int FUN_8c032e32(void);
+ float effServeSpeedCalc(int a4);
+ int exprPlay(int a4, int a5, int a6);
+ float easeSin(int a4, float f4, float f5, float f6);
+@@ -400,13 +401,13 @@
+     return kmiSetFogDMA(a4, 0x0, 0x8C4707EC, 0x200);
+ }
+ 
+-int circuitStageStart(void)
++/* port: the function at 0x8C032E32 (functions.txt counts it in circuitStageStart, which falls into it): a state of its own in
++   the game's table (0x8C108260..), reached without the set-up before it */
++int FUN_8c032e32(void)
+ {
+     int t0;
+     int t1;
+     int t4;
+-
+-    *(unsigned int *)0x8C2FBE9C = 0x0;
+     t0 = *(int *)0x8C2FBE1C;
+     t1 = *(int *)0x8C2FBC50;
+     *(unsigned int *)0x8C2FBE20 = (*(int *)(((((((t0 << 2) + t0) << 2) << 1) + t1) + 0x4)));
+@@ -418,6 +419,16 @@
+     return gameMatchSetup();
+ }
+ 
++int circuitStageStart(void)
++{
++    int t0;
++    int t1;
++    int t4;
++
++    *(unsigned int *)0x8C2FBE9C = 0x0;
++    return FUN_8c032e32();   /* port: 0x8C032E32, a function of its own the original falls into */
++}
++
+ float effServeSpeedCalc(int a4)
+ {
+     float t0;
+--- a/src/gen_az.c
++++ b/src/gen_az.c
+@@ -59,7 +59,7 @@
+ int pdVibMxStop(int);
+ int primTexVertexSet(int, int, int, int, int, Stk3, float, float);
+ float rndRangef(float);
+-int shotCheckNet(int, int);
++int shotCheckNet(int, int, float);
+ extern int sprPutAt();
+ int strmBgmPlay(int);
+ float vecDistXZf(float, float, float, float);
+@@ -181,7 +181,7 @@
+         t16 = 0xC;
+         t16 = (nlScaleVector(0x8C291F48, 0x8C291F48, ((*(float *)((((int)stk + 8) + t16))) / u44)));
+         t17 = 0x1;
+-        t16 = (shotCheckNet(a4, 0x8C291F24));
++        t16 = (shotCheckNet(a4, 0x8C291F24, u18));   /* port: the shot's vertical speed, fr4 = fr15 at 8C029C78 (the C left it to the register) */
+         if (t16 == 0) {
+             break;
+         }
+--- a/src/gen_bj.c
++++ b/src/gen_bj.c
+@@ -212,7 +212,7 @@
+     if ((unsigned int)a5 >= (unsigned int)0x30000) {
+         *(unsigned short *)(((int)stk + 4)) = (_builtin_get_imask());
+         _builtin_set_imask(0xF);
+-        ((int (*)(int, int))(0xAC1E7A80))(a4, a5);
++        _builtin_set_imask(((*(unsigned short *)(((int)stk + 4))) & 0xF)); /* the P2 tail's end: the caches need nothing on the host */
+     return;
+     }
+     t1 = (0x9FFFFFE0 & a4);
+@@ -239,7 +239,7 @@
+     if ((unsigned int)a5 >= (unsigned int)0x10000) {
+         *(unsigned short *)(((int)stk + 4)) = (_builtin_get_imask());
+         _builtin_set_imask(0xF);
+-        ((int (*)(int, int))(0xAC1E7CD0))(a4, a5);
++        _builtin_set_imask(((*(unsigned short *)(((int)stk + 4))) & 0xF)); /* the P2 tail's end: the caches need nothing on the host */
+     return;
+     }
+     t1 = (0x9FFFFFE0 & a4);
+--- a/src/gen_bk.c
++++ b/src/gen_bk.c
+@@ -302,7 +302,7 @@
+     if ((unsigned int)a5 >= (unsigned int)0x30000) {
+         *(unsigned short *)(((int)stk + 4)) = (_builtin_get_imask());
+         _builtin_set_imask(0xF);
+-        ((int (*)(int, int))(0xAC1F19C4))(a4, a5);
++        _builtin_set_imask(((*(unsigned short *)(((int)stk + 4))) & 0xF)); /* the P2 tail's end: the caches need nothing on the host */
+     return;
+     }
+     t1 = (0x1FFFFFE0 & a4);
+--- a/src/gen_e.c
++++ b/src/gen_e.c
+@@ -1,3 +1,4 @@
++int FUN_8c0368c2(void);
+ typedef struct { int w[6]; } Stk6;
+ /* Straight-line functions with calls and guards (batch gen_e): generated from the code and checked by tests. Calls are
+    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+@@ -371,7 +372,7 @@
+ int nlTranslate(float, float, float);
+ int nldispstripTexOfsSub(int, int);
+ int nldispstripTexSub(int, int);
+-int nlobjput_sub_trnsl(int);
++int nlobjput_sub_trnsl(int, float);
+ int nlsndG2Read(int);
+ int nlsndPackFree(void);
+ int nlsndPackLoad(int, int);
+@@ -1750,7 +1751,9 @@
+ }
+ 
+ 
+-int miniStart(void)
++/* port: the function at 0x8C0368C2 (functions.txt counts it in miniStart, which falls into it): a state of its own in
++   the game's table (0x8C108260..), reached without the set-up before it */
++int FUN_8c0368c2(void)
+ {
+     int t2;
+     int t3;
+@@ -1765,10 +1768,6 @@
+     int t12;
+     int t13;
+     int t14;
+-
+-    nlInitEvent();
+-    miniReset();
+-    *(unsigned int *)0x8C2FBEEC = 0x0;
+     t2 = *(int *)0x8C2FBE1C;
+     t3 = *(int *)0x8C2FBC50;
+     t4 = *(int *)0x8C2FBEF0;
+@@ -1792,6 +1791,28 @@
+     return gameMatchSetup();
+ }
+ 
++int miniStart(void)
++{
++    int t2;
++    int t3;
++    int t4;
++    int t5;
++    int t6;
++    int t7;
++    int t8;
++    int t9;
++    int t10;
++    int t11;
++    int t12;
++    int t13;
++    int t14;
++
++    nlInitEvent();
++    miniReset();
++    *(unsigned int *)0x8C2FBEEC = 0x0;
++    return FUN_8c0368c2();   /* port: 0x8C0368C2, a function of its own the original falls into */
++}
++
+ int miniReset(void)
+ {
+     int t0;
+@@ -7251,7 +7272,7 @@
+     }
+     nlPushMatrix(0x0);
+     nlMultiMatrixRevOrder8(0x8C450B38);
+-    return nlobjput_sub_trnsl(a4);
++    return nlobjput_sub_trnsl(a4, f4);  /* the alpha (fr4) as it came */
+ }
+ 
+ void nlObjPutSetSaturate(float f4, float f5)
+--- a/src/gen_r.c
++++ b/src/gen_r.c
+@@ -3,12 +3,12 @@
+ 
+ int padVibStopAll(void);
+ int modelSetVertsInt(int, int);
+-int nlSetBackColorZ(float);
++int nlSetBackColorZ(int, int, int, float);
+ int nlObjPutSetGarbagedTexture_Sub(int, int, int);
+ int nlObjPutFreeTextureOnce_Sub(int, int, int);
+ int nlSingleLineSub(int, int, int, int);
+ int nlSpriteSetGarbagedTextureOnce_Sub(int, int, int);
+-int displaypolygondata_sidx_trnsl(float);
++int displaypolygondata_sidx_trnsl(int, int, float);
+ extern void _builtin_prefetch(void *);
+ #pragma inline_asm(iaOcbwb)
+ static void iaOcbwb(void *p)
+@@ -48,7 +48,7 @@
+ int syBtFlWrite(int a4, int a5, int a6);
+ int syBtFlDeleteSct(int a4, int a5, int a6);
+ int deformModelRestore(int a4);
+-int resetBackColorZ(void);
++int resetBackColorZ(int a4, int a5, int a6);
+ int padVibOff(void);
+ int nlSysMetricsDiffTime(int a4, int a5);
+ int nlObjPutSetGarbagedTexture(int a4);
+@@ -92,7 +92,7 @@
+ void kmyiDefaultCallback(void);
+ void mwlRnaDummyFunc(void);
+ int kmyInitializeRenderPacket(void);
+-int displaypolygondata_sidx(void);
++int displaypolygondata_sidx(int, int);
+ int vmsfs_c_fiber7(void);
+ 
+ int lineJudgeShadowPart(int a4)
+@@ -304,12 +304,13 @@
+     return modelSetVertsInt(a4, 0x8C3311F4);
+ }
+ 
+-int resetBackColorZ(void)
++int resetBackColorZ(int a4, int a5, int a6)
+ {
+     float defaultDepth;
+ 
++    /* the colours (r4-r6) go on to nlSetBackColorZ as they came */
+     defaultDepth = *(float *)0x8C0EAF28;
+-    return nlSetBackColorZ(defaultDepth);
++    return nlSetBackColorZ(a4, a5, a6, defaultDepth);
+ }
+ 
+ int padVibOff(void)
+@@ -520,9 +521,10 @@
+     return 0x0;
+ }
+ 
+-int displaypolygondata_sidx(void)
++int displaypolygondata_sidx(int a4, int a5)
+ {
+-    return displaypolygondata_sidx_trnsl(1.0f);
++    /* the model (r4) and context (r5) go on with alpha 1 */
++    return displaypolygondata_sidx_trnsl(a4, a5, 1.0f);
+ }
+ 
+ int vmsfs_c_fiber7(void)
+--- a/src/gen_v.c
++++ b/src/gen_v.c
+@@ -212,7 +212,22 @@
+     *(float *)0x8C33D7BC = 1.0f;
+     *(unsigned int *)0x8C33D7C0 = 0xFFFFFFFF;
+     *(unsigned int *)0x8C33D7C4 = 0x5;
+-    return ((int (*)(int, int, float, float))(0x8C09914A))(0x8C33D790, 0x8C10F970, 1.0f, u3);
++    /* the second banner's record (0x8C33D7E0, from 0x8C10F980): the shared tail at 0x8C09914A */
++    *(unsigned int *)0x8C33D7E0 = 0xE;
++    *(unsigned int *)0x8C33D808 = 0x0;
++    *(float *)0x8C33D7E4 = 0.0f;
++    *(float *)0x8C33D7E8 = 0.0f;
++    *(float *)0x8C33D7EC = (*(float *)0x8C099228);
++    *(float *)0x8C33D7F8 = ((*(float *)0x8C10F980) / u3);
++    *(float *)0x8C33D7FC = ((*(float *)0x8C10F984) / u5);
++    *(float *)0x8C33D800 = ((*(float *)0x8C33D7F8) + ((*(float *)0x8C10F988) / u3));
++    *(float *)0x8C33D804 = ((*(float *)0x8C33D7FC) + ((*(float *)0x8C10F98C) / u5));
++    *(float *)0x8C33D7F0 = (((*(float *)0x8C33D800) - (*(float *)0x8C33D7F8)) * 1.0f);
++    *(float *)0x8C33D7F4 = (((*(float *)0x8C33D804) - (*(float *)0x8C33D7FC)) * 1.0f);
++    *(float *)0x8C33D80C = 1.0f;
++    *(unsigned int *)0x8C33D810 = 0xFFFFFFFF;
++    *(unsigned int *)0x8C33D814 = 0x5;
++    return 0x2C;
+ }
+ 
+ 
+--- a/src/gen_wr.c
++++ b/src/gen_wr.c
+@@ -58,9 +58,14 @@
+ int strmVoiceQueueReset(void);
+ int unlockTestW1(int);
+ int FUN_8c01219e(int a4, int a5);
++int FUN_8c0123e8(int a4, int a5);
++int FUN_8c01233e(int a4, int a5);
+ 
+-int FUN_8c01219e(int a4, int a5)
++/* The function at 0x8C0123E8 (functions.txt counts it in FUN_8c01219e, which falls into it): the match state. It is
++   also a state in the game's table, called on its own. The first values are the ones FUN_8c01219e's fall leaves */
++int FUN_8c0123e8(int a4, int a5)
+ {
++
+     int stk[18];
+     register int t0;
+     register int t2;
+@@ -160,160 +165,7 @@
+     int R1016;
+     int R1020;
+ 
+-    R1004 = *(int *)((int)stk + 4);
+-    R1008 = *(int *)((int)stk + 8);
+-    R1012 = *(int *)((int)stk + 12);
+-    R1016 = *(int *)((int)stk + 16);
+-    R1020 = *(int *)((int)stk + 20);
+-
+-    (*(int *)((int)stk + 40)) = a4;
+-    *(unsigned int *)0x8C287B3C = 0x0;
+-    t0 = ((int (*)(int))(entryIsVersus))(a4);
+-    if (t0 == 0) {
+-        *(unsigned int *)0x8C287ACC = 0x0;
+-    }
+-    *(unsigned int *)0x8C287AD4 = 0x0;
+-    *(unsigned int *)0x8C287AD0 = 0x0;
+-    *(unsigned int *)0x8C295DAC = 0x0;
+-    *(unsigned int *)0x8C295DB0 = 0x0;
+-    t2 = 0x8C287D04;
+-    for (;;) {
+-        if ((unsigned int)t2 >= (unsigned int)0x8C287D4C) {
+-            break;
+-        }
+-        *(unsigned int *)((t2 + 0x0)) = 0x0;
+-        t2 = (t2 + 0x4);
+-    }
+-    *(unsigned int *)0x8C20D154 = 0x0;
+-    *(unsigned int *)0x8C20D158 = 0x3;
+-    t3 = *(int *)0x8C287D5C;
+-    if (t3 == 0) {
+-        *(unsigned int *)0x8C287C70 = (unsigned char)(eepromIsMatchMax());
+-        t5 = eepromGetMatch();
+-        *(unsigned int *)0x8C287C6C = (unsigned char)t5;
+-        t16 = (unsigned char)t5;
+-    } else {
+-        t8 = t3;
+-        if (t3 == 1) {
+-            *(unsigned int *)0x8C287C70 = (unsigned char)(eepromIsMatchMax());
+-            t7 = eepromGetVsMatch();
+-            *(unsigned int *)0x8C287C6C = (unsigned char)t7;
+-            t8 = (unsigned char)t7;
+-        } else {
+-            t9 = 0x8C20D158;
+-            t13 = 0x8C287D4C;
+-        }
+-        t16 = t8;
+-        t17 = t9;
+-        t21 = t13;
+-    }
+-    t24 = *(int *)0x8C40C300;
+-    if ((t24 & 0x1) != 0) {
+-        *(unsigned int *)0x8C29BBBC = 0x1;
+-    } else {
+-        *(unsigned int *)0x8C29BBBC = 0x0;
+-    }
+-    t26 = 0x0;
+-    t27 = t21;
+-    for (;;) {
+-        if ((unsigned int)t26 >= (unsigned int)0x90) {
+-            break;
+-        }
+-        t27 = 0x8C287B88;
+-        t27 = (t27 + 0x4);
+-        t27 = (t27 + t26);
+-        t26 = (t26 + 0x24);
+-        *(unsigned int *)((t27 + 0x4)) = 0x0;
+-        *(unsigned int *)((t27 + 0x0)) = 0x0;
+-    }
+-    *(unsigned int *)0x8C287C54 = 0x0;
+-    t28 = t16;
+-    t29 = t17;
+-    t30 = t24;
+-    t31 = 0x8C287C54;
+-    t32 = t26;
+-    t33 = t27;
+-    t34 = 0x90;
+-    t35 = 0x8C287B88;
+-    t36 = 0x0;
+-    for (;;) {
+-        if ((int)t36 >= (int)0x12) {
+-            break;
+-        }
+-        t28 = (*(int *)0x8C287ADC);
+-        if (t28 != 4) {
+-            t30 = 0x8C0E87C8;
+-            t32 = t36;
+-            t28 = (unlockTestW1(t32));
+-            if (t28 != 0) {
+-                t28 = t36;
+-                t28 = (t28 << 2);
+-                *(unsigned int *)((0x8C287C74 + t28)) = 0x1;
+-            } else {
+-                t28 = t36;
+-                t28 = (t28 << 2);
+-                *(unsigned int *)((0x8C287C74 + t28)) = 0x0;
+-            }
+-        } else {
+-            t28 = t36;
+-            t28 = (t28 << 2);
+-            *(unsigned int *)((0x8C287C74 + t28)) = 0x1;
+-            t41 = t29;
+-            t42 = t30;
+-            t43 = t31;
+-            t44 = t32;
+-            t45 = t33;
+-            t46 = t34;
+-            t47 = t35;
+-        }
+-        t29 = t41;
+-        t36 = (t36 + 0x1);
+-        t30 = t42;
+-        t31 = t43;
+-        t32 = t44;
+-        t33 = t45;
+-        t34 = t46;
+-        t35 = t47;
+-    }
+-    *(unsigned int *)0x8C287CB8 = 0x0;
+-    *(unsigned int *)0x8C287CB4 = 0x0;
+-    if ((*(int *)0x8C421F60) != 0) {
+-        advInit(0x0, 0x0, 0x0, 0x0, (*(int *)((int)stk + 40)), (*(int *)((int)stk + 44)), (*(int *)((int)stk + 48)), (*(int *)((int)stk + 52)), (*(int *)((int)stk + 56)), (*(int *)((int)stk + 60)));
+-    } else {
+-        *(unsigned int *)0x8C295DDC = 0x0;
+-        if ((*(int *)0x8C287D5C) == 0) {
+-            *(unsigned int *)0x8C1891F0 = (*(int *)((((*(int *)0x8C287ACC) << 2) + 0x8C1022B8)));
+-        }
+-        *(unsigned int *)0x8C287C50 = 0x96;
+-    }
+-    *(volatile int *)0x8C421F60;
+-    *(unsigned int *)0x8C38BA70 = 0x1;
+-    *(unsigned int *)0x8C38BA74 = 0x1;
+-    *(unsigned int *)0x8C38BA78 = 0x1;
+-    (*(int *)((int)stk + 64)) = a4;
+-    nlInitMatrix(0x8C285A04, 0x10);
+-    nlObjPutInit();
+-    nlMatrixMode(0x3);
+-    nlUnitMatrix();
+-    nlPerspective(0x1D28, 1.33333337f, 0.300000012f, 300.0f);
+-    nlMatrixMode(0x1);
+-    resetBackColorZ(0x0, 0x0, 0x0);
+-    nlInitEvent();
+-    sndFadeFlagsClear();
+-    t77 = ((int (*)(void))(entryIsVersus))();
+-    if ((t77 != 0) && (t78 = *(int *)0x8C421F60, t78 == 0)) {
+-        fadeScreenStart(0x2, 0x1, 0xF, 0x0, (*(int *)((int)stk + 64)), (*(int *)((int)stk + 68)));
+-    }
+-    dbgMenuInit();
+-    matchStart();
+-    *(unsigned int *)0x8C287C54 = 0x0;
+-    *(float *)0x8C287A04 = 10.0f;
+-    *(unsigned int *)0x8C287C60 = 0x0;
+-    *(unsigned int *)0x8C285A00 = 0xFFFFFFFF;
+-    if ((*(int *)0x8C421F60) == 0) {
+-        *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x8000);
+-    }
+-    *(unsigned int *)0x8C20D150 = 0x1;
++    t36 = 0x12;
+     (*(int *)((int)stk + 68)) = 0x0;
+     t89 = t36;
+     (*(int *)((int)stk + 64)) = t89;
+@@ -579,15 +431,15 @@
+                     t364 = t291;
+                 } else {
+                     t295 = *(int *)0x8C12CBE8;
+-                    if ((((int)t295 < (int)0x12) && (0x8C287ACC != 0)) || (((int)t295 > 0) && (0x8C287C50 != 0))) {
++                    if ((((int)t295 < (int)R1004) && (R1012 != 0)) || (((int)t295 > 0) && (R1016 != 0))) {   /* port: the original tests the menu's last index (stack word 0) and the down / up repeats (8C0128C4) */
+                         sndSeCursor();
+                     }
+                     t301 = 0x0;
+-                    if (((int)(*(int *)0x8C12CBE8) < (int)0x12) && (0x8C287ACC != 0)) {
++                    if (((int)(*(int *)0x8C12CBE8) < (int)R1004) && (R1012 != 0)) {
+                         t301 = 0x1;
+                     }
+                     t305 = 0x0;
+-                    if (((int)(*(int *)0x8C12CBE8) > 0) && (0x8C287C50 != 0)) {
++                    if (((int)(*(int *)0x8C12CBE8) > 0) && (R1016 != 0)) {
+                         t305 = 0x1;
+                     }
+                     *(unsigned int *)0x8C12CBE8 = ((*(int *)0x8C12CBE8) + (t301 - t305));
+@@ -657,3 +509,273 @@
+     }
+     return t390;
+ }
++
++/* port: the function at 0x8C01233E (functions.txt counts it in FUN_8c01219e, which falls into it): the match's
++   set-up, a state of its own in the game's table (0x8C10132C) that restarts a match, and falls into the match state.
++   fadeScreenStart's stack words are the ones the original pushed: r4, then its return address */
++int FUN_8c01233e(int a4, int a5)
++{
++    int t77;
++    int t78;
++
++    nlInitMatrix(0x8C285A04, 0x10);
++    nlObjPutInit();
++    nlMatrixMode(0x3);
++    nlUnitMatrix();
++    nlPerspective(0x1D28, 1.33333337f, 0.300000012f, 300.0f);
++    nlMatrixMode(0x1);
++    resetBackColorZ(0x0, 0x0, 0x0);
++    nlInitEvent();
++    sndFadeFlagsClear();
++    t77 = ((int (*)(void))(entryIsVersus))();
++    if ((t77 != 0) && (t78 = *(int *)0x8C421F60, t78 == 0)) {
++        fadeScreenStart(0x2, 0x1, 0xF, 0x0, a4, 0);
++    }
++    dbgMenuInit();
++    matchStart();
++    *(unsigned int *)0x8C287C54 = 0x0;
++    *(float *)0x8C287A04 = 10.0f;
++    *(unsigned int *)0x8C287C60 = 0x0;
++    *(unsigned int *)0x8C285A00 = 0xFFFFFFFF;
++    if ((*(int *)0x8C421F60) == 0) {
++        *(unsigned int *)0x8C287B3C = ((*(int *)0x8C287B3C) | 0x8000);
++    }
++    *(unsigned int *)0x8C20D150 = 0x1;
++    return FUN_8c0123e8(a4, a5);
++}
++
++int FUN_8c01219e(int a4, int a5)
++{
++    int stk[18];
++    register int t0;
++    register int t2;
++    register int t3;
++    register int t5;
++    register int t8;
++    register int t7;
++    register int t24;
++    register int t26;
++    register int t27;
++    register int t28;
++    register int t29;
++    register int t30;
++    register int t31;
++    register int t32;
++    register int t33;
++    register int t34;
++    register int t35;
++    register int t36;
++    register int t77;
++    register int t89;
++    int t90;
++    register int t116;
++    register int t117;
++    register int t118;
++    register int t126;
++    register int t133;
++    register int t154;
++    register int t155;
++    register int t156;
++    register int t157;
++    register int t158;
++    register int t159;
++    register int t203;
++    register float u200;
++    register int t390;
++    register int t207;
++    register int t208;
++    register int t209;
++    register int t210;
++    register int t211;
++    register int t212;
++    register int t213;
++    register int t220;
++    register int t251;
++    register int t234;
++    register int t235;
++    register int t247;
++    register int t258;
++    register int t373;
++    register int t263;
++    register int t282;
++    register int t291;
++    register int t283;
++    register int t285;
++    register int t288;
++    register int t295;
++    register int t301;
++    register int t305;
++    register int t309;
++    int t310;
++    register int t358;
++    register int t311;
++    register int t319;
++    register int t334;
++    register int t339;
++    register int t340;
++    register int t16;
++    register int t17;
++    register int t21;
++    register int t9;
++    register int t13;
++    register int t41;
++    register int t42;
++    register int t43;
++    register int t44;
++    register int t45;
++    register int t46;
++    register int t47;
++    register int t78;
++    register int t95;
++    register int t98;
++    register float u99;
++    register int t108;
++    register int t112;
++    register int t144;
++    register int t147;
++    register int t160;
++    register int t217;
++    register int t381;
++    register int t364;
++    register int t353;
++    register int t346;
++    int R1004;
++    int R1008;
++    int R1012;
++    int R1016;
++    int R1020;
++
++    R1004 = *(int *)((int)stk + 4);
++    R1008 = *(int *)((int)stk + 8);
++    R1012 = *(int *)((int)stk + 12);
++    R1016 = *(int *)((int)stk + 16);
++    R1020 = *(int *)((int)stk + 20);
++
++    (*(int *)((int)stk + 40)) = a4;
++    *(unsigned int *)0x8C287B3C = 0x0;
++    t0 = ((int (*)(int))(entryIsVersus))(a4);
++    if (t0 == 0) {
++        *(unsigned int *)0x8C287ACC = 0x0;
++    }
++    *(unsigned int *)0x8C287AD4 = 0x0;
++    *(unsigned int *)0x8C287AD0 = 0x0;
++    *(unsigned int *)0x8C295DAC = 0x0;
++    *(unsigned int *)0x8C295DB0 = 0x0;
++    t2 = 0x8C287D04;
++    for (;;) {
++        if ((unsigned int)t2 >= (unsigned int)0x8C287D4C) {
++            break;
++        }
++        *(unsigned int *)((t2 + 0x0)) = 0x0;
++        t2 = (t2 + 0x4);
++    }
++    *(unsigned int *)0x8C20D154 = 0x0;
++    *(unsigned int *)0x8C20D158 = 0x3;
++    t3 = *(int *)0x8C287D5C;
++    if (t3 == 0) {
++        *(unsigned int *)0x8C287C70 = (unsigned char)(eepromIsMatchMax());
++        t5 = eepromGetMatch();
++        *(unsigned int *)0x8C287C6C = (unsigned char)t5;
++        t16 = (unsigned char)t5;
++    } else {
++        t8 = t3;
++        if (t3 == 1) {
++            *(unsigned int *)0x8C287C70 = (unsigned char)(eepromIsMatchMax());
++            t7 = eepromGetVsMatch();
++            *(unsigned int *)0x8C287C6C = (unsigned char)t7;
++            t8 = (unsigned char)t7;
++        } else {
++            t9 = 0x8C20D158;
++            t13 = 0x8C287D4C;
++        }
++        t16 = t8;
++        t17 = t9;
++        t21 = t13;
++    }
++    t24 = *(int *)0x8C40C300;
++    if ((t24 & 0x1) != 0) {
++        *(unsigned int *)0x8C29BBBC = 0x1;
++    } else {
++        *(unsigned int *)0x8C29BBBC = 0x0;
++    }
++    t26 = 0x0;
++    t27 = t21;
++    for (;;) {
++        if ((unsigned int)t26 >= (unsigned int)0x90) {
++            break;
++        }
++        t27 = 0x8C287B88;
++        t27 = (t27 + 0x4);
++        t27 = (t27 + t26);
++        t26 = (t26 + 0x24);
++        *(unsigned int *)((t27 + 0x4)) = 0x0;
++        *(unsigned int *)((t27 + 0x0)) = 0x0;
++    }
++    *(unsigned int *)0x8C287C54 = 0x0;
++    t28 = t16;
++    t29 = t17;
++    t30 = t24;
++    t31 = 0x8C287C54;
++    t32 = t26;
++    t33 = t27;
++    t34 = 0x90;
++    t35 = 0x8C287B88;
++    t36 = 0x0;
++    for (;;) {
++        if ((int)t36 >= (int)0x12) {
++            break;
++        }
++        t28 = (*(int *)0x8C287ADC);
++        if (t28 != 4) {
++            t30 = 0x8C0E87C8;
++            t32 = t36;
++            t28 = (unlockTestW1(t32));
++            if (t28 != 0) {
++                t28 = t36;
++                t28 = (t28 << 2);
++                *(unsigned int *)((0x8C287C74 + t28)) = 0x1;
++            } else {
++                t28 = t36;
++                t28 = (t28 << 2);
++                *(unsigned int *)((0x8C287C74 + t28)) = 0x0;
++            }
++        } else {
++            t28 = t36;
++            t28 = (t28 << 2);
++            *(unsigned int *)((0x8C287C74 + t28)) = 0x1;
++            t41 = t29;
++            t42 = t30;
++            t43 = t31;
++            t44 = t32;
++            t45 = t33;
++            t46 = t34;
++            t47 = t35;
++        }
++        t29 = t41;
++        t36 = (t36 + 0x1);
++        t30 = t42;
++        t31 = t43;
++        t32 = t44;
++        t33 = t45;
++        t34 = t46;
++        t35 = t47;
++    }
++    *(unsigned int *)0x8C287CB8 = 0x0;
++    *(unsigned int *)0x8C287CB4 = 0x0;
++    if ((*(int *)0x8C421F60) != 0) {
++        advInit(0x0, 0x0, 0x0, 0x0, (*(int *)((int)stk + 40)), (*(int *)((int)stk + 44)), (*(int *)((int)stk + 48)), (*(int *)((int)stk + 52)), (*(int *)((int)stk + 56)), (*(int *)((int)stk + 60)));
++    } else {
++        *(unsigned int *)0x8C295DDC = 0x0;
++        if ((*(int *)0x8C287D5C) == 0) {
++            *(unsigned int *)0x8C1891F0 = (*(int *)((((*(int *)0x8C287ACC) << 2) + 0x8C1022B8)));
++        }
++        *(unsigned int *)0x8C287C50 = 0x96;
++    }
++    *(volatile int *)0x8C421F60;
++    *(unsigned int *)0x8C38BA70 = 0x1;
++    *(unsigned int *)0x8C38BA74 = 0x1;
++    *(unsigned int *)0x8C38BA78 = 0x1;
++    (*(int *)((int)stk + 64)) = a4;
++    /* 0x8C01233E: the match's set-up, a function of its own the original falls into */
++    return FUN_8c01233e(a4, a5);
++}
+--- a/src/gen_xk.c
++++ b/src/gen_xk.c
+@@ -16,6 +16,26 @@
+ int FUN_8c07b7aa(int a4, int a5);
+ int FUN_8c06c482(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7, float f8, float f9);
+ 
++/* FUN_8c0633c6's block at 0x8C0646EC (its own frame's R1020, R1016, R1012): the flag at +0x12E of the record R1012 is
++   set when R1016's distance |AE8 - B9C| is the larger */
++static int FUN_8c0633c6_8c0646ec(int R1020, int R1016, int R1012)
++{
++    float d0, d1;
++
++    d0 = (*(float *)((R1020 + 0xAE8))) - (*(float *)((R1020 + 0xB9C)));
++    if (0.0f > d0) {
++        d0 = (-(*(float *)((R1020 + 0xAE8)))) + (*(float *)((R1020 + 0xB9C)));
++    }
++    d1 = (*(float *)((R1016 + 0xAE8))) - (*(float *)((R1016 + 0xB9C)));
++    if (0.0f > d1) {
++        d1 = (-(*(float *)((R1016 + 0xAE8)))) + (*(float *)((R1016 + 0xB9C)));
++    }
++    if (d1 > d0) {
++        *(unsigned char *)((R1012 + 0x12E)) = 0x1;
++    }
++    return 0x12E;
++}
++
+ int FUN_8c0633c6(int a4)
+ {
+     int stk[10];
+@@ -257,18 +277,18 @@
+         t19 = *(int *)(((R1024) + 0xB5C));
+         t20 = serveGetReceiver();
+         if (t19 != t20) {
+-            return ((int (*)(void))(0x8C065E30))();
++            return 0x12E;
+         }
+         *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
+-        return ((int (*)(void))(0x8C065E30))();
++        return 0x12E;
+     }
+     if ((((*(int *)(((R1020) + 0xB60))) & 0x4000) != 0) && (t24 = R1012, t25 = *(short *)((t24 + 0x118)), (int)t25 < (int)0x1E)) {
+         *(unsigned char *)(((R1016) + 0x12E)) = 0x2;
+-        return ((int (*)(int))(0x8C065E30))(a4);
++        return 0x12E;
+     }
+     if (((*(int *)((0xC5C + (R1020)))) == 12) && (t37 = R1020, t38 = *(int *)((t37 + 0xB60)), (t38 & 0x100) != 0)) {
+         *(unsigned char *)(((R1016) + 0x12E)) = 0x2;
+-        return ((int (*)(int))(0x8C065E30))(a4);
++        return 0x12E;
+     }
+     if (!(0.0f > ((*(float *)(((R1024) + 0xAF0))) - (*(float *)(((R1020) + 0xAF0)))))) {
+         u56 = ((*(float *)(((R1024) + 0xAF0))) - (*(float *)(((R1020) + 0xAF0))));
+@@ -299,7 +319,7 @@
+         t83 = t80;
+     }
+     if (t67 == t83) {
+-        return ((int (*)(int))(0x8C065E30))(a4);
++        return 0x12E;
+     }
+     t87 = R1024;
+     t96 = 0x1;
+@@ -323,13 +343,13 @@
+     }
+     if (t96 == t112) {
+         *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
+-        return ((int (*)(int))(0x8C065E30))(a4);
++        return 0x12E;
+     }
+     if (!(27.5f > (*(float *)(((R1024) + 0xBA0))))) {
+-        return ((int (*)(int))(0x8C0646EC))(a4);
++        return FUN_8c0633c6_8c0646ec(R1020, R1016, R1012);
+     }
+     if (!(27.5f > (*(float *)(((R1020) + 0xBA0))))) {
+-        return ((int (*)(int))(0x8C0646EC))(a4);
++        return FUN_8c0633c6_8c0646ec(R1020, R1016, R1012);
+     }
+     t148 = 0x1;
+     if ((*(float *)(((R1024) + 0xAE8))) > 0.0f) {
+@@ -362,7 +382,7 @@
+                 u191 = (-(*(float *)(((R1024) + 0xB9C))));
+             }
+             if (!(u191 > 10.0f)) {
+-                return ((int (*)(int))(0x8C065E30))(a4);
++                return 0x12E;
+             }
+             if (!(0.0f > (*(float *)(((R1024) + 0xAE8))))) {
+                 u203 = (*(float *)(((R1024) + 0xAE8)));
+@@ -375,10 +395,10 @@
+                 u213 = (-(*(float *)(((R1020) + 0xAE8))));
+             }
+             if (u213 > u203) {
+-                return ((int (*)(int))(0x8C065E30))(a4);
++                return 0x12E;
+             }
+             *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
+-            return ((int (*)(int))(0x8C065E30))(a4);
++            return 0x12E;
+         }
+         if (!(0.0f > (*(float *)(((R1024) + 0xAE8))))) {
+             u224 = (*(float *)(((R1024) + 0xAE8)));
+@@ -598,10 +618,10 @@
+                 u598 = ((-(*(float *)((t591 + 0xAE8)))) + (*(float *)((t591 + 0xB9C))));
+             }
+             if (!((R1004) > (u567 / (u583 + u598)))) {
+-                return ((int (*)(int))(0x8C065E30))(a4);
++                return 0x12E;
+             }
+             *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
+-            return ((int (*)(int))(0x8C065E30))(a4);
++            return 0x12E;
+         }
+         u604 = *(float *)((((*(int *)(((R1024) + 0xC58))) * 0x6C) + 0x8C102450));
+         u605 = 0.699999988f;
+@@ -774,10 +794,10 @@
+             u892 = ((-(*(float *)((t885 + 0xAE8)))) + (*(float *)((t885 + 0xB9C))));
+         }
+         if (!((R1004) > (u861 / (u877 + u892)))) {
+-            return ((int (*)(int))(0x8C065E30))(a4);
++            return 0x12E;
+         }
+         *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
+-        return ((int (*)(int))(0x8C065E30))(a4);
++        return 0x12E;
+     }
+     if (!(0.0f > ((*(float *)(((R1024) + 0xB9C))) + (*(float *)(((R1020) + 0xB9C)))))) {
+         u912 = ((*(float *)(((R1024) + 0xB9C))) + (*(float *)(((R1020) + 0xB9C))));
+@@ -804,10 +824,10 @@
+             t939 = t936;
+         }
+         if (t927 != t939) {
+-            return ((int (*)(int))(0x8C065E30))(a4);
++            return 0x12E;
+         }
+         *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
+-        return ((int (*)(int))(0x8C065E30))(a4);
++        return 0x12E;
+     }
+     t943 = R1024;
+     if (!(0.0f > ((*(float *)((t943 + 0xAE8))) - (*(float *)((t943 + 0xB9C)))))) {
+@@ -819,7 +839,7 @@
+     }
+     if (25.0f > u957) {
+         *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
+-        return ((int (*)(int))(0x8C065E30))(a4);
++        return 0x12E;
+     }
+     if (!(0.0f > ((*(float *)(((R1024) + 0xAE8))) - (*(float *)(((R1020) + 0xAE8)))))) {
+         u976 = ((*(float *)(((R1024) + 0xAE8))) - (*(float *)(((R1020) + 0xAE8))));
+@@ -843,7 +863,7 @@
+             u1002 = (-(*(float *)(((R1024) + 0xB9C))));
+         }
+         if (!(u1002 > 5.0f)) {
+-            return ((int (*)(int))(0x8C065E30))(a4);
++            return 0x12E;
+         }
+         if ((*(float *)(((R1024) + 0xAE8))) > 0.0f) {
+         } else {
+@@ -853,7 +873,7 @@
+         } else {
+             *(volatile float *)((0xB9C + (R1024)));
+         }
+-        return ((int (*)(int))(0x8C065E30))(a4);
++        return 0x12E;
+     }
+     u1034 = *(float *)((((*(int *)(((R1024) + 0xC58))) * 0x6C) + 0x8C102450));
+     u1035 = 0.5f;
+@@ -1104,10 +1124,10 @@
+         u1466 = ((-(*(float *)((t1459 + 0xAE8)))) + (*(float *)((t1459 + 0xB9C))));
+     }
+     if (!((R1004) > (u1435 / (u1451 + u1466)))) {
+-        return ((int (*)(int))(0x8C065E30))(a4);
++        return 0x12E;
+     }
+     *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
+-    return ((int (*)(int))(0x8C065E30))(a4);
++    return 0x12E;
+ }
+ 
+ 
+--- a/src/gen_yv.c
++++ b/src/gen_yv.c
+@@ -1376,7 +1376,7 @@
+         }
+         t0 = (t0 + 0x20);
+     }
+-    return ((int (*)(int, int, int, int))(0x8C1E80C8))((a4 & (~(0x80000000 & a4))), t5, t6, (~(~(0x80000000 & a4))));
++    return 0x0;                             /* 0x8C1E80C8: the P2 tail's end (FUN_8c1e7ef2 restores the mask) */
+ }
+ 
+ int nlSetVertexMode(int a4)
+@@ -1628,7 +1628,7 @@
+     register int t1;
+ 
+     if (a5 == 0) {
+-        return ((int (*)(int, int))(0x8C1E80DC))(a4, a5);
++        return 0x0;                         /* 0x8C1E80DC: the epilogue */
+     }
+     if ((unsigned int)a5 >= (unsigned int)0x10000) {
+         return FUN_8c1e7ef2(a4, a5, a6, a7);
+@@ -1643,7 +1643,7 @@
+             break;
+         }
+     }
+-    return ((int (*)(int, int))(0x8C1E80DC))(t0, t1);
++    return 0x0;
+ }
+ 
+ int nlCommonTextureReloadA(int a4, int a5)
+--- a/src/gen_yx.c
++++ b/src/gen_yx.c
+@@ -53,7 +53,7 @@
+ int nlSysMetricsScaleTime(int);
+ int nlTransposeMatrix(void);
+ int nlobjput_sub(int);
+-int nlobjput_sub_trnsl(int);
++int nlobjput_sub_trnsl(int, float);
+ int nlsndStreamGetBitSize(int);
+ int nlsndStreamGetBufInfo(int, int, int);
+ int nlsndStreamGetFreq(int);
+@@ -218,8 +218,8 @@
+     t0 = 0x0;
+     for (;;) {
+         *(int *)((int)stk + 4) = 0x1;
+-        t5 = *(int *)(((int)stk + 8));
+         t0 = (t0 | (nlObjPutLoadTextureOnce_Sub((*(int *)(((int)stk + 12))), (*(int *)(((int)stk + 16))), (*(int *)(((int)stk + 8))), (((int)stk + 4) + 0x4), 0x1)));
++        t5 = *(int *)(((int)stk + 8));     /* the cursor the call advanced: the original tests it after the call (8C0F1F04) */
+         if (t5 == 0) {
+             break;
+         }
+@@ -333,7 +333,7 @@
+         nlInvLightVectorUseViewMatrix();
+     }
+     nlMakeModelViewProjectMatrix_objput();
+-    return nlobjput_sub_trnsl(a4);
++    return nlobjput_sub_trnsl(a4, f4);  /* the alpha (fr4) as it came */
+ }
+ 
+ int nlGetPushedMatrix(int a4, float f4, float f5, float f6, float f7, float f8, float f9)
+@@ -382,9 +382,12 @@
+ 
+ int FUN_8c1e7ef2(Stk4 s)
+ {
+-    _builtin_get_imask();
++    int imask;
++
++    imask = _builtin_get_imask();
+     _builtin_set_imask(0xF);
+-    return ((int (*)(void))(0xAC1E7F20))();
++    _builtin_set_imask(imask & 0xF);        /* the P2 tail (0xAC1E7F20) writes back the caches and restores the mask */
++    return 0x0;
+ }
+ 
+ int ADXPD_ExecServer(void)
+@@ -688,6 +691,19 @@
+     return 0x0;
+ }
+ 
++/* the tail nlLightCutoffAng and nlLightCutoffRad share (0x8C0EE7A4): light a4's cut-off sine and cosine, and
++   1 / (1 - cos) */
++static int nl_light_cutoff_set(int a4, float s, float c)
++{
++    int light;
++
++    light = 0x8C44FC08 + a4 * 0xB0;
++    *(float *)((light + 0xA4)) = s;
++    *(float *)((light + 0x58)) = c;
++    *(float *)((light + 0x9C)) = 1.0f / (1.0f - c);
++    return 0x9C;
++}
++
+ int nlLightCutoffAng(int a4, int a5)
+ {
+     register float t0;
+@@ -695,7 +711,7 @@
+ 
+     t0 = nlCos(a5);
+     t1 = nlSin(a5);
+-    return ((int (*)(int, float, float))(0x8C0EE7A4))(a4, t1, t0);
++    return nl_light_cutoff_set(a4, t1, t0);
+ }
+ 
+ int nlDetMatrix(int a4, float f4, float f5, float f6, float f7, float f8, float f9)
+@@ -714,7 +730,7 @@
+ 
+     t0 = nlCosf(f4);
+     t1 = nlSinf(f4);
+-    return ((int (*)(int, float, float))(0x8C0EE7A4))(a4, t1, t0);
++    return nl_light_cutoff_set(a4, t1, t0);
+ }
+ 
+ int nlObjPutUseViewMatrix(int a4)
+--- a/src/gen_z.c
++++ b/src/gen_z.c
+@@ -1382,7 +1382,8 @@
+ 
+     *(unsigned short *)(((int)stk + 4)) = (_builtin_get_imask());
+     _builtin_set_imask(0xF);
+-    return ((int (*)(void))(0xAC1E8150))();
++    _builtin_set_imask(((*(unsigned short *)(((int)stk + 4))) & 0xF)); /* the P2 tail's end: the caches need nothing on the host */
++    return 0x0;
+ }
+ 
+ int adxf_purge_all(void)
+@@ -1391,7 +1392,8 @@
+ 
+     *(unsigned short *)(((int)stk + 4)) = (_builtin_get_imask());
+     _builtin_set_imask(0xF);
+-    return ((int (*)(void))(0xAC1F1880))();
++    _builtin_set_imask(((*(unsigned short *)(((int)stk + 4))) & 0xF)); /* the P2 tail's end: the caches need nothing on the host */
++    return 0x0;
+ }
+ 
+ void miniEffectSpawn(Stk4 s)
+@@ -1461,13 +1463,39 @@
+ 
+ int nlsndCheckPackIndex(int a4, int a5, int a6)
+ {
+-    if ((int)a5 >= 0) {
+-        if ((int)a5 >= (int)0x8) {
+-            return ((int (*)(int, int, int))(0x8C0F4E12))(a4, a5, a6);
++    /* one function with nlsndCheckPackLoadError (0x8C0F4D70), its body: the pack at a4 for slot a5, a6 bytes (0: its own
++       size) */
++    int size;
++    int room;
++    int i;
++
++    if ((int)a5 < 0 || (int)a5 >= (int)0x8) {
++        return 0xFFFFFFFF;
++    }
++    for (i = 0; i < 4; i++) {
++        if ((*(signed char *)((a4 + i))) != (*(signed char *)((0x8C127EB8 + i)))) {
++            return 0xFFFFFFFE;                      /* not "DTPK" */
++        }
++    }
++    if ((*(int *)((0x8C454DD4 + a5 * 12))) != -1) {
++        return 0xFFFFFFFD;                          /* the slot is in use */
++    }
++    size = *(int *)((a4 + 0x8));
++    room = nlsndG2Read(0xA0800088);
++    if (a6 != 0) {
++        if ((a6 & 3) != 0 || !((int)a6 >= (int)size)) {
++            return 0xFFFFFFFA;
+         }
+-        return nlsndCheckPackLoadError(a4, a5);
++        size = a6;
++    }
++    size = size + (*(int *)0x8C454CBC);
++    if ((int)size > (int)room) {
++        return 0xFFFFFFFC;                          /* no room in sound RAM */
+     }
+-    return ((int (*)(int, int, int))(0x8C0F4E12))(a4, a5, a6);
++    if ((*(int *)((*(int *)0x8C454CE8))) != 0) {
++        return 0xFFFFFFFB;
++    }
++    return 0x0;
+ }
+ 
+ int nlsndStreamClose(int a4)
+@@ -1585,7 +1613,16 @@
+         }
+         return 0x1;
+     }
+-    return ((int (*)(int))(0x8C1E6B14))(leftString);
++    for (;;) {                                      /* the loop at 0x8C1E6B14 */
++        if ((*(signed char *)rightString) != (*(signed char *)leftString)) {
++            return 0x0;
++        }
++        leftString = leftString + 1;
++        rightString = rightString + 1;
++        if ((*(signed char *)leftString) == 0) {
++            return (*(signed char *)rightString) == 0 ? 0x1 : 0x0;
++        }
++    }
+ }
+ 
+ int SJUNI_GetNumChunk(int a4, int a5)
+@@ -1883,7 +1920,14 @@
+     if ((int)byteCount <= 0) {
+         return 0x1;
+     }
+-    return ((int (*)(int, int, int))(0x8C1FF1B0))(leftBuffer, rightBuffer, (byteCount - 1));
++    for (; (int)byteCount > 0; byteCount--) {        /* the loop at 0x8C1FF1B0 */
++        if ((*(signed char *)rightBuffer) != (*(signed char *)leftBuffer)) {
++            return 0x0;
++        }
++        leftBuffer = leftBuffer + 1;
++        rightBuffer = rightBuffer + 1;
++    }
++    return 0x1;
+ }
+ 
+ void ovLockCs_8c200114(int a4)
+--- a/src/sdk_i_2.c
++++ b/src/sdk_i_2.c
+@@ -20,7 +20,7 @@
+ int buFbrCreateServer(int n);
+ int buFbrCreateFiber(int server, int a, int b, int c);
+ void memcpy2(short *d, short *s, int n);
+-int nlsndStreamGetParam(int a, int b, int c);
++int nlsndStreamGetParam(int a, int b, int c, int d);
+ int memcmp(void *a, void *b, int n);
+ void ADX_GetCoefficient(int a, int b, void *c, void *d);
+ void ADXRNA_SetOutVol(int rna, int vol);
+@@ -70,9 +70,10 @@
+ }
+ 
+ 
+-int mwlSbGetStreamParam(char *s, int b, int c)
++int mwlSbGetStreamParam(char *s, int b, int c, int d)
+ {
+-    return nlsndStreamGetParam(((int *)*(int *)(s + 28))[1], b, c);
++    /* r7 goes on to nlsndStreamGetParam as it came */
++    return nlsndStreamGetParam(((int *)*(int *)(s + 28))[1], b, c, d);
+ }
+ 
+ 
