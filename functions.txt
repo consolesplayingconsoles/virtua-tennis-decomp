@@ -37,7 +37,9 @@ F 8c01205a 126 shadowVolPutDir
 F 8c0120d8 96 shadowVolPutPoint
 F 8c012144 6 shadowVolPutDirA
 F 8c01218c 18 FUN_8c01218c
-F 8c01219e 2346 FUN_8c01219e
+F 8c01219e 416 FUN_8c01219e
+F 8c01233e 170 FUN_8c01233e
+F 8c0123e8 1760 FUN_8c0123e8
 F 8c012b10 38 FUN_8c012b10
 F 8c012b36 60 dbgMenuInit
 F 8c012b72 1476 dbgMenuExec
@@ -1887,7 +1889,8 @@ F 8c0e416e 142 rankNameFilter
 F 8c0e41fc 56 rankNameMatch
 F 8c0e4234 34 rankNameCopy
 F 8c0e4258 18 FUN_8c0e4258
-F 8c0e426a 712 FUN_8c0e426a
+F 8c0e426a 74 FUN_8c0e426a
+F 8c0e42b4 638 FUN_8c0e42b4
 F 8c0e4568 860 titleMenuLayout
 F 8c0e48d8 6426 FUN_8c0e48d8
 F 8c0e6220 108 FUN_8c0e6220
@@ -2134,6 +2137,7 @@ F 8c0ee7f0 34 nlLightCutoffAng
 F 8c0ee820 34 nlLightCutoffRad
 F 8c0ee870 70 nlLightGlobalAmbient
 F 8c0ee8c0 40 nlLightDiffuse
+F 8c0ee910 88 FUN_8c0ee910
 F 8c0ee970 44 nlLightModelTransOne
 F 8c0eea00 124 nlLightAllOff
 F 8c0eea80 118 nlReturnLightAll
@@ -2262,6 +2266,8 @@ F 8c0f2270 14 nlObjPutMvSetClosingMode
 F 8c0f2280 6 nlObjPutMvGetClosingMode
 F 8c0f2290 18 nlObjPutMvClosedVolume
 F 8c0f22b0 18 nlObjPutMvOpenedVolume
+F 8c0f22d0 18 FUN_8c0f22d0
+F 8c0f22f0 16 FUN_8c0f22f0
 F 8c0f2300 88 nlObjPutMvSub
 F 8c0f23a0 294 nlObjPutCheapEnvMap
 F 8c0f24e0 6 FUN_8c0f24e0
@@ -2421,8 +2427,12 @@ F 8c0f6f30 148 nlDispStripFreeTexture
 F 8c0f6fd0 158 nlDispStripLoadPalette
 F 8c0f7090 6 nlDispStripSetPalette
 F 8c0f70a0 24 nlDispStrip
+F 8c0f70c0 26 FUN_8c0f70c0
 F 8c0f7130 24 nlDispStripTrnsl
+F 8c0f7150 26 FUN_8c0f7150
+F 8c0f7170 40 FUN_8c0f7170
 F 8c0f71a0 40 nlDispStripTexOfs
+F 8c0f71d0 40 FUN_8c0f71d0
 F 8c0f7200 40 nlDispStripTexOfsTrnsl
 F 8c0f7240 124 nlstripSetVertexContext
 F 8c0f72c0 434 nlstripSetVertexContextTex
@@ -2632,6 +2642,7 @@ F 8c1dd3c4 10 gdFsSetGlobalErrG
 F 8c1dd3ce 646 gdFsGetStatG
 F 8c1dd654 62 gdFsReadWG
 F 8c1dd692 26 gdFsHdlG1DmaEnd
+F 8c1dd6ac 14 FUN_8c1dd6ac
 F 8c1dd6ba 22 gdFsLockDir
 F 8c1dd6e4 778 FUN_8c1dd6e4
 F 8c1dd9ee 6 gdFsInit
@@ -3705,6 +3716,7 @@ F 8c1fc77c 56 FUN_8c1fc77c
 F 8c1fc7cc 4 FUN_8c1fc7cc
 F 8c1fc7d0 30 syIntBrkHandler3
 F 8c1fc7fc 346 FUN_8c1fc7fc
+F 8c1fc964 396 FUN_8c1fc964
 F 8c1fcb1c 146 syMmuAddEntry
 F 8c1fcbae 38 syMmuDeleteEntry
 F 8c1fcbd4 80 syMmuCacheCtrl
