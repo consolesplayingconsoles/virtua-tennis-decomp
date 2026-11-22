@@ -85,7 +85,7 @@ Hand-made cases were added to `tests/gen_*/` for each (poked memory plus answers
 | `sprPutAt` | 17 of 17 | 17 of 17 | Equivalent (already full) |
 | `hudFadeNearPlayers` | 91 of 110 | 101 of 110 | Equivalent; the 9 left are the negative x / y branches |
 
-Why 9 stay out: reaching them needs a call's `poke_arg` (the callee `screenProject` fills x and y). On the compiled C side `tools/sh4sim.py` skips that fill: after a deep callee returns (`go()`, `self.r.written = 0`), r4-r7 count as "leftover, not arguments", but the C sets r4/r5, calls the struct-copy helper (`_quick_odd_mvn`, which keeps r4-r7), then calls `screenProject`. The cases with `poke_arg` therefore showed a false DIFFERS (`0x13C` vs `0x196`: the original got x/y, the C did not). Not a C bug; a gap of the simulator, not fixed yet (a shared tool: CT/ZR/VT).
+Why 9 stay out: reaching them needs a call's `poke_arg` (the callee `screenProject` fills x and y). On the compiled C side `tools/sim/sh4sim.py` skips that fill: after a deep callee returns (`go()`, `self.r.written = 0`), r4-r7 count as "leftover, not arguments", but the C sets r4/r5, calls the struct-copy helper (`_quick_odd_mvn`, which keeps r4-r7), then calls `screenProject`. The cases with `poke_arg` therefore showed a false DIFFERS (`0x13C` vs `0x196`: the original got x/y, the C did not). Not a C bug; a gap of the simulator, not fixed yet (a shared tool: CT/ZR/VT).
 
 So the simulator finds no difference in any of the 5 at full coverage. What it does not compare: the original calls `ambEventStart` (`8C085452`, in `FUN_8c08535e`) with no argument registers set, and the C passes `(0,0,0,0,R1004,R1008)` where `R1004`/`R1008` are read from the function's own unwritten stack words.
 

@@ -29,7 +29,7 @@ The three wrappers of the string and buffer helpers keep their distinct entries
 and receive the corresponding `thunk_` names. Forty-four generic function aliases
 in `symbols.txt` now use the named function at exactly the same address. Their
 callers and declarations change together; address equality is checked by
-`tools/rename.py` before an existing name can be reused.
+`tools/common/rename.py` before an existing name can be reused.
 
 ## Types and variables
 
@@ -70,7 +70,7 @@ GD filesystem, flash-manager and DMA record names are documented in
   and scoped identifier substitutions. No executable expressions changed.
 - All 3,150 JSON case files retain their original contents under those same
   identifier substitutions; 32 case filenames follow their renamed functions.
-- `tools/consistency.py` reports the same three pre-existing missing recorded
+- `tools/common/consistency.py` reports the same three pre-existing missing recorded
   passes: `ADXT_SetOutPan`, `mwRnaStop`, `setBorderColor`; no duplicate definitions,
   stray cases, missing cases or stale sizes.
 - The supplied executable's SHA-1 matches the supported release; the assembly

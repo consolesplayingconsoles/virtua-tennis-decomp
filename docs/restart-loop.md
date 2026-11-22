@@ -10,7 +10,7 @@ Nothing below is committed. Update this file whenever a lead is closed or opened
 - Flycast log: `SB/HOLLY: System reset requested` every 15.6 s. Breakpoints are void in Flycast here (sampling and small memory
   reads only; bulk `m` reads return scattered zeros, so never diff dumps made that way).
 - The BIOS licence screen runs before `1ST_READ.BIN`; "after the licence" means the game's first instruction ran.
-- The original runs on to `kmyStartRender`; the build does not. `tools/sh4sim.py` stops at Kamui's PVR wait, so it has never
+- The original runs on to `kmyStartRender`; the build does not. `tools/sim/sh4sim.py` stops at Kamui's PVR wait, so it has never
   reached the code that polls the pad.
 
 ## How the game leaves for the BIOS (read from the C and the asm)
@@ -61,7 +61,7 @@ or not the only one.
 | Pad array address wrong in the image | `A_8C29B898` is `0x8C3058D4`; 121 words reference it; no stale `0x8C29B898` word in `game.bin` |
 | A data object split across a gap | all 5,136 `A_` symbols checked: one delta per region; the nine close neighbours with different deltas are code (adjacent tiny functions) |
 | Hard-coded sector numbers of moved files | the old and new LBA and FAD of both moved files are in neither the original nor the built image (only 16 big-endian `45250` words, identical in both) |
-| Other disc differences | listing both discs (`tools/gdi_read.py`): only `1ST_READ.BIN` (547982 -> 547854, 2,528,528 bytes) and `TEXTURE_SSELE_STAGE_SELECT.BIN` (547854 -> 45100) differ |
+| Other disc differences | listing both discs (`tools/1-2-baseline/gdi_read.py`): only `1ST_READ.BIN` (547982 -> 547854, 2,528,528 bytes) and `TEXTURE_SSELE_STAGE_SELECT.BIN` (547854 -> 45100) differ |
 | RAM-dump diff of the running game | done by an earlier session, found nothing (bulk-read artifacts, see the symptom section) |
 
 ## Open leads
@@ -85,7 +85,7 @@ or not the only one.
    `FUN_8c0e426a` -> `seSystemApply` 1 vs 0; `syCfgSetSoundMode` -> `syBtCfgSet` 2 vs 1; `adxt_start_sj` -> `ADXSJD_Start`
    1 vs 0; `SJUNI_Create` -> `SJUNI_Reset` 4 vs 1; `kmiFLWCTRLCheckTimeOut` -> `kmyCreateRegionArray` 1 vs 0. Many are probably
    callees that read r4 only to pass it on, or a register still holding the caller's own argument; each needs a hand read of
-   the asm around the call (`python3 tools/shdis.py --func <caller>`, find the `jsr`, read the registers set before it and in
+   the asm around the call (`python3 tools/sim/shdis.py --func <caller>`, find the `jsr`, read the registers set before it and in
    its delay slot). `syBtCfgSet` and `SJUNI_Reset` are the likeliest real ones (a count below, not zero).
 
 ## Method notes (so the checks can be repeated)
@@ -115,10 +115,10 @@ r5 there writes through a stale pointer.
 ## Steps, static (no emulator; repeatable from the files)
 
 1. Which exit: read `mainCheckDrive`, `mainCheckReset`, `mainSoftReset`, `mainExitToBios` (`src/gen_e.c`, `src/gen_ad.c`,
-   `src/gen_v.c`) and the asm with `python3 tools/shdis.py --func <name>`.
+   `src/gen_v.c`) and the asm with `python3 tools/sim/shdis.py --func <name>`.
 2. Image mapping: `build/mbuild/game.map` (`_A_xxxxxxxx` = where a C address literal went) against `build/mbuild/game.bin`;
    count stale words (`struct.pack('<I', old)` found in the image) and mapped words.
-3. Disc: `python3 tools/gdi_read.py <gdi>` for the original and the built disc, diff the listings; search both executables for the
+3. Disc: `python3 tools/1-2-baseline/gdi_read.py <gdi>` for the original and the built disc, diff the listings; search both executables for the
    LBA and FAD (+150) of every moved file in both byte orders.
 4. Arguments, per callee: `state/arity_scan.json` (list = known, `"pass-through"` = unknown by design) and the tool's tests
    (`~/workspace/skills/dc-decomp-kickoff/tests/arity`).
@@ -179,12 +179,12 @@ about; a name missing from it is not null (`dict.get` hides the difference).
   `IP.BIN` delay loop and the load run again. Sampling by stop/continue slows the run, so the periods are not exact.
 - So the earlier fixes (`sysInit` callback, `ADXSTM_OpenRange`, `syBtCfgSet`) are on paths this run never reached. The
   restart is earlier than `sysInit`'s file system code, or inside `nlInitLibraryDC` -> `kmyInitializeHardware`.
-- Open now: what `kmyInitializeHardware` and `kmyMemCopy` do in the original (`python3 tools/shdis.py --func ...`), which of
+- Open now: what `kmyInitializeHardware` and `kmyMemCopy` do in the original (`python3 tools/sim/shdis.py --func ...`), which of
   their addresses/tables are pointers into the moved data (the SDK data is part of the shifted block), and where in them the
   pc is when the reset happens (denser samples around the visits, or `snap --in <range>`). Earlier notes already say the
   simulator stops at Kamui's PVR wait while the original runs on to `kmyStartRender`: same region.
 
-**10:55 static reading of the samples' functions** (original asm, `tools/shdis.py --func`):
+**10:55 static reading of the samples' functions** (original asm, `tools/sim/shdis.py --func`):
 - `kmyMemCopy` (`8c1e28e0`, 84 bytes) is a plain memcpy by 8/4/2/1 units chosen by the alignment of dst, src and length. Its 8-byte
   path (`shlr2 r6; shlr r6; ... dt r6; bf/s`) runs about 4 billion units when the length is 0 after the shifts: a call with a
   length under 8 and 8-byte alignment would run away. Not seen in use: the only call in `kmyInitializeHardware` has length 4.
@@ -253,7 +253,7 @@ THE LOOP PERSISTS with all regenerated C.** (The 10:57 "appears to work" report 
   Each sampling job gets a Monitor on its log (progress, end, stall) so its end is reported without the user asking.
 
 Next (static, no run needed): read the code after the video clear: `kmyInitializeHardware`'s callers, then `memset` and
-`kmyGenerateRegionArray` in the original asm (`tools/shdis.py --func`), and compare each address they use with `build/mbuild/game.map`
+`kmyGenerateRegionArray` in the original asm (`tools/sim/shdis.py --func`), and compare each address they use with `build/mbuild/game.map`
 (`_A_xxxxxxxx` symbols) and the data pieces; check the stack at the end of `kmyInitializeHardware` (pushes and pops balance, return
 address). A denser sample (0.05 s) from the end of the clear would show the last function reached.
 
@@ -366,7 +366,7 @@ RAM at `0C010DDA` = the NEW build (ROM CHECK read from the raw reply), 79 sample
 BL=0), none in `IP.BIN`'s delay loop, no reset cycle (the 10:54 disc went back to `IP.BIN` every 4.5 s). `8C0018F6` and its caller `8C003756` are below the game (system RAM, the BIOS
 area): the game is waiting inside a BIOS routine at "Presented by SEGA", with interrupts enabled. So the cause of the loop was the BSS alignment (the Maple driver's DMA buffer), the
 dropped-argument fixes were real and are in, and the next problem is a new, different one: a wait that never ends (a hang, not a restart).
-Open now (static first): what BIOS routine is at `8C0018F6` (read the low RAM with `flycast_gdb.py mem 0C0018E0 64` and decode with `tools/shdis.py` logic: small reads only), which game
+Open now (static first): what BIOS routine is at `8C0018F6` (read the low RAM with `flycast_gdb.py mem 0C0018E0 64` and decode with `tools/sim/shdis.py` logic: small reads only), which game
 function called it (`pr`/the stack at r15 `8C00F388`), and what it waits for (a GD-ROM read sync, a vblank, a DMA end, a timer). The notes of 2026-10-31 say an earlier build also hung at
 "Presented by SEGA" with unlisted functions; unlisted code was handled since (`boundaries.py`), so this is not necessarily the same hang.
 
@@ -418,7 +418,7 @@ with the ORIGINAL disc: does the same field ever read odd, and where does it rea
 - The table at `8C276ED0` itself is right (6 words, function addresses `8C2529xx`/`8C252Axx`...); only the object's pointer to it is odd.
 - `gdFsGetGdDcf` has a C version (`src/gen_r.c`, returns `0x8C20A6B0`) but the build links the asm piece (`DAT` in `game.map`, pool word `8C276ED0`, even): the returned value is right.
 - Static: only `sysInit` names addresses inside the work area (`8C2808C0`, dirbuf `8C281D88`). The 9 functions that name `g_8c20c204` are asm; only `gdFsInitG` stores at `+0xC`.
-- `tools/sh4sim.py` (mock BIOS, hw_model on), 40M steps each: the original and the build both do 722,417 writes and stop at the same place before `gdFsInit`; the only stores into the object are the BSS zero-fill. So the simulator never reaches the file system init and cannot show the writer (no interrupts either).
+- `tools/sim/sh4sim.py` (mock BIOS, hw_model on), 40M steps each: the original and the build both do 722,417 writes and stop at the same place before `gdFsInit`; the only stores into the object are the BSS zero-fill. So the simulator never reaches the file system init and cannot show the writer (no interrupts either).
 OPEN: who changes `+0xC` from `8C276ED0` to `8C276ED1` after `gdFsInitG`. Not tried: a baseline read of the same field on the ORIGINAL disc (is it ever odd there?); a RAM snapshot of the work area at two game times with a faster loop (stop only once per frame); reading
 `gdFsExecServerG`'s caller chain (`pr`/stack) for which function runs the callback and what it passes in r4.
 
@@ -440,7 +440,7 @@ connection and never replies; a new one on a third port never opened its server)
 - One GDB client at a time. End every test script by closing its own instance.
 - The polling sampler stops and continues the CPU on every read: the game runs at a fraction of speed while it polls (so wall-clock times are not game times), and a narrow trigger (a pc inside a 10-byte function, with a given caller) is rarely hit. Prefer a trigger on memory state (read a few words per poll).
 
-**17:29 the RAM-dump route failed five times; stopped (budget rule).** Goal: dump the live game just before the crash, replay the vblank callback in `tools/sh4sim.py` from it, read the store that makes `8C276ED0` odd.
+**17:29 the RAM-dump route failed five times; stopped (budget rule).** Goal: dump the live game just before the crash, replay the vblank callback in `tools/sim/sh4sim.py` from it, read the store that makes `8C276ED0` odd.
 Attempts (17:09-17:29 wall clock, after about 4 hours of earlier emulator work): (1) pc trigger in `nlSpriteGetNextSpriteIndex` never hit (150 s); (2) third instance on GDB port 3265 never opened its server (three windows open, load 6-7);
 (3) pc trigger in `kmiWriteRegister` + pr in `kmyStartRender` never hit; (4) polling every 3 ms from 3 s after launch starved Flycast's start-up (the window stayed at "Starting..."); (5) memory trigger (slot != 0, vblank counter `8C279984` == 0,
 field == `8C276ED0`) after a 40 s delay: 3,370 polls in 400 s (8 polls/s: the game runs at a few percent of real speed while polled, so it hardly progressed) and the trigger never fired. Cost of this last run: 7.5 minutes; no dump.
@@ -451,7 +451,7 @@ Not worth another try without a different idea. Other routes that do not need th
 `gdFsHdlG1DmaEnd+0x1a` = original `8C1DD6AC`: 14 bytes right after the 26-byte listed function `gdFsHdlG1DmaEnd`, no function of their own, named only by a callback pointer. Its `bra` (`A466` at `8C1DD6B2`) goes to `gdFsExecServerG`.
 `symbolize.branches()` only named branches the walk from a function ENTRY reaches (inside the listed size), so this one stayed the original word; after the build moved the two pieces by different amounts it landed at `8C24A0E2` (32 bytes of zero
 padding before `gdFsExecServerG` at `8C24A102`). The first vblank callback after `gdFsInit` executed padding: the wild pc, the garbage `+0xC` pointer (a consequence, not a cause) and the reset.
-Found by: a RAM state of the simulator booted to `padInit` (`tools/sh4sim.py` with the real PVR ID/revision fed: it hung on purpose on `*(8C470D0C) != 6`, 52,116,565 steps, 150 s), the Kamui master handler replayed on it died after 21 steps at `8C24A0E2`,
+Found by: a RAM state of the simulator booted to `padInit` (`tools/sim/sh4sim.py` with the real PVR ID/revision fed: it hung on purpose on `*(8C470D0C) != 6`, 52,116,565 steps, 150 s), the Kamui master handler replayed on it died after 21 steps at `8C24A0E2`,
 then the callback's disassembly: same instructions, wrong `bra` displacement (`A466`, needs `A476`).
 Audit of the whole image (read-only): of 4,932 pointer targets that are not listed function starts, 111 are code entries; exactly ONE had an unrelocated cross-piece branch landing wrong (this one). (Four more "wrong" words in listed code were 16-bit
 constants in literal pools, not branches.)

@@ -5,8 +5,13 @@ without an emulator. The console's RAM is mapped at its addresses, the game's C 
 sizes, and this runtime stands in for the hardware and the boot ROM. The tools that build and check it are in
 [tools/10-port/](../tools/10-port/README.md).
 
-Widescreen (`PORT_WIDESCREEN=1`) is playable but not yet polished: the player select screen's names do not match their boxes,
-a menu item's text shows for a moment over the top-left logo, and the match HUD is broken.
+Widescreen (`PORT_WIDESCREEN=1`) was only tested and is relatively playable but:
+
+- The player select screen's names do not match their boxes
+- A menu item's text shows for a moment over the top-left logo
+- The match HUD is broken
+- The replay screen is not wide
+- Performance drops after a while
 
 ## What is here
 
