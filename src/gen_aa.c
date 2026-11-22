@@ -98,33 +98,6 @@ float mathLineY(float f4, float f5, float f6, float f7, float f8)
     return (((f8 * ((f7 - f5) / (f6 - f4))) - (f4 * ((f7 - f5) / (f6 - f4)))) + f5);
 }
 
-float nlRandom(void)
-{
-    int t0;
-
-    t0 = nlRand();
-    return ((float)t0 * (*(float *)0x8C0ED314));
-}
-
-void SJMEM_Unlock(int a4, int a5)
-{
-    _builtin_set_imask(((unsigned int)(((a5 & 0xF) << 2) << 2) >> 4));
-}
-
-void SJRBF_Unlock(int a4, int a5)
-{
-    _builtin_set_imask(((unsigned int)(((a5 & 0xF) << 2) << 2) >> 4));
-}
-
-void SJUNI_Unlock(int a4, int a5)
-{
-    _builtin_set_imask(((unsigned int)(((a5 & 0xF) << 2) << 2) >> 4));
-}
-
-void ovUnlockCs_8c20012c(int a4)
-{
-    _builtin_set_imask(((unsigned int)((((*(int *)((a4 + 0x0))) & 0xF) << 2) << 2) >> 4));
-}
 
 int vecDist(Stk3 a, Stk3 b)
 {
@@ -137,40 +110,9 @@ int vecDot(Stk3 a, Stk3 b)
 }
 
 
-
-int kmyInitializeCallback(void)
-{
-    int t0;
-
-    *(unsigned int *)0x8C470A0C = 0x8C1F5AC8;
-    t0 = *(int *)0x8C4743EC;
-    return ((int (*)(int, int, int))(t0))(0x8C4743D8, 0x8C470A00, 0x8C470A18);
-}
-
-int kmyInitializeInterrupt(void)
-{
-    int t0;
-
-    *(unsigned int *)0x8C470CE4 = 0x8C1F5D80;
-    t0 = *(int *)0x8C4743EC;
-    return ((int (*)(int, int, int))(t0))(0x8C4743D8, 0x8C470CD8, 0x8C470AA0);
-}
-
 int fileLoadStartSlotOfs(int a4, int a5, int a6, int a7, int a8)
 {
     return fileLoadStartSlot((a4 + a7), a5, a6, a8);
-}
-
-int nlObjPutMvClosedVolume(int a4)
-{
-    nlMakeModelProjectMatrix_objput();
-    return nlObjPutMvSub(a4, 0x0);
-}
-
-int nlObjPutMvOpenedVolume(int a4)
-{
-    nlMakeModelProjectMatrix_objput();
-    return nlObjPutMvSub(a4, 0xFFFFFFFF);
 }
 
 
@@ -187,117 +129,6 @@ int circuitTaskSetB(int a4, int a5)
     return 0x8C2FBD30;
 }
 
-float nlLog10(float f4)
-{
-    float t0;
-
-    t0 = nlLog(f4);
-    return (t0 / (*(float *)0x8C0ED20C));
-}
-
-float nlLog2(float f4)
-{
-    float t0;
-
-    t0 = nlLog(f4);
-    return (t0 / (*(float *)0x8C0ED208));
-}
-
-
-int nlRenderTextureSet_Stride(int a4, int a5, int a6, int a7)
-{
-    return (nlRenderTextureSet_Sub(a4, a5, a6, a7, 0x0));
-}
-
-void nlGetTranslate(int a4)
-{
-    float u0[16];
-    float u1[16];
-
-    _builtin_st_ext((float (*)[4])u0);
-    *(float *)((((a4 + 0xC) - 0x4) + 0x0)) = u0[14];
-    *(float *)(((((a4 + 0xC) - 0x4) - 0x4) + 0x0)) = u0[13];
-    *(float *)((((((a4 + 0xC) - 0x4) - 0x4) - 0x4) + 0x0)) = u0[12];
-    _builtin_st_ext((float (*)[4])u1);
-    u1[0] = u0[0];
-    u1[1] = u0[1];
-    u1[2] = u0[2];
-    u1[3] = u0[3];
-    u1[4] = u0[4];
-    u1[5] = u0[5];
-    u1[6] = u0[6];
-    u1[7] = u0[7];
-    u1[8] = u0[8];
-    u1[9] = u0[9];
-    u1[10] = u0[10];
-    u1[11] = u0[11];
-    u1[12] = u0[12];
-    u1[13] = u0[13];
-    u1[14] = u0[14];
-    u1[15] = u0[15];
-    _builtin_ld_ext((float (*)[4])u1);
-}
-
-void nlSetTranslate(int a4)
-{
-    float u0;
-    float u1;
-    float u2;
-    float u3[16];
-
-    u0 = *(float *)((a4 + 0x0));
-    u1 = *(float *)(((a4 + 0x4) + 0x0));
-    u2 = *(float *)((((a4 + 0x4) + 0x4) + 0x0));
-    _builtin_st_ext((float (*)[4])u3);
-    u3[12] = u0;
-    u3[13] = u1;
-    u3[14] = u2;
-    _builtin_ld_ext((float (*)[4])u3);
-}
-
-void nlTranslate(float f4, float f5, float f6)
-{
-    float u0[4];
-    float u1[16];
-    float u2[16];
-
-    u0[0] = f4;
-    u0[1] = f5;
-    u0[2] = f6;
-    u0[3] = 1.0f;
-    _builtin_ftrv(u0, u0);
-    _builtin_st_ext((float (*)[4])u1);
-    u1[12] = u0[0];
-    u1[13] = u0[1];
-    _builtin_ld_ext((float (*)[4])u1);
-    _builtin_st_ext((float (*)[4])u2);
-    u2[14] = u0[2];
-    u2[15] = u0[3];
-    _builtin_ld_ext((float (*)[4])u2);
-}
-
-int nlObjPutSetLightDirectionV(int a4)
-{
-    return nlObjPutSetLightDirectionF((*(float *)((a4 + 0x0))), (*(float *)((a4 + 0x4))), (*(float *)((a4 + 0x8))));
-}
-
-int nlSpriteFreeTextureOnceGI(int a4, int a5, int a6)
-{
-    return nlSpriteFreeTextureOnce_Sub(a4, a5, a6, 0x1);
-}
-
-void nlsndStreamContinue(void)
-{
-    
-}
-
-void copyBytes(int sourceAddress, int destinationAddress, int byteCount)
-{
-    if ((int)byteCount <= 0) {
-        return;
-    }
-    ((int (*)(int, int, int))(0x8C1FF1E8))(sourceAddress, destinationAddress, (byteCount - 1));
-}
 
 float lerpf(float f4, float f5, float f6)
 {

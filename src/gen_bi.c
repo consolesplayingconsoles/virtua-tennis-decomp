@@ -85,10 +85,6 @@ int sunPut(int a4, int a5, int a6, float f4);
 int nlCreateVertexBuffer_multi_pass(int a4, int a5, int a6, int a7, int a8, int a9);
 
 
-
-
-
-
 int entryPortLeave(int a4, int a5, int a6)
 {
     int t1;
@@ -171,78 +167,4 @@ int entryPortLeave(int a4, int a5, int a6)
     return t78;
 }
 
-
-
-
-
-int nlCreateVertexBuffer_multi_pass(int a4, int a5, int a6, int a7, int a8, int a9)
-{
-    int t15;
-    int t11;
-    int t5;
-    int t8;
-    int t29;
-    int t33;
-    int t6;
-
-    t15 = (((((a5 + a6) + a7) + a8) + a9) + ((((a5 + a6) + a7) + a8) + a9));
-    if ((*(int *)0x8C42440C) == 3) {
-    } else {
-        t11 = (((a6 + a7) + a8) + a9);
-        if ((*(int *)(((0x8C424244 + (a4 * 0x38)) + 0xC))) == 0) {
-        } else {
-            t5 = *(int *)(((0x8C424244 + (a4 * 0x38)) + 0xC));
-            t8 = (((a5 + a6) + a8) + a9);
-            if (t5 == 2) {
-            } else {
-                if (t5 == 4) {
-                    t6 = (((a5 + a6) + a7) + a8);
-                }
-                t8 = t6;
-            }
-            t11 = t8;
-        }
-        t15 = t11;
-    }
-    *(unsigned int *)(((0x8C424244 + (a4 * 0x38)) + 0x8)) = (t15 << 2);
-    if (a4 == 0) {
-        *(unsigned int *)(((0x8C424244 + (a4 * 0x38)) + 0x4)) = (*(int *)0x8C424238);
-    } else {
-        *(unsigned int *)(((0x8C424244 + (a4 * 0x38)) + 0x4)) = ((*(int *)(((((a4 - 1) * 0x38) + 0x8C424244) + 0x4))) + (*(int *)(((((a4 - 1) * 0x38) + 0x8C424244) + 0x8))));
-    }
-    if ((*(int *)0x8C42440C) == 3) {
-        t29 = (int)((unsigned int)((int)((unsigned int)t15 + (unsigned int)0x0)) + ((((int)0x0 > (int)t15)) ? 1u : 0u));
-        *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x10)) = (((float)a5 * 100.0f) / (float)(t29 >> 1));
-        *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x14)) = (((float)a6 * 100.0f) / (float)(t29 >> 1));
-        *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x18)) = (((float)a7 * 100.0f) / (float)(t29 >> 1));
-        *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x1C)) = (((float)a8 * 100.0f) / (float)(t29 >> 1));
-        *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x20)) = (((float)a9 * 100.0f) / (float)(t29 >> 1));
-    } else {
-        if ((*(int *)(((0x8C424244 + (a4 * 0x38)) + 0xC))) == 0) {
-            *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x10)) = 0.0f;
-            *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x14)) = (((float)a6 * 100.0f) / (float)t15);
-            *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x18)) = (((float)a7 * 100.0f) / (float)t15);
-            *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x1C)) = (((float)a8 * 100.0f) / (float)t15);
-            *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x20)) = (((float)a9 * 100.0f) / (float)t15);
-        } else {
-            t33 = *(int *)(((0x8C424244 + (a4 * 0x38)) + 0xC));
-            if (t33 == 2) {
-                *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x10)) = (((float)a5 * 100.0f) / (float)t15);
-                *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x14)) = (((float)a6 * 100.0f) / (float)t15);
-                *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x18)) = 0.0f;
-                *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x1C)) = (((float)a8 * 100.0f) / (float)t15);
-                *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x20)) = (((float)a9 * 100.0f) / (float)t15);
-            } else {
-                if (t33 == 4) {
-                    *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x10)) = (((float)a5 * 100.0f) / (float)t15);
-                    *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x14)) = (((float)a6 * 100.0f) / (float)t15);
-                    *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x18)) = (((float)a7 * 100.0f) / (float)t15);
-                    *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x1C)) = (((float)a8 * 100.0f) / (float)t15);
-                    *(float *)(((0x8C424244 + (a4 * 0x38)) + 0x20)) = 0.0f;
-                }
-            }
-        }
-    }
-    return t15;
-}
 

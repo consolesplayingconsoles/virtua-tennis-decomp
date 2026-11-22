@@ -16,6 +16,26 @@ int FUN_8c0633c6(int a4);
 int FUN_8c07b7aa(int a4, int a5);
 int FUN_8c06c482(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7, float f8, float f9);
 
+/* FUN_8c0633c6's block at 0x8C0646EC (its own frame's R1020, R1016, R1012): the flag at +0x12E of the record R1012 is
+   set when R1016's distance |AE8 - B9C| is the larger */
+static int FUN_8c0633c6_8c0646ec(int R1020, int R1016, int R1012)
+{
+    float d0, d1;
+
+    d0 = (*(float *)((R1020 + 0xAE8))) - (*(float *)((R1020 + 0xB9C)));
+    if (0.0f > d0) {
+        d0 = (-(*(float *)((R1020 + 0xAE8)))) + (*(float *)((R1020 + 0xB9C)));
+    }
+    d1 = (*(float *)((R1016 + 0xAE8))) - (*(float *)((R1016 + 0xB9C)));
+    if (0.0f > d1) {
+        d1 = (-(*(float *)((R1016 + 0xAE8)))) + (*(float *)((R1016 + 0xB9C)));
+    }
+    if (d1 > d0) {
+        *(unsigned char *)((R1012 + 0x12E)) = 0x1;
+    }
+    return 0x12E;
+}
+
 int FUN_8c0633c6(int a4)
 {
     int stk[10];
@@ -257,18 +277,18 @@ int FUN_8c0633c6(int a4)
         t19 = *(int *)(((R1024) + 0xB5C));
         t20 = serveGetReceiver();
         if (t19 != t20) {
-            return ((int (*)(void))(0x8C065E30))();
+            return 0x12E;
         }
         *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
-        return ((int (*)(void))(0x8C065E30))();
+        return 0x12E;
     }
     if ((((*(int *)(((R1020) + 0xB60))) & 0x4000) != 0) && (t24 = R1012, t25 = *(short *)((t24 + 0x118)), (int)t25 < (int)0x1E)) {
         *(unsigned char *)(((R1016) + 0x12E)) = 0x2;
-        return ((int (*)(int))(0x8C065E30))(a4);
+        return 0x12E;
     }
     if (((*(int *)((0xC5C + (R1020)))) == 12) && (t37 = R1020, t38 = *(int *)((t37 + 0xB60)), (t38 & 0x100) != 0)) {
         *(unsigned char *)(((R1016) + 0x12E)) = 0x2;
-        return ((int (*)(int))(0x8C065E30))(a4);
+        return 0x12E;
     }
     if (!(0.0f > ((*(float *)(((R1024) + 0xAF0))) - (*(float *)(((R1020) + 0xAF0)))))) {
         u56 = ((*(float *)(((R1024) + 0xAF0))) - (*(float *)(((R1020) + 0xAF0))));
@@ -299,7 +319,7 @@ int FUN_8c0633c6(int a4)
         t83 = t80;
     }
     if (t67 == t83) {
-        return ((int (*)(int))(0x8C065E30))(a4);
+        return 0x12E;
     }
     t87 = R1024;
     t96 = 0x1;
@@ -323,13 +343,13 @@ int FUN_8c0633c6(int a4)
     }
     if (t96 == t112) {
         *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
-        return ((int (*)(int))(0x8C065E30))(a4);
+        return 0x12E;
     }
     if (!(27.5f > (*(float *)(((R1024) + 0xBA0))))) {
-        return ((int (*)(int))(0x8C0646EC))(a4);
+        return FUN_8c0633c6_8c0646ec(R1020, R1016, R1012);
     }
     if (!(27.5f > (*(float *)(((R1020) + 0xBA0))))) {
-        return ((int (*)(int))(0x8C0646EC))(a4);
+        return FUN_8c0633c6_8c0646ec(R1020, R1016, R1012);
     }
     t148 = 0x1;
     if ((*(float *)(((R1024) + 0xAE8))) > 0.0f) {
@@ -362,7 +382,7 @@ int FUN_8c0633c6(int a4)
                 u191 = (-(*(float *)(((R1024) + 0xB9C))));
             }
             if (!(u191 > 10.0f)) {
-                return ((int (*)(int))(0x8C065E30))(a4);
+                return 0x12E;
             }
             if (!(0.0f > (*(float *)(((R1024) + 0xAE8))))) {
                 u203 = (*(float *)(((R1024) + 0xAE8)));
@@ -375,10 +395,10 @@ int FUN_8c0633c6(int a4)
                 u213 = (-(*(float *)(((R1020) + 0xAE8))));
             }
             if (u213 > u203) {
-                return ((int (*)(int))(0x8C065E30))(a4);
+                return 0x12E;
             }
             *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
-            return ((int (*)(int))(0x8C065E30))(a4);
+            return 0x12E;
         }
         if (!(0.0f > (*(float *)(((R1024) + 0xAE8))))) {
             u224 = (*(float *)(((R1024) + 0xAE8)));
@@ -598,10 +618,10 @@ int FUN_8c0633c6(int a4)
                 u598 = ((-(*(float *)((t591 + 0xAE8)))) + (*(float *)((t591 + 0xB9C))));
             }
             if (!((R1004) > (u567 / (u583 + u598)))) {
-                return ((int (*)(int))(0x8C065E30))(a4);
+                return 0x12E;
             }
             *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
-            return ((int (*)(int))(0x8C065E30))(a4);
+            return 0x12E;
         }
         u604 = *(float *)((((*(int *)(((R1024) + 0xC58))) * 0x6C) + 0x8C102450));
         u605 = 0.699999988f;
@@ -774,10 +794,10 @@ int FUN_8c0633c6(int a4)
             u892 = ((-(*(float *)((t885 + 0xAE8)))) + (*(float *)((t885 + 0xB9C))));
         }
         if (!((R1004) > (u861 / (u877 + u892)))) {
-            return ((int (*)(int))(0x8C065E30))(a4);
+            return 0x12E;
         }
         *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
-        return ((int (*)(int))(0x8C065E30))(a4);
+        return 0x12E;
     }
     if (!(0.0f > ((*(float *)(((R1024) + 0xB9C))) + (*(float *)(((R1020) + 0xB9C)))))) {
         u912 = ((*(float *)(((R1024) + 0xB9C))) + (*(float *)(((R1020) + 0xB9C))));
@@ -804,10 +824,10 @@ int FUN_8c0633c6(int a4)
             t939 = t936;
         }
         if (t927 != t939) {
-            return ((int (*)(int))(0x8C065E30))(a4);
+            return 0x12E;
         }
         *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
-        return ((int (*)(int))(0x8C065E30))(a4);
+        return 0x12E;
     }
     t943 = R1024;
     if (!(0.0f > ((*(float *)((t943 + 0xAE8))) - (*(float *)((t943 + 0xB9C)))))) {
@@ -819,7 +839,7 @@ int FUN_8c0633c6(int a4)
     }
     if (25.0f > u957) {
         *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
-        return ((int (*)(int))(0x8C065E30))(a4);
+        return 0x12E;
     }
     if (!(0.0f > ((*(float *)(((R1024) + 0xAE8))) - (*(float *)(((R1020) + 0xAE8)))))) {
         u976 = ((*(float *)(((R1024) + 0xAE8))) - (*(float *)(((R1020) + 0xAE8))));
@@ -843,7 +863,7 @@ int FUN_8c0633c6(int a4)
             u1002 = (-(*(float *)(((R1024) + 0xB9C))));
         }
         if (!(u1002 > 5.0f)) {
-            return ((int (*)(int))(0x8C065E30))(a4);
+            return 0x12E;
         }
         if ((*(float *)(((R1024) + 0xAE8))) > 0.0f) {
         } else {
@@ -853,7 +873,7 @@ int FUN_8c0633c6(int a4)
         } else {
             *(volatile float *)((0xB9C + (R1024)));
         }
-        return ((int (*)(int))(0x8C065E30))(a4);
+        return 0x12E;
     }
     u1034 = *(float *)((((*(int *)(((R1024) + 0xC58))) * 0x6C) + 0x8C102450));
     u1035 = 0.5f;
@@ -1104,10 +1124,10 @@ int FUN_8c0633c6(int a4)
         u1466 = ((-(*(float *)((t1459 + 0xAE8)))) + (*(float *)((t1459 + 0xB9C))));
     }
     if (!((R1004) > (u1435 / (u1451 + u1466)))) {
-        return ((int (*)(int))(0x8C065E30))(a4);
+        return 0x12E;
     }
     *(unsigned char *)(((R1016) + 0x12E)) = 0x1;
-    return ((int (*)(int))(0x8C065E30))(a4);
+    return 0x12E;
 }
 
 

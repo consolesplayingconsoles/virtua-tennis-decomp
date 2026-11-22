@@ -1,0 +1,111 @@
+/* Small SDK (nl library) functions: texture surface tables, triangle/object put attributes, matrix helpers,
+   sprite and sound stream setup, memset. */
+
+extern int *gNlTextureSurfaces;
+extern int gNlTextureSurfaceCount;
+extern int gNlTextureLoadAttempts;
+extern int gNlCommonTextureOffset;
+extern float gNlGlobalAmbience;
+extern float gNlObjectGlobalAmbience;
+extern void (*g_0c14a9a8[])(int);
+extern float gNlSpriteInverseScreenSize[2];
+extern float gNlSpriteScreenSize[2];
+extern char gNlSoundStreamHeaderTemplate[];
+extern int gNlG2DmaHandles[];
+extern char *gNlPaletteTable;
+
+extern int nlPushMatrix(void *m);
+extern void nlUnitMatrix();
+extern void nlPopMatrix(int n);
+extern float nlFloor(float x);
+extern float nlLog(float x);
+extern float nlScalor(float *v);
+extern void nlstripSetVertexContext(void *ctx);
+extern void kmRender();
+extern void kmFlipFrameBuffer();
+extern int kmSetFogDensity(int w);
+
+
+void nlInitTextureSurface(int *surfaceTable, int surfaceCount)
+{
+    int surfaceIndex;
+
+    gNlTextureSurfaces = surfaceTable;
+    gNlTextureSurfaceCount = surfaceCount;
+    gNlTextureLoadAttempts = 0;
+    gNlCommonTextureOffset = 0;
+    for (surfaceIndex = 0; surfaceIndex < surfaceCount; surfaceIndex++) {
+        surfaceTable[10] = -1;
+        surfaceTable[11] = 0;
+        surfaceTable[14] = -1;
+        surfaceTable += 15;
+    }
+}
+
+
+int nlGetPaletteID(int paletteIndex)
+{
+    return *(short *)(gNlPaletteTable + paletteIndex * 8);
+}
+
+
+int nlPushUnitMatrix(void)
+{
+    int matrixIndex = nlPushMatrix(0);
+
+    nlUnitMatrix();
+    return matrixIndex;
+}
+
+
+void nlScaleUnitVector(float *destination, float *source, float scale)
+{
+    float lengthScale = scale / nlScalor(source);
+
+    destination[0] = source[0] * lengthScale;
+    destination[1] = source[1] * lengthScale;
+    destination[2] = source[2] * lengthScale;
+}
+
+
+void nlObjPutSetGlobalAmbience(float ambience)
+{
+    gNlGlobalAmbience = ambience;
+    gNlObjectGlobalAmbience = ambience;
+}
+
+
+void nlSpriteSetImaginaryScreenSize(float width, float height)
+{
+    gNlSpriteInverseScreenSize[0] = 1.0f / width;
+    gNlSpriteInverseScreenSize[1] = 1.0f / height;
+    gNlSpriteScreenSize[0] = width;
+    gNlSpriteScreenSize[1] = height;
+}
+
+
+void nlsndStreamGenerateHdInfo(char *header)
+{
+    int byteIndex;
+
+    for (byteIndex = 0; byteIndex < 64; byteIndex++)
+        header[byteIndex] = gNlSoundStreamHeaderTemplate[byteIndex];
+}
+
+
+int *nlsndG2DmaHandleOpen(void)
+{
+    int handleIndex;
+    int *handle = gNlG2DmaHandles;
+
+    for (handleIndex = 0; handleIndex < 16; handleIndex++) {
+        if (handle[0] == 0) {
+            handle[0] = 1;
+            return handle;
+        }
+        handle += 4;
+    }
+    return 0;
+}
+
+

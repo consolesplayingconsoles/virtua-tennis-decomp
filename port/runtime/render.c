@@ -21,7 +21,7 @@ void render_set_background(float r, float g, float b)
 
 void port_render_init(void)
 {
-    fprintf(stderr, "vtennis: OpenGL %s, %s\n", (const char *)glGetString(GL_VERSION), (const char *)glGetString(GL_RENDERER));
+    fprintf(stderr, PORT_NAME ": OpenGL %s, %s\n", (const char *)glGetString(GL_VERSION), (const char *)glGetString(GL_RENDERER));
     render_setup();
 }
 

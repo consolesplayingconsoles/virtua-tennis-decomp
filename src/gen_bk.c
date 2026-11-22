@@ -16,11 +16,6 @@ int entryAnyAtRound5(void);
 int entryCountJoined(void);
 int entryGetColorId(int, Stk3);
 int entryIsVersus(int, int, int, int);
-#pragma inline_asm(iaOcbi)
-static void iaOcbi(void *p)
-{
-    .DATA.W H'0493
-}
 int lightUpdate(void);
 int matchCheckTiebreak(int, int);
 int menuTextMsgPut(int, Stk3, float);
@@ -58,10 +53,6 @@ int umpirePose(int a4);
 int netJudgePose(int a4);
 int entryCharaSelDraw(void);
 void ADXF_Ocbi(int a4, int a5);
-
-
-
-
 
 
 int fadeQuadDraw(int a4, int a5, int a6, float f4, float f5)
@@ -289,33 +280,6 @@ int netJudgePose(int a4)
     return t77;
 }
 
-
-void ADXF_Ocbi(int a4, int a5)
-{
-    int t1;
-    int t2;
-    int stk[6];
-
-    if (a5 == 0) {
-        return;
-    }
-    if ((unsigned int)a5 >= (unsigned int)0x30000) {
-        *(unsigned short *)(((int)stk + 4)) = (_builtin_get_imask());
-        _builtin_set_imask(0xF);
-        ((int (*)(int, int))(0xAC1F19C4))(a4, a5);
-    return;
-    }
-    t1 = (0x1FFFFFE0 & a4);
-    t2 = ((unsigned int)((unsigned int)((unsigned int)(((0x1F & a4) + a5) + 0x1F) >> 2) >> 2) >> 1);
-    for (;;) {
-        iaOcbi((void *)t1);
-        t2 = (t2 - 0x1);
-        t1 = (t1 + 0x20);
-        if (t2 == 0) {
-            break;
-        }
-    }
-}
 
 float cpuSglPickLv07(int a4, int a5, float f4, float f5)
 {

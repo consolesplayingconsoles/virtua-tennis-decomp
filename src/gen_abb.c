@@ -302,40 +302,6 @@ int resultDraw(int a4, int a5, int a6, float f4)
     return t147;
 }
 
-int ADXSTM_OpenFname(int a4, int a5)
-{
-    int stk[8];
-    register int t0;
-    register int t2;
-    register int t7;
-    register int t14;
-    register int t11;
-
-    *(unsigned int *)(((int)stk + 16)) = a5;
-    t0 = gdFsOpen(a4, 0x0);
-    if (t0 == 0) {
-        *(int *)((int)stk + 8) = a4;
-        *(int *)((int)stk + 4) = 0x8C20AA04;
-        ADXERR_CallErrFunc(0x8C20AA04, a4);
-        t14 = 0x0;
-    } else {
-        t2 = gdFsGetFileSize(t0, ((int)stk + 12));
-        if (t2 == 0) {
-            *(int *)((int)stk + 8) = 0x8C20AA34;
-            ADXERR_CallErrFunc(0x8C20AA34);
-            gdFsClose(t0);
-            t11 = 0x0;
-        } else {
-            t7 = ADXSTMF_Create(t0, 0x0, (*(int *)(((int)stk + 12))), (*(int *)(((int)stk + 16))));
-            if (t7 != 0) {
-                strncpy((t7 + 0x40), a4, 0x20);
-            }
-            t11 = t7;
-        }
-        t14 = t11;
-    }
-    return t14;
-}
 
 int infoPlayerDrawWrap(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4, float f5, float f6)
 {
@@ -348,17 +314,6 @@ int infoPlayerDrawWrap(int a4, int a5, int a6, int a7, int a8, int a9, int a10, 
     return (infoPlayerDraw(a4, a5, a6, a7, *(Stk3 *)(((int)stk + 4)), f4, f5, f6));
 }
 
-int nlObjPut_vtxcolbridge(void)
-{
-    int stk[5];
-    register int t0;
-
-    t0 = *(int *)0x8C1DCA98;
-    if (t0 != 0) {
-        return ((int (*)(void))(t0))();
-    }
-    return ((int (*)(void))(0x8C0FDAEA))();
-}
 
 void sceneVecStub(void)
 {
@@ -367,66 +322,6 @@ void sceneVecStub(void)
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 4) + 0x64)) = *(struct mv3 *)(0x8C10DFA8); }
 }
 
-int gdFsReqDrvStat(void)
-{
-    register int t0;
-    register int t1;
-
-    t0 = *(int *)0x8C20C210;
-    if (t0 != 0) {
-        t1 = *(int *)((t0 + 0x58));
-        return ((int (*)(void))(t1))();
-    }
-    return 0x0;
-}
-
-int gdFsLoadDir(void)
-{
-    register int t0;
-    register int t1;
-
-    t0 = *(int *)0x8C20C210;
-    if (t0 != 0) {
-        t1 = *(int *)((t0 + 0x20));
-        return ((int (*)(void))(t1))();
-    }
-    return 0x0;
-}
-
-int gdFsGetDirInfo(void)
-{
-    register int t0;
-    register int t1;
-
-    t0 = *(int *)0x8C20C210;
-    if (t0 != 0) {
-        t1 = *(int *)((t0 + 0x2C));
-        return ((int (*)(void))(t1))();
-    }
-    return 0x0;
-}
-
-void gdFsExecServer(void)
-{
-    register int t0;
-
-    t0 = *(int *)0x8C20C210;
-    if (t0 != 0) {
-        ((int (*)(void))((*(int *)((t0 + 0x48)))))();
-    return;
-    }
-}
-
-void gdFsEntryErrFuncAll(void)
-{
-    register int t0;
-
-    t0 = *(int *)0x8C20C210;
-    if (t0 != 0) {
-        ((int (*)(void))((*(int *)((t0 + 0x74)))))();
-    return;
-    }
-}
 
 int cpuInitPoint(int a4, int a5, int a6, int a7)
 {
@@ -436,13 +331,4 @@ int cpuInitPoint(int a4, int a5, int a6, int a7)
     return cpuDblPointInit(a4, a5, a6, a7);
 }
 
-void ADXERR_EntryErrFunc(int a4, int a5)
-{
-    *(unsigned int *)0x8C20C89C = a4;
-    *(unsigned int *)0x8C20C8A0 = a5;
-}
 
-int gdFsInit(void)
-{
-    return gdFsInitOvl();
-}

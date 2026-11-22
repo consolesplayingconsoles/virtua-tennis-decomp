@@ -119,19 +119,3 @@ int sysInit(void)
     return t0;
 }
 
-int ADXSTM_OpenRange(int a4, int a5, int a6)
-{
-    register int t0;
-    register int t2;
-
-    t0 = gdFsOpenRange(a4, a5, a6);
-    if (t0 == 0) {
-        ADXERR_CallErrFunc(0x8C20AA64, a4, a5);
-        return 0x0;
-    }
-    t2 = ADXSTMF_Create(t0, 0x0, (((a5 << 8) << 2) << 1), a6);
-    if (t2 != 0) {
-        strncpy((t2 + 0x40), 0x8C20AA9C, 0x20);
-    }
-    return t2;
-}

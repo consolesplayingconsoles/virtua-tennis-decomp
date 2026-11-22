@@ -179,24 +179,6 @@ void decoSprPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f
     }
 }
 
-int kmyFreeSmallVQArea(int a4, int a5)
-{
-    int t3;
-    int t5;
-    int stk[14];
-
-    *(unsigned int *)(((int)stk + 28)) = a4;
-    *(unsigned int *)(((int)stk + 24)) = a5;
-    kmytex_GetSmallVQprofile((((int)stk + 24) + 0x8), (*(int *)(((int)stk + 28))));
-    t3 = *(int *)(((((int)stk + 24) + 0x8) + 0x4));
-    *(unsigned int *)(((int)stk + 4)) = (*(int *)(((((int)stk + 24) + 0x8) + 0x0)));
-    *(unsigned int *)(((int)stk + 8)) = t3;
-    t5 = *(int *)(((((int)stk + 24) + 0x8) + 0xC));
-    *(unsigned int *)(((int)stk + 12)) = (*(int *)(((((int)stk + 24) + 0x8) + 0x8)));
-    *(unsigned int *)(((int)stk + 16)) = t5;
-    *(unsigned int *)(((int)stk + 20)) = (*(int *)(((((int)stk + 24) + 0x8) + 0x10)));
-    return (VQFBfree((*(int *)(((int)stk + 24))), 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16)));
-}
 
 int hudLabelPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, float f4)
 {
@@ -363,7 +345,3 @@ int hudBannerSubPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, flo
 }
 
 
-int nlRenderTextureSet(int a4, int a5, int a6, int a7)
-{
-    return (nlRenderTextureSet_Sub(a4, a5, a6, a7, 0x1));
-}

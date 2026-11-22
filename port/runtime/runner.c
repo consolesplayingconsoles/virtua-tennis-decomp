@@ -3,15 +3,15 @@
    - the console's 16 MB of main RAM at its own address, 0x0C000000, with the same memory at the cached and uncached
      mirrors 0x8C000000 and 0xAC000000 (one memfd mapped three times), and zeroed stand-ins for the hardware register
      and video/sound memory windows the game's C touches;
-   - 1ST_READ.BIN loaded at 0x8C010000 (Virtua Tennis is linked at the cached mirror), which gives the game its tables, strings and initial data at their addresses
+   - 1ST_READ.BIN loaded at PORT_IMAGE_BASE (0x8C010000: the cached mirror of the address the game is linked at), which gives the game its tables, strings and initial data at their addresses
      (the code bytes there are data to the host: they are never run);
    - a stack inside the low 2 GB, since the game keeps addresses of its locals in 32-bit words;
    - the SH-4's float rounding for the basic operations (toward zero, denormals flushed), through MXCSR;
    - calls to console addresses: that memory is not executable, so such a call faults, and the handler sends it on to
      the host function the dispatch table gives for that address, with the arguments still in their registers.
 
-   Then it runs what the console's start code (0x8C1DCC60) runs: the stack fill, _INITSCT (the bss clear and the data
-   copies), the library entries (ovMdlEntryTbl) and main.
+   Then it runs what the console's start code (GAME_START, game.h) runs: the stack fill, _INITSCT (the bss clear and the data
+   copies), the library entries (ovMdlEntryTbl) and MainLoop, through its thunk.
    The layout follows the native runner of the Sonic Adventure decompilation (github.com/reshaped/sonic-adventure,
    engine/native): the game's own scheduler, fixed addresses in a mapped domain, the game on a low stack. */
 #define _GNU_SOURCE
@@ -23,12 +23,15 @@
 #include <sys/mman.h>
 #include <sys/personality.h>
 #include <ucontext.h>
+#include <fcntl.h>
+#include <sys/time.h>
 #include <unistd.h>
 #include <sys/syscall.h>
 #include <pthread.h>
 #include <xmmintrin.h>
 
 #include "port.h"
+#include "game.h"
 
 int port_sr = 0x600000F0, port_fr15; /* privileged, register bank 1, interrupts masked (15); BL clear, as start-up leaves it */
 
@@ -45,7 +48,7 @@ static unsigned max_seconds;
 
 static void die(const char *what)
 {
-    fprintf(stderr, "vtennis: %s: %s\n", what, strerror(errno));
+    fprintf(stderr, PORT_NAME ": %s: %s\n", what, strerror(errno));
     exit(2);
 }
 
@@ -89,6 +92,14 @@ static void map_machine(void)
        then flushes it (hw.c); only the pages it touches take memory */
     map_fixed(0xE0000000u, 0x04000000u, -1, "store queues");
     map_fixed(0xFF000000u, 0x01000000u, -1, "SH-4 control registers");
+    /* the boot ROM and flash (0x00000000-0x0021FFFF), read as zeros: the game reads there through a null entry of its own
+       tables and goes on, on the console with the ROM's bytes (Crazy Taxi's Chat_Choin: a passenger of type 5 or above
+       has no voice table, 0x0C13ED0C, and the comment after a stunt read address 0 and faulted here). Read only: a write
+       still faults. Below vm.mmap_min_addr only root may map; else the runtime says so and such a read faults as before */
+    void *rom = mmap((void *)0, 0x00220000u, PROT_READ, MAP_FIXED_NOREPLACE | MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    if (rom != (void *)0)
+        fprintf(stderr, PORT_NAME ": the boot ROM's addresses (0x00000000) could not be mapped (%s): a read there faults\n",
+                strerror(errno));
     map_fixed(GAME_STACK, GAME_STACK_SIZE, -1, "the game's stack");
 }
 
@@ -97,8 +108,8 @@ static void load_image(void)
     static char path[1024];
     if (!image_path) {
         if (!port_data_path("1ST_READ.BIN", path, sizeof path)) {
-            fprintf(stderr, "vtennis: no 1ST_READ.BIN in the data folder %s (give it with --data DIR: a folder holding the "
-                            "files of your Virtua Tennis disc)\n", port_data_dir);
+            fprintf(stderr, PORT_NAME ": no 1ST_READ.BIN in the data folder %s (give it with --data DIR: a folder holding the "
+                            "files of your " PORT_TITLE " disc)\n", port_data_dir);
             exit(2);
         }
         image_path = path;
@@ -108,7 +119,7 @@ static void load_image(void)
         die(image_path);
     size_t n = fread((void *)(uintptr_t)PORT_IMAGE_BASE, 1, PORT_RAM_SIZE - (PORT_IMAGE_BASE & 0x00FFFFFFu), f);
     fclose(f);
-    fprintf(stderr, "vtennis: %s, %zu bytes at 0x%08X\n", image_path, n, PORT_IMAGE_BASE);
+    fprintf(stderr, PORT_NAME ": %s, %zu bytes at 0x%08X\n", image_path, n, PORT_IMAGE_BASE);
 }
 
 static uint32_t word(uint32_t addr)
@@ -116,7 +127,7 @@ static uint32_t word(uint32_t addr)
     return *(uint32_t *)(uintptr_t)addr;
 }
 
-/* what the start code at 0x8C1DCC60 does before _INITSCT: the word "SEGA" over 0x8C00C000-0x8C00F400 (the
+/* what the start code (GAME_START) does before _INITSCT: the word "SEGA" over 0x8C00C000-0x8C00F400 (the
    console's system stack area, which the host does not use for its stack; filled for whatever reads it) */
 static void start_fill(void)
 {
@@ -150,13 +161,13 @@ const struct port_entry *port_nearest(uint32_t addr)
 static void report_fault(const char *kind, uint64_t rip, uint64_t addr)
 {
     char line[200];
-    int n = snprintf(line, sizeof line, "vtennis: %s at rip=%#lx, address %#lx\n", kind, (unsigned long)rip, (unsigned long)addr);
+    int n = snprintf(line, sizeof line, PORT_NAME ": %s at rip=%#lx, address %#lx\n", kind, (unsigned long)rip, (unsigned long)addr);
     if (write(2, line, n) < 0)
         _exit(3);
 }
 
 /* Integer division by zero. The SH-4 has no divide instruction: the game's C divides through the compiler's runtime
-   (_divls, _divlu, _modls, _modlu), which for a divisor of 0 returns 0 and sets the runtime's errno (0x8C45A0E0) to
+   (_divls, _divlu, _modls, _modlu), which for a divisor of 0 returns 0 and sets the runtime's errno (GAME_ERRNO) to
    0x44E; nothing traps. On the host the same C compiles to div / idiv, which does. So a div or idiv that faults with a
    divisor of 0 is given the console's answer (quotient and remainder 0, errno set) and the game goes on after it. Any
    other arithmetic fault (INT_MIN / -1) is not handled here. Returns 1 when it handled the fault. */
@@ -236,7 +247,7 @@ static int console_div_by_zero(ucontext_t *uc)
         g[REG_RAX] &= ~(greg_t)0xFFFF, g[REG_RDX] &= ~(greg_t)0xFFFF;
     else
         g[REG_RAX] = 0, g[REG_RDX] = 0;             /* a 32-bit result clears the upper half too */
-    *(volatile uint32_t *)(uintptr_t)0x8C45A0E0u = 0x44E;
+    *(volatile uint32_t *)(uintptr_t)GAME_ERRNO = 0x44E;
     g[REG_RIP] += n;
     return 1;
 }
@@ -245,6 +256,16 @@ static int console_div_by_zero(ucontext_t *uc)
 static volatile int last_fault_sig;
 static volatile uint64_t last_fault_rip, last_fault_addr, last_fault_rbp;
 static volatile unsigned long fault_count;
+
+/* a call to an address where no function is listed: interpreted there */
+static uint32_t raw_addr;
+static int raw_guest_call(int a, int b, int c, int d, int e, int f, int g, int h, float x0, float x1, float x2, float x3, float x4,
+                          float x5, float x6, float x7)
+{
+    int r = interp_call(raw_addr, a, b, c, d, e, f, g, h, x0, x1, x2, x3, x4, x5, x6, x7);
+    __asm__ volatile("movss %0, %%xmm0" :: "m"(interp_f0));
+    return r;
+}
 
 static void on_fault(int sig, siginfo_t *si, void *ctx)
 {
@@ -273,10 +294,13 @@ static void on_fault(int sig, siginfo_t *si, void *ctx)
         /* a call to an address where functions.txt lists no function: code the decomp has not found yet. The game stops
            here on purpose, so it gets listed and given C instead of running on with a wrong result; PORT_UNLISTED_OK=1
            lets it return 0 and go on (the old behaviour) */
+        raw_addr = target;                        /* code no function owns (a jump into the middle of one, a tail): interpreted from the original */
+        uc->uc_mcontext.gregs[REG_RIP] = (greg_t)(uintptr_t)raw_guest_call;
+        return;
         if (!getenv("PORT_UNLISTED_OK")) {
             const struct port_entry *n = port_nearest(target);
             char line[200];
-            int k = snprintf(line, sizeof line, "vtennis: STOP: call to 0x%08X, where no function is listed (nearest before it: %s); "
+            int k = snprintf(line, sizeof line, PORT_NAME ": STOP: call to 0x%08X, where no function is listed (nearest before it: %s); "
                              "list it in functions.txt and give it C\n", target, n ? n->name : "?");
             if (write(2, line, k) < 0)
                 _exit(86);
@@ -295,7 +319,7 @@ static void on_fault(int sig, siginfo_t *si, void *ctx)
             for (int i = 0; i < 64; i++)
                 if (!warned[i]) { warned[i] = target; break; }
             char line[120];
-            int n = snprintf(line, sizeof line, "vtennis: call to 0x%08X (no function there) returns 0\n", target);
+            int n = snprintf(line, sizeof line, PORT_NAME ": call to 0x%08X (no function there) returns 0\n", target);
             if (write(2, line, n) < 0)
                 _exit(3);
         }
@@ -311,7 +335,7 @@ static void on_fault(int sig, siginfo_t *si, void *ctx)
         /* where it came from: the word at the stack top (a call to 0 leaves its return address there) and the frame chain */
         uint64_t rsp = uc->uc_mcontext.gregs[REG_RSP], rbp = uc->uc_mcontext.gregs[REG_RBP];
         char line[400];
-        int n = snprintf(line, sizeof line, "vtennis: [rsp] %#lx, callers", (unsigned long)(rsp ? *(uint64_t *)rsp : 0));
+        int n = snprintf(line, sizeof line, PORT_NAME ": [rsp] %#lx, callers", (unsigned long)(rsp ? *(uint64_t *)rsp : 0));
         for (int i = 0; i < 12 && rbp > 0x1000 && rbp < 0x7fffffffffffull && !(rbp & 3); i++) {
             n += snprintf(line + n, sizeof line - n, " %#lx", (unsigned long)*(uint64_t *)(rbp + 8));
             rbp = *(uint64_t *)rbp;
@@ -339,7 +363,7 @@ static void wd_write(const char *s, int n)
         _exit(3);
 }
 
-/* SIGUSR1 from the watchdog: the game thread says where it is (its host rip and frame chain; port/tools/where.sh
+/* SIGUSR1 from the watchdog: the game thread says where it is (its host rip and frame chain; tools/10-port/where.sh
    turns the addresses into functions and lines) */
 static void on_watchdog(int sig, siginfo_t *si, void *ctx)
 {
@@ -348,7 +372,7 @@ static void on_watchdog(int sig, siginfo_t *si, void *ctx)
     ucontext_t *uc = ctx;
     uint64_t rip = uc->uc_mcontext.gregs[REG_RIP], rbp = uc->uc_mcontext.gregs[REG_RBP];
     char line[300];
-    int n = snprintf(line, sizeof line, "vtennis: watchdog: game thread at rip=%#lx, callers", (unsigned long)rip);
+    int n = snprintf(line, sizeof line, PORT_NAME ": watchdog: game thread at rip=%#lx, callers", (unsigned long)rip);
     /* the frame chain, followed only inside the interrupted stack (the game's C keeps no frame pointer everywhere) */
     uint64_t rsp = uc->uc_mcontext.gregs[REG_RSP];
     for (int i = 0; i < 12 && rbp >= rsp && rbp < rsp + (8u << 20) && !(rbp & 7); i++) {
@@ -373,15 +397,14 @@ static void wd_sigstate(void)
         return;
     while (fgets(buf, sizeof buf, f))
         if (!strncmp(buf, "SigBlk:", 7) || !strncmp(buf, "SigPnd:", 7) || !strncmp(buf, "State:", 6)) {
-            int n = snprintf(out, sizeof out, "vtennis: watchdog:   game thread %s", buf);
+            int n = snprintf(out, sizeof out, PORT_NAME ": watchdog:   game thread %s", buf);
             wd_write(out, n);
         }
     fclose(f);
 }
 
 /* the watchdog: when no frame ends for 3 seconds, it logs the state and samples where the game thread is every 2
-   seconds (a loop shows as the same few addresses); after 12 seconds without a frame the game is frozen for good and
-   it exits, so the window does not hang */
+   seconds (a loop shows as the same few addresses); it never ends the program: a frozen game stays to be read */
 static void *watchdog(void *arg)
 {
     (void)arg;
@@ -395,7 +418,7 @@ static void *watchdog(void *arg)
         if (port_frames != last) {
             if (still >= 3) {
                 char line[120];
-                int n = snprintf(line, sizeof line, "vtennis: watchdog: frames resumed at frame %lu after %d s\n",
+                int n = snprintf(line, sizeof line, PORT_NAME ": watchdog: frames resumed at frame %lu after %d s\n",
                                  port_frames, still);
                 wd_write(line, n);
             }
@@ -406,7 +429,7 @@ static void *watchdog(void *arg)
         still++;
         if (still >= 3 && (still - 3) % 2 == 0) {
             char line[200];
-            int n = snprintf(line, sizeof line, "vtennis: watchdog: no frame for %d s (frame %lu, vsyncs %lu, in interrupt %d, "
+            int n = snprintf(line, sizeof line, PORT_NAME ": watchdog: no frame for %d s (frame %lu, vsyncs %lu, in interrupt %d, "
                              "host depth %d)\n", still, port_frames, port_vsyncs, port_in_interrupt(), (int)port_host_depth);
             wd_write(line, n);
             if (still == 3)
@@ -417,7 +440,7 @@ static void *watchdog(void *arg)
                 static unsigned long last_count;
                 unsigned long fc = fault_count;
                 uint64_t rbp = last_fault_rbp;
-                n = snprintf(line, sizeof line, "vtennis: watchdog:   last fault sig %d at rip=%#lx addr %#lx, %lu faults "
+                n = snprintf(line, sizeof line, PORT_NAME ": watchdog:   last fault sig %d at rip=%#lx addr %#lx, %lu faults "
                              "since the last sample, callers", last_fault_sig, (unsigned long)last_fault_rip,
                              (unsigned long)last_fault_addr, fc - last_count);
                 last_count = fc;
@@ -438,20 +461,51 @@ static void *watchdog(void *arg)
             sleep(1);
             still++;
             if (!watchdog_answered) {
-                n = snprintf(line, sizeof line, "vtennis: watchdog: the game thread did not answer (SIGUSR1 blocked or it is "
+                n = snprintf(line, sizeof line, PORT_NAME ": watchdog: the game thread did not answer (SIGUSR1 blocked or it is "
                              "stuck in the kernel)\n");
                 wd_write(line, n);
                 wd_sigstate();
             }
         }
-        if (still >= 12) {
-            char line[120];
-            int n = snprintf(line, sizeof line, "vtennis: FROZEN: no frame for %d s at frame %lu; exiting\n", still, port_frames);
-            wd_write(line, n);
-            _exit(5);
-        }
     }
     return 0;
+}
+
+/* PORT_PROFILE=<file>: where the program is, 1,000 times a second of the CPU time it uses (SIGPROF), written to <file> as
+   8-byte addresses every 4,096 samples; the hot spots are named afterwards from the program's symbols (nm, addr2line).
+   Without it nothing is sampled */
+static uint64_t prof_buf[4096];
+static unsigned prof_n;
+static int prof_fd = -1;
+static void on_prof(int sig, siginfo_t *si, void *ctx)
+{
+    (void)sig, (void)si;
+    prof_buf[prof_n++] = (uint64_t)((ucontext_t *)ctx)->uc_mcontext.gregs[REG_RIP];
+    if (prof_n == 4096) {
+        if (write(prof_fd, prof_buf, sizeof prof_buf) < 0)
+            prof_fd = -1;
+        prof_n = 0;
+    }
+}
+
+static void start_profile(void)
+{
+    const char *f = getenv("PORT_PROFILE");
+    if (!f || !*f)
+        return;
+    prof_fd = open(f, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    if (prof_fd < 0) {
+        fprintf(stderr, PORT_NAME ": PORT_PROFILE %s: %s\n", f, strerror(errno));
+        return;
+    }
+    struct sigaction sa;
+    memset(&sa, 0, sizeof sa);
+    sa.sa_sigaction = on_prof;
+    sa.sa_flags = SA_SIGINFO | SA_RESTART;
+    sigaction(SIGPROF, &sa, 0);
+    struct itimerval it = {{0, 1000}, {0, 1000}};
+    setitimer(ITIMER_PROF, &it, 0);
+    fprintf(stderr, PORT_NAME ": profiling to %s\n", f);
 }
 
 static void install_handlers(void)
@@ -495,14 +549,14 @@ void port_unimplemented(const char *name, uint32_t addr)
         }
     if (seen_n < SEEN_MAX)
         seen[seen_n++] = (typeof(seen[0])){name, addr, 1};
-    fprintf(stderr, "vtennis: no C yet for %s (0x%08X)\n", name, addr);
+    fprintf(stderr, PORT_NAME ": no C yet for %s (0x%08X)\n", name, addr);
     if (strict)
         exit(5);
 }
 
 static void report_unimplemented(void)
 {
-    fprintf(stderr, "vtennis: %u functions without C were called:\n", seen_n);
+    fprintf(stderr, PORT_NAME ": %u functions without C were called:\n", seen_n);
     for (unsigned i = 0; i < seen_n; i++)
         fprintf(stderr, "  %08X %-40s %lu\n", seen[i].addr, seen[i].name, seen[i].count);
 }
@@ -516,7 +570,7 @@ static void call_console(uint32_t addr, uint32_t arg)
     const struct port_entry *e = port_lookup(addr);
     if (!e) {
         const struct port_entry *n = port_nearest(addr);
-        fprintf(stderr, "vtennis: no C for the start-up call to 0x%08X (%s), skipped\n", addr, n ? n->name : "?");
+        fprintf(stderr, PORT_NAME ": no C for the start-up call to 0x%08X (%s), skipped\n", addr, n ? n->name : "?");
         return;
     }
     ((void (*)(uint32_t))e->fn)(arg);
@@ -534,10 +588,10 @@ static void game_main(void)
     start_fill();
     port_bios_install();                          /* the boot ROM's system call vectors (bios.c) */
     port_hw_init();                               /* video timing, timers, interrupts (hw.c) */
-    call_console(0x8C1DCC98u, 0);                 /* _INITSCT: the bss cleared, the initial data copied */
-    call_console(0x8C1DD2AEu, word(0x8C209334u)); /* _INITLIBH: ovMdlEntryTbl(*0x8C209334), the library modules' entries */
-    call_console(0x8C010080u, 0);                 /* main */
-    fprintf(stderr, "vtennis: main returned\n");
+    call_console(GAME_INITSCT, 0);                /* _INITSCT: the bss cleared, the initial data copied */
+    call_console(GAME_INITLIBH, 0);               /* _INITLIBH: the library modules' entries */
+    call_console(GAME_MAIN, 0);                   /* what the start code calls: main, or the game's own main loop */
+    fprintf(stderr, PORT_NAME ": main returned\n");
 }
 
 static void on_alarm(int sig)
@@ -569,6 +623,9 @@ int main(int argc, char **argv)
             extern const char *port_shot_file;
             port_shot_every = strtoul(argv[++i], 0, 10);
             port_shot_file = argv[++i];
+        } else if (!strcmp(argv[i], "--keys") && i + 1 < argc) {
+            extern const char *port_keys;
+            port_keys = argv[++i];
         } else if (!strcmp(argv[i], "--press") && i + 1 < argc) {
             extern unsigned long port_press_frame;
             port_press_frame = strtoul(argv[++i], 0, 10);
@@ -583,15 +640,16 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--image") && i + 1 < argc)
             image_path = argv[++i];
         else {
-            fprintf(stderr, "usage: vtennis [--data DIR] [--vmu DIR] [--headless] [--fast] [--strict] [--trace-calls] [--seconds N]\n"
+            fprintf(stderr, "usage: " PORT_NAME " [--data DIR] [--vmu DIR] [--headless] [--fast] [--strict] [--trace-calls] [--seconds N]\n"
                             "               [--image FILE] [--screenshot FRAME FILE.ppm] [--screenshot-every N PREFIX] [--press FRAME]\n"
-                            "  DIR: a folder holding the files of your Virtua Tennis disc (1ST_READ.BIN, PACK0.BIN, ...)\n");
+                            "  DIR: a folder holding the files of your " PORT_TITLE " disc (1ST_READ.BIN, PACK0.BIN, ...)\n");
             return 2;
         }
     }
     map_machine();
     load_image();
     install_handlers();
+    start_profile();
     if (!port_platform_init())
         return 2;
     port_pvr_init();

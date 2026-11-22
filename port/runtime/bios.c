@@ -28,14 +28,15 @@ static void trace(const char *what, int r4, int r5, int r6, int r7)
 
 /* --- system information (0x8C0000B0) ---------------------------------------------------------------------------------
    0: init (the ID block copied to 0x8C000068), 3: the ID block's address. The block: an 8-byte console ID, then the
-   factory partition's 5 region bytes: area, language?, ..., [4] the broadcast standard ('0' NTSC) */
+   factory partition's 5 region bytes: area, ..., [3] the default language (syCfgGetDefaultLanguage reads it when the
+   system settings hold none: '0' Japanese, '1' English), [4] the broadcast standard ('0' NTSC) */
 #define SYSINFO 0x8C000068u
 
 static void sysinfo_fill(void)
 {
     static const unsigned char id[8] = {0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC, 0xDE, 0xF0};
     memcpy(PTR(SYSINFO), id, 8);
-    memcpy(PTR(SYSINFO + 8), "11000", 5);   /* area 1 (America), the rest as a US console has them; NTSC */
+    memcpy(PTR(SYSINFO + 8), "11010", 5);   /* area 1 (America), English, NTSC */
 }
 
 int32_t bios_sysinfo(int r4, int r5, int r6, int r7)
@@ -76,7 +77,7 @@ static const uint32_t flash_part[5][2] = {
 static void flash_init(void)
 {
     memset(flash, 0xFF, sizeof flash);
-    memcpy(flash + 0x1A000, "11000", 5);
+    memcpy(flash + 0x1A000, "11010", 5);
     memcpy(flash + 0x1A005, "Dreamcast  ", 11);
 }
 
@@ -149,7 +150,7 @@ int32_t bios_system(int r4, int r5, int r6, int r7)
 {
     trace("system", r4, r5, r6, r7);
     if (r4 == 1 || r4 == -1 || r4 == 0) {
-        fprintf(stderr, "vtennis: the game left for the console's menu\n");
+        fprintf(stderr, PORT_NAME ": the game left for the console's menu\n");
         exit(0);
     }
     return 0;

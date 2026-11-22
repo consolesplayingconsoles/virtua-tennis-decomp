@@ -35,16 +35,3 @@ int netJudgeInit(void)
     return t21;
 }
 
-int mwRnaSetSfreq(int a4, int a5)
-{
-    int t1;
-    int t4;
-
-    if (a4 == 0) {
-        return (mwRnaErrCallFunc(0x8C20AC30));
-    }
-    t1 = *(int *)((a4 + 0x38));
-    t4 = ((int (*)(int, int))((*(int *)(((*(int *)((t1 + 0x0))) + 0x24)))))(t1, a5);
-    *(unsigned int *)((a4 + 0xC)) = a5;
-    return t4;
-}

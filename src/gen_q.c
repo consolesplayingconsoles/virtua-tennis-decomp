@@ -24,46 +24,6 @@ int nlsndCheckPackReloadError(int a4, int a5);
 int kmtex_TextureSize_VQ(int a4);
 
 
-int kmSetBackGroundPlane(int a4, int a5)
-{
-    int t0;
-    int t1;
-    float u2;
-    int t3;
-    int t4;
-    int t5;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-    int t10;
-    int t11;
-
-    t0 = *(int *)0x8C471E18;
-    *(unsigned int *)0x8C471E18 = (t0 | 0x1);
-    t1 = *(int *)((a4 + 0x0));
-    u2 = *(float *)((t1 + 0xC));
-    *(float *)0x8C471E28 = u2;
-    t3 = *(int *)((a4 + 0x4));
-    t4 = *(int *)((a4 + 0x8));
-    t5 = *(int *)(((a5 << 2) + 0x8C20C6D8));
-    t6 = *(int *)((a4 + 0x0));
-    t7 = ((int (*)(int, int, int, int))(t5))(0x8C4607EC, t6, t3, t4);
-    t8 = 0x0;
-    for (;;) {
-        t9 = *(int *)(((0x8C471E20 + t8) + 0x0));
-        t10 = (0x8C471E20 + t8);
-        t8 = (t8 + 0x4);
-        *(unsigned int *)((t10 + 0x0)) = (t9 | 0x1);
-        if ((unsigned int)t8 >= (unsigned int)0x8) {
-            break;
-        }
-    }
-    t11 = *(int *)0x8C471E18;
-    *(unsigned int *)0x8C471E18 = (t11 & 0xFFFFFFFE);
-    return t7;
-}
-
 int shadowVolPutPoint(int a4, float f4, float f5, float f6, float f7)
 {
     int t0;
@@ -80,41 +40,6 @@ int shadowVolPutPoint(int a4, float f4, float f5, float f6, float f7)
     nlPopMatrix(0x1);
     shadowVolBuildPoint(a4);
     return nlPopMatrix(0x1);
-}
-
-
-float nlCot(int a4)
-{
-    float t0;
-
-    if ((unsigned short)a4 != 0) {
-        if ((unsigned short)a4 != 0x4000) {
-            if ((unsigned short)a4 == 0x8000) {
-                return 3.40282347e+38f;
-            }
-            if ((unsigned short)a4 == 0xC000) {
-                return 0.0f;
-            }
-            t0 = nlTan((unsigned short)a4);
-            return (1.0f / t0);
-        }
-        return 0.0f;
-    }
-    return 3.40282347e+38f;
-}
-
-float nlRoundOff(float f4)
-{
-    if (8388608.0f > (f4 < 0.0f ? -f4 : f4)) {
-        if (((f4 < 0.0f ? -f4 : f4) - (float)(int)(f4 < 0.0f ? -f4 : f4)) != 0.0f) {
-            if (f4 > 0.0f) {
-                return (float)(int)(f4 < 0.0f ? -f4 : f4);
-            }
-            return (float)(-(int)(f4 < 0.0f ? -f4 : f4));
-        }
-        return f4;
-    }
-    return f4;
 }
 
 

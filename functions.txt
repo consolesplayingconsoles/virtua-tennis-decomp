@@ -39,7 +39,8 @@ F 8c012144 6 shadowVolPutDirA
 F 8c01218c 18 FUN_8c01218c
 F 8c01219e 416 FUN_8c01219e
 F 8c01233e 170 FUN_8c01233e
-F 8c0123e8 1760 FUN_8c0123e8
+F 8c0123e8 750 FUN_8c0123e8
+F 8c0126d6 1010 FUN_8c0126d6
 F 8c012b10 38 FUN_8c012b10
 F 8c012b36 60 dbgMenuInit
 F 8c012b72 1476 dbgMenuExec
@@ -281,7 +282,8 @@ F 8c0314e0 4110 FUN_8c0314e0
 F 8c0324ee 1488 circuitApplyResult
 F 8c032abe 4 thunk_circuitTaskRun
 F 8c032acc 864 gameMatchSetup
-F 8c032e2c 82 circuitStageStart
+F 8c032e2c 6 circuitStageStart
+F 8c032e32 76 FUN_8c032e32
 F 8c032e7e 8 circuitTaskClear
 F 8c032eec 128 circuitTaskAdd
 F 8c032f6c 62 circuitTaskRun
@@ -315,7 +317,8 @@ F 8c036468 260 circuitDrawGameIcon
 F 8c03656c 368 circuitDrawMatchIcon
 F 8c03670c 228 circuitDrawPrompt
 F 8c036844 106 miniPlacePlayers
-F 8c0368ae 134 miniStart
+F 8c0368ae 20 miniStart
+F 8c0368c2 114 FUN_8c0368c2
 F 8c036978 94 miniReset
 F 8c0369d6 1498 miniExec
 F 8c036fc8 826 miniSetupObjects

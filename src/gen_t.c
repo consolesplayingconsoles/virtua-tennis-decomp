@@ -52,149 +52,6 @@ int miniPopupSpawn(Stk4 s);
 int hudSlideShow(int a4);
 int crowdModelUpdate(int a4);
 
-void FBSortQueue(int a4, int a5)
-{
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t6;
-    int t11;
-    int t23;
-    int t24;
-    int t25;
-    int t26;
-    int t27;
-    int t28;
-    int t36;
-    int t37;
-    int t29;
-    int t30;
-    int t31;
-    int t16;
-    int t17;
-    int t18;
-    int t20;
-    int t41;
-    int t42;
-    int t45;
-    int stk[10];
-    int R1004;
-
-    R1004 = *(int *)((int)stk + 4);
-
-    if ((*(int *)((a4 + 0x0))) != 0) {
-        t1 = *(int *)((a4 + 0x0));
-        t2 = t1;
-        t3 = 0x0;
-        t4 = t1;
-        for (;;) {
-            t6 = *(int *)((t4 + 0xC));
-            if ((unsigned int)(*(int *)((t2 + 0xC))) > (unsigned int)t6) {
-                t4 = t2;
-            }
-            t2 = (*(int *)((t2 + 0x8)));
-            t3 = (t3 + 0x1);
-            if (t2 == 0) {
-                break;
-            }
-        }
-        if ((int)t3 > (int)0x1) {
-            t11 = *(int *)((a5 + 0x0));
-            if (t11 != t4) {
-                kmytex_FBDeQueueEntry(a4, a5, t4);
-                kmytex_FBEnQueueEntry(a5, t4, (*(int *)((a5 + 0x0))));
-            } else {
-                t16 = t11;
-                t17 = 0x1;
-                t18 = t6;
-                t20 = a5;
-            }
-            R1004 = 0x0;
-            if ((int)(t3 - 2) > 0) {
-                t23 = t16;
-                t24 = t17;
-                t25 = t18;
-                t26 = t20;
-                t27 = (t3 - 2);
-                for (;;) {
-                    t28 = *(int *)((a4 + 0x0));
-                    t36 = t28;
-                    t37 = t28;
-                    if ((int)t27 > 0) {
-                        t29 = 0x0;
-                        t30 = t28;
-                        t31 = t28;
-                        for (;;) {
-                            t31 = (*(int *)((t31 + 0x8)));
-                            t25 = (*(int *)((t30 + 0xC)));
-                            t24 = (*(int *)((t31 + 0xC)));
-                            t29 = (t29 + 0x1);
-                            if ((unsigned int)t24 > (unsigned int)t25) {
-                                t30 = t31;
-                            }
-                            if ((int)t29 >= (int)t27) {
-                                break;
-                            }
-                        }
-                        t36 = t30;
-                        t37 = t31;
-                    }
-                    if (t37 != t36) {
-                        t25 = 0x8C1F9350;
-                        t26 = a5;
-                        kmytex_FBDeQueueEntry(a4, t26, t36);
-                        t24 = 0x8C1F9334;
-                        t26 = t36;
-                        kmytex_FBEnQueueEntry(a5, t26, t37);
-                    } else {
-                        t41 = t23;
-                        t42 = t24;
-                        t45 = t26;
-                    }
-                    t23 = t41;
-                    t24 = t42;
-                    t25 = (R1004);
-                    t26 = t45;
-                    t27 = (t27 - 1);
-                    t25 = (t25 + 0x1);
-                    R1004 = t25;
-                    if ((int)t25 >= (int)(t3 - 2)) {
-                        break;
-                    }
-                }
-            }
-        }
-    }
-}
-
-
-int kmyInitDMADevice(void)
-{
-    int t0;
-
-    t0 = _builtin_get_imask();
-    _builtin_set_imask(0xF);
-    *(unsigned int *)0x8C4709FC = 0x8C203420;
-    kmyZeroMemory(0x8C203420, 0x1840);
-    *(unsigned int *)0x8C203420 = 0x1840;
-    *(unsigned int *)0x8C203424 = 0x1;
-    kmyConnectInterrupt(0x11, 0x8C202FA0, 0x0);
-    kmyConnectInterrupt(0x12, 0x8C202FA0, 0x0);
-    kmyConnectInterrupt(0x13, 0x8C202FA0, 0x0);
-    kmyConnectInterrupt(0x19, 0x8C202FA0, 0x0);
-    kmyConnectInterrupt(0x18, 0x8C202FA0, 0x0);
-    kmyConnectInterrupt(0x17, 0x8C202FA0, 0x0);
-    kmyConnectInterrupt(0x16, 0x8C202FA0, 0x0);
-    kmyConnectInterrupt(0x15, 0x8C202FA0, 0x0);
-    kmyConnectInterrupt(0x1C, 0x8C203248, 0x0);
-    kmyConnectInterrupt(0x1B, 0x8C203248, 0x0);
-    *(unsigned int *)0xA05F6884 = 0x0;
-    *(unsigned int *)0xA05F6888 = 0x1;
-    _builtin_set_imask(((unsigned int)(((t0 & 0xF) << 2) << 2) >> 4));
-    return 0x0;
-}
-
 
 int logoADraw(int a4, int a5, int a6, int a7, Stk4 p)
 {
@@ -226,57 +83,6 @@ int logoADraw(int a4, int a5, int a6, int a7, Stk4 p)
     return (((int (*)(int, Stk3))(sprPutAt))(0x8C334984, *(Stk3 *)((((int)stk + 64) + 0xC))));
 }
 
-int sySqInit(void)
-{
-    int t0;
-    int t12;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-    int t6;
-    int t7;
-    int t8;
-    int t9;
-    int t11;
-
-    t0 = *(int *)0xFF000010;
-    t12 = (t0 & 0x1);
-    if ((t0 & 0x1) == 1) {
-        t1 = (t0 & 0x1);
-        t2 = 0xE0000000;
-        t3 = 0x0;
-        t4 = 0x0;
-        for (;;) {
-            if ((unsigned int)(0xC000000 + t4) >= (unsigned int)0xD000000) {
-                break;
-            }
-            t1 = (syMmuAddEntry((0xC000000 + t4), (0xE0000000 + t4), 0x4));
-            t2 = (0x8C461B18 + (t3 << 2));
-            t3 = (t3 + 0x1);
-            t4 = (t4 + 0x100000);
-            *(unsigned int *)((t2 + 0x0)) = t1;
-        }
-        t6 = t1;
-        t7 = t2;
-        t8 = 0x0;
-        t9 = 0x0;
-        for (;;) {
-            if ((unsigned int)(0x10000000 + t9) >= (unsigned int)0x10800000) {
-                break;
-            }
-            t6 = (syMmuAddEntry((0x10000000 + t9), (0xE1000000 + t9), 0x4));
-            t7 = (0x8C461B58 + (t8 << 2));
-            t8 = (t8 + 0x1);
-            t9 = (t9 + 0x100000);
-            *(unsigned int *)((t7 + 0x0)) = t6;
-        }
-        t11 = syMmuAddEntry(0x10800000, 0xE1800000, 0x4);
-        *(unsigned int *)0x8C461B78 = t11;
-        t12 = t11;
-    }
-    return t12;
-}
 
 int hudRankSprInit(void)
 {
@@ -316,7 +122,6 @@ int hudRankSprInit(void)
     }
     return t10;
 }
-
 
 
 int stageSelSprInit2(void)
@@ -468,7 +273,6 @@ int stageSelSprInit3(void)
 }
 
 
-
 int resSpGetFree(int a4, int a5)
 {
     int t2;
@@ -536,47 +340,6 @@ int resSpGetFree(int a4, int a5)
     return 0x8C1DC64C;
 }
 
-
-int adxsjd_get_wr(int a4, int a5, int a6, int a7)
-{
-    int t0;
-    int t2;
-    int t4;
-    int t8;
-    int t11;
-    int t12;
-    int t13;
-    int t1;
-
-    t0 = *(int *)((a4 + 0xC));
-    t2 = 0x0;
-    for (;;) {
-        t4 = ADXB_GetNumChan((*(int *)((a4 + 0x4))));
-        if ((int)t2 >= (int)t4) {
-            break;
-        }
-        t1 = t2;
-        t1 = (t1 << 2);
-        t1 = (t1 + (a4 + 0xC));
-        t1 = (*(int *)((t1 + 0x0)));
-        t8 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)((t1 + 0x0))) + 0x18)))))(t1, 0x0, 0x4000, (((t2 << 2) << 1) + (a4 + 0x1C)));
-        t2 = (t2 + 0x1);
-    }
-    *(unsigned int *)((a5 + 0x0)) = ((unsigned int)((*(int *)((a4 + 0x1C))) - (SJRBF_GetBufPtr(t0))) >> 1);
-    t11 = *(int *)((a4 + 0x20));
-    t12 = *(int *)((a4 + 0x38));
-    t13 = t12;
-    if ((int)((unsigned int)t11 >> 1) < (int)t12) {
-        t13 = ((unsigned int)t11 >> 1);
-    }
-    *(unsigned int *)((a6 + 0x0)) = t13;
-    if ((int)(*(int *)((a4 + 0x3C))) >= 0) {
-        *(unsigned int *)((a7 + 0x0)) = ((*(int *)((a4 + 0x3C))) - (*(int *)((a4 + 0x40))));
-    } else {
-        *(unsigned int *)((a7 + 0x0)) = 0x1FFFFFFF;
-    }
-    return ADXB_GetPcmBuf((*(int *)((a4 + 0x4))));
-}
 
 int miniPopupSpawn(Stk4 s)
 {

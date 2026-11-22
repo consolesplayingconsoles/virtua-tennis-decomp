@@ -261,73 +261,6 @@ int entryRejoinPorts(void)
     return t22;
 }
 
-int adxf_SetFileInfo(int a4, int a5)
-{
-    int t0;
-    int t2;
-    int t4;
-    int t18;
-    int t13;
-    int t9;
-    int stk[9];
-
-    t0 = ADXSTM_GetFad(a5, (((int)stk + 4) + 0x8));
-    if ((int)t0 < 0) {
-        ADXERR_CallErrFunc(*(Stk3 *)((int)stk + 4));
-        t18 = t0;
-    } else {
-        t2 = ADXSTM_GetFsizeSct(a5, (((int)stk + 4) + 0x4));
-        if ((int)t2 < 0) {
-            ADXERR_CallErrFunc(*(Stk3 *)((int)stk + 4));
-            t13 = t2;
-        } else {
-            t4 = ADXSTM_GetFsizeByte(a5, ((int)stk + 4));
-            if ((int)t4 < 0) {
-                ADXERR_CallErrFunc(*(Stk3 *)((int)stk + 4));
-                t9 = t4;
-            } else {
-                *(unsigned int *)((a4 + 0xC)) = (*(int *)(((int)stk + 12)));
-                *(unsigned int *)((a4 + 0x10)) = (*(int *)(((int)stk + 8)));
-                *(unsigned int *)((a4 + 0x14)) = (*(int *)(((int)stk + 4)));
-                t9 = 0x0;
-            }
-            t13 = t9;
-        }
-        t18 = t13;
-    }
-    return t18;
-}
-
-int ADXF_Stop(int a4)
-{
-    int stk[5];
-
-    adxf_SetCmdHstry(0x5, 0x0, a4, 0xFFFFFFFF, 0xFFFFFFFF);
-    if (a4 == 0) {
-        ADXERR_CallErrFunc(*(Stk3 *)((int)stk + 8));
-        return 0xFFFFFFFD;
-    }
-    if ((*(signed char *)((a4 + 0x1))) != 1) {
-        if ((*(signed char *)((a4 + 0x1))) == 3) {
-            *(unsigned char *)((a4 + 0x1)) = 0x1;
-            return (*(int *)((a4 + 0x18)));
-        }
-        if ((*(int *)((a4 + 0x4))) == 0) {
-            ADXERR_CallErrFunc(*(Stk3 *)((int)stk + 8));
-            return 0xFFFFFFFF;
-        }
-        ADXCRS_Lock();
-        ADXSTM_Stop((*(int *)((a4 + 0x4))));
-        ADXSTM_GetCurOfst((*(int *)((a4 + 0x4))), ((int)stk + 8));
-        *(unsigned int *)((a4 + 0x24)) = (*(int *)(((int)stk + 8)));
-        adxf_CloseSjStm(a4);
-        *(unsigned char *)((a4 + 0x1)) = 0x1;
-        ADXCRS_Unlock();
-        adxf_SetCmdHstry(0x5, 0x1, a4, 0xFFFFFFFF, 0xFFFFFFFF);
-        return (*(int *)((a4 + 0x18)));
-    }
-    return (*(int *)((a4 + 0x18)));
-}
 
 int hudCallMsgDrawDab0(float f4, float f5)
 {
@@ -485,7 +418,6 @@ int hudCallMsgDrawDb00(float f4, float f5)
     { struct mv3 { int w[3]; }; *(struct mv3 *)(((int)stk + 4)) = *(struct mv3 *)(((int)stk + 28)); }
     return (sprPutCropV(0x8C33DB00, 0x0, *(Stk3 *)(((int)stk + 4)), f4, 1.0f, f5));
 }
-
 
 
 int rankDraw(void)

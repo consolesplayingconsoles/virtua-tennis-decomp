@@ -1,6 +1,6 @@
 # Virtua Tennis decomp
 
-![decomp progress](badges/progress.svg?p=100.0&b=100.0&a=71&s=4)
+![decomp progress](badges/progress.svg?p=100.0&b=100.0&a=71&s=11)
 
 **Explore this decomp project with [Shuriken Explorer](https://consolesplayingconsoles.github.io/dc-shuriken-explorer/) and see the game's models, skeletons, animations, textures, images, sounds, text and side-by-side C and assembly code directly in your browser.**
 
@@ -26,18 +26,24 @@ everything game-derived on your machine, and `.gitignore` keeps it out of git.
 
 <!-- progress -->
 ```
-TOTAL TEST COVERAGE           71.0%  the instructions the cases ran, of all instructions, over the 3911 functions that can be C; the 3910 functions that reached the check are measured, the others count 0
-FUNCTIONS LEFT  (100.0% complete) 1  of the 3911 functions that can be C (13 with no C form are counted apart)
+TOTAL TEST COVERAGE           71.0%  the instructions the cases ran, of all instructions, over the 3914 functions that can be C; the 3913 functions that reached the check are measured, the others count 0
+FUNCTIONS LEFT  (100.0% complete) 1  of the 3914 functions that can be C (1 with no C form are counted apart)
 BYTES LEFT    (100.0% complete) 454  of 1033102 bytes of code that can be C
 FUNCTIONS                            
-  unnamed                       589  functions still called FUN_... (589 of 4081)
+  unnamed                       592  functions still called FUN_... (592 of 4084)
   Not written C                   0  0 bytes
   Written C with errors           0  0 bytes
   Not drawn                       1  454 bytes
   Drawn with errors               0  0 bytes
   Checked with errors             0  0 bytes
-  No C form                    0.3%  an instruction or a register convention with no C form (tools/5-generated/classify.py names it)
-  documented                  81.9%  3341 named functions in docs/*.md
+  No C form                    0.0%  an instruction or a register convention with no C form
+  documented                  81.8%  3341 named functions in docs/*.md
+SDK                                  
+  with C                      94.3%  1980 of 2099
+  object code only             5.6%  118 of 2099
+  not done                     0.0%  1 of 2099
+  no C form                    0.6%  an instruction or a register convention with no C form
+  hardware (from total)       28.6%  603 of 2111
 GAME ASSETS (EXTRA)                  
   models named                23.3%  874 of 3745 models: a name, or a named table or collection
   characters named           100.0%  18 of 18 characters (note rules)
@@ -51,18 +57,20 @@ Updated on every commit by `tools/hooks/pre-commit` (enable once per clone:
 
 ## The steps
 
-This decomp follows the steps of the dc-decomp-kickoff skill: six from the disc to proven C for every function, then two to build the game from that C. `AGENTS.md` has the detail.
+This decomp follows the steps of the dc-decomp-kickoff skill: six from the disc to proven C for every function, then three to build, run and stabilise the game from that C, then the native port. `AGENTS.md` has the detail.
 
-| # | Step                                    | Decomp completion         | You provide                        | What it does                                                                                                                                                                                                                                                                                                               |
-|---|-----------------------------------------|---------------------------|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1 | **Decomp project setup**                | -                         | The disc as a `.gdi`, a Katana SDK | Installs the tools (Docker, Python 3) and checks your game disc and SDK.                                                                                                                                                                                                                                                   |
-| 2 | **Signature-driven baseline**           | -                         |                                    | Reads the disc, splits the executable into one assembly file per function, rebuilds it **byte for byte** with the SDK's own assembler and linker, and names every function it can match by signature.                                                                                                                      |
-| 3 | **Asset mapping**                       | -                         |                                    | Writes the text map (every string with its pointers, text per disc file), the model map, the texture list and the audio map.                                                                                                                                                                                               |
-| 4 | **Opportunity-driven optional boosts**  | Varies greatly by project | The materials                      | Uses what you hand over to save work in every step after it, the earlier the better: a later port (Android is the strongest), a prototype or debug build, cheat codes, other regions, existing notes, the same game on another console, a sibling decomp. It never looks for these itself and never reads your other code. |
-| 5 | **Incremental script-generated decomp** | up to 50%                 | SDK library sources (optional)     | Proves C for what the tools can write on their own: the SDK's own library source where you have it, then generated C, then directed test cases that reach the branches the first ones missed. Generated C is reported apart from hand-written C.                                                                 |
-| 6 | **Experience-driven agentic decomp**    | 100%                      |                                    | Takes what is left one pocket at a time, function by function: C and test cases until each function is proven. The plan is in the repo's `AGENTS.md`.                                                                                                                                                                      |
-| 7 | **Code size reduction**                 | -                         |                                    | Shrinks the code compiled from the proven C to the size of the original game code. A smaller version of a function replaces the old one only if it is still equivalent to the original. |
-| 8 | **Build from C**                        | -                         | The disc as a `.gdi`               | Builds the executable from the C and a disc image with it (`make disc GDI="your disc.gdi"`). Libraries, data and SDK stay as they are; pointers to game functions follow them. |
+| # | Step                                    | Decomp completion                              | You provide                        | What it does                                                                                                                                                                                                                                                                                                               |
+|---|-----------------------------------------|------------------------------------------------|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 | **Decomp project setup**                | -                                              | The disc as a `.gdi`, a Katana SDK | Installs the tools (Docker, Python 3) and checks your game disc and SDK.                                                                                                                                                                                                                                                   |
+| 2 | **Signature-driven baseline**           | -                                              |                                    | Reads the disc, splits the executable into one assembly file per function, rebuilds it **byte for byte** with the SDK's own assembler and linker, and names every function it can match by signature.                                                                                                                      |
+| 3 | **Asset mapping**                       | -                                              |                                    | Writes the text map (every string with its pointers, text per disc file), the model map, the texture list and the audio map.                                                                                                                                                                                               |
+| 4 | **Opportunity-driven optional boosts**  | Varies greatly by project                      | The materials                      | Uses what you hand over to save work in every step after it, the earlier the better: a later port (Android is the strongest), a prototype or debug build, cheat codes, other regions, existing notes, the same game on another console, a sibling decomp. It never looks for these itself and never reads your other code. |
+| 5 | **Incremental script-generated decomp** | up to 50%                                      | SDK library sources (optional)     | Proves C for what the tools can write on their own: the SDK's own library source where you have it, then generated C, then directed test cases that reach the branches the first ones missed. Generated C is reported apart from hand-written C.                                                                           |
+| 6 | **Experience-driven agentic decomp**    | 100%                                           |                                    | Takes what is left one pocket at a time, function by function: C and test cases until each function is proven. The plan is in the repo's `AGENTS.md`.                                                                                                                                                                      |
+| 7 | **Code size reduction**                 | -                                              |                                    | Shrinks the code compiled from the proven C to the size of the original game code. A smaller version of a function replaces the old one only if it is still equivalent to the original.                                                                                                                                    |
+| 8 | **Build from C**                        | -                                              | The disc as a `.gdi`               | Builds the executable from the C and a disc image with it (`make disc GDI="your disc.gdi"`). Libraries, data and SDK stay as they are; pointers to game functions follow them.                                                                                                                                             |
+| 9 | **Runtime repairs**                     | BOOTS TO MENU, PLAYABLE, STABLE (`status.txt`) | Flycast GDB                        | Runs the game using Flycast GDB, locates and tracks bugs and iterates builds until the game is stable.                                                                                                                                                                                                                     |
+| 10 | **Native port**                         | Native column (`status.txt`)                   | Docker, the disc as a `.gdi`       | Builds the game from the proven C as an x86-64 Linux program and runs it outside the console (experimental). Every SDK function needs C except the hardware drivers.                                                                                                                                                       |
 
 ## Build
 
@@ -74,7 +82,7 @@ make setup GDI="path/to/your disc.gdi"
 echo 'SDK_PATH="/path/to/katana-sdk"' > .env      # once: where your SDK is (not committed)
 make
 make c                                            # the executable built from the C (build/cbuild/game.bin)
-make disc GDI="path/to/your disc.gdi"             # the same, plus a disc image with it (build/disc-cbuild/)
+make disc GDI="path/to/your disc.gdi"             # the game built the way status.txt's MODE says, in a copy of your disc (build/disc-cbuild/)
 ```
 
 `make` (which runs `build.sh`) should end with `MATCH`. The other targets are listed at the top of the `Makefile`.
@@ -140,7 +148,7 @@ Other releases are different builds: `setup.sh` refuses them rather than produce
 |---|---|
 | [tests/<file>/<function>.json](tests/) | The test cases of each function |
 | [tests/equivalent.txt](tests/equivalent.txt) | The functions found Equivalent |
-| [badges/](badges) | The progress badge, written by [tools/progress.py](tools/progress.py): `progress.svg`. It also lists the statuses in [status.txt](status.txt) (BUILDS FROM C, BOOTS TO MENU, PLAYABLE, STABLE), ticked or crossed; each needs the ones above it |
+| [badges/](badges) | The progress badge, written by [tools/progress.py](tools/progress.py): `progress.svg`. It also shows the statuses of [status.txt](status.txt) that have three marks (BUILDS FROM C, BOOTS TO MENU, PLAYABLE, STABLE) as a grid, Flycast, Dreamcast and Native (a column once its BUILDS FROM C is ticked), ticked, crossed, or a question mark where not tested yet (`[?]`); each needs the ones above it in its column |
 
 **Scripts and tools**
 
@@ -203,7 +211,7 @@ nobody ran). There is no pass mark: a function that passes is done, and the tota
 runs each function in an SH-4 interpreter twice per test case, the original bytes and your compiled C,
 and they must agree on calls, memory writes and the result. Passing functions are listed in
 `tests/equivalent.txt` and counted as done. The loop, and how to write many of them quickly, is in
-`AGENTS.md` and the kickoff skill's `references/equivalent-pipeline.md`.
+`AGENTS.md` and the kickoff skill's `docs/equivalent-pipeline.md`.
 
 ## Matching C units (the build tier)
 
@@ -217,7 +225,11 @@ data becomes its own piece at that range, in source order; both ranges must star
 file boundaries (add them to `functions.txt`: `F <addr> 0 FUN_<addr>` for a function start,
 `D <addr> 0 data_<addr>` for a data boundary, which is not counted as a function). A unit is one
 original source file: all its functions share literal pools, so it goes in only when all of it
-matches. `python3 tools/progress.py` reports the state,
+matches. A unit can sit in a folder of `src/` (`src/<dir>/<file>.c`) and name pieces of its own (`@ddata`, `@bdata`); options starting with `+` in the header
+(`+pool32`, `+synth16`, `+r04`, ...) are opt-in layouts and compilers for the files that need them; a unit that asks for none gets the default layout.
+`tools/fcmp.py` and `tools/permute.py` compare and rewrite a unit function by function. A game with code overlays builds them with
+`bash build_overlays.sh`. The options and overlays are described in the kickoff skill's `docs/matching-units.md` and `docs/overlays.md`.
+`python3 tools/progress.py` reports the state,
 each function in one bucket: done (equivalent C; matching C and SDK source part of it), named only (a name is
 not done work), unnamed; plus documented functions and named globals. `docs/equivalent.md` holds
 the evidence for each equivalent function.
@@ -243,9 +255,11 @@ solely responsible for determining whether you are entitled to obtain and use an
 Virtua Tennis and its publisher's trademarks belong to their owners. This project is not affiliated with
 or endorsed by them.
 
-## Where this comes from
 
-It came out of real work on Consoles Playing Consoles. See what it has helped me build:
+## About the author
 
-- 📸 **Instagram:** [@consolesplayingconsoles](https://www.instagram.com/consolesplayingconsoles/)
-- 🔗 **Everything else:** [beacons.ai/consolesplayingconsoles](https://beacons.ai/consolesplayingconsoles)
+📸 **Instagram:** [@consolesplayingconsoles](https://www.instagram.com/consolesplayingconsoles/)
+
+🔗 **Everything else:** [beacons.ai/consolesplayingconsoles](https://beacons.ai/consolesplayingconsoles)
+
+☕ **buymeacoffee:** [@consolesplayingconsoles](https://buymeacoffee.com/consolesplayingconsoles)

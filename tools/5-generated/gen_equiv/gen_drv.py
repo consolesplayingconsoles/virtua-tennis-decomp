@@ -79,7 +79,14 @@ def build(name,ret,passthru=False):
     rt='void'
     if '@@TAIL:' in text:
         if ret=='void': text=re.sub(r'@@TAIL:(.*?)@@',lambda m:m.group(1)+';\nreturn;',text)
-        else: text=re.sub(r'@@TAIL:(.*?)@@',lambda m:'return %s;'%m.group(1),text); rt='int'
+        else:
+            text=re.sub(r'@@TAIL:(.*?)@@',lambda m:'return %s;'%m.group(1),text); rt='int'
+            if ret=='fr0':
+                # written as returning a float, the value is the one the tail call's target returns: the target is declared float
+                # too. Declared int, `return target(...)` converted the integer in r0 to a float
+                tm=re.match(r'(\w+)\(',c.tail if isinstance(c.tail,str) else '')
+                if tm and tm.group(1) in c.protos and c.protos[tm.group(1)][-1:]!=('->float',) and not str(c.protos[tm.group(1)][-1:]).startswith("('->Stk"):
+                    c.protos[tm.group(1)]=tuple(c.protos[tm.group(1)])+('->float',)
     if not c.terminated:
         if ret=='r0':
             v=c.R.get('r0')
@@ -357,6 +364,13 @@ def sign_idiom(body,decls):
     for v in gone:
         if not any(re.search(r'\b%s\b'%v,l) for l in out): decls[:]=[d for d in decls if not re.match(r'^(int|float) %s;$'%v,d)]
     return out
+def device_read(e):
+    """True when the expression reads a constant address outside main RAM: a device register (the PVR, the G1/G2 buses, the on-chip
+    ones). Two of them in one expression are read in an order C leaves open: SHC reads the right one first."""
+    for m in re.finditer(r'\*\([^()]*\*\)\s*0x([0-9A-Fa-f]+)\b',e):
+        phys=int(m.group(1),16)&0x1FFFFFFF
+        if not 0x0C000000<=phys<0x0D000000: return True
+    return False
 def inline_single(body,decls):
     """A temporary set once and read once, further down the same straight run of statements, with nothing in between that
     changes what it reads, is written into its one use: `t9 = R4 != 0; ... if (t9) goto L;` becomes `if (R4 != 0) goto L;`.
@@ -375,6 +389,8 @@ def inline_single(body,decls):
             v,e=m.group(1),m.group(2)
             if re.search(r'\b%s\b'%v,e) or 'volatile' in e:
                 i+=1; continue
+            if device_read(e):      # a device register read stays a statement of its own: folded into a use that holds another one, the two are read
+                i+=1; continue      # in the compiler's order, not the original's (Power Stone FUN_0c100260: PVR 810C was read after 80DC)
             reads_mem='*(' in e or re.search(r'\b[A-Za-z_]\w*\s*\(',e.replace('(int)','').replace('(float)','')) or 'stk' in e
             names=set(_IDENT.findall(e))
             j=i+1; ok=False
@@ -494,6 +510,11 @@ def _argc(t):
     n=G.FUNCS.get(G.canon(t)) if hasattr(G,'canon') else G.FUNCS.get(t)
     a=G.callee_arity(n) if n else None
     return a[0] if a else None
+def _fargc(t):
+    """The callee's float argument count (None when not known), beside _argc's integer one."""
+    n=G.FUNCS.get(G.canon(t)) if hasattr(G,'canon') else G.FUNCS.get(t)
+    a=G.callee_arity(n) if n else None
+    return a[1] if a else None
 def stack_moved(devs,devs2,shift,reads2=()):
     """An access outside RAM made from the stack, not a hardware register: run again with the stack `shift` lower, the same access is at
     its address minus `shift`, as an access outside RAM again (a local table read at a huge index, rankDrawCharaIcon) or as an ordinary
@@ -626,7 +647,7 @@ def unset_free(name,cases,enough=None):
     out=[]
     for d in cases:
         if enough is not None and len(out)>=enough: break
-        if directed.unset_dependent(d,run):
+        if directed.unset_dependent(d,run,argc=_argc,fargc=_fargc):
             ERRS['depends on registers it never set']=ERRS.get('depends on registers it never set',0)+1
             continue
         out.append(d)

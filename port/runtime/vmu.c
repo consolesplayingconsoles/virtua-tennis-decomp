@@ -1,7 +1,7 @@
 /* vmu.c: the memory card (VMU) as a folder of files, after the Power Stone port's (which serves the same Katana backup
-   library to another game). Virtua Tennis uses the backup library (bu*) over the VMU file system (vmsfs_*), whose
+   library to another game). The game uses the backup library (bu*) over the VMU file system (vmsfs_*), whose
    Maple driver has no C: these host functions take the library's place for one card in port A's first socket
-   (drive 0). Its files live in --vmu DIR (default $XDG_DATA_HOME/vtennis/vmu or ~/.local/share/vtennis/vmu), one
+   (drive 0). Its files live in --vmu DIR (default $XDG_DATA_HOME/<game>/vmu or ~/.local/share/<game>/vmu, <game> = PORT_NAME), one
    host file per card file, its bytes as the card holds them (the game builds the VMS header itself, with
    buMakeBackupFileImage).
 
@@ -43,7 +43,7 @@ static struct { int32_t drive, op, stat; } events[32];
 static int nevents;
 
 static int debug = -1;
-#define LOG(...) do { if (debug < 0) debug = getenv("PORT_DEBUG_VMU") != 0; if (debug) fprintf(stderr, "vtennis: vmu: " __VA_ARGS__); } while (0)
+#define LOG(...) do { if (debug < 0) debug = getenv("PORT_DEBUG_VMU") != 0; if (debug) fprintf(stderr, PORT_NAME ": vmu: " __VA_ARGS__); } while (0)
 
 static void post(int32_t drive, int32_t op, int32_t stat)
 {
@@ -82,11 +82,11 @@ static void set_dir(void)
     if (port_vmu_dir)
         snprintf(dir, sizeof dir, "%s", port_vmu_dir);
     else if (getenv("XDG_DATA_HOME"))
-        snprintf(dir, sizeof dir, "%s/vtennis/vmu", getenv("XDG_DATA_HOME"));
+        snprintf(dir, sizeof dir, "%s/" PORT_NAME "/vmu", getenv("XDG_DATA_HOME"));
     else
-        snprintf(dir, sizeof dir, "%s/.local/share/vtennis/vmu", getenv("HOME") ? getenv("HOME") : ".");
+        snprintf(dir, sizeof dir, "%s/.local/share/" PORT_NAME "/vmu", getenv("HOME") ? getenv("HOME") : ".");
     if (!mkdirs(dir))
-        fprintf(stderr, "vtennis: the memory card's folder %s: %s\n", dir, strerror(errno));
+        fprintf(stderr, PORT_NAME ": the memory card's folder %s: %s\n", dir, strerror(errno));
 }
 
 /* a card file's host path; 0 for a name that is no card file name (1-12 characters) */
@@ -175,6 +175,18 @@ int32_t bu_set_progress(uint32_t fn) { (void)fn; return 0; }
 int32_t bu_stat(int32_t drive) __asm__("buStat");
 int32_t bu_stat(int32_t drive) { (void)drive; return 0; }
 
+/* buIsReady(drive), buIsFormat(drive): 1 for the card once the library is up, else 0. Crazy Taxi asks them before each
+   load or save (its "LOAD failed" when not ready); the library's own C would ask the Maple driver, which has none. The
+   file system's vmsio_isready / vmsio_ismount, which the game's card code also asks, say the same */
+int32_t bu_is_ready(int32_t drive) __asm__("buIsReady");
+int32_t bu_is_ready(int32_t drive) { return ours(drive) ? 1 : 0; }
+int32_t bu_is_format(int32_t drive) __asm__("buIsFormat");
+int32_t bu_is_format(int32_t drive) { return ours(drive) ? 1 : 0; }
+int32_t vmsio_is_ready(int32_t drive) __asm__("vmsio_isready");
+int32_t vmsio_is_ready(int32_t drive) { return ours(drive) ? 1 : 0; }
+int32_t vmsio_is_mount(int32_t drive) __asm__("vmsio_ismount");
+int32_t vmsio_is_mount(int32_t drive) { return ours(drive) ? 1 : 0; }
+
 int32_t bu_last_error(int32_t drive) __asm__("buGetLastError");
 int32_t bu_last_error(int32_t drive) { return ours(drive) ? last_error : BUD_ERR_NO_DISK; }
 
@@ -225,19 +237,19 @@ int32_t bu_file_info(int32_t drive, uint32_t name, uint32_t info)
 int32_t bu_exists(int32_t drive, uint32_t name) __asm__("buIsExistFile");
 int32_t bu_exists(int32_t drive, uint32_t name)
 {
-    if (!ours(drive))
-        return BUD_ERR_NO_DISK;
-    return file_bytes(name) >= 0 ? BUD_ERR_OK : BUD_ERR_FILE_NOT_FOUND;
+    int32_t r = !ours(drive) ? BUD_ERR_NO_DISK : file_bytes(name) >= 0 ? BUD_ERR_OK : BUD_ERR_FILE_NOT_FOUND;
+    LOG("exists %.12s, drive %d: %d\n", (const char *)(uintptr_t)name, drive, r);
+    return r;
 }
 
 /* buGetFileSize(drive, name): in blocks */
 int32_t bu_file_size(int32_t drive, uint32_t name) __asm__("buGetFileSize");
 int32_t bu_file_size(int32_t drive, uint32_t name)
 {
-    if (!ours(drive))
-        return BUD_ERR_NO_DISK;
-    long n = file_bytes(name);
-    return n < 0 ? BUD_ERR_FILE_NOT_FOUND : (int32_t)((n + BLOCK - 1) / BLOCK);
+    long n = ours(drive) ? file_bytes(name) : -1;
+    int32_t r = !ours(drive) ? BUD_ERR_NO_DISK : n < 0 ? BUD_ERR_FILE_NOT_FOUND : (int32_t)((n + BLOCK - 1) / BLOCK);
+    LOG("size %.12s, drive %d: %d\n", (const char *)(uintptr_t)name, drive, r);
+    return r;
 }
 
 /* buLoadFile(drive, name, buffer, blocks) */

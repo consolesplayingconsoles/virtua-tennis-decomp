@@ -1,4 +1,4 @@
-/* prelude.h: included ahead of every game source in the native build (port/tools/native_build.py).
+/* prelude.h: included ahead of every game source in the native build (tools/10-port/native_build.py).
    The game's C was written for SHC on the SH-4: int and pointers are both 32 bits there, and the code moves addresses
    through ints freely. On the host the game's memory lies below 2 GB (port/runtime/runner.c), so an address fits an int
    and comes back whole. */
@@ -50,3 +50,6 @@ float port_fipr();
 #define _builtin_ftrv port_ftrv
 #define _builtin_ld_ext port_ld_ext
 #define _builtin_st_ext port_st_ext
+
+/* an absolute address above 2 GB kept in a register, zero-extended (tools/native_build.py high_literals) */
+static __inline__ unsigned int port_k(unsigned int a) { __asm__("" : "+r"(a)); return a; }

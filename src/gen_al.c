@@ -203,82 +203,6 @@ void umpCallAdvName(int a4)
     }
 }
 
-int nlSetFogColor(int a4, int a5, int a6, int a7)
-{
-    return (kmSetFogTableColor(a4, a5, a6, a7, a4));
-}
-
-int kmiProcessVertex_04(int a4, int a5, int a6, int a7)
-{
-    int t5;
-    int t6;
-    int t17;
-    int t19;
-    int stk[31];
-
-    *(unsigned int *)(((int)stk + 4)) = (((int)stk + 4) + 0x4);
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x0)) = a5;
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x4)) = a6;
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x8)) = a7;
-    *(unsigned int *)(((int)stk + 20)) = (*(int *)((a4 + 0x0)));
-    *(unsigned int *)(((int)stk + 24)) = (*(int *)((a4 + 0x4)));
-    *(unsigned int *)(((int)stk + 28)) = (*(int *)((a4 + 0x8)));
-    *(unsigned int *)(((int)stk + 32)) = (*(int *)((a4 + 0xC)));
-    t5 = 0x0;
-    t6 = (*(int *)(((int)stk + 4)));
-    for (;;) {
-        *(float *)((((((int)stk + 4) + 0x20) + t5) + 0x0)) = (*(float *)(((*(int *)((t6 + 0x0))) + 0x4)));
-        *(float *)((((((int)stk + 4) + 0x20) + t5) + 0x4)) = (*(float *)(((*(int *)((t6 + 0x0))) + 0x8)));
-        *(float *)((((((int)stk + 4) + 0x20) + t5) + 0x8)) = (*(float *)(((*(int *)((t6 + 0x0))) + 0xC)));
-        *(unsigned int *)((((((int)stk + 4) + 0x20) + t5) + 0xC)) = (*(int *)(((*(int *)((t6 + 0x0))) + 0x10)));
-        *(unsigned int *)((((((int)stk + 4) + 0x20) + t5) + 0x14)) = (*(int *)(((*(int *)((t6 + 0x0))) + 0x18)));
-        t17 = *(int *)((t6 + 0x0));
-        t6 = (t6 + 0x4);
-        t19 = ((((int)stk + 4) + 0x20) + t5);
-        t5 = (t5 + 0x1C);
-        *(unsigned int *)((t19 + 0x18)) = (*(int *)((t17 + 0x1C)));
-        if ((unsigned int)t5 >= (unsigned int)0x54) {
-            break;
-        }
-    }
-    return (kmyRegisterBGPlane((((int)stk + 4) + 0x10)));
-}
-
-int kmiProcessVertex_12(int a4, int a5, int a6, int a7)
-{
-    int t5;
-    int t6;
-    int t17;
-    int t19;
-    int stk[31];
-
-    *(unsigned int *)(((int)stk + 4)) = (((int)stk + 4) + 0x4);
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x0)) = a5;
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x4)) = a6;
-    *(unsigned int *)(((((int)stk + 4) + 0x4) + 0x8)) = a7;
-    *(unsigned int *)(((int)stk + 20)) = (*(int *)((a4 + 0x0)));
-    *(unsigned int *)(((int)stk + 24)) = (*(int *)((a4 + 0x4)));
-    *(unsigned int *)(((int)stk + 28)) = (*(int *)((a4 + 0x8)));
-    *(unsigned int *)(((int)stk + 32)) = (*(int *)((a4 + 0xC)));
-    t5 = 0x0;
-    t6 = (*(int *)(((int)stk + 4)));
-    for (;;) {
-        *(float *)((((((int)stk + 4) + 0x20) + t5) + 0x0)) = (*(float *)(((*(int *)((t6 + 0x0))) + 0x4)));
-        *(float *)((((((int)stk + 4) + 0x20) + t5) + 0x4)) = (*(float *)(((*(int *)((t6 + 0x0))) + 0x8)));
-        *(float *)((((((int)stk + 4) + 0x20) + t5) + 0x8)) = (*(float *)(((*(int *)((t6 + 0x0))) + 0xC)));
-        *(unsigned int *)((((((int)stk + 4) + 0x20) + t5) + 0xC)) = (*(int *)(((*(int *)((t6 + 0x0))) + 0x10)));
-        *(unsigned int *)((((((int)stk + 4) + 0x20) + t5) + 0x14)) = (*(int *)(((*(int *)((t6 + 0x0))) + 0x18)));
-        t17 = *(int *)((t6 + 0x0));
-        t6 = (t6 + 0x4);
-        t19 = ((((int)stk + 4) + 0x20) + t5);
-        t5 = (t5 + 0x1C);
-        *(unsigned int *)((t19 + 0x18)) = (*(int *)((t17 + 0x1C)));
-        if ((unsigned int)t5 >= (unsigned int)0x54) {
-            break;
-        }
-    }
-    return (kmyRegisterBGPlane((((int)stk + 4) + 0x10)));
-}
 
 int motionSet(int a4, int a5, int a6, int a7, int a8, int a9, float f4)
 {
@@ -464,48 +388,6 @@ int shopPutItemModel(int a4, int a5, int a6, int a7)
     return t17;
 }
 
-int mwlRnaAddRdPos(int a4)
-{
-    int t0;
-    int t1;
-    int t6;
-    int t7;
-    int t9;
-    int t12;
-    int t15;
-    int t16;
-    int t13;
-    int t19;
-
-    t0 = *(int *)((a4 + 0x38));
-    t1 = *(int *)((a4 + 0x30));
-    t6 = (int)((int)0x20 / (int)(*(int *)((a4 + 0x8))));
-    t7 = (int)((int)(((int (*)(int, int))((*(int *)(((*(int *)((t0 + 0x0))) + 0x20)))))(t0, 0x0)) / (int)((t6 << 2) << 1));
-    *(unsigned int *)((a4 + 0x30)) = (t7 * ((t6 << 2) << 1));
-    t9 = ((t7 * ((t6 << 2) << 1)) - t1);
-    if ((int)((t7 * ((t6 << 2) << 1)) - t1) < 0) {
-        t9 = (((t7 * ((t6 << 2) << 1)) - t1) + (*(int *)((a4 + 0x28))));
-    }
-    t12 = *(int *)((a4 + 0x34));
-    t15 = (t12 - t9);
-    t16 = t9;
-    if ((int)(t12 - t9) < 0) {
-        t13 = *(int *)((a4 + 0x2C));
-        *(unsigned char *)((a4 + 0x4)) = 0x1;
-        t15 = 0x0;
-        t16 = (t13 - t1);
-    }
-    if ((unsigned char)(*(signed char *)((a4 + 0x4))) == 1) {
-        t19 = mwRnaGetTransSw(a4);
-        if (t19 == 1) {
-            *(unsigned int *)((a4 + 0x2C)) = (*(int *)((a4 + 0x30)));
-            *(unsigned char *)((a4 + 0x4)) = 0x0;
-        }
-    }
-    *(unsigned int *)((a4 + 0x34)) = t15;
-    *(unsigned int *)((a4 + 0x48)) = ((*(int *)((a4 + 0x48))) + t16);
-    return 0x48;
-}
 
 void vecOrbit(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
 {
@@ -601,43 +483,6 @@ void umpCallGame(int a4)
     }
 }
 
-int kmySetDitherMode(int a4, int a5)
-{
-    int t0;
-    int t2;
-
-    t0 = kmyiCheckNativeHandle(a4);
-    if (t0 == 0) {
-        return 0xEEEE;
-    }
-    t2 = *(int *)((a4 + 0x88));
-    if (a5 != 0) {
-        *(unsigned int *)((t2 + 0x4)) = ((*(int *)((t2 + 0x4))) | 0x8);
-    } else {
-        *(unsigned int *)((t2 + 0x4)) = ((*(int *)((t2 + 0x4))) & 0xFFFFFFF7);
-    }
-    return 0x0;
-}
-
-int nlLineSendQuadB(int a4, int a5, int a6, int a7, float f4, float f5)
-{
-    int stk[16];
-
-    *(unsigned int *)(((int)stk + 4)) = a7;
-    *(float *)(((((int)stk + 4) + 0x4) + 0x0)) = (((*(float *)((a5 + 0x0))) + f5) + f4);
-    *(float *)(((((int)stk + 4) + 0x4) + 0x4)) = (((*(float *)((a5 + 0x4))) - f4) + f5);
-    *(float *)(((((int)stk + 4) + 0x4) + 0x8)) = (*(float *)((a5 + 0x8)));
-    *(float *)((((((int)stk + 4) + 0x4) + 0xC) + 0x0)) = (((*(float *)((a5 + 0x0))) - f5) + f4);
-    *(float *)((((((int)stk + 4) + 0x4) + 0xC) + 0x4)) = (((*(float *)((a5 + 0x4))) + f4) + f5);
-    *(float *)((((((int)stk + 4) + 0x4) + 0xC) + 0x8)) = (*(float *)((a5 + 0x8)));
-    *(float *)((((((int)stk + 4) + 0x4) + 0x18) + 0x0)) = ((*(float *)((a6 + 0x0))) + f5);
-    *(float *)((((((int)stk + 4) + 0x4) + 0x18) + 0x4)) = ((*(float *)((a6 + 0x4))) - f4);
-    *(float *)((((((int)stk + 4) + 0x4) + 0x18) + 0x8)) = (*(float *)((a6 + 0x8)));
-    *(float *)((((((int)stk + 4) + 0x4) + 0x24) + 0x0)) = ((*(float *)((a6 + 0x0))) - f5);
-    *(float *)((((((int)stk + 4) + 0x4) + 0x24) + 0x4)) = ((*(float *)((a6 + 0x4))) + f4);
-    *(float *)((((((int)stk + 4) + 0x4) + 0x24) + 0x8)) = (*(float *)((a6 + 0x8)));
-    return (nlLineSendVertex(a4, (((int)stk + 4) + 0x4), (*(int *)(((int)stk + 4)))));
-}
 
 int arcadePickRival(int a4, int a5)
 {
@@ -837,43 +682,6 @@ int getID_Color(int a4, float f4)
     return t33;
 }
 
-int nlSpriteSetGarbagedTextureOnce_Sub(int a4, int a5, int a6)
-{
-    int t1;
-    int t3;
-    int t4;
-    int t19;
-    int t6;
-    int t8;
-    int t9;
-    int t13;
-    int t14;
-    int stk[6];
-
-    t1 = a5;
-    if (a6 == 1) {
-        t1 = (*(int *)(((int)stk + 16)));
-    }
-    t3 = *(int *)0x8C458DCC;
-    t4 = *(int *)0x8C4241C0;
-    t19 = 0xFFFFFFFF;
-    if ((*(int *)((((((t1 + t3) << 2) << 1) + t4) + 0x0))) == 0) {
-    } else {
-        t6 = *(int *)((((((t1 + t3) << 2) << 1) + t4) + 0x4));
-        t8 = *(short *)((((t1 + t3) << 1) + (*(int *)0x8C454C80)));
-        *(unsigned int *)(((int)stk + 8)) = (((t8 << 2) << 2) << 1);
-        t9 = *(int *)0x8C454C90;
-        *(unsigned int *)(((int)stk + 12)) = ((((t8 << 2) << 2) << 1) + t9);
-        *(unsigned int *)(((int)stk + 4)) = ((*(int *)((((((t8 << 2) << 2) << 1) + t9) + 0xC))) & 0x7E00000);
-        nlSetTextureParameter((*(int *)(((int)stk + 12))), t6);
-        t13 = *(int *)(((int)stk + 8));
-        t14 = *(int *)0x8C454C90;
-        *(unsigned int *)(((t13 + t14) + 0xC)) = ((*(int *)(((t13 + t14) + 0xC))) | (*(int *)(((int)stk + 4))));
-        t19 = 0x0;
-    }
-    return t19;
-}
-
 
 int ambEventStart(void)
 {
@@ -916,38 +724,6 @@ int lightPlayerApply(int a4)
     return t19;
 }
 
-int gdFsOpenRangeG(int startFad, int sectorCount)
-{
-    int globalStateAddress;
-    int handleIndexOrError;
-    int candidateHandleAddress;
-    int openedHandleAddress;
-
-    if ((int)startFad < (int)0xB05E) {
-        gdFsSetGlobalErrG(0xFFFFFFE0);
-        openedHandleAddress = 0x0;
-    } else {
-        globalStateAddress = *(int *)0x8C20C204;
-        handleIndexOrError = 0x0;
-        candidateHandleAddress = (*(int *)((globalStateAddress + 0x18)));
-        for (;;) {
-            if ((int)handleIndexOrError >= (int)(*(int *)((globalStateAddress + 0x0)))) {
-                handleIndexOrError = 0xFFFFFFF7;
-                gdFsSetGlobalErrG(handleIndexOrError);
-                return 0x0;
-            }
-            if ((*(short *)((candidateHandleAddress + 0x4C))) == 0) {
-                break;
-            }
-            candidateHandleAddress = (candidateHandleAddress + 0x54);
-            handleIndexOrError = (handleIndexOrError + 0x1);
-        }
-        gdFsCreateHnG(candidateHandleAddress, 0x0, startFad, (((sectorCount << 8) << 2) << 1));
-        gdFsSetGlobalErrG(0x0);
-        openedHandleAddress = candidateHandleAddress;
-    }
-    return openedHandleAddress;
-}
 
 int sprPutScaledAlpha(int a4, int a5, int a6, int a7, Stk4 p, float f4, float f5)
 {
@@ -1239,35 +1015,6 @@ int lightRestore(int a4)
         return nlObjPutSetLightDirectionV(0x8C38B834);
     }
     return 0x8C1D1178;
-}
-
-int ADXT_StartSj(int a4, int a5)
-{
-    int t3;
-    int t8;
-    int t2;
-
-    ADXT_Stop(a4);
-    ADXCRS_Lock();
-    t3 = 0x0;
-    for (;;) {
-        if ((int)t3 >= (int)(*(signed char *)((a4 + 0x3)))) {
-            break;
-        }
-        t2 = t3;
-        t2 = (t2 << 2);
-        t2 = (t2 + (a4 + 0x18));
-        t2 = (*(int *)((t2 + 0x0)));
-        t8 = ((int (*)(int))((*(int *)(((*(int *)((t2 + 0x0))) + 0x14)))))(t2);
-        t3 = (t3 + 0x1);
-    }
-    ADXSJD_SetInSj((*(int *)((a4 + 0x4))), a5);
-    *(unsigned int *)((a4 + 0x14)) = a5;
-    ADXSJD_Start((*(int *)((a4 + 0x4))));
-    *(unsigned char *)((a4 + 0x1)) = 0x1;
-    *(unsigned char *)((a4 + 0x2)) = 0x3;
-    *(unsigned int *)((a4 + 0x4C)) = 0x0;
-    return ADXCRS_Unlock();
 }
 
 

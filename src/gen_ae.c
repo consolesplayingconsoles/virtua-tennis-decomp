@@ -92,7 +92,7 @@ int nlsndGetPackInfo(int a4, int a5);
 int selCellSetChosen(int a4, int a5, int a6, int a7);
 void emotKeyDel(int a4, int a5);
 int stageLoadEndingModels(void);
-int nlSetIntrFunction(int a4);
+int nlSetIntrFunction(int a4, int a5);
 int stageLoadMinigameModels(void);
 int stageLoadWtcSprites(void);
 int nlFreeCommonTextureAll(void);
@@ -114,29 +114,6 @@ int nlExecuteEvent2(void);
 void syChainMasterHandlerPVR_H(void);
 int cacheOcbiRange(int a4, int a5);
 
-int ADXT_Pause(int a4, int a5)
-{
-    int t0;
-    int t3;
-
-    t0 = ADXT_GetStat(a4);
-    *(unsigned char *)((a4 + 0x72)) = a5;
-    if ((t0 != 3) && (t0 != 4)) {
-        return t0;
-    }
-    if (a5 == 1) {
-        ADXRNA_SetPlaySw((*(int *)((a4 + 0xC))), 0x0);
-        t3 = 0x7A120;
-        for (;;) {
-            t3 = (t3 - 0x1);
-            if (t3 == 0) {
-                break;
-            }
-        }
-        return mwRnaAdjustBuf((*(int *)((a4 + 0xC))));
-    }
-    return ADXRNA_SetPlaySw((*(int *)((a4 + 0xC))), 0x1);
-}
 
 int rankNameFilter(int a4, int a5, int a6, int a7)
 {
@@ -162,7 +139,6 @@ int rankNameFilter(int a4, int a5, int a6, int a7)
 }
 
 
-
 int objListPut(int a4, int a5, int a6)
 {
     int t3;
@@ -186,82 +162,6 @@ int objListPut(int a4, int a5, int a6)
     return t4;
 }
 
-int nlsndG2DmaRequest(int a4, int a5, int a6, int a7)
-{
-    int t5;
-
-    if ((*(int *)((a4 + 0x0))) != 1) {
-        return 0xFFFFFFFF;
-    }
-    if ((a5 & 0x1F) != 0) {
-        return 0xFFFFFFFE;
-    }
-    if ((a6 & 0x1F) != 0) {
-        return 0xFFFFFFFD;
-    }
-    if ((0x1F & a7) != 0) {
-        return 0xFFFFFFFC;
-    }
-    t5 = *(int *)0x8C454CEC;
-    if (t5 == 0) {
-        nlsndG2WriteN(a5, a6, ((unsigned int)a7 >> 2));
-        return 0x0;
-    }
-    if (t5 != 1) {
-        return 0xFFFFFFFB;
-    }
-    return 0x0;
-}
-
-int nlsndPackFreeInit(int packIndex, int releasedBytes, int movedBytesAddress)
-{
-    int movedBytes;
-    int firstMovedAddress;
-    int accumulatedBytes;
-    int t3;
-    int t4;
-    int packCursor;
-    int packAddressCursor;
-    int firstAddressCursor;
-    int firstAddress;
-
-    *(unsigned int *)0x8C454CBC = ((*(int *)0x8C454CBC) - releasedBytes);
-    *(unsigned int *)(((((packIndex << 1) + packIndex) << 2) + 0x8C454DD4)) = 0xFFFFFFFF;
-    nlsndG2Write(0xFFFFFFFF, ((packIndex << 2) + 0xA0800060));
-    movedBytes = 0x0;
-    firstMovedAddress = 0x0;
-    if ((unsigned int)(((((packIndex + 0x1) << 1) + (packIndex + 0x1)) << 2) + 0x8C454DD4) < (unsigned int)0x8C454E34) {
-        accumulatedBytes = 0x0;
-        t3 = 0x8C454DD4;
-        t4 = (packIndex + 0x1);
-        packCursor = (((((packIndex + 0x1) << 1) + (packIndex + 0x1)) << 2) + 0x8C454DD4);
-        packAddressCursor = (((((packIndex + 0x1) << 1) + (packIndex + 0x1)) << 2) + 0x8C454DD4);
-        firstAddressCursor = (((((packIndex + 0x1) << 1) + (packIndex + 0x1)) << 2) + 0x8C454DD4);
-        firstAddress = 0x0;
-        for (;;) {
-            if ((*(int *)((packCursor + 0x0))) != -1) {
-                t3 = (*(int *)((packAddressCursor + 0x8)));
-                if (firstAddress == 0) {
-                    firstAddress = (*(int *)((firstAddressCursor + 0x4)));
-                }
-                t4 = (*(int *)((packAddressCursor + 0x4)));
-                accumulatedBytes = (accumulatedBytes + t3);
-                t4 = (t4 - releasedBytes);
-                *(unsigned int *)((packAddressCursor + 0x4)) = t4;
-            }
-            packCursor = (packCursor + 0xC);
-            packAddressCursor = (packAddressCursor + 0xC);
-            firstAddressCursor = (firstAddressCursor + 0xC);
-            if ((unsigned int)packCursor >= (unsigned int)0x8C454E34) {
-                break;
-            }
-        }
-        movedBytes = accumulatedBytes;
-        firstMovedAddress = firstAddress;
-    }
-    *(unsigned int *)((movedBytesAddress + 0x0)) = movedBytes;
-    return firstMovedAddress;
-}
 
 int nlInitEvent(void)
 {
@@ -328,34 +228,6 @@ int nlInitEvent(void)
 }
 
 
-int nlsndPackLoadBG(int a4, int a5, int a6)
-{
-    int t1;
-    int t14;
-    int t2;
-    int t11;
-    int stk[9];
-
-    *(unsigned int *)(((int)stk + 8)) = a5;
-    *(unsigned int *)(((int)stk + 12)) = a6;
-    t1 = nlsndCheckPackIndex(a4, (*(int *)(((int)stk + 8))), 0x0);
-    t14 = t1;
-    if (t1 != 0) {
-    } else {
-        t2 = *(int *)((a4 + 0x8));
-        *(unsigned int *)((((*(int *)0x8C454CE8) + 0x18) + 0x0)) = (nlsndPackLoadInit((*(int *)(((int)stk + 8))), (*(int *)((a4 + 0x4))), t2, ((int)stk + 4)));
-        *(unsigned int *)(((*(int *)0x8C454CE8) + 0x14)) = a4;
-        *(unsigned int *)(((*(int *)0x8C454CE8) + 0x0)) = 0x1;
-        *(unsigned int *)(((*(int *)0x8C454CE8) + 0x4)) = (*(int *)(((int)stk + 12)));
-        t11 = *(int *)0x8C454CE8;
-        *(unsigned int *)((t11 + 0xC)) = t2;
-        *(unsigned int *)((t11 + 0x8)) = t2;
-        *(unsigned int *)(((*(int *)0x8C454CE8) + 0x10)) = (*(int *)(((int)stk + 4)));
-        t14 = 0x0;
-    }
-    return t14;
-}
-
 int fileLoadPoll(void)
 {
     int t11;
@@ -377,71 +249,6 @@ int fileLoadPoll(void)
     return t11;
 }
 
-int nlsndPackFree(int a4)
-{
-    int t0;
-    int t29;
-    int t1;
-    int t2;
-    int t3;
-    int t26;
-    int t4;
-    int t23;
-    int t6;
-    int t14;
-    int t7;
-    int t11;
-    int t8;
-    int t9;
-    int t17;
-    int t18;
-    int t20;
-    int stk[5];
-
-    t0 = nlsndCheckPackFreeError(a4);
-    t29 = t0;
-    if (t0 == 0) {
-        t1 = *(int *)(((((a4 << 1) + a4) << 2) + 0x8C454DDC));
-        t2 = nlsndPackFreeInit(a4, t1, ((int)stk + 4));
-        t3 = nlsnd_PL_WaitRequest();
-        t26 = t3;
-        if (t3 == 0) {
-            t4 = nlsnd_PL_WaitAica1();
-            t23 = t4;
-            if (t4 == 0) {
-                if (t2 != 0) {
-                    t6 = nlsndBlockMove(t2, (t2 - t1), (*(int *)(((int)stk + 4))));
-                    t14 = t6;
-                    if (t6 == 0) {
-                        t7 = nlsnd_PL_WaitBlockMove();
-                        t11 = t7;
-                        if (t7 == 0) {
-                            t8 = nlsnd_PL_WaitAica2andGo();
-                            t9 = 0x0;
-                            if (t8 != 0) {
-                                t9 = t8;
-                            }
-                            t11 = t9;
-                        }
-                        t14 = t11;
-                    }
-                    t20 = t14;
-                } else {
-                    t17 = nlsnd_PL_WaitAica2andGo();
-                    t18 = 0x0;
-                    if (t17 != 0) {
-                        t18 = t17;
-                    }
-                    t20 = t18;
-                }
-                t23 = t20;
-            }
-            t26 = t23;
-        }
-        t29 = t26;
-    }
-    return t29;
-}
 
 int commonEtcTexLoad(void)
 {
@@ -500,26 +307,6 @@ int stageLoadWtcMain(void)
     return stageWtcMainTexLoad();
 }
 
-int nlsndGetPackInfo(int a4, int a5)
-{
-    int t1;
-    int t2;
-    int t3;
-
-    if ((unsigned int)a4 < (unsigned int)0x8) {
-        t1 = nlsndG2Read((*(int *)0x8C454CAC));
-        if (a5 != 0x4A0) {
-            if (a5 != 0x10A0) {
-                return 0xFFFFFF80;
-            }
-            t2 = nlsndG2Read(((0xA0800000 + t1) + ((((a4 << 2) << 1) + 0x5) << 2)));
-            return ((int)(t2 & 0x7F00) >> 8);
-        }
-        t3 = nlsndG2Read(((0xA0800000 + t1) + ((((a4 << 2) << 1) + 0x5) << 2)));
-        return (t3 & 0x7F);
-    }
-    return 0xFFFFFF80;
-}
 
 int selCellSetChosen(int a4, int a5, int a6, int a7)
 {
@@ -610,21 +397,6 @@ int stageLoadEndingModels(void)
     return (*(int *)0x8C343FE8);
 }
 
-int nlSetIntrFunction(int a4)
-{
-    int t0;
-    int t4;
-
-    t0 = _builtin_get_imask();
-    _builtin_set_imask(0xE);
-    if ((int)a4 < (int)0xD) {
-        t4 = (((int (*)(int))((*(int *)(((a4 << 2) + 0x8C1DCB98)))))(a4));
-    } else {
-        t4 = (nlIntrDefaultFunction());
-    }
-    _builtin_set_imask(((unsigned int)(((t0 & 0xF) << 2) << 2) >> 4));
-    return t4;
-}
 
 int stageLoadMinigameModels(void)
 {
@@ -665,132 +437,6 @@ int stageLoadWtcSprites(void)
     return sprWtcLoad();
 }
 
-int nlFreeCommonTextureAll(void)
-{
-    int t14;
-    int t3;
-    int t4;
-    int t9;
-    int t10;
-    int t11;
-    int t2;
-
-    nlFreeTextureAll();
-    t14 = 0x8C1DC87C;
-    if ((*(int *)0x8C1DC87C) != 0) {
-        t3 = 0xFFFFFFF8;
-        t4 = 0xFFFFFFFF;
-        for (;;) {
-            if ((int)t4 >= (int)(*(int *)0x8C1DC87C)) {
-                break;
-            }
-            t4 = (t4 + 0x1);
-            *(unsigned int *)((((*(int *)0x8C4241C0) + t3) + 0x0)) = 0x0;
-            t2 = (*(int *)0x8C4241C0);
-            t2 = (t2 + t3);
-            t3 = (t3 + 0x8);
-            *(unsigned int *)((t2 + 0x4)) = 0xFFFFFFFF;
-        }
-        t9 = 0x8C1DC87C;
-        t10 = 0x0;
-        t11 = 0x0;
-        for (;;) {
-            if ((int)t11 >= (int)(*(int *)0x8C1DC880)) {
-                break;
-            }
-            t9 = (*(int *)0x8C4241C4);
-            t11 = (t11 + 0x1);
-            *(unsigned int *)((t10 + t9)) = 0x0;
-            t10 = (t10 + 0x4);
-        }
-        t14 = t9;
-    }
-    return t14;
-}
-
-int mwlRnaWaitTransEnd(int a4, int a5, int a6, int a7)
-{
-    int t2;
-    int t3;
-    int t9;
-    int t0;
-    int t1;
-
-    *(unsigned int *)0x8C20C8B8 = 0x0;
-    t2 = 0x0;
-    t3 = 0x0;
-    for (;;) {
-        if ((int)t3 >= (int)0xC8) {
-            break;
-        }
-        t2 = a4;
-        t0 = (mwlRnaIsCopyEnd(t2, a5, a6, a7));
-        if (t0 != 1) {
-            t2 = 0x1388;
-            for (;;) {
-                t2 = (t2 - 0x1);
-                if (t2 == 0) {
-                    break;
-                }
-            }
-            t1 = (*(int *)0x8C20C8B8);
-            t3 = (t3 + 0x1);
-            t1 = (t1 + 0x1);
-            *(unsigned int *)0x8C20C8B8 = t1;
-            continue;
-        }
-        break;
-    }
-    t9 = t0;
-    if (t3 == 0xC8) {
-        t9 = (mwRnaErrCallFunc(0x8C20AC7C));
-    }
-    return t9;
-}
-
-int nlSpriteSetGarbagedTextureGI(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t4;
-
-    t0 = 0x0;
-    t1 = a4;
-    t2 = 0x0;
-    for (;;) {
-        if ((*(int *)((t1 + 0x4))) == -1) {
-            break;
-        }
-        t4 = nlSpriteSetGarbagedTextureOnce_Sub(a4, t2, 0x1);
-        t2 = (t2 + 0x1);
-        t1 = (t1 + 0x10);
-        t0 = (t0 | t4);
-    }
-    return t0;
-}
-
-int nlSpriteFreeTextureGI(int a4, int a5)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t4;
-
-    t0 = 0x0;
-    t1 = a4;
-    t2 = 0x0;
-    for (;;) {
-        if ((*(int *)((t1 + 0x4))) == -1) {
-            break;
-        }
-        t4 = nlSpriteFreeTextureOnce_Sub(a4, a5, t2, 0x1);
-        t2 = (t2 + 0x1);
-        t1 = (t1 + 0x10);
-        t0 = (t0 | t4);
-    }
-    return t0;
-}
 
 int titleStartSprLoad(void)
 {
@@ -824,63 +470,6 @@ int titleSprLoad(void)
     return titleSprTexLoad();
 }
 
-int nlSpriteFreeTexture(int a4, int a5)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t4;
-
-    t0 = 0x0;
-    t1 = a4;
-    t2 = 0x0;
-    for (;;) {
-        if ((*(int *)((t1 + 0x4))) == -1) {
-            break;
-        }
-        t4 = nlSpriteFreeTextureOnce_Sub(a4, a5, t2, 0x0);
-        t2 = (t2 + 0x1);
-        t1 = (t1 + 0x10);
-        t0 = (t0 | t4);
-    }
-    return t0;
-}
-
-int nlArcCos(float f4)
-{
-    int t0;
-
-    if (_builtin_fabsf(f4) > 1.0f) {
-        if (f4 > 0.0f) {
-            return 0x0;
-        }
-        return 0x8000;
-    }
-    t0 = nlArcSin(f4);
-    return (((-t0) + 0x4000) & 0xFFFF);
-}
-
-int nlSpriteSetGarbagedTexture(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t4;
-
-    t0 = 0x0;
-    t1 = a4;
-    t2 = 0x0;
-    for (;;) {
-        if ((*(int *)((t1 + 0x4))) == -1) {
-            break;
-        }
-        t4 = nlSpriteSetGarbagedTextureOnce_Sub(a4, t2, 0x0);
-        t2 = (t2 + 0x1);
-        t1 = (t1 + 0x10);
-        t0 = (t0 | t4);
-    }
-    return t0;
-}
 
 int circuitTaskRun(void)
 {
@@ -899,133 +488,6 @@ int circuitTaskRun(void)
     return t0;
 }
 
-int nlCommonTextureGarbageCollection(void)
-{
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-
-    t1 = *(int *)0x8C458608;
-    t2 = (collectTextureGarbage());
-    t3 = 0x0;
-    t4 = t1;
-    for (;;) {
-        if ((int)t3 >= (int)(*(int *)0x8C45860C)) {
-            break;
-        }
-        if ((*(int *)((t4 + 0x28))) == 0) {
-            t2 = (nlCreateTextureParamA(t4));
-        }
-        t4 = (t4 + 0x3C);
-        t3 = (t3 + 0x1);
-    }
-    return t2;
-}
-
-int nlPrintf(Stk4 s)
-{
-    int t0;
-    int stk[14];
-
-    stk[2] = s.w[0];
-    stk[3] = s.w[1];
-    stk[4] = s.w[2];
-    stk[5] = s.w[3];
-    t0 = ((((int)stk + 4) + 0x4) + 0x4);
-    if ((0x3 & ((((int)stk + 4) + 0x4) + 0x4)) != 0) {
-        t0 = ((((int)stk + 4) + 0x4) + 0x8);
-    }
-    vsprintf(0x8C44F750, s.w[0], t0);
-    nlPuts(0x8C44F750);
-    return 0x0;
-}
-
-int nlObjPutLoadTexture(int a4, int a5)
-{
-    int t0;
-    int t5;
-    int stk[8];
-
-    *(unsigned int *)(((int)stk + 16)) = a4;
-    *(unsigned int *)(((int)stk + 12)) = a5;
-    *(unsigned int *)(((int)stk + 8)) = 0x0;
-    t0 = 0x0;
-    for (;;) {
-        t5 = *(int *)(((int)stk + 8));
-        t0 = (t0 | (nlObjPutLoadTextureOnce_Sub((*(int *)(((int)stk + 16))), (*(int *)(((int)stk + 12))), (*(int *)(((int)stk + 8))), (((int)stk + 4) + 0x4), 0x0)));
-        if (t5 == 0) {
-            break;
-        }
-    }
-    return t0;
-}
-
-int memcmp(int a4, int a5, int a6)
-{
-    int t7;
-    int t9;
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-
-    if (a6 == 0) {
-        return 0x0;
-    }
-    t7 = a4;
-    t9 = a5;
-    if ((unsigned int)0x0 < (unsigned int)a6) {
-        t0 = a4;
-        t1 = 0x0;
-        t2 = a5;
-        for (;;) {
-            t3 = *(signed char *)((t2 + 0x0));
-            t2 = (t2 + 0x1);
-            t4 = *(signed char *)((t0 + 0x0));
-            t0 = (t0 + 0x1);
-            if ((t4 == t3) && (t1 = (t1 + 0x1), (unsigned int)t1 < (unsigned int)a6)) continue;
-            break;
-        }
-        t7 = t0;
-        t9 = t2;
-    }
-    return ((unsigned char)(*(signed char *)(((t7 - 1) + 0x0))) - (unsigned char)(*(signed char *)(((t9 - 1) + 0x0))));
-}
-
-int _umemcmp(int a4, int a5, int a6)
-{
-    int t7;
-    int t9;
-    int t0;
-    int t1;
-    int t2;
-    int t3;
-    int t4;
-
-    if (a6 == 0) {
-        return 0x0;
-    }
-    t7 = a4;
-    t9 = a5;
-    if ((unsigned int)0x0 < (unsigned int)a6) {
-        t0 = a4;
-        t1 = 0x0;
-        t2 = a5;
-        for (;;) {
-            t3 = *(signed char *)((t2 + 0x0));
-            t2 = (t2 + 0x1);
-            t4 = *(signed char *)((t0 + 0x0));
-            t0 = (t0 + 0x1);
-            if ((t4 == t3) && (t1 = (t1 + 0x1), (unsigned int)t1 < (unsigned int)a6)) continue;
-            break;
-        }
-        t7 = t0;
-        t9 = t2;
-    }
-    return ((unsigned char)(*(signed char *)(((t7 - 1) + 0x0))) - (unsigned char)(*(signed char *)(((t9 - 1) + 0x0))));
-}
 
 int nlExecuteEvent2(void)
 {
@@ -1044,21 +506,6 @@ int nlExecuteEvent2(void)
     return t1;
 }
 
-void syChainMasterHandlerPVR_H(void)
-{
-    int t2;
-    int t5;
-
-    _builtin_set_imask(0x6);
-    t2 = (*(int *)0x8C461A60);
-    for (;;) {
-        if (t2 == 0) {
-            break;
-        }
-        t5 = ((int (*)(int))((*(int *)((t2 + 0x0)))))((*(int *)((t2 + 0x8))));
-        t2 = (*(int *)((t2 + 0x4)));
-    }
-}
 
 int cacheOcbiRange(int a4, int a5)
 {

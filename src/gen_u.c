@@ -71,7 +71,6 @@ int hudCallMsgDrawD9c0(float f4, float f5);
 int hudCallMsgDrawD970(float f4, float f5);
 
 
-
 int shopDrawCount(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, float f4)
 {
     float u1;
@@ -132,56 +131,6 @@ int commonSprInit(int a4, int a5)
         t15 = 0x5;
     }
     return t15;
-}
-
-
-
-
-int kmiFLWCTRLCheckVBufOverflow(int a4, int a5, int a6, int a7)
-{
-    int t10;
-    int t11;
-    int t3;
-    int t4;
-    int t5;
-    int t17;
-    int t18;
-    int t19;
-
-    if ((*(int *)0x8C45F794) != 0) {
-        t17 = (*(int *)(((a7 << 2) + (0x8C45F6F4 + (((a6 << 2) + a6) << 2)))));
-        t18 = (*(int *)(((a7 << 2) + ((0xE4 + a5) + (((a6 << 2) + a6) << 2)))));
-        t19 = a7;
-    } else {
-        t10 = 0x0;
-        t11 = (0xE4 + a5);
-        if ((unsigned int)0x0 < (unsigned int)a6) {
-            t3 = 0x0;
-            t4 = 0x0;
-            t5 = (0xE4 + a5);
-            for (;;) {
-                t3 = (t3 + 0x1);
-                t4 = (t4 + (*(int *)((t5 + (a7 << 2)))));
-                t5 = (t5 + 0x14);
-                if ((unsigned int)t3 >= (unsigned int)a6) {
-                    break;
-                }
-            }
-            t10 = t4;
-            t11 = t5;
-        }
-        t17 = ((*(int *)(((0x8C45F6F4 + (a7 << 2)) + 0x0))) - t10);
-        t18 = ((*(int *)(((a7 << 2) + ((0xE4 + a5) + (((a6 << 2) + a6) << 2))))) + t10);
-        t19 = t11;
-    }
-    if ((unsigned int)t18 > (unsigned int)(*(int *)(((a7 << 2) + (0x8C45F818 + (((a6 << 2) + a6) << 2)))))) {
-        *(unsigned int *)(((a7 << 2) + (0x8C45F818 + (((a6 << 2) + a6) << 2)))) = t18;
-    }
-    if ((unsigned int)t17 < (unsigned int)(*(int *)(((a7 << 2) + ((0xE4 + a5) + (((a6 << 2) + a6) << 2)))))) {
-        *(unsigned int *)0x8C45F920 = 0x2;
-        kmyRequestCallback(0x8, a5, t18, t19);
-    }
-    return 0x0;
 }
 
 
@@ -377,44 +326,6 @@ int hudFont2SprSet(int a4, int a5, int a6, int a7, Stk4 p)
     return 0x2C;
 }
 
-int buFbrCreateServer(int a4)
-{
-    int t0;
-    int t1;
-    int t2;
-    int t10;
-
-    t0 = _builtin_get_imask();
-    _builtin_set_imask(0xF);
-    t1 = 0x0;
-    t2 = 0x8C4747D0;
-    for (;;) {
-        if ((*(int *)((t2 + 0x0))) != 0) {
-            t1 = (t1 + 0x1);
-            t2 = (t2 + 0xD7C);
-            if ((int)t1 >= (int)0x2) {
-                break;
-            }
-            continue;
-        }
-        break;
-    }
-    if (t1 == 2) {
-        t10 = 0x0;
-    } else {
-        *(unsigned int *)((t2 + 0x208)) = a4;
-        *(unsigned int *)((t2 + 0x20C)) = 0x0;
-        *(unsigned int *)((t2 + 0x204)) = 0x0;
-        memset((0x210 + t2), 0x0, 0xB68);
-        memset((0x104 + t2), 0x0, 0x100);
-        setjmp((0x104 + t2));
-        *(unsigned int *)((t2 + 0x0)) = 0x1;
-        *(unsigned int *)0x8C4762D0 = ((*(int *)0x8C4762D0) + 0x1);
-        t10 = t2;
-    }
-    _builtin_set_imask(((unsigned int)(((t0 & 0xF) << 2) << 2) >> 4));
-    return t10;
-}
 
 int circuitDrawPicture(void)
 {

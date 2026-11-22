@@ -1,4 +1,4 @@
-/* files.c: the game's files, read from a folder of the disc's files (--data DIR, port/tools/extract_disc.py makes
+/* files.c: the game's files, read from a folder of the disc's files (--data DIR, tools/10-port/extract_disc.py makes
    one). The game opens files by name and the entries of AFS archives by number through CRI's ADXF (its loader
    fileLoadStart / fileLoadStartAfs / fileLoadSync); these host functions take the place of ADXF's, so neither ADXF's
    own C nor the GD-ROM file system below it runs. A read completes at once.
@@ -54,13 +54,13 @@ static int load_partition(int id, const char *name)
         return -1;
     struct partition *p = &parts[id];
     if (!port_data_path(name, p->path, sizeof p->path)) {
-        fprintf(stderr, "vtennis: %s is not in the data folder %s\n", name, port_data_dir);
+        fprintf(stderr, PORT_NAME ": %s is not in the data folder %s\n", name, port_data_dir);
         return -1;
     }
     FILE *f = fopen(p->path, "rb");
     uint32_t head[2];
     if (!f || fread(head, 4, 2, f) != 2 || memcmp(head, "AFS", 4)) {
-        fprintf(stderr, "vtennis: %s is not an AFS archive\n", p->path);
+        fprintf(stderr, PORT_NAME ": %s is not an AFS archive\n", p->path);
         if (f)
             fclose(f);
         return -1;
@@ -161,7 +161,7 @@ static uint32_t open_range(const char *path, uint32_t base, uint32_t size, const
                 fprintf(stderr, "files: open %s (%u bytes)\n", what, size);
             return (uint32_t)(uintptr_t)a;
         }
-    fprintf(stderr, "vtennis: no free file handle for %s\n", what);
+    fprintf(stderr, PORT_NAME ": no free file handle for %s\n", what);
     return 0;
 }
 
@@ -173,7 +173,7 @@ uint32_t adxf_open(uint32_t name, uint32_t atr)
     char path[1024];
     (void)atr;
     if (!port_data_path(n, path, sizeof path)) {
-        fprintf(stderr, "vtennis: %s is not in the data folder %s\n", n, port_data_dir);
+        fprintf(stderr, PORT_NAME ": %s is not in the data folder %s\n", n, port_data_dir);
         return 0;
     }
     return open_range(path, 0, (uint32_t)-1, n);
@@ -187,7 +187,7 @@ uint32_t adxf_open_afs(int32_t id, int32_t file)
     uint32_t off, size;
     char what[64];
     if (!port_afs_entry(id, file, &path, &off, &size)) {
-        fprintf(stderr, "vtennis: no AFS entry %d of partition %d\n", file, id);
+        fprintf(stderr, PORT_NAME ": no AFS entry %d of partition %d\n", file, id);
         return 0;
     }
     snprintf(what, sizeof what, "AFS %d:%d", id, file);

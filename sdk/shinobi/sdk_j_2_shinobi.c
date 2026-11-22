@@ -1,0 +1,38 @@
+/* Small library functions (batch j): matrix and line helpers, Kamui vertex buffer and callback setters, the backup and
+   system config queries, ADX getters. */
+
+float nlCosf(float a);
+float nlSinf(float a);
+void nlTranslate(float x, float y, float z);
+int kmiQueryFinishDMA(int ch);
+int kmiWriteRegister(int off, int v);
+void kmiUnloadDevice(void);
+void kmiRegisterCallback(int dev, int kind, void *f, void *p);
+int vmsfs_c_getstate(int drive);
+int kbCfgIni(int a);
+int kbCfgGetId(int);
+int ADXSJD_GetTotalNumSmpl(int sjd);
+int ADXSJD_GetNumChan(int sjd);
+void ADXERR_CallErrFunc(char *msg);
+
+
+/* A translation by minus the vector v. */
+
+
+int buStat(int drive)
+{
+    if (vmsfs_c_getstate(drive))
+        return -1;
+    return 0;
+}
+
+
+int syCfgGetIDAddress(void)
+{
+    if (kbCfgIni(0))
+        return 0;
+    return kbCfgGetId(0);
+}
+
+
+/* 1 when the n bytes at p are all 0. */

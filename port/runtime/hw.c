@@ -1,6 +1,6 @@
 /* hw.c: the Dreamcast's hardware below the library's C, as far as the game's C reaches it.
 
-   The native build (port/tools/native_build.py) turns each load and store the game's C makes at a constant hardware
+   The native build (tools/10-port/native_build.py) turns each load and store the game's C makes at a constant hardware
    register address into a call to port_mmio_r* / port_mmio_w* here; Kamui's kmiReadRegister / kmiWriteRegister (the
    PowerVR's registers by offset) come here too. Registers without a model act as memory: the windows runner.c maps at
    their P2 addresses hold their values.
@@ -27,6 +27,7 @@
 #include <xmmintrin.h>
 
 #include "port.h"
+#include "game.h"
 
 #define REG(a) (*(volatile uint32_t *)(uintptr_t)(a))
 #define REG16(a) (*(volatile uint16_t *)(uintptr_t)(a))
@@ -68,6 +69,12 @@ void hw_raise(int bit)
 void hw_raise_ext(int bit)
 {
     __atomic_or_fetch(&ist_ext, 1u << bit, __ATOMIC_SEQ_CST);
+}
+
+/* SB_ISTERR bit: the hardware's errors (the TA's parameter overflow, pvr.c) */
+void hw_raise_err(int bit)
+{
+    __atomic_or_fetch(&ist_err, 1u << bit, __ATOMIC_SEQ_CST);
 }
 
 /* raise SB_ISTNRM bit after us microseconds of the host's time (the console's DMA and rendering take time; the code that
@@ -128,6 +135,9 @@ static int pending_level(int *evt)
 }
 
 unsigned long port_interrupts;
+void interp_save(void);
+void interp_restore(void);
+void port_game_irq(int evt);           /* game.c */
 
 /* run the handlers of the interrupts the status register lets through, one after another */
 void hw_deliver(void)
@@ -142,10 +152,15 @@ void hw_deliver(void)
             return;
         uint32_t handler = REG(0x8C000000u + 0x200u + (((uint32_t)evt - 0x200u) >> 3));
         const struct port_entry *e = handler ? port_lookup(0x8C000000u | (handler & 0x00FFFFFFu)) : 0;
-        if (!e) {
+        void *fn = e ? e->fn : 0;
+#ifdef GAME_DEFAULT_HANDLER
+        if ((!fn || (handler & 0x00FFFFFFu) == (GAME_DEFAULT_HANDLER & 0x00FFFFFFu)) && (evt == 0x320 || evt == 0x360 || evt == 0x3A0))
+            fn = (void *)port_game_irq;          /* no handler in the table: game.c runs Kamui's and the vertical blank chain */
+#endif
+        if (!fn) {
             static int warned;
             if (!warned++)
-                fprintf(stderr, "vtennis: interrupt %03X with no handler (%08X)\n", evt, handler);
+                fprintf(stderr, PORT_NAME ": interrupt %03X with no handler (%08X)\n", evt, handler);
             return;
         }
         in_interrupt = 1;
@@ -154,9 +169,11 @@ void hw_deliver(void)
         _mm_setcsr((csr & ~0x6000u) | 0x6000u | 0x8040u);   /* the game's float rules */
         port_sr = (sr & ~0xF0) | 0xF0;                         /* the exception code's mask: 15 */
         REG(0xFF000028u) = (uint32_t)evt;                      /* INTEVT */
-        REG(0x8C1FCB08u) = (uint32_t)evt;                      /* where the exception code keeps it */
+        REG(GAME_INTEVT_COPY) = (uint32_t)evt;                 /* where the game's exception code keeps it (game.h) */
         port_interrupts++;
-        ((void (*)(int))e->fn)(evt);
+        interp_save();                                         /* the interpreter may be waiting on a host function: its registers survive the handler */
+        ((void (*)(int))fn)(evt);
+        interp_restore();
         port_sr = sr;
         _mm_setcsr(csr);
         in_interrupt = 0;
@@ -330,7 +347,7 @@ static void bus_write(uint32_t a, const void *src, uint32_t n)
     } else if (p >= 0x10800000u && p < 0x11000000u) {          /* YUV converter: not modelled */
         static int warned;
         if (!warned++)
-            fprintf(stderr, "vtennis: YUV converter input ignored\n");
+            fprintf(stderr, PORT_NAME ": YUV converter input ignored\n");
     } else if (p >= 0x11000000u && p < 0x12000000u) {          /* texture memory through the TA: LMMODE0 picks the path */
         pvr_vram_write(p & 0x007FFFFFu, src, n, REG(0xA05F6884u) & 1);
     } else if (p >= 0x13000000u && p < 0x14000000u) {
@@ -344,19 +361,91 @@ static void bus_write(uint32_t a, const void *src, uint32_t n)
     } else {
         static int warned;
         if (warned++ < 8)
-            fprintf(stderr, "vtennis: %u bytes to bus address %08X dropped\n", n, a);
+            fprintf(stderr, PORT_NAME ": %u bytes to bus address %08X dropped\n", n, a);
     }
 }
 
 /* for host code that writes where the library's store queues would (nlib.c's model kernel) */
 void hw_bus_write(uint32_t a, const void *src, uint32_t n) { bus_write(a, src, n); }
 
-/* port_prefetch (shim.c): a store queue's flush */
+/* port_prefetch (shim.c): a store queue's flush. The SH-4 has two store queues of 32 bytes, SQ0 and SQ1, picked by
+   address bit 5 whatever the other bits; a flush sends the queue's contents, and the queue keeps them. The NAOMI library
+   counts on that: closing a shadow volume (the code before nlMvSendTriangle) flushes both queues again at the next
+   address without storing to them, so the last triangle goes out once more after the closing headers. Here the area is
+   memory (runner.c), so each queue is modelled on it: a word the game stored since the last flush of that block is the
+   game's; a word it did not store (still the marker the flush leaves) is the queue's kept word. With the area as plain
+   memory, those flushes sent stale bytes, the opaque modifier list went 32 bytes out of step, its end of list was read
+   as data, the translucent list's end never came, and Kamui gave up the frame (the recorded stalls in the race).
+   A page's words become markers at the first flush in it, and the next page's with it (a block flushed first thing in a
+   page was then marked before), all but the block being flushed and the blocks either side of it (the other queue's,
+   which may hold stores not yet flushed); only the pages the game touches take memory.
+
+   PORT_DEBUG_SQ: a flush into the opaque modifier list whose first word is a parameter kind no game writes there (types 2,
+   3 and 6) is logged with its destination, its words and the host call stack (tools/10-port/where.sh names them) */
+#include <execinfo.h>
+#define SQ_MARK 0x7FA5C3E1u
+#define SQ_BASE 0xE0000000u
+#define SQ_SIZE 0x04000000u
+static uint32_t sq_kept[2][8];
+static uint8_t sq_page_ready[SQ_SIZE >> 12];
+
+static void sq_mark_page(uint32_t page, uint32_t keep)
+{
+    if (page >= (SQ_SIZE >> 12) || sq_page_ready[page])
+        return;
+    uint32_t *w = (uint32_t *)(uintptr_t)(SQ_BASE + (page << 12));
+    for (uint32_t i = 0; i < 1024; i++) {
+        uint32_t at = SQ_BASE + (page << 12) + i * 4;
+        if (at - keep >= 96)                      /* the flushed block and its neighbours hold the game's stores */
+            w[i] = SQ_MARK;
+    }
+    sq_page_ready[page] = 1;
+}
+
 void hw_sq_flush(uint32_t a)
 {
     uint32_t qacr = REG(0xFF000038u + ((a >> 5) & 1) * 4);
     uint32_t dest = ((qacr & 0x1C) << 24) | (a & 0x03FFFFE0u);
-    bus_write(dest, (const void *)(uintptr_t)(a & ~31u), 32);
+    uint32_t page = ((a & ~31u) - SQ_BASE) >> 12, k = (a >> 5) & 1;
+    sq_mark_page(page, (a & ~31u) - 32);
+    sq_mark_page(page + 1, (a & ~31u) - 32);
+    uint32_t *m = (uint32_t *)(uintptr_t)(a & ~31u), out[8];
+    for (int i = 0; i < 8; i++) {
+        out[i] = m[i] == SQ_MARK ? sq_kept[k][i] : m[i];
+        sq_kept[k][i] = out[i];
+        m[i] = SQ_MARK;
+    }
+    static int sq_debug = -1, logged;
+    if (sq_debug < 0)
+        sq_debug = getenv("PORT_DEBUG_SQ") != 0;
+    /* only into the opaque modifier list's buffer (the NAOMI library's list pointers, game.h): from the lowest its pointer
+       has been to the lowest the translucent list's has been. A sprite's second half starts with a float in any list */
+    static uint32_t base1 = 0xFFFFFFFFu, base2 = 0xFFFFFFFFu;
+    if (sq_debug > 0 && GAME_NL_LIST_PTRS) {
+        uint32_t arr = REG(GAME_NL_LIST_PTRS);
+        uint32_t p1 = arr ? REG(arr + 4) & 0x1FFFFFFFu : 0, p2 = arr ? REG(arr + 8) & 0x1FFFFFFFu : 0;
+        if (p1 && p1 < base1)
+            base1 = p1;
+        if (p2 && p2 < base2)
+            base2 = p2;
+    }
+    if (sq_debug > 0 && logged < 200 && dest >= base1 && dest < base2) {
+        int type = (int)(out[0] >> 29);
+        if (type == 2 || type == 3 || type == 6) {
+            void *bt[8];
+            int n = backtrace(bt, 8);
+            char line[400];
+            int c = snprintf(line, sizeof line, PORT_NAME ": sq: flush %08X -> %08X:", a, dest);
+            for (int i = 0; i < 8; i++)
+                c += snprintf(line + c, sizeof line - c, " %08X", out[i]);
+            c += snprintf(line + c, sizeof line - c, " | callers");
+            for (int i = 1; i < n && c < (int)sizeof line - 20; i++)
+                c += snprintf(line + c, sizeof line - c, " %p", bt[i]);
+            fprintf(stderr, "%s\n", line);
+            logged++;
+        }
+    }
+    bus_write(dest, out, 32);
 }
 
 /* channel 2 to the PowerVR: SAR2 (0xFFA00020) the source, SB_C2DSTAT the destination, SB_C2DLEN the length */
@@ -495,6 +584,23 @@ static uint32_t mmio_read(uint32_t a, int size)
         while (now_ns() < until)
             ;
         return 0;
+    }
+    case 0xA080005Cu: {                    /* the sound driver's ready word: nlsndInit (the NAOMI library's) reads it in a
+                                              counted loop after it starts the ARM7. The ARM7 runs on the sound thread in
+                                              real time, the loop at the PC's speed: a read that finds zero waits for the
+                                              driver to write it, up to two seconds from the first read of a wait (a read
+                                              after a pause of 100 ms starts a new wait); after that the game's own count
+                                              ends the loop, as on the console */
+        static uint64_t first, last;
+        uint64_t t = now_ns();
+        if (t - last > 100000000ull)
+            first = t;
+        while (!REG(a) && now_ns() - first < 2000000000ull) {
+            struct timespec ts = {0, 1000000};
+            nanosleep(&ts, 0);
+        }
+        last = now_ns();
+        break;
     }
     case 0xA05F6900u:
         return istnrm_value();

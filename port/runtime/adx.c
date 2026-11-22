@@ -148,7 +148,7 @@ static void start(struct adxt *a, unsigned char *buf, size_t size, const char *w
 {
     stop(a);
     if (size < 0x20 || buf[0] != 0x80 || buf[4] != 3 || buf[5] != 18 || buf[6] != 4) {
-        fprintf(stderr, "vtennis: %s is not a 4-bit ADX stream\n", what);
+        fprintf(stderr, PORT_NAME ": %s is not a 4-bit ADX stream\n", what);
         free(buf);
         a->stat = ADXT_STAT_ERROR;
         return;
@@ -264,7 +264,7 @@ void adxt_start_afs(uint32_t h, int32_t pt, int32_t file)
         return;
     snprintf(what, sizeof what, "AFS %d:%d", pt, file);
     if (!port_afs_entry(pt, file, &path, &off, &size)) {
-        fprintf(stderr, "vtennis: no AFS entry %d of partition %d to play\n", file, pt);
+        fprintf(stderr, PORT_NAME ": no AFS entry %d of partition %d to play\n", file, pt);
         a->stat = ADXT_STAT_ERROR;
         return;
     }
@@ -287,7 +287,7 @@ void adxt_start_fname(uint32_t h, uint32_t name)
         return;
     const char *n = (const char *)(uintptr_t)name;
     if (!port_data_path(n, path, sizeof path)) {
-        fprintf(stderr, "vtennis: %s is not in the data folder\n", n);
+        fprintf(stderr, PORT_NAME ": %s is not in the data folder\n", n);
         a->stat = ADXT_STAT_ERROR;
         return;
     }

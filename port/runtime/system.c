@@ -65,6 +65,12 @@ int32_t sy_rtc_date_to_count(uint32_t date)
     return (int32_t)((int64_t)timegm(&tm) + RTC_EPOCH_OFFSET);
 }
 
-/* syBtCfgSet: the boot ROM's settings; nothing to keep on the host */
-NOOP("syBtCfgSet", sy_bt_cfg_set)
+/* syBtCfgSet: the boot ROM's copy of the console's settings into RAM. The only one the game reads is the language,
+   0x8C00007D (syCfgGetLanguage: 0 Japanese, 1 English); the host's settings say English */
+int32_t sy_bt_cfg_set(void) __asm__("syBtCfgSet");
+int32_t sy_bt_cfg_set(void)
+{
+    *(volatile signed char *)(uintptr_t)0x8C00007Du = 1;
+    return 0;
+}
 

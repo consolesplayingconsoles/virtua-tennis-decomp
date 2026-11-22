@@ -1,0 +1,104 @@
+/* Small NAOMI library (nl*) and runtime functions: texture and palette loading, trig helpers, object/triangle
+   put attributes, interrupt priority, sound stream and DMA handles, strlen. */
+
+extern float _builtin_sqrtf(float);
+/* the 12-byte struct copy in nlObjPutSetFadeColor compiles to a call of this runtime helper */
+extern void _quick_odd_mvn(void);
+
+typedef struct { float x, y, z; } Vector3f;
+typedef struct { short w, h; int data; int pal; } NlTextureDescriptor;
+
+extern char gNlDummyTextureSurface[];
+extern char *gNlPaletteTable;
+extern unsigned int gNlPrintFlags;
+extern int gNlRenderTextureTableState[3];
+extern Vector3f gNlObjectFadeColor;
+extern Vector3f gNlObjectFadeColorCopy;
+extern signed char g_0c14a9c0[][4];
+extern float gNlSpriteScreenSize[2];
+
+void kmCreateTextureSurface(void *s, int w, int h, int fmt);
+int kmLoadTexture(void *s, int data, int a, int b);
+void nlCreateTextureParamA(void *s);
+int kmSetBorderColor(unsigned int c);
+float nlSin(int a);
+float nlLog(float x);
+void nlSetPaletteData(int a, int b, int c);
+void nlUnitVector(float *v);
+void nlRotateAxe(float *v, int a);
+int nlObjPutLoadTextureOnce_Sub(int a, int b, int i, int *pi, int z);
+void kmSetCheapShadowMode(void);
+void nlObjPutMvSetMode(int mode);
+void nlstripSetVertexContext(void *a);
+
+
+void nlReloadPalette(int paletteIndex, int paletteData)
+{
+    char *paletteEntry = gNlPaletteTable + paletteIndex * 8;
+
+    if (*(short *)(paletteEntry + 4)) {
+        nlSetPaletteData(*(short *)paletteEntry << 4, paletteData, *(unsigned char *)(paletteEntry + 3) << 4);
+    }
+}
+
+
+float nlCosec(int angle)
+{
+    angle = angle & 0xFFFF;
+    if (angle == 0 || angle == 0x8000)
+        return 3.4028235e38f;
+    return 1.0f / nlSin(angle);
+}
+
+
+void nlPrnIndentOn(void)
+{
+    gNlPrintFlags |= 1;
+}
+
+
+void nlRotate(float *axis, int angle)
+{
+    struct { int a; float axis[3]; } rotationArgs;
+
+    rotationArgs.a = angle;
+    rotationArgs.axis[0] = axis[0];
+    rotationArgs.axis[1] = axis[1];
+    rotationArgs.axis[2] = axis[2];
+    nlUnitVector(rotationArgs.axis);
+    nlRotateAxe(rotationArgs.axis, rotationArgs.a);
+}
+
+
+float nlScalor(float *vector)
+{
+    return _builtin_sqrtf(vector[0] * vector[0] + vector[1] * vector[1] + vector[2] * vector[2]);
+}
+
+
+void nlObjPutSetFadeColor(float red, float green, float blue)
+{
+    gNlObjectFadeColor.x = red;
+    gNlObjectFadeColor.y = green;
+    gNlObjectFadeColor.z = blue;
+    gNlObjectFadeColorCopy = gNlObjectFadeColor;
+}
+
+
+void nlSpriteGetImaginaryScreenSize(float *width, float *height)
+{
+    *width = gNlSpriteScreenSize[0];
+    *height = gNlSpriteScreenSize[1];
+}
+
+
+int nlsndG2DmaHandleClose(int *handle)
+{
+    if (*handle == 1) {
+        *handle = 0;
+        return 0;
+    }
+    return -1;
+}
+
+

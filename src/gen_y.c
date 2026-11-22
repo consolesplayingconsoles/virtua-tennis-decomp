@@ -156,8 +156,6 @@ int evPackRamp(int a4, int a5, int a6, int a7)
 }
 
 
-
-
 float shadowBallScale(float f4)
 {
     float u5;
@@ -192,9 +190,6 @@ float shadowBallScale(float f4)
 }
 
 
-
-
-
 int resSpTexLoad(int a4)
 {
     int t0;
@@ -224,21 +219,6 @@ int resSpTexLoad(int a4)
         t16 = 0x8C1DC64C;
     }
     return t16;
-}
-
-float nlSinh(int a4)
-{
-    float u0;
-    float u1;
-    float t3;
-
-    u0 = *(float *)0x8C0ED64C;
-    u1 = *(float *)0x8C0ED650;
-    if (_builtin_fabsf((((float)(unsigned short)a4 * u0) / u1)) > (*(float *)0x8C0ED654)) {
-        t3 = nlExp((((float)(unsigned short)a4 * u0) / u1));
-        return ((t3 - (1.0f / t3)) / (1.0f + 1.0f));
-    }
-    return (((((((((float)(unsigned short)a4 * u0) / u1)) * ((((float)(unsigned short)a4 * u0) / u1))) / (*(float *)0x8C0ED658)) + 1.0f)) * ((((float)(unsigned short)a4 * u0) / u1)));
 }
 
 
@@ -282,53 +262,6 @@ int charaTexFree(int a4)
     return 0x8C1AFA64;
 }
 
-
-float nlTanfReduce(int a4, float f4)
-{
-    float u3;
-    float x;
-    float r;
-    float u;
-    int q;
-    int k;
-    int t10;
-
-    if (!(0.0f > f4)) {
-        u3 = *(float *)0x8C0ED65C;
-    } else {
-        u3 = *(float *)0x8C0ED660;
-    }
-    q = (int)(u3 + (f4 / *(float *)0x8C0ED664));
-    *(unsigned int *)((a4 + 0x0)) = q;
-    x = (f4 - ((float)q * *(float *)0x8C0ED668));
-    x = x + *(float *)0x8C0ED66C * (float)q;
-    r = (x * x);
-    u = 0.0f;
-    k = 0xB;
-    for (;;) {
-        t10 = k;
-        k = (k - 2);
-        u = (r / ((float)t10 - u));
-        if ((int)k < (int)0x3) {
-            break;
-        }
-    }
-    return (x / (1.0f - u));
-}
-
-void syCacheInit_P2_(int a4, int a5, int a6, int a7)
-{
-    int stk[4];
-
-    *(unsigned int *)(((int)stk + 4)) = a4;
-    *(unsigned short *)(((int)stk + 8)) = (_builtin_get_imask());
-    _builtin_set_imask(0xF);
-    syCachePurgeAll(a4, a5, a6, a7);
-    *(unsigned int *)0xFF00001C = (*(int *)(((int)stk + 4)));
-    *(unsigned int *)0xFF00001C = (((*(int *)0xFF00001C) & 0xFFFFF7FF) | 0x800);
-    *(unsigned int *)0xFF00001C = (((*(int *)0xFF00001C) & 0xFFFFFFF7) | 0x8);
-    _builtin_set_imask(((unsigned int)((((*(short *)(((int)stk + 8))) & 0xF) << 2) << 2) >> 4));
-}
 
 float cpuLineCrossXZ(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14, int a15, int a16, float f4, float f5)
 {
@@ -433,58 +366,6 @@ int fileLoadCloseSlot(int a4)
 }
 
 
-int _pd_peripheral_set_id(int a4, int a5, int a6, int a7)
-{
-    int t1;
-    int t2;
-    int t4;
-    int t15;
-    int t17;
-    int t23;
-    int t10;
-    int t6;
-    int t19;
-    int stk[5];
-
-    if (((*(int *)((a5 + 0x0))) & 1) != 0) {
-        t1 = kdDevGetControllerInfo(((int)stk + 4), a5);
-        if ((int)t1 < 0) {
-            *(unsigned int *)((a4 + 0x4)) = 0x0;
-            *(unsigned int *)((a4 + 0x0)) = 0x0;
-            t10 = t1;
-        } else {
-            t2 = ((int (*)(int))(kdGetDriverMode))(0x5);
-            if (t2 == 1) {
-                t4 = convert_support((*(int *)(((int)stk + 4))));
-                *(unsigned int *)((a4 + 0x4)) = t4;
-                t6 = t4;
-            } else {
-                *(unsigned int *)((a4 + 0x4)) = (*(int *)(((int)stk + 4)));
-                t6 = t2;
-            }
-            *(unsigned int *)((a4 + 0x0)) = (*(int *)((a4 + 0x4)));
-            *(unsigned int *)((a4 + 0x24)) = (a5 + 0x14);
-            t10 = t6;
-        }
-        t23 = t10;
-    } else {
-        t15 = ((int (*)(int, int, int, int))(kdGetDriverMode))(0x5, a5, a6, a7);
-        if (t15 == 1) {
-            t17 = convert_support((*(int *)(((int)stk + 4))));
-            *(unsigned int *)((a4 + 0x4)) = t17;
-            t19 = t17;
-        } else {
-            *(unsigned int *)((a4 + 0x4)) = (*(int *)(((int)stk + 4)));
-            t19 = t15;
-        }
-        *(unsigned int *)((a4 + 0x0)) = (*(int *)((a4 + 0x4)));
-        *(unsigned int *)((a4 + 0x24)) = (a5 + 0x14);
-        t23 = t19;
-    }
-    return t23;
-}
-
-
 float hudNearAlpha(int a4)
 {
     float u4;
@@ -525,40 +406,6 @@ int stageMinigameLoadBegin(int a4)
     return stageTexSetGarbagedAll();
 }
 
-void syChainMasterHandlerPVR_V(void)
-{
-    int t2;
-    int t5;
-
-    _builtin_set_imask(0x6);
-    t2 = (*(int *)0x8C461A58);
-    for (;;) {
-        if (t2 == 0) {
-            break;
-        }
-        t5 = ((int (*)(int))((*(int *)((t2 + 0x0)))))((*(int *)((t2 + 0x8))));
-        t2 = (*(int *)((t2 + 0x4)));
-    }
-}
-
-
-int kmySetFlickerFilterMode(int a4, int a5)
-{
-    int t0;
-    int t1;
-
-    t0 = kmyiCheckNativeHandle(a4);
-    if (t0 == 0) {
-        return 0xEEEE;
-    }
-    t1 = *(int *)((a4 + 0x88));
-    *(unsigned int *)((t1 + 0x24)) = ((*(int *)((t1 + 0x24))) & 0xFFF9FFFF);
-    *(unsigned int *)((t1 + 0x24)) = ((*(int *)((t1 + 0x24))) | 0x20000);
-    if (a5 != 0) {
-        *(unsigned int *)((t1 + 0x24)) = ((*(int *)((t1 + 0x24))) | 0x40000);
-    }
-    return 0x0;
-}
 
 void worldToScreen(Stk4 s)
 {
@@ -605,7 +452,6 @@ int hudCounterStep(int a4, int a5, int a6, int a7, int a8)
     }
     return t10;
 }
-
 
 
 int decoGaugeDraw(int a4, int a5, int a6, int a7, Stk4 p, float f4)
@@ -695,16 +541,6 @@ int hudWordFlagDraw(void)
     return t6;
 }
 
-int nlFogVertexColor(int a4)
-{
-    int stk[5];
-
-    *(unsigned char *)((((int)stk + 8) + 0x3)) = (signed char)((unsigned int)((unsigned int)a4 >> 16) >> 8);
-    *(unsigned char *)((((int)stk + 8) + 0x2)) = (short)((unsigned int)a4 >> 16);
-    *(unsigned char *)((((int)stk + 8) + 0x1)) = ((int)a4 >> 8);
-    *(unsigned char *)((((int)stk + 8) + 0x0)) = a4;
-    return (kmSetFogVertexColor(a4, (short)((unsigned int)a4 >> 16), ((int)a4 >> 8), (signed char)((unsigned int)((unsigned int)a4 >> 16) >> 8), ((*(int *)((((int)stk + 8) + 0x0))))));
-}
 
 int panelMenuSprPutA(Stk4 p, float f4)
 {

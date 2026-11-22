@@ -182,7 +182,7 @@ void stageTexFileLoad(void)
     fileLoadPoll();
 }
 
-void kyakuPolyLoad(void)
+int kyakuPolyLoad(void)
 {
     int t0;
     int t1;
@@ -198,6 +198,7 @@ void kyakuPolyLoad(void)
     }
     t4 = fileLoadPoll();
     *(unsigned int *)0x8C34B144 = t4;
+    return t4;
 }
 
 void courtFraTexLoad(void)

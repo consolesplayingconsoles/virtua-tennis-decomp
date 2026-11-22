@@ -32,7 +32,15 @@ int port_get_imask(void) { return (port_sr >> 4) & 15; }
 static int fpscr = 0x00040001;
 int port_get_fpscr(void) { return fpscr; }
 void port_set_fpscr(int v) { fpscr = v; }
-int port_get_gbr(void) { return 0; }
+unsigned int interp_get_gbr(void);
+void interp_set_gbr(unsigned int v);
+int port_get_gbr(void) { return (int)interp_get_gbr(); }
+void port_set_gbr(uint32_t v) { interp_set_gbr(v); }
+/* SHC's gbr intrinsics, as the game's C calls them */
+void builtin_set_gbr(uint32_t v) __asm__("_builtin_set_gbr");
+void builtin_set_gbr(uint32_t v) { interp_set_gbr(v); }
+int builtin_get_gbr(void) __asm__("_builtin_get_gbr");
+int builtin_get_gbr(void) { return (int)interp_get_gbr(); }
 int port_get_vbr(void) { return 0x8C000000; }
 void hw_sq_flush(uint32_t a); /* hw.c */
 /* pref: a cache prefetch (nothing to do), or on 0xE0000000-0xE3FFFFFF a store queue's flush */
@@ -56,9 +64,8 @@ uint32_t port_strcpy(uint32_t d, uint32_t s)
 
 /* the FPU's back bank as the library uses it: XMTRX, the matrix FTRV applies (XF0-XF15 in the order ld_ext loads them).
    FIPR, FTRV and FSCA give the console's bits through sa_numeric */
-float port_xmtrx[16];
-void port_ld_ext(uint32_t m) { memcpy(port_xmtrx, (void *)(uintptr_t)m, sizeof port_xmtrx); }
-void port_st_ext(uint32_t m) { memcpy((void *)(uintptr_t)m, port_xmtrx, sizeof port_xmtrx); }
+void port_ld_ext(uint32_t m) { memcpy(port_xmtrx, (void *)(uintptr_t)m, sizeof(float[16])); }
+void port_st_ext(uint32_t m) { memcpy((void *)(uintptr_t)m, port_xmtrx, sizeof(float[16])); }
 /* --fast-fpu (for training): the host's own float arithmetic for FIPR, FTRV and FSCA instead of the console's exact bits
    (sa_numeric's emulation of the SH-4's approximate units is most of a frame's time). The results differ in the last bits;
    play keeps the exact ones. */
@@ -97,7 +104,7 @@ void port_fsca(uint32_t angle, uint32_t sinv, uint32_t cosv)
 }
 
 
-/* inline assembly the port has no host body for (port/tools/native_build.py) */
+/* inline assembly the port has no host body for (tools/10-port/native_build.py) */
 void port_asm_unimplemented(const char *name)
 {
     port_unimplemented(name, 0);

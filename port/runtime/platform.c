@@ -15,9 +15,15 @@
 #include <math.h>
 #include <xmmintrin.h>
 #include <stdlib.h>
+#ifdef __APPLE__                 /* macOS: its OpenGL header (the C tests run there, tests/c) */
+#define GL_SILENCE_DEPRECATION
+#include <OpenGL/gl3.h>
+#else
 #include <GL/gl.h>
+#endif
 
 #include "port.h"
+#include "game.h"
 
 int port_headless;
 int port_fast;
@@ -60,6 +66,7 @@ struct pds_peripheral {
 static struct pds_peripheral peripheral[4];
 
 /* the standard controller's buttons as Katana numbers them (on: set while held) */
+static uint32_t port_keys_held(unsigned long frame);
 #define PDD_DGT_TB (1u << 1)
 #define PDD_DGT_TA (1u << 2)
 #define PDD_DGT_ST (1u << 3)
@@ -124,6 +131,7 @@ static void read_controller(void)
     }
     /* --press N: Start held for 10 frames from frame N (A from N + 120, Start again from N + 900 for the pause menu, then down), to test the input path unattended */
     extern unsigned long port_press_frame, port_frames;
+    on |= port_keys_held(port_frames);
     if (port_press_frame) {
         if (port_frames >= port_press_frame && port_frames < port_press_frame + 10)
             on |= PDD_DGT_ST;
@@ -150,9 +158,23 @@ static void read_controller(void)
 
 /* pdGetPeripheral(port): pdGetPeripheral. Port A (0) holds the controller; the others are empty */
 struct pds_peripheral *pdGetPeripheral(uint32_t port) __asm__("pdGetPeripheral");
+/* PDS_PERIPHERALINFO: the device's function bits first (1 controller, 0x100 vibration), its product name at +0x14 */
+struct pds_peripheral_info {
+    uint32_t type, reserved[3];
+    uint8_t is_root, area_code, connector_dir[2];
+    char product_name[32];
+    char license[64];
+    uint16_t stdby_pow, max_pow;
+};
+struct pds_peripheral_info *pd_get_peripheral_info(uint32_t port) __asm__("pdGetPeripheralInfo");
 struct pds_peripheral *pdGetPeripheral(uint32_t port)
 {
     struct pds_peripheral *p = &peripheral[(port / 6) & 3];
+    /* .info points at the device's record (PDS_PERIPHERALINFO): Crazy Taxi's vibration check reads its function bits through it */
+    struct pds_peripheral_info *info = pd_get_peripheral_info(((port / 6) & 3) * 6);
+    p->info = (uint32_t)(uintptr_t)info;
+    /* .name points at the device's product name: Crazy Taxi's ConvertSwitch tells the pads apart by its letters */
+    p->name = (uint32_t)(uintptr_t)info->product_name;
     if (p == &peripheral[0]) {
         p->id = 1;
         p->support = PAD_SUPPORT;
@@ -171,14 +193,6 @@ NOOP("pdExitPeripheral", pd_exit_peripheral)
 NOOP("pdVmsLcdWrite1", pd_vms_lcd_write)          /* the memory card's screen */
 NOOP("pdTmrAlarm", pd_tmr_alarm)                  /* the memory card's beeper */
 
-/* PDS_PERIPHERALINFO: the device's function bits first (1 controller, 0x100 vibration), its product name at +0x14 */
-struct pds_peripheral_info {
-    uint32_t type, reserved[3];
-    uint8_t is_root, area_code, connector_dir[2];
-    char product_name[32];
-    char license[64];
-    uint16_t stdby_pow, max_pow;
-};
 static struct pds_peripheral_info peripheral_info[24];
 
 static int rumble_ok(uint32_t h);
@@ -289,7 +303,7 @@ void port_render_frame(int w, int h);  /* render.c: draws the frame's records, t
 int port_platform_init(void)
 {
     if (!SDL_Init(SDL_INIT_GAMEPAD | SDL_INIT_AUDIO | (port_headless ? 0 : SDL_INIT_VIDEO))) {
-        fprintf(stderr, "vtennis: SDL: %s\n", SDL_GetError());
+        fprintf(stderr, PORT_NAME ": SDL: %s\n", SDL_GetError());
         return 0;
     }
     if (!port_headless) {
@@ -297,9 +311,9 @@ int port_platform_init(void)
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
         SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
-        window = SDL_CreateWindow("Virtua Tennis", 1280, 960, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+        window = SDL_CreateWindow(PORT_TITLE, 1280, 1280 * PORT_ASPECT_H / PORT_ASPECT_W, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);   /* the picture's shape (PORT_WIDESCREEN) */
         if (!window || !(gl = SDL_GL_CreateContext(window))) {
-            fprintf(stderr, "vtennis: window: %s\n", SDL_GetError());
+            fprintf(stderr, PORT_NAME ": window: %s\n", SDL_GetError());
             return 0;
         }
         SDL_GL_SetSwapInterval(0);
@@ -310,12 +324,53 @@ int port_platform_init(void)
     if (audio)
         SDL_ResumeAudioStreamDevice(audio);
     else
-        fprintf(stderr, "vtennis: no sound output: %s\n", SDL_GetError());
+        fprintf(stderr, PORT_NAME ": no sound output: %s\n", SDL_GetError());
     SDL_CreateThread(sound_thread, "sound", 0);
     return 1;
 }
 
 unsigned long port_frames, port_press_frame;
+
+/* --keys FRAME:BUTTON[,FRAME:BUTTON...]: each button held for 10 frames from its frame, to play a path through the menus
+   unattended (A B X Y, S Start, U D L R the pad's directions). An unknown button stops the run */
+const char *port_keys;
+static uint32_t port_keys_held(unsigned long frame)
+{
+    static struct { unsigned long at; uint32_t bits; } k[64];
+    static int n = -1;
+    if (n < 0) {
+        n = 0;
+        for (const char *s = port_keys; s && *s && n < 64;) {
+            char *end;
+            unsigned long at = strtoul(s, &end, 10);
+            if (*end != ':') { fprintf(stderr, PORT_NAME ": --keys: expected FRAME:BUTTON at \"%s\"\n", s); exit(2); }
+            s = end + 1;
+            uint32_t bits = 0;
+            switch (*s) {
+            case 'A': bits = PDD_DGT_TA; break;
+            case 'B': bits = PDD_DGT_TB; break;
+            case 'X': bits = PDD_DGT_TX; break;
+            case 'Y': bits = PDD_DGT_TY; break;
+            case 'S': bits = PDD_DGT_ST; break;
+            case 'U': bits = PDD_DGT_KU; break;
+            case 'D': bits = PDD_DGT_KD; break;
+            case 'L': bits = PDD_DGT_KL; break;
+            case 'R': bits = PDD_DGT_KR; break;
+            default: fprintf(stderr, PORT_NAME ": --keys: unknown button '%c' (A B X Y S U D L R)\n", *s); exit(2);
+            }
+            k[n].at = at;
+            k[n++].bits = bits;
+            s++;
+            if (*s == ',')
+                s++;
+        }
+    }
+    uint32_t on = 0;
+    for (int i = 0; i < n; i++)
+        if (frame >= k[i].at && frame < k[i].at + 10)
+            on |= k[i].bits;
+    return on;
+}
 unsigned long port_shot_frame;
 const char *port_shot_file;
 
@@ -340,13 +395,17 @@ static void screenshot(int w, int h)
         fwrite(px + (size_t)y * w * 3, 1, (size_t)w * 3, f);
     fclose(f);
     free(px);
-    fprintf(stderr, "vtennis: frame %lu saved to %s\n", port_frames, name);
+    fprintf(stderr, PORT_NAME ": frame %lu saved to %s\n", port_frames, name);
 }
 
 /* the end of a frame (pvr.c's render start): draw, show, read the controller */
+void port_boot_step(void) __attribute__((weak));   /* boot.c, where a game has one: its debug step, once a frame */
+
 void port_frame_end(void)
 {
     unsigned game = port_host_fp_enter();
+    if (port_boot_step)
+        port_boot_step();
     {
         /* PORT_DEBUG_LISTS: each list's lowest and highest pointer at frame ends, every 600 frames (a buffer that is not
            reset each scene shows as a lowest value that climbs) */
@@ -354,8 +413,8 @@ void port_frame_end(void)
         static uint32_t lo[5], hi[5];
         if (on < 0)
             on = getenv("PORT_DEBUG_LISTS") != 0;
-        uint32_t arr = *(volatile uint32_t *)(uintptr_t)0x8C42445Cu;
-        if (on && arr >= 0x8C000000u && arr < 0x8D000000u) {
+        uint32_t arr = *(volatile uint32_t *)(uintptr_t)GAME_NL_LIST_PTRS;
+        if (on && (arr >> 24 == 0x0C || arr >> 24 == 0x8C)) {
             for (int k = 0; k < 5; k++) {
                 uint32_t v = *(volatile uint32_t *)(uintptr_t)(arr + 4u * (uint32_t)k);
                 if (!lo[k] || v < lo[k])
@@ -381,7 +440,7 @@ void port_frame_end(void)
             port_dump_models = 1;
         }
         else if (e.type == SDL_EVENT_QUIT) {
-            fprintf(stderr, "vtennis: window closed after %lu frames\n", port_frames);
+            fprintf(stderr, PORT_NAME ": window closed after %lu frames\n", port_frames);
             exit(0);
         }
     if (window) {

@@ -2531,26 +2531,6 @@ int FUN_8c0a082a(int a4, int a5, int a6, int a7, float f4)
     return t59;
 }
 
-int ADXSTM_OpenFileRange(int a4, int a5, int a6, int a7)
-{
-    register int t0;
-    register int t2;
-    register int t7;
-
-    t0 = gdFsOpen(a4, 0x0, a6, a7);
-    if (t0 == 0) {
-        ADXERR_CallErrFunc(0x8C20AAA8, a4);
-        t7 = 0x0;
-    } else {
-        t2 = ADXSTMF_Create(t0, a5, (((a6 << 8) << 2) << 1), a7);
-        if (t2 != 0) {
-            strncpy((t2 + 0x40), a4, 0x20);
-            ADXSTM_Seek(t2, 0x0);
-        }
-        t7 = t2;
-    }
-    return t7;
-}
 
 int mainCheckDrive(void)
 {

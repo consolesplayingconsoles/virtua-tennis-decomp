@@ -59,6 +59,7 @@ int motionRootFirst(int a4, int a5, int a6, int a7, int a8);
 int ovLibOpen(int a4);
 int kmyWriteFogDMA(int a4);
 int circuitStageStart(void);
+int FUN_8c032e32(void);
 float effServeSpeedCalc(int a4);
 int exprPlay(int a4, int a5, int a6);
 float easeSin(int a4, float f4, float f5, float f6);
@@ -120,91 +121,6 @@ int crowdCheerStart(void)
     return crowdCheerStopAfter(0xB4);
 }
 
-int _fmtout_putstr(int a4, int a5, int a6)
-{
-    int t0;
-    int t2;
-    int t13;
-    int t5;
-    int t6;
-    int t9;
-    int t10;
-    int t20;
-
-    t0 = *(int *)((a6 + 0x0));
-    if (t0 == 1) {
-        t2 = memmove((*(int *)((a6 + 0x4))), a4, a5);
-        *(unsigned int *)((a6 + 0x4)) = ((*(int *)((a6 + 0x4))) + a5);
-        *(unsigned int *)((a6 + 0x8)) = ((*(int *)((a6 + 0x8))) + a5);
-        t20 = t2;
-    } else {
-        t13 = t0;
-        if ((int)a5 > 0) {
-            t5 = a4;
-            t6 = 0x0;
-            for (;;) {
-                t9 = *(signed char *)((t5 + 0x0));
-                t5 = (t5 + 0x1);
-                t10 = ((int (*)(int, int, int))((*(int *)((a6 + 0xC)))))(t9, (*(int *)((a6 + 0x4))), a6);
-                if (t10 != -1) {
-                    t6 = (t6 + 0x1);
-                    *(unsigned int *)((a6 + 0x8)) = ((*(int *)((a6 + 0x8))) + 0x1);
-                    if ((int)t6 >= (int)a5) {
-                        break;
-                    }
-                    continue;
-                }
-                break;
-            }
-            t13 = t10;
-        }
-        t20 = t13;
-    }
-    return t20;
-}
-
-int fmMngWriteData(int managerAddress, int a5, int a6)
-{
-    int writePhase;
-    int refreshResult;
-    int eraseResult;
-    int erasePhaseResult;
-    int appendResult;
-    int appendPhaseResult;
-    int writeResult;
-    int eraseOrRefreshResult;
-
-    writePhase = *(int *)((managerAddress + 0x24));
-    if (writePhase != 0) {
-        if (writePhase != 1) {
-            refreshResult = 0xFFFFFFFE;
-            if (writePhase != 2) {
-            } else {
-                refreshResult = (fmMngSctRefresh(managerAddress));
-            }
-            eraseOrRefreshResult = refreshResult;
-        } else {
-            eraseResult = syBtFlDeleteSct((*(int *)((managerAddress + 0x4))), a5, a6);
-            erasePhaseResult = 0xFFFFFFFD;
-            if (eraseResult == -1) {
-            } else {
-                *(unsigned int *)((managerAddress + 0x24)) = 0x2;
-                erasePhaseResult = 0x1;
-            }
-            eraseOrRefreshResult = erasePhaseResult;
-        }
-        writeResult = eraseOrRefreshResult;
-    } else {
-        appendResult = fmMngAddData(managerAddress);
-        appendPhaseResult = appendResult;
-        if (appendResult == -10) {
-            *(unsigned int *)((managerAddress + 0x24)) = 0x1;
-            appendPhaseResult = 0x1;
-        }
-        writeResult = appendPhaseResult;
-    }
-    return writeResult;
-}
 
 int courtPropPickPose(int a4)
 {
@@ -294,18 +210,6 @@ int cpuQuadPut(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11,
     return (nlDispStripTrnsl(0x4, ((int)stk + 4)));
 }
 
-int kmyGetBGPlaneBase(int a4, int a5)
-{
-    int t0;
-
-    t0 = kmyiCheckNativeHandle(a4);
-    if (t0 == 0) {
-        return 0xEEEE;
-    }
-    *(unsigned int *)((a5 + 0x0)) = (*(int *)(((a4 + 0x18) + 0x24)));
-    return 0x0;
-}
-
 
 int seFootSurface(float f4, float f5)
 {
@@ -368,55 +272,9 @@ void strmCallNameScore(int a4)
 }
 
 
-int ovLibOpen(int a4)
-{
-    int t3;
-    int t7;
-    int t4;
-    int t6;
-    int stk[7];
+/* port: the function at 0x8C032E32 (functions.txt counts it in circuitStageStart, which falls into it): a state of its own in
+   the game's table (0x8C108260..), reached without the set-up before it */
 
-    *(unsigned int *)(((int)stk + 12)) = a4;
-    ovLockCs(((int)stk + 4));
-    *(unsigned int *)(((int)stk + 16)) = (ovGetLibTbl((((int)stk + 4) + 0x4)));
-    t3 = ovSearchLibByUuid((*(int *)(((int)stk + 12))));
-    t7 = 0x0;
-    if ((int)t3 >= 0) {
-        t4 = *(int *)(((int)stk + 16));
-        t6 = *(int *)((((t4 + 0x8) + ((t3 << 2) << 1)) + 0x0));
-        *(unsigned int *)((((t4 + 0x8) + ((t3 << 2) << 1)) + 0x4)) = ((*(int *)((((t4 + 0x8) + ((t3 << 2) << 1)) + 0x4))) + 0x1);
-        t7 = t6;
-    }
-    ovUnlockCs(((int)stk + 4));
-    return t7;
-}
-
-int kmyWriteFogDMA(int a4)
-{
-    if ((0x8C4707EC & 31) == 0) {
-        kmiSetFogDMA(a4, 0x0, 0x8C4707EC, 0x200);
-        return 0x0;
-    }
-    return kmiSetFogDMA(a4, 0x0, 0x8C4707EC, 0x200);
-}
-
-int circuitStageStart(void)
-{
-    int t0;
-    int t1;
-    int t4;
-
-    *(unsigned int *)0x8C2FBE9C = 0x0;
-    t0 = *(int *)0x8C2FBE1C;
-    t1 = *(int *)0x8C2FBC50;
-    *(unsigned int *)0x8C2FBE20 = (*(int *)(((((((t0 << 2) + t0) << 2) << 1) + t1) + 0x4)));
-    *(unsigned int *)0x8C1891E8 = (*(int *)(((((((t0 << 2) + t0) << 2) << 1) + t1) + 0x8)));
-    t4 = *(int *)0x8C2FBE20;
-    *(unsigned int *)0x8C287ADC = ((((((((*(int *)((0x8C108E9C + ((((t4 << 2) << 2) + t4) << 2)))) & 2) == 0)) ? 1 : 0) ^ 0x1) << 1) + 0x2);
-    *(unsigned int *)0x8C20D154 = 0x6;
-    *(unsigned int *)0x8C20D158 = 0x4;
-    return gameMatchSetup();
-}
 
 float effServeSpeedCalc(int a4)
 {
@@ -486,34 +344,6 @@ int sprPutScaleXArgs(int a4, int a5, int a6, int a7, Stk4 p, float f4, float f5)
     return (nlSprPut(a4, a5, (((int)stk + 4) + 0x4), a7));
 }
 
-int nlMatrixMode(int a4)
-{
-    int t1;
-    int t2;
-
-    nlGetMatrix(0x0);
-    t1 = *(signed char *)0x8C450858;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(((((t1 << 1) + t1) << 2) + 0x8C45085C)) = *(struct mv3 *)(0x8C45085C); }
-    *(unsigned char *)0x8C450858 = a4;
-    t2 = *(signed char *)0x8C450858;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)(0x8C45085C) = *(struct mv3 *)(((((t2 << 1) + t2) << 2) + 0x8C45085C)); }
-    return nlLoadMatrix((*(int *)0x8C450864));
-}
-
-int nlsndStreamChgFilter(int a4, int a5, int a6)
-{
-    int t0;
-    int stk[5];
-
-    *(unsigned short *)(((int)stk + 4)) = a6;
-    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
-    if (t0 == 1) {
-        *(unsigned int *)(((int)stk + 8)) = ((((short)a4 << 8) << 2) << 2);
-        nlsndSeqRequest(((((((short)a4 << 8) << 2) << 2) | ((short)a5 << 16)) | 0xAA1));
-        return nlsndSeqRequest(((((*(short *)(((int)stk + 4))) << 16) | (*(int *)(((int)stk + 8)))) | 0xBA1));
-    }
-    return t0;
-}
 
 void umpireStart(void)
 {
@@ -532,22 +362,6 @@ void umpireStart(void)
     }
 }
 
-int adxf_SetAfsFileInfo(int a4, int a5, int a6)
-{
-    int t2;
-    int stk[7];
-
-    *(unsigned int *)(((int)stk + 12)) = a5;
-    *(unsigned int *)(((int)stk + 16)) = a6;
-    t2 = ADXF_GetFileRange((*(int *)(((int)stk + 12))), (*(int *)(((int)stk + 16))), (((int)stk + 4) + 0x4), ((int)stk + 4));
-    if ((int)t2 < 0) {
-        return 0xFFFFFFFD;
-    }
-    *(unsigned int *)((a4 + 0xC)) = (*(int *)(((int)stk + 8)));
-    *(unsigned int *)((a4 + 0x10)) = (*(int *)(((int)stk + 4)));
-    *(unsigned int *)((a4 + 0x14)) = ((((*(int *)(((int)stk + 4))) << 8) << 2) << 1);
-    return 0x0;
-}
 
 int shadowPlayerScale(float f4)
 {
@@ -571,75 +385,6 @@ int shadowBallTrailLen(float f4)
     return (int)(mathLineY(4.0f, 0.0f, 25.0f, 15.0f, f4));
 }
 
-int nlsndStreamChgVolBias(int a4, int a5)
-{
-    int t0;
-
-    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
-    if (t0 == 1) {
-        return nlsndSeqRequest((0xCA1 | ((((short)a5 + 0x40) << 16) | ((((short)a4 << 8) << 2) << 2))));
-    }
-    return t0;
-}
-
-float cos(float f4)
-{
-    int stk[3];
-
-    *(float *)(((int)stk + 4)) = (_in_coss(f4));
-    if (((*(int *)((((int)stk + 4) + 0x0))) & 0x7F800000) == 0x7F800000) {
-        if (((*(int *)((((int)stk + 4) + 0x0))) & 0x7FFFFF) != 0) {
-            *(unsigned int *)0x8C45A0E0 = 0x44D;
-        } else {
-            *(unsigned int *)0x8C45A0E0 = 0x44C;
-        }
-    }
-    return (*(float *)(((int)stk + 4)));
-}
-
-int nlsndStreamChgVol(int a4, int a5, int a6)
-{
-    int t0;
-
-    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
-    if (t0 == 1) {
-        return nlsndSeqRequest((((((((short)a4 << 8) << 2) << 2) | ((short)a6 << 16)) | 0xA2) + ((((short)a5 << 8) << 2) << 1)));
-    }
-    return t0;
-}
-
-int nlsndStreamChgPan(int a4, int a5, int a6)
-{
-    int t0;
-
-    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
-    if (t0 == 1) {
-        return nlsndSeqRequest((((((((short)a4 << 8) << 2) << 2) | ((short)a6 << 16)) | 0x1A2) + ((((short)a5 << 8) << 2) << 1)));
-    }
-    return t0;
-}
-
-int nlsndStreamTranspose(int a4, int a5)
-{
-    int t0;
-
-    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
-    if (t0 == 1) {
-        return nlsndSeqRequest((0x8A1 | ((((short)a5 + 0x40) << 16) | ((((short)a4 << 8) << 2) << 2))));
-    }
-    return t0;
-}
-
-int nlsndStreamDetune(int a4, int a5)
-{
-    int t0;
-
-    t0 = *(signed char *)((0x8C454CF4 + ((short)a4 * (short)0x1C)));
-    if (t0 == 1) {
-        return nlsndSeqRequest((0x9A1 | ((((short)a5 + 0x40) << 16) | ((((short)a4 << 8) << 2) << 2))));
-    }
-    return t0;
-}
 
 int circuitStatsStart(void)
 {
@@ -650,52 +395,6 @@ int circuitStatsStart(void)
     return circuitStatsCalc();
 }
 
-int nlsnd_PL_WaitAica1(void)
-{
-    int t0;
-    int t1;
-
-    t0 = 0x0;
-    for (;;) {
-        t1 = nlsndG2Read(0xA08000B4);
-        if (t1 != 0) {
-            break;
-        }
-        t0 = (t0 + 0x1);
-        if ((int)t0 >= (int)0x400000) {
-            return 0xFFFFFF00;
-        }
-    }
-    return 0x0;
-}
-
-int nlsnd_PL_WaitBlockMove(void)
-{
-    int t0;
-    int t1;
-
-    t0 = 0x0;
-    for (;;) {
-        t1 = nlsndBlockMoveStatus();
-        if (t1 == 0) {
-            break;
-        }
-        t0 = (t0 + 0x1);
-        if ((int)t0 >= (int)0x1000000) {
-            return 0xFFFFFF00;
-        }
-    }
-    return 0x0;
-}
-
-int mwRnaGetOutPan(int a4, int a5)
-{
-    if (a4 == 0) {
-        mwRnaErrCallFunc(0x8C20AC30);
-        return 0xFFFFFFFF;
-    }
-    return (*(int *)(((a4 + 0x64) + (a5 << 2))));
-}
 
 int cpuInRange(Stk3 a, Stk3 b, Stk3 c)
 {
@@ -732,33 +431,6 @@ int endingWinnerRootSync(int a4, int a5, int a6, int a7)
 }
 
 
-int mwRnaGetOutVol(int a4)
-{
-    if (a4 == 0) {
-        mwRnaErrCallFunc(0x8C20AC30);
-        return 0xFFFFFFFF;
-    }
-    return (*(int *)((a4 + 0x60)));
-}
-
-int mwRnaGetDrctLvl(int a4)
-{
-    if (a4 == 0) {
-        mwRnaErrCallFunc(0x8C20AC30);
-        return 0xFFFFFFFF;
-    }
-    return (*(int *)((a4 + 0x84)));
-}
-
-int mwRnaGetNumData(int a4)
-{
-    if (a4 == 0) {
-        mwRnaErrCallFunc(0x8C20AC30);
-        return 0xFFFFFFFF;
-    }
-    return (*(int *)((a4 + 0x34)));
-}
-
 int umpCheerTimed(int a4)
 {
     *(unsigned int *)(((set_event(0x18, 0x8C0849E8)) + 0x14)) = a4;
@@ -783,16 +455,10 @@ int muneSlotReset(int a4, int a5)
     return fileLoadCloseSlot(a4);
 }
 
-int syHwCacheFinish(void)
-{
-    return p2_cache_set();
-}
 
 int shadowPartPutProj(int a4)
 {
     return nlObjPutMvOpenedVolume((*(int *)(((a4 << 2) + 0x8C18251C))));
 }
-
-
 
 

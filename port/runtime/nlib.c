@@ -1,5 +1,7 @@
 #include <math.h>
 #include <stdlib.h>
+#include "port.h"
+#include "game.h"
 /* nlib.c: host C for code of the NAOMI library (0x8C0EA1A0-0x8C100E6A) the game reaches and the decomp lists no
    function for, or has no C for. */
 #include <stdint.h>
@@ -18,7 +20,6 @@ int32_t port_entry_8c0f8200(int32_t kind, uint32_t fn) { (void)kind; U32(0x8C454
 
 #include <string.h>
 #include "play_math.h"
-extern float port_xmtrx[16];
 
 /* nlMultiMatrix(m), nlMultiMatrix8(m): XMTRX = XMTRX . M, each column of M through FTRV (the console's bits) */
 static void multi(uint32_t m)
@@ -97,7 +98,7 @@ void nl_obj_put_init(void)
    The library's assembly (0x8C0F8940-0x8C0FE000) takes a model in the NAOMI library's format and sends it to the tile
    accelerator: per mesh a polygon header, per strip its vertices transformed by XMTRX, lit, and near-clipped. This is
    that kernel in C, from its disassembly; its output goes where the assembly's store queues write: the vertex buffer
-   of the polygon's list (the list pointers at *0x8C42445C), so it reaches the TA with the rest of the frame.
+   of the polygon's list (the list pointers, list_ptr_array below), so it reaches the TA with the rest of the frame.
 
    The model: a format word (0 or 1) at +0, its meshes from +0x18. A mesh: PCW, ISP, TSP, TCW, the bounding sphere's
    centre and radius (+0x10), the shading row at +0x24 (a byte: >= 0 lit, -1 unlit, -2 bump, -3 vertex colours), the
@@ -118,7 +119,7 @@ int32_t nlPopMatrix(int32_t n);
 
 struct mvert { float w, xw, yw, u, v, i, o, c[4]; };  /* i, o: base and offset intensity */  /* c: A R G B, for meshes with vertex colours */
 
-static uint32_t list_ptr_array(void) { return U32(0x8C42445Cu); }
+static uint32_t list_ptr_array(void) { return U32(GAME_NL_LIST_PTRS); }
 
 /* ta_emit: n bytes onto list `list`'s buffer, advancing its pointer as the kernel's store queues do. The buffers in RAM
    sit one after another (Kamui gives a list it was not asked for no room: its pointer sits at the end of RAM), so a
@@ -157,7 +158,7 @@ static void ta_emit(int list, const void *data, uint32_t n)
         if (phys >= 0x0D000000u || phys + n > limit) {
             static int warned[5];
             if (!warned[list]++)
-                fprintf(stderr, "vtennis: list %d's buffer is full at %08X (it ends at %08X): its polygons are dropped\n",
+                fprintf(stderr, PORT_NAME ": list %d's buffer is full at %08X (it ends at %08X): its polygons are dropped\n",
                         list, dst, 0x80000000u | limit);
             return;
         }
@@ -256,14 +257,14 @@ void port_models_frame_end(void)
 {
     if (list_debug > 0) {
         extern unsigned long port_frames;
-        uint32_t arr = U32(0x8C42445Cu);
+        uint32_t arr = U32(GAME_NL_LIST_PTRS);
         uint32_t l2 = arr ? U32(arr + 8) : 0;
         static uint32_t base2;
         if (!base2 || (l2 && l2 < base2))
             base2 = l2;
         uint32_t used = l2 - base2;
         if (l2 && used > 700u * 1024u) {
-            fprintf(stderr, "vtennis: frame %lu: the translucent list holds %u KB (%u KB of it from models); its biggest writers:\n",
+            fprintf(stderr, PORT_NAME ": frame %lu: the translucent list holds %u KB (%u KB of it from models); its biggest writers:\n",
                     port_frames, used >> 10, emitted[2] >> 10);
             qsort(uses, (size_t)nuses, sizeof uses[0], use_cmp);
             for (int i = 0; i < nuses && i < 8; i++) {
@@ -353,6 +354,12 @@ static void draw_model(uint32_t obj, uint32_t ctx, float alpha)
     float inv = scale != 0.0f ? 1.0f / (scale < 0 ? -scale : scale) : 1.0f;
     F32(0x8C458E48u) = 1.0f;
     float near = fbits(U32(ctx + 12) & ~1u);
+    if (!(near > 1e-4f))                        /* no near W in the context: the library's near plane, as nlPerspective
+                                                   and nlFrustum set it. Clipped at 1e-4 instead, a strip crossing the
+                                                   camera came out with points 10^10 pixels away: triangles over the screen */
+#ifdef GAME_NL_NEAR
+        near = F32(GAME_NL_NEAR);
+#endif
     if (!(near > 1e-4f))
         near = 1e-4f;
     float lx = F32(ctx + 16) * inv, ly = F32(ctx + 20) * inv, lz = F32(ctx + 24) * inv;
@@ -499,6 +506,19 @@ void nl_display_polygon_trnsl(uint32_t obj, uint32_t ctx, float alpha) { draw_mo
    modifier volumes yet: nothing is drawn */
 int32_t nl_objput_mv(void) __asm__("nlObjPutMVAsm");
 int32_t nl_objput_mv(void) { return 0; }
+
+/* --- the picture's shape ---------------------------------------------------------------------------------------------
+
+   nlPerspective(field of view, aspect, near, far): the game gives the console's 4:3 (1.333). For a wider picture (PORT_WIDESCREEN)
+   the aspect is scaled by PORT_WIDE, so the game itself draws and culls the wider view into its 640 pixels, and the renderer
+   (draw.c) spreads them over the wider screen. The build links the game's calls here (--wrap: native_build.py); the game's
+   own function is __real_nlPerspective */
+int32_t __real_nlPerspective(int32_t fov, float aspect, float near_z, float far_z);
+int32_t __wrap_nlPerspective(int32_t fov, float aspect, float near_z, float far_z);
+int32_t __wrap_nlPerspective(int32_t fov, float aspect, float near_z, float far_z)
+{
+    return __real_nlPerspective(fov, aspect * PORT_WIDE, near_z, far_z);
+}
 
 /* --- the matrix stack and the "8" matrix functions ------------------------------------------------------------------
 
